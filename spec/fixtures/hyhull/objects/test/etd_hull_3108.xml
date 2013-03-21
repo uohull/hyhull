@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="hull:3108"
+xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="The evolution and status of accounting in Libya - Kilani, Kilani Abdulkerim; "/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-02-23T10:50:42.354Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-05-17T08:52:07.009Z"/>
+<foxml:extproperty NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraObject"/>
+</foxml:objectProperties>
+<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2011-02-23T10:50:42.354Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:xmlContent>
+<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+<audit:record ID="AUDREC1">
+<audit:process type="Fedora API-M"/>
+<audit:action>ingest</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-02-23T10:50:42.354Z</audit:date>
+<audit:justification>Ingested from local file C:\ConvertedObjects\hull_3108.xml</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC2">
+<audit:process type="Fedora API-M"/>
+<audit:action>ingest</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-03-16T18:21:09.056Z</audit:date>
+<audit:justification>Ingested from local file C:\Users\Simon\Desktop\spec\fixtures\hull\hull_3108.xml</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC3">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>contentMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-03-28T16:53:53.897Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC4">
+<audit:process type="Fedora API-M"/>
+<audit:action>setDatastreamVersionable</audit:action>
+<audit:componentID>contentMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-03-28T16:53:53.897Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC5">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>contentMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-03-28T23:22:54.876Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC6">
+<audit:process type="Fedora API-M"/>
+<audit:action>purgeDatastream</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-05-16T17:08:54.982Z</audit:date>
+<audit:justification>Purged datastream (ID=descMetadata), versions ranging from the beginning of time to the end of time.  This resulted in the permanent removal of 1 datastream version(s) (2011-02-23T10:50:42.400Z) and all associated audit records.</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC7">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-05-17T08:48:30.220Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC8">
+<audit:process type="Fedora API-M"/>
+<audit:action>purgeDatastream</audit:action>
+<audit:componentID>UKETD_DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-05-17T08:51:42.326Z</audit:date>
+<audit:justification>Purged datastream (ID=UKETD_DC), versions ranging from the beginning of time to the end of time.  This resulted in the permanent removal of 1 datastream version(s) (2011-02-23T10:50:42.402Z) and all associated audit records.</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC9">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>UKETD_DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-05-17T08:52:07.009Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+</audit:auditTrail>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC.0" LABEL="DC Metadata" CREATED="2011-02-23T10:50:42.400Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="1008">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>The evolution and status of accounting in Libya</dc:title>
+  <dc:creator>Kilani, Kilani Abdulkerim</dc:creator>
+  <dc:subject>Management</dc:subject>
+  <dc:publisher>The University of Hull</dc:publisher>
+  <dc:date>1988</dc:date>
+  <dc:type>Thesis &amp; dissertation</dc:type>
+  <dc:format>application/pdf</dc:format>
+  <dc:identifier>Ethos PID : 235824</dc:identifier>
+  <dc:identifier>http://edocs.hull.ac.uk/download.jsp?pid=hull:3108</dc:identifier>
+  <dc:identifier>hull:3108</dc:identifier>
+  <dc:language>eng</dc:language>
+  <dc:rights>© 1988 Kilani Kilani. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</dc:rights>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-02-23T10:50:42.400Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="637">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:hydra="http://projecthydra.org/ns/relations#">
+          <rdf:Description rdf:about="info:fedora/hull:3108">
+						<rel:isMemberOf rdf:resource="info:fedora/hull:protoQueue" />
+						<hydra:isGovernedBy rdf:resource="info:fedora/hull:protoQueue" />
+            <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:genericParent"></fedora-model:hasModel>
+            <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+            <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:uketdObject"></fedora-model:hasModel>
+          </rdf:Description>
+        </rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2011-02-23T10:50:42.401Z" MIMETYPE="text/xml" SIZE="949">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+          <copyright>
+            <human>© 1988 Kilani Kilani. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</human>
+            <machine></machine>
+          </copyright>
+          <access type="discover">
+            <human></human>
+            <machine>
+              <group>contentAccessTeam</group>
+            </machine>
+          </access>
+          <access type="read">
+            <human></human>
+            <machine>
+              <group>contentAccessTeam</group>
+            </machine>
+          </access>
+          <access type="edit">
+            <human></human>
+            <machine>
+              <group>contentAccessTeam</group>
+            </machine>
+          </access>
+          <use>
+            <human></human>
+            <machine></machine>
+          </use>
+        </rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="contentMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
+<foxml:datastreamVersion ID="contentMetadata.1" LABEL="Content metadata" CREATED="2011-03-28T23:22:54.876Z" MIMETYPE="text/xml" SIZE="434">
+<foxml:binaryContent> 
+              PGNvbnRlbnRNZXRhZGF0YSB0eXBlPSJ0ZXh0IiB4bWxucz0iaHR0cDovL2h5ZHJhLWNvbGxhYi5odWxs
+              LmFjLnVrL3NjaGVtYXMvY29udGVudE1ldGFkYXRhL3YxIj48cmVzb3VyY2Ugc2VxdWVuY2U9IjEiIGlk
+              PSJEb2N1bWVudCIgZGlzcGxheUxhYmVsPSJEb2N1bWVudCIgb2JqZWN0SUQ9Imh1bGw6MzEwOGEiIGRz
+              SUQ9ImNvbnRlbnQiIGRpc3NUeXBlPSJnZW5lcmljQ29udGVudC9jb250ZW50Ij48ZmlsZSBpZD0iY29u
+              dGVudCIgZm9ybWF0PSJwZGYiIG1pbWVUeXBlPSJhcHBsaWNhdGlvbi9wZGYiIHNpemU9IjMwODY5NTA0
+              Ij48bG9jYXRpb24gdHlwZT0idXJsIj5odHRwOi8vaHlkcmEuaHVsbC5hYy51ay9hc3NldHMvaHVsbDoz
+              MTA4YS9nZW5lcmljQ29udGVudC9jb250ZW50PC9sb2NhdGlvbj48L2ZpbGU+PC9yZXNvdXJjZT48L2Nv
+              bnRlbnRNZXRhZGF0YT4=
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="true">
+<foxml:datastreamVersion ID="descMetadata.0" LABEL="MODS Metadata" CREATED="2011-05-17T08:48:30.220Z" MIMETYPE="text/xml" SIZE="2277">
+<foxml:binaryContent> 
+              PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4gCjxtb2RzIHhtbG5zPSJodHRwOi8v
+              d3d3LmxvYy5nb3YvbW9kcy92MyIKICAgICAgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAx
+              L1hNTFNjaGVtYS1pbnN0YW5jZSIKICAgICAgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3Lmxv
+              Yy5nb3YvbW9kcy92MyBodHRwOi8vd3d3LmxvYy5nb3Yvc3RhbmRhcmRzL21vZHMvdjMvbW9kcy0zLTMu
+              eHNkIj4gCiAgIDx0aXRsZUluZm8+IAogICAgICA8dGl0bGU+VGhlIGV2b2x1dGlvbiBhbmQgc3RhdHVz
+              IG9mIGFjY291bnRpbmcgaW4gTGlieWE8L3RpdGxlPiAKICAgPC90aXRsZUluZm8+IAogICA8bmFtZSB0
+              eXBlPSJwZXJzb25hbCI+IAogICAgICA8bmFtZVBhcnQ+S2lsYW5pLCBLaWxhbmkgQWJkdWxrZXJpbTwv
+              bmFtZVBhcnQ+IAogICAgICA8cm9sZT4gCiAgICAgICAgIDxyb2xlVGVybSB0eXBlPSJ0ZXh0Ij5jcmVh
+              dG9yPC9yb2xlVGVybT4gCiAgICAgIDwvcm9sZT4gCiAgIDwvbmFtZT4gCiAgIDx0eXBlT2ZSZXNvdXJj
+              ZT50ZXh0PC90eXBlT2ZSZXNvdXJjZT4gCiAgIDxnZW5yZT5UaGVzaXMgb3IgZGlzc2VydGF0aW9uPC9n
+              ZW5yZT4gCiAgIDxpZGVudGlmaWVyIHR5cGU9ImdyYW50TnVtYmVyIi8+IAogICA8b3JpZ2luSW5mbz4g
+              CiAgICAgIDxwdWJsaXNoZXI+RGVwYXJ0bWVudCBvZiBBY2NvdW50aW5nLCBUaGUgVW5pdmVyc2l0eSBv
+              ZiBIdWxsPC9wdWJsaXNoZXI+IAogICAgICA8ZGF0ZUlzc3VlZCBlbmNvZGluZz0idzNjZHRmIiBrZXlE
+              YXRlPSJ5ZXMiPjE5ODg8L2RhdGVJc3N1ZWQ+IAogICA8L29yaWdpbkluZm8+IAogICA8bGFuZ3VhZ2U+
+              IAogICAgICA8bGFuZ3VhZ2VUZXJtIHR5cGU9InRleHQiPkVuZ2xpc2g8L2xhbmd1YWdlVGVybT4gCiAg
+              ICAgIDxsYW5ndWFnZVRlcm0gYXV0aG9yaXR5PSJpc282MzktMmIiIHR5cGU9ImNvZGUiPmVuZzwvbGFu
+              Z3VhZ2VUZXJtPiAKICAgPC9sYW5ndWFnZT4gCiAgIDxwaHlzaWNhbERlc2NyaXB0aW9uPiAKICAgICAg
+              PGV4dGVudC8+IAogICAgICA8aW50ZXJuZXRNZWRpYVR5cGU+YXBwbGljYXRpb24vcGRmPC9pbnRlcm5l
+              dE1lZGlhVHlwZT4gCiAgICAgIDxkaWdpdGFsT3JpZ2luPmJvcm4gZGlnaXRhbDwvZGlnaXRhbE9yaWdp
+              bj4gCiAgIDwvcGh5c2ljYWxEZXNjcmlwdGlvbj4gCiAgIDxhYnN0cmFjdC8+IAogICA8bm90ZSB0eXBl
+              PSJxdWFsaWZpY2F0aW9uTGV2ZWwiPkRvY3RvcmFsPC9ub3RlPiAKICAgPG5vdGUgdHlwZT0icXVhbGlm
+              aWNhdGlvbk5hbWUiPlBoRDwvbm90ZT4gCiAgIDxzdWJqZWN0IGF1dGhvcml0eT0iVW9IIj4gCiAgICAg
+              IDx0b3BpYz5NYW5hZ2VtZW50PC90b3BpYz4gCiAgICAgIDx0b3BpYz5JbnRlcm5hdGlvbmFsIHRyYWRl
+              PC90b3BpYz4gCiAgIDwvc3ViamVjdD4gCiAgIDxpZGVudGlmaWVyIHR5cGU9ImZlZG9yYSI+aHVsbDoz
+              MTA4PC9pZGVudGlmaWVyPiAKICAgPGxvY2F0aW9uPiAKICAgICAgPHVybCBhY2Nlc3M9Im9iamVjdCBp
+              biBjb250ZXh0IiB1c2FnZT0icHJpbWFyeSBkaXNwbGF5Ij5odHRwOi8vaHlkcmEuaHVsbC5hYy51ay9h
+              c3NldHMvaHVsbDozMTA4PC91cmw+IAogICAgICA8dXJsIGFjY2Vzcz0icmF3IG9iamVjdCI+aHR0cDov
+              L2h5ZHJhLmh1bGwuYWMudWsvYXNzZXRzL2h1bGw6MzEwOGEvZ2VuZXJpY0NvbnRlbnQvY29udGVudDwv
+              dXJsPiAKICAgPC9sb2NhdGlvbj4gCiAgIDxhY2Nlc3NDb25kaXRpb24gdHlwZT0idXNlQW5kUmVwcm9k
+              dWN0aW9uIj7CqSAxOTg4IEtpbGFuaSBLaWxhbmkuIEFsbCByaWdodHMgcmVzZXJ2ZWQuIE5vIHBhcnQg
+              b2YgdGhpcyBwdWJsaWNhdGlvbiBtYXkgYmUgcmVwcm9kdWNlZCB3aXRob3V0IHRoZSB3cml0dGVuIHBl
+              cm1pc3Npb24gb2YgdGhlIGNvcHlyaWdodCBob2xkZXIuPC9hY2Nlc3NDb25kaXRpb24+IAogICA8cmVj
+              b3JkSW5mbz4gCiAgICAgIDxyZWNvcmRDb250ZW50U291cmNlPlRoZSBVbml2ZXJzaXR5IG9mIEh1bGw8
+              L3JlY29yZENvbnRlbnRTb3VyY2U+IAogICAgICA8cmVjb3JkQ3JlYXRpb25EYXRlIGVuY29kaW5nPSJ3
+              M2NkdGYiPjIwMTAtMTAtMTU8L3JlY29yZENyZWF0aW9uRGF0ZT4gCiAgICAgIDxyZWNvcmRDaGFuZ2VE
+              YXRlIGVuY29kaW5nPSJ3M2NkdGYiLz4gCiAgICAgIDxsYW5ndWFnZU9mQ2F0YWxvZ2luZz4gCiAgICAg
+              ICAgIDxsYW5ndWFnZVRlcm0gYXV0aG9yaXR5PSJpc282MzktMmIiPmVuZzwvbGFuZ3VhZ2VUZXJtPiAK
+              ICAgICAgPC9sYW5ndWFnZU9mQ2F0YWxvZ2luZz4gCiAgIDwvcmVjb3JkSW5mbz4gCjwvbW9kcz4K
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="UKETD_DC" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
+<foxml:datastreamVersion ID="UKETD_DC.0" LABEL="UKETD_DC Metadata" CREATED="2011-05-17T08:52:07.009Z" MIMETYPE="text/xml">
+<foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora-test/objects/hull:3108/methods/hull-sDef:uketdObject/getUKETDMetadata"/>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="hull:3112"
+xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Accounting regulation in Egypt in relation to western influence - Kayed, Metwally Ahmed El-Sayed; "/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-02-23T10:50:44.777Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-05-17T08:58:06.166Z"/>
+<foxml:extproperty NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraObject"/>
+</foxml:objectProperties>
+<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2011-02-23T10:50:44.777Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:xmlContent>
+<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+<audit:record ID="AUDREC1">
+<audit:process type="Fedora API-M"/>
+<audit:action>ingest</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-02-23T10:50:44.777Z</audit:date>
+<audit:justification>Ingested from local file C:\ConvertedObjects\hull_3112.xml</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC2">
+<audit:process type="Fedora API-M"/>
+<audit:action>ingest</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-03-16T18:21:09.263Z</audit:date>
+<audit:justification>Ingested from local file C:\Users\Simon\Desktop\spec\fixtures\hull\hull_3112.xml</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC3">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>contentMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-03-28T16:57:39.167Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC4">
+<audit:process type="Fedora API-M"/>
+<audit:action>setDatastreamVersionable</audit:action>
+<audit:componentID>contentMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-03-28T16:57:39.167Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC5">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>contentMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-03-28T23:23:10.373Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC6">
+<audit:process type="Fedora API-M"/>
+<audit:action>purgeDatastream</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-05-17T08:52:35.637Z</audit:date>
+<audit:justification>Purged datastream (ID=descMetadata), versions ranging from the beginning of time to the end of time.  This resulted in the permanent removal of 1 datastream version(s) (2011-02-23T10:50:44.824Z) and all associated audit records.</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC7">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-05-17T08:52:59.810Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC8">
+<audit:process type="Fedora API-M"/>
+<audit:action>purgeDatastream</audit:action>
+<audit:componentID>UKETD_DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-05-17T08:57:02.135Z</audit:date>
+<audit:justification>Purged datastream (ID=UKETD_DC), versions ranging from the beginning of time to the end of time.  This resulted in the permanent removal of 1 datastream version(s) (2011-02-23T10:50:44.826Z) and all associated audit records.</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC9">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>UKETD_DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-05-17T08:58:06.166Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+</audit:auditTrail>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC.0" LABEL="DC Metadata" CREATED="2011-02-23T10:50:44.824Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="1030">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>Accounting regulation in Egypt in relation to western influence</dc:title>
+  <dc:creator>Kayed, Metwally Ahmed El-Sayed</dc:creator>
+  <dc:subject>Management</dc:subject>
+  <dc:publisher>The University of Hull</dc:publisher>
+  <dc:date>1990</dc:date>
+  <dc:type>Thesis &amp; dissertation</dc:type>
+  <dc:format>application/pdf</dc:format>
+  <dc:identifier>Ethos PID : 239773</dc:identifier>
+  <dc:identifier>http://edocs.hull.ac.uk/download.jsp?pid=hull:3112</dc:identifier>
+  <dc:identifier>hull:3112</dc:identifier>
+  <dc:language>eng</dc:language>
+  <dc:rights>© 1990 Metwally Kayed. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</dc:rights>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-02-23T10:50:44.824Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="637">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:hydra="http://projecthydra.org/ns/relations#">
+          <rdf:Description rdf:about="info:fedora/hull:3112">
+						<rel:isMemberOf rdf:resource="info:fedora/hull:3375" />
+						<hydra:isGovernedBy rdf:resource="info:fedora/hull:3375"/>
+            <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:genericParent"></fedora-model:hasModel>
+            <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+            <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:uketdObject"></fedora-model:hasModel>
+          </rdf:Description>
+        </rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2011-02-23T10:50:44.825Z" MIMETYPE="text/xml" SIZE="950">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+          <copyright>
+            <human>© 1990 Metwally Kayed. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</human>
+            <machine></machine>
+          </copyright>
+          <access type="discover">
+            <human></human>
+            <machine>
+              <group>public</group>
+            </machine>
+          </access>
+          <access type="read">
+            <human></human>
+            <machine>
+              <group>public</group>
+            </machine>
+          </access>
+          <access type="edit">
+            <human></human>
+            <machine>
+              <group>contentAccessTeam</group>
+            </machine>
+          </access>
+          <use>
+            <human></human>
+            <machine></machine>
+          </use>
+        </rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="contentMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
+<foxml:datastreamVersion ID="contentMetadata.1" LABEL="Content metadata" CREATED="2011-03-28T23:23:10.373Z" MIMETYPE="text/xml" SIZE="434">
+<foxml:binaryContent> 
+              PGNvbnRlbnRNZXRhZGF0YSB0eXBlPSJ0ZXh0IiB4bWxucz0iaHR0cDovL2h5ZHJhLWNvbGxhYi5odWxs
+              LmFjLnVrL3NjaGVtYXMvY29udGVudE1ldGFkYXRhL3YxIj48cmVzb3VyY2Ugc2VxdWVuY2U9IjEiIGlk
+              PSJEb2N1bWVudCIgZGlzcGxheUxhYmVsPSJEb2N1bWVudCIgb2JqZWN0SUQ9Imh1bGw6MzExMmEiIGRz
+              SUQ9ImNvbnRlbnQiIGRpc3NUeXBlPSJnZW5lcmljQ29udGVudC9jb250ZW50Ij48ZmlsZSBpZD0iY29u
+              dGVudCIgZm9ybWF0PSJwZGYiIG1pbWVUeXBlPSJhcHBsaWNhdGlvbi9wZGYiIHNpemU9IjI2MzQ5NTY4
+              Ij48bG9jYXRpb24gdHlwZT0idXJsIj5odHRwOi8vaHlkcmEuaHVsbC5hYy51ay9hc3NldHMvaHVsbDoz
+              MTEyYS9nZW5lcmljQ29udGVudC9jb250ZW50PC9sb2NhdGlvbj48L2ZpbGU+PC9yZXNvdXJjZT48L2Nv
+              bnRlbnRNZXRhZGF0YT4=
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="descMetadata.0" LABEL="MODS Metadata" CREATED="2011-05-17T08:52:59.810Z" MIMETYPE="text/xml" SIZE="2195">
+<foxml:xmlContent>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Accounting regulation in Egypt in relation to western influence</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart>Kayed, Metwally Ahmed El-Sayed</namePart>
+    <role>
+      <roleTerm type="text">creator</roleTerm>
+    </role>
+  </name>
+  <typeOfResource>text</typeOfResource>
+  <genre>Thesis or dissertation</genre>
+  <identifier type="grantNumber"></identifier>
+  <originInfo>
+    <publisher>Department of Accounting, The University of Hull</publisher>
+    <dateIssued encoding="w3cdtf" keyDate="yes">1990</dateIssued>
+  </originInfo>
+  <language>
+    <languageTerm type="text">English</languageTerm>
+    <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+  </language>
+  <physicalDescription>
+    <extent></extent>
+    <internetMediaType>application/pdf</internetMediaType>
+    <digitalOrigin>born digital</digitalOrigin>
+  </physicalDescription>
+  <abstract></abstract>
+  <note type="qualificationLevel">Doctoral</note>
+  <note type="qualificationName">PhD</note>
+  <subject authority="UoH">
+    <topic>Management</topic>
+    <topic>Finance</topic>
+    <topic>Taxation</topic>
+  </subject>
+  <identifier type="fedora">hull:3112</identifier>
+  <location>
+    <url access="object in context" usage="primary display">http://hydra.hull.ac.uk/assets/hull:3112</url>
+    <url access="raw object">http://hydra.hull.ac.uk/assets/hull:3112a/genericContent/content</url>
+  </location>
+  <accessCondition type="useAndReproduction">© 1990 Metwally Kayed. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</accessCondition>
+  <recordInfo>
+    <recordContentSource>The University of Hull</recordContentSource>
+    <recordCreationDate encoding="w3cdtf">2010-10-19</recordCreationDate>
+    <recordChangeDate encoding="w3cdtf"></recordChangeDate>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">eng</languageTerm>
+    </languageOfCataloging>
+  </recordInfo>
+</mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="UKETD_DC" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
+<foxml:datastreamVersion ID="UKETD_DC.0" LABEL="UKETD_DC Metadata" CREATED="2011-05-17T08:58:06.166Z" MIMETYPE="text/xml">
+<foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora/objects/hull:3112/methods/hull-sDef:uketdObject/getUKETDMetadata"/>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>

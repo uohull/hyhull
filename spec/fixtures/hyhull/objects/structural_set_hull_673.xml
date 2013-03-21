@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="hull:673"
+xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="PhD - "/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-07-04T15:16:20.269Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-07-07T13:06:28.001Z"/>
+<foxml:extproperty NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraObject"/>
+</foxml:objectProperties>
+<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2011-07-04T15:16:20.269Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:xmlContent>
+<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+<audit:record ID="AUDREC1">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-07-04T15:22:12.689Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC2">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>defaultObjectRights</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-07-07T13:06:28.001Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+</audit:auditTrail>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC.0" LABEL="DC Metadata" CREATED="2011-07-04T15:16:20.283Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="422">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>PhD</dc:title>
+  <dc:date></dc:date>
+  <dc:type>Structural set</dc:type>
+  <dc:identifier>hull:673</dc:identifier>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="true">
+<foxml:datastreamVersion ID="descMetadata.0" LABEL="MODS metadata" CREATED="2011-07-04T15:22:12.689Z" MIMETYPE="text/xml" SIZE="944">
+<foxml:binaryContent> 
+              PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NDTxtb2RzIHhzaTpzY2hlbWFMb2Nh
+              dGlvbj0iaHR0cDovL3d3dy5sb2MuZ292L21vZHMvdjMgaHR0cDovL3d3dy5sb2MuZ292L3N0YW5kYXJk
+              cy9tb2RzL3YzL21vZHMtMy00LnhzZCIgeG1sbnM9Imh0dHA6Ly93d3cubG9jLmdvdi9tb2RzL3YzIiB4
+              bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIj4NDSAgPHRp
+              dGxlSW5mbz4NDSAgICA8dGl0bGU+UGhEPC90aXRsZT4NDSAgPC90aXRsZUluZm8+DQ0gIDx0eXBlT2ZS
+              ZXNvdXJjZSBjb2xsZWN0aW9uPSJ5ZXMiPnRleHQ8L3R5cGVPZlJlc291cmNlPg0NICA8Z2VucmU+U3Ry
+              dWN0dXJhbCBzZXQ8L2dlbnJlPg0NICA8b3JpZ2luSW5mbz4NDSAgICA8cHVibGlzaGVyPlRoZSBVbml2
+              ZXJzaXR5IG9mIEh1bGw8L3B1Ymxpc2hlcj4NDSAgPC9vcmlnaW5JbmZvPg0NICA8aWRlbnRpZmllciB0
+              eXBlPSJmZWRvcmEiPmh1bGw6NjczPC9pZGVudGlmaWVyPg0NICA8bG9jYXRpb24+DQ0gICAgPHVybCBh
+              Y2Nlc3M9InJhdyBvYmplY3QiPmh0dHA6Ly9oeWRyYS5odWxsLmFjLnVrL3Jlc291cmNlcy9odWxsOjY3
+              MzwvdXJsPg0NICA8L2xvY2F0aW9uPg0NICA8cmVjb3JkSW5mbz4NDSAgICA8cmVjb3JkQ29udGVudFNv
+              dXJjZT5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9yZWNvcmRDb250ZW50U291cmNlPg0NICAgIDxyZWNv
+              cmRDcmVhdGlvbkRhdGUgZW5jb2Rpbmc9InczY2R0ZiIgLz4NDSAgICA8cmVjb3JkQ2hhbmdlRGF0ZSBl
+              bmNvZGluZz0idzNjZHRmIiAvPg0NICAgIDxsYW5ndWFnZU9mQ2F0YWxvZ2luZz4NDSAgICAgIDxsYW5n
+              dWFnZVRlcm0gYXV0aG9yaXR5PSJpc282MzktMmIiPmVuZzwvbGFuZ3VhZ2VUZXJtPg0NICAgIDwvbGFu
+              Z3VhZ2VPZkNhdGFsb2dpbmc+DQ0gIDwvcmVjb3JkSW5mbz4NDTwvbW9kcz4=
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-07-04T15:16:20.283Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="607">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#">
+          <rdf:Description rdf:about="info:fedora/hull:673">
+            <rel:isMemberOf rdf:resource="info:fedora/hull:669"></rel:isMemberOf>
+ 						<hydra:isGovernedBy rdf:resource="info:fedora/hull-apo:structuralSet"></hydra:isGovernedBy>
+            <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:structuralSet"></fedora-model:hasModel>
+            <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+          </rdf:Description>
+        </rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2011-07-04T15:16:20.283Z" MIMETYPE="text/xml" SIZE="927">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+          <copyright>
+            <human></human>
+            <machine></machine>
+          </copyright>
+          <access type="discover">
+            <human></human>
+            <machine>
+              <group>contentAccessTeam</group>
+            </machine>
+          </access>
+          <access type="read">
+            <human></human>
+            <machine>
+              <group>contentAccessTeam</group>
+            </machine>
+          </access>
+          <access type="edit">
+            <human></human>
+            <machine>
+              <group>contentAccessTeam</group>
+            </machine>
+          </access>
+          <use>
+            <human></human>
+            <machine></machine>
+          </use>
+          <embargo>
+            <human></human>
+            <machine></machine>
+          </embargo>
+        </rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="defaultObjectRights" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="defaultObjectRights.0" LABEL="Default object rights" CREATED="2011-07-07T13:06:28.001Z" MIMETYPE="text/xml" SIZE="679">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+  <copyright>
+    <human></human>
+    <machine></machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine>
+      <group>public</group>
+    </machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine>
+      <group>public</group>
+    </machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <use>
+    <human></human>
+    <machine></machine>
+  </use>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>

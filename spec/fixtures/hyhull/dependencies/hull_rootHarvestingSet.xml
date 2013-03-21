@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="hull:rootHarvestingSet"
+xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Root harvesting set"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-06-03T10:59:12.092Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2012-01-04T09:24:43.765Z"/>
+</foxml:objectProperties>
+<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2011-06-03T10:59:12.092Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:xmlContent>
+<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+<audit:record ID="AUDREC1">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-06-03T10:59:53.937Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC2">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-06-03T11:00:05.471Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC3">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-06-03T11:03:21.994Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC4">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-06-03T11:05:12.191Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC5">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>rightsMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-06-03T11:06:37.367Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC6">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-07-04T15:20:36.873Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC7">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>defaultObjectRights</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2011-07-07T13:00:32.092Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC8">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-01-04T09:23:55.687Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC9">
+<audit:process type="Fedora API-M"/>
+<audit:action>setDatastreamVersionable</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-01-04T09:23:55.687Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC10">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-01-04T09:24:43.765Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+</audit:auditTrail>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC.0" LABEL="Dublin Core Record for this object" CREATED="2011-06-03T10:59:53.937Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="452">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>Root harvesting set</dc:title>
+  <dc:date></dc:date>
+  <dc:type>Harvesting set</dc:type>
+  <dc:identifier>hull:rootHarvestingSet</dc:identifier>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
+<foxml:datastreamVersion ID="descMetadata.0" LABEL="MODS metadata" CREATED="2012-01-04T09:24:43.765Z" MIMETYPE="text/xml" SIZE="1052">
+<foxml:binaryContent> 
+              PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NDQ08bW9kcyB4c2k6c2NoZW1hTG9j
+              YXRpb249Imh0dHA6Ly93d3cubG9jLmdvdi9tb2RzL3YzIGh0dHA6Ly93d3cubG9jLmdvdi9zdGFuZGFy
+              ZHMvbW9kcy92My9tb2RzLTMtNC54c2QiIHhtbG5zPSJodHRwOi8vd3d3LmxvYy5nb3YvbW9kcy92MyIg
+              eG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+DQ0NICA8
+              dGl0bGVJbmZvPg0NDSAgICA8dGl0bGU+Um9vdCBoYXJ2ZXN0aW5nIFNldDwvdGl0bGU+DQ0NICA8L3Rp
+              dGxlSW5mbz4NDQ0gIDx0eXBlT2ZSZXNvdXJjZSBjb2xsZWN0aW9uPSJ5ZXMiPm1peGVkIG1hdGVyaWFs
+              PC90eXBlT2ZSZXNvdXJjZT4NDQ0gIDxnZW5yZT5IYXJ2ZXN0aW5nIHNldDwvZ2VucmU+DQ0NICA8b3Jp
+              Z2luSW5mbz4NDQ0gICAgPHB1Ymxpc2hlcj5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9wdWJsaXNoZXI+
+              DQ0NICA8L29yaWdpbkluZm8+DQ0NICA8c3ViamVjdCBhdXRob3JpdHk9IlVvSCIgLz4NDQ0gIDxpZGVu
+              dGlmaWVyIHR5cGU9ImZlZG9yYSI+aHVsbDpyb290SGFydmVzdGluZ1NldDwvaWRlbnRpZmllcj4NDQ0g
+              IDxsb2NhdGlvbj4NDQ0gICAgPHVybCBhY2Nlc3M9InJhdyBvYmplY3QiPmh0dHA6Ly9oeWRyYS5odWxs
+              LmFjLnVrL3Jlc291cmNlcy9odWxsOnJvb3RIYXJ2ZXN0aW5nU2V0PC91cmw+DQ0NICA8L2xvY2F0aW9u
+              Pg0NDSAgPHJlY29yZEluZm8+DQ0NICAgIDxyZWNvcmRDb250ZW50U291cmNlPlRoZSBVbml2ZXJzaXR5
+              IG9mIEh1bGw8L3JlY29yZENvbnRlbnRTb3VyY2U+DQ0NICAgIDxyZWNvcmRDcmVhdGlvbkRhdGUgZW5j
+              b2Rpbmc9InczY2R0ZiIgLz4NDQ0gICAgPHJlY29yZENoYW5nZURhdGUgZW5jb2Rpbmc9InczY2R0ZiIg
+              Lz4NDQ0gICAgPGxhbmd1YWdlT2ZDYXRhbG9naW5nPg0NDSAgICAgIDxsYW5ndWFnZVRlcm0gYXV0aG9y
+              aXR5PSJpc282MzktMmIiPmVuZzwvbGFuZ3VhZ2VUZXJtPg0NDSAgICA8L2xhbmd1YWdlT2ZDYXRhbG9n
+              aW5nPg0NDSAgPC9yZWNvcmRJbmZvPg0NDTwvbW9kcz4=
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-06-03T11:05:12.191Z" MIMETYPE="application/rdf+xml" SIZE="498">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+  <rdf:Description rdf:about="info:fedora/hull:rootHarvestingSet">
+    <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:harvestingSet"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2011-06-03T11:06:37.367Z" MIMETYPE="text/xml" SIZE="679">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+  <copyright>
+    <human></human>
+    <machine></machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <use>
+    <human></human>
+    <machine></machine>
+  </use>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="defaultObjectRights" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="defaultObjectRights.0" LABEL="Default object rights" CREATED="2011-07-07T13:00:32.092Z" MIMETYPE="text/xml" SIZE="679">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+  <copyright>
+    <human></human>
+    <machine></machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <use>
+    <human></human>
+    <machine></machine>
+  </use>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>

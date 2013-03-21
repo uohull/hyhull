@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'blacklight', '~> 4.0.1'
 gem 'hydra-head', '~> 5.4.0'
 gem 'sqlite3'
+gem 'solrizer-fedora', '~> 2.3.1'
 
 
 # Gems used only for assets and not required

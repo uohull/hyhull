@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="hull:4775"
+xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Deleted"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="12345 Exam paper in Deleted queue (December 2012) - ICTD;"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2012-10-26T11:10:14.168Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2012-10-26T11:24:24.685Z"/>
+</foxml:objectProperties>
+<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2012-10-26T11:10:14.168Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:xmlContent>
+<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+<audit:record ID="AUDREC1">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:10:14.313Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC2">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:10:14.366Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC3">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>rightsMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:10:14.433Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC4">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:10:14.506Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC5">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>properties</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:10:14.550Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC6">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:11:13.209Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC7">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:11:13.252Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC8">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:11:13.300Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC9">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:11:22.639Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC10">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:11:22.677Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC11">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>rightsMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:11:22.743Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC12">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:11:34.943Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC13">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:11:34.986Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC14">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:11:35.045Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC15">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:20:41.824Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC16">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:20:41.883Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC17">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:20:41.936Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC18">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:22:17.812Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC19">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>rightsMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:22:17.917Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC20">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:24:17.819Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC21">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:24:17.868Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC22">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:24:17.919Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC23">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:24:24.561Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC24">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:24:24.624Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC25">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>rightsMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-10-26T11:24:24.685Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+</audit:auditTrail>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Record for this object" CREATED="2012-10-26T11:10:14.168Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="338">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:identifier>hull:4775</dc:identifier>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="DC.1" LABEL="DC admin metadata" CREATED="2012-10-26T11:10:14.506Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="428">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title></dc:title>
+  <dc:type>Examination paper</dc:type>
+  <dc:identifier>__DO_NOT_USE__</dc:identifier>
+  <dc:date></dc:date>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="DC.2" LABEL="DC admin metadata" CREATED="2012-10-26T11:11:13.300Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="479">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>12345 Exam paper in Deleted queue (December 2012)</dc:title>
+  <dc:type>Examination paper</dc:type>
+  <dc:identifier>hull:4775</dc:identifier>
+  <dc:date>2012-12</dc:date>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="DC.3" LABEL="DC admin metadata" CREATED="2012-10-26T11:11:35.045Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="479">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>12345 Exam paper in Deleted queue (December 2012)</dc:title>
+  <dc:type>Examination paper</dc:type>
+  <dc:identifier>hull:4775</dc:identifier>
+  <dc:date>2012-12</dc:date>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="DC.4" LABEL="DC admin metadata" CREATED="2012-10-26T11:20:41.936Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="479">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>12345 Exam paper in Deleted queue (December 2012)</dc:title>
+  <dc:type>Examination paper</dc:type>
+  <dc:identifier>hull:4775</dc:identifier>
+  <dc:date>2012-12</dc:date>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="DC.5" LABEL="DC admin metadata" CREATED="2012-10-26T11:24:17.919Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="479">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>12345 Exam paper in Deleted queue (December 2012)</dc:title>
+  <dc:type>Examination paper</dc:type>
+  <dc:identifier>hull:4775</dc:identifier>
+  <dc:date>2012-12</dc:date>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="true">
+<foxml:datastreamVersion ID="descMetadata.0" LABEL="MODS metadata" CREATED="2012-10-26T11:10:14.313Z" MIMETYPE="text/xml" SIZE="1760">
+<foxml:binaryContent> 
+              PG1vZHMgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnhzaT0i
+              aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vd3d3
+              LmxvYy5nb3YvbW9kcy92MyIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LmxvYy5nb3YvbW9k
+              cy92MyBodHRwOi8vd3d3LmxvYy5nb3Yvc3RhbmRhcmRzL21vZHMvdjMvbW9kcy0zLTMueHNkIiB2ZXJz
+              aW9uPSIzLjMiPgogIDx0aXRsZUluZm8+CiAgICA8dGl0bGUvPgogIDwvdGl0bGVJbmZvPgogIDxuYW1l
+              IHR5cGU9ImNvcnBvcmF0ZSI+CiAgICA8bmFtZVBhcnQvPgogICAgPHJvbGU+CiAgICAgIDxyb2xlVGVy
+              bSB0eXBlPSJ0ZXh0Ij5jcmVhdG9yPC9yb2xlVGVybT4KICAgIDwvcm9sZT4KICA8L25hbWU+CiAgPHR5
+              cGVPZlJlc291cmNlPnRleHQ8L3R5cGVPZlJlc291cmNlPgogIDxnZW5yZT5FeGFtaW5hdGlvbiBwYXBl
+              cjwvZ2VucmU+CiAgPG9yaWdpbkluZm8+CiAgICA8cHVibGlzaGVyPlRoZSBVbml2ZXJzaXR5IG9mIEh1
+              bGw8L3B1Ymxpc2hlcj4KICAgIDxkYXRlSXNzdWVkLz4KICA8L29yaWdpbkluZm8+CiAgPGxhbmd1YWdl
+              PgogICAgPGxhbmd1YWdlVGVybSB0eXBlPSJ0ZXh0Ii8+CiAgICA8bGFuZ3VhZ2VUZXJtIHR5cGU9ImNv
+              ZGUiIGF1dGhvcml0eT0iaXNvNjM5LTJiIi8+CiAgPC9sYW5ndWFnZT4KICA8bm90ZSB0eXBlPSJleGFt
+              aW5hdGlvbkxldmVsIi8+CiAgPG5vdGUgdHlwZT0iYWRkaXRpb25hbE5vdGVzIi8+CiAgPHBoeXNpY2Fs
+              RGVzY3JpcHRpb24+CiAgICA8ZXh0ZW50Lz4KICAgIDxtZWRpYVR5cGUvPgogICAgPGRpZ2l0YWxPcmln
+              aW4+Ym9ybiBkaWdpdGFsPC9kaWdpdGFsT3JpZ2luPgogIDwvcGh5c2ljYWxEZXNjcmlwdGlvbj4KICA8
+              c3ViamVjdCBhdXRob3JpdHk9IlVvSCI+CiAgICA8dG9waWM+U3ViamVjdCB0b3BpYyBnb2VzIGhlcmU8
+              L3RvcGljPgogIDwvc3ViamVjdD4KICA8aWRlbnRpZmllciB0eXBlPSJmZWRvcmEiPl9fRE9fTk9UX1VT
+              RV9fPC9pZGVudGlmaWVyPgogIDxyZWxhdGVkSXRlbSBJRD0ibW9kdWxlIj4KICAgIDx0aXRsZUluZm8+
+              CiAgICAgIDx0aXRsZS8+CiAgICA8L3RpdGxlSW5mbz4KICAgIDxpZGVudGlmaWVyIHR5cGU9Im1vZHVs
+              ZUNvZGUiLz4KICAgIDxub3RlIHR5cGU9Im1vZHVsZURpc3BsYXkiLz4KICA8L3JlbGF0ZWRJdGVtPgog
+              IDxsb2NhdGlvbj4KICAgIDx1cmwgdXNhZ2U9InByaW1hcnkgZGlzcGxheSIgYWNjZXNzPSJvYmplY3Qg
+              aW4gY29udGV4dCI+aHR0cDovL2h5ZHJhLmh1bGwuYWMudWsvcmVzb3VyY2VzL19fRE9fTk9UX1VTRV9f
+              PC91cmw+CiAgICA8dXJsIGFjY2Vzcz0icmF3IG9iamVjdCIvPgogIDwvbG9jYXRpb24+CiAgPGFjY2Vz
+              c0NvbmRpdGlvbiB0eXBlPSJ1c2VBbmRSZXByb2R1Y3Rpb24iLz4KICA8cmVjb3JkSW5mbz4KICAgIDxy
+              ZWNvcmRDb250ZW50U291cmNlPlRoZSBVbml2ZXJzaXR5IG9mIEh1bGw8L3JlY29yZENvbnRlbnRTb3Vy
+              Y2U+CiAgICA8cmVjb3JkQ3JlYXRpb25EYXRlIGVuY29kaW5nPSJ3M2NkdGYiPjIwMTItMTAtMjY8L3Jl
+              Y29yZENyZWF0aW9uRGF0ZT4KICAgIDxyZWNvcmRDaGFuZ2VEYXRlIGVuY29kaW5nPSJ3M2NkdGYiLz4K
+              ICAgIDxsYW5ndWFnZU9mQ2F0YWxvZ2luZz4KICAgICAgPGxhbmd1YWdlVGVybSBhdXRob3JpdHk9Imlz
+              bzYzOS0yYiI+ZW5nPC9sYW5ndWFnZVRlcm0+CiAgICA8L2xhbmd1YWdlT2ZDYXRhbG9naW5nPgogIDwv
+              cmVjb3JkSW5mbz4KPC9tb2RzPgo=
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.1" LABEL="MODS metadata" CREATED="2012-10-26T11:11:13.252Z" MIMETYPE="text/xml" SIZE="2266">
+<foxml:binaryContent> 
+              PG1vZHMgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnhzaT0i
+              aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vd3d3
+              LmxvYy5nb3YvbW9kcy92MyIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LmxvYy5nb3YvbW9k
+              cy92MyBodHRwOi8vd3d3LmxvYy5nb3Yvc3RhbmRhcmRzL21vZHMvdjMvbW9kcy0zLTMueHNkIiB2ZXJz
+              aW9uPSIzLjMiPgogIDx0aXRsZUluZm8+CiAgICA8dGl0bGU+MTIzNDUgRXhhbSBwYXBlciBpbiBEZWxl
+              dGVkIHF1ZXVlIChEZWNlbWJlciAyMDEyKTwvdGl0bGU+CiAgPC90aXRsZUluZm8+CiAgPG5hbWUgdHlw
+              ZT0iY29ycG9yYXRlIj4KICAgIDxuYW1lUGFydD5JQ1REPC9uYW1lUGFydD4KICAgIDxyb2xlPgogICAg
+              ICA8cm9sZVRlcm0gdHlwZT0idGV4dCI+Y3JlYXRvcjwvcm9sZVRlcm0+CiAgICA8L3JvbGU+CiAgPC9u
+              YW1lPgogIDx0eXBlT2ZSZXNvdXJjZT50ZXh0PC90eXBlT2ZSZXNvdXJjZT4KICA8Z2VucmU+RXhhbWlu
+              YXRpb24gcGFwZXI8L2dlbnJlPgogIDxvcmlnaW5JbmZvPgogICAgPHB1Ymxpc2hlcj5UaGUgVW5pdmVy
+              c2l0eSBvZiBIdWxsPC9wdWJsaXNoZXI+CiAgICA8ZGF0ZUlzc3VlZD4yMDEyLTEyPC9kYXRlSXNzdWVk
+              PgogIDwvb3JpZ2luSW5mbz4KICA8bGFuZ3VhZ2U+CiAgICA8bGFuZ3VhZ2VUZXJtIHR5cGU9InRleHQi
+              PkVuZ2xpc2g8L2xhbmd1YWdlVGVybT4KICAgIDxsYW5ndWFnZVRlcm0gdHlwZT0iY29kZSIgYXV0aG9y
+              aXR5PSJpc282MzktMmIiPmVuZzwvbGFuZ3VhZ2VUZXJtPgogIDwvbGFuZ3VhZ2U+CiAgPG5vdGUgdHlw
+              ZT0iZXhhbWluYXRpb25MZXZlbCI+TGV2ZWwgMTwvbm90ZT4KICA8bm90ZSB0eXBlPSJhZGRpdGlvbmFs
+              Tm90ZXMiPlRoaXMgaXMgYW4gZXhhbXBsZSBvZiBleGFtIHBhcGVyIGluIHRoZSBEZWxldGVkIHF1ZXVl
+              Ljwvbm90ZT4KICA8cGh5c2ljYWxEZXNjcmlwdGlvbj4KICAgIDxleHRlbnQvPgogICAgPG1lZGlhVHlw
+              ZS8+CiAgICA8ZGlnaXRhbE9yaWdpbj5ib3JuIGRpZ2l0YWw8L2RpZ2l0YWxPcmlnaW4+CiAgPC9waHlz
+              aWNhbERlc2NyaXB0aW9uPgogIDxzdWJqZWN0IGF1dGhvcml0eT0iVW9IIj4KICAgIDx0b3BpYz5FeGFt
+              IHBhcGVyPC90b3BpYz4KICA8L3N1YmplY3Q+CiAgPGlkZW50aWZpZXIgdHlwZT0iZmVkb3JhIj5odWxs
+              OjQ3NzU8L2lkZW50aWZpZXI+CiAgPHJlbGF0ZWRJdGVtIElEPSJtb2R1bGUiPgogICAgPHRpdGxlSW5m
+              bz4KICAgICAgPHRpdGxlLz4KICAgIDwvdGl0bGVJbmZvPgogICAgPGlkZW50aWZpZXIgdHlwZT0ibW9k
+              dWxlQ29kZSI+MTIzNDU8L2lkZW50aWZpZXI+CiAgICA8bm90ZSB0eXBlPSJtb2R1bGVEaXNwbGF5Ij4x
+              MjM0NSBFeGFtIHBhcGVyIGluIERlbGV0ZWQgcXVldWU8L25vdGU+CiAgPGlkZW50aWZpZXIgdHlwZT0i
+              bW9kdWxlTmFtZSI+RXhhbSBwYXBlciBpbiBEZWxldGVkIHF1ZXVlPC9pZGVudGlmaWVyPjwvcmVsYXRl
+              ZEl0ZW0+CiAgPGxvY2F0aW9uPgogICAgPHVybCB1c2FnZT0icHJpbWFyeSBkaXNwbGF5IiBhY2Nlc3M9
+              Im9iamVjdCBpbiBjb250ZXh0Ij5odHRwOi8vaHlkcmEuaHVsbC5hYy51ay9yZXNvdXJjZXMvaHVsbDo0
+              Nzc1PC91cmw+CiAgICA8dXJsIGFjY2Vzcz0icmF3IG9iamVjdCIvPgogIDwvbG9jYXRpb24+CiAgPGFj
+              Y2Vzc0NvbmRpdGlvbiB0eXBlPSJ1c2VBbmRSZXByb2R1Y3Rpb24iPiYjeEE5OyAyMDEyIFRoZSBVbml2
+              ZXJzaXR5IG9mIEh1bGwuIEFsbCByaWdodHMgcmVzZXJ2ZWQuIE5vIHBhcnQgb2YgdGhpcyBwdWJsaWNh
+              dGlvbiBtYXkgYmUgcmVwcm9kdWNlZCB3aXRob3V0IHRoZSB3cml0dGVuIHBlcm1pc3Npb24gb2YgdGhl
+              IGNvcHlyaWdodCBob2xkZXIuPC9hY2Nlc3NDb25kaXRpb24+CiAgPHJlY29yZEluZm8+CiAgICA8cmVj
+              b3JkQ29udGVudFNvdXJjZT5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9yZWNvcmRDb250ZW50U291cmNl
+              PgogICAgPHJlY29yZENyZWF0aW9uRGF0ZSBlbmNvZGluZz0idzNjZHRmIj4yMDEyLTEwLTI2PC9yZWNv
+              cmRDcmVhdGlvbkRhdGU+CiAgICA8cmVjb3JkQ2hhbmdlRGF0ZSBlbmNvZGluZz0idzNjZHRmIj4yMDEy
+              LTEwLTI2PC9yZWNvcmRDaGFuZ2VEYXRlPgogICAgPGxhbmd1YWdlT2ZDYXRhbG9naW5nPgogICAgICA8
+              bGFuZ3VhZ2VUZXJtIGF1dGhvcml0eT0iaXNvNjM5LTJiIj5lbmc8L2xhbmd1YWdlVGVybT4KICAgIDwv
+              bGFuZ3VhZ2VPZkNhdGFsb2dpbmc+CiAgPC9yZWNvcmRJbmZvPgo8L21vZHM+Cg==
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.2" LABEL="MODS metadata" CREATED="2012-10-26T11:11:34.943Z" MIMETYPE="text/xml" SIZE="2266">
+<foxml:binaryContent> 
+              PG1vZHMgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnhzaT0i
+              aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vd3d3
+              LmxvYy5nb3YvbW9kcy92MyIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LmxvYy5nb3YvbW9k
+              cy92MyBodHRwOi8vd3d3LmxvYy5nb3Yvc3RhbmRhcmRzL21vZHMvdjMvbW9kcy0zLTMueHNkIiB2ZXJz
+              aW9uPSIzLjMiPgogIDx0aXRsZUluZm8+CiAgICA8dGl0bGU+MTIzNDUgRXhhbSBwYXBlciBpbiBEZWxl
+              dGVkIHF1ZXVlIChEZWNlbWJlciAyMDEyKTwvdGl0bGU+CiAgPC90aXRsZUluZm8+CiAgPG5hbWUgdHlw
+              ZT0iY29ycG9yYXRlIj4KICAgIDxuYW1lUGFydD5JQ1REPC9uYW1lUGFydD4KICAgIDxyb2xlPgogICAg
+              ICA8cm9sZVRlcm0gdHlwZT0idGV4dCI+Y3JlYXRvcjwvcm9sZVRlcm0+CiAgICA8L3JvbGU+CiAgPC9u
+              YW1lPgogIDx0eXBlT2ZSZXNvdXJjZT50ZXh0PC90eXBlT2ZSZXNvdXJjZT4KICA8Z2VucmU+RXhhbWlu
+              YXRpb24gcGFwZXI8L2dlbnJlPgogIDxvcmlnaW5JbmZvPgogICAgPHB1Ymxpc2hlcj5UaGUgVW5pdmVy
+              c2l0eSBvZiBIdWxsPC9wdWJsaXNoZXI+CiAgICA8ZGF0ZUlzc3VlZD4yMDEyLTEyPC9kYXRlSXNzdWVk
+              PgogIDwvb3JpZ2luSW5mbz4KICA8bGFuZ3VhZ2U+CiAgICA8bGFuZ3VhZ2VUZXJtIHR5cGU9InRleHQi
+              PkVuZ2xpc2g8L2xhbmd1YWdlVGVybT4KICAgIDxsYW5ndWFnZVRlcm0gdHlwZT0iY29kZSIgYXV0aG9y
+              aXR5PSJpc282MzktMmIiPmVuZzwvbGFuZ3VhZ2VUZXJtPgogIDwvbGFuZ3VhZ2U+CiAgPG5vdGUgdHlw
+              ZT0iZXhhbWluYXRpb25MZXZlbCI+TGV2ZWwgMTwvbm90ZT4KICA8bm90ZSB0eXBlPSJhZGRpdGlvbmFs
+              Tm90ZXMiPlRoaXMgaXMgYW4gZXhhbXBsZSBvZiBleGFtIHBhcGVyIGluIHRoZSBEZWxldGVkIHF1ZXVl
+              Ljwvbm90ZT4KICA8cGh5c2ljYWxEZXNjcmlwdGlvbj4KICAgIDxleHRlbnQvPgogICAgPG1lZGlhVHlw
+              ZS8+CiAgICA8ZGlnaXRhbE9yaWdpbj5ib3JuIGRpZ2l0YWw8L2RpZ2l0YWxPcmlnaW4+CiAgPC9waHlz
+              aWNhbERlc2NyaXB0aW9uPgogIDxzdWJqZWN0IGF1dGhvcml0eT0iVW9IIj4KICAgIDx0b3BpYz5FeGFt
+              IHBhcGVyPC90b3BpYz4KICA8L3N1YmplY3Q+CiAgPGlkZW50aWZpZXIgdHlwZT0iZmVkb3JhIj5odWxs
+              OjQ3NzU8L2lkZW50aWZpZXI+CiAgPHJlbGF0ZWRJdGVtIElEPSJtb2R1bGUiPgogICAgPHRpdGxlSW5m
+              bz4KICAgICAgPHRpdGxlLz4KICAgIDwvdGl0bGVJbmZvPgogICAgPGlkZW50aWZpZXIgdHlwZT0ibW9k
+              dWxlQ29kZSI+MTIzNDU8L2lkZW50aWZpZXI+CiAgICA8bm90ZSB0eXBlPSJtb2R1bGVEaXNwbGF5Ij4x
+              MjM0NSBFeGFtIHBhcGVyIGluIERlbGV0ZWQgcXVldWU8L25vdGU+CiAgPGlkZW50aWZpZXIgdHlwZT0i
+              bW9kdWxlTmFtZSI+RXhhbSBwYXBlciBpbiBEZWxldGVkIHF1ZXVlPC9pZGVudGlmaWVyPjwvcmVsYXRl
+              ZEl0ZW0+CiAgPGxvY2F0aW9uPgogICAgPHVybCB1c2FnZT0icHJpbWFyeSBkaXNwbGF5IiBhY2Nlc3M9
+              Im9iamVjdCBpbiBjb250ZXh0Ij5odHRwOi8vaHlkcmEuaHVsbC5hYy51ay9yZXNvdXJjZXMvaHVsbDo0
+              Nzc1PC91cmw+CiAgICA8dXJsIGFjY2Vzcz0icmF3IG9iamVjdCIvPgogIDwvbG9jYXRpb24+CiAgPGFj
+              Y2Vzc0NvbmRpdGlvbiB0eXBlPSJ1c2VBbmRSZXByb2R1Y3Rpb24iPiYjeEE5OyAyMDEyIFRoZSBVbml2
+              ZXJzaXR5IG9mIEh1bGwuIEFsbCByaWdodHMgcmVzZXJ2ZWQuIE5vIHBhcnQgb2YgdGhpcyBwdWJsaWNh
+              dGlvbiBtYXkgYmUgcmVwcm9kdWNlZCB3aXRob3V0IHRoZSB3cml0dGVuIHBlcm1pc3Npb24gb2YgdGhl
+              IGNvcHlyaWdodCBob2xkZXIuPC9hY2Nlc3NDb25kaXRpb24+CiAgPHJlY29yZEluZm8+CiAgICA8cmVj
+              b3JkQ29udGVudFNvdXJjZT5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9yZWNvcmRDb250ZW50U291cmNl
+              PgogICAgPHJlY29yZENyZWF0aW9uRGF0ZSBlbmNvZGluZz0idzNjZHRmIj4yMDEyLTEwLTI2PC9yZWNv
+              cmRDcmVhdGlvbkRhdGU+CiAgICA8cmVjb3JkQ2hhbmdlRGF0ZSBlbmNvZGluZz0idzNjZHRmIj4yMDEy
+              LTEwLTI2PC9yZWNvcmRDaGFuZ2VEYXRlPgogICAgPGxhbmd1YWdlT2ZDYXRhbG9naW5nPgogICAgICA8
+              bGFuZ3VhZ2VUZXJtIGF1dGhvcml0eT0iaXNvNjM5LTJiIj5lbmc8L2xhbmd1YWdlVGVybT4KICAgIDwv
+              bGFuZ3VhZ2VPZkNhdGFsb2dpbmc+CiAgPC9yZWNvcmRJbmZvPgo8L21vZHM+Cg==
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.3" LABEL="MODS metadata" CREATED="2012-10-26T11:20:41.824Z" MIMETYPE="text/xml" SIZE="2266">
+<foxml:binaryContent> 
+              PG1vZHMgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnhzaT0i
+              aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vd3d3
+              LmxvYy5nb3YvbW9kcy92MyIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LmxvYy5nb3YvbW9k
+              cy92MyBodHRwOi8vd3d3LmxvYy5nb3Yvc3RhbmRhcmRzL21vZHMvdjMvbW9kcy0zLTMueHNkIiB2ZXJz
+              aW9uPSIzLjMiPgogIDx0aXRsZUluZm8+CiAgICA8dGl0bGU+MTIzNDUgRXhhbSBwYXBlciBpbiBEZWxl
+              dGVkIHF1ZXVlIChEZWNlbWJlciAyMDEyKTwvdGl0bGU+CiAgPC90aXRsZUluZm8+CiAgPG5hbWUgdHlw
+              ZT0iY29ycG9yYXRlIj4KICAgIDxuYW1lUGFydD5JQ1REPC9uYW1lUGFydD4KICAgIDxyb2xlPgogICAg
+              ICA8cm9sZVRlcm0gdHlwZT0idGV4dCI+Y3JlYXRvcjwvcm9sZVRlcm0+CiAgICA8L3JvbGU+CiAgPC9u
+              YW1lPgogIDx0eXBlT2ZSZXNvdXJjZT50ZXh0PC90eXBlT2ZSZXNvdXJjZT4KICA8Z2VucmU+RXhhbWlu
+              YXRpb24gcGFwZXI8L2dlbnJlPgogIDxvcmlnaW5JbmZvPgogICAgPHB1Ymxpc2hlcj5UaGUgVW5pdmVy
+              c2l0eSBvZiBIdWxsPC9wdWJsaXNoZXI+CiAgICA8ZGF0ZUlzc3VlZD4yMDEyLTEyPC9kYXRlSXNzdWVk
+              PgogIDwvb3JpZ2luSW5mbz4KICA8bGFuZ3VhZ2U+CiAgICA8bGFuZ3VhZ2VUZXJtIHR5cGU9InRleHQi
+              PkVuZ2xpc2g8L2xhbmd1YWdlVGVybT4KICAgIDxsYW5ndWFnZVRlcm0gdHlwZT0iY29kZSIgYXV0aG9y
+              aXR5PSJpc282MzktMmIiPmVuZzwvbGFuZ3VhZ2VUZXJtPgogIDwvbGFuZ3VhZ2U+CiAgPG5vdGUgdHlw
+              ZT0iZXhhbWluYXRpb25MZXZlbCI+TGV2ZWwgMTwvbm90ZT4KICA8bm90ZSB0eXBlPSJhZGRpdGlvbmFs
+              Tm90ZXMiPlRoaXMgaXMgYW4gZXhhbXBsZSBvZiBleGFtIHBhcGVyIGluIHRoZSBEZWxldGVkIHF1ZXVl
+              Ljwvbm90ZT4KICA8cGh5c2ljYWxEZXNjcmlwdGlvbj4KICAgIDxleHRlbnQvPgogICAgPG1lZGlhVHlw
+              ZS8+CiAgICA8ZGlnaXRhbE9yaWdpbj5ib3JuIGRpZ2l0YWw8L2RpZ2l0YWxPcmlnaW4+CiAgPC9waHlz
+              aWNhbERlc2NyaXB0aW9uPgogIDxzdWJqZWN0IGF1dGhvcml0eT0iVW9IIj4KICAgIDx0b3BpYz5FeGFt
+              IHBhcGVyPC90b3BpYz4KICA8L3N1YmplY3Q+CiAgPGlkZW50aWZpZXIgdHlwZT0iZmVkb3JhIj5odWxs
+              OjQ3NzU8L2lkZW50aWZpZXI+CiAgPHJlbGF0ZWRJdGVtIElEPSJtb2R1bGUiPgogICAgPHRpdGxlSW5m
+              bz4KICAgICAgPHRpdGxlLz4KICAgIDwvdGl0bGVJbmZvPgogICAgPGlkZW50aWZpZXIgdHlwZT0ibW9k
+              dWxlQ29kZSI+MTIzNDU8L2lkZW50aWZpZXI+CiAgICA8bm90ZSB0eXBlPSJtb2R1bGVEaXNwbGF5Ij4x
+              MjM0NSBFeGFtIHBhcGVyIGluIERlbGV0ZWQgcXVldWU8L25vdGU+CiAgPGlkZW50aWZpZXIgdHlwZT0i
+              bW9kdWxlTmFtZSI+RXhhbSBwYXBlciBpbiBEZWxldGVkIHF1ZXVlPC9pZGVudGlmaWVyPjwvcmVsYXRl
+              ZEl0ZW0+CiAgPGxvY2F0aW9uPgogICAgPHVybCB1c2FnZT0icHJpbWFyeSBkaXNwbGF5IiBhY2Nlc3M9
+              Im9iamVjdCBpbiBjb250ZXh0Ij5odHRwOi8vaHlkcmEuaHVsbC5hYy51ay9yZXNvdXJjZXMvaHVsbDo0
+              Nzc1PC91cmw+CiAgICA8dXJsIGFjY2Vzcz0icmF3IG9iamVjdCIvPgogIDwvbG9jYXRpb24+CiAgPGFj
+              Y2Vzc0NvbmRpdGlvbiB0eXBlPSJ1c2VBbmRSZXByb2R1Y3Rpb24iPiYjeEE5OyAyMDEyIFRoZSBVbml2
+              ZXJzaXR5IG9mIEh1bGwuIEFsbCByaWdodHMgcmVzZXJ2ZWQuIE5vIHBhcnQgb2YgdGhpcyBwdWJsaWNh
+              dGlvbiBtYXkgYmUgcmVwcm9kdWNlZCB3aXRob3V0IHRoZSB3cml0dGVuIHBlcm1pc3Npb24gb2YgdGhl
+              IGNvcHlyaWdodCBob2xkZXIuPC9hY2Nlc3NDb25kaXRpb24+CiAgPHJlY29yZEluZm8+CiAgICA8cmVj
+              b3JkQ29udGVudFNvdXJjZT5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9yZWNvcmRDb250ZW50U291cmNl
+              PgogICAgPHJlY29yZENyZWF0aW9uRGF0ZSBlbmNvZGluZz0idzNjZHRmIj4yMDEyLTEwLTI2PC9yZWNv
+              cmRDcmVhdGlvbkRhdGU+CiAgICA8cmVjb3JkQ2hhbmdlRGF0ZSBlbmNvZGluZz0idzNjZHRmIj4yMDEy
+              LTEwLTI2PC9yZWNvcmRDaGFuZ2VEYXRlPgogICAgPGxhbmd1YWdlT2ZDYXRhbG9naW5nPgogICAgICA8
+              bGFuZ3VhZ2VUZXJtIGF1dGhvcml0eT0iaXNvNjM5LTJiIj5lbmc8L2xhbmd1YWdlVGVybT4KICAgIDwv
+              bGFuZ3VhZ2VPZkNhdGFsb2dpbmc+CiAgPC9yZWNvcmRJbmZvPgo8L21vZHM+Cg==
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.4" LABEL="MODS metadata" CREATED="2012-10-26T11:24:17.819Z" MIMETYPE="text/xml" SIZE="2348">
+<foxml:binaryContent> 
+              PG1vZHMgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnhzaT0i
+              aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vd3d3
+              LmxvYy5nb3YvbW9kcy92MyIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LmxvYy5nb3YvbW9k
+              cy92MyBodHRwOi8vd3d3LmxvYy5nb3Yvc3RhbmRhcmRzL21vZHMvdjMvbW9kcy0zLTMueHNkIiB2ZXJz
+              aW9uPSIzLjMiPgogIDx0aXRsZUluZm8+CiAgICA8dGl0bGU+MTIzNDUgRXhhbSBwYXBlciBpbiBEZWxl
+              dGVkIHF1ZXVlIChEZWNlbWJlciAyMDEyKTwvdGl0bGU+CiAgPC90aXRsZUluZm8+CiAgPG5hbWUgdHlw
+              ZT0iY29ycG9yYXRlIj4KICAgIDxuYW1lUGFydD5JQ1REPC9uYW1lUGFydD4KICAgIDxyb2xlPgogICAg
+              ICA8cm9sZVRlcm0gdHlwZT0idGV4dCI+Y3JlYXRvcjwvcm9sZVRlcm0+CiAgICA8L3JvbGU+CiAgPC9u
+              YW1lPgogIDx0eXBlT2ZSZXNvdXJjZT50ZXh0PC90eXBlT2ZSZXNvdXJjZT4KICA8Z2VucmU+RXhhbWlu
+              YXRpb24gcGFwZXI8L2dlbnJlPgogIDxvcmlnaW5JbmZvPgogICAgPHB1Ymxpc2hlcj5UaGUgVW5pdmVy
+              c2l0eSBvZiBIdWxsPC9wdWJsaXNoZXI+CiAgICA8ZGF0ZUlzc3VlZD4yMDEyLTEyPC9kYXRlSXNzdWVk
+              PgogIDwvb3JpZ2luSW5mbz4KICA8bGFuZ3VhZ2U+CiAgICA8bGFuZ3VhZ2VUZXJtIHR5cGU9InRleHQi
+              PkVuZ2xpc2g8L2xhbmd1YWdlVGVybT4KICAgIDxsYW5ndWFnZVRlcm0gdHlwZT0iY29kZSIgYXV0aG9y
+              aXR5PSJpc282MzktMmIiPmVuZzwvbGFuZ3VhZ2VUZXJtPgogIDwvbGFuZ3VhZ2U+CiAgPG5vdGUgdHlw
+              ZT0iZXhhbWluYXRpb25MZXZlbCI+TGV2ZWwgMTwvbm90ZT4KICA8bm90ZSB0eXBlPSJhZGRpdGlvbmFs
+              Tm90ZXMiPlRoaXMgaXMgYW4gZXhhbXBsZSBvZiBleGFtIHBhcGVyIGluIHRoZSBEZWxldGVkIHF1ZXVl
+              Ljwvbm90ZT4KICA8cGh5c2ljYWxEZXNjcmlwdGlvbj4KICAgIDxleHRlbnQvPgogICAgPG1lZGlhVHlw
+              ZS8+CiAgICA8ZGlnaXRhbE9yaWdpbj5ib3JuIGRpZ2l0YWw8L2RpZ2l0YWxPcmlnaW4+CiAgPC9waHlz
+              aWNhbERlc2NyaXB0aW9uPgogIDxzdWJqZWN0IGF1dGhvcml0eT0iVW9IIj4KICAgIDx0b3BpYz5FeGFt
+              IHBhcGVyPC90b3BpYz4KICA8L3N1YmplY3Q+CiAgPGlkZW50aWZpZXIgdHlwZT0iZmVkb3JhIj5odWxs
+              OjQ3NzU8L2lkZW50aWZpZXI+CiAgPHJlbGF0ZWRJdGVtIElEPSJtb2R1bGUiPgogICAgPHRpdGxlSW5m
+              bz4KICAgICAgPHRpdGxlLz4KICAgIDwvdGl0bGVJbmZvPgogICAgPGlkZW50aWZpZXIgdHlwZT0ibW9k
+              dWxlQ29kZSI+MTIzNDU8L2lkZW50aWZpZXI+CiAgICA8bm90ZSB0eXBlPSJtb2R1bGVEaXNwbGF5Ij4x
+              MjM0NSBFeGFtIHBhcGVyIGluIERlbGV0ZWQgcXVldWU8L25vdGU+CiAgPGlkZW50aWZpZXIgdHlwZT0i
+              bW9kdWxlTmFtZSI+RXhhbSBwYXBlciBpbiBEZWxldGVkIHF1ZXVlPC9pZGVudGlmaWVyPjwvcmVsYXRl
+              ZEl0ZW0+CiAgPGxvY2F0aW9uPgogICAgPHVybCB1c2FnZT0icHJpbWFyeSBkaXNwbGF5IiBhY2Nlc3M9
+              Im9iamVjdCBpbiBjb250ZXh0Ij5odHRwOi8vaHlkcmEuaHVsbC5hYy51ay9yZXNvdXJjZXMvaHVsbDo0
+              Nzc1PC91cmw+CiAgICA8dXJsIGFjY2Vzcz0icmF3IG9iamVjdCIvPgogIDwvbG9jYXRpb24+CiAgPGFj
+              Y2Vzc0NvbmRpdGlvbiB0eXBlPSJ1c2VBbmRSZXByb2R1Y3Rpb24iPiYjeEE5OyAyMDEyIFRoZSBVbml2
+              ZXJzaXR5IG9mIEh1bGwuIEFsbCByaWdodHMgcmVzZXJ2ZWQuIE5vIHBhcnQgb2YgdGhpcyBwdWJsaWNh
+              dGlvbiBtYXkgYmUgcmVwcm9kdWNlZCB3aXRob3V0IHRoZSB3cml0dGVuIHBlcm1pc3Npb24gb2YgdGhl
+              IGNvcHlyaWdodCBob2xkZXIuPC9hY2Nlc3NDb25kaXRpb24+CiAgPHJlY29yZEluZm8+CiAgICA8cmVj
+              b3JkQ29udGVudFNvdXJjZT5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9yZWNvcmRDb250ZW50U291cmNl
+              PgogICAgPHJlY29yZENyZWF0aW9uRGF0ZSBlbmNvZGluZz0idzNjZHRmIj4yMDEyLTEwLTI2PC9yZWNv
+              cmRDcmVhdGlvbkRhdGU+CiAgICA8cmVjb3JkQ2hhbmdlRGF0ZSBlbmNvZGluZz0idzNjZHRmIj4yMDEy
+              LTEwLTI2PC9yZWNvcmRDaGFuZ2VEYXRlPgogICAgPGxhbmd1YWdlT2ZDYXRhbG9naW5nPgogICAgICA8
+              bGFuZ3VhZ2VUZXJtIGF1dGhvcml0eT0iaXNvNjM5LTJiIj5lbmc8L2xhbmd1YWdlVGVybT4KICAgIDwv
+              bGFuZ3VhZ2VPZkNhdGFsb2dpbmc+CiAgPC9yZWNvcmRJbmZvPgo8bm90ZSB0eXBlPSJhZG1pbiI+VGhp
+              cyByZXNvdXJjZSBoYXMgYmVlbiBkZWxldGVkIGR1ZSB0byBhIGNvcHlyaWdodCBpc3N1ZS48L25vdGU+
+              PC9tb2RzPgo=
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2012-10-26T11:10:14.366Z" MIMETYPE="application/rdf+xml" SIZE="811">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+  <rdf:Description rdf:about="info:fedora/hull:4775">
+    <hydra:isGovernedBy rdf:resource="info:fedora/hull:protoQueue"></hydra:isGovernedBy>
+    <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:examPaper"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:compoundContent"></fedora-model:hasModel>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:protoQueue"></rel:isMemberOf>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.1" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2012-10-26T11:11:22.677Z" MIMETYPE="application/rdf+xml" SIZE="805">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+  <rdf:Description rdf:about="info:fedora/hull:4775">
+    <hydra:isGovernedBy rdf:resource="info:fedora/hull:QAQueue"></hydra:isGovernedBy>
+    <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:examPaper"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:compoundContent"></fedora-model:hasModel>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:QAQueue"></rel:isMemberOf>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.2" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2012-10-26T11:11:34.986Z" MIMETYPE="application/rdf+xml" SIZE="880">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+  <rdf:Description rdf:about="info:fedora/hull:4775">
+    <hydra:isGovernedBy rdf:resource="info:fedora/hull:QAQueue"></hydra:isGovernedBy>
+    <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:examPaper"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:compoundContent"></fedora-model:hasModel>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:1143"></rel:isMemberOf>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:QAQueue"></rel:isMemberOf>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.3" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2012-10-26T11:20:41.883Z" MIMETYPE="application/rdf+xml" SIZE="880">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+  <rdf:Description rdf:about="info:fedora/hull:4775">
+    <hydra:isGovernedBy rdf:resource="info:fedora/hull:QAQueue"></hydra:isGovernedBy>
+    <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:examPaper"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:compoundContent"></fedora-model:hasModel>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:4756"></rel:isMemberOf>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:QAQueue"></rel:isMemberOf>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.4" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2012-10-26T11:22:17.812Z" MIMETYPE="application/rdf+xml" SIZE="799">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+  <rdf:Description rdf:about="info:fedora/hull:4775">
+    <hydra:isGovernedBy rdf:resource="info:fedora/hull:4756"></hydra:isGovernedBy>
+    <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:examPaper"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:compoundContent"></fedora-model:hasModel>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:4756"></rel:isMemberOf>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.5" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2012-10-26T11:24:17.868Z" MIMETYPE="application/rdf+xml" SIZE="799">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+  <rdf:Description rdf:about="info:fedora/hull:4775">
+    <hydra:isGovernedBy rdf:resource="info:fedora/hull:4756"></hydra:isGovernedBy>
+    <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:examPaper"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:compoundContent"></fedora-model:hasModel>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:4756"></rel:isMemberOf>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="RELS-EXT.6" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2012-10-26T11:24:24.624Z" MIMETYPE="application/rdf+xml" SIZE="890">
+<foxml:xmlContent>
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+  <rdf:Description rdf:about="info:fedora/hull:4775">
+    <hydra:isGovernedBy rdf:resource="info:fedora/hull:deletedQueue"></hydra:isGovernedBy>
+    <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:examPaper"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:compoundContent"></fedora-model:hasModel>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:4756"></rel:isMemberOf>
+    <rel:isMemberOf rdf:resource="info:fedora/hull:deletedQueue"></rel:isMemberOf>
+  </rdf:Description>
+</rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2012-10-26T11:10:14.433Z" MIMETYPE="text/xml" SIZE="535">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1" version="0.1">
+  <copyright>
+    <human></human>
+    <machine></machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <person>302922</person>
+    </machine>
+  </access>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="rightsMetadata.1" LABEL="Rights metadata" CREATED="2012-10-26T11:11:22.743Z" MIMETYPE="text/xml" SIZE="679">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+  <copyright>
+    <human></human>
+    <machine></machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <use>
+    <human></human>
+    <machine></machine>
+  </use>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="rightsMetadata.2" LABEL="Rights metadata" CREATED="2012-10-26T11:22:17.917Z" MIMETYPE="text/xml" SIZE="623">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+  <copyright>
+    <human></human>
+    <machine></machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine></machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine>
+      <group>staff</group>
+    </machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <use>
+    <human></human>
+    <machine></machine>
+  </use>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+<foxml:datastreamVersion ID="rightsMetadata.3" LABEL="Rights metadata" CREATED="2012-10-26T11:24:24.685Z" MIMETYPE="text/xml" SIZE="643">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+  <copyright>
+    <human></human>
+    <machine></machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine>
+      <group>admin</group>
+    </machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine>
+      <group>admin</group>
+    </machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <group>admin</group>
+    </machine>
+  </access>
+  <use>
+    <human></human>
+    <machine></machine>
+  </use>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-10-26T11:10:14.550Z" MIMETYPE="text/xml" SIZE="143">
+<foxml:xmlContent>
+<fields>
+  <depositorEmail>s.lamb@hull.ac.uk</depositorEmail>
+  <depositor>302922</depositor>
+  <collection>exam_paper</collection>
+</fields>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>

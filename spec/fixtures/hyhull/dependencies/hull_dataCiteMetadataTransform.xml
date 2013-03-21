@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject PID="hull:dataCiteMetadataTransform" VERSION="1.1"
+  xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+  <foxml:objectProperties>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="XSL stylesheet for transforming metadata from MODS to DataCite"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2012-04-23T14:15:35.875Z"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2012-04-24T10:00:02.692Z"/>
+  </foxml:objectProperties>
+  <foxml:datastream CONTROL_GROUP="X" ID="AUDIT" STATE="A" VERSIONABLE="false">
+    <foxml:datastreamVersion CREATED="2012-04-23T14:15:35.875Z"
+      FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit" ID="AUDIT.0" LABEL="Audit Trail for this object" MIMETYPE="text/xml">
+      <foxml:xmlContent>
+        <audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+          <audit:record ID="AUDREC1">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyObject</audit:action>
+            <audit:componentID/>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2012-04-23T14:15:48.571Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+        </audit:auditTrail>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="DC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2012-04-23T14:15:35.875Z" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/"
+      ID="DC1.0" LABEL="Dublin Core Record for this object" MIMETYPE="text/xml" SIZE="445">
+      <foxml:xmlContent>
+        <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>XSL stylesheet for transforming metadata from MODS to DataCite</dc:title>
+          <dc:identifier>hull:dataCiteMetadataTransform</dc:identifier>
+        </oai_dc:dc>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="XSL" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2012-04-24T09:58:45.366Z" ID="XSL.5" LABEL="XSL" MIMETYPE="text/xml" SIZE="5273">
+      <foxml:xmlContent>
+        <xsl:stylesheet exclude-result-prefixes="mods" version="1.0" xmlns="http://datacite.org/schema/kernel-2.2"
+          xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          <xsl:param name="format"/>
+          <xsl:output media-type="text/xml" method="xml"/>
+          <xsl:template match="/">
+            <xsl:choose>
+              <xsl:when test="$format='DataCite'">
+                <xsl:variable name="descMetadata" select="//parent::mods:mods"/>
+                <resource xsi:schemaLocation="http://datacite.org/schema/kernel-2.2 http://schema.datacite.org/meta/kernel-2.2/metadata.xsd">
+                  <xsl:if test="$descMetadata/mods:identifier[@type='doi']">
+                    <identifier identifierType="DOI">
+                      <xsl:value-of select="$descMetadata/mods:identifier[@type='doi']/text()"/>
+                    </identifier>
+                  </xsl:if>
+                  <creators>
+                    <xsl:for-each select="$descMetadata/mods:name">
+                      <xsl:choose>
+                        <xsl:when test="contains(mods:role/mods:roleTerm/text(), 'Creator')">
+                          <creator>
+                            <creatorName>
+                              <xsl:value-of select="mods:namePart/text()"/>
+                            </creatorName>
+                          </creator>
+                        </xsl:when>
+                        <xsl:when test="contains(mods:role/mods:roleTerm/text(), 'Author')">
+                          <creator>
+                            <creatorName>
+                              <xsl:value-of select="mods:namePart/text()"/>
+                            </creatorName>
+                          </creator>
+                        </xsl:when>
+                      </xsl:choose>
+                    </xsl:for-each>
+                  </creators>
+                  <titles>
+                    <title>
+                      <xsl:value-of select="$descMetadata/mods:titleInfo/mods:title/text()"/>
+                    </title>
+                    <xsl:if test="$descMetadata/mods:titleInfo/mods:subtitle">
+                      <title titleType="Subtitle">
+                        <xsl:value-of select="$descMetadata/mods:titleInfo/mods:subtitle/text()"/>
+                      </title>
+                    </xsl:if>
+                  </titles>
+                  <xsl:if test="$descMetadata/mods:titleInfo/mods:partName">
+                    <version>
+                      <xsl:value-of select="$descMetadata/mods:titleInfo/mods:partName/text()"/>
+                    </version>
+                  </xsl:if>
+                  <subjects>
+                    <xsl:for-each select="$descMetadata/mods:subject[@authority='UoH']">
+                      <xsl:for-each select="mods:topic">
+                        <subject>
+                          <xsl:value-of select="."/>
+                        </subject>
+                      </xsl:for-each>
+                    </xsl:for-each>
+                  </subjects>
+                  <publisher>
+                    <xsl:value-of select="$descMetadata/mods:originInfo/mods:publisher/text()"/>
+                  </publisher>
+                  <xsl:if test="$descMetadata/mods:originInfo/mods:dateIssued">
+                    <publicationYear>
+                      <xsl:value-of select="$descMetadata/mods:originInfo/mods:dateIssued/text()"/>
+                    </publicationYear>
+                  </xsl:if>
+                  <descriptions>
+                    <description descriptionType="other">
+                      <xsl:value-of select="$descMetadata/mods:abstract/text()"/>
+                    </description>
+                  </descriptions>
+                  <language>
+                    <xsl:value-of select="$descMetadata/mods:language/mods:languageTerm[@type='code']/text()"/>
+                  </language>
+                  <resourceType resourceTypeGeneral="Dataset">Data</resourceType>
+                  <sizes>
+                    <xsl:for-each select="$descMetadata/mods:physicalDescription/mods:extent">
+                      <size>
+                        <xsl:choose>
+                          <xsl:when test="contains(text(), 'Filesize: ')">
+                            <xsl:value-of select="substring-after(text(), 'Filesize: ')"/>
+                          </xsl:when>
+                          <xsl:otherwise>
+                            <xsl:value-of select="text()"/>
+                          </xsl:otherwise>
+                        </xsl:choose>
+                      </size>
+                    </xsl:for-each>
+                  </sizes>
+                  <formats>
+                    <xsl:for-each select="$descMetadata/mods:physicalDescription/mods:internetMediaType">
+                      <format>
+                        <xsl:value-of select="text()"/>
+                      </format>
+                    </xsl:for-each>
+                  </formats>
+                  <alternateIdentifiers>
+                    <alternateIdentifier alternateIdentifierType="Fedora">
+                      <xsl:value-of select="$descMetadata/mods:identifier/text()"/>
+                    </alternateIdentifier>
+                  </alternateIdentifiers>
+                  <xsl:if test="$descMetadata/mods:accessCondition">
+                    <rights>
+                      <xsl:value-of select="$descMetadata/mods:accessCondition/text()"/>
+                    </rights>
+                  </xsl:if>
+                </resource>
+              </xsl:when>
+              <xsl:otherwise>
+                <h>
+                  <xsl:text>Invalid Format</xsl:text>
+                </h>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:template>
+        </xsl:stylesheet>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+</foxml:digitalObject>

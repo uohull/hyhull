@@ -1,0 +1,2996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject PID="hydra-sDep:commonMetadata" VERSION="1.1" xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+  <foxml:objectProperties>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="SDep for common metadata"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE=""/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2009-09-21T15:46:11.548Z"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-01-19T15:15:35.162Z"/>
+  </foxml:objectProperties>
+  <foxml:datastream CONTROL_GROUP="X" ID="AUDIT" STATE="A" VERSIONABLE="false">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:46:11.548Z"
+      FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit" ID="AUDIT.0" LABEL="Audit Trail for this object" MIMETYPE="text/xml">
+      <foxml:xmlContent>
+        <audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+          <audit:record ID="AUDREC1">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>RELS-EXT</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2009-09-21T16:01:54.467Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC2">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>ingest</audit:action>
+            <audit:componentID/>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-10T17:32:15.807Z</audit:date>
+            <audit:justification>Ingested from local file C:\Users\Simon\Desktop\New Folder\CM\hydra-sDep_commonMetadata.xml</audit:justification>
+          </audit:record>
+          <audit:record ID="AUDREC3">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T14:50:49.544Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC4">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T14:57:28.596Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC5">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:06:40.712Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC6">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:07:45.324Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC7">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:08:07.036Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC8">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:11:41.657Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC9">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:16:16.868Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC10">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:16:57.314Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC11">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:23:43.251Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC12">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:24:21.918Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC13">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:26:58.030Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC14">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:27:02.198Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC15">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T15:43:45.799Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC16">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>DSINPUTSPEC</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T16:00:55.360Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC17">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T18:02:46.421Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC18">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T18:02:49.504Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC19">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-17T18:08:01.347Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC20">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-18T16:10:07.957Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC21">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-18T17:10:53.017Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC22">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-19T14:56:14.891Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC23">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-19T15:01:51.126Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC24">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>purgeDatastream</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-19T15:08:33.431Z</audit:date>
+            <audit:justification>DatastreamPane generated this logMessage. . . . Purged datastream (ID=METHODMAP), versions ranging from 2011-01-19T14:56:14.891Z to 2011-01-19T14:56:14.891Z.  This resulted in the permanent removal of 1 datastream version(s) (2011-01-19T14:56:14.891Z) and all associated audit records.</audit:justification>
+          </audit:record>
+          <audit:record ID="AUDREC25">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>purgeDatastream</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-19T15:09:12.003Z</audit:date>
+            <audit:justification>DatastreamPane generated this logMessage. . . . Purged datastream (ID=WSDL), versions ranging from 2011-01-19T15:01:51.126Z to 2011-01-19T15:01:51.126Z.  This resulted in the permanent removal of 1 datastream version(s) (2011-01-19T15:01:51.126Z) and all associated audit records.</audit:justification>
+          </audit:record>
+          <audit:record ID="AUDREC26">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>METHODMAP</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-19T15:12:30.915Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+          <audit:record ID="AUDREC27">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>modifyDatastreamByValue</audit:action>
+            <audit:componentID>WSDL</audit:componentID>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-19T15:15:35.162Z</audit:date>
+            <audit:justification/>
+          </audit:record>
+        </audit:auditTrail>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="RELS-EXT" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:46:12.668Z" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0"
+      ID="RELS-EXT1.0" LABEL="RDF Statements about this object" MIMETYPE="application/rdf+xml" SIZE="601">
+      <foxml:xmlContent>
+        <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+          <rdf:Description rdf:about="info:fedora/hydra-sDep:commonMetadata">
+            <fedora-model:hasModel rdf:resource="info:fedora/fedora-system:ServiceDeployment-3.0"/>
+            <fedora-model:isDeploymentOf rdf:resource="info:fedora/"/>
+            <fedora-model:isContractorOf rdf:resource="info:fedora/hydra-cModel:commonMetadata"/>
+          </rdf:Description>
+        </rdf:RDF>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2009-09-21T16:01:54.467Z" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0"
+      ID="RELS-EXT.1" LABEL="RDF Statements about this object" MIMETYPE="application/rdf+xml" SIZE="626">
+      <foxml:xmlContent>
+        <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+          <rdf:Description rdf:about="info:fedora/hydra-sDep:commonMetadata">
+            <fedora-model:hasModel rdf:resource="info:fedora/fedora-system:ServiceDeployment-3.0"/>
+            <fedora-model:isDeploymentOf rdf:resource="info:fedora/hydra-sDef:commonMetadata"/>
+            <fedora-model:isContractorOf rdf:resource="info:fedora/hydra-cModel:commonMetadata"/>
+          </rdf:Description>
+        </rdf:RDF>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="METHODMAP" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:46:12.668Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP1.0" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="2678">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getDC" wsdlMsgName="getDCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="DC" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getDescMetadata" wsdlMsgName="getDescMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getRightsMetadata" wsdlMsgName="getRightsMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T14:50:49.544Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP.1" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="3209">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getDC" wsdlMsgName="getDCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="DC" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getDescMetadata" wsdlMsgName="getDescMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getRightsMetadata" wsdlMsgName="getRightsMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:Method operationLabel="Get the Metadata block in a format" operationName="getMetadata"
+            wsdlMsgName="getMetadataRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="oai_dc" label="metatadata format" parmName="format" passBy="VALUE" required="true">
+              <fmm:ValidParmValues>
+                <fmm:ValidParm value="oai_dc"/>
+              </fmm:ValidParmValues>
+            </fmm:UserInputParm>
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="true"/>
+            <fmm:DatastreamInputParm parmName="MD_TRANS_XSL" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:06:40.712Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP.2" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="3209">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getDC" wsdlMsgName="getDCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="DC" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getDescMetadata" wsdlMsgName="getDescMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getRightsMetadata" wsdlMsgName="getRightsMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:Method operationLabel="Get the Metadata block in a format" operationName="getMetadata"
+            wsdlMsgName="getMetadataRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="oai_dc" label="Metatadata format" parmName="format" passBy="VALUE" required="TRUE">
+              <fmm:ValidParmValues>
+                <fmm:ValidParm value="oai_dc"/>
+              </fmm:ValidParmValues>
+            </fmm:UserInputParm>
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:DatastreamInputParm parmName="MD_TRANS_XSL" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:07:45.324Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP.3" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="3203">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getDC" wsdlMsgName="getDCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="DC" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getDescMetadata" wsdlMsgName="getDescMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getRightsMetadata" wsdlMsgName="getRightsMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:Method operationLabel="Get the Metadata block in a format" operationName="getMetadata"
+            wsdlMsgName="getMetadataRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="oai_dc" label="Metatadata format" parmName="format" passBy="VALUE" required="TRUE">
+              <fmm:ValidParmValues>
+                <fmm:ValidParm value="oai_dc"/>
+              </fmm:ValidParmValues>
+            </fmm:UserInputParm>
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:DatastreamInputParm parmName="MD_TRANS_XSL" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:08:07.036Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP.4" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="3197">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getDC" wsdlMsgName="getDCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="DC" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getDescMetadata" wsdlMsgName="getDescMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getRightsMetadata" wsdlMsgName="getRightsMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:Method operationLabel="Get the Metadata block in a format" operationName="getMetadata"
+            wsdlMsgName="getMetadataRequest" wsdlMsgOutput="response">
+            <fmm:UserInputParm defaultValue="oai_dc" label="Metatadata format" parmName="format" passBy="VALUE" required="TRUE">
+              <fmm:ValidParmValues>
+                <fmm:ValidParm value="oai_dc"/>
+              </fmm:ValidParmValues>
+            </fmm:UserInputParm>
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:DatastreamInputParm parmName="MD_TRANS_XSL" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:24:21.918Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP.5" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="2446">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getDC" wsdlMsgName="getDCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="DC" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getDescMetadata" wsdlMsgName="getDescMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getRightsMetadata" wsdlMsgName="getRightsMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:26:58.030Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP.6" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="3197">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getDC" wsdlMsgName="getDCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="DC" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getDescMetadata" wsdlMsgName="getDescMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getRightsMetadata" wsdlMsgName="getRightsMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:Method operationLabel="Get the Metadata block in a format" operationName="getMetadata"
+            wsdlMsgName="getMetadataRequest" wsdlMsgOutput="response">
+            <fmm:UserInputParm defaultValue="oai_dc" label="Metatadata format" parmName="format" passBy="VALUE" required="TRUE">
+              <fmm:ValidParmValues>
+                <fmm:ValidParm value="oai_dc"/>
+              </fmm:ValidParmValues>
+            </fmm:UserInputParm>
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:DatastreamInputParm parmName="MD_TRANS_XSL" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:27:02.198Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP.7" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="3197">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getDC" wsdlMsgName="getDCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="DC" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getDescMetadata" wsdlMsgName="getDescMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getRightsMetadata" wsdlMsgName="getRightsMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:Method operationLabel="Get the Metadata block in a format" operationName="getMetadata"
+            wsdlMsgName="getMetadataRequest" wsdlMsgOutput="response">
+            <fmm:UserInputParm defaultValue="oai_dc" label="Metatadata format" parmName="format" passBy="VALUE" required="TRUE">
+              <fmm:ValidParmValues>
+                <fmm:ValidParm value="oai_dc"/>
+              </fmm:ValidParmValues>
+            </fmm:UserInputParm>
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:DatastreamInputParm parmName="MD_TRANS_XSL" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-19T15:12:30.915Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP.8" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="3684">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getDC" wsdlMsgName="getDCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="DC" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:Method operationLabel="Get the OAI_DC from descMetadata" operationName="getOAI_DC"
+            wsdlMsgName="getOAI_DCRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:DatastreamInputParm parmName="MD_TRANS_XSL" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:method operationName="getDescMetadata" wsdlMsgName="getDescMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getRightsMetadata" wsdlMsgName="getRightsMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:Method operationLabel="Get the Metadata block in a format" operationName="getMetadata"
+            wsdlMsgName="getMetadataRequest" wsdlMsgOutput="response">
+            <fmm:UserInputParm defaultValue="oai_dc" label="Metatadata format" parmName="format" passBy="VALUE" required="TRUE">
+              <fmm:ValidParmValues>
+                <fmm:ValidParm value="oai_dc"/>
+              </fmm:ValidParmValues>
+            </fmm:UserInputParm>
+            <fmm:DatastreamInputParm parmName="descMetadata" passBy="URL_REF" required="TRUE"/>
+            <fmm:DatastreamInputParm parmName="MD_TRANS_XSL" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="DSINPUTSPEC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:46:12.668Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraDSInputSpec-1.1" ID="DSINPUTSPEC1.0"
+      LABEL="Datastream Input Specification" MIMETYPE="text/xml" SIZE="2085">
+      <foxml:xmlContent>
+        <fbs:DSInputSpec label="N/A" xmlns:fbs="http://fedora.comm.nsdlib.org/service/bindspec">
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="DC">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="descMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="rightsMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="contentMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="technicalMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="provenanceMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="sourceMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+        </fbs:DSInputSpec>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T16:00:55.360Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraDSInputSpec-1.1" ID="DSINPUTSPEC.1"
+      LABEL="Datastream Input Specification" MIMETYPE="text/xml" SIZE="2050">
+      <foxml:xmlContent>
+        <fbs:DSInputSpec label="N/A" xmlns:fbs="http://fedora.comm.nsdlib.org/service/bindspec">
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="DC">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="descMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="rightsMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="contentMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="technicalMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="provenanceMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="sourceMetadata">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="MD_TRANS_XSL">
+            <fbs:DSInputLabel>XSL Stylesheet</fbs:DSInputLabel>
+            <fbs:DSMIME>text/xml</fbs:DSMIME>
+            <fbs:DSInputInstruction/>
+          </fbs:DSInput>
+        </fbs:DSInputSpec>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="WSDL" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:46:12.676Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL1.0" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="7570">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T14:57:28.596Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.1" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="7378">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+              <xsd:simpleType name="source">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="descMetadata"/>
+                  <xsd:enumeration value="UKETD_DC"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+              <xsd:simpleType name="sourceType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="styleType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:styleType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+            <wsdl:part name="source" type="this:source"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:portType name="metadataOperationsPortType">
+              <wsdl:operation name="getMetadata">
+                <wsdl:input message="this:getMetadataRequest"/>
+                <wsdl:output message="this:response"/>
+              </wsdl:operation>
+            </wsdl:portType>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hull%3AMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:11:41.657Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.2" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="7116">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+              <xsd:simpleType name="sourceType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="styleType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:styleType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+            <wsdl:part name="source" type="this:source"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:portType name="metadataOperationsPortType">
+              <wsdl:operation name="getMetadata">
+                <wsdl:input message="this:getMetadataRequest"/>
+                <wsdl:output message="this:response"/>
+              </wsdl:operation>
+            </wsdl:portType>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hull%3AMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:16:16.868Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.3" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="7055">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+              <xsd:simpleType name="sourceType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="styleType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:styleType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:portType name="metadataOperationsPortType">
+              <wsdl:operation name="getMetadata">
+                <wsdl:input message="this:getMetadataRequest"/>
+                <wsdl:output message="this:response"/>
+              </wsdl:operation>
+            </wsdl:portType>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hull%3AMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:16:57.314Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.4" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="7055">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+              <xsd:simpleType name="sourceType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="styleType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:styleType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:portType name="metadataOperationsPortType">
+              <wsdl:operation name="getMetadata">
+                <wsdl:input message="this:getMetadataRequest"/>
+                <wsdl:output message="this:response"/>
+              </wsdl:operation>
+            </wsdl:portType>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hull%3AMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:23:43.251Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.5" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="6362">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T15:43:45.799Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.6" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="6972">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+              <xsd:simpleType name="sourceType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="styleType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:styleType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <wsdl:input message="this:getMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hull%3AMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T18:02:46.421Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.7" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="6994">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+              <xsd:simpleType name="sourceType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="styleType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:styleType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <wsdl:input message="this:getMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="http://localhost:8983/"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hull%3AMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T18:02:49.504Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.8" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="6994">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+              <xsd:simpleType name="sourceType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="styleType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:styleType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <wsdl:input message="this:getMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="http://localhost:8983/"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hull%3AMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-17T18:08:01.347Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.9" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="6999">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+              <xsd:simpleType name="sourceType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="styleType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:styleType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <wsdl:input message="this:getMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hull%3AMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-18T16:10:07.957Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.10" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="6746">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:inputType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <wsdl:input message="this:getMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hull%3AMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-18T17:10:53.017Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.11" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="6753">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:inputType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <wsdl:input message="this:getMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hydra%3AcommonMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+    <foxml:datastreamVersion CREATED="2011-01-19T15:15:35.162Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL.12" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="7586">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="formatType">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="oai_dc"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getDCRequest">
+            <wsdl:part name="DC" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getOAI_DCRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getDescMetadataRequest">
+            <wsdl:part name="descMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getRightsMetadataRequest">
+            <wsdl:part name="rightsMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getContentMetadataRequest">
+            <wsdl:part name="contentMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getTechnicalMetadataRequest">
+            <wsdl:part name="technicalMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getProvenanceMetadataRequest">
+            <wsdl:part name="provenanceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getSourceMetadataRequest">
+            <wsdl:part name="sourceMetadata" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="getMetadataRequest">
+            <wsdl:part name="MD_TRANS_XSL" type="this:inputType"/>
+            <wsdl:part name="format" type="this:formatType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getDC">
+              <wsdl:input message="this:getDCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getOAI_DC">
+              <wsdl:input message="this:getOAI_DCRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <wsdl:input message="this:getDescMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <wsdl:input message="this:getRightsMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <wsdl:input message="this:getContentMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <wsdl:input message="this:getTechnicalMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <wsdl:input message="this:getProvenanceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <wsdl:input message="this:getSourceMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <wsdl:input message="this:getMetadataRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getDC">
+              <http:operation location="(DC)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getOAI_DC">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hydra%3AcommonMetadataTransform/datastreams/XSL/content&amp;format=oai_dc&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getDescMetadata">
+              <http:operation location="(descMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getRightsMetadata">
+              <http:operation location="(rightsMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getContentMetadata">
+              <http:operation location="(contentMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTechnicalMetadata">
+              <http:operation location="(technicalMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getProvenanceMetadata">
+              <http:operation location="(provenanceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getSourceMetadata">
+              <http:operation location="(sourceMetadata)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getMetadata">
+              <http:operation location="http://localhost:8983/saxon/SaxonServlet?source=(descMetadata)&amp;style=http://localhost:8983/fedora-test/objects/hydra%3AcommonMetadataTransform/datastreams/XSL/content&amp;format=(format)&amp;clear-stylesheet-cache=yes"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="DC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:46:11.548Z" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/"
+      ID="DC1.0" LABEL="Dublin Core Record for this object" MIMETYPE="text/xml" SIZE="402">
+      <foxml:xmlContent>
+        <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>SDep for common metadata</dc:title>
+          <dc:identifier>hydra-sDep:commonMetadata</dc:identifier>
+        </oai_dc:dc>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+</foxml:digitalObject>

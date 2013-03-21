@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="hull:ETDAccounting"
+xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Set object for ETD accounting"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2012-01-04T09:33:20.594Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2012-01-04T09:38:51.452Z"/>
+</foxml:objectProperties>
+<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2012-01-04T09:33:20.594Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+<foxml:xmlContent>
+<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+<audit:record ID="AUDREC1">
+<audit:process type="Fedora API-M"/>
+<audit:action>ingestObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2010-11-18T16:34:24.283Z</audit:date>
+<audit:justification>Created with Admin GUI &quot;New Object&quot; command</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC2">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>SetInfo.xml</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2010-11-18T16:36:10.458Z</audit:date>
+<audit:justification>DatastreamsPane generated this logMessage.</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC3">
+<audit:process type="Fedora API-M"/>
+<audit:action>addDatastream</audit:action>
+<audit:componentID>RELS-EXT</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2010-11-18T16:37:11.617Z</audit:date>
+<audit:justification>DatastreamsPane generated this logMessage.</audit:justification>
+</audit:record>
+<audit:record ID="AUDREC4">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2012-01-04T09:38:51.452Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+</audit:auditTrail>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="SetInfo.xml" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="SetInfo.xml.0" LABEL="Set information" CREATED="2010-11-18T16:36:10.458Z" MIMETYPE="text/xml" SIZE="425">
+<foxml:xmlContent>
+<setDescriptions>
+          <setDescription>
+            <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+              <dc:description>The set of ETD (electronic theses and dissertations) items for Accounting in the University of Hull Institutional Repository</dc:description>
+            </oai_dc:dc>
+          </setDescription>
+        </setDescriptions>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Metadata" CREATED="2010-11-18T16:34:24.283Z" MIMETYPE="text/xml" SIZE="400">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>Set object for ETD accounting</dc:title>
+  <dc:identifier>hull:ETDAccounting</dc:identifier>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Externals" CREATED="2010-11-18T16:37:11.617Z" MIMETYPE="text/xml" SIZE="703">
+<foxml:xmlContent>
+<rdf:RDF xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#">
+          <rdf:Description rdf:about="info:fedora/hull:ETDAccounting">
+						<fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:harvestingSet"></fedora-model:hasModel>
+						<rel:isMemberOf rdf:resource="info:fedora/hull:ETD"></rel:isMemberOf>
+					  <oai:setSpec>ETD:Accounting</oai:setSpec>
+            <oai:setName>ETD objects - Accounting</oai:setName>
+          </rdf:Description>
+        </rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2011-06-03T11:06:37.367Z" MIMETYPE="text/xml" SIZE="679">
+<foxml:xmlContent>
+<rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
+  <copyright>
+    <human></human>
+    <machine></machine>
+  </copyright>
+  <access type="discover">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <access type="read">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <access type="edit">
+    <human></human>
+    <machine>
+      <group>contentAccessTeam</group>
+    </machine>
+  </access>
+  <use>
+    <human></human>
+    <machine></machine>
+  </use>
+  <embargo>
+    <human></human>
+    <machine></machine>
+  </embargo>
+</rightsMetadata>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
+<foxml:datastreamVersion ID="descMetadata.1" LABEL="MODS metadata" CREATED="2012-01-04T09:38:51.452Z" MIMETYPE="text/xml" SIZE="1035">
+<foxml:binaryContent> 
+              PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NDQ08bW9kcyB4c2k6c2NoZW1hTG9j
+              YXRpb249Imh0dHA6Ly93d3cubG9jLmdvdi9tb2RzL3YzIGh0dHA6Ly93d3cubG9jLmdvdi9zdGFuZGFy
+              ZHMvbW9kcy92My9tb2RzLTMtNC54c2QiIHhtbG5zPSJodHRwOi8vd3d3LmxvYy5nb3YvbW9kcy92MyIg
+              eG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+DQ0NICA8
+              dGl0bGVJbmZvPg0NDSAgICA8dGl0bGU+QWNjb3VudGluZzwvdGl0bGU+DQ0NICA8L3RpdGxlSW5mbz4N
+              DQ0gIDx0eXBlT2ZSZXNvdXJjZSBjb2xsZWN0aW9uPSJ5ZXMiPm1peGVkIG1hdGVyaWFsPC90eXBlT2ZS
+              ZXNvdXJjZT4NDQ0gIDxnZW5yZT5IYXJ2ZXN0aW5nIHNldDwvZ2VucmU+DQ0NICA8b3JpZ2luSW5mbz4N
+              DQ0gICAgPHB1Ymxpc2hlcj5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9wdWJsaXNoZXI+DQ0NICA8L29y
+              aWdpbkluZm8+DQ0NICA8c3ViamVjdCBhdXRob3JpdHk9IlVvSCIgLz4NDQ0gIDxpZGVudGlmaWVyIHR5
+              cGU9ImZlZG9yYSI+aHVsbDpFVERBY2NvdW50aW5nPC9pZGVudGlmaWVyPg0NDSAgPGxvY2F0aW9uPg0N
+              DSAgICA8dXJsIGFjY2Vzcz0icmF3IG9iamVjdCI+aHR0cDovL2h5ZHJhLmh1bGwuYWMudWsvcmVzb3Vy
+              Y2VzL2h1bGw6RVREQWNjb3VudGluZzwvdXJsPg0NDSAgPC9sb2NhdGlvbj4NDQ0gIDxyZWNvcmRJbmZv
+              Pg0NDSAgICA8cmVjb3JkQ29udGVudFNvdXJjZT5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9yZWNvcmRD
+              b250ZW50U291cmNlPg0NDSAgICA8cmVjb3JkQ3JlYXRpb25EYXRlIGVuY29kaW5nPSJ3M2NkdGYiIC8+
+              DQ0NICAgIDxyZWNvcmRDaGFuZ2VEYXRlIGVuY29kaW5nPSJ3M2NkdGYiIC8+DQ0NICAgIDxsYW5ndWFn
+              ZU9mQ2F0YWxvZ2luZz4NDQ0gICAgICA8bGFuZ3VhZ2VUZXJtIGF1dGhvcml0eT0iaXNvNjM5LTJiIj5l
+              bmc8L2xhbmd1YWdlVGVybT4NDQ0gICAgPC9sYW5ndWFnZU9mQ2F0YWxvZ2luZz4NDQ0gIDwvcmVjb3Jk
+              SW5mbz4NDQ08L21vZHM+
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>

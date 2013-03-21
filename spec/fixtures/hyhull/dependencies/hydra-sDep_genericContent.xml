@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject PID="hydra-sDep:genericContent" VERSION="1.1" xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+  <foxml:objectProperties>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="SDep for generic content"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE=""/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2009-09-21T15:45:30.233Z"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-01-10T17:32:16.412Z"/>
+  </foxml:objectProperties>
+  <foxml:datastream CONTROL_GROUP="X" ID="AUDIT" STATE="A" VERSIONABLE="false">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:45:30.233Z"
+      FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit" ID="AUDIT.0" LABEL="Audit Trail for this object" MIMETYPE="text/xml">
+      <foxml:xmlContent>
+        <audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+          <audit:record ID="AUDREC1">
+            <audit:process type="Fedora API-M"/>
+            <audit:action>ingest</audit:action>
+            <audit:componentID/>
+            <audit:responsibility>fedoraAdmin</audit:responsibility>
+            <audit:date>2011-01-10T17:32:16.412Z</audit:date>
+            <audit:justification>Ingested from local file C:\Users\Simon\Desktop\New Folder\CM\hydra-sDep_genericContent.xml</audit:justification>
+          </audit:record>
+        </audit:auditTrail>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="RELS-EXT" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:45:30.499Z" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0"
+      ID="RELS-EXT1.0" LABEL="RDF Statements about this object" MIMETYPE="application/rdf+xml" SIZE="626">
+      <foxml:xmlContent>
+        <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+          <rdf:Description rdf:about="info:fedora/hydra-sDep:genericContent">
+            <fedora-model:hasModel rdf:resource="info:fedora/fedora-system:ServiceDeployment-3.0"/>
+            <fedora-model:isDeploymentOf rdf:resource="info:fedora/hydra-sDef:genericContent"/>
+            <fedora-model:isContractorOf rdf:resource="info:fedora/hydra-cModel:genericContent"/>
+          </rdf:Description>
+        </rdf:RDF>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="METHODMAP" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:45:30.499Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraSDepMethodMap-1.1" ID="METHODMAP1.0" LABEL="Deployment Method Map"
+      MIMETYPE="text/xml" SIZE="461">
+      <foxml:xmlContent>
+        <fmm:MethodMap name="N/A" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:method operationName="getContent" wsdlMsgName="getContentRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="content" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+          <fmm:method operationName="getOriginal" wsdlMsgName="getOriginalRequest" wsdlMsgOutput="response">
+            <fmm:DatastreamInputParm parmName="original" passBy="URL_REF" required="TRUE"/>
+            <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"/>
+          </fmm:method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="DSINPUTSPEC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:45:30.499Z"
+      FORMAT_URI="info:fedora/fedora-system:FedoraDSInputSpec-1.1" ID="DSINPUTSPEC1.0"
+      LABEL="Datastream Input Specification" MIMETYPE="text/xml" SIZE="392">
+      <foxml:xmlContent>
+        <fbs:DSInputSpec label="N/A" xmlns:fbs="http://fedora.comm.nsdlib.org/service/bindspec">
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="content">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+          <fbs:DSInput DSMax="1" DSMin="0" DSOrdinality="false" wsdlMsgPartName="original">
+            <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+            <fbs:DSMIME>N/A</fbs:DSMIME>
+            <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+          </fbs:DSInput>
+        </fbs:DSInputSpec>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="WSDL" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:45:30.507Z" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/"
+      ID="WSDL1.0" LABEL="WSDL Bindings" MIMETYPE="text/xml" SIZE="2014">
+      <foxml:xmlContent>
+        <wsdl:definitions name="N/A" targetNamespace="urn:thisNamespace"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="urn:thisNamespace"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="urn:thisNamespace">
+              <xsd:simpleType name="inputType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getContentRequest">
+            <wsdl:part name="content" type="this:inputType"/>
+          </wsdl:message>
+           <wsdl:message name="getOriginalRequest">
+            <wsdl:part name="original" type="this:inputType"/>
+          </wsdl:message>
+          <wsdl:message name="response">
+            <wsdl:part name="response" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="portType">
+            <wsdl:operation name="getContent">
+              <wsdl:input message="this:getContentRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+            <wsdl:operation name="getOriginal">
+              <wsdl:input message="this:getOriginalRequest"/>
+              <wsdl:output message="this:response"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="N/A">
+            <wsdl:port binding="this:binding" name="port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="binding" type="this:portType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getContent">
+              <http:operation location="(content)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getOriginal">
+              <http:operation location="(original)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="N/A"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="DC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2009-09-21T15:45:30.233Z" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/"
+      ID="DC1.0" LABEL="Dublin Core Record for this object" MIMETYPE="text/xml" SIZE="402">
+      <foxml:xmlContent>
+        <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>SDep for generic content</dc:title>
+          <dc:identifier>hydra-sDep:genericContent</dc:identifier>
+        </oai_dc:dc>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+</foxml:digitalObject>

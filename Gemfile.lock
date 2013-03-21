@@ -253,6 +253,8 @@ GEM
       om (>= 1.5.0)
       stomp
       xml-simple
+    solrizer-fedora (2.3.1)
+      active-fedora
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -297,6 +299,7 @@ DEPENDENCIES
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)
+  solrizer-fedora (~> 2.3.1)
   sqlite3
   therubyracer
   uglifier (>= 1.0.3)
