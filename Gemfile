@@ -10,6 +10,8 @@ gem 'hydra-head', '~> 5.4.0'
 gem 'sqlite3'
 gem 'solrizer-fedora', '~> 2.3.1'
 
+#devise_cas_authenticable is used to enable CAS integration
+gem 'devise_cas_authenticatable', '~> 1.2.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,13 +27,15 @@ group :assets do
 end
 
 group :development, :test do
+ gem 'debugger', '~> 1.5.0'
  gem 'jettywrapper'
 end
 
 group :test do 
   gem 'rspec-rails'
-  gem "cucumber-rails"
-  gem "database_cleaner"
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 
