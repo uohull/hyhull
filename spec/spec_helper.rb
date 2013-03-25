@@ -35,4 +35,9 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+
+  def fixture(file)
+    File.new(File.join(File.dirname(__FILE__), 'fixtures', file))
+  end
 end

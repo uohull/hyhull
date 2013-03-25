@@ -1,0 +1,57 @@
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>My dissertation on the results of...</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart>Smith, John A.</namePart>
+    <role>
+      <roleTerm type="text">creator</roleTerm>
+    </role>
+  </name>
+  <name type="personal">
+    <namePart>Supervisor A.</namePart>
+    <role>
+      <roleTerm type="text">Supervisor</roleTerm>
+    </role>
+  </name>
+  <name type="corporate">
+    <namePart>Sponsor, A B.</namePart>
+    <role>
+      <roleTerm type="text">sponsor</roleTerm>
+    </role>
+  </name>
+  <typeOfResource>text</typeOfResource>
+  <genre>Thesis or dissertation</genre>
+  <originInfo>
+    <publisher>ICTD, University of Hull</publisher>
+    <dateIssued>2001-03</dateIssued>
+  </originInfo>
+  <language>
+    <languageTerm type="text">English</languageTerm>
+    <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+  </language>
+  <physicalDescription>
+    <extent>Filesize: 64 MB</extent>
+    <digitalOrigin>born digital</digitalOrigin>
+    <internetMediaType>application/pdf</internetMediaType>
+  </physicalDescription>
+  <abstract>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</abstract>
+  <subject authority="UoH">
+    <topic>Something quite complicated</topic>
+  </subject>
+  <identifier type="fedora">hull-test:132</identifier>
+  <location>
+    <url usage="primary display" access="object in context">http://hydra.hull.ac.uk/resources/hull-test:132</url>
+    <url access="raw object">http://hydra.hull.ac.uk/assets/hull-test:132a/content</url>
+  </location>
+  <identifier type="grantNumber">GN:09879</identifier>
+  <accessCondition type="useAndReproduction">&#xA9; 2001 The Author. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</accessCondition>
+  <recordInfo>
+    <recordContentSource>The University of Hull</recordContentSource>
+    <recordCreationDate encoding="w3cdtf">2013-02-18</recordCreationDate>
+    <recordChangeDate encoding="w3cdtf">2013-03-25</recordChangeDate>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">eng</languageTerm>
+    </languageOfCataloging>
+  </recordInfo>
+<note type="qualificationLevel">Doctoral</note><note type="qualificationName">PhD</note><identifier type="ethos">Uk.bl.1234</identifier></mods>
