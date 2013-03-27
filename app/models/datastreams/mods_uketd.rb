@@ -9,6 +9,13 @@
       t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
     } 
 
+    t.author(:path=>"name", :attributes=>{:type=>"personal"}) {
+      t.name(:path=>"namePart", :label=>"generic name")
+      t.role {
+        t.text(:part=>"roleTerm", :attributes=>{:type=>"text"})
+      }
+    }
+
     t.language(:path=>"language"){
       t.lang_text(:path=>"languageTerm", :attributes=>{:type=>"text"})
       t.lang_code(:index_as=>[:facetable], :path=>"languageTerm", :attributes=>{:type=>"code"})
@@ -20,14 +27,6 @@
       t.topic(:index_as=>[:facetable])
     }
     t.topic_tag(:index_as=>[:facetable],:path=>"subject", :default_content_path=>"topic") 
-
-
-    t.author(:path=>"name", :attributes=>{:type=>"personal"}) {
-      t.name(:path=>"namePart", :label=>"generic name")
-      t.role {
-        t.text(:part=>"roleTerm", :attributes=>{:type=>"text"})
-      }
-    }
 
     # This is a mods:name.  The underscore is purely to avoid namespace conflicts.
     t.name_ {
@@ -90,16 +89,13 @@
       t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
      }
 
-    t.author_path(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="creator"]')
-    t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
-    t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
+   # t.author_path(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="creator"]')
+   # t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
+   # t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
 
 
     #Proxies for terminologies   
-    t.title(:proxy=>[:mods, :title_info, :main_title]) 
-    t.author_name(:proxy=>[:author_path, :namePart])
-    t.supervisor_name(:proxy=>[:supervisor, :namePart])
-    t.sponsor_name(:proxy=>[:sponsor, :namePart])
+    t.title(:proxy=>[:title_info, :main_title])     
     t.subject_topic(:proxy=>[:subject, :topic])
     t.date_issued(:proxy=>[:origin_info, :date_issued])
     t.date_valid(:proxy=>[:origin_info, :date_valid])
@@ -171,10 +167,10 @@
     return builder.doc
   end    
     
-  def to_solr(solr_doc=Hash.new)
-    super(solr_doc)
-    solr_doc.merge!("object_type_facet"=> "Thesis or dissertation")
-    solr_doc
-  end
+ # def to_solr(solr_doc=Hash.new)
+ #   super(solr_doc)
+ #   solr_doc.merge!("object_type_facet"=> "Thesis or dissertation")
+ #   solr_doc
+ # end
 
 end

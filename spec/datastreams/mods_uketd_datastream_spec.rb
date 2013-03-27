@@ -11,9 +11,6 @@ describe ModsUketd do
     @ds.mods.title_info.main_title.should == ["My dissertation on the results of..."]    
     @ds.title.should == ["My dissertation on the results of..."]
     @ds.abstract.should == ["Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
-    @ds.author_name == ["Smith, John A."]
-    @ds.supervisor_name == ["Supervisor A."]
-    @ds.sponsor_name == ["Sponsor, A B."]
     @ds.subject_topic == ["Something quite complicated"]
     @ds.topic_tag == ["Something quite complicated"]
     @ds.rights == ["&#xA9; 2001 The Author. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder."]
@@ -29,6 +26,7 @@ describe ModsUketd do
     @ds.record_creation_date == ["2013-02-18"]
     @ds.record_change_date == ["2013-03-25"]
     @ds.language_text == ["English"]
+
   end
   
   it "should expose nested/hierarchical metadata" do

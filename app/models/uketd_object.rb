@@ -2,6 +2,7 @@
 # Fedora object for the uketd ETD content type
 class UketdObject < ActiveFedora::Base
 	include Hydra::ModelMethods
+	include Hyhull::ModelMethods
 
 	has_metadata :name => "descMetadata", :type => ModsUketd
 	has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata
@@ -9,7 +10,7 @@ class UketdObject < ActiveFedora::Base
 	#Delegate these attributes to the respective datastream
 	#Unique fields
 	delegate :title, :to=>"descMetadata", :unique=>"true"
-	delegate :author_name, :to=>"descMetadata", :unique=>"true"
+	#delegate :author_name, :to=>"descMetadata", :unique=>"true"
 	delegate :abstract, :to=>"descMetadata", :unique=>"true"
 	delegate :date_issued, :to=>"descMetadata", :unique=>"true"
 	delegate :date_valid, :to=>"descMetadata", :unique=>"true"
@@ -34,8 +35,8 @@ class UketdObject < ActiveFedora::Base
 
  	#Non-unique fields
   delegate :subject_topic, :to=>"descMetadata", :unique=>"false"
-  delegate :supervisor_name, :to=>"descMetadata", :unique=>"false"
-  delegate :sponsor_name, :to=>"descMetadata", :unique=>"false"
+  #delegate :supervisor_name, :to=>"descMetadata", :unique=>"false"
+  #delegate :sponsor_name, :to=>"descMetadata", :unique=>"false"
   delegate :grant_number, :to=>"descMetadata", :unique=>"false"
 
 end

@@ -6,6 +6,9 @@ Hyhull::Application.routes.draw do
 
   devise_for :users
 
+
+  resources :uketd_objects
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
