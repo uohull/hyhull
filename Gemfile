@@ -26,9 +26,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'debugger', '~> 1.5.0'
+end
+
 group :development, :test do
- gem 'debugger', '~> 1.5.0'
- gem 'jettywrapper'
+  gem 'jettywrapper'
 end
 
 group :test do 
