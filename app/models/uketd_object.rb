@@ -27,17 +27,17 @@ class UketdObject < ActiveFedora::Base
 	delegate :mime_type, :to=>"descMetadata", :unique=>"true"
 	delegate :digital_origin, :to=>"descMetadata", :unique=>"true"
 	delegate :identifier, :to=>"descMetadata", :unique=>"true"
-  delegate :primary_display_url, :to=>"descMetadata", :unique=>"true"
-  delegate :raw_object_url, :to=>"descMetadata", :unique=>"true"
-  delegate :extent, :to=>"descMetadata", :unique=>"true"
-  delegate :record_creation_date, :to=>"descMetadata", :unique=>"true"
-  delegate :record_change_date, :to=>"descMetadata", :unique=>"true"
+	delegate :primary_display_url, :to=>"descMetadata", :unique=>"true"
+	delegate :raw_object_url, :to=>"descMetadata", :unique=>"true"
+	delegate :extent, :to=>"descMetadata", :unique=>"true"
+	delegate :record_creation_date, :to=>"descMetadata", :unique=>"true"
+	delegate :record_change_date, :to=>"descMetadata", :unique=>"true"
 
- 	#Non-unique fields
-  delegate :subject_topic, :to=>"descMetadata", :unique=>"false"
-  #delegate :supervisor_name, :to=>"descMetadata", :unique=>"false"
-  #delegate :sponsor_name, :to=>"descMetadata", :unique=>"false"
-  delegate :grant_number, :to=>"descMetadata", :unique=>"false"
+	#Non-unique fields
+	delegate :subject_topic, :to=>"descMetadata", :unique=>"false"
+	#delegate :supervisor_name, :to=>"descMetadata", :unique=>"false"
+	#delegate :sponsor_name, :to=>"descMetadata", :unique=>"false"
+	delegate :grant_number, :to=>"descMetadata", :unique=>"false"
 
 end
 
