@@ -6,6 +6,10 @@ hydra project site: "http://projecthydra.org/":http://projecthydra.org/
 hydra gem: "https://github.com/projecthydra/hydra":https://github.com/projecthydra/hydra
 hydra-head gem: "https://github.com/projecthydra/hydra-head":https://github.com/projecthydra/hydra-head 
 
+h2. Code Status
+
+!https://travis-ci.org/simonlamb/hyhull.png?branch=master!:https://travis-ci.org/simonlamb/hyhull
+
 h2. Installation/Setup
 
 h3. Installation Prerequisites
