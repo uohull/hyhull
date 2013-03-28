@@ -37,4 +37,12 @@ describe RoleMapper do
    RoleMapper.whois('stimutax salesman').empty?.should == true
  end
 
+ after(:all) do
+  #delete_all_users
+  delete_all_users
+
+  #Delete the roles
+  delete_all_roles
+ end 
+
 end
