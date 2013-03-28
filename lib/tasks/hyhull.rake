@@ -107,6 +107,9 @@ namespace :hyhull do
 
 end
 
+#Make hyhull:test the default rake task
+task :default => ["hyhull:test"]
+
 def fixture_files
   Dir.glob(File.join("#{Rails.root}","spec","fixtures", "hyhull", "objects", Rails.env, "*.xml")) +
   Dir.glob(File.join("#{Rails.root}","spec","fixtures","hyhull", "objects", "*.xml"))
