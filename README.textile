@@ -1,0 +1,71 @@
+h1. Hydra at Hull
+
+Hydra project at the University of Hull.  This is the hyhull repo based upon the latest the hydra software, for more information about the Hydra project see:-
+
+hydra project site: "http://projecthydra.org/":http://projecthydra.org/
+hydra gem: "https://github.com/projecthydra/hydra":https://github.com/projecthydra/hydra
+hydra-head gem: "https://github.com/projecthydra/hydra-head":https://github.com/projecthydra/hydra-head 
+
+h2. Installation/Setup
+
+h3. Installation Prerequisites
+
+<pre>
+git checkout git@github.com:uohull/hyhull.git
+</pre>
+
+change the current directory to "hyhull"
+
+Install hydra-jetty (this may take several minutes):
+<pre>git submodule init
+git submodule update
+</pre>
+
+Install the dependencies by running:
+<pre>bundle install
+</pre>
+
+Migrate the database
+<pre>rake db:migrate</pre>
+
+Seed the database with the pre-defined Repo roles (contentAccessTeam, staff, student etc..)
+<pre>rake db:seed</pre>
+
+Configure jetty:
+<pre>rake hydra:jetty:config
+</pre>
+
+Then start jetty:
+<pre>rake jetty:start
+</pre>
+
+Load some sample data:
+<pre>rake hyhull:default_fixtures:refresh
+</pre>
+
+Start the webserver
+<pre>rails s
+</pre>
+
+You should now be able to see the application at: http://localhost:3000/
+
+h3. Testing
+
+The quickest way to test is to run this task
+<pre>rake hyhull:test
+</pre>
+
+If you prefer a more manual approach, start by loading fixtures:
+
+Migrate and seed the database
+<pre>RAILS_ENV=test rake db:migrate
+RAILS_ENV=test rake db:seed
+</pre>
+
+Then you can run specs:
+<pre>rake spec
+</pre>
+
+And cucumber features:
+<pre>rake cucumber:ok
+</pre>
