@@ -2,6 +2,9 @@
 require "solrizer-fedora"
 require 'jettywrapper'
 require 'win32/process' if RUBY_PLATFORM =~ /mswin32|mingw|cygwin/
+require 'rubygems'
+require 'cucumber'
+require 'cucumber/rake/task'
 
 
 namespace :hyhull do
@@ -95,7 +98,7 @@ namespace :hyhull do
       puts "Refreshing fixtures in test fedora/solr"
       puts %x[rake hyhull:default_fixtures:refresh RAILS_ENV=test]  # must explicitly set RAILS_ENV to test
       
-      Rake::Task["cucumber"].invoke  # running cucumber first because rspec is exiting with an odd error after running with 0 failures
+      Rake::Task["cucumber:ok"].invoke  # running cucumber first because rspec is exiting with an odd error after running with 0 failures
       Rake::Task["spec"].invoke
         
     end
