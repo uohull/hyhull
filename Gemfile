@@ -5,10 +5,13 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'blacklight', '~> 4.0.1'
-gem 'hydra-head', '~> 5.4.0'
+#Use the new Hydra release stack
+gem 'hydra', '~> 6.0.0.rc2'
+#Despite using hydra we still need the blacklight/hydra-head reference
+gem 'blacklight', '4.1.0'
+gem 'hydra-head', '~> 6.0.0'
+
 gem 'sqlite3'
-gem 'solrizer-fedora', '~> 2.3.1'
 
 #devise_cas_authenticable is used to enable CAS integration
 gem 'devise_cas_authenticatable', '~> 1.2.0'

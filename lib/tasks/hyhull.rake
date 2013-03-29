@@ -1,5 +1,4 @@
 # require File.expand_path(File.dirname(__FILE__) + '/hydra_jetty.rb')
-require "solrizer-fedora"
 require 'jettywrapper'
 require 'win32/process' if RUBY_PLATFORM =~ /mswin32|mingw|cygwin/
 require 'rubygems'
@@ -51,21 +50,26 @@ namespace :hyhull do
     desc "Remove the dependencies (sDeps,sDefs,etc.)"
     task :delete_dependencies do
       dependencies.each_with_index do |dependency,index|
-        ENV['pid'] = pid_from_path(dependency)
+        pid = pid_from_path(dependency)
         puts "removing #{dependency}"
-        Rake::Task["repo:delete"].reenable
-        Rake::Task["repo:delete"].invoke
+        begin
+          ActiveFedora::FixtureLoader.delete(pid)
+        rescue
+          #typically an "object exists" error
+        end
       end
     end
 
     desc "Remove default hull fixtures"
     task :delete do
       fixture_files.each_with_index do |fixture,index|
-        ENV["pid"] = pid_from_path(fixture)
+        pid = pid_from_path(fixture)
         puts "deleting #{fixture}"
-        puts "#{ENV["pid"]}"
-        Rake::Task["repo:delete"].reenable
-        Rake::Task["repo:delete"].invoke
+        begin
+          ActiveFedora::FixtureLoader.delete(pid)
+        rescue
+          #typically an "object exists" error
+        end
       end
     end
 
