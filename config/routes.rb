@@ -6,7 +6,7 @@ Hyhull::Application.routes.draw do
 
   devise_for :users
 
-
+  resources :downloads
   resources :uketd_objects
 
   # The priority is based upon order of creation:
