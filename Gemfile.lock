@@ -122,18 +122,6 @@ GEM
       json (>= 1.7.6)
     hike (1.2.1)
     hooks (0.2.2)
-    hydra (6.0.0.rc2)
-      active-fedora (= 6.0.0)
-      blacklight (= 4.1.0)
-      hydra-head (= 6.0.0)
-      jettywrapper (~> 1.4.1)
-      nokogiri (= 1.5.9)
-      nom-xml (= 0.5.1)
-      om (= 2.0.0)
-      rails (~> 3.2.13)
-      rsolr (= 1.0.8)
-      rubydora (= 1.6.1)
-      solrizer (= 3.0.0)
     hydra-access-controls (6.0.0)
       active-fedora (>= 6.0.0)
       activesupport
@@ -312,7 +300,6 @@ DEPENDENCIES
   devise-guests (~> 0.3)
   devise_cas_authenticatable (~> 1.2.0)
   factory_girl_rails
-  hydra (~> 6.0.0.rc2)
   hydra-head (~> 6.0.0)
   jettywrapper
   jquery-rails

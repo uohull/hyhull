@@ -5,9 +5,10 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#Use the new Hydra release stack
-gem 'hydra', '~> 6.0.0.rc2'
-#Despite using hydra we still need the blacklight/hydra-head reference
+#Use the new Hydra release stack - this isn't working at the moment
+#gem 'hydra', '~> 6.0.0.rc2'
+
+#We still need the blacklight/hydra-head reference
 gem 'blacklight', '4.1.0'
 gem 'hydra-head', '~> 6.0.0'
 
