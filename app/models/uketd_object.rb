@@ -4,13 +4,12 @@ class UketdObject < ActiveFedora::Base
   include Hydra::ModelMethods
   include Hyhull::ModelMethods
 
-  has_metadata :name => "descMetadata", :type => ModsUketd
-  has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata
+  has_metadata :name => "descMetadata", type: Datastream::ModsEtd
+  has_metadata :name => "rightsMetadata", type: Hydra::Datastream::RightsMetadata
 
   #Delegate these attributes to the respective datastream
   #Unique fields
   delegate :title, :to=>"descMetadata", :unique=>"true"
-  #delegate :author_name, :to=>"descMetadata", :unique=>"true"
   delegate :abstract, :to=>"descMetadata", :unique=>"true"
   delegate :date_issued, :to=>"descMetadata", :unique=>"true"
   delegate :date_valid, :to=>"descMetadata", :unique=>"true"
@@ -33,11 +32,38 @@ class UketdObject < ActiveFedora::Base
   delegate :record_creation_date, :to=>"descMetadata", :unique=>"true"
   delegate :record_change_date, :to=>"descMetadata", :unique=>"true"
 
-  #Non-unique fields
-  delegate :subject_topic, :to=>"descMetadata", :unique=>"false"
-  #delegate :supervisor_name, :to=>"descMetadata", :unique=>"false"
-  #delegate :sponsor_name, :to=>"descMetadata", :unique=>"false"
-  delegate :grant_number, :to=>"descMetadata", :unique=>"false"
+  # Non-unique fields
+  # People
+  delegate :person_name, :to=>"descMetadata"
+  delegate :person_role_text, :to=>"descMetadata"
+
+  # Organisations
+  delegate :organisation_name, :to=>"descMetadata"
+  delegate :organisation_role_text, :to=>"descMetadata"
+
+  delegate :subject_topic, :to=>"descMetadata"
+  delegate :grant_number, :to=>"descMetadata"
+
+  # Overide the update_attributes method to enable the calling of custom methods
+  def update_attributes(params = {})
+    self.descMetadata.add_names(params["person_name"], params["person_role_text"], "person") unless params["person_name"].nil? or params["person_role_text"].nil?
+    self.descMetadata.add_names(params["organisation_name"], params["organisation_role_text"], "organisation") unless params["organisation_name"].nil? or params["organisation_role_text"].nil? 
+    super(params)
+  end
+
+  # assert_content_model overidden to add UketdObject custom models
+  def assert_content_model
+    add_relationship(:has_model, "info:fedora/hydra-cModel:commonMetadata")
+    add_relationship(:has_model, "info:fedora/hydra-cModel:genericParent")
+    super
+  end
+
+  # to_solr overridden to add object_type facet field to document
+  def to_solr(solr_doc = {})
+    super(solr_doc)
+    solr_doc.merge!("object_type_sim" => "Thesis or dissertation")
+    solr_doc
+  end
 
 end
 
