@@ -1,5 +1,69 @@
 <%= form_for @uketd_object do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.submit "Save" %>
+  <fieldset>
+  	<legend>Edit thesis or dissertation</legend>
+  	<div class="fields">
+  	  <h4>Author, and Contributor(s)</h4>
+  	  <div class="field">	
+  	    <%= f.label :person_name %>
+  	    <%= f.text_field :person_name %>
+      </div>
+      <div class="field">	
+  	    <%= f.label :person_role_text %>
+  	    <%= f.text_field :person_role_text %>
+      </div>
+  	  <h4>Publication</h4>
+  	  <div class="field">	
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+     </div>	
+     <div class="field">
+     	<%= f.label :subject_topic, "Subject" %>
+     	<%= f.text_field :subject_topic %>
+     </div>
+     <div class="field">
+     	<%= f.label :rights %>
+     	<%= f.text_field :rights %>
+     </div>
+      <div class="field">	
+        <%= f.label :abstract %>
+        <%= f.text_area :abstract %>
+     </div>
+     <div class="field">
+     	<%= f.label :organisation_name %>
+     	<%= f.text_field :organisation_name %>
+     </div>
+     <div class="field">
+       <%= f.label :organisation_role_text %>
+       <%= f.text_field :organisation_role_text %>
+     </div>
+     <div class="field">
+       <%= f.label :publisher %>
+       <%= f.text_field :publisher %>
+     </div>
+     <div class="field">
+       <%= f.label :date_issued %>
+       <%= f.text_field :date_issued %>
+     </div>
+     <h4>Identifiers</h4>
+     <div class="field">
+       <%= f.label :grant_number %>
+       <%= f.text_field :grant_number %>
+     </div>
+     <div class="field">
+       <%= f.label :ethos_identifier %>
+       <%= f.text_field :ethos_identifier %>
+     </div>
+     <h4>Qualification</h4>
+     <div class="field">
+       <%= f.label :qualification_level %>
+       <%= f.text_field :qualification_level %>
+     </div>
+     <div class="field">
+       <%= f.label :qualification_name %>
+       <%= f.text_field :qualification_name %>
+     </div>
+     
+    </div>
+    <%= f.submit "Save" %>
+  </fieldset>
 <% end %>
