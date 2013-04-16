@@ -1,8 +1,8 @@
-  class Datastream::ModsEtd < ActiveFedora::NokogiriDatastream 
-  #< ObjectMods
+  class Datastream::ModsEtd < ActiveFedora::NokogiriDatastream
+    include Hyhull::ModsMetadataMethods 
 
-  set_terminology do |t|
-    t.root(:path=>"mods", :xmlns=>"http://www.loc.gov/mods/v3", :schema=>"http://www.loc.gov/standards/mods/v3/mods-3-2.xsd")
+     set_terminology do |t|
+      t.root(:path=>"mods", :xmlns=>"http://www.loc.gov/mods/v3", :schema=>"http://www.loc.gov/standards/mods/v3/mods-3-2.xsd")
 
     t.title_info(:path=>"titleInfo") {
       t.main_title(:path=>"title", :label=>"title", :index_as=>[:facetable]) 
@@ -190,7 +190,7 @@
       xpath_type = "conference"
     end  
    
-     ng_xml.search("//xmlns:name[@type=\"#{xpath_type}\"]") do |n|
+     ng_xml.search("//xmlns:name[@type=\"#{xpath_type}\"]").each do |n|
        n.remove
      end
 

@@ -1,0 +1,30 @@
+ <div id="multi-field-edit">
+  <div id="field-list">
+    <% person_names = object.person_name %>
+    <% person_role_texts = object.person_role_text %>
+    <% object_name = object.class.to_s.underscore %>
+
+    <% if person_names.empty? %>
+      <div class="field">
+        <%= label_tag :person_name %><br />
+        <%= text_field_tag "#{object_name}[person_name][]", "" %>
+        <%= text_field_tag "#{object_name}[person_role_text][]", "" %>
+      </div>
+    <% else %>
+      <%= label_tag :person_name %><br />
+      <% person_names.each_with_index do |name, person_index| %>
+        <div id="fields" style="display:block;clear:both;">
+          <span class="field" style="float:left">
+            <%= text_field_tag "#{object_name}[person_name][]", name %>
+          </span>
+          <span class="field" style="float:left">
+            <%= select_tag "#{object_name}[person_role_text][]", options_for_select([[""]]  + object.person_role_terms, person_role_texts[person_index] ) %>         
+          </span>
+          <span class="icon-minus-sign remove-field"></span><br />
+        </div>
+      <% end %> 
+    <% end %>
+  </div>  
+  <br />
+  <div id="add-field" class="icon-plus-sign"></div>
+</div>

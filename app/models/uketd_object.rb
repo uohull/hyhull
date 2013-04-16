@@ -44,11 +44,14 @@ class UketdObject < ActiveFedora::Base
   delegate :subject_topic, :to=>"descMetadata"
   delegate :grant_number, :to=>"descMetadata"
 
+  # Relator terms
+  delegate :person_role_terms, to: Datastream::ModsEtd
+
   # Overide the update_attributes method to enable the calling of custom methods
   def update_attributes(params = {})
+    super(params)
     self.descMetadata.add_names(params["person_name"], params["person_role_text"], "person") unless params["person_name"].nil? or params["person_role_text"].nil?
     self.descMetadata.add_names(params["organisation_name"], params["organisation_role_text"], "organisation") unless params["organisation_name"].nil? or params["organisation_role_text"].nil? 
-    super(params)
   end
 
   # assert_content_model overidden to add UketdObject custom models
