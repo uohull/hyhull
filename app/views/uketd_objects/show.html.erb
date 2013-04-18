@@ -1,7 +1,52 @@
-<h1><%= @uketd_object.title %></h1>
+<h4>Thesis or dissertation</h4>
+<h2><%= @uketd_object.title %></h2>
 <dl>
-  <dt>Title</dt>
+  <dt>People</dt>
   <dd>
-    <%= @uketd_object.title %>
+    <%= @uketd_object.person_name.join('; ') %>
+  </dd>
+  <dt>Subject</dt>
+  <dd>
+    <%= @uketd_object.subject_topic.join('; ') %>
   </dd>  
+  <dt>Rights</dt>
+  <dd>
+    <%= @uketd_object.rights %>
+  </dd>  
+  <dt>Abstract</dt>
+  <dd>
+    <%= @uketd_object.abstract %>
+  </dd>  
+  <dt>Organisations</dt>
+  <dd>
+    <%= @uketd_object.organisation_name.join('; ') %>
+  </dd>  
+  <dt>Date</dt>
+  <dd>
+    <%= @uketd_object.date_issued %>
+  </dd>  
+  <dt>Language</dt>
+  <dd>
+    <%= @uketd_object.language_text %>
+  </dd>    
+  <dt>Publisher</dt>
+  <dd>
+    <%= @uketd_object.publisher %>  
+  </dd> 
+  <dt>Qualification level</dt>
+  <dd>
+    <%= @uketd_object.qualification_level %>
+  </dd>  
+  <dt>Qualification name</dt>
+  <dd>
+    <%= @uketd_object.qualification_name %>
+  </dd>
+  <dt>Identifier</dt>
+  <dd>
+    <%= @uketd_object.id %>
+  </dd>
+  <dt>Ethos identifier</dt>
+  <dd>
+    <%= @uketd_object.ethos_identifier %>
+  </dd>
 </dl>

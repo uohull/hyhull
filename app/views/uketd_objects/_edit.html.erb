@@ -3,16 +3,14 @@
   	<legend>Edit thesis or dissertation</legend>
   	<div class="fields">
   	  <h4>Author, and Contributor(s)</h4>  	
-      <%= render :partial => "name_edit", :locals => { :object => @uketd_object } %>      
+      <%= render :partial => "name_edit", :locals => { object: @uketd_object, name_type: "person" } %>      
   	  <h4>Publication</h4>
   	  <div class="field">	
         <%= f.label :title %>
         <%= f.text_field :title %>
      </div>	
-     <div class="field">
-     	<%= f.label :subject_topic, "Subject" %>
-     	<%= f.text_field :subject_topic %>
-     </div>
+
+     <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "subject_topic" } %>
      <div class="field">
      	<%= f.label :rights %>
      	<%= f.text_field :rights %>
@@ -21,29 +19,20 @@
         <%= f.label :abstract %>
         <%= f.text_area :abstract %>
      </div>
-     <!--
-     <div class="field">
-     	<%= f.label :organisation_name %>
-     	<%= f.text_field :organisation_name %>
-     </div>
-     <div class="field">
-       <%= f.label :organisation_role_text %>
-       <%= f.text_field :organisation_role_text %>
-     </div>
-   -->
+
+     <h4>Author, and Contributor(s)</h4>   
+     <%= render :partial => "name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>      
+
      <div class="field">
        <%= f.label :publisher %>
        <%= f.text_field :publisher %>
      </div>
      <div class="field">
        <%= f.label :date_issued %>
-       <%= f.text_field :date_issued %>
+       <%= f.text_field :date_issued, class: "datepicker" %>
      </div>
      <h4>Identifiers</h4>
-     <div class="field">
-       <%= f.label :grant_number %>
-       <%= f.text_field :grant_number %>
-     </div>
+     <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "grant_number" } %>
      <div class="field">
        <%= f.label :ethos_identifier %>
        <%= f.text_field :ethos_identifier %>
@@ -51,13 +40,17 @@
      <h4>Qualification</h4>
      <div class="field">
        <%= f.label :qualification_level %>
-       <%= f.text_field :qualification_level %>
+       <%= f.select :qualification_level , options_for_select([[""]]  + @uketd_object.qualification_level_terms,  @uketd_object.qualification_level) %> 
      </div>
      <div class="field">
        <%= f.label :qualification_name %>
-       <%= f.text_field :qualification_name %>
+       <%= f.select :qualification_name , options_for_select([[""]]  + @uketd_object.qualification_name_terms,  @uketd_object.qualification_name) %> 
      </div>
-     
+     <h4>Dissertations</h4>
+     <div class="field">
+       <%= f.label :dissertation_category %>
+       <%= f.select :dissertation_category , options_for_select([[""]]  + @uketd_object.dissertation_category_terms,  @uketd_object.dissertation_category) %> 
+     </div>
     </div>
     <%= f.submit "Save" %>
   </fieldset>
