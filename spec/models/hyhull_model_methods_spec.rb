@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-class TestClassOne < ActiveFedora::Base
+class ModelMethodsTestClassOne < ActiveFedora::Base
 	include Hyhull::ModelMethods
 
 	def owner_id
@@ -17,12 +17,12 @@ end
 describe Hyhull::ModelMethods do
 
 	before(:each) do
-		@testclassone = TestClassOne.new
+		@testclassone = ModelMethodsTestClassOne.new
 	end
 
 	describe "cmodel" do
     it "should properly return the appropriate cModel declaration" do
-      @testclassone.cmodel.should == "info:fedora/hull-cModel:testClassOne"
+      @testclassone.cmodel.should == "info:fedora/hull-cModel:modelMethodsTestClassOne"
     end
   end
 

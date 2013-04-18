@@ -70,6 +70,19 @@ describe Datastream::ModsEtd do
       @ds.organisation_name.should == @organisation_names
       @ds.organisation_role_text.should == @organisation_roles
     end
+
+    it "should let me update subject_topic with multiple items" do
+      new_subject_topics = ["New topic", "New topic 2"]
+      @ds.add_subject_topic(new_subject_topics)
+
+      @ds.subject_topic.should == new_subject_topics
+    end
+
+    it "should let me update grant_number with multiple items" do
+      new_grant_numbers = ["gn:123455", "56333"]
+      @ds.add_grant_number(new_grant_numbers)
+      @ds.grant_number.should == new_grant_numbers
+    end
   end
 
 end

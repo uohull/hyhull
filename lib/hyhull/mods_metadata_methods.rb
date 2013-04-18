@@ -24,7 +24,22 @@ module Hyhull::ModsMetadataMethods
       ["Author", "Creator", "Editor", "Photographer", "Module leader", "Sponsor", "Supervisor"]
     end
 
-  end
+    def organisation_role_terms
+      [ "Creator", "Host", "Sponsor"]
+    end
 
+    def qualification_name_terms
+      ["PhD", "ClinPsyD", "MD", "PsyD", "MA" , "MEd", "MPhil", "MRes", "MSc" , "MTheol", "EdD" , "DBA", "BA", "BSc"]  
+    end
+
+    def qualification_level_terms
+      ["Doctoral", "Masters", "Undergraduate"]
+    end
+
+    def dissertation_category_terms
+      ["Blue", "Green", "Red"]
+    end
+
+  end
 
 end
