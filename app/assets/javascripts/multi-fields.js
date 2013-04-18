@@ -1,15 +1,19 @@
 //jquery function that enables multiple fields to be added to web form given the correct div structure
 $(function() {
-  $('#add-field').on("click", function() {
+  $('.add-field').on("click", function() {
     var copy_fields = $(this).siblings("#field-list").children('#fields').first().clone();
     var target = $(this).siblings('#field-list');
-    var fields = copy_fields.appendTo(target);  
+    var fields = copy_fields.appendTo(target);
+    //apend the remove field span
+    fields.append('<span class="icon-minus-sign remove-field"></span><br />   '); 
     clearForm(fields);
   });
   $("body").on("click", ".remove-field", function(){
     $(this).parent().remove();
   });
 });
+
+    //<span class="icon-minus-sign remove-field"></span><br />
 
 function clearForm(form) {
   // iterate over all of the inputs for the form
