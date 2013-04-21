@@ -3,6 +3,7 @@
 class UketdObject < ActiveFedora::Base
   include Hydra::ModelMethods
   include Hyhull::ModelMethods
+  include Hyhull::ContentMetadataBehaviour 
 
   has_metadata :name => "descMetadata", type: Datastream::ModsEtd
   has_metadata :name => "rightsMetadata", type: Hydra::Datastream::RightsMetadata

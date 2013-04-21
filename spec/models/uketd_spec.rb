@@ -16,8 +16,8 @@ describe UketdObject do
       @etd.descMetadata.should be_kind_of Datastream::ModsEtd
 
       #Check for contentMetadata datastream
-      #@etd.datastreams.key.should include ("contentMetadata")
-      #@etd.datastreams.should be_kind_of ContentMetadata
+      @etd.datastreams.keys.should include("contentMetadata")
+      @etd.contentMetadata.should be_kind_of Hyhull::Datastream::ContentMetadata
 
       #Check for the rightsMetadata datastream
       @etd.datastreams.keys.should include("rightsMetadata")
