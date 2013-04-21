@@ -1,0 +1,16 @@
+<%= form_tag( { controller: :content_metadata, action: :update }, { method: :put } ) do |f| %>
+  <fieldset class="edit-half">
+    <dl>
+    <div class="info-multiple">
+      <div class="left">
+        <dt><label>Sequence</label></dt>
+      </div>
+      <div class="right">
+        <dt><%= label_tag 'content_label', 'Content label'%></dt>
+      </div>
+    </div>
+    </dl>
+  </fieldset>
+  <%= render partial: 'edit_resource', collection: @content_metadata.find_by_terms(:resource) %>
+  <%= submit_tag "Save" %>
+<% end %>

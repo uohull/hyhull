@@ -26,11 +26,17 @@ module Hyhull
           }              
         }
       }
+
+      #Proxies ease of access
+      t.resource_object_id(:proxy=>[:resource, :resource_object_id])
+      t.resource_ds_id(:proxy=>[:resource, :resource_ds_id])
       t.content_url(:proxy=>[:resource,:file,:location])
       t.content_format(:proxy=>[:resource,:file,:format])
       t.content_mime_type(:proxy=>[:resource,:file,:mime_type])
-      t.content_size(:proxy=>[:resource,:file,:size])  
-
+      t.content_size(:proxy=>[:resource,:file,:size])
+      t.content_id(:proxy=>[:resource, :file, :file_id])
+      t.sequence(:proxy=>[:resource, :sequence])
+      t.display_label(:proxy=>[:resource, :display_label])  
     end
 
      # Generates an empty contentMetadata
@@ -55,13 +61,13 @@ module Hyhull
     # @option opts [String] :service_def the service definition
     # @option opts [String] :ds_id the dsID for the datastream
     def self.resource_template(opts={})
-      options = {:sequence=>"",:id=>"",:display_label=>"",:object_id=>"",:file_id=>"content",:file_size=>"",:url=>"", :ds_id=>'content', 
+      options = {:sequence=>"",:file_id=>"",:display_label=>"",:object_id=>"",:file_id=>"content",:file_size=>"",:url=>"", :ds_id=>'content', 
         :date_last_modified => "", :date_last_accessed =>"", :date_created => "", :checksum => "", :checksum_type => "" }
       options.merge!(opts)
       #options.merge!({:id=>"Asset #{options[:display_label]}"})
       builder = Nokogiri::XML::Builder.new do |xml|
         xml.resource(:sequence=>options[:sequence],:id=>options[:ds_id],:contains=>"content", :displayLabel=>options[:display_label],:objectID=>options[:object_id],:serviceDef=>options[:service_def], :dsID=>options[:ds_id],:serviceMethod=>options[:service_method]) {
-          xml.file(:id=>options[:id], :format=>options[:format], :mimeType=>options[:mime_type], :size=>options[:file_size], 
+          xml.file(:id=>options[:file_id], :format=>options[:format], :mimeType=>options[:mime_type], :size=>options[:file_size], 
             :dateCreated=>options[:date_created], :dateLastModified=>options[:date_last_modified], :dateLastAccessed=>options[:date_last_modified] ) {
             xml.checksum(options[:checksum], :type=>options[:checksum_type])            
             xml.location(options[:url], :type=>"url")
@@ -100,7 +106,7 @@ module Hyhull
           nodeset.after(node)
           index = nodeset.length
         end
-        self.dirty = true
+        self.content_will_change!
       end
 
       return node, index
@@ -108,7 +114,7 @@ module Hyhull
 
     def remove_resource(index)
       self.find_by_terms(:resource)[index.to_i].remove
-      self.dirty = true
+      self.content_will_change!
     end 
 
     end

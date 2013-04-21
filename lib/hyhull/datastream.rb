@@ -1,4 +1,3 @@
+require 'datastream/content_metadata'
 module Datastream
-  extend ActiveSupport::Autoload
-  autoload :ContentMetadata
 end
