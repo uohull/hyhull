@@ -3,7 +3,8 @@
 class UketdObject < ActiveFedora::Base
   include Hydra::ModelMethods
   include Hyhull::ModelMethods
-  include Hyhull::ContentMetadataBehaviour 
+  include Hyhull::ContentMetadataBehaviour
+  include Hyhull::GenericParentBehaviour
 
   has_metadata :name => "descMetadata", type: Datastream::ModsEtd
   has_metadata :name => "rightsMetadata", type: Hydra::Datastream::RightsMetadata
@@ -64,7 +65,6 @@ class UketdObject < ActiveFedora::Base
   # assert_content_model overidden to add UketdObject custom models
   def assert_content_model
     add_relationship(:has_model, "info:fedora/hydra-cModel:commonMetadata")
-    add_relationship(:has_model, "info:fedora/hydra-cModel:genericParent")
     super
   end
 
