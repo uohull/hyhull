@@ -88,9 +88,14 @@ describe UketdObject do
     end
 
     describe ".save" do
-      it "should create the appropriate cModel declarations" do
+      before(:each) do
         @etd.save
+      end
+      it "should create the appropriate cModel declarations" do       
         @etd.ids_for_outbound(:has_model).should == ["hydra-cModel:commonMetadata", "hydra-cModel:genericParent", "hull-cModel:uketdObject"] 
+      end
+      it "should contain the appropiately case for the uketdObject in the RELS-EXT (Lower Camelcase)" do
+        @etd.rels_ext.to_rels_ext.include?('info:fedora/hull-cModel:uketdObject').should == true
       end
     end
   end

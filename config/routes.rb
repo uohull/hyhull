@@ -10,6 +10,7 @@ Hyhull::Application.routes.draw do
   resources :uketd_objects
 
   resources :content_metadata
+  resources :files
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

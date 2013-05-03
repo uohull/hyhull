@@ -1,6 +1,6 @@
 module Hyhull
   module Datastream
-    class ContentMetadata < ActiveFedora::NokogiriDatastream
+    class ContentMetadata < ActiveFedora::OmDatastream
 
       set_terminology do |t|
       t.root(:path=>"contentMetadata", :xmlns=>"http://hydra-collab.hull.ac.uk/schemas/contentMetadata/v1", :schema=>"http://github.com/projecthydra/schemas/tree/v1/contentMetadata.xsd")
@@ -106,7 +106,7 @@ module Hyhull
           nodeset.after(node)
           index = nodeset.length
         end
-        self.content_will_change!
+        self.ng_xml_will_change!
       end
 
       return node, index
