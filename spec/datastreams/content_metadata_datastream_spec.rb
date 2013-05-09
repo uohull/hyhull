@@ -5,8 +5,8 @@ describe Hyhull::Datastream::ContentMetadata do
 
   context "when loading from xml" do 
     before(:each) do
-      @mods = fixture("hyhull/datastreams/contentMetadata.xml")
-      @ds = Hyhull::Datastream::ContentMetadata.from_xml(@mods)
+      @cm = fixture("hyhull/datastreams/contentMetadata.xml")
+      @ds = Hyhull::Datastream::ContentMetadata.from_xml(@cm)
     end
 
     it "should expose content metadata using explicit terms and simple proxies" do
@@ -77,13 +77,15 @@ describe Hyhull::Datastream::ContentMetadata do
     end
 
     describe "remove_resource" do
+      before do
+        @cm = fixture("hyhull/datastreams/contentMetadata.xml")
+        @ds = Hyhull::Datastream::ContentMetadata.from_xml(@cm)
+      end
       it "should remove the corresponding resource from the xml and then mark the datastream as changed" do
-        @content_metadata_ds.insert_resource
-        @content_metadata_ds.save
-        @content_metadata_ds.resource.length.should == 1
-        result = @content_metadata_ds.remove_resource("0")
-        @content_metadata_ds.resource.length.should == 0
-        @content_metadata_ds.changed.should be_true
+        @ds.resource.length.should == 1
+        result = @ds.remove_resource("0")
+        @ds.resource.length.should == 0
+        @ds.changed.should be_true
       end
     end
 

@@ -12,6 +12,8 @@ module Hyhull
         t.resource_object_id(:path=>{:attribute=>"objectID"})
         t.resource_ds_id(:path=>{:attribute=>"dsID"})
         t.diss_type(:path=>{:attribute=>"dissType"})
+        t.diss_service_def(:path=>{:attribute=>"serviceDef"})
+        t.diss_service_method(:path=>{:attribute=>"serviceMethod"})
         t.file {
           t.file_id(:path=>{:attribute=>"id"})
           t.format(:path=>{:attribute=>"format"})
@@ -114,7 +116,7 @@ module Hyhull
 
     def remove_resource(index)
       self.find_by_terms(:resource)[index.to_i].remove
-      self.content_will_change!
+      self.ng_xml_will_change!
     end 
 
     end

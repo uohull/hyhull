@@ -10,31 +10,85 @@ module Hyhull::GenericParentBehaviour
   end 
 
   def add_file_content(file_data)
-    if file_data
-      new_file_assets = []
-      file_data.each do |file|
-        file_asset = FileAsset.new
-        file_asset.label = file.original_filename
-        add_posted_blob_to_asset(file_asset, file, file.original_filename)
-        file_asset.save!
-        new_file_assets << file_asset      
-      end      
+    begin      
+      if file_data
+        new_file_assets = []
+        file_data.each do |file|
+          begin
+            file_asset = FileAsset.new
+            file_asset.label = file.original_filename
+            add_posted_blob_to_asset(file_asset, file, file.original_filename)
+            file_asset.save!
+            new_file_assets << file_asset      
+          rescue Exception => e 
+            raise "There was an error creating the content: " + e.message
+          end
+        end      
 
-      #Add the file_asset to self
-      self.file_assets <<  new_file_assets
+        #Add the file_asset to self
+        self.file_assets <<  new_file_assets
 
-      #Now we should add content metadata if it exists...
-      new_file_assets.each do |file_asset|
-        self.update_content_metadata(file_asset, datastream_id)
+        #Now we should add file metadata if it is - Hyhull:ModelMethods ...
+        if self.respond_to?('add_file_metadata')
+          new_file_assets.each do |file_asset|
+            begin               
+              self.add_file_metadata(file_asset, datastream_id)
+            rescue Exception => e 
+              raise "There was an error adding the file metadata for #{file_asset.pid}: " + e.message
+            end
+          end
+        else
+          logger.info("Hyhull::GenericParentBehaviour #{self.class.to_s} does not include tje add_file_metadata method")
+        end
+
+        # Save the changes to self..
+        self.save!
+        new_file_assets_labels =  new_file_assets.map{|asset| asset.label }
+        return true, new_file_assets, "The following files have been added sucessfully to #{self.pid}: #{new_file_assets_labels}"
+      else
+        raise "No file_data has been specified"
       end
 
-      # Save the changes to self..
-      self.save!
-
-      return file_assets
-    else
-      raise "No file_data has been specified"
+    rescue Exception => e 
+      return false, [], "Error: #{e.message}"
     end
+  end
+
+
+  def delete_by_content_metadata_resource_at(index)
+    begin 
+      resource_object_id = self.contentMetadata.resource(index).resource_object_id[0]
+      resource_ds_id = self.contentMetadata.resource(index).resource_ds_id[0]
+      resource_display_label = self.contentMetadata.resource(index).display_label[0]
+
+      if self.pid == resource_object_id
+        raise "File object identifer matches parent identifier, not a valid GenericParent parent-child resource"
+      else
+        begin 
+          resource = FileAsset.find(resource_object_id)
+          if self.file_assets.include?(resource)
+            #Delete the resource through self.file_assets to ensure that the relationship gets deleted          
+            self.file_assets[self.file_assets.index(resource)].delete
+            #Now delete the resource from the contentMetadata ds
+            self.contentMetadata.remove_resource(index)
+
+            #Save changes to self
+            self.save!
+
+            return true, resource_object_id, "File #{resource_display_label} (#{resource_object_id}) deleted sucessfully"
+
+          else
+            raise "Delete aborted: The File #{resource_object_id} (#{resource_object_id}) does exist within the parent #{self.pid} FileAssets list." 
+          end 
+
+        rescue Exception => e 
+          raise "There was an error deleting the content: " + e.message
+        end
+      end
+    rescue Exception => e 
+      return false, "", "Error: #{e.message}"
+    end
+    
   end
 
   # Puts the contents of params[:Filedata] (posted blob) into a datastream within the given @asset
@@ -48,30 +102,7 @@ module Hyhull::GenericParentBehaviour
     file_name ||= file.original_filename
     asset.add_file(file, datastream_id, file_name)
   end
-
-
-  def update_content_metadata(content_asset, content_ds)
-    if content_asset.kind_of? ActiveFedora::Base
-      pid = content_asset.pid
-      size = eval "content_asset.#{content_ds}.size"
-      label = eval "content_asset.#{content_ds}.dsLabel"
-      mime_type = eval "content_asset.#{content_ds}.mimeType"
-
-      format = mime_type[mime_type.index("/") + 1...mime_type.length]
-   
-      # Get the class_uri (Fedora model definition)
-      c_model = content_asset.class.to_class_uri
-      service_def = c_model[c_model.index("/") + 1...c_model.length]
-
-      service_method = "getContent"
-
-      self.contentMetadata.insert_resource(object_id: pid, ds_id: "content", file_size: size, url: "http://hydra.hull.ac.uk/assets/#{pid}/content", display_label: label, id: label, mime_type: mime_type, format: format, service_def: service_def, service_method: service_method)
-      self.contentMetadata.save
-    else
-      raise "Content Metadata can only be derieved from ActiveFedora::Base objects"
-    end    
-  end
-
+ 
   #Override this if you want to specify the datastream_id (dsID) for the created blob
   def datastream_id
     "content"
