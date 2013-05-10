@@ -12,6 +12,8 @@ module Hyhull::GenericParentBehaviour
   def add_file_content(file_data)
     begin      
       if file_data
+        #Array() will return file_data in array if not already in one..
+        file_data = Array(file_data)
         new_file_assets = []
         file_data.each do |file|
           begin
