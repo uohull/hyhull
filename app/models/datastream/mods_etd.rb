@@ -80,8 +80,8 @@
         t.private_object_id(:path=>"identifier", :attributes=>{:type=>"fedora"})
       }
       t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"})
-
-      t.location {
+        
+      t.location_element(:path=>"location") {
         t.primary_display(:path=>"url", :attributes=>{:access=>"object in context", :usage=>"primary display" })
         t.raw_object(:path=>"url", :attributes=>{:access=>"raw object"})
       }
@@ -107,8 +107,8 @@
       t.extent(:proxy=>[:physical_description, :extent])
       t.mime_type(:proxy=>[:physical_description, :mime_type])
       t.digital_origin(:proxy=>[:physical_description, :digital_origin])
-      t.primary_display_url(:proxy=>[:location, :primary_display])
-      t.raw_object_url(:proxy=>[:location, :raw_object])
+      t.primary_display_url(:proxy=>[:location_element, :primary_display])
+      t.raw_object_url(:proxy=>[:location_element, :raw_object])
       t.record_creation_date(:proxy=>[:record_info, :record_creation_date])
       t.record_change_date(:proxy=>[:record_info, :record_change_date])
       t.language_text(:proxy=>[:language, :lang_text])
