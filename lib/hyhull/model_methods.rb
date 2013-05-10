@@ -3,6 +3,9 @@ module Hyhull::ModelMethods
 
   included do
     logger.info("Adding HyhullModelMethods to the Hydra model")
+
+    #Store Hyhull workflow properties
+    has_metadata name: "properties", label: "Workflow properties", type: Hyhull::Datastream::WorkflowProperties   
   end
 
   module ClassMethods
