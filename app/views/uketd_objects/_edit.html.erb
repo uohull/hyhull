@@ -1,62 +1,43 @@
-<%= form_for @uketd_object do |f| %>
-  <fieldset>
+<%= simple_form_for(@uketd_object, :html => {:class => 'form-horizontal' }) do |f| %>
   	<legend>Edit thesis or dissertation</legend>
   	<div class="fields">
   	  <h4>Author, and Contributor(s)</h4>  	
       <%= render :partial => "name_edit", :locals => { object: @uketd_object, name_type: "person" } %>      
   	  <h4>Publication</h4>
-  	  <div class="field">	
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-     </div>	
-
-     <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "subject_topic" } %>
-     <div class="field">
-     	<%= f.label :rights %>
-     	<%= f.text_field :rights %>
-     </div>
-      <div class="field">	
-        <%= f.label :abstract %>
-        <%= f.text_area :abstract %>
-     </div>
-
+   
+      <%= f.input :title %>     
+      <%= f.input :rights %>
+      <%= f.input :abstract, as: :text %>     
+      <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "subject_topic" } %>
+   
      <h4>Author, and Contributor(s)</h4>   
-     <%= render :partial => "name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>      
+   
+     <%= render :partial => "name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>
+     <%= f.input :publisher %>
+     <% # class datepicker provides JQuery based date picker - not using at present %>
+     <%= f.input :date_issued %>
 
-     <div class="field">
-       <%= f.label :publisher %>
-       <%= f.text_field :publisher %>
-     </div>
-     <div class="field">
-       <%= f.label :date_issued %>
-       <%= f.text_field :date_issued, class: "datepicker" %>
-     </div>
      <h4>Identifiers</h4>
+   
      <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "grant_number" } %>
-     <div class="field">
-       <%= f.label :ethos_identifier %>
-       <%= f.text_field :ethos_identifier %>
-     </div>
+     <%= f.input :ethos_identifier %>
+    
      <h4>Qualification</h4>
-     <div class="field">
-       <%= f.label :qualification_level %>
-       <%= f.select :qualification_level , options_for_select([[""]]  + @uketd_object.qualification_level_terms,  @uketd_object.qualification_level) %> 
-     </div>
-     <div class="field">
-       <%= f.label :qualification_name %>
-       <%= f.select :qualification_name , options_for_select([[""]]  + @uketd_object.qualification_name_terms,  @uketd_object.qualification_name) %> 
-     </div>
+   
+     <%= f.input :qualification_level, collection: @uketd_object.qualification_level_terms %>
+     <%= f.input :qualification_name, collection: @uketd_object.qualification_name_terms %>
+    
      <h4>Dissertations</h4>
-     <div class="field">
-       <%= f.label :dissertation_category %>
-       <%= f.select :dissertation_category , options_for_select([[""]]  + @uketd_object.dissertation_category_terms,  @uketd_object.dissertation_category) %> 
-     </div>
-    </div>
-    <%= f.submit "Save" %>
-  </fieldset>
+   
+       <%= f.input :dissertation_category, collection: @uketd_object.dissertation_category_terms %>
+
+       <%= f.submit "Save" %>
+    </div>    
 <% end %>
 
-<%= render partial: "shared/update_resource_state", locals: { object: @uketd_object } %>
+<% if @uketd_object.persisted? %>
+  <%= render partial: "shared/update_resource_state", locals: { object: @uketd_object } %>
+<% end %>
 
 
 

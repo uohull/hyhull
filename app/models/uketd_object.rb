@@ -28,7 +28,12 @@ class UketdObject < ActiveFedora::Base
   delegate :qualification_name_terms, to: Datastream::ModsEtd
   delegate :qualification_level_terms, to: Datastream::ModsEtd
   delegate :dissertation_category_terms, to: Datastream::ModsEtd
- 
+
+  validates :title, :presence => true
+  # validates :person_name, :presence => true
+  # validates :person_role_text, :presence => true
+
+
   # Overide the attributes method to enable the calling of custom methods
   def attributes=(properties)
     super(properties)

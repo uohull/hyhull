@@ -3,14 +3,14 @@
     <% fields = eval("object.#{field}") %>   
     <% object_name = object.class.to_s.underscore %>
 
-    <%= label_tag field.to_sym %><br />
+    <%= label_tag field.to_sym, nil,  :class => "control-label" %><br />
     <% if fields.empty? %>
-      <div id="fields">
+      <div id="fields" class="controls">
         <%= text_field_tag "#{object_name}[#{field}][]", "" %>           
       </div>
     <% else %>
       <% fields.each_with_index do |f,i| %>
-       <div id="fields">
+       <div id="fields" class="controls">
         <div style="display:block;clear:both;">
           <span class="field" style="float:left">
             <%= text_field_tag "#{object_name}[#{field}][]", f %>
@@ -24,5 +24,5 @@
      <% end %>
    </div>  
   <br /><br />
-  <div class="add-field icon-plus-sign"></div>  
+  <div class="add-field icon-plus-sign controls"></div>  
 </div>
