@@ -12,55 +12,30 @@ class UketdObject < ActiveFedora::Base
  
   #Delegate these attributes to the respective datastream
   #Unique fields
-  delegate :title, :to=>"descMetadata", :unique=>"true"
-  delegate :abstract, :to=>"descMetadata", :unique=>"true"
-  delegate :date_issued, :to=>"descMetadata", :unique=>"true"
-  delegate :date_valid, :to=>"descMetadata", :unique=>"true"
-  delegate :rights, :to=>"descMetadata", :unique=>"true"
-  delegate :ethos_identifier, :to=>"descMetadata", :unique=>"true"
-  delegate :language_text, :to=>"descMetadata", :unique=>"true"
-  delegate :language_code, :to=>"descMetadata", :unique=>"true"
-  delegate :publisher, :to=>"descMetadata", :unique=>"true"
-  delegate :qualification_level, :to=>"descMetadata", :unique=>"true"
-  delegate :qualification_name, :to=>"descMetadata", :unique=>"true"
-  delegate :dissertation_category, :to=>"descMetadata", :unique=>"true"
-  delegate :type_of_resource, :to=>"descMetadata", :unique=>"true"
-  delegate :genre, :to=>"descMetadata", :unique=>"true"
-  delegate :mime_type, :to=>"descMetadata", :unique=>"true"
-  delegate :digital_origin, :to=>"descMetadata", :unique=>"true"
-  delegate :identifier, :to=>"descMetadata", :unique=>"true"
-  delegate :primary_display_url, :to=>"descMetadata", :unique=>"true"
-  delegate :raw_object_url, :to=>"descMetadata", :unique=>"true"
-  delegate :extent, :to=>"descMetadata", :unique=>"true"
-  delegate :record_creation_date, :to=>"descMetadata", :unique=>"true"
-  delegate :record_change_date, :to=>"descMetadata", :unique=>"true"
- 
+  delegate_to :descMetadata, [:title, :abstract, :date_issued, :date_valid, :rights, :ethos_identifier, :language_text, :language_code, :publisher , :qualification_level, :qualification_name, 
+                             :dissertation_category, :type_of_resource, :genre, :mime_type, :digital_origin, :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, 
+                             :record_change_date], unique: true
   # Non-unique fields
   # People
-  delegate :person_name, :to=>"descMetadata"
-  delegate :person_role_text, :to=>"descMetadata"
- 
+  delegate_to :descMetadata, [:person_name, :person_role_text]
   # Organisations
-  delegate :organisation_name, :to=>"descMetadata"
-  delegate :organisation_role_text, :to=>"descMetadata"
+  delegate_to :descMetadata, [:organisation_name, :organisation_role_text]
+  delegate_to :descMetadata, [:subject_topic, :grant_number]
  
-  delegate :subject_topic, :to=>"descMetadata"
-  delegate :grant_number, :to=>"descMetadata"
- 
-  # Relator terms
+  # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsEtd
   delegate :organisation_role_terms, to: Datastream::ModsEtd
   delegate :qualification_name_terms, to: Datastream::ModsEtd
   delegate :qualification_level_terms, to: Datastream::ModsEtd
-  delegate :dissertation_category_terms, to: Datastream::ModsEtd 
+  delegate :dissertation_category_terms, to: Datastream::ModsEtd
  
-  # Overide the update_attributes method to enable the calling of custom methods
-  def update_attributes(params = {})
-    super(params)
-    self.descMetadata.add_names(params["person_name"], params["person_role_text"], "person") unless params["person_name"].nil? or params["person_role_text"].nil?
-    self.descMetadata.add_names(params["organisation_name"], params["organisation_role_text"], "organisation") unless params["organisation_name"].nil? or params["organisation_role_text"].nil? 
-    self.descMetadata.add_subject_topic(params["subject_topic"])
-    self.descMetadata.add_grant_number(params["grant_number"])
+  # Overide the attributes method to enable the calling of custom methods
+  def attributes=(properties)
+    super(properties)
+    self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person") unless properties["person_name"].nil? or properties["person_role_text"].nil?
+    self.descMetadata.add_names(properties["organisation_name"], properties["organisation_role_text"], "organisation") unless properties["organisation_name"].nil? or properties["organisation_role_text"].nil? 
+    self.descMetadata.add_subject_topic(properties["subject_topic"])
+    self.descMetadata.add_grant_number(properties["grant_number"])
   end
  
   # assert_content_model overidden to add UketdObject custom models
