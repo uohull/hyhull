@@ -15,6 +15,10 @@ gem 'hydra-head', '~> 6.0.0'
 #State machine
 gem 'state_machine', '~> 1.2.0'
 
+#simple_form gem for forms
+gem "simple_form", "~> 2.1.0"
+
+
 gem 'sqlite3'
 
 #devise_cas_authenticable is used to enable CAS integration
