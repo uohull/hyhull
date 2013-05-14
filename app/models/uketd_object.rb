@@ -5,10 +5,11 @@ class UketdObject < ActiveFedora::Base
   include Hyhull::ModelMethods
   include Hyhull::ContentMetadataBehaviour
   include Hyhull::GenericParentBehaviour
+  include Hyhull::ResourceWorkflowBehaviour
 
   has_metadata :name => "descMetadata", type: Datastream::ModsEtd
   has_metadata :name => "rightsMetadata", type: Hydra::Datastream::RightsMetadata
-
+ 
   #Delegate these attributes to the respective datastream
   #Unique fields
   delegate :title, :to=>"descMetadata", :unique=>"true"
@@ -33,26 +34,26 @@ class UketdObject < ActiveFedora::Base
   delegate :extent, :to=>"descMetadata", :unique=>"true"
   delegate :record_creation_date, :to=>"descMetadata", :unique=>"true"
   delegate :record_change_date, :to=>"descMetadata", :unique=>"true"
-
+ 
   # Non-unique fields
   # People
   delegate :person_name, :to=>"descMetadata"
   delegate :person_role_text, :to=>"descMetadata"
-
+ 
   # Organisations
   delegate :organisation_name, :to=>"descMetadata"
   delegate :organisation_role_text, :to=>"descMetadata"
-
+ 
   delegate :subject_topic, :to=>"descMetadata"
   delegate :grant_number, :to=>"descMetadata"
-
+ 
   # Relator terms
   delegate :person_role_terms, to: Datastream::ModsEtd
   delegate :organisation_role_terms, to: Datastream::ModsEtd
   delegate :qualification_name_terms, to: Datastream::ModsEtd
   delegate :qualification_level_terms, to: Datastream::ModsEtd
-  delegate :dissertation_category_terms, to: Datastream::ModsEtd
-
+  delegate :dissertation_category_terms, to: Datastream::ModsEtd 
+ 
   # Overide the update_attributes method to enable the calling of custom methods
   def update_attributes(params = {})
     super(params)
@@ -61,19 +62,18 @@ class UketdObject < ActiveFedora::Base
     self.descMetadata.add_subject_topic(params["subject_topic"])
     self.descMetadata.add_grant_number(params["grant_number"])
   end
-
+ 
   # assert_content_model overidden to add UketdObject custom models
   def assert_content_model
     add_relationship(:has_model, "info:fedora/hydra-cModel:commonMetadata")
     super
   end
-
+ 
   # to_solr overridden to add object_type facet field to document
   def to_solr(solr_doc = {})
     super(solr_doc)
     solr_doc.merge!("object_type_sim" => "Thesis or dissertation")
     solr_doc
   end
-
-end
-
+ 
+ end

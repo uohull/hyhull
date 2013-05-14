@@ -1,6 +1,6 @@
 <fields>
   <depositor>depositor_a</depositor>
   <depositorEmail>depositora@example.com</depositorEmail>
-  <state>proto</state>
+  <resourceState>proto</resourceState>
   <collection>uketd_object</collection>
 </fields>

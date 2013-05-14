@@ -14,4 +14,12 @@ module ControllerMacros
       sign_in user
     end
   end
+
+  # Set the referer for controllers that redirect_to :back
+  def set_referer
+    before(:each) do
+      @request.env["HTTP_REFERER"] = "/"
+    end
+  end
+
 end

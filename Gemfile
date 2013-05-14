@@ -12,6 +12,9 @@ gem 'rails', '3.2.13'
 gem 'blacklight', '4.1.0'
 gem 'hydra-head', '~> 6.0.0'
 
+#State machine
+gem 'state_machine', '~> 1.2.0'
+
 gem 'sqlite3'
 
 #devise_cas_authenticable is used to enable CAS integration

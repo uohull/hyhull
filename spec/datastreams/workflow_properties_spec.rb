@@ -12,9 +12,9 @@ describe Hyhull::Datastream::WorkflowProperties do
     it "should expose workflow properties using explicit terms" do
       #Explicit terms depositora@example.com
       @ds.fields.depositor.should == ["depositor_a"]
-      @ds.fields.depositorEmail.should == ["depositora@example.com"]
+      @ds.fields.depositor_email.should == ["depositora@example.com"]
       @ds.fields.collection.should == ["uketd_object"]
-      @ds.fields.state.should == ["proto"]   
+      @ds.fields._resource_state.should == ["proto"]   
     end
   end
 
@@ -25,10 +25,10 @@ describe Hyhull::Datastream::WorkflowProperties do
 
     it "should save the correct xml for the given data" do
       @workflow_properties_ds.fields.depositor = "aperson"
-      @workflow_properties_ds.fields.depositorEmail = "aperson@example.com"
+      @workflow_properties_ds.fields.depositor_email = "aperson@example.com"
       @workflow_properties_ds.fields.collection = "video"
-      @workflow_properties_ds.fields.state = "published"
-      @workflow_properties_ds.to_xml.should be_equivalent_to("<fields><depositor>aperson</depositor><depositorEmail>aperson@example.com</depositorEmail><collection>video</collection><state>published</state></fields>")
+      @workflow_properties_ds.fields._resource_state = "published"
+      @workflow_properties_ds.to_xml.should be_equivalent_to("<fields><depositor>aperson</depositor><depositorEmail>aperson@example.com</depositorEmail><collection>video</collection><resourceState>published</resourceState></fields>")
     end
   end
 

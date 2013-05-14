@@ -5,9 +5,9 @@ module Hyhull
       set_terminology do |t|
         t.root(:path=>"fields")
         t.depositor
-        t.depositorEmail
+        t.depositor_email(:path=>'depositorEmail')
         t.collection
-        t.state      
+        t._resource_state(:path=>'resourceState')
       end
 
       # Generates an empty contentMetadata
@@ -15,7 +15,6 @@ module Hyhull
         builder = Nokogiri::XML::Builder.new do |xml|
           xml.fields {}
         end
-
         return builder.doc
       end
 
