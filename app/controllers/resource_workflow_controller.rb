@@ -10,11 +10,10 @@ class ResourceWorkflowController < ApplicationController
     if defined? object.resource_state
       begin
         object.fire_resource_state_event(state)
-
         if object.save
           notice = { :notice => "Sucessfully added resource to the #{ object.human_resource_state_name } queue" } 
         else
-          notice = { :alert => "Problems saving the resource to the #{state} queue" }
+          notice = { :alert => "Problems saving the resource to the #{state} queue...</br></br>#{object.errors.full_messages.join("</br>")}".html_safe }
         end
       rescue Exception
          notice = { :alert => "Problems executing the '#{state}' transition on the resource" }

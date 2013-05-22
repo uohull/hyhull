@@ -42,14 +42,6 @@ module Hyhull::ModelMethods
     end
   end
 
-
-  # all rights reserved copyright statement 
-  def all_rights_reserved_statement(person, year)
-    unless ((person.nil? || person.empty?) || (year.nil? || year.empty?) )
-      return "© #{year} #{person}. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder."
-    end     
-  end 
-
   #Quick utility method used to get long version of a date (YYYY-MM-DD) from short form (YYYY-MM) - Defaults 01 for unknowns
   def to_long_date(flexible_date)
     full_date = ""

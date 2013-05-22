@@ -7,6 +7,13 @@ class UketdObject < ActiveFedora::Base
   include Hyhull::GenericParentBehaviour
   include Hyhull::ResourceWorkflowBehaviour
 
+  #
+  UketdObject.state_machine :resource_state do    
+    state :published do
+      validates :abstract, presence: true
+    end
+  end
+
   before_save :apply_additional_metadata 
 
   has_metadata :name => "descMetadata", type: "MODS metadata", type: Datastream::ModsEtd
@@ -42,18 +49,23 @@ class UketdObject < ActiveFedora::Base
   validates :qualification_name, presence: true
   validates :date_issued, format: { with: /^(\d{4}-\d{2}-\d{2}|\d{4}-\d{2}|\d{4})/ }
 
-  # validates :person_role_text, :presence => true
-
   def apply_additional_metadata
-    names = self.descMetadata.creator_name.sub(/.$/, "").split(",").reverse.map{ |name| name.strip }
-    presentation_name = names.join(" ")
+    #personal_creator_name
+
+    names = []
+    creators = self.descMetadata.personal_creator_names
+
+    creators.each do |creator|
+      name_parts = creator.sub(/.$/, "").split(",").reverse.map{ |name| name.strip }
+      names << name_parts.join(" ")
+    end
 
     if date_issued.empty? 
       copyright_year = ""
     else
       copyright_year = Date.parse(to_long_date(date_issued)).strftime("%Y")
     end
-    self.rights = all_rights_reserved_statement(presentation_name, copyright_year)
+    self.rights = Datastream::ModsEtd.all_rights_reserved_statement(names, copyright_year)
   end
 
   # Overide the attributes method to enable the calling of custom methods
@@ -70,6 +82,10 @@ class UketdObject < ActiveFedora::Base
     add_relationship(:has_model, "info:fedora/hydra-cModel:commonMetadata")
     super
   end
+
+  def valid_for_publish
+    validates :abstract, presence: true
+  end
  
   # to_solr overridden to add object_type facet field to document
   def to_solr(solr_doc = {})
@@ -77,6 +93,13 @@ class UketdObject < ActiveFedora::Base
     solr_doc.merge!("object_type_sim" => "Thesis or dissertation")
     solr_doc
   end
+
+  def self.publish_validation
+     validates :abstract, presence: true
+         validates :ethos_identifier, presence: true
+  end
+
+
  
  end
 

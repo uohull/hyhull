@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Hyhull::ModsMetadataMethods
   extend ActiveSupport::Concern
 
@@ -52,6 +54,24 @@ module Hyhull::ModsMetadataMethods
         end
       end
     end
+
+    # all rights reserved copyright statement 
+    # person can be a string or array of names...
+    # "Simon Lamb", 2013
+    # © 2013 Simon Lamb. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder
+    #
+    # ["Simon Lamb", "Richard Green"], 2013 
+    # © 2013 Richard Green and Simon Lamb. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holders
+    def all_rights_reserved_statement(person, year)
+      plural = ""
+      unless ((person.nil? || person.empty?) || (year.nil? || year.empty?) )
+        if person.kind_of? Array 
+          plural = person.length > 1 ? "s" : ""
+          person = person.map { |name|  name == person.first ? name : name == person.last ? " and #{name}" : ", #{name}" }.join("")
+        end
+        return "© #{year} #{person}. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder#{plural}."
+      end     
+    end 
 
   end
 

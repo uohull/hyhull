@@ -156,7 +156,7 @@
         }
         xml.abstract
         xml.subject(:authority=>"UoH") {
-         xml.topic "Subject topic goes here"
+         xml.topic
         }
         xml.identifier(:type=>"fedora")
         xml.location {
@@ -212,8 +212,8 @@
      self.grant_number = values
    end
 
-   def creator_name
-     ng_xml.xpath('//xmlns:name[./xmlns:role/xmlns:roleTerm="Creator"]/xmlns:namePart/text()').to_s
+   def personal_creator_names
+     ng_xml.xpath("//xmlns:name[@type='personal'][./xmlns:role/xmlns:roleTerm='Creator']/xmlns:namePart/text()").map { |creator| creator.to_s }
    end
 
 end
