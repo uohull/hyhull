@@ -6,8 +6,14 @@ module Hyhull::ModelMethods
   included do
     logger.info("Adding HyhullModelMethods to the Hydra model")
 
-    #Store Hyhull workflow properties
+    before_save :apply_dublin_core_metadata 
+
+    # Store Hyhull workflow properties
     has_metadata name: "properties", label: "Workflow properties", type: Hyhull::Datastream::WorkflowProperties   
+  
+    # Reference the standard Fedora DC for storing simple metadata
+    has_metadata name: "DC", label: "Dublin Core Record for this object", type: Hyhull::Datastream::DublinCore
+
   end
 
   module ClassMethods
@@ -23,7 +29,7 @@ module Hyhull::ModelMethods
   def cmodel
     model = self.class.to_s
     "info:fedora/hull-cModel:#{model[0,1].downcase + model[1..-1]}"
-  end  
+  end
 
   # method for coordinating the addition of file metadata to self
   def add_file_metadata(file_asset, content_ds)
@@ -41,6 +47,12 @@ module Hyhull::ModelMethods
       self.descMetadata.update_mods_content_metadata(file_asset, content_ds)
     end
   end
+
+  def apply_dublin_core_metadata
+    self.dc.title = self.title
+    self.dc.genre = self.genre
+  end
+
 
   #Quick utility method used to get long version of a date (YYYY-MM-DD) from short form (YYYY-MM) - Defaults 01 for unknowns
   def to_long_date(flexible_date)
