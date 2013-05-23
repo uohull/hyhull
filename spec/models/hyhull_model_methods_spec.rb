@@ -26,4 +26,15 @@ describe Hyhull::ModelMethods do
     end
   end
 
+  context "utility methods" do
+    describe "to_long_date" do
+      it "should return the appropiate long date versions of the inputted dates" do
+        @testclassone.to_long_date("2001").should == "2001-01-01"
+        @testclassone.to_long_date("1983-03").should == "1983-03-01"
+        @testclassone.to_long_date("1999-05-10").should == "1999-05-10"
+      end
+    end
+  end
+
 end
+

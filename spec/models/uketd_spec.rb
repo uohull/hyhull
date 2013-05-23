@@ -1,3 +1,4 @@
+# encoding: utf-8
 # spec/models/uketd_spec.rb
 require 'spec_helper'
 
@@ -45,7 +46,8 @@ describe UketdObject do
         "dissertation_category" => "",
         "language_text" => "English",
         "language_code" => "eng",
-        "publisher" => "ICTD, The University of Hull"
+        "publisher" => "ICTD, The University of Hull",
+        "resource_status" => "New nice object"
       } 
 
       @etd.update_attributes( attributes_hash )
@@ -61,6 +63,8 @@ describe UketdObject do
       @etd.language_text == attributes_hash["language_text"]
       @etd.language_code == attributes_hash["language_code"]
       @etd.publisher == attributes_hash["publisher"]
+      @etd.resource_status.should == attributes_hash["resource_status"]
+
 
       # These attributes are not marked as 'unique' in the call to delegate, results will be arrays...
       @etd.person_name.should == attributes_hash["person_name"]
@@ -70,33 +74,136 @@ describe UketdObject do
       @etd.subject_topic.should == attributes_hash["subject_topic"]  
       @etd.grant_number == [attributes_hash["grant_number"]]
 
+
       @etd.save
     end
-    
-    describe ".to_solr" do
-      it "should return the necessary facets" do
-        solr_doc = @etd.to_solr
-        solr_doc["object_type_sim"].should == "Thesis or dissertation"
-      end
 
-      it "should return the necessary cModels" do
-         @etd.save
-        solr_doc = @etd.to_solr
-        solr_doc["has_model_ssim"].should == ["info:fedora/hydra-cModel:commonMetadata", "info:fedora/hydra-cModel:genericParent", "info:fedora/hull-cModel:uketdObject"]
-      end
+    it "should respond with validation errors when trying to save without the appropiate fields populated" do
+      # save should be false
+      @etd.save.should be_false
 
-    end
+      # with 6 error messages
+      @etd.errors.messages.size.should == 7
 
-    describe ".save" do
-      before(:each) do
-        @etd.save
-      end
-      it "should create the appropriate cModel declarations" do       
-        @etd.ids_for_outbound(:has_model).should == ["hydra-cModel:commonMetadata", "hydra-cModel:genericParent", "hull-cModel:uketdObject"] 
-      end
-      it "should contain the appropiately case for the uketdObject in the RELS-EXT (Lower Camelcase)" do
-        @etd.rels_ext.to_rels_ext.include?('info:fedora/hull-cModel:uketdObject').should == true
-      end
-    end
+      # errors...
+      @etd.errors.messages[:title].should == ["can't be blank"]
+      @etd.errors.messages[:person_name].should == ["is too short (minimum is 5 characters)"]
+      @etd.errors.messages[:person_role_text].should == ["is too short (minimum is 3 characters)"]
+      @etd.errors.messages[:publisher].should == ["can't be blank"]
+      @etd.errors.messages[:qualification_level].should == ["can't be blank"]
+      @etd.errors.messages[:qualification_level].should == ["can't be blank"]
+      @etd.errors.messages[:date_issued].should == ["is invalid"]
+
+    end  
   end
+
+  context "methods" do
+      before(:each) do
+          #set the 'required' fields
+          @valid_etd  =  UketdObject.new
+          @valid_etd.title = "Test title"
+          @valid_etd.person_name = ["Smith, John."]
+          @valid_etd.person_role_text = ["Creator"]
+          @valid_etd.subject_topic = ["Topci 1"]
+          @valid_etd.language_code = "eng"
+          @valid_etd.language_text = "English"
+          @valid_etd.publisher = "IT, UoH"
+          @valid_etd.qualification_name = "Undergraduate"
+          @valid_etd.qualification_level = "BSc"
+          @valid_etd.date_issued = "2012"
+          @valid_etd.save
+      end
+      describe ".to_solr" do
+        it "should return the necessary facets" do
+          solr_doc = @valid_etd.to_solr
+          solr_doc["object_type_sim"].should == "Thesis or dissertation"
+        end
+
+        it "should return the necessary cModels" do
+          solr_doc = @valid_etd.to_solr
+          solr_doc["has_model_ssim"].should == ["info:fedora/hydra-cModel:commonMetadata", "info:fedora/hydra-cModel:genericParent", "info:fedora/hull-cModel:uketdObject"]
+        end
+      end
+      describe ".save" do
+        it "should create the appropriate cModel declarations" do       
+          @valid_etd.ids_for_outbound(:has_model).should == ["hydra-cModel:commonMetadata", "hydra-cModel:genericParent", "hull-cModel:uketdObject"] 
+        end
+        it "should contain the appropiately case for the uketdObject in the RELS-EXT (Lower Camelcase)" do
+          @valid_etd.rels_ext.to_rels_ext.include?('info:fedora/hull-cModel:uketdObject').should == true
+        end
+        it "apply_additional_metadata should pre-populate the copyright (rights) field" do
+          @valid_etd.rights.should == "© 2012 John Smith. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder." 
+        end
+      end
+     
+  end
+
+  context "resource_state" do
+    before(:each) do
+      #set the general 'required' fields for an object
+      @valid_etd  =  UketdObject.new
+      @valid_etd.title = "Test title"
+      @valid_etd.person_name = ["Smith, John."]
+      @valid_etd.person_role_text = ["Creator"]
+      @valid_etd.subject_topic = ["Topci 1"]
+      @valid_etd.language_code = "eng"
+      @valid_etd.language_text = "English"
+      @valid_etd.publisher = "IT, UoH"
+      @valid_etd.qualification_name = "Undergraduate"
+      @valid_etd.qualification_level = "BSc"
+      @valid_etd.date_issued = "2012"
+      @valid_etd.save
+    end
+
+    describe "hidden" do
+      it "should validate that the required field 'resource status' is populated" do
+
+        #Submit the resource so that it can be hidden... 
+        @valid_etd.submit_resource
+        #Save the state... 
+        @valid_etd.save
+        
+        @valid_etd.resource_state.should == "qa"
+
+        #Hide the resource...
+        @valid_etd.hide_resource.should be_true
+        
+        #Save should fail because of the validation state callback
+        @valid_etd.save.should be_false
+        @valid_etd.errors.messages[:resource_status].should == ["can't be blank"]
+        
+        #Populate thteh required field
+        @valid_etd.resource_status = "Hidden due to Copyright enquiry"
+        #Save should work...
+        @valid_etd.save.should be_true
+      end
+    end
+
+    describe "deleted" do
+      it "should validate that the required field 'resource status' is populated" do
+        #Submit the resource so that it can be hidden... 
+        @valid_etd.submit_resource
+        @valid_etd.publish_resource
+        #Save the state... 
+        @valid_etd.save
+
+        @valid_etd.resource_state.should == "published"
+
+        #'Delete' the resource...
+        @valid_etd.delete_resource.should be_true
+        
+        #Save should fail because of the validation state callback
+        @valid_etd.save.should be_false
+        @valid_etd.errors.messages[:resource_status].should == ["can't be blank"]
+
+        #Populate thteh required field
+        @valid_etd.resource_status = "Deleted due to duplicate record"
+        #Save should work...
+        @valid_etd.save.should be_true
+      end
+    end
+
+  end
+
 end
+

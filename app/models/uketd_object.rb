@@ -6,11 +6,16 @@ class UketdObject < ActiveFedora::Base
   include Hyhull::ContentMetadataBehaviour
   include Hyhull::GenericParentBehaviour
   include Hyhull::ResourceWorkflowBehaviour
+  include Hyhull::Validators 
 
-  #
-  UketdObject.state_machine :resource_state do    
-    state :published do
-      validates :abstract, presence: true
+  # Extra validations for the resource_state state changes
+  UketdObject.state_machine :resource_state do   
+    state :hidden do
+      validates :resource_status, presence: true
+    end
+
+    state :deleted do
+      validates :resource_status, presence: true
     end
   end
 
@@ -23,7 +28,7 @@ class UketdObject < ActiveFedora::Base
   #Unique fields
   delegate_to :descMetadata, [:title, :abstract, :date_issued, :date_valid, :rights, :ethos_identifier, :language_text, :language_code, :publisher , :qualification_level, :qualification_name, 
                              :dissertation_category, :type_of_resource, :genre, :mime_type, :digital_origin, :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, 
-                             :record_change_date, :admin_note ], unique: true
+                             :record_change_date, :resource_status ], unique: true
   # Non-unique fields
   # People
   delegate_to :descMetadata, [:person_name, :person_role_text]
@@ -38,9 +43,10 @@ class UketdObject < ActiveFedora::Base
   delegate :qualification_level_terms, to: Datastream::ModsEtd
   delegate :dissertation_category_terms, to: Datastream::ModsEtd
 
+  # Standard validations for the object fields
   validates :title, presence: true
   validates :person_name, array: { :length => { :minimum => 5 } }
-  validates :person_role_terms, array: { :length => { :minimum => 3 } } 
+  validates :person_role_text, array: { :length => { :minimum => 3 } } 
   validates :subject_topic, array: { :length => { :minimum => 2 } }
   validates :language_code, presence: true
   validates :language_text, presence: true 
@@ -83,23 +89,12 @@ class UketdObject < ActiveFedora::Base
     super
   end
 
-  def valid_for_publish
-    validates :abstract, presence: true
-  end
- 
   # to_solr overridden to add object_type facet field to document
   def to_solr(solr_doc = {})
     super(solr_doc)
     solr_doc.merge!("object_type_sim" => "Thesis or dissertation")
     solr_doc
   end
-
-  def self.publish_validation
-     validates :abstract, presence: true
-         validates :ethos_identifier, presence: true
-  end
-
-
  
  end
 

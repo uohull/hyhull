@@ -2,13 +2,10 @@ require 'spec_helper'
 
 class ContentMetadataBehaviourTest < ActiveFedora::Base
   include Hyhull::ContentMetadataBehaviour
+  include Hyhull::GenericParentBehaviour
 
   def owner_id
     "fooAdmin"
-  end
-
-  def initialize
-    super
   end
 
 end
@@ -40,7 +37,7 @@ describe Hyhull::ModelMethods do
   describe "adding content metadata based upon a file_asset content datastream" do
     before(:all) do
       #Create some valid test objects  
-      @test_object = UketdObject.create       
+      @test_object = ContentMetadataBehaviourTest.create       
       @file_asset = FileAsset.create
 
       @test_file = fixture("hyhull/files/test_pdf_file.pdf") 

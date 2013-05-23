@@ -1,5 +1,6 @@
 module Hyhull::ResourceWorkflowBehaviour
   extend ActiveSupport::Concern
+  include Hyhull::Validators  
 
   included do
 
@@ -31,7 +32,7 @@ module Hyhull::ResourceWorkflowBehaviour
   
       event :delete, human_name: "Delete the resource" do
         transition [:published, :hidden] => :deleted
-      end    
+      end
     end 
   end
 

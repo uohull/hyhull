@@ -106,15 +106,15 @@ describe Hyhull::ResourceWorkflowBehaviour do
 
     describe "persisted _resource_state" do
       it "should reflect the correct state after save" do
-        object = ResourceWorkflowBehaviourTestClass.new        
-        object.save 
-        
-        object._resource_state.should == "proto"
-        
-        object.submit_resource
-        object.save
+        test_object = ResourceWorkflowBehaviourTestClass.new        
+        test_object.save 
 
-        object._resource_state.should == "qa"
+        test_object._resource_state.should == "proto"
+        
+        test_object.submit_resource
+        test_object.save
+
+        test_object._resource_state.should == "qa"
       end      
     end
   end

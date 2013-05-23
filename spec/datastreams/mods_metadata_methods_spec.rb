@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'spec_helper'
 
 describe Hyhull::ModsMetadataMethods do
@@ -34,5 +36,21 @@ describe Hyhull::ModsMetadataMethods do
       @ds.class.bits_to_human_readable(5497558138880).should == "5 TB"
     end
   end 
+
+  context "class method" do
+  
+    describe "all_rights_reserved_statement" do
+      it "should return the correct text for a single person and year" do
+        Datastream::ModsEtd.all_rights_reserved_statement("John Smith", "2001").should == "© 2001 John Smith. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder."
+      end
+      it "should return the correct state for two people and year" do
+        Datastream::ModsEtd.all_rights_reserved_statement(["John Smith", "John Jones"], "2005").should == "© 2005 John Smith and John Jones. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holders."
+      end
+      it "should return the correct state for more than two people and year" do
+        Datastream::ModsEtd.all_rights_reserved_statement(["John Smith", "John Jones", "Frank Spencer"], "2001").should == "© 2001 John Smith, John Jones and Frank Spencer. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holders."
+      end 
+    end
+
+  end
 
 end

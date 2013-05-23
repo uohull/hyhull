@@ -15,7 +15,7 @@ class ResourceWorkflowController < ApplicationController
         else
           notice = { :alert => "Problems saving the resource to the #{state} queue...</br></br>#{object.errors.full_messages.join("</br>")}".html_safe }
         end
-      rescue Exception
+      rescue Exception => e
          notice = { :alert => "Problems executing the '#{state}' transition on the resource" }
       end
       redirect_to :back, notice 
