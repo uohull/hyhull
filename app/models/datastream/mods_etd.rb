@@ -61,7 +61,7 @@
       t.qualification_level(:path=>"note", :attributes=>{:type=>"qualificationLevel"})
       t.qualification_name(:path=>"note", :attributes=>{:type=>"qualificationName"})
       t.dissertation_category(:path=>"note", :attributes=>{:type=>"dissertationCategory"})
-      t.admin_note(:path=>"note", :attributes=>{:type=>"admin"})
+      t.resource_status(:path=>"note", :attributes=>{:type=>"admin"})
       t.origin_info(:path=>'originInfo') {
         t.date_issued(:path=>'dateIssued')
         t.date_valid(:path=>"dateValid", :attributes=>{:encoding=>'iso8601'})
@@ -136,7 +136,7 @@
         xml.name(:type=>"personal") {
          xml.namePart
          xml.role {
-           xml.roleTerm("Creator",:type=>"text")
+           xml.roleTerm(:type=>"text")
          }
         }
         xml.typeOfResource "text"
