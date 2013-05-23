@@ -1,3 +1,4 @@
+<%= render "shared/error_messages", :target => @uketd_object %>
 <%= simple_form_for(@uketd_object, :html => {:class => 'form-horizontal' }) do |f| %>
   	<legend>Edit thesis or dissertation</legend>
   	<div class="fields">
@@ -29,9 +30,11 @@
     
      <h4>Dissertations</h4>
    
-       <%= f.input :dissertation_category, collection: @uketd_object.dissertation_category_terms %>
+     <%= f.input :dissertation_category, collection: @uketd_object.dissertation_category_terms %>
 
-       <%= f.submit "Save" %>
+     <%= render(:partial => "shared/edit_administrative_metadata", :locals => { resource: @uketd_object, form: f }) %>
+
+     <%= f.submit "Save" %>
     </div>    
 <% end %>
 

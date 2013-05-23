@@ -93,7 +93,7 @@
         t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
        }
 
-     # t.author_path(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="creator"]')
+     # t.creator_name(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]')
      # t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
      # t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
 
@@ -131,12 +131,12 @@
         "xmlns"=>"http://www.loc.gov/mods/v3",
         "xsi:schemaLocation"=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd") {
         xml.titleInfo {
-         xml.title "Title goes here"
+         xml.title
         }
         xml.name(:type=>"personal") {
-         xml.namePart("Author goes here")
+         xml.namePart
          xml.role {
-           xml.roleTerm("creator",:type=>"text")
+           xml.roleTerm("Creator",:type=>"text")
          }
         }
         xml.typeOfResource "text"
@@ -146,8 +146,8 @@
          xml.dateIssued
         }
         xml.language {
-         xml.languageTerm(:type=>"text")
-         xml.languageTerm(:authority=>"iso639-2b", :type=>"code")
+         xml.languageTerm("English", :type=>"text")
+         xml.languageTerm("eng", :authority=>"iso639-2b", :type=>"code")
         }
         xml.physicalDescription {
          xml.extent
@@ -210,6 +210,10 @@
        n.remove
      end
      self.grant_number = values
+   end
+
+   def creator_name
+     ng_xml.xpath('//xmlns:name[./xmlns:role/xmlns:roleTerm="Creator"]/xmlns:namePart/text()').to_s
    end
 
 end

@@ -1,0 +1,11 @@
+<% # Do not display the adminstrative metadata when resource is in the proto queue %>
+<% unless resource.resource_proto? %>
+  <fieldset class="edit-standard">
+  <legend>Administrative metadata</legend>
+  <% if resource.respond_to?("admin_note") %>
+    <%= form.input :admin_note, label: 'Resource status', as: :text %>
+  <% else %>
+    <p>Administrative metadata cannot be display for this resource</p>
+  <% end %>
+  </fieldset>
+<% end %>

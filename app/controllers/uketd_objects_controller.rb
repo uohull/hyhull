@@ -23,7 +23,7 @@ class UketdObjectsController < ApplicationController
         format.json { render :json => @uketd_object, :status => :created, :location => @uketd_object }
       else
      		format.html {
-     			flash[:alert] = @uketd_object.errors.messages.values.to_s
+     			#flash[:error] = "There has been problems creating this resource"
      			render :action => "new"
      		}
      		format.json { render :json => @uketd_object.errors, :status => :unprocessable_entity }
@@ -49,7 +49,8 @@ class UketdObjectsController < ApplicationController
 				format.html { redirect_to(edit_uketd_object_path(@uketd_object), :notice => 'ETD was successfully updated.') }
 				format.json { render :json => @uketd_object, :status => :created, :location => @uketd_object }
 			else
-				format.html { redirect_to(edit_uketd_object_path(@uketd_object, :alert => @uketd_object.errors.messages.values.to_s)) }
+        format.html { render "edit" }
+				#format.html { redirect_to(edit_uketd_object_path(@uketd_object, :alert => @uketd_object.errors.messages.values.to_s)) }
 			end
 		end
 
