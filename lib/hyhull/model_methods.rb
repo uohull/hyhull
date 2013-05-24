@@ -13,6 +13,9 @@ module Hyhull::ModelMethods
   
     # Reference the standard Fedora DC for storing simple metadata
     has_metadata name: "DC", label: "Dublin Core Record for this object", type: Hyhull::Datastream::DublinCore
+    delegate :dc_title, to: "DC", at: [:title], unique: true
+    delegate :dc_genre, to: "DC", at: [:genre], unique: true
+    delegate :dc_date, to: "DC", at: [:date], unique: true
 
   end
 
@@ -48,9 +51,11 @@ module Hyhull::ModelMethods
     end
   end
 
+  # Apply basic metadata to the DC datastream, if the attributes exist on the object
   def apply_dublin_core_metadata
-    self.dc.title = self.title
-    self.dc.genre = self.genre
+    self.dc_title = if self.respond_to? "title" then self.title end
+    self.dc_genre = if self.respond_to? "genre" then self.genre end
+    self.dc_date = if self.respond_to? "date_issued" then self.date_issued elsif self.respond_to? "date_valid" then self.date_valid end 
   end
 
 
