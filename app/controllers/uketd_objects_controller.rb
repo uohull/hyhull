@@ -15,7 +15,7 @@ class UketdObjectsController < ApplicationController
 
 	def create 
 		@uketd_object = UketdObject.new(params[:uketd_object])
-		@uketd_object.apply_depositor_metadata(current_user.username)
+		@uketd_object.apply_depositor_metadata(current_user.username, current_user.email)
 
 		respond_to do |format|
 			if @uketd_object.save

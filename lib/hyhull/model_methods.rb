@@ -58,6 +58,30 @@ module Hyhull::ModelMethods
     self.dc_date = if self.respond_to? "date_issued" then self.date_issued elsif self.respond_to? "date_valid" then self.date_valid end 
   end
 
+  # Override the Hydra::ModelMethods variant to include depositor_email too
+  # Adds metadata about the depositor to the asset
+  # Most important behavior: if the asset has a rightsMetadata datastream, this method will add +depositor_id+ to its individual edit permissions.
+  # @param [String, #user_key] depositor
+  #
+  def apply_depositor_metadata(depositor, depositor_email)
+    prop_ds = self.datastreams["properties"]
+    rights_ds = self.datastreams["rightsMetadata"]
+
+    depositor_id = depositor.respond_to?(:user_key) ? depositor.user_key : depositor
+  
+    if prop_ds
+      prop_ds.depositor = depositor_id unless prop_ds.nil?
+      prop_ds.depositor_email = depositor_email unless prop_ds.nil?
+    end
+
+    # Implement this when StructuralSets/Display sets 
+    #unless self.class == StructuralSet || self.class == DisplaySet
+      rights_ds.permissions({:person=>depositor_id}, 'edit') unless rights_ds.nil?
+    #end
+ 
+    return true
+  end
+
 
   #Quick utility method used to get long version of a date (YYYY-MM-DD) from short form (YYYY-MM) - Defaults 01 for unknowns
   def to_long_date(flexible_date)

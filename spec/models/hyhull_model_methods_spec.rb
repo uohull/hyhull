@@ -91,5 +91,17 @@ describe Hyhull::ModelMethods do
 
   end
 
+
+  context "additional metadata" do
+    describe "apply_depositor_metadata" do
+      it "should store the depositor e-mail address along with their user_id" do
+        @testclassone.apply_depositor_metadata("usera", "usera@example.com")
+        @testclassone.save
+        @testclassone.properties.depositor.should == ["usera"]
+        @testclassone.properties.depositor_email.should == ["usera@example.com"]
+      end
+    end
+
+  end
 end
 
