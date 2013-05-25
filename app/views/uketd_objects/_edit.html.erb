@@ -1,15 +1,20 @@
 <%= render "shared/error_messages", :target => @uketd_object %>
 <%= simple_form_for(@uketd_object, :html => {:class => 'form-horizontal' }) do |f| %>
-  	<legend>Edit thesis or dissertation</legend>
+  	<legend>Edit Metadata</legend>
   	<div class="fields">
   	  <h4>Author, and Contributor(s)</h4>  	
       <%= render :partial => "name_edit", :locals => { object: @uketd_object, name_type: "person" } %>      
   	  <h4>Publication</h4>
    
-      <%= f.input :title %>     
-      <%= f.input :rights %>
-      <%= f.input :abstract, as: :text %>     
+      <%= f.input :title %>
+   
+      <%= render partial: "metadata/copyright_statement_edit", locals: { resource: @uketd_object, form: f } %>
+
+      <%= f.input :abstract, as: :text %>
+
       <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "subject_topic" } %>
+
+      <%= render partial: "metadata/language_edit", locals: { resource: @uketd_object, form: f } %>
    
      <h4>Author, and Contributor(s)</h4>   
    

@@ -21,8 +21,8 @@ class UketdObject < ActiveFedora::Base
 
   before_save :apply_additional_metadata 
 
-  has_metadata :name => "descMetadata", type: "MODS metadata", type: Datastream::ModsEtd
-  has_metadata :name => "rightsMetadata", type: Hydra::Datastream::RightsMetadata
+  has_metadata name: "descMetadata", label: "MODS metadata", type: Datastream::ModsEtd
+  has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
  
   #Delegate these attributes to the respective datastream
   #Unique fields

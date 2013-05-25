@@ -2,9 +2,19 @@
   <div class="row-fluid">
   	<div class="span10">
   	  <div class="row">
-  	    <div class="span12">
+  	    <div class="span12">          
           <h2><%= @uketd_object.title %></h2>
+          <h3>Thesis or dissertation</h3>
         </div>
+        <% # Only show the Add/edit content files when the initial metadata has been added and object created %>
+        <% if @uketd_object.persisted? %>
+          <div class="span6">
+            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @uketd_object, content_type: "uketd_objects" %>
+          </div>
+          <div class="span6">  
+            <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @uketd_object }) %>
+          </div>
+        <% end %>
         <div class="span12">
           <%= render :partial => "edit" %>
         </div>

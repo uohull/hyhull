@@ -6,10 +6,11 @@ module Hyhull::ModelMethods
   included do
     logger.info("Adding HyhullModelMethods to the Hydra model")
 
-    before_save :apply_dublin_core_metadata 
+    before_save :apply_dublin_core_metadata, :apply_resource_object_label, :apply_additional_descMetadata
 
     # Store Hyhull workflow properties
-    has_metadata name: "properties", label: "Workflow properties", type: Hyhull::Datastream::WorkflowProperties   
+    has_metadata name: "properties", label: "Workflow properties", type: Hyhull::Datastream::WorkflowProperties 
+    delegate_to :properties, [:depositor, :depositor_email], unique: true  
   
     # Reference the standard Fedora DC for storing simple metadata
     has_metadata name: "DC", label: "Dublin Core Record for this object", type: Hyhull::Datastream::DublinCore
@@ -58,6 +59,57 @@ module Hyhull::ModelMethods
     self.dc_date = if self.respond_to? "date_issued" then self.date_issued elsif self.respond_to? "date_valid" then self.date_valid end 
   end
 
+  # Apply additional metadata to the descMetadata
+  def apply_additional_descMetadata
+    if self.respond_to? "descMetadata"
+      if self.respond_to? "identifier" then self.identifier = self.pid end
+      if self.respond_to? "primary_display_url" then self.primary_display_url = "http://hydra.hull.ac.uk/resources/#{self.pid}" end
+      if self.respond_to? "record_change_date" then self.record_change_date = Time.now.strftime("%Y-%m-%d") end
+    end
+  end
+
+  # Apply a label to the resource object in the Form of 'Title - Authors'
+  def apply_resource_object_label
+    label = ""
+    label_names = ""
+
+    # Set the resource label based upon descMetadata (if it exists...)
+    if self.respond_to? "descMetadata"
+      begin
+        names = self.get_values_from_datastream("descMetadata", [:name, :namePart], {})
+        roles = self.get_values_from_datastream("descMetadata", [:name, :role, :text], {})
+
+        # zip name into role array
+        role_name = roles.zip(names)
+
+        role_name.each do |person|
+          role = person[0].to_s.downcase
+          if role == "creator" || role == "author"
+            label_names = label_names + person[1] + '; '   
+          end
+        end
+      rescue OM::XML::Terminology::BadPointerError => e
+        # Assume that its a resource without author (Set or alike)
+        label_names = ""  
+      end
+
+      if self.respond_to? "title" 
+        title = self.title
+      end
+
+      # Truncate the title if its too long (over 100 chars)
+      title = title.length > 100 ? title[0..100] << '...': title unless title.nil?
+      label = "#{title} - #{label_names}"
+      # 255 character limit for labels, we'll limit to 200 to be on the safe side... 
+      label = label.length > 200 ? label[0..197] << '...' : label
+      #When the label has any leading/trailing spaces strip them off...
+      label = label.strip!.nil? ? label : label.strip
+    end
+
+    # Set resource label
+    self.label = label    
+  end
+   
   # Override the Hydra::ModelMethods variant to include depositor_email too
   # Adds metadata about the depositor to the asset
   # Most important behavior: if the asset has a rightsMetadata datastream, this method will add +depositor_id+ to its individual edit permissions.

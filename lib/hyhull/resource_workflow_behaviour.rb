@@ -6,6 +6,9 @@ module Hyhull::ResourceWorkflowBehaviour
 
     logger.info("Adding Hyhull::ResourceWorkflowBehaviour to the Hydra model")
 
+    ACTIVE_OBJECT_STATE = "A"
+    DELETED_OBJECT_STATE = "D"
+
     # Local instance attribute for resource_state
     attr_accessor :resource_state
 
@@ -18,7 +21,32 @@ module Hyhull::ResourceWorkflowBehaviour
 
     # Standard resource_state workflow
     state_machine :resource_state, :initial => :proto, :namespace => 'resource'  do
-       event :submit, human_name: "Submit the resource to QA" do
+ 
+      after_transition any => [:proto, :qa, :published, :hidden, :deleted] do |resource, transition|
+        unless transition.from_name == :published 
+          # Remove the current queue relationship from the object (published does not a queue set)... 
+          resource.remove_relationship :is_member_of, HYHULL_QUEUES.invert[transition.from_name]
+        end
+
+        unless transition.to_name == :published 
+          # After a transition to proto, :qa, :hidden, :deleted.. 
+          resource.add_relationship :is_member_of,  HYHULL_QUEUES.invert[transition.to_name]
+        end        
+      end
+
+      after_transition any => [:hidden, :deleted] do |resource, transition|
+        # After a transition from any states to hidden and deleted, do the following...
+        resource.inner_object.state = DELETED_OBJECT_STATE      
+      end
+
+      after_transition [:hidden, :deleted] => [:qa] do |resource, transition|
+        # After a transition from hidden and deleted to QA do the following...
+        resource.inner_object.state = ACTIVE_OBJECT_STATE      
+      end
+
+  
+
+      event :submit, human_name: "Submit the resource to QA" do
         transition [:proto, :hidden, :deleted  ] => :qa
       end
    
@@ -36,11 +64,15 @@ module Hyhull::ResourceWorkflowBehaviour
     end 
   end
 
+
+
   # Retrieve the resource_state from delegated _resource_state
   def get_resource_state
     begin   
       if self._resource_state.nil? || self._resource_state.empty? 
         self.resource_state = "proto"
+        # Set the relationship queue manually
+        self.add_relationship :is_member_of,  HYHULL_QUEUES.invert[self.resource_state_name]
       else
          self.resource_state = self._resource_state
       end

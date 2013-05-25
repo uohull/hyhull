@@ -1,0 +1,5 @@
+<% # Do not display the language text and code edit fields if resource in proto %>
+<% unless resource.resource_proto? %>
+   <%= form.input :language_text %>
+   <%= form.input :language_code %>
+<% end %>

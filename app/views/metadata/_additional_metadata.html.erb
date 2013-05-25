@@ -1,0 +1,58 @@
+<% unless resource.resource_proto? %>
+  <!-- Button to trigger modal -->
+  <a href="#additional-metadata-modal" role="button" data-toggle="modal">View additional metadata</a>
+  <!-- Modal -->
+  <div id="additional-metadata-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="AdditionalMetadataLabel" aria-hidden="true">
+    <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>Additional metadata</h3>
+    </div>
+    <div class="modal-body">
+      <h4>Resource metadata</h4>
+      <dl>
+        <dt>Identifier</dt>
+        <dd>
+          <%= resource.identifier %>
+        </dd>
+        <dt>Resource type</dt>
+        <dd> 
+          <%= resource.type_of_resource %>
+        </dd>
+        <dt>Genre</dt>
+        <dd> 
+          <%= resource.genre %>
+        </dd>
+        <dt>Internet media type</dt>
+        <dd>
+          <%= resource.mime_type %>
+        </dd>
+        <dt>Digital origin</dt>
+        <dd>
+          <%= resource.digital_origin %>
+        </dd>
+        <dt>Splash URL</dt>
+        <dd>
+          <%= resource.primary_display_url %>
+        </dd>
+        <dt>Primary download URL</dt>
+        <dd>
+          <%= resource.raw_object_url %>
+        </dd>
+      </dl>
+      <dl>
+        <h4>Depositor</h4>
+        <dt>User id</dt>
+        <dd>
+          <%= resource.depositor %>
+        </dd>
+          <dt>E-mail address</dt>
+        <dd>
+          <%= resource.depositor_email %>
+        </dd>
+      </dl>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+  </div>
+<% end %>
