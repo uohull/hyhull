@@ -83,19 +83,58 @@ describe UketdObject do
       # save should be false
       @etd.save.should be_false
 
-      # with 6 error messages
-      @etd.errors.messages.size.should == 7
+      # with 7 error messages
+      @etd.errors.messages.size.should == 8
 
       # errors...
       @etd.errors.messages[:title].should == ["can't be blank"]
       @etd.errors.messages[:person_name].should == ["is too short (minimum is 5 characters)"]
       @etd.errors.messages[:person_role_text].should == ["is too short (minimum is 3 characters)"]
+      @etd.errors.messages[:subject_topic].should == ["is too short (minimum is 2 characters)"]
       @etd.errors.messages[:publisher].should == ["can't be blank"]
       @etd.errors.messages[:qualification_level].should == ["can't be blank"]
       @etd.errors.messages[:qualification_level].should == ["can't be blank"]
       @etd.errors.messages[:date_issued].should == ["is invalid"]
 
-    end  
+    end
+
+    context "non unique fields" do
+      before(:each) do
+        @attributes_hash = {
+          "title" => "A thesis describing the...",
+          "person_name" => ["Smith, John.", "Supervisor, A."],
+          "person_role_text" => ["Creator", "Supervisor"],
+          "organisation_name" => ["The University of Hull"],
+          "organisation_role_text" =>["Funder"],
+          "abstract" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "subject_topic" => ["Subject of the matter"],
+          "grant_number" => ["GN:122335"] 
+        } 
+        @etd.update_attributes( @attributes_hash )        
+      end
+      it "should not overwrite the person_name and person_role_text if they are not within the attributes" do
+        new_attributes_hash = { "title" => "A new title" }
+        @etd.update_attributes( new_attributes_hash )
+        @etd.title.should == new_attributes_hash["title"]
+        @etd.person_name.should ==  @attributes_hash["person_name"]
+        @etd.person_role_text.should == @attributes_hash["person_role_text"]
+      end
+
+      it "should not overwrite the subject_topic if they are not within the attributes" do
+        new_attributes_hash = { "title" => "A new title part 2" }
+        @etd.update_attributes( new_attributes_hash )
+        @etd.title.should == new_attributes_hash["title"]
+        @etd.subject_topic.should == @attributes_hash["subject_topic"]
+      end   
+
+      it "should not overwrite the grant_number if they are not within the attributes" do
+        new_attributes_hash = { "title" => "A new title part 3" }
+        @etd.update_attributes( new_attributes_hash )
+        @etd.title.should == new_attributes_hash["title"]
+        @etd.grant_number.should == @attributes_hash["grant_number"]
+      end
+    end
+
   end
 
   context "methods" do

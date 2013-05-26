@@ -79,8 +79,8 @@ class UketdObject < ActiveFedora::Base
     super(properties)
     self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person") unless properties["person_name"].nil? or properties["person_role_text"].nil?
     self.descMetadata.add_names(properties["organisation_name"], properties["organisation_role_text"], "organisation") unless properties["organisation_name"].nil? or properties["organisation_role_text"].nil? 
-    self.descMetadata.add_subject_topic(properties["subject_topic"])
-    self.descMetadata.add_grant_number(properties["grant_number"])
+    self.descMetadata.add_subject_topic(properties["subject_topic"]) unless properties["subject_topic"].nil?
+    self.descMetadata.add_grant_number(properties["grant_number"]) unless properties["grant_number"].nil?
   end
  
   # assert_content_model overidden to add UketdObject custom models
