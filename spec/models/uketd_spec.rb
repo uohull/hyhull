@@ -11,10 +11,10 @@ describe UketdObject do
     end
 
     it "should have the specified datastreams" do
-
       #Check for descMetadata datastream
       @etd.datastreams.keys.should include("descMetadata")
       @etd.descMetadata.should be_kind_of Datastream::ModsEtd
+      @etd.descMetadata.label.should == "MODS metadata"
 
       #Check for contentMetadata datastream
       @etd.datastreams.keys.should include("contentMetadata")
@@ -23,10 +23,11 @@ describe UketdObject do
       #Check for the rightsMetadata datastream
       @etd.datastreams.keys.should include("rightsMetadata")
       @etd.rightsMetadata.should be_kind_of Hydra::Datastream::RightsMetadata
+      @etd.rightsMetadata.label.should == "Rights metadata"
 
       #Check for the properties datastream
-      #@etd.datastreams.key.should include ("properties")
-      #@etd.datastreams.should be_kind_of ActiveFedora::MetadataDatastream
+      @etd.datastreams.keys.should include("properties")
+      @etd.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
     end
 
     it "should have the attributes of an etd object and support update_attributes" do

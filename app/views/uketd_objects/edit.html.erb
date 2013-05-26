@@ -9,7 +9,7 @@
         <% # Only show the Add/edit content files when the initial metadata has been added and object created %>
         <% if @uketd_object.persisted? %>
           <div class="span6">
-            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @uketd_object, content_type: "uketd_objects" %>
+            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @uketd_object %>
           </div>
           <div class="span6">  
             <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @uketd_object }) %>

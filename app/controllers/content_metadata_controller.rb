@@ -1,7 +1,9 @@
 class ContentMetadataController < ApplicationController
   include Hyhull::Controller::ControllerBehaviour 
 
-  def edit
+  before_filter :set_return_url
+
+  def edit    
     object = ActiveFedora::Base.find(params[:id], cast: true)
 
     if object.datastreams.include?("contentMetadata")
@@ -28,6 +30,17 @@ class ContentMetadataController < ApplicationController
       end
     end
 
+  end
+
+  private 
+
+  # Set the return url for going back to the referrer ie. object_type/:id
+  def set_return_url
+    return_url = request.referer.to_s
+    # do not overwrite return url with the content_metadata url..
+    unless return_url.include? "content_metadata"
+        session[:return_url] = return_url
+    end
   end
   
 end

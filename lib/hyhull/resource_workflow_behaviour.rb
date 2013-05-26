@@ -70,9 +70,9 @@ module Hyhull::ResourceWorkflowBehaviour
   def get_resource_state
     begin   
       if self._resource_state.nil? || self._resource_state.empty? 
-        self.resource_state = "proto"
         # Set the relationship queue manually
-        self.add_relationship :is_member_of,  HYHULL_QUEUES.invert[self.resource_state_name]
+        self.add_relationship :is_member_of,  HYHULL_QUEUES.invert[:proto]
+        self.resource_state = "proto"
       else
          self.resource_state = self._resource_state
       end

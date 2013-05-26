@@ -5,7 +5,10 @@
           <h2>Edit content</h2>
          </div>
         <div class="span12">
-          <%= link_to "Edit resource metadata", controller: params[:content_type], action: "edit", id: params[:id] %>
+          <% unless session[:return_url].blank? %>
+            <% # Uses return_url set in the content_metadata_controller %>
+            <%= link_to "Edit resource metadata", session[:return_url] %>
+          <% end %>         
         </div>
         <div class="span12">
           <%= render partial: 'shared/file_upload' %>
