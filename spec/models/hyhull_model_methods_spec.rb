@@ -32,6 +32,24 @@ class ModelMethodsTestClassTwo < ActiveFedora::Base
 
 end
 
+class ModelMethodsTestClassThree < ActiveFedora::Base
+  include Hyhull::ModelMethods
+
+  #Add some attributes to the class to enable some metadata testing
+  attr_accessor :title, :date_valid, :genre
+
+  has_metadata name: "descMetadata", label: "MODS metadata", type: Datastream::ModsEtd
+
+  def owner_id
+    "fooAdmin"
+  end
+
+  def initialize
+    super
+  end
+
+end
+
 
 describe Hyhull::ModelMethods do
 
@@ -91,7 +109,6 @@ describe Hyhull::ModelMethods do
 
   end
 
-
   context "additional metadata" do
     describe "apply_depositor_metadata" do
       it "should store the depositor e-mail address along with their user_id" do
@@ -99,6 +116,25 @@ describe Hyhull::ModelMethods do
         @testclassone.save
         @testclassone.properties.depositor.should == ["usera"]
         @testclassone.properties.depositor_email.should == ["usera@example.com"]
+      end
+    end
+
+    describe "#apply_resource_object_label" do
+      before do
+        @testclassthree = ModelMethodsTestClassThree.new
+      end
+      it "should return an object label based upon the descMetadata title and, names and roles" do
+        @testclassthree.title = "This is a test document"
+        @testclassthree.descMetadata.person_name = ["Smith, John"]
+        @testclassthree.descMetadata.person_role_text = ["Creator"]
+        @testclassthree.apply_resource_object_label
+        @testclassthree.label.should == "This is a test document - Smith, John;"
+      end  
+      it "should return an object label that is limited to 200 characters" do
+        @testclassthree.title = "This is the dataset of all datasets, actually this is a rather large dataset with a title that is likely to be too long for a fedora-label"
+        @testclassthree.descMetadata.add_names(["Lamb, Simon.", "Green, Richard.", "Smith, John.", "Garbutt, Richard.", "Jones, Peter.", "Bradfield, James.", "Jones, Nick."], ["Author", "Author", "Author", "Author", "Author", "Author", "Author"], "person")
+        @testclassthree.apply_resource_object_label
+        @testclassthree.label.should == "This is the dataset of all datasets, actually this is a rather large dataset with a title that is lik... - Lamb, Simon.; Green, Richard.; Smith, John.; Garbutt, Richard.; Jones, Peter.; Bradfield, J..."
       end
     end
 
