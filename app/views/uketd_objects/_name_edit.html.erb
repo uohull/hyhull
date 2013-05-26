@@ -24,7 +24,11 @@
             <%= text_field_tag "#{object_name}[#{name_field_id}][]", name %>
           </span>
           <span class="field" style="float:left">
-            <%= select_tag "#{object_name}[#{role_text_field_id}][]", options_for_select([[""]]  + eval("object.#{name_type}_role_terms"), role_texts[i] ) %>         
+            <% if eval("object.#{name_type}_role_terms").size == 1 %>
+               <%= select_tag "#{object_name}[#{role_text_field_id}][]", options_for_select(eval("object.#{name_type}_role_terms"), role_texts[i] ) %>
+            <% else %>
+              <%= select_tag "#{object_name}[#{role_text_field_id}][]", options_for_select([[""]]  + eval("object.#{name_type}_role_terms"), role_texts[i] ) %>
+            <% end %>
           </span>
           <% unless i.zero? %>
             <span class="icon-minus-sign remove-field"></span><br />

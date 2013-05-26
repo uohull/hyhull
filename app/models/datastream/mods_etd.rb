@@ -198,22 +198,32 @@
 
    end
 
-   def add_subject_topic(values)
-     ng_xml.search(self.subject_topic.xpath, {oxns: "http://www.loc.gov/mods/v3"}).each do |n|
-       n.remove
-     end
-     self.subject(1).topic = values
+  def add_subject_topic(values)
+   ng_xml.search(self.subject_topic.xpath, {oxns: "http://www.loc.gov/mods/v3"}).each do |n|
+     n.remove
    end
+   self.subject(1).topic = values
+  end
 
-   def add_grant_number(values)
-     ng_xml.search(self.grant_number.xpath, {oxns: "http://www.loc.gov/mods/v3"}).each do |n|
-       n.remove
-     end
-     self.grant_number = values
+  def add_grant_number(values)
+   ng_xml.search(self.grant_number.xpath, {oxns: "http://www.loc.gov/mods/v3"}).each do |n|
+     n.remove
    end
+   self.grant_number = values
+  end
 
-   def personal_creator_names
-     ng_xml.xpath("//xmlns:name[@type='personal'][./xmlns:role/xmlns:roleTerm='Creator']/xmlns:namePart/text()").map { |creator| creator.to_s }
-   end
+  def personal_creator_names
+   ng_xml.xpath("//xmlns:name[@type='personal'][./xmlns:role/xmlns:roleTerm='Creator']/xmlns:namePart/text()").map { |creator| creator.to_s }
+  end
+
+  # Over-ride ModsMetadataMethods person_role_terms for mods-etd roles 
+  def self.person_role_terms
+  ["Creator", "Sponsor", "Supervisor"]
+  end
+
+  # Over-ride ModsMetadataMethods organisation_role_terms for mods-etd roles 
+  def self.organisation_role_terms
+    ["Sponsor"]
+  end
 
 end

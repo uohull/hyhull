@@ -85,4 +85,13 @@ describe Datastream::ModsEtd do
     end
   end
 
+  describe "class methods" do
+    it "ModsEtd self.person_role_terms should only return the valid roles" do
+      Datastream::ModsEtd.person_role_terms.sort.should == ["Creator", "Sponsor", "Supervisor"]
+    end
+     it "ModsEtd self.organisation_role_terms should only return the valid roles" do
+      Datastream::ModsEtd.organisation_role_terms.sort.should ==  ["Sponsor"]
+    end
+  end
+
 end
