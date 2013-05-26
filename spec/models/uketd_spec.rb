@@ -80,10 +80,23 @@ describe UketdObject do
     end
 
     it "should respond with validation errors when trying to save without the appropiate fields populated" do
+      invalid_attributes_hash = {
+        "title" => "",
+        "person_name" => [""],
+        "person_role_text" => [""],
+        "subject_topic" => [""],
+        "qualification_level" => "",
+        "qualification_name" => "",
+        "publisher" => "",
+        "date_issued" => "January"
+      }
+
+      @etd.update_attributes( invalid_attributes_hash )
+
       # save should be false
       @etd.save.should be_false
 
-      # with 7 error messages
+      # with 8 error messages
       @etd.errors.messages.size.should == 8
 
       # errors...

@@ -125,8 +125,7 @@ describe Hyhull::ModelMethods do
       end
       it "should return an object label based upon the descMetadata title and, names and roles" do
         @testclassthree.title = "This is a test document"
-        @testclassthree.descMetadata.person_name = ["Smith, John"]
-        @testclassthree.descMetadata.person_role_text = ["Creator"]
+        @testclassthree.descMetadata.add_names(["Smith, John"], ["Creator"], "person")
         @testclassthree.apply_resource_object_label
         @testclassthree.label.should == "This is a test document - Smith, John;"
       end  
