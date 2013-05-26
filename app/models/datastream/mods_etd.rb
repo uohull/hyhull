@@ -1,4 +1,4 @@
-  class Datastream::ModsEtd < ActiveFedora::NokogiriDatastream
+  class Datastream::ModsEtd < ActiveFedora::OmDatastream
     include Hyhull::ModsMetadataMethods 
 
     set_terminology do |t|
@@ -133,12 +133,6 @@
         xml.titleInfo {
          xml.title
         }
-        xml.name(:type=>"personal") {
-         xml.namePart
-         xml.role {
-           xml.roleTerm(:type=>"text")
-         }
-        }
         xml.typeOfResource "text"
         xml.genre "Thesis or dissertation"
         xml.originInfo {
@@ -155,9 +149,6 @@
          xml.digitalOrigin "born digital"
         }
         xml.abstract
-        xml.subject(:authority=>"UoH") {
-         xml.topic
-        }
         xml.identifier(:type=>"fedora")
         xml.location {
          xml.url(:usage=>"primary display", :access=>"object in context")
