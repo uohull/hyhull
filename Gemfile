@@ -18,11 +18,13 @@ gem 'state_machine', '~> 1.2.0'
 #simple_form gem for forms
 gem "simple_form", "~> 2.1.0"
 
-
 gem 'sqlite3'
 
 #devise_cas_authenticable is used to enable CAS integration
 gem 'devise_cas_authenticatable', '~> 1.2.0'
+
+# rubytree provides generic tree structures, used for building set trees...
+gem "rubytree", "~> 0.8.3"
 
 # Gems used only for assets and not required
 # in production environments by default.

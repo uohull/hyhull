@@ -33,8 +33,8 @@ module Hyhull
         }
         t.resource_status(:path=>"note", :attributes=>{:type=>"admin"})
 
-        #Proxies for terminologies   
-        t.title(:proxy=>[:title_info, :main_title])   
+        # Proxies for terminologies   
+        t.title(:proxy=>[:title_info, :main_title], :index_as=>[:searchable, :displayable])   
       end  
   
       def self.xml_template      
