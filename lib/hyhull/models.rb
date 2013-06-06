@@ -1,3 +1,3 @@
 require 'models/structural_set'
-module Models
+module Hyhull::Models
 end
