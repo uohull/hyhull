@@ -1,5 +1,6 @@
 Hyhull::Application.routes.draw do
-  root :to => "catalog#index"
+
+  root :to => "pages#home"
 
   # We want to override the the Blacklight catalog route to direct to 'resources' 
   Blacklight.add_routes(self, except: [:catalog, :solr_document])
@@ -52,7 +53,12 @@ Hyhull::Application.routes.draw do
   # Customise the assets resource to enable urls like:-
   # http://localhost:3000/assets/test:1/content
   match 'assets/:id/:datastream_id' => 'assets#show'
-  
+
+  # Route all pages contorller actions to #/action 
+  %w[home about contact cookies takedown].each do |page|
+    get page, controller: 'pages', action: page
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
