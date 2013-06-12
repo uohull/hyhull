@@ -24,9 +24,9 @@
       t.abstract
 
       t.subject(:path=>"subject", :attributes=>{:authority=>"UoH"}) {
-        t.topic(:index_as=>[:facetable])
+        t.topic
       }
-      t.topic_tag(:index_as=>[:facetable],:path=>"subject", :default_content_path=>"topic") 
+      t.topic_tag(:path=>"subject", :default_content_path=>"topic") 
 
       # This is a mods:name.  The underscore is purely to avoid namespace conflicts.
       t.name_ {
@@ -56,7 +56,7 @@
         t.part(:path=>"namePart",:index_as=>[:facetable])
       }
 
-      t.genre(:path=>'genre')
+      t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
       t.type_of_resource(:path=>"typeOfResource")
       t.qualification_level(:path=>"note", :attributes=>{:type=>"qualificationLevel"})
       t.qualification_name(:path=>"note", :attributes=>{:type=>"qualificationName"})
@@ -93,14 +93,16 @@
         t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
        }
 
-     # t.creator_name(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]')
+     
+      t.author(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="creator"]' )
+      t.author_name(:proxy=>[:author, :namePart], :index_as=>[:displayable, :facetable])
      # t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
      # t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
 
 
-      #Proxies for terminologies   
-      t.title(:proxy=>[:title_info, :main_title])     
-      t.subject_topic(:proxy=>[:subject, :topic])
+      #Proxies for terminologies 
+      t.title(:proxy=>[:title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable])      
+      t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
       t.date_issued(:proxy=>[:origin_info, :date_issued])
       t.date_valid(:proxy=>[:origin_info, :date_valid])
       t.publisher(:proxy=>[:origin_info, :publisher])
@@ -111,11 +113,11 @@
       t.raw_object_url(:proxy=>[:location_element, :raw_object])
       t.record_creation_date(:proxy=>[:record_info, :record_creation_date])
       t.record_change_date(:proxy=>[:record_info, :record_change_date])
-      t.language_text(:proxy=>[:language, :lang_text])
+      t.language_text(:proxy=>[:language, :lang_text], :index_as=>[:displayable, :facetable])
       t.language_code(:proxy=>[:language, :lang_code])
 
-      t.person_name(:proxy=>[:person, :namePart])
-      t.person_role_text(:proxy=>[:person, :role, :text])
+      t.person_name(:proxy=>[:person, :namePart], :index_as=>[:displayable])
+      t.person_role_text(:proxy=>[:person, :role, :text], :index_as=>[:displayable])
       t.person_role_code(:proxy=>[:person, :role, :code])
 
       t.organisation_name(:proxy=>[:organisation, :namePart])
