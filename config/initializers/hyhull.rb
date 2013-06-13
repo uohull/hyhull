@@ -1,8 +1,8 @@
 require 'hyhull'
 
 HYHULL_QUEUES = {
-  "info:fedora/hull:protoQueue" => :proto,
-  "info:fedora/hull:QAQueue" => :qa,
-  "info:fedora/hull:hiddenQueue" => :hidden,
-  "info:fedora/hull:deletedQueue" => :deleted
+  "hull:protoQueue" => :proto,
+  "hull:QAQueue" => :qa,
+  "hull:hiddenQueue" => :hidden,
+  "hull:deletedQueue" => :deleted
 }

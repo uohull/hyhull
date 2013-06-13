@@ -17,7 +17,6 @@ module Hyhull::ModelMethods
     delegate :dc_title, to: "DC", at: [:title], unique: true
     delegate :dc_genre, to: "DC", at: [:genre], unique: true
     delegate :dc_date, to: "DC", at: [:date], unique: true
-
   end
 
   module ClassMethods
@@ -25,6 +24,12 @@ module Hyhull::ModelMethods
     def pid_namespace
       "hull-cModel"
     end
+  end
+
+  def test
+   debugger
+   self.queue_set
+   puts 
   end
 
   # helper method to derive cmodel declaration from ruby model
@@ -131,30 +136,26 @@ module Hyhull::ModelMethods
     return true
   end
 
-
   # Applies the rightsMetadata to resource from the defaultObjectRights DS of an APO
   # Where the resource is a generic parent, the rights will be copied to child resources
-  def apply_rights_metadata_from_apo(apo)
-    rights = Hydra::Datastream::RightsMetadata.new(self.inner_object, 'rightsMetadata', {:dsLabel => "Rights metadata"})
-    rights.ng_xml = apo.defaultObjectRights.content
-    defaultRights = Hyhull::Datastream::DefaultObjectRights.new(self.inner_object, 'defaultObjectRights',  {:dsLabel => "Default object rights metadata"})
-    defaultRights.ng_xml = rights.ng_xml.dup
-    datastreams["rightsMetadata"] = rights 
-    datastreams["defaultObjectRights"] = defaultRights if datastreams.has_key? "defaultObjectRights"
+  def apply_rights_metadata_from_apo
+    # if self includes @apply_permissions then it must be true - Objects that implement Hyhull:ResourceWorkflowBehaviour 
+    # if self doesn't include @apply_permissions then let the call through - Objects that don't implement Hyhull:ResourceWorkflowBehaviour 
+    if (self.respond_to?(:apply_permissions)  && @apply_permissions) || !(self.respond_to?(:apply_permissions) )
+      raise "Resource apo is not specified, cannot update rights" unless self.apo
+      logger.info("Hyhull::ModelMethods applying rightsMetadata to #{self.id} from APO #{self.apo.id}")
+      rights = Hydra::Datastream::RightsMetadata.new(self.inner_object, 'rightsMetadata', {:dsLabel => "Rights metadata"})
+      rights.ng_xml = self.apo.datastreams["defaultObjectRights"].content
+      defaultRights = Hyhull::Datastream::DefaultObjectRights.new(self.inner_object, 'defaultObjectRights',  {:dsLabel => "Default object rights metadata"})
+      defaultRights.ng_xml = rights.ng_xml.dup
+      datastreams["rightsMetadata"] = rights 
+      datastreams["defaultObjectRights"] = defaultRights if datastreams.has_key? "defaultObjectRights"
+   
+      # Reset apply_permissions to false...
+      @apply_permissions = false if self.respond_to? :apply_permissions
 
-    #If this is a genericParent we need to copy the rights over for the children
-    # TODO
-    # if self.class.ancestors.include?(Hyhull::GenericParentBehaviour) && self.respond_to?("file_assets") 
-    #   #Loop through the file_assets and copy the new rights
-    #   self.file_assets.each do |file_asset_pid|
-    #     file_asset = FileAsset.find(file_asset_pid, cast: true)
-    #     rights = Hydra::Datastream::RightsMetadata.new(file_asset.inner_object, 'rightsMetadata', {:dsLabel => "Rights metadata"})
-    #     rights.ng_xml = apo.defaultObjectRights.content
-    #     file_asset.datastreams["rightsMetadata"] = rights
-    #     file_asset.save       
-    #   end
-    # end
-
+      return true
+    end
   end
 
   def update_resource_permissions(permission_params, ds_id)    

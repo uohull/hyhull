@@ -85,7 +85,8 @@ module Hyhull
                 else
                   ds_id = "rightsMetadata"
                 end
-                         
+                # Manually update the permissions of the child_resource
+                # Don't rely on the update_permissions_from_apo callback...         
                 resource.update_resource_permissions(permission_params, ds_id)                
                 resource.save
               end
