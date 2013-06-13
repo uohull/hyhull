@@ -16,9 +16,9 @@ module Hyhull
         has_metadata name: "defaultObjectRights", label: "Default object rights", type: Hyhull::Datastream::DefaultObjectRights
 
         delegate_to :descMetadata, [:title, :description, :resource_status], unique: true
-
-        belongs_to :parent, property: :is_member_of, :class_name => "StructuralSet"
+        
         has_many :children, property: :is_member_of, :class_name => "ActiveFedora::Base"
+        has_many :apo_children, property: :is_governed_by, :class_name => "ActiveFedora::Base"
 
         validates :title, presence: true
         validates :parent, presence: true
@@ -33,10 +33,10 @@ module Hyhull
 
       # All stuctural_sets at present get their rightsMetadata from hull-apo:structuralSet
       def set_rightsMetadata
-        apo = ActiveFedora::Base.find("hull-apo:structuralSet")
-        raise "Unable to find hull-apo:structuralSet" unless apo
-        add_relationship :is_governed_by, apo
-        apply_rights_metadata_from_apo(apo)
+        admin_policy_obj = self.class.find("hull-apo:structuralSet")
+        raise "Unable to find hull-apo:structuralSet" unless admin_policy_obj
+        self.apo = admin_policy_obj
+        apply_rights_metadata_from_apo
       end
 
       # Method for updating the permissions on the set. If the permissions are changing on the defaultObjectRights, ancestors will need updating...

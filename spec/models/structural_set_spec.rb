@@ -97,6 +97,8 @@ describe StructuralSet do
         @instance.parent_id = "hull:rootSet"        
         @instance.save
 
+        debugger
+
         @instance = StructuralSet.find(@instance.id)
       end
       
