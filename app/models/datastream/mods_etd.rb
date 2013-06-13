@@ -21,7 +21,7 @@
         t.lang_code(:index_as=>[:facetable], :path=>"languageTerm", :attributes=>{:type=>"code"})
       }
 
-      t.abstract
+      t.abstract(:index_as=>[:displayable, :searchable])
 
       t.subject(:path=>"subject", :attributes=>{:authority=>"UoH"}) {
         t.topic
@@ -58,8 +58,8 @@
 
       t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
       t.type_of_resource(:path=>"typeOfResource")
-      t.qualification_level(:path=>"note", :attributes=>{:type=>"qualificationLevel"})
-      t.qualification_name(:path=>"note", :attributes=>{:type=>"qualificationName"})
+      t.qualification_level(:path=>"note", :attributes=>{:type=>"qualificationLevel"}, :index_as=>[:displayable])
+      t.qualification_name(:path=>"note", :attributes=>{:type=>"qualificationName"}, :index_as=>[:displayable])
       t.dissertation_category(:path=>"note", :attributes=>{:type=>"dissertationCategory"})
       t.resource_status(:path=>"note", :attributes=>{:type=>"admin"})
       t.origin_info(:path=>'originInfo') {
@@ -79,7 +79,7 @@
       t.related_private_object(:path=>"relatedItem", :attributes=>{:type=>"privateObject"}) {
         t.private_object_id(:path=>"identifier", :attributes=>{:type=>"fedora"})
       }
-      t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"})
+      t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"},  :index_as=>[:displayable])
         
       t.location_element(:path=>"location") {
         t.primary_display(:path=>"url", :attributes=>{:access=>"object in context", :usage=>"primary display" })
@@ -103,10 +103,10 @@
       #Proxies for terminologies 
       t.title(:proxy=>[:title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable])      
       t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
-      t.date_issued(:proxy=>[:origin_info, :date_issued])
+      t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable])
       t.date_valid(:proxy=>[:origin_info, :date_valid])
-      t.publisher(:proxy=>[:origin_info, :publisher])
-      t.extent(:proxy=>[:physical_description, :extent])
+      t.publisher(:proxy=>[:origin_info, :publisher], :index_as=>[:displayable])
+      t.extent(:proxy=>[:physical_description, :extent], :index_as=>[:displayable])
       t.mime_type(:proxy=>[:physical_description, :mime_type])
       t.digital_origin(:proxy=>[:physical_description, :digital_origin])
       t.primary_display_url(:proxy=>[:location_element, :primary_display])
@@ -120,8 +120,8 @@
       t.person_role_text(:proxy=>[:person, :role, :text], :index_as=>[:displayable])
       t.person_role_code(:proxy=>[:person, :role, :code])
 
-      t.organisation_name(:proxy=>[:organisation, :namePart])
-      t.organisation_role_text(:proxy=>[:organisation, :role, :text])
+      t.organisation_name(:proxy=>[:organisation, :namePart], :index_as=>[:displayable])
+      t.organisation_role_text(:proxy=>[:organisation, :role, :text], :index_as=>[:displayable])
       t.organisation_role_code(:proxy=>[:organisation, :role, :code])
   end
   
