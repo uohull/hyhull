@@ -48,6 +48,23 @@ class ModelMethodsTestClassThree < ActiveFedora::Base
     super
   end
 
+
+
+
+class RightsTestClass < ActiveFedora::Base
+  include Hyhull::ModelMethods
+  include Hyhull::ResourceWorkflowBehaviour
+  include Hyhull::GenericParentBehaviour
+
+  has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
+
+  def owner_id
+    "fooAdmin"
+  end
+
+  def initialize
+    super
+  end
 end
 
 
@@ -136,7 +153,61 @@ describe Hyhull::ModelMethods do
         @testclassthree.label.should == "This is the dataset of all datasets, actually this is a rather large dataset with a title that is lik... - Lamb, Simon.; Green, Richard.; Smith, John.; Garbutt, Richard.; Jones, Peter.; Bradfield, J..."
       end
     end
-
   end
+
+  context "permissions" do
+   before(:each) do
+     @rightstestclass = RightsTestClass.new
+     @apo_set = StructuralSet.find("hull-apo:structuralSet")
+     @apo_deleted_queue = QueueSet.find("hull:deletedQueue")   
+    end
+    describe "rightsMetadata" do     
+      it "should be set to the depositor by the apply_depositor_metadata method" do
+        @rightstestclass.apply_depositor_metadata("testUser","testUser@example.com")
+        @rightstestclass.rightsMetadata.groups.should == {}
+        @rightstestclass.rightsMetadata.individuals.should == {"testUser" => "edit"}
+      end
+      it "should set a resources rightsMetadata based upon the APO" do
+        @rightstestclass.apo = @apo_set
+        # Manually set the apply_permissions bool
+        @rightstestclass.apply_permissions = true
+        @rightstestclass.apply_rights_metadata_from_apo
+
+        @rightstestclass.rightsMetadata.groups.should == {"contentAccessTeam" => "edit"}
+        @rightstestclass.rightsMetadata.individuals.should == {}
+
+        @rightstestclass.apo = @apo_deleted_queue
+        # Manually set the apply_permissions bool
+        @rightstestclass.apply_permissions = true
+        @rightstestclass.apply_rights_metadata_from_apo
+
+        @rightstestclass.rightsMetadata.groups.should == {"admin" => "edit"}
+        @rightstestclass.rightsMetadata.individuals.should == {}
+      end
+      # TODO add testing for FileAssets rightsMetadata
+      # it "should set a GenericParent rightsMetadata and its FileAssets rights based upon the APO" do
+      #   @rightstestclass.
+      #   @genericparent = UketdObject.find("hull:756")
+      #   @genericparent.rightsMetadata.groups.should == {"public" => "read", "contentAccessTeam" => "edit"}
+
+      #   debugger
+
+      #   @genericparent.FileAssets
+      # end
+      it "should be updatable via the update_resource_permissions method" do
+        # Clears the pemissions.. 
+        @rightstestclass.rightsMetadata.clear_permissions!
+        # Create some permission params
+        params = {"group" => {"public" => "discover", "staff" => "read", "contentAccessTeam" => "edit"}}
+
+        @rightstestclass.update_resource_permissions(params, "rightsMetadata") 
+        @rightstestclass.rightsMetadata.groups.should == {"public" => "discover", "staff" => "read", "contentAccessTeam" => "edit"}
+      end
+    
+    end
+   
+  end
+
 end
 
+end

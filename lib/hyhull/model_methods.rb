@@ -17,7 +17,6 @@ module Hyhull::ModelMethods
     delegate :dc_title, to: "DC", at: [:title], unique: true
     delegate :dc_genre, to: "DC", at: [:genre], unique: true
     delegate :dc_date, to: "DC", at: [:date], unique: true
-
   end
 
   module ClassMethods
@@ -126,14 +125,47 @@ module Hyhull::ModelMethods
       prop_ds.depositor_email = depositor_email unless prop_ds.nil?
     end
 
-    # Implement this when StructuralSets/Display sets 
-    #unless self.class == StructuralSet || self.class == DisplaySet
-      rights_ds.permissions({:person=>depositor_id}, 'edit') unless rights_ds.nil?
-    #end
- 
+    rights_ds.permissions({:person=>depositor_id}, 'edit') unless rights_ds.nil?
+
     return true
   end
 
+  # Applies the rightsMetadata to resource from the defaultObjectRights DS of an APO
+  # Where the resource is a generic parent, the rights will be copied to child resources
+  def apply_rights_metadata_from_apo
+    # if self includes @apply_permissions then it must be true - Objects that implement Hyhull:ResourceWorkflowBehaviour 
+    # if self doesn't include @apply_permissions then let the call through - Objects that don't implement Hyhull:ResourceWorkflowBehaviour 
+    if (self.respond_to?(:apply_permissions)  && @apply_permissions) || !(self.respond_to?(:apply_permissions) )
+      raise "Resource apo is not specified, cannot update rights" unless self.apo
+      logger.info("Hyhull::ModelMethods applying rightsMetadata to #{self.id} from APO #{self.apo.id}")
+      rights = Hydra::Datastream::RightsMetadata.new(self.inner_object, 'rightsMetadata', {:dsLabel => "Rights metadata"})
+      rights.ng_xml = self.apo.datastreams["defaultObjectRights"].content
+      defaultRights = Hyhull::Datastream::DefaultObjectRights.new(self.inner_object, 'defaultObjectRights',  {:dsLabel => "Default object rights metadata"})
+      defaultRights.ng_xml = rights.ng_xml.dup
+      datastreams["rightsMetadata"] = rights 
+      datastreams["defaultObjectRights"] = defaultRights if datastreams.has_key? "defaultObjectRights"
+   
+      # Reset apply_permissions to false...
+      @apply_permissions = false if self.respond_to? :apply_permissions
+
+      return true
+    end
+  end
+
+  def update_resource_permissions(permission_params, ds_id)    
+    xml_content = self.datastreams[ds_id].content    
+    ds = Hydra::Datastream::RightsMetadata.new(self.inner_object, ds_id)
+    Hydra::Datastream::RightsMetadata.from_xml(xml_content, ds)
+    self.datastreams[ds_id] = ds
+
+    # update the datastream's values
+    result = ds.update_permissions(permission_params)
+  end
+
+  # return the is_governed_by rel
+  def is_governed_by
+    self.relationships(:is_governed_by)
+  end
 
   #Quick utility method used to get long version of a date (YYYY-MM-DD) from short form (YYYY-MM) - Defaults 01 for unknowns
   def to_long_date(flexible_date)
