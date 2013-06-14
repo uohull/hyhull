@@ -158,6 +158,8 @@ describe Hyhull::ModelMethods do
   context "permissions" do
    before(:each) do
      @rightstestclass = RightsTestClass.new
+     @apo_set = StructuralSet.find("hull-apo:structuralSet")
+     @apo_deleted_queue = QueueSet.find("hull:deletedQueue")   
     end
     describe "rightsMetadata" do     
       it "should be set to the depositor by the apply_depositor_metadata method" do
@@ -166,13 +168,19 @@ describe Hyhull::ModelMethods do
         @rightstestclass.rightsMetadata.individuals.should == {"testUser" => "edit"}
       end
       it "should set a resources rightsMetadata based upon the APO" do
-        @apo = StructuralSet.find("hull-apo:structuralSet")       
-        @rightstestclass.apply_rights_metadata_from_apo(@apo)
+        @rightstestclass.apo = @apo_set
+        # Manually set the apply_permissions bool
+        @rightstestclass.apply_permissions = true
+        @rightstestclass.apply_rights_metadata_from_apo
+
         @rightstestclass.rightsMetadata.groups.should == {"contentAccessTeam" => "edit"}
         @rightstestclass.rightsMetadata.individuals.should == {}
 
-        @apo = StructuralSet.find("hull:deletedQueue")
-        @rightstestclass.apply_rights_metadata_from_apo(@apo)
+        @rightstestclass.apo = @apo_deleted_queue
+        # Manually set the apply_permissions bool
+        @rightstestclass.apply_permissions = true
+        @rightstestclass.apply_rights_metadata_from_apo
+
         @rightstestclass.rightsMetadata.groups.should == {"admin" => "edit"}
         @rightstestclass.rightsMetadata.individuals.should == {}
       end
@@ -194,7 +202,8 @@ describe Hyhull::ModelMethods do
 
         @rightstestclass.update_resource_permissions(params, "rightsMetadata") 
         @rightstestclass.rightsMetadata.groups.should == {"public" => "discover", "staff" => "read", "contentAccessTeam" => "edit"}
-      end      
+      end
+    
     end
    
   end

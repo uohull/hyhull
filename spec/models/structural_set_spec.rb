@@ -46,6 +46,12 @@ describe StructuralSet do
     before(:each) do
       # Create a new structural_set object for the tests... 
       @structural_set = StructuralSet.new
+
+      # @structural_set_test = StructuralSet.new(title: "Test Set")
+      # @structural_set_test.parent = StructuralSet.find("hull:rootSet")
+      # @structural_set_test.save
+
+      # @af_object = ActiveFedora::Base.create
     end
 
     it "should have the specified datastreams" do
@@ -70,6 +76,23 @@ describe StructuralSet do
 
     end
 
+    it "should have the required relationships" do
+      @structural_set.respond_to?(:parent).should == true
+      @structural_set.respond_to?(:apo).should == true
+      @structural_set.respond_to?(:children).should == true
+      @structural_set.respond_to?(:apo_children).should == true
+    end
+
+    # it "relationships should allow/disallow the correct types" do
+    #   expect { @structural_set.parent = @structural_set_test  }.to_not raise_error
+    #   expect { @structural_set.parent = @af_object}.to raise_error(ActiveFedora::AssociationTypeMismatch)
+
+    #   expect { @structural_set.children << @af_object}.to_not raise_error
+
+    #   expect { @structural_set.apo = @structural_set_test  }.to_not raise_error
+    #   expect { @structural_set.apo = @af_object}.to raise_error(ActiveFedora::AssociationTypeMismatch)
+    # end
+
     it "should return a tree" do
       root_node = StructuralSet.tree
       root_node.print_tree
@@ -90,14 +113,17 @@ describe StructuralSet do
       options.each {|v| puts "#{v[0]} = #{v[1]}" }
     end
 
+    # after do
+    #   @structural_set_test.delete
+    #   @af_object.delete
+    # end
+
     describe "a saved instance" do
       before do
         @instance = StructuralSet.new
         @instance.title = "Test set"
         @instance.parent_id = "hull:rootSet"        
         @instance.save
-
-        debugger
 
         @instance = StructuralSet.find(@instance.id)
       end
@@ -140,7 +166,7 @@ describe StructuralSet do
     end
 
     it "should be governedBy " do
-      @instance.is_governed_by.should == ["info:fedora/hull-apo:structuralSet"]
+      @instance.apo.id.should == "hull-apo:structuralSet"
     end
 
     it "should index only the rightsMetadata (not defaultObjectRights)" do
@@ -255,6 +281,7 @@ describe StructuralSet do
 
     it "should return a list of all children" do
       ancestors_ = StructuralSet.ancestry @parent.pid 
+
       ancestors_.should == [{"active_fedora_model_ssim"=>["StructuralSet"], "id"=>@first_child.pid, "title_ssm"=>[@first_child.title], "is_member_of_ssim"=>["info:fedora/#{@parent.pid}"]},
                            {"active_fedora_model_ssim"=>["StructuralSet"], "id"=>@second_child.pid, "title_ssm"=>[@second_child.title], "is_member_of_ssim"=>["info:fedora/#{@parent.pid}"]},
                            {"active_fedora_model_ssim"=>["ChildObjectTestClass"], "id"=>@first_child_content_object.pid, "is_member_of_ssim"=>["info:fedora/#{@first_child.pid}"]},

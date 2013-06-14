@@ -68,6 +68,10 @@ describe ResourceWorkflowController do
 
     end
 
+    after do
+      @test.delete
+    end
+
   end
 end
 
