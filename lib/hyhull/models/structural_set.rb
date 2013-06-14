@@ -17,6 +17,9 @@ module Hyhull
 
         delegate_to :descMetadata, [:title, :description, :resource_status], unique: true
         
+        belongs_to :parent, property: :is_member_of, :class_name => "StructuralSet"
+        belongs_to :apo, property: :is_governed_by, :class_name => "StructuralSet"
+
         has_many :children, property: :is_member_of, :class_name => "ActiveFedora::Base"
         has_many :apo_children, property: :is_governed_by, :class_name => "ActiveFedora::Base"
 

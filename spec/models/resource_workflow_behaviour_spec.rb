@@ -42,10 +42,10 @@ describe Hyhull::ResourceWorkflowBehaviour do
 
     describe "associate rels-ext queues" do
       it "should be available for the appropiate resource states" do
-        HYHULL_QUEUES.invert[:proto].should == "info:fedora/hull:protoQueue"
-        HYHULL_QUEUES.invert[:qa].should == "info:fedora/hull:QAQueue"
-        HYHULL_QUEUES.invert[:hidden].should == "info:fedora/hull:hiddenQueue"
-        HYHULL_QUEUES.invert[:deleted].should == "info:fedora/hull:deletedQueue" 
+        HYHULL_QUEUES.invert[:proto].should == "hull:protoQueue"
+        HYHULL_QUEUES.invert[:qa].should == "hull:QAQueue"
+        HYHULL_QUEUES.invert[:hidden].should == "hull:hiddenQueue"
+        HYHULL_QUEUES.invert[:deleted].should == "hull:deletedQueue" 
       end
     end
 

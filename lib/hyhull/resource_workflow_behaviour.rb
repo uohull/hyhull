@@ -82,10 +82,10 @@ module Hyhull::ResourceWorkflowBehaviour
 
   # Retrieves the apo based upon the current state...
   def apo 
-    if self.resource_published?
-      return self.parent_apo
-    else
+    if self.queue_apo
       return self.queue_apo
+    else
+      return self.parent_apo
     end
   end
   
@@ -94,11 +94,12 @@ module Hyhull::ResourceWorkflowBehaviour
     self.queue_apo = nil
     self.parent_apo = nil
 
-    if self.resource_published?
+    if apo.instance_of? StructuralSet
       self.parent_apo = apo
     else
       self.queue_apo = apo
     end
+
   end
  
   # Retrieve the resource_state from delegated _resource_state

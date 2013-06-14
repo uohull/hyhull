@@ -26,12 +26,6 @@ module Hyhull::ModelMethods
     end
   end
 
-  def test
-   debugger
-   self.queue_set
-   puts 
-  end
-
   # helper method to derive cmodel declaration from ruby model
   # standard pattern: pid_namespace:UketdObject
   # hulls pattern: pid_namespace:uketdObject 
