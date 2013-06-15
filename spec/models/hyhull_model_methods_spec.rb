@@ -167,6 +167,26 @@ describe Hyhull::ModelMethods do
         @rightstestclass.rightsMetadata.groups.should == {}
         @rightstestclass.rightsMetadata.individuals.should == {"testUser" => "edit"}
       end
+      it "should not be set if the instance.apply_permissions exists and is set to false" do
+        @rightstestclass.rightsMetadata.groups.should == {}
+        @rightstestclass.apply_permissions = false
+        @rightstestclass.apo = @apo_set
+        
+        @rightstestclass.apply_rights_metadata_from_apo
+        # Rights metadata should not change...
+        @rightstestclass.rightsMetadata.groups.should == {}
+      end
+
+      it "should be set if the instance.apply_permissions exists and is set to true" do
+        @rightstestclass.rightsMetadata.groups.should == {}
+        @rightstestclass.apply_permissions = true
+        @rightstestclass.apo = @apo_set
+        
+        @rightstestclass.apply_rights_metadata_from_apo
+        # Rights metadata should change...
+        @rightstestclass.rightsMetadata.groups.should == {"contentAccessTeam" => "edit"}
+      end
+
       it "should set a resources rightsMetadata based upon the APO" do
         @rightstestclass.apo = @apo_set
         # Manually set the apply_permissions bool
