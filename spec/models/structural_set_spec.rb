@@ -46,12 +46,6 @@ describe StructuralSet do
     before(:each) do
       # Create a new structural_set object for the tests... 
       @structural_set = StructuralSet.new
-
-      # @structural_set_test = StructuralSet.new(title: "Test Set")
-      # @structural_set_test.parent = StructuralSet.find("hull:rootSet")
-      # @structural_set_test.save
-
-      # @af_object = ActiveFedora::Base.create
     end
 
     it "should have the specified datastreams" do
@@ -83,16 +77,6 @@ describe StructuralSet do
       @structural_set.respond_to?(:apo_children).should == true
     end
 
-    # it "relationships should allow/disallow the correct types" do
-    #   expect { @structural_set.parent = @structural_set_test  }.to_not raise_error
-    #   expect { @structural_set.parent = @af_object}.to raise_error(ActiveFedora::AssociationTypeMismatch)
-
-    #   expect { @structural_set.children << @af_object}.to_not raise_error
-
-    #   expect { @structural_set.apo = @structural_set_test  }.to_not raise_error
-    #   expect { @structural_set.apo = @af_object}.to raise_error(ActiveFedora::AssociationTypeMismatch)
-    # end
-
     it "should return a tree" do
       root_node = StructuralSet.tree
       root_node.print_tree
@@ -113,11 +97,6 @@ describe StructuralSet do
       options.each {|v| puts "#{v[0]} = #{v[1]}" }
     end
 
-    # after do
-    #   @structural_set_test.delete
-    #   @af_object.delete
-    # end
-
     describe "a saved instance" do
       before do
         @instance = StructuralSet.new
@@ -125,7 +104,7 @@ describe StructuralSet do
         @instance.parent_id = "hull:rootSet"        
         @instance.save
 
-        @instance = StructuralSet.find(@instance.id)
+          @instance = StructuralSet.find(@instance.id)
       end
       
       it "should have defaultObjectRights datastream" do
