@@ -80,6 +80,10 @@ class StructuralSetTree < Tree::TreeNode
     options
   end
 
+  def to_json
+    super.gsub("name", "label").gsub("content", "id")
+  end
+
   def unordered_list(options=[],level=0)
     
   end  
