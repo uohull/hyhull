@@ -1,3 +1,4 @@
+<% unless resource.resource_proto? %>
 <script type="text/javascript">
   var data = [<%= StructuralSet.tree.to_json.html_safe %>];
 
@@ -24,4 +25,20 @@
 
 
 </script>
-<div id="tree1"></div>
+  <!-- Button to trigger modal -->
+  <a href="#set-select-modal" role="button" data-toggle="modal">Edit set membership</a>
+  <!-- Modal -->
+  <div id="set-select-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="AdditionalMetadataLabel" aria-hidden="true">
+    <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>Set selection</h3>
+    </div>  
+    <div class="modal-body">
+      <p>Selecting a set from below will give the resource its permissions.</p>
+      <div id="tree1"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+  </div>
+<% end %>
