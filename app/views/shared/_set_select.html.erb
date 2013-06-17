@@ -1,0 +1,27 @@
+<script type="text/javascript">
+  var data = [<%= StructuralSet.tree.to_json.html_safe %>];
+
+  $(function() {
+    $('#tree1').tree({
+        data: data
+    });
+  });
+
+  $('#tree1').bind(
+    'tree.select',
+    function(event) {
+        if (event.node) {
+            // node was selected
+            var node = event.node;
+            alert(node.name);
+        }
+        else {
+            // event.node is null
+            // a node was deselected
+        }
+    }
+  );
+
+
+</script>
+<div id="tree1"></div>
