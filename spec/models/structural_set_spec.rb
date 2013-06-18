@@ -87,6 +87,19 @@ describe StructuralSet do
       options.each {|v| puts "#{v[0]} = #{v[1]}" }
     end
 
+    it "should return json" do
+      root_node = StructuralSet.tree
+
+      puts "Attempting to get json from tree"
+      json = root_node.to_json
+
+      json.include?("label").should be_true
+      json.include?("id").should be_true
+
+      json.include?("name").should be_false
+      json.include?("content").should be_false
+    end
+
     it "should enforce validation on title and parent" do
       @structural_set.save.should == false
       @structural_set.errors.messages.should == {:title=>["can't be blank"], :parent=>["can't be blank"]} 

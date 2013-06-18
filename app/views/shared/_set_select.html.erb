@@ -1,32 +1,56 @@
 <% unless resource.resource_proto? %>
+  <% parent_field_id = "#{resource.class.name.underscore}_parent_id" %>
+
 <script type="text/javascript">
   var data = [<%= StructuralSet.tree.to_json.html_safe %>];
 
   $(function() {
-    $('#tree1').tree({
+    $('#set-tree').tree({
         data: data
     });
+
+    var current_set = $('#<%= parent_field_id %>').val(); 
+    var node = $('#set-tree').tree('getNodeById', current_set);
+    $('#set-tree').tree('selectNode', node); 
+    $('#set-name').val(node.name); 
   });
 
-  $('#tree1').bind(
-    'tree.select',
-    function(event) {
-        if (event.node) {
-            // node was selected
-            var node = event.node;
-            alert(node.name);
-        }
-        else {
-            // event.node is null
-            // a node was deselected
-        }
+  function SelectSet() {
+    var node = $('#set-tree').tree('getSelectedNode');
+
+    if (node) {
+      $('#set-name').val(node.name);
+      $('#<%= parent_field_id %>').val(node.id);
+      $('#set-select-modal').modal('hide');
     }
-  );
+    else {
+      alert("Please select a set");
+    }
 
-
+  }
 </script>
-  <!-- Button to trigger modal -->
-  <a href="#set-select-modal" role="button" data-toggle="modal">Edit set membership</a>
+
+
+<fieldset class="edit-standard">
+  <legend>Set membership</legend>
+    <!-- Button to trigger modal -->
+    <p>
+      <a href="#set-select-modal" role="button" data-toggle="modal">Edit set membership</a>
+    </p>
+    <%= form.input :Set, 
+      :input_html => {
+        :value => "",
+        :disabled => true,
+        :id => "set-name"
+    } %>
+    <%= form.input :parent_id, :as => :hidden,
+      :input_html => {
+        :value => resource.parent_id 
+      } 
+    %>
+</fieldset>
+
+
   <!-- Modal -->
   <div id="set-select-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="AdditionalMetadataLabel" aria-hidden="true">
     <div class="modal-header">
@@ -35,10 +59,13 @@
     </div>  
     <div class="modal-body">
       <p>Selecting a set from below will give the resource its permissions.</p>
-      <div id="tree1"></div>
+      <div id="set-tree"></div>
     </div>
     <div class="modal-footer">
+      <button class="btn" aria-hidden="true" onclick="SelectSet()">Select</button>
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
   </div>
 <% end %>
+
+

@@ -25,7 +25,7 @@ class StructuralSet < ActiveFedora::Base
   def self.tree
     hits = retrieve_structural_sets
     sets = build_array_of_parents_and_children(hits)  
-    root_node = build_children(StructuralSetTree.new("Root set", "info:fedora/hull:rootSet"), sets)
+    root_node = build_children(StructuralSetTree.new("Root set", "hull:rootSet"), sets)
   end
 
   private
@@ -40,10 +40,13 @@ class StructuralSet < ActiveFedora::Base
   end
 
   def self.build_array_of_parents_and_children hits
-    pids = hits.map {|hit| "info:fedora/#{hit["id"]}" }
+    pids = hits.map {|hit| hit["id"] }
     sets = hits.each.inject({}) do |hash,hit|
       if hit["id"] != "hull:rootSet"
-        parent_pid = hit["is_member_of_ssim"].first if hit.fetch("is_member_of_ssim",nil)
+        parent_uri = hit["is_member_of_ssim"].first if hit.fetch("is_member_of_ssim",nil)
+        # Change info:fedora/hull:1234 => hull:1234
+        parent_pid = parent_uri[parent_uri.index("/") + 1..-1] if parent_uri
+
         if parent_pid && pids.include?( parent_pid )
           hash[parent_pid] = {:children=>[]} unless hash[parent_pid]
           hash[parent_pid][:children] << hit
@@ -57,7 +60,7 @@ class StructuralSet < ActiveFedora::Base
     if nodes.fetch(node.content,nil)
       nodes[node.content][:children].each do |child|
         title = if child["title_ssm"].first.nil? then "No title defined" else child["title_ssm"].first end          
-        child_node = StructuralSetTree.new(title,"info:fedora/#{child["id"]}")
+        child_node = StructuralSetTree.new(title, child["id"])
         node << build_children(child_node, nodes)
       end
     end
