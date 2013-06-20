@@ -27,7 +27,7 @@ describe Hyhull::ModelMethods do
   describe "delegates" do
     it "should return the appropiate delegates" do
       @testclassone.sequence.should == []
-      @testclassone.display_label.should == []
+      @testclassone.resource_display_label.should == []
       @testclassone.resource_object_id.should == []
       @testclassone.resource_ds_id.should == []
       @testclassone.content_id.should == []
@@ -66,7 +66,7 @@ describe Hyhull::ModelMethods do
       @test_object.contentMetadata.resource.file.location.first.should == "http://hydra.hull.ac.uk/assets/#{@file_asset.pid}/content"
       @test_object.contentMetadata.resource.diss_service_def.first.should == "afmodel:FileAsset"
       @test_object.contentMetadata.resource.diss_service_method.first.should == "getContent"
-      @test_object.contentMetadata.display_label.first.should == @file_name
+      @test_object.contentMetadata.resource_display_label.first.should == @file_name
       @test_object.contentMetadata.content_id.first.should == @file_name
       @test_object.contentMetadata.resource.file.file_id.first.should == @file_name
     end

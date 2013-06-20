@@ -29,16 +29,16 @@ module Hyhull
         }
       }
 
-      #Proxies ease of access
-      t.resource_object_id(:proxy=>[:resource, :resource_object_id])
-      t.resource_ds_id(:proxy=>[:resource, :resource_ds_id])
+      #Proxies ease of access - index fields required
+      t.resource_object_id(:proxy=>[:resource, :resource_object_id], :index_as=>[:displayable])
+      t.resource_ds_id(:proxy=>[:resource, :resource_ds_id], :index_as=>[:displayable])
+      t.resource_display_label(:proxy=>[:resource, :display_label], :index_as=>[:displayable])  
       t.content_url(:proxy=>[:resource,:file,:location])
-      t.content_format(:proxy=>[:resource,:file,:format])
-      t.content_mime_type(:proxy=>[:resource,:file,:mime_type])
-      t.content_size(:proxy=>[:resource,:file,:size])
+      t.content_format(:proxy=>[:resource,:file,:format], :index_as=>[:displayable])
+      t.content_mime_type(:proxy=>[:resource,:file,:mime_type], :index_as=>[:displayable])
+      t.content_size(:proxy=>[:resource,:file,:size], :index_as=>[:displayable])
       t.content_id(:proxy=>[:resource, :file, :file_id])
-      t.sequence(:proxy=>[:resource, :sequence])
-      t.display_label(:proxy=>[:resource, :display_label])  
+      t.sequence(:proxy=>[:resource, :sequence], :index_as=>[:displayable])      
     end
 
      # Generates an empty contentMetadata
