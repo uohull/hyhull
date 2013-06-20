@@ -204,16 +204,28 @@ describe Hyhull::ModelMethods do
         @rightstestclass.rightsMetadata.groups.should == {"admin" => "edit"}
         @rightstestclass.rightsMetadata.individuals.should == {}
       end
-      # TODO add testing for FileAssets rightsMetadata
-      # it "should set a GenericParent rightsMetadata and its FileAssets rights based upon the APO" do
-      #   @rightstestclass.
-      #   @genericparent = UketdObject.find("hull:756")
-      #   @genericparent.rightsMetadata.groups.should == {"public" => "read", "contentAccessTeam" => "edit"}
+      # Testing for for FileAssets rightsMetadata changes on GenericParents
+      it "apply_permissions should set a GenericParent rightsMetadata and its FileAssets rights based upon the APO" do
+        file_asset = FileAsset.create
+        @rightstestclass.apo = @apo_set
+        @rightstestclass.file_assets << file_asset
+        # Manually set the apply_permissions bool
+        @rightstestclass.apply_permissions = true
 
-      #   debugger
+        @rightstestclass.apply_rights_metadata_from_apo 
 
-      #   @genericparent.FileAssets
-      # end
+        file_asset.rightsMetadata.groups.should == {"contentAccessTeam" => "edit"}
+        file_asset.rightsMetadata.individuals.should == {}
+
+        @rightstestclass.apo = @apo_deleted_queue
+        # Manually set the apply_permissions bool
+        @rightstestclass.apply_permissions = true
+        @rightstestclass.apply_rights_metadata_from_apo
+
+        file_asset.rightsMetadata.groups.should == {"admin" => "edit"}
+        file_asset.rightsMetadata.individuals.should == {}      
+      end
+
       it "should be updatable via the update_resource_permissions method" do
         # Clears the pemissions.. 
         @rightstestclass.rightsMetadata.clear_permissions!
@@ -222,8 +234,27 @@ describe Hyhull::ModelMethods do
 
         @rightstestclass.update_resource_permissions(params, "rightsMetadata") 
         @rightstestclass.rightsMetadata.groups.should == {"public" => "discover", "staff" => "read", "contentAccessTeam" => "edit"}
+      
       end
-    
+
+      it "should be updated via the update_resource_permissions method for a GenericParent and its fileAssets" do
+        # Create file asset..
+        file_asset_one = FileAsset.create
+        file_asset_two = FileAsset.create 
+        # Add them to the rightstestclass...
+        @rightstestclass.file_assets = [file_asset_one, file_asset_two]
+
+        # Clears the pemissions...
+        @rightstestclass.rightsMetadata.clear_permissions!
+        # Create some permission params
+        params = {"group" => {"public" => "discover", "staff" => "read", "contentAccessTeam" => "edit"}}
+
+        @rightstestclass.update_resource_permissions(params, "rightsMetadata") 
+
+        file_asset_one.rightsMetadata.groups.should == {"public" => "discover", "staff" => "read", "contentAccessTeam" => "edit"}
+        file_asset_two.rightsMetadata.groups.should == {"public" => "discover", "staff" => "read", "contentAccessTeam" => "edit"}
+      end
+
     end
    
   end

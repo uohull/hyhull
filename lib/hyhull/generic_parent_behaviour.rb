@@ -17,9 +17,12 @@ module Hyhull::GenericParentBehaviour
         new_file_assets = []
         file_data.each do |file|
           begin
-            file_asset = FileAsset.new
+            pid = next_asset_pid()            
+            file_asset = FileAsset.new(pid: pid)
             file_asset.label = file.original_filename
             add_posted_blob_to_asset(file_asset, file, file.original_filename)
+            # Add the self.rightsMetadata to the child asset... 
+            file_asset.datastreams["rightsMetadata"].content = self.rightsMetadata.content
             file_asset.save!
             new_file_assets << file_asset      
           rescue Exception => e 
@@ -114,6 +117,25 @@ module Hyhull::GenericParentBehaviour
   def assert_content_model
     add_relationship(:has_model, "info:fedora/hydra-cModel:genericParent")
     super
+  end
+
+  # Calculates the next available child asset pid (based on pid+alpha sequence)
+  #
+  # @return [String] the next available pid
+  #
+  # @example: next_asset_pid("hull:3108") => "hull:3108a" if no child asset previously existed
+  def next_asset_pid   
+    id_array = self.file_assets.map{ |asset| asset.id }.sort
+    logger.debug("existing siblings - #{id_array}")
+    if id_array.empty?
+      return "#{self.id}a"
+    else
+      if id_array[-1].match /[a-zA-Z]$/
+        return "#{self.id}#{id_array[-1].split('')[-1].succ}"
+      else
+        return nil
+      end
+    end
   end
 
 end

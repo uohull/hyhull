@@ -7,15 +7,11 @@ class GenericParentBehaviourTest < ActiveFedora::Base
     "fooAdmin"
   end
 
-  def initialize
-    super
-  end
-
 end
 
 describe Hyhull::GenericParentBehaviour do
 
-  context "with a GenericParentBehaviour" do
+  context "with the GenericParentBehaviour" do
     describe "datastream_behaviour" do    
       before(:all) do
         @testclassone = GenericParentBehaviourTest.new
@@ -25,6 +21,27 @@ describe Hyhull::GenericParentBehaviour do
         @testclassone.should respond_to :file_assets
         @testclassone.file_assets.should == []
       end
+    end
+
+    describe "GenericParentBehaviour#next_asset_pid" do    
+      before(:all) do
+        @generic_parent = GenericParentBehaviourTest.create
+        @pid = @generic_parent.pid
+      end
+      after(:all) do
+        @generic_parent.delete
+      end
+
+      it "should return the first available file_asset pid in the correct format" do
+        file_asset_pid = @generic_parent.next_asset_pid
+        file_asset_pid.should == "#{@pid}a"
+      end
+
+      it "should return the next available file_asset pid in the correct format" do
+        file_asset =  FileAsset.create(pid: @generic_parent.next_asset_pid) 
+        @generic_parent.file_assets << file_asset
+        @generic_parent.next_asset_pid.should ==  "#{@pid}b"        
+      end 
     end
   end
 
@@ -52,6 +69,12 @@ describe Hyhull::GenericParentBehaviour do
         file_assets.first.should be_kind_of FileAsset
         file_assets.first.content.mimeType.should == "application/pdf" 
 
+      end
+
+      it "should inherit the rightsMetadata from their parent" do
+        success, file_assets, message = @generic_parent.add_file_content([@test_upload])
+        # On adding a file, the new FileAsset should inherit the rights of the parent
+        @generic_parent.rightsMetadata.content.should == file_assets.last.rightsMetadata.content
       end
 
       it "should be delete-able through the delete_by_content_metadata_at" do

@@ -139,11 +139,26 @@ module Hyhull::ModelMethods
       raise "Resource apo is not specified, cannot update rights" unless self.apo
       logger.info("Hyhull::ModelMethods applying rightsMetadata to #{self.id} from APO #{self.apo.id}")
       rights = Hydra::Datastream::RightsMetadata.new(self.inner_object, 'rightsMetadata', {:dsLabel => "Rights metadata"})
-      rights.ng_xml = self.apo.datastreams["defaultObjectRights"].content
+      # Get the default_objects_rights content from the the APO
+      default_object_rights = self.apo.datastreams["defaultObjectRights"].content
+
+      rights.ng_xml = default_object_rights
       defaultRights = Hyhull::Datastream::DefaultObjectRights.new(self.inner_object, 'defaultObjectRights',  {:dsLabel => "Default object rights metadata"})
       defaultRights.ng_xml = rights.ng_xml.dup
       datastreams["rightsMetadata"] = rights 
       datastreams["defaultObjectRights"] = defaultRights if datastreams.has_key? "defaultObjectRights"
+
+      # If self subscibes to GenericParentBehavaiour it may have child FileAssets
+      # When it does have child file assets, the child rightsMetadata needs updating...
+      if self.class.ancestors.include?(Hyhull::GenericParentBehaviour) && self.respond_to?(:file_assets)
+        self.file_assets.each do |file_asset|
+          rights = Hydra::Datastream::RightsMetadata.new(file_asset.inner_object, 'rightsMetadata', {:dsLabel => "Rights metadata"})
+          rights.ng_xml = default_object_rights
+
+          file_asset.datastreams["rightsMetadata"] = rights
+          file_asset.save
+        end
+      end
    
       # Reset apply_permissions to false...
       @apply_permissions = false if self.respond_to? :apply_permissions
@@ -157,6 +172,20 @@ module Hyhull::ModelMethods
     ds = Hydra::Datastream::RightsMetadata.new(self.inner_object, ds_id)
     Hydra::Datastream::RightsMetadata.from_xml(xml_content, ds)
     self.datastreams[ds_id] = ds
+
+    # If self subscibes to GenericParentBehavaiour it may have child FileAssets
+    # When it does have child file assets, the child rightsMetadata needs updating...
+    if self.class.ancestors.include?(Hyhull::GenericParentBehaviour) && self.respond_to?(:file_assets)
+      self.file_assets.each do |file_asset|
+        fa_xml_content = file_asset.datastreams[ds_id].content    
+        fa_ds = Hydra::Datastream::RightsMetadata.new(file_asset.inner_object, ds_id)
+        Hydra::Datastream::RightsMetadata.from_xml(fa_xml_content, fa_ds)
+        file_asset.datastreams[ds_id] = fa_ds
+        # update the datastream's values
+        result = fa_ds.update_permissions(permission_params)
+        file_asset.save
+      end
+    end
 
     # update the datastream's values
     result = ds.update_permissions(permission_params)
