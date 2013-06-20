@@ -23,7 +23,7 @@
 
       t.abstract(:index_as=>[:displayable, :searchable])
 
-      t.subject(:path=>"subject", :attributes=>{:authority=>"UoH"}) {
+      t.subject(:attributes=>{:authority=>"UoH"}) {
         t.topic
       }
       t.topic_tag(:path=>"subject", :default_content_path=>"topic") 
@@ -134,6 +134,12 @@
         "xsi:schemaLocation"=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd") {
         xml.titleInfo {
          xml.title
+        }
+        xml.name(:type=>"personal") {
+          xml.namePart
+          xml.role {
+            xml.roleTerm("Creator", :type=>"text")
+          }
         }
         xml.typeOfResource "text"
         xml.genre "Thesis or dissertation"

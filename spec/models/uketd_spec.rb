@@ -155,8 +155,8 @@ describe UketdObject do
           #set the 'required' fields
           @valid_etd  =  UketdObject.new
           @valid_etd.title = "Test title"
-          @valid_etd.person_name = ["Smith, John."]
-          @valid_etd.person_role_text = ["Creator"]
+          @valid_etd.person_name = ["Smith, John.", "Jones, John"]
+          @valid_etd.person_role_text = ["Creator", "Creator"]
           @valid_etd.subject_topic = ["Topci 1"]
           @valid_etd.language_code = "eng"
           @valid_etd.language_text = "English"
@@ -165,6 +165,9 @@ describe UketdObject do
           @valid_etd.qualification_level = "BSc"
           @valid_etd.date_issued = "2012"
           @valid_etd.save
+      end
+      after(:all) do
+        @valid_etd.delete
       end
       describe ".to_solr" do
         it "should return the necessary facets" do
@@ -185,7 +188,7 @@ describe UketdObject do
           @valid_etd.rels_ext.to_rels_ext.include?('info:fedora/hull-cModel:uketdObject').should == true
         end
         it "apply_additional_metadata should pre-populate the copyright (rights) field" do
-          @valid_etd.rights.should == "© 2012 John Smith. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder." 
+          @valid_etd.rights.should == "© 2012 John Smith and John Jones. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holders." 
         end
       end
      
@@ -206,6 +209,10 @@ describe UketdObject do
       @valid_etd.qualification_level = "BSc"
       @valid_etd.date_issued = "2012"
       @valid_etd.save
+    end
+
+    after(:all) do
+      @valid_etd.delete
     end
 
     describe "hidden" do

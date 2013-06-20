@@ -62,7 +62,7 @@ class UketdObject < ActiveFedora::Base
     creators = self.descMetadata.personal_creator_names
 
     creators.each do |creator|
-      name_parts = creator.sub(/.$/, "").split(",").reverse.map{ |name| name.strip }
+      name_parts = creator.gsub(".", "").split(",").reverse.map{ |name| name.strip }
       names << name_parts.join(" ")
     end
 

@@ -63,7 +63,7 @@ module Hyhull
     # @option opts [String] :service_def the service definition
     # @option opts [String] :ds_id the dsID for the datastream
     def self.resource_template(opts={})
-      options = {:sequence=>"",:file_id=>"",:display_label=>"",:object_id=>"",:file_id=>"content",:file_size=>"",:url=>"", :ds_id=>'content', 
+      options = {:sequence=>"",:file_id=>"",:display_label=>"",:object_id=>"", :file_size=>"",:url=>"", :ds_id=>'content', 
         :date_last_modified => "", :date_last_accessed =>"", :date_created => "", :checksum => "", :checksum_type => "" }
       options.merge!(opts)
       #options.merge!({:id=>"Asset #{options[:display_label]}"})

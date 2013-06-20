@@ -67,6 +67,8 @@ describe Hyhull::ModelMethods do
       @test_object.contentMetadata.resource.diss_service_def.first.should == "afmodel:FileAsset"
       @test_object.contentMetadata.resource.diss_service_method.first.should == "getContent"
       @test_object.contentMetadata.display_label.first.should == @file_name
+      @test_object.contentMetadata.content_id.first.should == @file_name
+      @test_object.contentMetadata.resource.file.file_id.first.should == @file_name
     end
 
     after(:all) do

@@ -50,7 +50,7 @@ describe Hyhull::Datastream::ContentMetadata do
         node = Hyhull::Datastream::ContentMetadata.resource_template
         node.should be_kind_of(Nokogiri::XML::Element)
 
-        node.to_xml.should be_equivalent_to('<resource sequence="" id="content" contains="content"  displayLabel="" objectID=""  serviceDef="" dsID="content" serviceMethod=""><file id="content" format="" mimeType="" size="" dateCreated="" dateLastModified="" dateLastAccessed=""><checksum type=""></checksum><location type="url"></location></file></resource>')
+        node.to_xml.should be_equivalent_to('<resource sequence="" id="content" contains="content"  displayLabel="" objectID=""  serviceDef="" dsID="content" serviceMethod=""><file id="" format="" mimeType="" size="" dateCreated="" dateLastModified="" dateLastAccessed=""><checksum type=""></checksum><location type="url"></location></file></resource>')
 
         node = Hyhull::Datastream::ContentMetadata.resource_template(:sequence=>'1', :display_label=>'Journal article', :object_id=>'hull-res:nnnn', :service_def=>'hull-sDef:journalArticle', :service_method=>'getContent', :mime_type=>'application/pdf', :format=>'pdf', :file_id =>'Filename.pdf', :checksum => '3efsdfsd3d', :checksum_type => 'md5')
       
