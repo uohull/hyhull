@@ -58,7 +58,7 @@
     <foxml:datastreamVersion CREATED="2011-02-23T10:50:51.160Z" ID="rightsMetadata.0" LABEL="Rights metadata"
       MIMETYPE="text/xml" SIZE="630">
       <foxml:xmlContent>
-        <rightsMetadata xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/">
+        <rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1" version="0.1">
           <copyright>
             <human>© 1992 Salem Abdalla Salem Helles. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</human>
             <machine/>

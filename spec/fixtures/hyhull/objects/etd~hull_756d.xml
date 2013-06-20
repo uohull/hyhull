@@ -58,7 +58,7 @@
     <foxml:datastreamVersion CREATED="2011-02-23T11:45:31.380Z" ID="rightsMetadata.0" LABEL="Rights metadata"
       MIMETYPE="text/xml" SIZE="779">
       <foxml:xmlContent>
-        <rightsMetadata xmlns:uketd_dc="http://naca.central.cranfield.ac.uk/ethos-oai/2.0/">
+        <rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1" version="0.1">
           <copyright>
             <human>© 2008 Angela Jane Green. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</human>
             <machine/>
