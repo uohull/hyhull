@@ -30,7 +30,7 @@ module ActiveFedora
       end
 
       def construct_query pid, class_name
-        if class_name
+        if class_name && class_name != "ActiveFedora::Base"
           clauses = {}  
           clauses[:has_model] = class_name.constantize.to_class_uri
           query = ActiveFedora::SolrService.construct_query_for_rel(clauses) + " AND (" + ActiveFedora::SolrService.construct_query_for_pids(pid) + ")"
