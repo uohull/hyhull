@@ -6,12 +6,16 @@ Hyhull::Application.routes.draw do
 
   devise_for :users
 
-  resources :downloads
+  resources :assets
   resources :uketd_objects
   resources :content_metadata
   resources :files
   resources :resource_workflow
 
+  # Customise the assets resource to enable urls like:-
+  # http://localhost:3000/assets/test:1/content
+  match 'assets/:id/:datastream_id' => 'assets#show'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
