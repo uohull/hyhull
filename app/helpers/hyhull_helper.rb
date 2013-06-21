@@ -67,6 +67,75 @@ module HyhullHelper
     resources.html_safe
   end
 
+  def display_resource_permissions(resource, permission_ds)
+    groups = resource.datastreams[permission_ds].groups
+
+    unless groups.nil?
+      permissions = <<-EOS
+         <fieldset>
+           <dl>
+           <dt><strong>Default permissions</strong></dt><dd></dd>
+      EOS
+      groups.each do |group|
+        group_permission = group[1].to_s
+      
+        case group_permission
+        when "read"
+          group_display = "Read and download"
+        when "edit"
+          group_display = "Edit"
+        when "discover"
+          group_display = "Search and discover" 
+        else
+          group_display = group_permission       
+        end
+
+        permissions << <<-EOS
+            <dt>
+             #{group[0]}
+            </dt>
+            <dd class="dd_text">
+              #{group_display}
+            </dd>
+        EOS
+      end 
+    end
+    permissions << <<-EOS
+          </dl>
+         </fieldset>
+     EOS
+    permissions.html_safe
+  end
+
+
+  def breadcrumb_trail_for_set(pid)
+    #Objects ids are stored as "info:fedora/hull:3374" in tree so we need to append this
+    breadcrumb = ""
+    structural_set_tree = StructuralSet.tree    
+    current_node = ""   
+    
+    structural_set_tree.each do |node|
+      if node.name == pid
+        current_node = node
+        break
+      end
+    end
+
+    if current_node != ""     
+      parentage_sets = current_node.parentage.reverse
+      parentage_sets.each do |set| 
+        pid = set.name
+        name = set.content
+        breadcrumb << name if parentage_sets.first == set
+        breadcrumb << link_to(name , structural_set_path(pid)) if parentage_sets.first != set
+        breadcrumb << " &gt; " if parentage_sets.last != set
+      end
+    end
+
+    breadcrumb.html_safe
+  end
+
+
   #Returns a pluralized string
   def pluralize_string(count, singular)
     pluralize(count,singular)[2..-1]

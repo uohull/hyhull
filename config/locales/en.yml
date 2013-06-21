@@ -5,3 +5,10 @@ en:
   blacklight:
     tools:
       title: "Assets"
+
+  hyhull:
+    institution_name: "University of Hull"
+    product_name: "Hydra at Hull"
+    permissions:
+      staff_label: "University of Hull - Staff"
+      student_label: "University of Hull - Students"

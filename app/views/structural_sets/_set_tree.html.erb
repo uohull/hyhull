@@ -1,0 +1,77 @@
+<script type="text/javascript">
+  var data = [<%= StructuralSet.tree.to_json.html_safe %>];
+
+  $(function() {
+    $('#set-tree').tree({
+        data: data,
+        autoOpen: 0
+    });
+
+    $('#set-tree').bind(
+      'tree.select',
+      function(event) {
+        if (event.node) {          
+          if (event.node.id == "hull:rootSet") {
+            $('#view-set').attr("disabled", true)
+            $('#edit-set').attr("disabled", true)
+            $('#new-set').attr("disabled", false)      
+          }
+          else {
+            $('#view-set').attr("disabled", false)
+            $('#edit-set').attr("disabled", false)
+            $('#new-set').attr("disabled", false)       
+          }
+        }
+        else {
+          $('#view-set').attr("disabled", true)
+          $('#edit-set').attr("disabled", true)
+          $('#new-set').attr("disabled", true)     
+        }
+      }
+    );
+
+
+  });
+
+  function ViewSet(action) {
+    var node = $('#set-tree').tree('getSelectedNode');
+    if (node) {
+      id = node.id;
+      if (action == "view") {
+        window.location.href = "/structural_sets/" + id;
+      }
+      else if (action == "edit") {
+        window.location.href = "/structural_sets/" + id + "/edit";
+      }     
+    }
+    else {
+      alert("Please select a set");
+    }
+  }
+
+  function NewSet() {
+    var node = $('#set-tree').tree('getSelectedNode');
+    if (node) {
+      id = node.id;   
+      window.location.href = "/structural_sets/new?parent_id=" + id; 
+    }
+    else {
+      alert("Please select a set");
+    }
+  }
+
+</script>
+
+<div class="row">
+  <div class="span10">
+    <p>This is a full list of all the sets within hyhull</p>
+    <div class="well">
+      <div id="set-tree"></div>      
+    </div>
+    <div class="btn-group">
+        <button id="view-set" class="btn" disabled onclick="ViewSet('view')">View</button>
+        <button id="edit-set" class="btn" disabled onclick="ViewSet('edit')">Edit</button>
+        <button id="new-set" class="btn" disabled onclick="NewSet()">New set</button>
+    </div>
+  </div>
+</div>

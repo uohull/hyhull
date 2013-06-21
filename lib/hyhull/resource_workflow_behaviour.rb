@@ -25,6 +25,7 @@ module Hyhull::ResourceWorkflowBehaviour
 
     # get/set the resource_state on object after_initialize/before_save - This is needed to make state_machine work with AF
     after_initialize :get_resource_state
+    before_update :set_apo
     before_save :set_resource_state, :apply_rights_metadata_from_apo
 
     # Important the properties datastream must exist - this stores the resource_state
@@ -100,6 +101,17 @@ module Hyhull::ResourceWorkflowBehaviour
       self.queue_apo = apo
     end
 
+  end
+
+  # Invoked by the before_save callback this ensures that the 
+  # correct apo is set for published resources.
+  # Sets the apo to the parent object and and sets apply_permissions to true
+  def set_apo
+    if self.resource_published?
+      raise "Parent not defined" if parent.nil? 
+      self.apo = self.parent
+      self.apply_permissions = true  
+    end  
   end
  
   # Retrieve the resource_state from delegated _resource_state

@@ -25,14 +25,15 @@ class StructuralSet < ActiveFedora::Base
   def self.tree
     hits = retrieve_structural_sets
     sets = build_array_of_parents_and_children(hits)  
-    root_node = build_children(StructuralSetTree.new("Root set", "hull:rootSet"), sets)
+    root_node = build_children(StructuralSetTree.new("hull:rootSet", "Root set"), sets)
   end
 
   private
 
   def self.retrieve_structural_sets
-    all_hits = find_with_conditions({})
-    hits = all_hits.map { |result|  {"id" => result["id"], "is_member_of_ssim" => result["is_member_of_ssim"], "title_ssm" => result["title_ssm"] } }
+    fields = "has_model_ssim:info\\:fedora\\/hull-cModel\\:structuralSet"
+    options = {:fl=>["id", "title_ssm", "is_member_of_ssim", "active_fedora_model_ssim"], :rows=>10000, :sort=>"system_create_dtsi asc" }
+    ActiveFedora::SolrService.query(fields,options)
   end
 
   def self.structural_set_pids
@@ -57,10 +58,10 @@ class StructuralSet < ActiveFedora::Base
   end
 
   def self.build_children node, nodes
-    if nodes.fetch(node.content,nil)
-      nodes[node.content][:children].each do |child|
-        title = if child["title_ssm"].first.nil? then "No title defined" else child["title_ssm"].first end          
-        child_node = StructuralSetTree.new(title, child["id"])
+    if nodes.fetch(node.name,nil)
+      nodes[node.name][:children].each do |child|
+        title = if child["title_ssm"].nil? then "No title defined" else child["title_ssm"].first end          
+        child_node = StructuralSetTree.new(child["id"], title)
         node << build_children(child_node, nodes)
       end
     end
@@ -84,7 +85,7 @@ class StructuralSetTree < Tree::TreeNode
   end
 
   def to_json
-    super.gsub("name", "label").gsub("content", "id")
+    super.gsub("content", "label").gsub("name", "id")
   end
 
   def unordered_list(options=[],level=0)

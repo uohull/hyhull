@@ -37,11 +37,14 @@
    
      <%= f.input :dissertation_category, collection: @uketd_object.dissertation_category_terms %>
 
-     <%= render(:partial => "shared/set_select",  :locals => { resource: @uketd_object, form: f }) %>
+     <% unless @uketd_object.resource_proto? %>
+       <%= render(:partial => "shared/set_select",  :locals => { resource: @uketd_object, form: f }) %>
+     <% end %>
 
-     <%= render(:partial => "shared/edit_administrative_metadata", :locals => { resource: @uketd_object, form: f }) %>
-
-
+     <% # Do not display the adminstrative metadata when resource is in the proto queue %>
+     <% unless @uketd_object.resource_proto? %>
+       <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @uketd_object, form: f }) %>
+     <% end %>
 
      <%= f.submit "Save" %>
     </div>    

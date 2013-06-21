@@ -8,9 +8,15 @@ Hyhull::Application.routes.draw do
 
   resources :assets
   resources :uketd_objects
+  
+  resources :structural_sets
+  match 'structural_sets/:id/update_permissions', to: 'structural_sets#update_permissions', via: [:put]
+
   resources :content_metadata
   resources :files
   resources :resource_workflow
+
+
 
   # Customise the assets resource to enable urls like:-
   # http://localhost:3000/assets/test:1/content

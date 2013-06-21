@@ -11,6 +11,7 @@ module Hyhull
         } 
         t.title(:proxy=>[:mods, :title_info, :main_title]) 
         t.genre(:path=>'genre')
+        t.type_of_resource(:path=>"typeOfResource")
         t.origin_info(:path=>'originInfo') {
           t.publisher
           t.date_issued(:path=>"dateIssued")

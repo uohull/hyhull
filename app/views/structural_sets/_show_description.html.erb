@@ -1,0 +1,13 @@
+<dl> 
+  <dt>Description</dt>
+  <dd>
+    <%= resource.description %>
+  </dd>  
+  <dt>Resource status</dt>
+  <dd>
+    <%= resource.resource_status %>
+  </dd>
+</dl>
+<dl>
+  <%= display_resource_permissions(resource, "defaultObjectRights")  %>
+</dl>

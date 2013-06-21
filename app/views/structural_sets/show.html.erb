@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span10">
+      <div class="row">
+        <div class="span12">          
+          <h2><%= @structural_set.title %></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">          
+          <h3>Structural Set</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span2">
+          <%= link_to "Edit set", edit_structural_set_path(@structural_set) %>
+        </div>
+        <div class="span2">
+          <%= link_to "View all sets", structural_sets_path %>
+        </div>
+        <div class="span2">
+         <%= link_to "View set resources", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/#{@structural_set.pid}&results_view=true" %>
+        </div>
+        <div class="span2">  
+          <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @structural_set }) %>
+        </div>
+      </div>
+      </div>      
+      <div class="row" id="breadcrumb">
+        <div class="span6">
+          <%= breadcrumb_trail_for_set(@structural_set.pid) %>
+        </div>
+      </div>     
+      <%= render :partial => "show_description", :locals => { :resource => @structural_set} %>
+    </div>
+  </div>
+</div>

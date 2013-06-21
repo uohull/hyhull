@@ -12,7 +12,9 @@
             <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @uketd_object %>
           </div>
           <div class="span6">  
-            <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @uketd_object }) %>
+            <% unless @uketd_object.resource_proto? %>
+              <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @uketd_object }) %>
+            <% end %>
           </div>
         <% end %>
         <div class="span12">

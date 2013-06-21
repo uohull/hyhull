@@ -1,0 +1,14 @@
+<div id="descriptive_metadata" class="tab-pane active">
+  <%= render "shared/error_messages", :target => @structural_set %>
+  <%= simple_form_for(@structural_set, :html => {:class => 'form-horizontal' }) do |f| %>
+    	<legend>Edit Metadata</legend>
+    	<div class="fields">
+        <%= f.input :title %>
+        <%= f.input :description %> 
+        <%= render(:partial => "shared/set_select",  :locals => { resource: @structural_set, form: f }) %>
+        <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @structural_set, form: f }) %> 
+        <% # Only show the Add/edit content files when the initial metadata has been added and object created %>
+        <%= f.submit "Save" %>
+      </div>    
+  <% end %>
+</div>

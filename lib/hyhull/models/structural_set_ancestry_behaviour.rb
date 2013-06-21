@@ -94,6 +94,48 @@ module Hyhull
           end
         end
 
+
+        # Updates all the ancestors permissions that match with the parent permissions
+        # @permission_params permission_params ex “group”=>{“group1”=>“discover”,“group2”=>“edit”, “person”=>“person1”=>“read”,“person2”=>“discover”}
+        def update_ancestors_permissions_from_apo
+          ancesters_updated = true        
+          updated = []
+          not_updated = []
+
+          children = match_ancestors_default_object_rights
+          unless children.nil?
+            matched_children = children[:match]
+
+            unless matched_children.nil?
+              matched_children.each do |child|
+
+                id = child[:id]
+                resource = ActiveFedora::Base.find(id, cast: true)
+
+                if resource.kind_of? StructuralSet
+                  # Call apply_defaultObjectRights on the structuralset
+                  # This copies the default rights across..
+                   resource.apply_defaultObjectRights                 
+                else
+                  #Rely on the fact that the parent APO is up to date...
+                  resource.apply_permissions = true                 
+                end
+
+                # Save the resource changes...
+                if resource.save
+                  updated << resource.id 
+                else
+                  ancesters_updated = false
+                  not_updated << resource.id
+                end
+
+              end
+            end
+          end
+
+          return ancesters_updated, {:updated => updated, :not_updated => not_updated}
+        end
+
         # Not elegant, but will check if the particularly object is published
         # published objects within hyhull will be marked with the resource_state = published 
         def is_published? obj

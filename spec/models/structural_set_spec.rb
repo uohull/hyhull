@@ -81,6 +81,9 @@ describe StructuralSet do
       root_node = StructuralSet.tree
       root_node.print_tree
 
+      # There should be more than one child///
+      root_node.children.size.should > 1
+
       puts "Attempting to get options for select"
       options = root_node.options_for_nested_select
 
