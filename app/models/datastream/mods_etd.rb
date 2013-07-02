@@ -197,13 +197,6 @@
 
    end
 
-  def add_subject_topic(values)
-   ng_xml.search(self.subject_topic.xpath, {oxns: "http://www.loc.gov/mods/v3"}).each do |n|
-     n.remove
-   end
-   self.subject(1).topic = values
-  end
-
   def add_grant_number(values)
    ng_xml.search(self.grant_number.xpath, {oxns: "http://www.loc.gov/mods/v3"}).each do |n|
      n.remove

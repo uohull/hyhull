@@ -75,6 +75,14 @@ module Hyhull::ModsMetadataMethods
 
   end
 
+
+  def add_subject_topic(values)
+   self.ng_xml.search(self.subject_topic.xpath, {oxns: "http://www.loc.gov/mods/v3"}).each do |n|
+     n.remove
+   end
+   self.subject(1).topic = values
+  end
+
   def update_mods_content_metadata(content_asset, content_ds)
     content_size_bytes = eval "content_asset.#{content_ds}.size"
     begin

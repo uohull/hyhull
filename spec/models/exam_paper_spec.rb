@@ -103,6 +103,26 @@ describe ExamPaper do
       @exam_paper.errors.messages[:date_issued].should == ["is invalid"]
     end
 
+    context "non unique fields" do
+      before(:each) do
+         @attributes_hash = {
+           "subject_topic" => ["Finance", "Management"],
+           "module_name" => ["Finance module", "Management module"],
+           "module_code" => ["12345", "54321"],
+           "module_display" => ["12345 - Finance module", "54321 Management module"]
+         }
+         @exam_paper = ExamPaper.new
+         @exam_paper.update_attributes(@attributes_hash)
+      end
+
+      it "should not overwrite the subject_topic if it is not within the hash" do
+        new_attributes_hash = { "title" => "Test title" }
+        @exam_paper.update_attributes(new_attributes_hash)
+        @exam_paper.title.should == new_attributes_hash["title"]
+        @exam_paper.subject_topic.should == @attributes_hash["subject_topic"]
+      end
+    end
+
   #   context "non unique fields" do
   #     before(:each) do
   #       @attributes_hash = {
