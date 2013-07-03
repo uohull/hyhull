@@ -10,14 +10,14 @@ describe ExamPaper do
       @exam_paper = ExamPaper.new
 
       @attributes_hash = {
-        "title" => "44200 Accounting and Finance (2005/6)",
+        "title" => "44200 Accounting and Finance (May 2005)",
         "department_name" => "Business School",
         "subject_topic" => ["Accounting", "Finance"],
         "module_name" => ["Accounting and Finance"],
         "module_code" => ["44200"],
         "module_display" => ["44200 Accounting and Finance"],
         "exam_level" => "Level 4",
-        "date_issued" => "2005/06",
+        "date_issued" => "2005-05",
         "rights" => "©2006 The University of Hull",
         "publisher" => "The University of Hull",
         "language_text" => "English",
@@ -30,7 +30,6 @@ describe ExamPaper do
         "department_name" => "",
         "module_name" => [""],
         "module_code" => [""],
-        "module_display" => [""],
         "subject_topic" => [""],
         "publisher" => "",
         "date_issued" => "January"
@@ -63,11 +62,9 @@ describe ExamPaper do
       @exam_paper.update_attributes( @attributes_hash )
 
       # Marked as 'unique' in the call to delegate... 
-      @exam_paper.title.should == @attributes_hash["title"]
       @exam_paper.department_name.should == @attributes_hash["department_name"]
       @exam_paper.exam_level.should == @attributes_hash["exam_level"]
       @exam_paper.date_issued.should == @attributes_hash["date_issued"]
-      @exam_paper.rights.should == @attributes_hash["rights"]
       @exam_paper.language_text == @attributes_hash["language_text"]
       @exam_paper.language_code == @attributes_hash["language_code"]
       @exam_paper.publisher == @attributes_hash["publisher"]
@@ -85,7 +82,7 @@ describe ExamPaper do
       # save should be false
       @exam_paper.save.should be_false
       # with 8 error messages
-      @exam_paper.errors.messages.size.should == 8
+      @exam_paper.errors.messages.size.should == 6
     end
 
     it "should display the correct messages for an invalid save attempt" do
@@ -93,11 +90,10 @@ describe ExamPaper do
       # save should be false
       @exam_paper.save.should be_false
       # errors...
-      @exam_paper.errors.messages[:title].should == ["can't be blank"]
+      #@exam_paper.errors.messages[:title].should == ["can't be blank"]
       @exam_paper.errors.messages[:department_name].should == ["can't be blank"]
       @exam_paper.errors.messages[:module_name].should == ["is too short (minimum is 5 characters)"]
       @exam_paper.errors.messages[:module_code].should == ["is too short (minimum is 5 characters)"]
-      @exam_paper.errors.messages[:module_display].should == ["is too short (minimum is 5 characters)"]
       @exam_paper.errors.messages[:subject_topic].should == ["is too short (minimum is 2 characters)"]
       @exam_paper.errors.messages[:publisher].should == ["can't be blank"]
       @exam_paper.errors.messages[:date_issued].should == ["is invalid"]
@@ -162,118 +158,148 @@ describe ExamPaper do
 
   # end
 
-  # context "methods" do
-  #     before(:each) do
-  #         #set the 'required' fields
-  #         @valid_etd  =  UketdObject.new
-  #         @valid_etd.title = "Test title"
-  #         @valid_etd.person_name = ["Smith, John.", "Jones, John"]
-  #         @valid_etd.person_role_text = ["Creator", "Creator"]
-  #         @valid_etd.subject_topic = ["Topci 1"]
-  #         @valid_etd.language_code = "eng"
-  #         @valid_etd.language_text = "English"
-  #         @valid_etd.publisher = "IT, UoH"
-  #         @valid_etd.qualification_name = "Undergraduate"
-  #         @valid_etd.qualification_level = "BSc"
-  #         @valid_etd.date_issued = "2012"
-  #         @valid_etd.save
-  #     end
-  #     after(:all) do
-  #       @valid_etd.delete
-  #     end
-  #     describe ".to_solr" do
-  #       it "should return the necessary facets" do
-  #         solr_doc = @valid_etd.to_solr
-  #         solr_doc["object_type_sim"].should == "Thesis or dissertation"
-  #       end
+  context "methods" do
+      before(:each) do
+        #set the 'required' fields
+        @valid_exam_paper  =  ExamPaper.new
+        @valid_exam_paper.department_name = "Business school"
+        @valid_exam_paper.date_issued = "2012-05"
+        @valid_exam_paper.publisher = "University of Hull"
+        @valid_exam_paper.module_name = ["Accounting and Finance", "Financing and Accounting"]
+        @valid_exam_paper.module_code = ["12345", "54321"]
+        @valid_exam_paper.subject_topic = ["Finance", "Accounting"]
+        @valid_exam_paper.language_code = "eng"
+        @valid_exam_paper.language_text = "English"
+        @valid_exam_paper.save
+      end
+      after(:each) do
+        @valid_exam_paper.delete
+      end
+      describe ".to_solr" do
+        it "should return the necessary facets" do
+          solr_doc = @valid_exam_paper.to_solr
+          solr_doc["object_type_sim"].should == "Examination paper"
+        end
 
-  #       it "should return the necessary cModels" do
-  #         solr_doc = @valid_etd.to_solr
-  #         solr_doc["has_model_ssim"].should == ["info:fedora/hydra-cModel:commonMetadata", "info:fedora/hydra-cModel:genericParent", "info:fedora/hull-cModel:uketdObject"]
-  #       end
-  #     end
-  #     describe ".save" do
-  #       it "should create the appropriate cModel declarations" do       
-  #         @valid_etd.ids_for_outbound(:has_model).should == ["hydra-cModel:commonMetadata", "hydra-cModel:genericParent", "hull-cModel:uketdObject"] 
-  #       end
-  #       it "should contain the appropiately case for the uketdObject in the RELS-EXT (Lower Camelcase)" do
-  #         @valid_etd.rels_ext.to_rels_ext.include?('info:fedora/hull-cModel:uketdObject').should == true
-  #       end
-  #       it "apply_additional_metadata should pre-populate the copyright (rights) field" do
-  #         @valid_etd.rights.should == "© 2012 John Smith and John Jones. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holders." 
-  #       end
-  #     end
+        it "should return the necessary cModels" do
+          solr_doc = @valid_exam_paper.to_solr
+          solr_doc["has_model_ssim"].should == ["info:fedora/hydra-cModel:compoundContent", "info:fedora/hydra-cModel:commonMetadata", "info:fedora/hull-cModel:examPaper"]
+        end
+      end
+      describe ".save" do
+        it "should create the appropriate cModel declarations" do       
+          @valid_exam_paper.ids_for_outbound(:has_model).should == ["hydra-cModel:compoundContent", "hydra-cModel:commonMetadata", "hull-cModel:examPaper"] 
+        end
+        it "should contain the appropiately case for the uketdObject in the RELS-EXT (Lower Camelcase)" do
+          @valid_exam_paper.rels_ext.to_rels_ext.include?('info:fedora/hull-cModel:examPaper').should == true
+        end
+        it "apply_additional_metadata should pre-populate the copyright (rights) field" do
+          @valid_exam_paper.rights.should == "© 2012 University of Hull. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder." 
+        end
+        it "apply_additional_metadata should pre-populate the module_display array with the appropiate text" do
+          @valid_exam_paper.module_display.should == ["12345 Accounting and Finance", "54321 Financing and Accounting"]
+        end
+        it "apply_additional_metadata should pre-populate the title with the appropiate text" do
+          @valid_exam_paper.title.should == "12345 Accounting and Finance, 54321 Financing and Accounting (May 2012)"
+        end
+
+      end
      
-  # end
+  end
 
-  # context "resource_state" do
-  #   before(:each) do
-  #     #set the general 'required' fields for an object
-  #     @valid_etd  =  UketdObject.new
-  #     @valid_etd.title = "Test title"
-  #     @valid_etd.person_name = ["Smith, John."]
-  #     @valid_etd.person_role_text = ["Creator"]
-  #     @valid_etd.subject_topic = ["Topci 1"]
-  #     @valid_etd.language_code = "eng"
-  #     @valid_etd.language_text = "English"
-  #     @valid_etd.publisher = "IT, UoH"
-  #     @valid_etd.qualification_name = "Undergraduate"
-  #     @valid_etd.qualification_level = "BSc"
-  #     @valid_etd.date_issued = "2012"
-  #     @valid_etd.save
-  #   end
+  context "resource_state" do
+      before(:each) do
+        #set the 'required' fields
+        @a_valid_exam_paper  =  ExamPaper.new
+        @a_valid_exam_paper.department_name = "Business school"
+        @a_valid_exam_paper.date_issued = "2012-05"
+        @a_valid_exam_paper.publisher = "University of Hull"
+        @a_valid_exam_paper.module_name = ["Accounting and Finance", "Financing and Accounting"]
+        @a_valid_exam_paper.module_code = ["12345", "54321"]
+        @a_valid_exam_paper.subject_topic = ["Finance", "Accounting"]
+        @a_valid_exam_paper.language_code = "eng"
+        @a_valid_exam_paper.language_text = "English"
+        @a_valid_exam_paper.save
+      end
 
-  #   after(:all) do
-  #     @valid_etd.delete
-  #   end
+      after(:each) do
+        @a_valid_exam_paper.delete
+      end
 
-  #   describe "hidden" do
-  #     it "should validate that the required field 'resource status' is populated" do
+      describe "qa and published" do
+        it "should validate that the field title is populated" do
+          # Submit resource to qa...
+          @a_valid_exam_paper.submit_resource
+          @a_valid_exam_paper.save
+  
+          @a_valid_exam_paper.title = ""
+          @a_valid_exam_paper.save.should be_false
+          @a_valid_exam_paper.errors.messages[:title].should == ["can't be blank"]
 
-  #       #Submit the resource so that it can be hidden... 
-  #       @valid_etd.submit_resource
-  #       #Save the state... 
-  #       @valid_etd.save
-        
-  #       @valid_etd.resource_state.should == "qa"
+          # Add another title and save...
+          @a_valid_exam_paper.title = "Test"
+          @a_valid_exam_paper.save
 
-  #       #Hide the resource...
-  #       @valid_etd.hide_resource.should be_true
-        
-  #       #Save should fail because of the validation state callback
-  #       @valid_etd.save.should be_false
-  #       @valid_etd.errors.messages[:resource_status].should == ["can't be blank"]
-        
-  #       #Populate thteh required field
-  #       @valid_etd.resource_status = "Hidden due to Copyright enquiry"
-  #       #Save should work...
-  #       @valid_etd.save.should be_true
-  #     end
-  #   end
+          # Publish it and save...
+          @a_valid_exam_paper.publish_resource
+          @a_valid_exam_paper.save
 
-  #   describe "deleted" do
-  #     it "should validate that the required field 'resource status' is populated" do
-  #       #Submit the resource so that it can be hidden... 
-  #       @valid_etd.submit_resource
-  #       @valid_etd.publish_resource
-  #       #Save the state... 
-  #       @valid_etd.save
+          @a_valid_exam_paper.title = ""
+          @a_valid_exam_paper.save.should be_false
+          @a_valid_exam_paper.errors.messages[:title].should == ["can't be blank"]
+        end
+      end
 
-  #       @valid_etd.resource_state.should == "published"
+      describe "hidden" do
+        it "should validate that the required field 'resource status' is populated" do
 
-  #       #'Delete' the resource...
-  #       @valid_etd.delete_resource.should be_true
-        
-  #       #Save should fail because of the validation state callback
-  #       @valid_etd.save.should be_false
-  #       @valid_etd.errors.messages[:resource_status].should == ["can't be blank"]
+          #Submit the resource so that it can be hidden... 
+          @a_valid_exam_paper.submit_resource
+          #Save the state... 
+          @a_valid_exam_paper.save
+          
+          @a_valid_exam_paper.resource_state.should == "qa"
 
-  #       #Populate thteh required field
-  #       @valid_etd.resource_status = "Deleted due to duplicate record"
-  #       #Save should work...
-  #       @valid_etd.save.should be_true
-  #     end
-  #   end
+          #Hide the resource...
+          @a_valid_exam_paper.hide_resource.should be_true
+          
+          #Save should fail because of the validation state callback
+          @a_valid_exam_paper.save.should be_false
+          @a_valid_exam_paper.errors.messages[:resource_status].should == ["can't be blank"]
+          
+          #Populate thteh required field
+          @a_valid_exam_paper.resource_status = "Hidden due to Copyright enquiry"
+          #Save should work...
+          @a_valid_exam_paper.save.should be_true
+        end
+      end
+
+
+      describe "deleted" do
+        it "should validate that the required field 'resource status' is populated" do
+          #Submit the resource so that it can be hidden... 
+          @a_valid_exam_paper.submit_resource
+          @a_valid_exam_paper.publish_resource
+          #Save the state... 
+          @a_valid_exam_paper.save
+
+          @a_valid_exam_paper.resource_state.should == "published"
+
+          #'Delete' the resource...
+          @a_valid_exam_paper.delete_resource.should be_true
+          
+          #Save should fail because of the validation state callback
+          @a_valid_exam_paper.save.should be_false
+          @a_valid_exam_paper.errors.messages[:resource_status].should == ["can't be blank"]
+
+          #Populate thteh required field
+          @a_valid_exam_paper.resource_status = "Deleted due to duplicate record"
+          #Save should work...
+          @a_valid_exam_paper.save.should be_true
+        end
+      end
+
+    end
 
   end
 

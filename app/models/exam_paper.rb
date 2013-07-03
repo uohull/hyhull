@@ -9,14 +9,17 @@ class ExamPaper < ActiveFedora::Base
 
   # Extra validations for the resource_state state changes
   ExamPaper.state_machine :resource_state do   
-    state :hidden do
+    state :hidden, :deleted do
       validates :resource_status, presence: true
     end
 
-    state :deleted do
-      validates :resource_status, presence: true
+    state :qa, :published do
+      validates :title, presence: true
     end
+
   end
+
+  before_save :apply_additional_metadata 
 
   has_metadata name: "descMetadata", label: "MODS metadata", type: Datastream::ModsExamPaper
   has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
@@ -32,21 +35,57 @@ class ExamPaper < ActiveFedora::Base
   delegate_to :descMetadata, [:subject_topic]
 
   # Standard validations for the object fields
-  validates :title, presence: true
+  #validates :title, presence: true
   validates :department_name, presence: true
   validates :module_name, array: { :length => { :minimum => 5 } }
   validates :module_code, array: { :length => { :minimum => 5 } } 
-  validates :module_display, array: { :length => { :minimum => 5 } }
+ # validates :module_display, array: { :length => { :minimum => 5 } }
   validates :date_issued, format: { with: /^(\d{4}-\d{2}-\d{2}|\d{4}-\d{2}|\d{4})/ }
   validates :subject_topic, array: { :length => { :minimum => 2 } }
   validates :publisher, presence: true
 
+  def apply_additional_metadata 
+    # May only need to set the title automaticallyin proto...   
+    self.title = get_exam_title
+    self.module_display = get_module_display
+
+    if date_issued.empty? 
+      copyright_year = ""
+    else
+      copyright_year = Date.parse(to_long_date(date_issued)).strftime("%Y")
+    end
+
+    self.rights = Datastream::ModsEtd.all_rights_reserved_statement(publisher, copyright_year)
+  end
+
+  def get_exam_title
+    "#{get_module_display.join(', ')} (#{human_readable_date(date_issued)})"
+  end
+
+  def get_module_display
+    module_display_array = []
+    module_code.each_with_index do |code, index|
+      module_display_array << "#{code} #{module_name[index]}"
+    end
+    return module_display_array 
+  end
+
+  def human_readable_date(date)
+    Date.parse(to_long_date(date)).strftime("%B") + " " + Date.parse(to_long_date(date)).strftime("%Y")
+  end
 
   # Overridden so that we can store a cmodel and "complex Object"
   def assert_content_model
     add_relationship(:has_model, "info:fedora/hydra-cModel:compoundContent")
     add_relationship(:has_model, "info:fedora/hydra-cModel:commonMetadata")
     super
+  end
+
+  # to_solr overridden to add object_type facet field to document
+  def to_solr(solr_doc = {})
+    super(solr_doc)
+    solr_doc.merge!("object_type_sim" => "Examination paper")
+    solr_doc
   end
 
 end
