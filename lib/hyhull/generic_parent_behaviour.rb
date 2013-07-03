@@ -72,8 +72,12 @@ module Hyhull::GenericParentBehaviour
         begin 
           resource = FileAsset.find(resource_object_id)
           if self.file_assets.include?(resource)
-            #Delete the resource through self.file_assets to ensure that the relationship gets deleted          
-            self.file_assets[self.file_assets.index(resource)].delete
+            # asset object itself...
+            resource.delete
+
+            # Reload self to ensure that the removed asset is persisted to local object
+            self.reload
+
             #Now delete the resource from the contentMetadata ds
             self.contentMetadata.remove_resource(index)
 

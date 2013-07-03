@@ -159,6 +159,18 @@ Several recommendations are made concerning the development of the accounting pr
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
+<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="151">
+<foxml:xmlContent>
+<fields>
+  <depositor>302922</depositor>
+  <collection>uketd_object</collection>
+  <depositorEmail>guest@hydraathull.ac.uk</depositorEmail>
+  <resourceState>published</resourceState>
+</fields>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
 <foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
 <foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2011-02-23T10:50:50.083Z" MIMETYPE="text/xml" SIZE="962">
 <foxml:xmlContent>

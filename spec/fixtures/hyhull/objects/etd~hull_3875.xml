@@ -385,6 +385,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <depositor>302922</depositor>
   <collection>uketd_object</collection>
   <depositorEmail>guest@hydraathull.ac.uk</depositorEmail>
+  <resourceState>proto</resourceState>
 </fields>
 </foxml:xmlContent>
 </foxml:datastreamVersion>

@@ -53,7 +53,7 @@ describe Hyhull::GenericParentBehaviour do
         @ds = Hyhull::Datastream::ContentMetadata.from_xml(@cm)        
         @test_upload = ActionDispatch::Http::UploadedFile.new({ :filename => 'test_pdf_file.pdf', :type => 'application/pdf', :tempfile => @test_file })
       end
-
+      
       it "should be add-able through the add_file_content(file_data) method" do
         content_metadata_resource_size = @generic_parent.contentMetadata.resource.size
         file_assets_size = @generic_parent.file_assets.size 
@@ -74,7 +74,9 @@ describe Hyhull::GenericParentBehaviour do
       it "should inherit the rightsMetadata from their parent" do
         success, file_assets, message = @generic_parent.add_file_content([@test_upload])
         # On adding a file, the new FileAsset should inherit the rights of the parent
-        @generic_parent.rightsMetadata.content.should == file_assets.last.rightsMetadata.content
+        @generic_parent.rightsMetadata.groups.should == file_assets.last.rightsMetadata.groups
+        @generic_parent.rightsMetadata.individuals.should == file_assets.last.rightsMetadata.individuals
+        #@generic_parent.rightsMetadata.content.should == file_assets.last.rightsMetadata.content
       end
 
       it "should be delete-able through the delete_by_content_metadata_at" do
@@ -94,7 +96,7 @@ describe Hyhull::GenericParentBehaviour do
 
         #Should NO longer be defined as a file asset of @generic_parent
         @generic_parent.file_assets.include?(file_asset_object).should == false
-        content_metadata.resource.size.should == (resources_size - 1)
+        @generic_parent.contentMetadata.resource.size.should == (resources_size - 1)
       end
 
 

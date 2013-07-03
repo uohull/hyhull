@@ -175,6 +175,18 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
+<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="151">
+<foxml:xmlContent>
+<fields>
+  <depositor>302922</depositor>
+  <collection>uketd_object</collection>
+  <depositorEmail>guest@hydraathull.ac.uk</depositorEmail>
+  <resourceState>published</resourceState>
+</fields>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
 <foxml:datastream ID="contentMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
 <foxml:datastreamVersion ID="contentMetadata.0" LABEL="Content metadata" CREATED="2011-03-28T16:56:51.560Z" MIMETYPE="text/xml" SIZE="1478">
 <foxml:binaryContent> 

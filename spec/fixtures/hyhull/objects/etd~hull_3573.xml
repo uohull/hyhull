@@ -157,6 +157,18 @@ Moreover, recommendations concerning the development of the accounting professio
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
+<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="151">
+<foxml:xmlContent>
+<fields>
+  <depositor>302922</depositor>
+  <collection>uketd_object</collection>
+  <depositorEmail>guest@hydraathull.ac.uk</depositorEmail>
+  <resourceState>qa</resourceState>
+</fields>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
 <foxml:datastream ID="contentMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="true">
 <foxml:datastreamVersion ID="contentMetadata.0" LABEL="Content metadata" CREATED="2011-03-28T16:54:39.652Z" MIMETYPE="text/xml" SIZE="433">
 <foxml:binaryContent> 
