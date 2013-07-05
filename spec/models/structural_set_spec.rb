@@ -40,6 +40,19 @@ class ChildObjectTestClass < ActiveFedora::Base
 
 end
 
+class ChildWithQueingMixin < ActiveFedora::Base
+  include Hyhull::ModelMethods
+  include Hyhull::ResourceWorkflowBehaviour
+
+  has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
+
+  belongs_to :parent, property: :is_member_of, :class_name => "StructuralSet"
+
+  def owner_id
+    "fooAdmin"
+  end
+end
+
 describe StructuralSet do
   
   context "original spec" do
@@ -226,7 +239,7 @@ describe StructuralSet do
 
   describe "structural set recursive permissions" do
     before do
-      permission_params = {"group"=>{"public"=>"read", "contentAccessTeam"=>"edit"}}
+      @permission_params = {"group"=>{"public"=>"read", "contentAccessTeam"=>"edit"}}
       alt_permission_params = {"group"=>{"staff"=>"read", "public"=>"none", "contentAccessTeam"=>"edit"}} 
 
       @parent = StructuralSet.new
@@ -234,7 +247,7 @@ describe StructuralSet do
       #Set the parent to hull:rootSet... 
       @parent.parent_id = "hull:rootSet"
       @parent.save
-      @parent.defaultObjectRights.update_permissions(permission_params)
+      @parent.defaultObjectRights.update_permissions(@permission_params)
       @parent.save
 
       # Matching set
@@ -243,7 +256,7 @@ describe StructuralSet do
       @first_child.parent = @parent
       @first_child.save  # Inherits rights from parent...     
       
-      @first_child.defaultObjectRights.update_permissions(permission_params)
+      @first_child.defaultObjectRights.update_permissions(@permission_params)
       @first_child.save
 
       # Non-Matching set
@@ -258,7 +271,7 @@ describe StructuralSet do
       # Child of matching set
       @first_child_content_object = ChildObjectTestClass.new
       @first_child_content_object.save
-      @first_child_content_object.rightsMetadata.update_permissions(permission_params)
+      @first_child_content_object.rightsMetadata.update_permissions(@permission_params)
       @first_child_content_object.parent = @first_child
       #@first_child_content_object.apply_set_membership(["info:fedora/" + @first_child.pid])
       #@first_child_content_object.apply_governed_by("info:fedora/" +  @first_child.pid)
@@ -310,6 +323,40 @@ describe StructuralSet do
       #Non-matching children don't update...
       @second_child.defaultObjectRights.groups.should == {"staff"=>"read", "contentAccessTeam"=>"edit"}
       @second_child_content_object.rightsMetadata.groups.should == {"staff"=>"read", "contentAccessTeam"=>"edit"} 
+    end
+
+    it "should update the direct child resources of a set" do
+      # Test written replicate a previous issue...
+
+      new_permission_params = {"group"=>{"contentAccessTeam"=>"none", "public"=>"none", "baz"=>"edit"}}
+      # Yet another set...
+      # Matching set
+      yet_another_set = StructuralSet.new
+      yet_another_set.title = "Yet another set" 
+      yet_another_set.parent = @parent
+      yet_another_set.save  # Inherits rights from parent... 
+
+      yet_another_set.defaultObjectRights.groups.should == {"public"=>"read", "contentAccessTeam"=>"edit"} 
+
+      # Child of matching set
+      yet_another_child_resource = ChildWithQueingMixin.new
+      yet_another_child_resource.save
+
+      yet_another_child_resource.resource_state = "published"
+      yet_another_child_resource.parent = yet_another_set
+      yet_another_child_resource.save
+
+      # Should inherit sets rights as default... 
+      yet_another_child_resource.rightsMetadata.groups.should == {"public"=>"read", "contentAccessTeam"=>"edit"} 
+
+      yet_another_set.update_permissions(new_permission_params,"defaultObjectRights")
+      # Reload the child resource from fedora... 
+      yet_another_child_resource.reload 
+      # Child should have inherited the parent params... 
+      yet_another_child_resource.rightsMetadata.groups.should == {"baz"=>"edit"}
+
+      yet_another_set.delete
+      yet_another_child_resource.delete
     end
 
     after do

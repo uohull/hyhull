@@ -108,9 +108,12 @@ module Hyhull::ResourceWorkflowBehaviour
   # Sets the apo to the parent object and and sets apply_permissions to true
   def set_apo
     if self.resource_published?
-      raise "Parent not defined" if parent.nil? 
-      self.apo = self.parent
-      self.apply_permissions = true  
+      # If the apo is already the parent the rights do not need updating..
+      unless self.apo == self.parent
+        raise "Parent not defined" if parent.nil?
+        self.apo = self.parent
+        self.apply_permissions = true  
+      end
     end  
   end
  

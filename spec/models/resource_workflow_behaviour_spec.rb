@@ -66,6 +66,26 @@ describe Hyhull::ResourceWorkflowBehaviour do
       @instance.submit_resource
       @instance.apply_permissions.should be_true
     end
+
+    it "should be set to true if the parent set changes on a published object" do
+      @instance.resource_state = "published" 
+      @instance.parent = StructuralSet.find("hull:rootSet")
+      @instance.apo = StructuralSet.find("hull:rootSet")
+      @instance.save 
+
+      instance = ResourceWorkflowBehaviourTestClass.find(@instance.pid)
+
+      # No changes to parent, so no changes to apo, so apply_permissions is false... 
+      instance.set_apo 
+      instance.apply_permissions.should be_false
+
+      # A change to parent, so a change is required to apo, and apply_permissions should be true...
+      instance.parent = StructuralSet.find("hull:657")
+      instance.set_apo
+      instance.apply_permissions.should be_true
+    end
+
+
   end
 
   
