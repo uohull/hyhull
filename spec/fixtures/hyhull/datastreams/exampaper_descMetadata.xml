@@ -1,0 +1,58 @@
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3             http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+  <titleInfo>
+    <title>44207 Principles of exercise and training (April 2009)</title>
+  </titleInfo>
+  <name type="corporate">
+    <namePart>Business School</namePart>
+    <role>
+      <roleTerm type="text">creator</roleTerm>
+    </role>
+  </name>
+  <typeOfResource>text</typeOfResource>
+  <genre>Examination paper</genre>
+  <originInfo>
+    <publisher>The University of Hull</publisher>
+    <dateIssued>2009-04</dateIssued>
+  </originInfo>
+  <language>
+    <languageTerm type="text">English</languageTerm>
+    <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+  </language>
+  <physicalDescription>
+    <extent>Filesize: 50KB</extent>
+    <internetMediaType>application/pdf</internetMediaType>
+    <digitalOrigin>born digital</digitalOrigin>
+  </physicalDescription>
+  <note type="examinationLevel">Level 5</note>
+  <note type="additionalNotes">Notes here...</note>  
+  <subject authority="UoH">
+    <topic>Principles of exercise and training</topic>
+  </subject>
+  <identifier type="fedora">hull:1765</identifier>
+  <relatedItem ID="privateObject">
+    <identifier type="fedora">hull-private:113</identifier>
+  </relatedItem>
+  <relatedItem ID="module">
+    <identifier type="moduleName">Principles of exercise and training</identifier> 
+    <identifier type="moduleCode">44207</identifier>
+    <note type="moduleDisplay">44207 Principles of exercise and training</note>
+  </relatedItem>
+  <relatedItem ID="module">
+    <identifier type="moduleName">Training and Exercise</identifier> 
+    <identifier type="moduleCode">44207a</identifier>
+    <note type="moduleDisplay">44207a Training and Exercise</note>
+  </relatedItem>
+  <location>
+    <url access="object in context" usage="primary display">http://hydra.hull.ac.uk/resources/hull:1765</url>
+    <url access="raw object">http://hydra.hull.ac.uk/assets/hull:1765/genericContent/content</url>
+  </location>
+  <accessCondition type="useAndReproduction">&#xA9; 2009 The University of Hull. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</accessCondition>
+  <recordInfo>
+    <recordContentSource>The University of Hull</recordContentSource>
+    <recordCreationDate encoding="w3cdtf">2009-08-07</recordCreationDate>
+    <recordChangeDate encoding="w3cdtf">2009-08-08</recordChangeDate>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">eng</languageTerm>
+    </languageOfCataloging>
+  </recordInfo>
+</mods>

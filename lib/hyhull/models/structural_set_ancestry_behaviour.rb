@@ -12,13 +12,13 @@ module Hyhull
             @@ancestors.flatten! 
           end
 
-          def create_set_members_array pid          
+          def create_set_members_array pid        
             unless pid.nil? 
               hits = retrieve_set_members escape_colon(pid)
               if hits.length > 0 
                 @@ancestors << hits 
                 hits.each do |hit|
-                  create_set_members_array hit["id"] if hit["active_fedora_model_ssim"].first == "StructuralSet"
+                  create_set_members_array hit["id"] if hit["active_fedora_model_ssi"] == "StructuralSet"
                 end
               end
             end
@@ -26,7 +26,7 @@ module Hyhull
 
           def retrieve_set_members pid
             fields = "is_member_of_ssim:info\\:fedora\\/" + pid
-            options = {:fl=>["id", "title_ssm", "is_member_of_ssim", "active_fedora_model_ssim"], :rows=>10000, :sort=>"system_create_dtsi asc" }
+            options = {:fl=>["id", "title_ssm", "is_member_of_ssim", "active_fedora_model_ssi"], :rows=>10000, :sort=>"system_create_dtsi asc" }
             ActiveFedora::SolrService.query(fields,options)
           end
 
@@ -36,7 +36,7 @@ module Hyhull
         end
 
         # Returns a hash of all mathching/non-matching permissions ancestors of self
-        # @returns e.g. {:match => [{:id => test:1, :active_fedora_model_ssim => StructuralSet }, :dont_match => [{id => test:5, :active_fedora_model_ssim => StructuralSet}]}
+        # @returns e.g. {:match => [{:id => test:1, :active_fedora_model_ssi => StructuralSet }, :dont_match => [{id => test:5, :active_fedora_model_ssim => StructuralSet}]}
         def match_ancestors_default_object_rights
           match = []
           dont_match = []
@@ -57,9 +57,9 @@ module Hyhull
                 object_match = compare_object_with_rights({:object=>child_instance, :ds_id=>ds_id } , rights_ds)
                  
                 if object_match
-                  match << {:id => child["id"], :active_fedora_model_ssim => child["active_fedora_model_ssim"].first }
+                  match << {:id => child["id"], :active_fedora_model_ssi => child["active_fedora_model_ssi"] }
                 else
-                  dont_match << {:id => child["id"], :active_fedora_model_ssim => child["active_fedora_model_ssim"].first }
+                  dont_match << {:id => child["id"], :active_fedora_model_ssi => child["active_fedora_model_ssi"] }
                 end
               end     
             end

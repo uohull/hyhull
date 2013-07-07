@@ -75,8 +75,8 @@ module Hyhull::ModelMethods
     # Set the resource label based upon descMetadata (if it exists...)
     if self.respond_to? "descMetadata"
       begin
-        names = self.get_values_from_datastream("descMetadata", [:name, :namePart], {})
-        roles = self.get_values_from_datastream("descMetadata", [:name, :role, :text], {})
+        names = self.datastreams["descMetadata"].get_values([:name, :namePart])
+        roles = self.datastreams["descMetadata"].get_values([:name, :role, :text])
 
         # zip name into role array
         role_name = roles.zip(names)

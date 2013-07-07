@@ -76,7 +76,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
 
     # Rights and identifiers
     t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"})
-    t.identifier(:path=>"identifier", :attributes=>{:type=>"fedora"})
+    t.identifier(:attributes=>{:type=>"fedora"})
     t.related_private_object(:path=>"relatedItem", :attributes=>{:type=>"privateObject"}) {
       t.private_object_id(:path=>"identifier", :attributes=>{:type=>"fedora"})
     }

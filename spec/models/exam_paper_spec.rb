@@ -77,6 +77,34 @@ describe ExamPaper do
       @exam_paper.module_display.should == @attributes_hash["module_display"]
     end
 
+
+    it "should behave as expected when updating module attributes" do
+      module_names = ["New module"]
+      module_codes = ["12345"]
+      module_display = ["12345 New module"]
+
+      @exam_paper.module_name = module_names
+      @exam_paper.module_code = module_codes
+      @exam_paper.module_display = module_display
+
+      @exam_paper.module_name.should == module_names
+      @exam_paper.module_code.should == module_codes
+      @exam_paper.module_display.should == module_display
+
+      new_module_names = ["Another one", "Another two",  "Another three"]
+      new_module_codes = ["11111", "22222", "33333"]
+      new_module_display = ["11111 Another one", "22222 Another two", "33333 Another three"]
+
+      @exam_paper.module_name = new_module_names
+      @exam_paper.module_code = new_module_codes
+      @exam_paper.module_display = new_module_display
+
+      @exam_paper.module_name.should == new_module_names
+      @exam_paper.module_code.should == new_module_codes
+      @exam_paper.module_display.should == new_module_display
+
+    end
+
     it "should not save and respond with the correct number of validation errors " do
       @exam_paper.update_attributes( @invalid_attributes_hash )
       # save should be false
@@ -119,46 +147,7 @@ describe ExamPaper do
       end
     end
 
-  #   context "non unique fields" do
-  #     before(:each) do
-  #       @attributes_hash = {
-  #         "title" => "A thesis describing the...",
-  #         "person_name" => ["Smith, John.", "Supervisor, A."],
-  #         "person_role_text" => ["Creator", "Supervisor"],
-  #         "organisation_name" => ["The University of Hull"],
-  #         "organisation_role_text" =>["Funder"],
-  #         "abstract" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  #         "subject_topic" => ["Subject of the matter"],
-  #         "grant_number" => ["GN:122335"] 
-  #       } 
-  #       @etd.update_attributes( @attributes_hash )        
-  #     end
-  #     it "should not overwrite the person_name and person_role_text if they are not within the attributes" do
-  #       new_attributes_hash = { "title" => "A new title" }
-  #       @etd.update_attributes( new_attributes_hash )
-  #       @etd.title.should == new_attributes_hash["title"]
-  #       @etd.person_name.should ==  @attributes_hash["person_name"]
-  #       @etd.person_role_text.should == @attributes_hash["person_role_text"]
-  #     end
-
-  #     it "should not overwrite the subject_topic if they are not within the attributes" do
-  #       new_attributes_hash = { "title" => "A new title part 2" }
-  #       @etd.update_attributes( new_attributes_hash )
-  #       @etd.title.should == new_attributes_hash["title"]
-  #       @etd.subject_topic.should == @attributes_hash["subject_topic"]
-  #     end   
-
-  #     it "should not overwrite the grant_number if they are not within the attributes" do
-  #       new_attributes_hash = { "title" => "A new title part 3" }
-  #       @etd.update_attributes( new_attributes_hash )
-  #       @etd.title.should == new_attributes_hash["title"]
-  #       @etd.grant_number.should == @attributes_hash["grant_number"]
-  #     end
-  #   end
-
-  # end
-
-  context "methods" do
+   context "methods" do
       before(:each) do
         #set the 'required' fields
         @valid_exam_paper  =  ExamPaper.new

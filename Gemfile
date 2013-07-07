@@ -10,7 +10,7 @@ gem 'rails', '3.2.13'
 
 #We still need the blacklight/hydra-head reference
 gem 'blacklight', '4.1.0'
-gem 'hydra-head', '~> 6.0.0'
+gem "hydra-head", "~> 6.3.1"
 
 #State machine
 gem 'state_machine', '~> 1.2.0'
