@@ -1,8 +1,9 @@
 # app/models/exam_paper.rb
-# Fedora object for the uketd ETD content type
+# Fedora object for the Exam paper content type
 class ExamPaper < ActiveFedora::Base
   include Hydra::ModelMethods
   include Hyhull::ModelMethods
+  include Hyhull::GenericContentBehaviour
   include Hyhull::ContentMetadataBehaviour
   include Hyhull::ResourceWorkflowBehaviour
   include Hyhull::Validators 
