@@ -1,0 +1,16 @@
+<h4>Examination paper</h4>
+<h2><%= @exam_paper.title %></h2>
+<dl>
+   <dt>Subject</dt>
+  <dd>
+    <%= @exam_paper.subject_topic.join('; ') %>
+  </dd>  
+  <dt>Rights</dt>
+  <dd>
+    <%= @exam_paper.rights %>
+  </dd>  
+  <dt>Identifier</dt>
+  <dd>
+    <%= @exam_paper.id %>
+  </dd>  
+</dl>

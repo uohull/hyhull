@@ -46,8 +46,11 @@ class ExamPaper < ActiveFedora::Base
   validates :publisher, presence: true
 
   def apply_additional_metadata 
-    # May only need to set the title automaticallyin proto...   
-    self.title = get_exam_title
+    # Only autoset title in proto...
+    if self.resource_proto?    
+      self.title = get_exam_title
+    end
+
     self.module_display = get_module_display
 
     if date_issued.empty? 
@@ -60,7 +63,7 @@ class ExamPaper < ActiveFedora::Base
   end
 
   def get_exam_title
-    "#{get_module_display.join(', ')} (#{human_readable_date(date_issued)})"
+    "#{get_module_display.join(' & ')} (#{human_readable_date(date_issued)})"
   end
 
   def get_module_display
@@ -80,6 +83,12 @@ class ExamPaper < ActiveFedora::Base
     add_relationship(:has_model, "info:fedora/hydra-cModel:compoundContent")
     add_relationship(:has_model, "info:fedora/hydra-cModel:commonMetadata")
     super
+  end
+
+  # Overide the attributes method to enable the calling of custom methods
+  def attributes=(properties)
+    super(properties)
+    self.descMetadata.add_modules(properties["module_code"], properties["module_name"], get_module_display()) unless properties["module_code"].nil? or properties["module_name"].nil? 
   end
 
   # to_solr overridden to add object_type facet field to document

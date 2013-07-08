@@ -59,6 +59,36 @@ describe Datastream::ModsExamPaper do
       @ds.subject_topic.should == new_subject_topics
     end
 
+    it "should let me update module relatedIten with multiple items" do
+      module_names = ["New module", "Module new"]
+      module_codes = ["12345", "54321"]
+      module_display = ["12345 New module", "54321 Module new"]
+
+      @ds.add_modules(module_codes, module_names, module_display)
+
+      @ds.module_name.should == module_names
+      @ds.module_code.should == module_codes
+      @ds.module_display.should == module_display      
+    end
+
+    it "should add new relatedItem module element for each new module" do
+      module_names = ["New module", "Module new"]
+      module_codes = ["12345", "54321"]
+      module_display = ["12345 New module", "54321 Module new"]
+      @ds.add_modules(module_codes, module_names, module_display)
+
+      # it should be of the form of...
+      # <relatedItem ID="module">
+      #   <identifier type="moduleCode">12345</identifier>
+      #   <identifier type="moduleName">New module</identifier>
+      #   <note type="moduleDisplay">12345 New module</note>
+      # </relatedItem>
+      # <relatedItem ID="module">
+      #  ..
+      #  .
+      # </relatedItem>
+      @ds.to_xml.include?('<relatedItem ID="module"><identifier type="moduleCode">12345</identifier><identifier type="moduleName">New module</identifier><note type="moduleDisplay">12345 New module</note></relatedItem><relatedItem ID="module"><identifier type="moduleCode">54321</identifier><identifier type="moduleName">Module new</identifier><note type="moduleDisplay">54321 Module new</note></relatedItem>').should be_true
+    end
   end
 
 end

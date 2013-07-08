@@ -189,7 +189,7 @@ describe ExamPaper do
           @valid_exam_paper.module_display.should == ["12345 Accounting and Finance", "54321 Financing and Accounting"]
         end
         it "apply_additional_metadata should pre-populate the title with the appropiate text" do
-          @valid_exam_paper.title.should == "12345 Accounting and Finance, 54321 Financing and Accounting (May 2012)"
+          @valid_exam_paper.title.should == "12345 Accounting and Finance & 54321 Financing and Accounting (May 2012)"
         end
 
       end

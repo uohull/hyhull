@@ -1,0 +1,35 @@
+ <div id="multi-field-edit">
+  <div id="field-list">
+    <% module_codes = exam_paper.module_code %>
+    <% module_names = exam_paper.module_name %>
+    
+    <div class="controls">
+      <%= label_tag :module_code, nil,  :class => "control-label" %>
+      <%= label_tag :module_name, nil,  :class => "control-label" %>
+    </div>
+    <br />
+    <% if module_codes.empty? %>
+      <div id="fields" class="controls">
+        <%= text_field_tag "exam_paper[module_code][]", "", { maxlength: 5 } %> 
+        <%= text_field_tag "exam_paper[module_name][]", "", { class: "module-name-input" }  %>             
+      </div>
+    <% else %>
+      <% module_codes.each_with_index do |f,i| %>
+       <div id="fields" class="controls">
+        <div style="display:block;clear:both;">
+          <span class="field" style="float:left">
+            <%= text_field_tag "exam_paper[module_code][]", f,  { maxlength: 5 } %> 
+            <%= text_field_tag "exam_paper[module_name][]", module_names[i], { class: "module-name-input" }  %> 
+          </span>
+          <% unless i.zero? %>
+            <span class="icon-minus-sign remove-field"></span><br /> 
+          <% end %>     
+        </div>
+      </div>
+      <% end %> 
+     <% end %>
+   </div>  
+  <br /><br />
+  <div class="add-field icon-plus-sign controls"></div>  
+</div>
+<br />

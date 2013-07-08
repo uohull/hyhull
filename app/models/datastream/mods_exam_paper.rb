@@ -148,8 +148,8 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
           xml.dateIssued
         }
         xml.language {                
-          xml.languageTerm(:type=>"text")
-          xml.languageTerm(:authority=>"iso639-2b", :type=>"code")
+          xml.languageTerm("English", :type=>"text")
+          xml.languageTerm("eng", :authority=>"iso639-2b", :type=>"code")
         }
         xml.note(:type=>"examinationLevel")
         xml.note(:type=>"additionalNotes")
@@ -160,9 +160,6 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
         }
         xml.identifier(:type=>"fedora")
         xml.relatedItem(:ID=>"module") {
-          xml.titleInfo {
-            xml.title
-          }
           xml.identifier(:type=>"moduleCode")
           xml.note(:type=>"moduleDisplay")
         }
@@ -182,6 +179,19 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
       }
     end
     return builder.doc
-  end    
+  end 
+
+  def add_modules(module_codes, module_names, module_display)
+    # Remove the existing modules
+    ng_xml.search(self.module.xpath, {oxns: "http://www.loc.gov/mods/v3"}).each do |n|
+      n.remove
+    end
+    # Add the new ones...
+    module_codes.each_with_index do |module_code, index|
+      self.module(index).code = module_code
+      self.module(index).name = module_names[index]
+      self.module(index).combined_display = module_display[index]
+    end
+  end  
 
 end
