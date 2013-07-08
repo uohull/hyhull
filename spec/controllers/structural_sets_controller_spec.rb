@@ -32,7 +32,7 @@ describe StructuralSetsController do
 
   describe "permissions" do
     it "should support update objects" do
-       put :update_permissions, :id=>"hull:657", :structural_set=>{"permissions"=>{"group"=>{"public"=>"1", "registered"=>"2"},"new_group_name"=>{"committeeSection"=>"read"}}}, :visibility=>"uoh_staff", :new_group_name_skel=>"committeeSection", :new_group_permission_skel=>"read"
+       put :update_permissions, :id=>"hull:657", :structural_set=>{"permissions"=>{"group"=>{},"new_group_name"=>{"committeeSection"=>"read"}}}, :visibility=>"uoh_staff", :new_group_name_skel=>"committeeSection", :new_group_permission_skel=>"read"
        structural_set = assigns[:structural_set]
        structural_set.permissions.should == [{:type=>"group", :access=>"read", :name=>"committeeSection"}, {:type=>"group", :access=>"read", :name=>"staff"},{:type=>"group", :access=>"edit", :name=>"contentAccessTeam"}]
     end
