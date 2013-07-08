@@ -12,99 +12,95 @@ end
 describe Hyhull::GenericContentBehaviour do
 
   context "with the GenericContentBehaviour" do
-    # TODO UPTO HERE.... 
-#     describe "datastream_behaviour" do    
-#       before(:all) do
-#         @testclassone = GenericParentBehaviourTest.new
-#       end
+  
+    describe "GenericContentBehaviour#generate_ds_id" do    
+      before(:all) do
+        @generic_content = GenericContentBehaviourTest.new
+        @test_file = fixture("hyhull/files/test_pdf_file.pdf")
+      end
 
-#       it "should define file_assets methods for setting and retrieving File asset objects" do
-#         @testclassone.should respond_to :file_assets
-#         @testclassone.file_assets.should == []
-#       end
-#     end
+      it "should return 'content' as the first available contentDs" do
+        ds_id = @generic_content.generate_dsid("content")
+        ds_id.should == "content"     
 
-#     describe "GenericParentBehaviour#next_asset_pid" do    
-#       before(:all) do
-#         @generic_parent = GenericParentBehaviourTest.create
-#         @pid = @generic_parent.pid
-#       end
-#       after(:all) do
-#         @generic_parent.delete
-#       end
+        new_ds_id = @generic_content.add_file_datastream(@test_file, {:label=>"Test", :prefix=>'content'})
+        new_ds_id.should == "content"
 
-#       it "should return the first available file_asset pid in the correct format" do
-#         file_asset_pid = @generic_parent.next_asset_pid
-#         file_asset_pid.should == "#{@pid}a"
-#       end
+        # lets make sure that the next one is content1
+        ds_id = @generic_content.generate_dsid("content")
+        ds_id.should == "content1"
 
-#       it "should return the next available file_asset pid in the correct format" do
-#         file_asset =  FileAsset.create(pid: @generic_parent.next_asset_pid) 
-#         @generic_parent.file_assets << file_asset
-#         @generic_parent.next_asset_pid.should ==  "#{@pid}b"        
-#       end 
-#     end
-#   end
+        new_ds_id = @generic_content.add_file_datastream(@test_file, {:label=>"Test", :prefix=>'content'})
+        new_ds_id.should == "content1"
 
-#   context "with the uketd_object hull:756 test fixture" do
-#     describe "files" do
-#       before(:all) do
-#         @generic_parent = UketdObject.find("hull:756")
-#         @test_file = fixture("hyhull/files/test_pdf_file.pdf")
-#         @ds = Hyhull::Datastream::ContentMetadata.from_xml(@cm)        
-#         @test_upload = ActionDispatch::Http::UploadedFile.new({ :filename => 'test_pdf_file.pdf', :type => 'application/pdf', :tempfile => @test_file })
-#       end
+        # lets make double sure that the next is content2...
+        ds_id = @generic_content.generate_dsid("content")
+        ds_id.should == "content2"
 
-#       it "should be add-able through the add_file_content(file_data) method" do
-#         content_metadata_resource_size = @generic_parent.contentMetadata.resource.size
-#         file_assets_size = @generic_parent.file_assets.size 
+        new_ds_id = @generic_content.add_file_datastream(@test_file, {:label=>"Test", :prefix=>'content'})
+        new_ds_id.should == "content2"
+      end
 
-#         success, file_assets, message = @generic_parent.add_file_content([@test_upload])
-#         success.should == true
-#         message.should == "The following files have been added sucessfully to hull:756: [\"test_pdf_file.pdf\"]" 
-
-#         @generic_parent.contentMetadata.resource.size.should == (content_metadata_resource_size + 1)
-#         @generic_parent.file_assets.size.should == (file_assets_size + 1)
-
-#         #Check that the FileAsset is as expected...
-#         file_assets.first.should be_kind_of FileAsset
-#         file_assets.first.content.mimeType.should == "application/pdf" 
-
-#       end
-
-#       it "should inherit the rightsMetadata from their parent" do
-#         success, file_assets, message = @generic_parent.add_file_content([@test_upload])
-#         # On adding a file, the new FileAsset should inherit the rights of the parent
-#         @generic_parent.rightsMetadata.content.should == file_assets.last.rightsMetadata.content
-#       end
-
-#       it "should be delete-able through the delete_by_content_metadata_at" do
-#         content_metadata = @generic_parent.contentMetadata
-#         resources_size = content_metadata.resource.size
-        
-#         file_asset_object_id = content_metadata.resource(resources_size - 1).resource_object_id[0]
-#         file_asset_object = FileAsset.find(file_asset_object_id)
-
-#         #Should be defined as a file_asset of the @generic_parent
-#         @generic_parent.file_assets.include?(file_asset_object).should == true
-        
-#         success, deleted_asset_id, message = @generic_parent.delete_by_content_metadata_resource_at(resources_size - 1)
-
-#         success.should == true        
-#         deleted_asset_id.should == file_asset_object_id
-
-#         #Should NO longer be defined as a file asset of @generic_parent
-#         @generic_parent.file_assets.include?(file_asset_object).should == false
-#         content_metadata.resource.size.should == (resources_size - 1)
-#       end
+    end
+  end
 
 
-#     end
-#   end
+  context "with the exam_paper hull:3058 test fixture" do
+    describe "files" do
+      before(:all) do
+        @generic_content = ExamPaper.find("hull:3058")
+        @test_file = fixture("hyhull/files/test_pdf_file.pdf")
+        @ds = Hyhull::Datastream::ContentMetadata.from_xml(@cm)        
+        @test_upload = ActionDispatch::Http::UploadedFile.new({ :filename => 'test_pdf_file.pdf', :type => 'application/pdf', :tempfile => @test_file })
+      end
 
-# end
+      it "should be add-able through the add_file_content(file_data) method" do
+        content_metadata_resource_size = @generic_content.contentMetadata.resource.size
+        content_datastreams_size = @generic_content.content_datastreams.size 
+
+        success, file_assets, message = @generic_content.add_file_content([@test_upload])
+        success.should == true
+        message.should == "The following files have been added sucessfully to hull:3058: [\"test_pdf_file.pdf\"]"
+
+        new_content_metadata_size = @generic_content.contentMetadata.resource.size
+        resources_size = @generic_content.contentMetadata.resource.size
+
+        new_content_metadata_size.should == (content_metadata_resource_size + 1)  
+        # Check that the new ds and contentmetadata match up..
+        file_ds_id = @generic_content.contentMetadata.resource(resources_size - 1).resource_ds_id[0]
+        file_assets.first.should == file_ds_id
+
+        @generic_content.content_datastreams.size.should == (content_datastreams_size + 1)
+      end
 
 
-#  # def add_file_content(file_data)
-#  # def delete_by_content_metadata_resource_at(index)
-#  # update_content_metadata(content_asset, content_ds)
+      it "should be delete-able through the delete_by_content_metadata_at" do
+        content_metadata = @generic_content.contentMetadata
+        resources_size = content_metadata.resource.size
+
+        file_asset_object_id = content_metadata.resource(resources_size - 1).resource_object_id[0]
+        file_ds_id = content_metadata.resource(resources_size - 1).resource_ds_id[0]
+
+        # A the file asset should be self in a generic content resource
+        file_asset_object_id.should == @generic_content.id 
+
+        # The content datastream should exist within the resource
+        @generic_content.datastreams.include?(file_ds_id).should == true
+
+        success, deleted_asset_ds_id, message = @generic_content.delete_by_content_metadata_resource_at(resources_size - 1)
+
+        success.should == true        
+        deleted_asset_ds_id.should == "#{file_asset_object_id}##{file_ds_id}"
+
+        # Reload the resource from Fedora
+        @generic_content = ExamPaper.find(@generic_content.id)
+
+        #The resource should no longer include the deleted content ds... 
+        @generic_content.datastreams.include?(file_ds_id).should == false
+        content_metadata.resource.size.should == (resources_size - 1)
+
+      end
+
+    end
+  end
+end

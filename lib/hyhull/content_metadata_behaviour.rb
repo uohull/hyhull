@@ -20,15 +20,15 @@ module Hyhull::ContentMetadataBehaviour
   def add_content_metadata(content_asset, content_ds)
     if content_asset.kind_of? ActiveFedora::Base
       pid = content_asset.pid
-      size = eval "content_asset.#{content_ds}.size"
-      label = eval "content_asset.#{content_ds}.dsLabel"
-      mime_type = eval "content_asset.#{content_ds}.mimeType"
+      size = content_asset.datastreams[content_ds].size
+      label = content_asset.datastreams[content_ds].dsLabel
+      mime_type = content_asset.datastreams[content_ds].mimeType
       content_id = label
 
       #Get the checksum and type from fedora and store in contentMetadata...
-      checksum_type = eval "content_asset.#{content_ds}.checksumType"        
-      checksum = eval "content_asset.#{content_ds}.checksum"
-
+      checksum_type = content_asset.datastreams[content_ds].checksumType
+      checksum = content_asset.datastreams[content_ds].checksum
+      
       format = mime_type[mime_type.index("/") + 1...mime_type.length]
    
       # Get the class_uri (Fedora model definition)
@@ -37,7 +37,7 @@ module Hyhull::ContentMetadataBehaviour
 
       service_method = "getContent"
 
-      self.contentMetadata.insert_resource(object_id: pid, ds_id: "content", file_size: size, file_id: content_id, url: "http://hydra.hull.ac.uk/assets/#{pid}/content", display_label: label, id: label, mime_type: mime_type, format: format, service_def: service_def, service_method: service_method, :checksum => checksum, :checksum_type => checksum_type)
+      self.contentMetadata.insert_resource(object_id: pid, ds_id: content_ds, file_size: size, file_id: content_id, url: "http://hydra.hull.ac.uk/assets/#{pid}/content", display_label: label, id: label, mime_type: mime_type, format: format, service_def: service_def, service_method: service_method, :checksum => checksum, :checksum_type => checksum_type)
       self.contentMetadata.save
 
       resource_no = self.contentMetadata.resource.size - 1
