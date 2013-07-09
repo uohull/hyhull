@@ -12,7 +12,7 @@
     <%= render :partial => "module_edit", :locals => { exam_paper: @exam_paper } %>    
 
     <% # class datepicker provides JQuery based date picker - not using at present %>
-    <%= f.input :date_issued %>
+    <%= f.input :date_issued, label: "Exam date (yyyy-mm)" %>
 
     <h4>Subject</h4> 
 

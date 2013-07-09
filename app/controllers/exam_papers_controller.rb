@@ -1,10 +1,19 @@
 # app/controllers/exam_papers_controller.rb
 class ExamPapersController < ApplicationController
-
   include Hyhull::Controller::ControllerBehaviour 
+ 
+  before_filter :apply_date_params, only: :new
+
+  def initial_step
+    @exam_paper = ExamPaper.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @exam_paper }
+    end
+  end
 
   def new
-    @exam_paper = ExamPaper.new
+    @exam_paper = ExamPaper.new(params[:exam_paper])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -52,8 +61,18 @@ class ExamPapersController < ApplicationController
         format.html { render "edit" }
       end
     end
-
   end
 
+  private
+
+  # This method will take the date params populated from the intial_step form
+  # combine yyyy-mm and add them to the params[:exam_paper] 'date_issed' field
+  def apply_date_params
+    if (params["date"] && (params["date"]["month"] && params["date"]["year"]))
+      month = sprintf '%02d', params["date"]["month"]
+      year = params["date"]["year"]
+      params[:exam_paper][:date_issued] = "#{year}-#{month}"
+    end
+  end
 
 end

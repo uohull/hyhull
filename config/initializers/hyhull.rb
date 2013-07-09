@@ -23,3 +23,9 @@ PERMISSION_GROUPS = {
 OWNER_PERMISSION_LEVELS = {
   "Edit" => "edit"
 }
+
+DEPARTMENTS = {
+  "ICTD" => "ICTD",
+  "LLI" => "LLI",
+  "Computer Science" => "Computer Science"
+}

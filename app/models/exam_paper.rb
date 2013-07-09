@@ -35,6 +35,8 @@ class ExamPaper < ActiveFedora::Base
 
   delegate_to :descMetadata, [:subject_topic]
 
+  delegate :department_names_list, to: Datastream::ModsEtd
+
   # Standard validations for the object fields
   #validates :title, presence: true
   validates :department_name, presence: true

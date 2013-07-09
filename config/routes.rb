@@ -8,7 +8,10 @@ Hyhull::Application.routes.draw do
 
   resources :assets
   resources :uketd_objects
+
+  match 'exam_papers/initial_step', to: 'exam_papers#initial_step', via: [:get]
   resources :exam_papers
+
   
   resources :structural_sets
   match 'structural_sets/:id/update_permissions', to: 'structural_sets#update_permissions', via: [:put]
