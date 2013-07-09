@@ -722,6 +722,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <depositorEmail>s.lamb@hull.ac.uk</depositorEmail>
   <depositor>302922</depositor>
   <collection>exam_paper</collection>
+  <resourceState>deleted</resourceState>
 </fields>
 </foxml:xmlContent>
 </foxml:datastreamVersion>

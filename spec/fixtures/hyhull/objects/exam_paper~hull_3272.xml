@@ -1996,9 +1996,14 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-01-10T17:32:40.292Z" MIMETYPE="text/xml" SIZE="19">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-10-26T11:10:14.550Z" MIMETYPE="text/xml" SIZE="143">
 <foxml:xmlContent>
-<fields></fields>
+<fields>
+  <depositorEmail>s.lamb@hull.ac.uk</depositorEmail>
+  <depositor>302922</depositor>
+  <collection>exam_paper</collection>
+  <resourceState>proto</resourceState>
+</fields>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>

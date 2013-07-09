@@ -344,6 +344,18 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
+<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-10-26T11:10:14.550Z" MIMETYPE="text/xml" SIZE="143">
+<foxml:xmlContent>
+<fields>
+  <depositorEmail>s.lamb@hull.ac.uk</depositorEmail>
+  <depositor>302922</depositor>
+  <collection>exam_paper</collection>
+  <resourceState>proto</resourceState>
+</fields>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
 <foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
 <foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2011-02-23T10:50:34.511Z" MIMETYPE="text/xml" SIZE="1101">
 <foxml:xmlContent>
@@ -2073,18 +2085,6 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
               MTlCRTJEQTAxRjRBQTJCNjNFRTc5MEMxODk5OT5dIC9QcmV2IDk0ODY5L1hSZWZTdG0gOTQ1NDU+Pg0K
               c3RhcnR4cmVmDQo5NTkwNQ0KJSVFT0Y=
 </foxml:binaryContent> 
-</foxml:datastreamVersion>
-</foxml:datastream>
-<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-01-10T17:31:57.298Z" MIMETYPE="text/xml" SIZE="19">
-<foxml:xmlContent>
-<fields></fields>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="properties.1" LABEL="Workflow properties" CREATED="2012-01-10T17:33:06.450Z" MIMETYPE="text/xml" SIZE="19">
-<foxml:xmlContent>
-<fields></fields>
-</foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">

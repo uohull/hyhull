@@ -64,7 +64,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
     }
 
     # Resource types 
-    t.genre
+    t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
     t.type_of_resource(:path=>"typeOfResource")
     t.resource_status(:path=>"note", :attributes=>{:type=>"admin"})
     t.origin_info(:path=>'originInfo') {
