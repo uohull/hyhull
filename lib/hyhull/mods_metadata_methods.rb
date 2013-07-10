@@ -79,12 +79,30 @@ module Hyhull::ModsMetadataMethods
 
   end
 
-
   def add_subject_topic(values)
    self.ng_xml.search(self.subject_topic.xpath, {oxns: "http://www.loc.gov/mods/v3"}).each do |n|
      n.remove
    end
    self.subject(1).topic = values
+  end
+
+  def add_names(names, roles, type)
+    if type == "person"
+      xpath_type = "personal"
+    elsif type == "organisation"
+      xpath_type = "corporate"
+    elsif type == "conference"
+      xpath_type = "conference"
+    end  
+   
+     ng_xml.search("//xmlns:name[@type=\"#{xpath_type}\"]").each do |n|
+       n.remove
+     end
+
+     names.each_with_index do |name, index|    
+       eval "self.#{type}(#{index}).namePart = name"
+       eval "self.#{type}(#{index}).role.text = roles[index]"
+     end
   end
 
   def update_mods_content_metadata(content_asset, content_ds)
