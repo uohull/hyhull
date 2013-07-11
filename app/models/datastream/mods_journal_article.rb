@@ -118,12 +118,14 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
      # t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
      # t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
 
-    #Proxies for terminologies 
-    t.title(:proxy=>[:mods, :title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable]) 
+    #Proxies for terminologies
+    # Removed due to issue with matching two fields
+    #t.title(:proxy=>[:mods, :title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable]) 
     t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
     t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable])
     t.date_valid(:proxy=>[:origin_info, :date_valid])
-    t.publisher(:proxy=>[:origin_info, :publisher], :index_as=>[:displayable])
+    # Removed due to issue with matching two fields
+    #t.publisher(:proxy=>[:origin_info, :publisher], :index_as=>[:displayable])
     t.extent(:proxy=>[:physical_description, :extent], :index_as=>[:displayable])
     t.mime_type(:proxy=>[:physical_description, :mime_type])
     t.digital_origin(:proxy=>[:physical_description, :digital_origin])

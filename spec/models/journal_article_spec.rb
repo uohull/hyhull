@@ -55,7 +55,6 @@ describe JournalArticle do
         "journal_end_page" => "200",
         "journal_article_restriction" => "No restriction"
       } 
-
       @ja.update_attributes( attributes_hash )
 
       # Marked as 'unique' in the call to delegate... 
@@ -161,7 +160,7 @@ describe JournalArticle do
           @valid_ja.publisher = "IT, UoH"
           @valid_ja.save
       end
-      after(:all) do
+      after(:each) do
         @valid_ja.delete
       end
       describe ".to_solr" do

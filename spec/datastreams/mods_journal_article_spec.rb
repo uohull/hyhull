@@ -9,13 +9,18 @@ describe Datastream::ModsJournalArticle do
   end
 
   it "should expose etd metadata for etd objects with explicit terms and simple proxies" do
-    @ds.title.should == ["The title of the Journal article"]    
+    # Removed due to issue with matching two fields 
+    #@ds.title.should == ["The title of the Journal article"]  
+
     @ds.abstract.should == ["Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
     @ds.subject_topic == ["Forms of knowledge", "University futures", "Learning technologies", "Knowledge economy"]
     @ds.topic_tag == ["Forms of knowledge", "University futures", "Learning technologies", "Knowledge economy"]
     @ds.rights == ["© 2010 The University of Hull"]
     @ds.identifier == ["hull:2376"]
-    @ds.publisher == ["ICTD, University of Hull"]
+
+
+    # Removed due to issue with matching two fields 
+    # @ds.publisher == ["ICTD, University of Hull"]
     @ds.extent == ["Filesize: 64 MB"]
     @ds.mime_type == ["application/pdf"]
     @ds.digital_origin == ["born digital"]
@@ -48,6 +53,11 @@ describe Datastream::ModsJournalArticle do
   end
 
   it "should expose nested/hierarchical metadata" do
+
+    #Test are the terms that JournalArticle.title/publisher use - Note mods is needed to specific the root versions
+    @ds.mods.title_info.main_title.should == ["The title of the Journal article"]  
+    @ds.mods.origin_info.publisher.should == ["The University of Hull"]
+
     @ds.language.lang_text.should == ["English"]
     @ds.language.lang_code.should == ["eng"]
     @ds.origin_info.date_issued == ["2012-05-01"] 

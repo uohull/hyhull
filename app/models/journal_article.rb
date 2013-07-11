@@ -9,7 +9,7 @@ class JournalArticle < ActiveFedora::Base
   include Hyhull::Validators 
 
   # Extra validations for the resource_state state changes
-  ExamPaper.state_machine :resource_state do   
+  JournalArticle.state_machine :resource_state do   
     state :hidden, :deleted do
       validates :resource_status, presence: true
     end
@@ -25,7 +25,9 @@ class JournalArticle < ActiveFedora::Base
 
   #Delegate these attributes to the respective datastream
   #Unique fields
-  delegate_to :descMetadata, [:title, :abstract, :rights, :language_text, :language_code, :publisher, :date_issued,
+  delegate :title, to: "descMetadata", :at =>[:mods,:title_info, :main_title], unique: true
+  delegate :publisher, to: "descMetadata", :at => [:mods, :origin_info, :publisher], unique: true
+  delegate_to :descMetadata, [:abstract, :rights, :language_text, :language_code, :date_issued,
                               :peer_reviewed, :journal_title, :journal_publisher, :journal_publication_date, :journal_print_issn,
                               :journal_electronic_issn, :journal_article_doi, :journal_volume, :journal_issue,  :journal_start_page,
                               :journal_end_page, :journal_article_restriction, :type_of_resource, :genre, :mime_type, :digital_origin, 
