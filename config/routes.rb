@@ -8,6 +8,7 @@ Hyhull::Application.routes.draw do
 
   resources :assets
   resources :uketd_objects
+  resources :journal_articles
 
   match 'exam_papers/initial_step', to: 'exam_papers#initial_step', via: [:get]
   resources :exam_papers

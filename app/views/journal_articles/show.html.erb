@@ -1,0 +1,36 @@
+<h4>Journal Article</h4>
+<h2><%= @journal_article.title %></h2>
+<dl>
+  <dt>People</dt>
+  <dd>
+    <%= @journal_article.person_name.join('; ') %>
+  </dd>
+  <dt>Subject</dt>
+  <dd>
+    <%= @journal_article.subject_topic.join('; ') %>
+  </dd>  
+  <dt>Rights</dt>
+  <dd>
+    <%= @journal_article.rights %>
+  </dd>  
+  <dt>Abstract</dt>
+  <dd>
+    <%= @journal_article.abstract %>
+  </dd>  
+  <dt>Date</dt>
+  <dd>
+    <%= @journal_article.date_issued %>
+  </dd>  
+  <dt>Language</dt>
+  <dd>
+    <%= @journal_article.language_text %>
+  </dd>    
+  <dt>Publisher</dt>
+  <dd>
+    <%= @journal_article.publisher %>  
+  </dd> 
+  <dt>Identifier</dt>
+  <dd>
+    <%= @journal_article.id %>
+  </dd>
+</dl>

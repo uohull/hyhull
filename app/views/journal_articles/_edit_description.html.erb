@@ -1,0 +1,37 @@
+<%= render "shared/error_messages", :target => @journal_article %>
+<legend>Edit descriptive metadata</legend>
+<div class="fields">
+  <h4>Author, and Contributor(s)</h4>  	
+  <%= render partial: "metadata/name_edit", :locals => { object: @journal_article, name_type: "person" } %> 
+
+  <h4>Publication</h4>
+
+  <%= f.input :title %>
+
+  <%= render partial: "metadata/copyright_statement_edit", locals: { resource: @journal_article, form: f } %>
+
+  <%= f.input :abstract, as: :text %>
+
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @journal_article, field: "subject_topic" } %>
+
+  <%= render partial: "metadata/language_edit", locals: { resource: @journal_article, form: f } %>
+
+ <%= f.input :publisher %>
+
+ <%= f.input :peer_reviewed, as: :select %>
+
+
+ <% unless @journal_article.resource_proto? %>
+   <%= render(:partial => "shared/set_select",  :locals => { resource: @journal_article, form: f }) %>
+ <% end %>
+
+ <% # Do not display the adminstrative metadata when resource is in the proto queue %>
+ <% unless @journal_article.resource_proto? %>
+   <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @journal_article, form: f }) %>
+ <% end %>
+ 
+</div>    
+
+
+
+

@@ -178,12 +178,26 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
 <foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-03-23T12:14:22.555Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="526">
 <foxml:xmlContent>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:fedora-model="info:fedora/fedora-system:def/model#">
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ns0="http://projecthydra.org/ns/relations#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:fedora-model="info:fedora/fedora-system:def/model#">
           <rdf:Description rdf:about="info:fedora/hull:2580">
+            <ns0:isGovernedBy rdf:resource="info:fedora/hull:protoQueue"></ns0:isGovernedBy>
             <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:journalArticle"></fedora-model:hasModel>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+            <rel:isMemberOf rdf:resource="info:fedora/hull:protoQueue"></rel:isMemberOf>
           </rdf:Description>
         </rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-10-26T11:10:14.550Z" MIMETYPE="text/xml" SIZE="143">
+<foxml:xmlContent>
+<fields>
+  <depositorEmail>s.lamb@hull.ac.uk</depositorEmail>
+  <depositor>302922</depositor>
+  <collection>journal_article</collection>
+  <resourceState>proto</resourceState>
+</fields>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>

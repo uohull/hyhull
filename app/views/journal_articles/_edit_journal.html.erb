@@ -1,0 +1,38 @@
+<fieldset>
+  <legend>Journal metadata</legend>
+  <div class="row">
+    <div class="span6">
+      <div class="controls">
+        <legend>Journal</legend>
+      </div>
+      <div class="fields">
+     
+        <%= f.input :journal_title, label: "Title" %>
+        <%= f.input :journal_publication_date, label: "Publication date" %>
+        <%= f.input :journal_print_issn, label: "ISSN (Print)" %>
+        <%= f.input :journal_electronic_issn, label: "ISSN (Electronic)" %>
+        <%= f.input :journal_publisher, label: "Publisher" %>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="controls">
+        <legend>Article</legend>
+      </div>
+      <div class="fields">
+        <%= f.input :journal_article_doi, label: "DOI" %>
+        <div class="control-group">
+          <% publication_link = "http://dx.doi.org/#{@journal_article.journal_article_doi.strip}" unless @journal_article.journal_article_doi.nil? %>
+          <div class="controls">
+            <%= link_to publication_link, publication_link, :target => "_blank" %>
+          </div>
+        </div>
+        <%= f.input :journal_volume, label: "Volume" %>
+        <%= f.input :journal_issue, label: "Issue" %>
+        <%= f.input :journal_start_page, label: "Page start" %>
+        <%= f.input :journal_end_page, label: "Page end" %>
+        <%= f.input :journal_article_restriction, label: "Restriction" %>
+      </div>
+    </div>    
+  </div>
+</fieldset>
+

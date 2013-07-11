@@ -169,12 +169,26 @@ The work of RepoMMan and REMAP has now been taken up in an international collabo
 <foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
 <foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-02-23T10:50:33.233Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="527">
 <foxml:xmlContent>
-<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+<rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:ns0="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
           <rdf:Description rdf:about="info:fedora/hull:1729">
+            <ns0:isGovernedBy rdf:resource="info:fedora/hull:protoQueue"></ns0:isGovernedBy>
             <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:journalArticle"></fedora-model:hasModel>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
+            <rel:isMemberOf rdf:resource="info:fedora/hull:protoQueue"></rel:isMemberOf>
           </rdf:Description>
         </rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-10-26T11:10:14.550Z" MIMETYPE="text/xml" SIZE="143">
+<foxml:xmlContent>
+<fields>
+  <depositorEmail>s.lamb@hull.ac.uk</depositorEmail>
+  <depositor>302922</depositor>
+  <collection>journal_article</collection>
+  <resourceState>proto</resourceState>
+</fields>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>

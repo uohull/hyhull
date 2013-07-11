@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span10">
+      <div class="row">
+        <div class="span12">          
+          <h2><%= @journal_article.title %></h2>
+          <h3>Journal Article</h3>
+        </div>
+      </div>
+      <div class="row">
+        <% if @journal_article.persisted? %>
+          <div class="span6">
+            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @journal_article %>
+          </div>
+          <div class="span6">  
+            <% unless @journal_article.resource_proto? %>
+              <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @journal_article }) %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= render partial: "edit" %>
+    </div>
+  </div>
+</div>

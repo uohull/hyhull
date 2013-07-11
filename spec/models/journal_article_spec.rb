@@ -167,6 +167,8 @@ describe JournalArticle do
         it "should return the necessary facets" do
           solr_doc = @valid_ja.to_solr
           solr_doc["object_type_sim"].should == "Journal article"
+          solr_doc["title_ssm"].should == "Test title"
+          solr_doc["publisher_ssm"].should == "IT, UoH"
         end
 
         it "should return the necessary cModels" do

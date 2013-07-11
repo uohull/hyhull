@@ -39,8 +39,7 @@ class JournalArticle < ActiveFedora::Base
   delegate_to :descMetadata, [:subject_topic]
  
   # Static Relator terms 
-  delegate :person_role_terms, to: Datastream::ModsEtd
-  delegate :organisation_role_terms, to: Datastream::ModsEtd
+  delegate :person_role_terms, to: Datastream::ModsJournalArticle
 
   # Standard validations for the object fields
   validates :title, presence: true
@@ -61,10 +60,10 @@ class JournalArticle < ActiveFedora::Base
     self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person") unless properties["person_name"].nil? or properties["person_role_text"].nil?
   end
 
-  # to_solr overridden to add object_type facet field to document
+  # to_solr overridden to add object_type facet field to document and to add title/publisher fields that are not handled in ModsJounalArticle
   def to_solr(solr_doc = {})
     super(solr_doc)
-    solr_doc.merge!("object_type_sim" => "Journal article")
+    solr_doc.merge!("object_type_sim" => "Journal article", "title_ssm" => self.title, "publisher_ssm" => self.publisher)
     solr_doc
   end
 
