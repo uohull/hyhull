@@ -1,0 +1,90 @@
+Dataset:
+ type: dataset
+ c_model: hull-cModel:dataset
+Event:
+ type: event
+ c_model: hull-cModel:event
+Artwork:
+ type: image
+ c_model: hull-cModel:artwork
+Diagram:
+ type: image
+ c_model: hull-cModel:diagram
+Drawing:
+ type: image
+ c_model: hull-cModel:drawing
+Map:
+ type: image
+ c_model: hull-cModel:map
+Photograph:
+ type: image
+ c_model: hull-cModel:photograph
+Moving image:
+ type: moving image
+ c_model: hull-cModel:movingImage
+Software:
+ type: software
+ c_model: hull-cModel:software
+Sound:
+ type: sound
+ c_model: hull-cModel:sound
+Generic content:
+ type: other 
+ c_model: hydra-cModel:genericContent
+Book:
+ type: text
+ c_model: hull-cModel:book
+Book chapter:
+ type: text
+ c_model: hull-cModel:bookChapter
+Conference paper or abstract:
+ type: text
+ c_model: hull-cModel:conferencePaper
+Conference poster:
+ type: text
+ c_model: hull-cModel:conferencePoster
+Examination paper:
+ type: text
+ c_model: hull-cModel:examPaper
+Guidance:
+ type: text
+ c_model: hull-cModel:guidance
+Handbook:
+ type: text
+ c_model: hull-cModel:handbook
+Internet publication:
+ type: text
+ c_model: hull-cModel:internetPublication
+Journal article:
+ type: text
+ c_model: hull-cModel:journalArticle
+Learning materials:
+ type: text
+ c_model: hull-cModel:learningMaterial
+Letter:
+ type: text
+ c_model: hull-cModel:letter
+Licence:
+ type: text
+ c_model: hull-cModel:license
+Meeting papers or minutes:
+ type: text
+ c_model: hull-cModel:meetingPaper
+Music score:
+ type: text
+ c_model: hull-cModel:musicScore
+Newsletter article:
+ type: text
+ c_model: hull-cModel:genericContent
+Policy or procedure:
+  type: text
+  c_model: hull-cModel:policy
+Presentation:
+ type: text
+ c_model: hull-cModel:presentation
+Regulation:
+ type: text
+ c_model: hull-cModel:regulation 
+Report:
+ type: text
+ c_model: hull-cModel:report
