@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span10">
+      <div class="row">
+        <div class="span12">          
+          <h2><%= @generic_content.title %></h2>
+          <h3>Generic content</h3>
+        </div>
+      </div>
+      <div class="row">
+        <% if @generic_content.persisted? %>
+          <div class="span6">
+            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @generic_content %>
+          </div>
+          <div class="span6">  
+            <% unless @generic_content.resource_proto? %>
+              <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @generic_content }) %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= render partial: "edit" %>
+    </div>
+  </div>
+</div>

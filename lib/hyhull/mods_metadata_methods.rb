@@ -46,6 +46,14 @@ module Hyhull::ModsMetadataMethods
       return DEPARTMENTS
     end
 
+    def coordinates_types
+      {
+        "Path" => "LineString",
+        "Polygon" => "Polygon",
+        "Point" => "Point"
+      }
+    end
+
     # Returns a human readable filesize appropriate for the given number of bytes (ie. automatically chooses 'bytes','KB','MB','GB','TB')
     # Based on a bit of python code posted here: http://blogmag.net/blog/read/38/Print_human_readable_file_size
     # @param [Numeric] num file size in bits

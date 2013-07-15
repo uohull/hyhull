@@ -20,7 +20,7 @@ class GenericContent < ActiveFedora::Base
 
   end
 
- # before_save :apply_additional_metadata 
+  before_save :apply_additional_metadata 
 
   has_metadata name: "descMetadata", label: "MODS metadata", type: Datastream::ModsGenericContent
   has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
@@ -42,6 +42,10 @@ class GenericContent < ActiveFedora::Base
   # People
   delegate_to :descMetadata, [:person_name, :person_role_text]
 
+  # Static Relator terms 
+  delegate :person_role_terms, to: Datastream::ModsGenericContent
+  delegate :coordinates_types, to: Datastream::ModsGenericContent
+
   # Standard validations for the object fields
   validates :title, presence: true
   validates :genre, presence: true
@@ -54,9 +58,23 @@ class GenericContent < ActiveFedora::Base
   # Overridden so that we can store a cmodel and "complex Object"
   def assert_content_model
     g = Genre.find(self.genre)
-    add_relationship(:has_model, "info:fedora/#{g.c_model}")
+    add_relationship(:has_model, "info:fedora/#{g.c_model}")  
     add_relationship(:has_model, "info:fedora/hydra-cModel:compoundContent")
     add_relationship(:has_model, "info:fedora/hydra-cModel:commonMetadata")    
+  end
+
+  def apply_additional_metadata
+    # Apply the following additional metadata
+    # Only autoset type_of_resource in proto...
+    if self.resource_proto?    
+      self.type_of_resource = Genre.find(self.genre).type if Genre.find(self.genre).type.class == String
+    end
+  end
+
+    # Overide the attributes method to enable the calling of custom methods
+  def attributes=(properties)
+    super(properties)
+    self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person") unless properties["person_name"].nil? or properties["person_role_text"].nil?
   end
 
   # to_solr overridden to add object_type facet field to document

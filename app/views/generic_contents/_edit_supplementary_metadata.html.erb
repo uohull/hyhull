@@ -1,0 +1,11 @@
+<%= render "shared/error_messages", :target => @generic_content %>
+<legend>Supplementary metadata</legend>
+<div class="fields">    
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "extent" } %> 
+  <%= f.input :language_text %>
+  <%= f.input :language_code %>
+  <%= f.input :digital_origin %>
+  <%= f.input :genre, collection: Genre.all.sort {|a,b| a.name <=> b.name }, value_method: "name" %>
+  <%= f.input :type_of_resource unless @generic_content.resource_proto? %>
+  <%= f.input :additional_notes, as: :text %>  
+</div>

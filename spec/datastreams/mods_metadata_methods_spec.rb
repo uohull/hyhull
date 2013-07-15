@@ -51,6 +51,12 @@ describe Hyhull::ModsMetadataMethods do
       end 
     end
 
+    describe "coordinates_types" do
+      it "should return the valid values" do
+        Datastream::ModsEtd.coordinates_types.should == {"Path" => "LineString", "Polygon" => "Polygon", "Point" => "Point" }
+      end
+    end
+
   end
 
 end

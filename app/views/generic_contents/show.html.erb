@@ -1,0 +1,16 @@
+<h4>Generic Content</h4>
+<h2><%= @generic_content.title %></h2>
+<dl>
+   <dt>Subject</dt>
+  <dd>
+    <%= @generic_content.subject_topic.join('; ') %>
+  </dd>  
+  <dt>Rights</dt>
+  <dd>
+    <%= @generic_content.rights %>
+  </dd>  
+  <dt>Identifier</dt>
+  <dd>
+    <%= @generic_content.id %>
+  </dd>  
+</dl>

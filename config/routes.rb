@@ -10,6 +10,9 @@ Hyhull::Application.routes.draw do
   resources :uketd_objects
   resources :journal_articles
 
+  match 'generic_contents/initial_step', to: 'generic_contents#initial_step', via: [:get]
+  resources :generic_contents
+
   match 'exam_papers/initial_step', to: 'exam_papers#initial_step', via: [:get]
   resources :exam_papers
 
