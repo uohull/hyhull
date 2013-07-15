@@ -112,7 +112,19 @@ describe GenericContent do
       @generic_content.errors.messages[:language_text].should == ["can't be blank"]
       @generic_content.errors.messages[:language_code].should == ["can't be blank"]    
     end
- 
+
+
+    describe "assert_content_model" do
+      it "should set the cModels" do
+        @generic_content.relationships(:has_model).should == []
+        @generic_content.genre = "Policy or procedure"
+        @generic_content.assert_content_model
+        @generic_content.relationships(:has_model).should == ["info:fedora/hull-cModel:policy", "info:fedora/hydra-cModel:compoundContent", "info:fedora/hydra-cModel:commonMetadata"]
+        @generic_content.assert_content_model ## Shouldn't add another row.
+        @generic_content.relationships(:has_model).should == ["info:fedora/hull-cModel:policy", "info:fedora/hydra-cModel:compoundContent", "info:fedora/hydra-cModel:commonMetadata"]
+      end
+    end
+    
     context "non unique fields" do
       before(:each) do
         @attributes_hash = {
