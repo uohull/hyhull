@@ -13,6 +13,20 @@ module ActiveFedora
       end      
     end
 
+    ### Override this method if you need something other than the default strategy
+    # Returns GenericContent as the default model if descMetadata and rightsMetadata exits
+    def self.default_model(obj)
+      if obj.datastreams['descMetadata'] && obj.datastreams['rightsMetadata']
+        if ActiveFedora::Model.send(:class_exists?, "GenericContent")
+          m = Kernel.const_get("GenericContent")
+          if m
+            return m
+          end
+        end
+      end
+      ActiveFedora::Base
+    end
+
   end
 end
 
