@@ -107,6 +107,9 @@ class Datastream::ModsGenericContent < ActiveFedora::OmDatastream
       t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
     }
 
+    t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Photographer" or ./xmlns:role/xmlns:roleTerm="Creator" or ./xmlns:role/xmlns:roleTerm="Author"]')
+    t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:displayable, :facetable])
+
     #Proxies for terminologies 
     t.title(:proxy=>[:title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable])      
     t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])

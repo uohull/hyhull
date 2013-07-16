@@ -166,7 +166,7 @@ describe UketdObject do
           @valid_etd.date_issued = "2012"
           @valid_etd.save
       end
-      after(:all) do
+      after(:each) do
         @valid_etd.delete
       end
       describe ".to_solr" do
@@ -211,7 +211,7 @@ describe UketdObject do
       @valid_etd.save
     end
 
-    after(:all) do
+    after(:each) do
       @valid_etd.delete
     end
 

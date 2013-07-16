@@ -43,7 +43,7 @@ describe GenericContent do
         "location_label" => "The location label",
         "location_coordinates_type" => "Point",
         "genre" => "Presentation",
-        "type_of_resource" => "Text",
+        "type_of_resource" => "text",
         "date_valid" => "1983-03-01",
         "language_text" => "English",
         "language_code" => "eng",
@@ -191,7 +191,22 @@ describe GenericContent do
         end
         it "should contain the appropiately case for the journalArticle in the RELS-EXT (Lower Camelcase)" do
           @valid_generic_content.rels_ext.to_rels_ext.include?('info:fedora/hull-cModel:presentation').should == true
-        end       
+        end
+        it "apply_additional_metadata should auto-populate the type_of_resource field based on genre" do
+          # Genre is presentation so type_of_resource should be...
+          @valid_generic_content.type_of_resource.should == "text"
+        end
+        it "apply_additional_metadata should not auto-populate the type_of_resource field based on genre when not in proto" do
+          # Genre is presentation so type_of_resource should be...
+          new_type_of_resource = "movingImage"
+          @valid_generic_content.type_of_resource.should == "text"
+          @valid_generic_content.submit_resource
+          @valid_generic_content.type_of_resource = new_type_of_resource
+          @valid_generic_content.save
+
+          @valid_generic_content.type_of_resource.should == new_type_of_resource
+        end    
+
       end
      
   end

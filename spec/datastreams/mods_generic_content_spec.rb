@@ -70,6 +70,12 @@ describe Datastream::ModsGenericContent do
       @ds.person_role_text.should == @person_roles
     end
 
+    it "add_names should add the MODS elements in the correct form" do
+      #Add the names...
+      @ds.add_names(@person_names, @person_roles, "person")
+      @ds.to_xml.include?('<name type="personal"><namePart>Smith, John.</namePart><role><roleTerm type="text">Author</roleTerm></role></name><name type="personal"><namePart>Jones, David.</namePart><role><roleTerm type="text">Photographer</roleTerm></role></name>')
+    end
+
     it "should let me update subject_topic with multiple items" do
       new_subject_topics = ["New topic", "New topic 2"]
       @ds.add_subject_topic(new_subject_topics)

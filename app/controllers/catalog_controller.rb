@@ -49,7 +49,7 @@ class CatalogController < ApplicationController
     # facet bar
     config.add_facet_field solr_name('genre', :facetable), :label => 'Resource Type' 
     config.add_facet_field solr_name('pub_date', :facetable), :label => 'Publication Year' 
-    config.add_facet_field solr_name('author_name', :facetable), :label => 'Author' 
+    config.add_facet_field solr_name('creator_name', :facetable), :label => 'Creator' 
     config.add_facet_field solr_name('subject_topic', :facetable), :label => 'Topic', :limit => 20 
     config.add_facet_field solr_name('language_text', :facetable), :label => 'Language', :limit => true 
     config.add_facet_field solr_name('lc1_letter', :facetable), :label => 'Call Number' 
@@ -67,7 +67,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display 
     config.add_index_field solr_name('title_vern', :stored_searchable, type: :string), :label => 'Title:' 
-    config.add_index_field solr_name('author_name', :displayable, type: :string), :label => 'Author' 
+    config.add_index_field solr_name('creator_name', :displayable, type: :string), :label => 'Creator' 
     config.add_index_field solr_name('genre', :displayable, type: :string), :label => 'Resource type'
     config.add_index_field solr_name('subject_topic', :displayable, type: :string), :label => 'Subject'
     config.add_index_field solr_name('language_text', :displayable, type: :string), :label => 'Language'
@@ -81,7 +81,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display 
     config.add_show_field solr_name('title', :stored_searchable, type: :string), :label => 'Title'
-    config.add_show_field solr_name('author_name', :displayable, type: :string), :label => 'Author' 
+    config.add_show_field solr_name('creator_name', :displayable, type: :string), :label => 'Creator' 
     config.add_show_field solr_name('subject_topic', :displayable, type: :string), :label => 'Subject' 
     config.add_show_field solr_name('rights', :displayable, type: :string), :label => 'Rights' 
     config.add_show_field solr_name('abstract', :displayable, type: :string), :label => 'Abstract' 

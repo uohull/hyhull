@@ -94,8 +94,8 @@
        }
 
      
-      t.author(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="creator"]' )
-      t.author_name(:proxy=>[:author, :namePart], :index_as=>[:displayable, :facetable])
+      t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="creator"]' )
+      t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:displayable, :facetable])
      # t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
      # t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
 

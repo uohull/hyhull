@@ -52,7 +52,7 @@ describe Datastream::ModsEtd do
   end
 
   describe "Set metadata methods" do
-    before(:all) do
+    before(:each) do
       @person_names = ["Smith, John.", "Jones, David."]
       @person_roles = ["Author", "Photographer"]
       @organisation_names = ["University of Hull", "Project Hydra"]
@@ -69,6 +69,13 @@ describe Datastream::ModsEtd do
       @ds.person_role_text.should == @person_roles
       @ds.organisation_name.should == @organisation_names
       @ds.organisation_role_text.should == @organisation_roles
+    end
+
+    it "add_names should add the MODS elements in the correct form" do
+      #Add the names...
+      @ds.add_names(@person_names, @person_roles, "person")
+      @ds.add_names(@organisation_names, @organisation_roles, "organisation")
+      @ds.to_xml.include?('<name type="personal"><namePart>Smith, John.</namePart><role><roleTerm type="text">Author</roleTerm></role></name><name type="personal"><namePart>Jones, David.</namePart><role><roleTerm type="text">Photographer</roleTerm></role></name><name type="corporate"><namePart>University of Hull</namePart><role><roleTerm type="text">Funder</roleTerm></role></name><name type="corporate"><namePart>Project Hydra</namePart><role><roleTerm type="text">Sponsor</roleTerm></role></name>')
     end
 
     it "should let me update subject_topic with multiple items" do
