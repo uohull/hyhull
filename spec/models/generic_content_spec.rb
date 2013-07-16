@@ -39,8 +39,8 @@ describe GenericContent do
         "organisation_role_text" =>["Funder"],
         "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "subject_topic" => ["Subject of the matter"], 
-        "subject_geographic" => "Hull",
-        "subject_temporal" => "2013",
+        "subject_geographic" => ["Hull", "Kingston Upon Hull"],
+        "subject_temporal" => ["2013", "August"],
         "location_coordinates" => "12, 10",
         "location_label" => "The location label",
         "location_coordinates_type" => "Point",
@@ -54,7 +54,9 @@ describe GenericContent do
         "related_web_url" => ["http://SomeRelatedWebURL.org/Resource.id01"],
         "see_also" => ["LN02323", "PG23442"],
         "extent" => ["Filesize: 123KB", "Something else"],
-        "rights" => ["Rights 1", "Rights 2"]
+        "rights" => ["Rights 1", "Rights 2"],
+        "citation" => ["Citation 1", "Citation 2"],
+        "software" => ["Linux", "Ubuntu"]
       } 
       @generic_content.update_attributes( attributes_hash )
 
@@ -66,8 +68,6 @@ describe GenericContent do
       @generic_content.language_code.should == attributes_hash["language_code"]
       @generic_content.publisher.should == attributes_hash["publisher"]
       @generic_content.resource_status.should == attributes_hash["resource_status"]
-      @generic_content.subject_geographic.should == attributes_hash["subject_geographic"]
-      @generic_content.subject_temporal.should == attributes_hash["subject_temporal"]
       @generic_content.location_coordinates.should == attributes_hash["location_coordinates"]
       @generic_content.location_label.should == attributes_hash["location_label"]
       @generic_content.location_coordinates_type.should == attributes_hash["location_coordinates_type"]
@@ -83,7 +83,11 @@ describe GenericContent do
       @generic_content.person_role_text.should == attributes_hash["person_role_text"]
       @generic_content.organisation_name.should == attributes_hash["organisation_name"]
       @generic_content.organisation_role_text.should == attributes_hash["organisation_role_text"]
-      @generic_content.subject_topic.should == attributes_hash["subject_topic"]  
+      @generic_content.subject_topic.should == attributes_hash["subject_topic"] 
+      @generic_content.subject_geographic.should == attributes_hash["subject_geographic"]
+      @generic_content.subject_temporal.should == attributes_hash["subject_temporal"]
+      @generic_content.citation.should == attributes_hash["citation"]
+      @generic_content.software.should == attributes_hash["software"]
 
       @generic_content.save
     end
@@ -138,7 +142,11 @@ describe GenericContent do
           "related_web_url" => ["http://SomeRelatedWebURL.org/Resource.id01"],
           "see_also" => ["LN02323", "PG23442"],
           "extent" => ["Filesize: 123KB", "Something else"],
-          "rights" => ["Rights 1", "Rights 2"]
+          "rights" => ["Rights 1", "Rights 2"],
+          "subject_geographic" => ["East Riding of Yorkshire", "Kingston Upon Hull"],
+          "subject_temporal" => ["19th Century", "1900's"],
+          "citation" => ["Cite as: This", "Cite as: that"],
+          "software" => ["Windows 8", "Microsoft Excel"],
 
         } 
         @generic_content.update_attributes( @attributes_hash )        
@@ -154,6 +162,10 @@ describe GenericContent do
         @generic_content.see_also.should == @attributes_hash["see_also"]
         @generic_content.extent.should == @attributes_hash["extent"]
         @generic_content.rights.should == @attributes_hash["rights"]
+        @generic_content.subject_geographic.should == @attributes_hash["subject_geographic"]
+        @generic_content.subject_temporal.should == @attributes_hash["subject_temporal"]
+        @generic_content.citation.should == @attributes_hash["citation"]
+        @generic_content.software.should == @attributes_hash["software"]
       end
 
     end

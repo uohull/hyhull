@@ -1,13 +1,13 @@
-class Datastream::ModsGenericContent < ActiveFedora::OmDatastream
+class Datastream::ModsDataset < ActiveFedora::OmDatastream
   include Hyhull::Datastream::ModsMetadataBase 
-  
+
   # Generates an empty Mods Article (used when you call ModsArticle.new without passing in existing xml)
   def self.xml_template
     builder = Nokogiri::XML::Builder.new do |xml|
-      xml.mods(:version=>"3.3", "xmlns:xlink"=>"http://www.w3.org/1999/xlink",
+      xml.mods(:version=>"3.4", "xmlns:xlink"=>"http://www.w3.org/1999/xlink",
       "xmlns:xsi"=>"http://www.w3.org/2001/XMLSchema-instance",
       "xmlns"=>"http://www.loc.gov/mods/v3",
-      "xsi:schemaLocation"=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd") {
+      "xsi:schemaLocation"=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd") {
         xml.titleInfo {
           xml.title
         }
@@ -17,8 +17,8 @@ class Datastream::ModsGenericContent < ActiveFedora::OmDatastream
             xml.roleTerm(:type=>"text")
           }
         }
-        xml.typeOfResource
-        xml.genre
+        xml.typeOfResource "dataset"
+        xml.genre "Dataset"
         xml.originInfo {
           xml.publisher
           xml.dateValid(:encoding=>"iso8601")

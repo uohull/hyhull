@@ -1,5 +1,5 @@
 class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
-  include Hyhull::ModsMetadataMethods 
+  include Hyhull::Datastream::ModsMetadataBase 
 
   set_terminology do |t|
     t.root(:path=>"mods", :xmlns=>"http://www.loc.gov/mods/v3", :schema=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd")
