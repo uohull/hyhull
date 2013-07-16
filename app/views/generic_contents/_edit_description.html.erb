@@ -5,6 +5,8 @@
 
   <%= render(:partial => "metadata/name_edit", :locals => { object: @generic_content, name_type: "person" }) %>
 
+  <%= render(:partial => "metadata/name_edit", :locals => { object: @generic_content, name_type: "organisation" }) %>
+
   <h4>Resource</h4>  
 
   <%= f.input :title %>

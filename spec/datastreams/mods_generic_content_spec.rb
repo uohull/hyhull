@@ -33,6 +33,10 @@ describe Datastream::ModsGenericContent do
     @ds.person_name.should == ["Green, Richard A."]
     @ds.person_role_text.should == ["Creator"]
     @ds.person_role_code.should == []
+
+    @ds.organisation_name.should == ["Sponsor, A B."]
+    @ds.organisation_role_text.should == ["Sponsor"]
+    @ds.organisation_role_code.should == []
   end
 
   it "should expose nested/hierarchical metadata" do
@@ -59,21 +63,27 @@ describe Datastream::ModsGenericContent do
     before(:all) do
       @person_names = ["Smith, John.", "Jones, David."]
       @person_roles = ["Author", "Photographer"]
+      @organisation_names = ["University of Hull", "Project Hydra"]
+      @organisation_roles = ["Funder", "Sponsor"]
     end
 
     it "should let me update the names elements with multiple items" do
       #Add the names...
       @ds.add_names(@person_names, @person_roles, "person")
+      @ds.add_names(@organisation_names, @organisation_roles, "organisation")
 
       #Test the names...
       @ds.person_name.should == @person_names
       @ds.person_role_text.should == @person_roles
+      @ds.organisation_name.should == @organisation_names
+      @ds.organisation_role_text.should == @organisation_roles
     end
 
     it "add_names should add the MODS elements in the correct form" do
       #Add the names...
       @ds.add_names(@person_names, @person_roles, "person")
-      @ds.to_xml.include?('<name type="personal"><namePart>Smith, John.</namePart><role><roleTerm type="text">Author</roleTerm></role></name><name type="personal"><namePart>Jones, David.</namePart><role><roleTerm type="text">Photographer</roleTerm></role></name>')
+      @ds.add_names(@organisation_names, @organisation_roles, "organisation")
+      @ds.to_xml.include?('<name type=\"personal\"><namePart>Smith, John.</namePart><role><roleTerm type=\"text\">Author</roleTerm></role></name><name type=\"personal\"><namePart>Jones, David.</namePart><role><roleTerm type=\"text\">Photographer</roleTerm></role></name><name type=\"corporate\"><namePart>University of Hull</namePart><role><roleTerm type=\"text\">Funder</roleTerm></role></name><name type=\"corporate\"><namePart>Project Hydra</namePart><role><roleTerm type=\"text\">Sponsor</roleTerm></role></name>')
     end
 
     it "should let me update subject_topic with multiple items" do
@@ -84,9 +94,12 @@ describe Datastream::ModsGenericContent do
   end
 
   describe "class methods" do
-    it "ModsEtd self.person_role_terms should only return the valid roles" do
+    it "ModsGenericContent self.person_role_terms should only return the valid roles" do
       Datastream::ModsGenericContent.person_role_terms.sort.should ==  ["Author", "Creator", "Editor", "Module leader", "Photographer", "Sponsor", "Supervisor"]
     end
+    it "ModsGenericContent self.organisation_role_terms should only return the valid roles" do
+      Datastream::ModsGenericContent.organisation_role_terms.sort.should ==  ["Creator", "Host", "Sponsor"]
+    end
   end
-
+  
 end

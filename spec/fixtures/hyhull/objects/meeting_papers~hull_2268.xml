@@ -3300,7 +3300,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <name type="personal">
     <namePart>Committee Section</namePart>
     <role>
-      <roleTerm type="text">creator</roleTerm>
+      <roleTerm type="text">Creator</roleTerm>
     </role>
   </name>
   <typeOfResource>text</typeOfResource>
@@ -4309,6 +4309,18 @@ QSC/9 Sep 2009 agenda part a
     <recordChangeDate encoding="w3cdtf">2011-07-21</recordChangeDate>
   </recordInfo>
 </mods>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="151">
+<foxml:xmlContent>
+<fields>
+  <depositor>302922</depositor>
+  <collection>meeting_papers</collection>
+  <depositorEmail>guest@hydraathull.ac.uk</depositorEmail>
+  <resourceState>proto</resourceState>
+</fields>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>

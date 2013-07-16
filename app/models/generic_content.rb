@@ -41,17 +41,18 @@ class GenericContent < ActiveFedora::Base
 
   # People
   delegate_to :descMetadata, [:person_name, :person_role_text]
+  # Organisations
+  delegate_to :descMetadata, [:organisation_name, :organisation_role_text]
 
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsGenericContent
+  delegate :organisation_role_terms, to: Datastream::ModsGenericContent
   delegate :coordinates_types, to: Datastream::ModsGenericContent
 
   # Standard validations for the object fields
   validates :title, presence: true
   validates :genre, presence: true
   validates :subject_topic, array: { :length => { :minimum => 2 } }
-  validates :person_name, array: { :length => { :minimum => 5 } }
-  validates :person_role_text, array: { :length => { :minimum => 3 } }
   validates :language_code, presence: true
   validates :language_text, presence: true 
 
@@ -75,6 +76,7 @@ class GenericContent < ActiveFedora::Base
   def attributes=(properties)
     super(properties)
     self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person") unless properties["person_name"].nil? or properties["person_role_text"].nil?
+    self.descMetadata.add_names(properties["organisation_name"], properties["organisation_role_text"], "organisation") unless properties["organisation_name"].nil? or properties["organisation_role_text"].nil? 
   end
 
   # to_solr overridden to add object_type facet field to document

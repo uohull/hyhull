@@ -110,6 +110,10 @@ class Datastream::ModsGenericContent < ActiveFedora::OmDatastream
     t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Photographer" or ./xmlns:role/xmlns:roleTerm="Creator" or ./xmlns:role/xmlns:roleTerm="Author"]')
     t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:displayable, :facetable])
 
+    t.creator_organisation(:ref=>:organisation, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]')
+    t.creator_organisation_name(:proxy=>[:creator_organisation, :namePart], :index_as=>[:displayable, :facetable])
+
+
     #Proxies for terminologies 
     t.title(:proxy=>[:title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable])      
     t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
@@ -138,6 +142,10 @@ class Datastream::ModsGenericContent < ActiveFedora::OmDatastream
     t.person_name(:proxy=>[:person, :namePart], :index_as=>[:displayable])
     t.person_role_text(:proxy=>[:person, :role, :text], :index_as=>[:displayable])
     t.person_role_code(:proxy=>[:person, :role, :code])
+
+    t.organisation_name(:proxy=>[:organisation, :namePart], :index_as=>[:displayable])
+    t.organisation_role_text(:proxy=>[:organisation, :role, :text], :index_as=>[:displayable])
+    t.organisation_role_code(:proxy=>[:organisation, :role, :code])
 
 
   end

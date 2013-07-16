@@ -35,6 +35,8 @@ describe GenericContent do
         "title" => "A thesis describing the...",
         "person_name" => ["Smith, John.", "Supervisor, A."],
         "person_role_text" => ["Author", "Supervisor"],
+        "organisation_name" => ["The University of Hull"],
+        "organisation_role_text" =>["Funder"],
         "description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "subject_topic" => ["Subject of the matter"], 
         "subject_geographic" => "Hull",
@@ -79,6 +81,8 @@ describe GenericContent do
       # These attributes are not marked as 'unique' in the call to delegate, results will be arrays...
       @generic_content.person_name.should == attributes_hash["person_name"]
       @generic_content.person_role_text.should == attributes_hash["person_role_text"]
+      @generic_content.organisation_name.should == attributes_hash["organisation_name"]
+      @generic_content.organisation_role_text.should == attributes_hash["organisation_role_text"]
       @generic_content.subject_topic.should == attributes_hash["subject_topic"]  
 
       @generic_content.save
@@ -101,13 +105,11 @@ describe GenericContent do
       @generic_content.save.should be_false
 
       # with 5 error messages
-      @generic_content.errors.messages.size.should == 7
+      @generic_content.errors.messages.size.should == 5
 
       # errors...
       @generic_content.errors.messages[:title].should == ["can't be blank"]
       @generic_content.errors.messages[:genre].should == ["can't be blank"]
-      @generic_content.errors.messages[:person_name].should == ["is too short (minimum is 5 characters)"]
-      @generic_content.errors.messages[:person_role_text].should == ["is too short (minimum is 3 characters)"]
       @generic_content.errors.messages[:subject_topic].should == ["is too short (minimum is 2 characters)"]
       @generic_content.errors.messages[:language_text].should == ["can't be blank"]
       @generic_content.errors.messages[:language_code].should == ["can't be blank"]    
