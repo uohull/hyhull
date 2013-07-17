@@ -1,0 +1,41 @@
+<%= render "shared/error_messages", :target => @dataset %>
+<legend>Edit Metadata</legend>
+<div class="fields">
+  <h4>Author, and Contributor(s)</h4>    
+
+  <%= render(:partial => "metadata/name_edit", :locals => { object: @dataset, name_type: "person" }) %>
+
+  <%= render(:partial => "metadata/name_edit", :locals => { object: @dataset, name_type: "organisation" }) %>
+
+  <h4>Resource</h4>  
+
+  <%= f.input :title %>
+  <%= f.input :version %>
+
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "subject_topic" } %>
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "subject_temporal", label: "Temporal" } %> 
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "subject_geographic", label: "Coverage" } %> 
+  
+  <%= f.input :description, as: :text %>
+
+  <%= f.input :publisher %>
+  <%= f.input :date_issued, label: "Publication year (yyyy)" %>
+  <% # class datepicker provides JQuery based date picker - not using at present %>
+  <%= f.input :date_valid %>
+
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "software" } %> 
+
+  <h4>Rights statement</h4>  
+
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "rights" } %> 
+  
+  <h4>Citations and external identifiers</h4>
+
+  <%= f.input :doi %>
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "citation" } %> 
+
+  <% # Do not display the adminstrative metadata when resource is in the proto queue %>
+  <% unless @dataset.resource_proto? %>
+    <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @dataset, form: f }) %>
+  <% end %>
+</div>

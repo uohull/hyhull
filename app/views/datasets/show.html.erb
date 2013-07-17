@@ -1,0 +1,16 @@
+<h4>Dataset/h4>
+<h2><%= @dataset.title %></h2>
+<dl>
+   <dt>Subject</dt>
+  <dd>
+    <%= @dataset.subject_topic.join('; ') %>
+  </dd>  
+  <dt>Rights</dt>
+  <dd>
+    <%= @dataset.rights %>
+  </dd>  
+  <dt>Identifier</dt>
+  <dd>
+    <%= @dataset.id %>
+  </dd>  
+</dl>

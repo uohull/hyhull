@@ -24,12 +24,6 @@
 
   <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "rights" } %> 
 
-  <%#= render partial: "metadata/copyright_statement_edit", locals: { resource: @generic_content, form: f } %>
- 
-  <% unless @generic_content.resource_proto? %>
-    <%= render(:partial => "shared/set_select",  :locals => { resource: @generic_content, form: f }) %>
-  <% end %>
-
   <% # Do not display the adminstrative metadata when resource is in the proto queue %>
   <% unless @generic_content.resource_proto? %>
     <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @generic_content, form: f }) %>

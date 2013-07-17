@@ -38,6 +38,7 @@ describe Dataset do
     it "should have the attributes of an Generic Content and support update_attributes" do
       attributes_hash = {
         "title" => "A thesis describing the...",
+        "version" => "Version 1.0",
         "person_name" => ["Smith, John.", "Supervisor, A."],
         "person_role_text" => ["Author", "Supervisor"],
         "organisation_name" => ["The University of Hull"],
@@ -54,6 +55,7 @@ describe Dataset do
         "date_valid" => "1983-03-01",
         "language_text" => "English",
         "language_code" => "eng",
+        "doi" => "This doi is:1245",        
         "publisher" => "ICTD, The University of Hull",
         "resource_status" => "New nice object",        
         "related_web_url" => ["http://SomeRelatedWebURL.org/Resource.id01"],
@@ -67,10 +69,11 @@ describe Dataset do
 
       # Marked as 'unique' in the call to delegate... 
       @dataset.title.should == attributes_hash["title"]
+      @dataset.version.should == attributes_hash["version"]      
       @dataset.description.should == attributes_hash["description"]  
       @dataset.date_valid.should == attributes_hash["date_valid"]
       @dataset.language_text.should == attributes_hash["language_text"]
-      @dataset.language_code.should == attributes_hash["language_code"]
+      @dataset.language_code.should == attributes_hash["language_code"] 
       @dataset.publisher.should == attributes_hash["publisher"]
       @dataset.resource_status.should == attributes_hash["resource_status"]
       @dataset.location_coordinates.should == attributes_hash["location_coordinates"]
@@ -82,6 +85,7 @@ describe Dataset do
       @dataset.see_also.should == attributes_hash["see_also"]
       @dataset.extent.should == attributes_hash["extent"]
       @dataset.rights.should == attributes_hash["rights"]
+      @dataset.doi.should == attributes_hash["doi"]
 
       # These attributes are not marked as 'unique' in the call to delegate, results will be arrays...
       @dataset.person_name.should == attributes_hash["person_name"]

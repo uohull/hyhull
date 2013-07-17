@@ -2,8 +2,9 @@
   <div id="field-list">
     <% fields = eval("object.#{field}") %>   
     <% object_name = object.class.to_s.underscore %>
+    <% label = field.to_sym if local_assigns[:label].nil? %>
 
-    <%= label_tag field.to_sym, nil,  :class => "control-label" %><br />
+    <%= label_tag label, nil,  :class => "control-label" %><br />
     <% if fields.empty? %>
       <div id="fields" class="controls">
         <%= text_field_tag "#{object_name}[#{field}][]", "" %>           

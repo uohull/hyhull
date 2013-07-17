@@ -31,8 +31,8 @@ class GenericContent < ActiveFedora::Base
 
   #Delegate these attributes to the respective datastream
   #Unique fields
-  delegate_to :descMetadata, [:title, :date_valid, :location_coordinates, :location_label, :location_coordinates_type, :language_text, :language_code, 
-                             :publisher, :type_of_resource, :description, :genre, :mime_type, :digital_origin, :identifier, :record_creation_date, 
+  delegate_to :descMetadata, [:title, :version, :date_valid, :date_issued, :location_coordinates, :location_label, :location_coordinates_type, :language_text, :language_code, 
+                             :publisher, :type_of_resource, :description, :genre, :mime_type, :digital_origin, :identifier, :doi, :record_creation_date, 
                              :record_change_date, :resource_status, :additional_notes ], unique: true
   # Non-unique fields
   delegate_to :descMetadata, [:related_web_url, :see_also, :extent, :rights, :subject_temporal, :subject_geographic, :citation, :software]

@@ -14,36 +14,36 @@
       <li id="edit_supplementary_metadata_link">              
         <a href="#supplementary_metadata" data-toggle="tab">Supplementary</a>
       </li>
-      <% unless @generic_content.resource_proto? %>
+      <% unless @dataset.resource_proto? %>
         <li id="edit_set_membership_link">              
           <a href="#set_membership" data-toggle="tab">Set membership</a>
         </li>
       <% end %>
     </ul>
-    <%= simple_form_for(@generic_content, :html => {:class => 'form-horizontal' }) do |f| %>
+    <%= simple_form_for(@dataset, :html => {:class => 'form-horizontal' }) do |f| %>
     <div class="tab-content">         
       <div id="descriptive_metadata" class="tab-pane active">
         <%= render :partial => "edit_description", locals: {f: f} %>
       </div>
        <div id="related_metadata" class="tab-pane">            
-          <%= render :partial => "metadata/edit_related_metadata", locals: {f: f, resource: @generic_content} %>
+          <%= render :partial => "metadata/edit_related_metadata", locals: {f: f, resource: @dataset} %>
       </div>
       <div id="geographic_metadata" class="tab-pane">            
-          <%= render :partial => "metadata/edit_geographical_metadata", locals: {f: f, resource: @generic_content} %>
+          <%= render :partial => "metadata/edit_geographical_metadata", locals: {f: f, resource: @dataset} %>
       </div>
       <div id="supplementary_metadata" class="tab-pane">            
-        <%= render :partial => "metadata/edit_supplementary_metadata", locals: {f: f, resource: @generic_content} %>
-      </div>
-      <% unless @generic_content.resource_proto? %>
+        <%= render :partial => "metadata/edit_supplementary_metadata", locals: {f: f, resource: @dataset} %>
+      </div>      
+      <% unless @dataset.resource_proto? %>
         <div id="set_membership" class="tab-pane">            
-          <%= render(:partial => "shared/set_select",  :locals => { resource: @generic_content, form: f }) %>
+          <%= render(:partial => "shared/set_select",  :locals => { resource: @dataset, form: f }) %>
         </div>
       <% end %>
     </div>
      <%= f.submit "Save" %>
     <% end %>
-    <% if @generic_content.persisted? %>
-     <%= render partial: "shared/update_resource_state", locals: { object: @generic_content } %>
+    <% if @dataset.persisted? %>
+     <%= render partial: "shared/update_resource_state", locals: { object: @dataset } %>
     <% end %>
   </div> <!-- /.span12-->
 </div>

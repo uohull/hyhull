@@ -338,7 +338,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <name type="personal">
     <namePart>Smith, T. D.</namePart>
     <role>
-      <roleTerm type="text">creator</roleTerm>
+      <roleTerm type="text">Creator</roleTerm>
     </role>
   </name>
   <typeOfResource>text</typeOfResource>
@@ -377,6 +377,12 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
     <topic>Whale oil</topic>
     <topic>Whaling logbooks</topic>
     <temporal>1700 - 2000</temporal>
+  </subject>
+  <subject ID="location" displayLabel="Barents Sea and White Sea (indicative only)">
+    <cartographics>
+      <coordinates>6.51112343178385,76.52561084477904,0 17.10808878477822,69.42457816830459,0 19.23566641078515,70.2340952440596,0 26.16514933378135,71.21006287310938,0 28.34501762003302,71.19591745056441,0 40.81952482552297,67.79095155868768,0 41.21034377514022,66.82372691957811,0 39.57312691094313,66.03373010487019,0 33.5106218402758,66.56154588706272,0 35.64859352748856,64.29764811203093,0 37.55626731041848,63.9374090587736,0 37.10005117687275,65.01098746981671,0 37.28739745968198,65.22046266142083,0 39.52913295061563,64.66215605184738,0 39.80137936709392,65.35754334619574,0 42.28866295162927,66.45555197312277,0 43.78533108034154,66.30039026277294,0 43.88153038521489,68.65702704070387,0 45.70079521268011,68.36700855313939,0 46.6113348990406,67.72973365005015,0 45.13041926584947,67.45685791720057,0 46.24973381273201,66.91964069441985,0 47.62788860328472,67.03986438684075,0 47.71333145978738,67.6101161643942,0 54.25156324927162,68.8987320910158,0 60.57078664027097,68.80298719475518,0 56.91027188802161,70.45942586611005,0 52.40578855422241,71.13370796325357,0 55.85415769673202,75.02462955632905,0 67.20477314810302,77.01413689539811,0 59.9133539293534,84.0185794515953,0 21.19925277783477,80.27967847194567,0 26.72854453863436,79.8793957712533,0 24.90655695393377,79.09552441122389,0 20.49120999133487,79.25325284165631,0 24.17844873468979,77.6120895913556,0 23.32334564477098,77.19946593017693,0 19.9386509261275,78.22114311129582,0 16.51112343178385,76.52561084477904,0</coordinates>
+    </cartographics>
+    <topic>Polygon</topic>
   </subject>
   <identifier type="fedora">hull:2155</identifier>
   <relatedItem>
@@ -490,7 +496,7 @@ See: http://creativecommons.org/licenses/by/2.0/uk/
   <name type="personal">
     <namePart>Smith, T. D.</namePart>
     <role>
-      <roleTerm type="text">creator</roleTerm>
+      <roleTerm type="text">Creator</roleTerm>
     </role>
   </name>
   <typeOfResource>text</typeOfResource>
@@ -498,6 +504,8 @@ See: http://creativecommons.org/licenses/by/2.0/uk/
   <originInfo>
     <publisher>Barnard, Michaela G.</publisher>
     <publisher>Nicholls, J. H.</publisher>
+    <dateIssued>2013</dateIssued>
+    <dateValid encoding="iso8601">2010</dateValid>
   </originInfo>
   <language>
     <languageTerm type="text">English</languageTerm>
@@ -525,7 +533,15 @@ Reference/Citation:
     <topic>Whaling technology</topic>
     <topic>Whale oil</topic>
     <topic>Whaling logbooks</topic>
-    <temporal>1700 - 2000</temporal>
+    <temporal>1700-2000</temporal>
+    <geographic>Barents Sea</geographic>
+    <geographic>White Sea</geographic>
+  </subject>
+  <subject ID="location" displayLabel="Barents Sea and White Sea (indicative only)">
+    <cartographics>
+      <coordinates>6.51112343178385,76.52561084477904,0 17.10808878477822,69.42457816830459,0 19.23566641078515,70.2340952440596,0 26.16514933378135,71.21006287310938,0 28.34501762003302,71.19591745056441,0 40.81952482552297,67.79095155868768,0 41.21034377514022,66.82372691957811,0 39.57312691094313,66.03373010487019,0 33.5106218402758,66.56154588706272,0 35.64859352748856,64.29764811203093,0 37.55626731041848,63.9374090587736,0 37.10005117687275,65.01098746981671,0 37.28739745968198,65.22046266142083,0 39.52913295061563,64.66215605184738,0 39.80137936709392,65.35754334619574,0 42.28866295162927,66.45555197312277,0 43.78533108034154,66.30039026277294,0 43.88153038521489,68.65702704070387,0 45.70079521268011,68.36700855313939,0 46.6113348990406,67.72973365005015,0 45.13041926584947,67.45685791720057,0 46.24973381273201,66.91964069441985,0 47.62788860328472,67.03986438684075,0 47.71333145978738,67.6101161643942,0 54.25156324927162,68.8987320910158,0 60.57078664027097,68.80298719475518,0 56.91027188802161,70.45942586611005,0 52.40578855422241,71.13370796325357,0 55.85415769673202,75.02462955632905,0 67.20477314810302,77.01413689539811,0 59.9133539293534,84.0185794515953,0 21.19925277783477,80.27967847194567,0 26.72854453863436,79.8793957712533,0 24.90655695393377,79.09552441122389,0 20.49120999133487,79.25325284165631,0 24.17844873468979,77.6120895913556,0 23.32334564477098,77.19946593017693,0 19.9386509261275,78.22114311129582,0 16.51112343178385,76.52561084477904,0</coordinates>
+    </cartographics>
+    <topic>Polygon</topic>
   </subject>
   <identifier type="fedora">hull:2155</identifier>
   <relatedItem>
@@ -536,6 +552,9 @@ Reference/Citation:
   <relatedItem ID="privateObject">
     <identifier type="fedora">hull-private:756</identifier>
   </relatedItem>
+  <note type="software">Microsoft Access 2000</note>
+  <note type="citation">(a) The dataset: please cite as follows: J. Lajus et al, eds., &#x2018;North Russian Salmon Catch Data, 1615-1937&#x2019;, in M.G Barnard &amp; J.H Nicholls (comp.) HMAP Data Pages (www.hull.ac.uk/hmap)</note>
+  <note type="citation">(b) Supporting documentation: please cite as follows: J. Lajus et al, eds., &#x2018;HMAP Dataset 9: North Russian Salmon Catch Data, 1615-1937, Supporting Documentation&#x2019;, in M.G Barnard &amp; J.H Nicholls (comp.) HMAP Data Pages (www.hull.ac.uk/hmap)</note>
   <location>
     <url access="object in context" usage="primary display">http://hydra.hull.ac.uk/resources/hull:2155</url>
     <url access="raw object">http://hydra.hull.ac.uk/assets/hull:2155/genericContent/content</url>
@@ -8402,6 +8421,18 @@ See: http://creativecommons.org/licenses/by/2.0/uk/</accessCondition>
               AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
               AAAAAAAAAAAAAAAA
 </foxml:binaryContent> 
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-10-26T11:10:14.550Z" MIMETYPE="text/xml" SIZE="143">
+<foxml:xmlContent>
+<fields>
+  <depositorEmail>s.lamb@hull.ac.uk</depositorEmail>
+  <depositor>id</depositor>
+  <collection>dataset</collection>
+  <resourceState>published</resourceState>
+</fields>
+</foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
 </foxml:digitalObject>

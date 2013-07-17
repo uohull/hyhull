@@ -1,9 +1,0 @@
-<%= render "shared/error_messages", :target => @generic_content %>
-<legend>Edit related materials</legend>
-<div class="fields">
-  <h4>Web materials</h4> 
-  <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "related_web_url" } %> 
-
-  <h4>Non web</h4>
-  <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "see_also" } %>
- </div>

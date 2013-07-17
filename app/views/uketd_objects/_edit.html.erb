@@ -3,7 +3,7 @@
   	<legend>Edit Metadata</legend>
   	<div class="fields">
   	  <h4>Author, and Contributor(s)</h4>  	
-      <%= render :partial => "name_edit", :locals => { object: @uketd_object, name_type: "person" } %>      
+      <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "person" } %>      
   	  <h4>Publication</h4>
    
       <%= f.input :title %>
@@ -18,7 +18,7 @@
    
      <h4>Author, and Contributor(s)</h4>   
    
-     <%= render :partial => "name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>
+     <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>
      <%= f.input :publisher %>
      <% # class datepicker provides JQuery based date picker - not using at present %>
      <%= f.input :date_issued %>

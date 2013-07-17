@@ -135,6 +135,7 @@ module Hyhull::Datastream::ModsMetadataBase
       t.location_coordinates_type(:proxy=>[:location, :coordinates_type])
 
       t.date_valid(:proxy=>[:origin_info, :date_valid], :index_as=>[:sortable, :displayable])
+      t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable])
       t.related_web_url(:proxy=>[:related_materials, :location, :primary_display])
       t.publisher(:proxy=>[:origin_info, :publisher], :index_as=>[:displayable])
       t.extent(:proxy=>[:physical_description, :extent], :index_as=>[:displayable])

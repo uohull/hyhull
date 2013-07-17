@@ -9,6 +9,7 @@ Hyhull::Application.routes.draw do
   resources :assets
   resources :uketd_objects
   resources :journal_articles
+  resources :datasets
 
   match 'generic_contents/initial_step', to: 'generic_contents#initial_step', via: [:get]
   resources :generic_contents
