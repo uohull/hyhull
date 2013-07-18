@@ -7,11 +7,15 @@ module Hyhull
       
       included do      
         include Hyhull::ModelMethods
-        include Hyhull::Models::StructuralSet::Permissions
+        include Hyhull::Models::Permissions
         include Hyhull::Models::StructuralSetAncestryBehaviour
+        include Hyhull::Models::SetTreeBehaviour 
         include Hydra::ModelMixins::RightsMetadata
 
+        before_create :apply_defaultObjectRights
+
         has_metadata name: "descMetadata", label: "MODS metadata", type: Hyhull::Datastream::ModsStructuralSet
+        has_metadata name: "defaultObjectRights", label: "Default object rights", type: Hyhull::Datastream::DefaultObjectRights
 
         delegate_to :descMetadata, [:title, :description, :resource_status, :genre, :type_of_resource], unique: true
         
@@ -24,6 +28,54 @@ module Hyhull
         validates :title, presence: true
         validates :parent, presence: true
         validates_exclusion_of :parent_id, :in => lambda { |p| [p.id]}, :message => "cannot be a parent to itself"
+
+        # Overidden the hydra::ModelMixins::RightsMetadata#permissions= method to enable setting of permissions on a
+        # non rightsMetadata ds
+        # See Hyhull::Models::StructuralSet::Permissions for implementation of set_permissions
+        def permissions=(params)
+          self.set_permissions(params, "defaultObjectRights")
+        end
+
+        # Overidden the hydra::ModelMixins::RightsMetadata#permissions method to enable get of permissions on a
+        # non rightsMetadata ds
+        # See Hyhull::Models::StructuralSet::Permissions for implementation of get_permissions
+        def permissions
+          self.get_permissions "defaultObjectRights"
+        end
+
+        # Override the Hyhull:ModelMethods
+        # Adds metadata about the depositor to the asset
+        # Most important behavior: This version will NOT set rightsMetadata based on user_id (this is handled by set_rightsMetadata)
+        # @param [String, #user_key] depositor
+        #
+        def apply_depositor_metadata(depositor, depositor_email)
+          prop_ds = self.datastreams["properties"]
+
+          depositor_id = depositor.respond_to?(:user_key) ? depositor.user_key : depositor
+
+          if prop_ds
+            prop_ds.depositor = depositor_id unless prop_ds.nil?
+            prop_ds.depositor_email = depositor_email unless prop_ds.nil?
+          end
+          
+          return true
+        end
+
+      end
+
+      module ClassMethods
+        # tree functionality is serviced by Hyhull::Models::SetTreeBehaviour 
+        def tree
+          tree_root = build_tree("hull:rootSet", "info\\:fedora\\/hull-cModel\\:structuralSet")
+        end
+      end
+
+      # Inherit the defaultObjectRights from the set's parent. 
+      def apply_defaultObjectRights
+        raise "Unable to find parent. Cannot apply defaultObjectRights" unless parent
+        defaultRights = Hyhull::Datastream::DefaultObjectRights.new(self.inner_object, 'defaultObjectRights')
+        Hydra::Datastream::RightsMetadata.from_xml(parent.datastreams["defaultObjectRights"].content, defaultRights)
+        self.datastreams["defaultObjectRights"] = defaultRights if self.datastreams.has_key? "defaultObjectRights" 
       end
 
       # assert_content_model overidden to add UketdObject custom models

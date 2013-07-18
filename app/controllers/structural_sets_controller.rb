@@ -17,7 +17,7 @@ class StructuralSetsController < ApplicationController
 
   def create 
     @structural_set = StructuralSet.new(params[:structural_set])
-    #@structural_set.apply_depositor_metadata(current_user.username, current_user.email)
+    @structural_set.apply_depositor_metadata(current_user.username, current_user.email)
 
     respond_to do |format|
       if @structural_set.save
