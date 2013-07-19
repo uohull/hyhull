@@ -115,7 +115,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:xmlContent>
 <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
   <rdf:Description rdf:about="info:fedora/hull:rootDisplaySet">
-    <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:displaySet"></fedora-model:hasModel>
+    <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:displaySet"></fedora-model:hasModel>
     <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
   </rdf:Description>
 </rdf:RDF>

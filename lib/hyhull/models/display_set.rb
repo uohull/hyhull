@@ -2,29 +2,25 @@
 # Object model for the hyhull structural_set
 module Hyhull
   module Models
-    module StructuralSet
+    module DisplaySet
       extend ActiveSupport::Concern
       
       included do      
         include Hyhull::ModelMethods
         include Hyhull::Models::Permissions
-        include Hyhull::Models::StructuralSetAncestryBehaviour
         include Hyhull::Models::SetTreeBehaviour 
 
-        after_initialize :apply_genre 
-        before_create :apply_default_object_rights, :set_rights_metadata
+        after_initialize :apply_genre
+        before_create :set_rights_metadata 
 
         has_metadata name: "descMetadata", label: "MODS metadata", type: Hyhull::Datastream::ModsSet
-        has_metadata name: "defaultObjectRights", label: "Default object rights", type: Hyhull::Datastream::DefaultObjectRights
 
         delegate_to :descMetadata, [:title, :description, :resource_status, :genre, :type_of_resource, :primary_display_url, :identifier], unique: true
           
-        belongs_to :parent, property: :is_member_of, :class_name => "StructuralSet"
-        belongs_to :apo, property: :is_governed_by, :class_name => "StructuralSet"
-
+        belongs_to :parent, property: :is_member_of, :class_name => "DisplaySet"
+        belongs_to :apo, property: :is_governed_by, :class_name => "DisplaySet"
         has_many :children, property: :is_member_of, :class_name => "ActiveFedora::Base"
-        has_many :apo_children, property: :is_governed_by, :class_name => "ActiveFedora::Base"
-
+       
         validates :title, presence: true
         validates :parent, presence: true
         validates_exclusion_of :parent_id, :in => lambda { |p| [p.id]}, :message => "cannot be a parent to itself"
@@ -33,14 +29,14 @@ module Hyhull
         # non rightsMetadata ds
         # See Hyhull::Models::StructuralSet::Permissions for implementation of set_permissions
         def permissions=(params)
-          self.set_permissions(params, "defaultObjectRights")
+          self.set_permissions(params, "rightsMetadata")
         end
 
         # Overidden the hydra::ModelMixins::RightsMetadata#permissions method to enable get of permissions on a
         # non rightsMetadata ds
         # See Hyhull::Models::StructuralSet::Permissions for implementation of get_permissions
         def permissions
-          self.get_permissions "defaultObjectRights"
+          self.get_permissions "rightsMetadata"
         end
 
         # Override the Hyhull:ModelMethods
@@ -61,16 +57,16 @@ module Hyhull
           return true
         end
 
-        def apply_genre
-          self.genre = "Structural set"
-        end
-
         # All stuctural_sets at present get their rightsMetadata from hull-apo:structuralSet
         def set_rights_metadata
-          admin_policy_obj = self.class.find("hull-apo:structuralSet")
-          raise "Unable to find hull-apo:structuralSet" unless admin_policy_obj
+          admin_policy_obj = self.class.find("hull-apo:displaySet")
+          raise "Unable to find hull-apo:displaySet" unless admin_policy_obj
           self.apo = admin_policy_obj
           apply_rights_metadata_from_apo
+        end
+
+        def apply_genre
+          self.genre = "Display Set"
         end
 
       end
@@ -78,16 +74,8 @@ module Hyhull
       module ClassMethods
         # tree functionality is serviced by Hyhull::Models::SetTreeBehaviour 
         def tree
-          tree_root = build_tree("hull:rootSet", "info\\:fedora\\/hull-cModel\\:structuralSet")
+          tree_root = build_tree("hull:rootDisplaySet", "info\\:fedora\\/hull-cModel\\:displaySet")
         end
-      end
-
-      # Inherit the defaultObjectRights from the set's parent. 
-      def apply_default_object_rights
-        raise "Unable to find parent. Cannot apply defaultObjectRights" unless parent
-        defaultRights = Hyhull::Datastream::DefaultObjectRights.new(self.inner_object, 'defaultObjectRights')
-        Hydra::Datastream::RightsMetadata.from_xml(parent.datastreams["defaultObjectRights"].content, defaultRights)
-        self.datastreams["defaultObjectRights"] = defaultRights if self.datastreams.has_key? "defaultObjectRights" 
       end
 
       # assert_content_model overidden to add UketdObject custom models

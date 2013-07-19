@@ -64,7 +64,7 @@ describe StructuralSet do
     it "should have the specified datastreams" do
       #Check for descMetadata datastream
       @structural_set.datastreams.keys.should include("descMetadata")
-      @structural_set.descMetadata.should be_kind_of Hyhull::Datastream::ModsStructuralSet
+      @structural_set.descMetadata.should be_kind_of Hyhull::Datastream::ModsSet
       @structural_set.descMetadata.label.should == "MODS metadata"
 
       #Check for the rightsMetadata datastream
@@ -81,6 +81,23 @@ describe StructuralSet do
       @structural_set.datastreams.keys.should include("properties")
       @structural_set.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
 
+    end
+
+    it "should have the attributes of an structural set object and support update_attributes" do
+      attributes_hash = {
+        "title" => "Artwork",
+        "description" => "University collection of Artwork",
+        "resource_status" => "Currently empty",
+        "type_of_resource" => "mixed material"
+      } 
+
+      @structural_set.update_attributes( attributes_hash )
+      @structural_set.title.should == attributes_hash["title"]
+      @structural_set.description.should == attributes_hash["description"]
+      @structural_set.resource_status.should == attributes_hash["resource_status"]
+      @structural_set.type_of_resource.should == attributes_hash["type_of_resource"]
+
+      @structural_set.genre.should == "Structural set"
     end
 
     it "should have the required relationships" do

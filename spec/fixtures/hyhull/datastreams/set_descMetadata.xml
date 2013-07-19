@@ -1,0 +1,26 @@
+<mods xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Photographs of the Library</title>
+  </titleInfo>
+  <typeOfResource collection="yes">text</typeOfResource>
+  <genre>Display Set</genre>
+  <abstract>Library photos</abstract>
+  <originInfo>
+    <publisher>The University of Hull</publisher>
+    <dateIssued>2013-07-19</dateIssued>
+  </originInfo>
+  <identifier type="fedora">hull:test</identifier>
+  <location>
+    <url access="raw object"/>
+    <url access="object in context" usage="primary display">http://hydra.hull.ac.uk/resources/changeme:197</url>
+  </location>
+  <note type="admin">A collection of photographs</note>
+  <recordInfo>
+    <recordContentSource>The University of Hull</recordContentSource>
+    <recordCreationDate encoding="w3cdtf">2013-07-19</recordCreationDate>
+    <recordChangeDate encoding="w3cdtf"/>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">eng</languageTerm>
+    </languageOfCataloging>
+  </recordInfo>
+</mods>

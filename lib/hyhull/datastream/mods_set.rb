@@ -1,8 +1,8 @@
-# lib/hyhull/datastream/mods_structural_set.rb
-# Datastream for the hyhull structural_set
+# lib/hyhull/datastream/mods_set.rb
+# Datastream for the hyhull sets (Display and Structural)
 module Hyhull
   module Datastream
-    class ModsStructuralSet < ActiveFedora::OmDatastream
+    class ModsSet < ActiveFedora::OmDatastream
 
       set_terminology do |t|
         t.root(:path=>"mods", :xmlns=>"http://www.loc.gov/mods/v3", :schema=>"http://www.loc.gov/standards/mods/v3/mods-3-4.xsd")
@@ -11,7 +11,7 @@ module Hyhull
         } 
         t.title(:proxy=>[:mods, :title_info, :main_title]) 
         t.genre(:path=>'genre')
-        t.type_of_resource(:path=>"typeOfResource")
+        t.type_of_resource(:path=>"typeOfResource", :attributes=>{:collection=>"yes"})
         t.origin_info(:path=>'originInfo') {
           t.publisher
           t.date_issued(:path=>"dateIssued")
@@ -35,7 +35,10 @@ module Hyhull
         t.resource_status(:path=>"note", :attributes=>{:type=>"admin"})
 
         # Proxies for terminologies   
-        t.title(:proxy=>[:title_info, :main_title], :index_as=>[:searchable, :displayable])   
+        t.title(:proxy=>[:title_info, :main_title], :index_as=>[:searchable, :displayable])
+        t.primary_display_url(:proxy=>[:location, :primary_display])
+        t.publisher(:proxy=>[:origin_info, :publisher], :index_as=>[:displayable]) 
+        t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable]) 
       end  
   
       def self.xml_template      
@@ -48,7 +51,7 @@ module Hyhull
                xml.title
              }
              xml.typeOfResource("text", :collection=>"yes") 
-             xml.genre "Structural set"
+             xml.genre
              xml.abstract
              xml.originInfo {
                xml.publisher "The University of Hull"

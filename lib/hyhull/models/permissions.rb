@@ -7,7 +7,6 @@ module Hyhull
       include Hydra::ModelMixins::RightsMetadata
 
       included do
-        before_create :set_rightsMetadata
         has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
       end
 
@@ -37,14 +36,7 @@ module Hyhull
         (datastreams[permissions_ds].groups.map {|x| {:type=>'group', :access=>x[1], :name=>x[0] }} + 
           datastreams[permissions_ds].individuals.map {|x| {:type=>'user', :access=>x[1], :name=>x[0]}})
       end
-  
-      # All stuctural_sets at present get their rightsMetadata from hull-apo:structuralSet
-      def set_rightsMetadata
-        admin_policy_obj = self.class.find("hull-apo:structuralSet")
-        raise "Unable to find hull-apo:structuralSet" unless admin_policy_obj
-        self.apo = admin_policy_obj
-        apply_rights_metadata_from_apo
-      end
+
 
       # Method for updating the permissions on the set. If the permissions are changing on the defaultObjectRights, ancestors will need updating...
       # @permission_params permission_params ex “group”=>{“group1”=>“discover”,“group2”=>“edit”, “person”=>“person1”=>“read”,“person2”=>“discover”}
