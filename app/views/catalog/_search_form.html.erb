@@ -1,0 +1,57 @@
+<div class="subnav navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+
+      <div class="row-fluid">
+        <div>
+
+          <div class="subnav-position">
+
+              <%= form_tag search_action_url, :method => :get, :class => 'form-inline form-search form-sub-search' do %>
+                <div class="input-append"> 
+                  <%= text_field_tag :q, params[:q], :class => "q input-xlarge search-query square-corners", :placeholder => 'Search the repository...' %>
+                  <button class="btn square-corners" name="button" type="submit"><i class="icon-search icon hidden-phone"></i> Search</button>
+                </div>
+                <%= search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe %>
+               <!-- build admin tools here 
+               <span class="vertical-divider hidden-phone"></span>
+               <hr class="visible-phone"/>
+                  <div class="btn-group btn-admin">
+                      <a class="btn dropdown-toggle square-corners" data-toggle="dropdown" href="#">
+                      Create
+                      <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu square-corners">
+                          <li><a href="#">ETD</a></li>
+                          <li><a href="#">Examination paper</a></li>
+                          <li><a href="#">Jounral Article</a></li>
+                      </ul>
+                  </div>
+                  <div class="btn-group btn-admin">
+                      <a class="btn dropdown-toggle square-corners" data-toggle="dropdown" href="#">
+                      Manage
+                      <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu square-corners">
+                          <li><a href="#">Set management</a></li>
+                      </ul>
+                  </div>
+                  <div class="btn-group btn-admin">
+                      <a class="btn dropdown-toggle square-corners" data-toggle="dropdown" href="#">
+                      Queue
+                      <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu pull-right square-corners">
+                          <li><a href="#">Proto</a></li>
+                          <li><a href="#">QA</a></li>
+                          <li><a href="#">Hidden</a></li>
+                      </ul>
+                  </div>
+                -->
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

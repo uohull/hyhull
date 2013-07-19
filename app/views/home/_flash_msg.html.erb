@@ -1,0 +1,8 @@
+<% [:notice, :error, :alert].each do |type| %>
+    <% if flash[type] %>
+      <div class="flash-message-container alert-<%= type == :error ? 'error' : 'info' %> alert fade in"><%= flash[type] %>
+        <button type="button" class="close" data-dismiss="alert">×</button>
+      </div>
+    <% end %>
+<% end %>
+

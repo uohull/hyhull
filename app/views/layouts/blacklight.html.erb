@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="author" content="The University of Hull, LLI" />
+    <meta name="keywords" content="description here" />
+    <meta name="description" content="Description of content." />
+
+    <!-- Mobile viewport optimization h5bp.com/ad -->
+    <meta name="HandheldFriendly" content="True">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
+
+    <!-- Apple specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- W8 specific 
+    <meta name="msapplication-TileImage" content="assets/images/icons/hyhull-144-w8.png" /><meta name="msapplication-TileColor" content="#cb812a" /> -->
+
+    <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+    <!--[if IEMobile]>
+      <meta http-equiv="cleartype" content="on">
+    <![endif]-->
+
+    <!-- Splash images -->
+    <link rel="apple-touch-startup-image" href="images/splash/hyhull-splash-320-portrait.png" />
+    <!-- iPad (portrait) -->
+    <link href="images/splash/hyhull-splash-768x1004-portrait.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image" />
+    <!-- iPad (landscape) -->
+    <link href="images/splash/hyhull-splash-1024x748-landscape.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image" />
+    <!-- iPad RETINA (portrait) -->
+    <link rel="apple-touch-startup-image" href="images/splash/hyhull-splash-1536x2008-portrait.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" />
+    <!-- iPad RETINA (landscape) -->
+    <link rel="apple-touch-startup-image" href="images/splash/hyhull-splash-2048x1496-landscape.png" media="(device-width: 1536px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" />
+
+    <!-- fav and touch icons -->
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <link href="assets/images/icons/hyhull-icon-512-precomposed.png" rel="apple-touch-icon-precomposed" sizes="512x512" type="image/png" />
+    <link href="images/icons/hyhull-icon-114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114" type="image/png" />
+    <link href="images/icons/hyhull-icon-72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72" type="image/png" />
+    <link href="assets/images/icons/hyhull-icon-57-precomposed.png" rel="apple-touch-icon-precomposed" sizes="57x57" type="image/png" />
+    <link href="images/icons/hyhull-icon-48-precomposed.png" rel="apple-touch-icon-precomposed" sizes="48x48" type="image/png" />
+    <link href="images/icons/hyhull-icon-29-precomposed.png" rel="apple-touch-icon-precomposed" sizes="29x29" type="image/png" />
+
+    <title><%= h(@page_title || application_name) %></title>
+    <link href="<%= opensearch_catalog_path(:format => 'xml', :only_path => false) %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
+    
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= raw(render_head_content) %> 
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+  <% onload_text = "$('input#q').focus();" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>
+  <body onload="<%= onload_text %>" class="<%= render_body_class %>">
+  <%= render :partial => 'shared/header_navbar' %>
+  <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
+
+<!-- /container -->
+
+<% if (current_page?(action: 'home')) %>
+  <div id="background-container" class="container">
+  <% else %>
+    <div id="background-container-form" class="container">
+<% end %>
+
+  <div class="inner-container">
+
+    <div class="container-fluid">
+
+      <!-- Top bar 
+      <div id="search-found" class="row hidden-phone">
+        <%#= topbar_items.join('').html_safe %>
+      </div>
+      -->
+
+      <!-- /Top bar -->
+      <div class="row-fluid">
+        <div class="desktop-top-spacer visible-desktop"></div>
+        <div class="tablet-top-spacer visible-tablet"></div>
+        <%= render :partial=>'/flash_msg' %>
+      </div>
+
+      <div class="row">
+        <%= yield %>
+      </div> 
+
+    </div>
+  </div>  
+</div>
+
+<%= render :partial => 'shared/footer' %>
+    </body>
+</html>
