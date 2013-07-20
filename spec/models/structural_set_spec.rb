@@ -239,11 +239,10 @@ describe StructuralSet do
     end
     it "should inherit the rightsMetadata and defaultObjectRights from the parents defaultObjectRights when the parent structuralSet is updated" do
       @instance.parent = @parent
-      @instance.apply_defaultObjectRights
+      @instance.apply_default_object_rights
       # instance should inherit the baz 'edit' rights defined in the parent above... 
       @instance.defaultObjectRights.individuals["baz"].should == "edit"
-
-      # Save will invoke the apply_defaultObjectRights via the before_create callback
+      # Save will invoke the apply_default_object_rights via the before_create callback
       @instance.save
       # Lets check the defaultObjectRights once more...
       @instance.defaultObjectRights.individuals["baz"].should == "edit"

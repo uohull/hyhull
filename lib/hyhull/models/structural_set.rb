@@ -11,8 +11,10 @@ module Hyhull
         include Hyhull::Models::StructuralSetAncestryBehaviour
         include Hyhull::Models::SetTreeBehaviour 
 
-        after_initialize :apply_genre 
-        before_create :apply_default_object_rights, :set_rights_metadata
+        after_initialize :apply_genre
+
+        # This before_create order is important...
+        before_create :set_rights_metadata, :apply_default_object_rights
 
         has_metadata name: "descMetadata", label: "MODS metadata", type: Hyhull::Datastream::ModsSet
         has_metadata name: "defaultObjectRights", label: "Default object rights", type: Hyhull::Datastream::DefaultObjectRights
