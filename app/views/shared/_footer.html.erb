@@ -10,7 +10,7 @@
             </div>
         </div>
         <div id="footer-container" class="container-fluid">
-          <div class="row">
+          <div class="row-fluid">
             <div class="span3 offset1">
                 <div class="footer-column">
                     <ul>
@@ -46,11 +46,22 @@
                       <h4>Skills</h4>
                       </li>
                       <li><a href="http://libguides.hull.ac.uk/skills">Skills website</a></li>
-                      <ul>
                         <li><a href="http://libguides.hull.ac.uk/content.php?pid=334323&sid=2734591">Undergraduate</a></li>
                         <li><a href="http://libguides.hull.ac.uk/content.php?pid=363623&sid=2976108">Postgraduate</a></li>
                         <li><a href="http://libguides.hull.ac.uk/content.php?pid=363629&sid=2976166">Staff</a></li>
-                      </ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="span3">
+                <div class="footer-column">
+                    <ul>
+                      <li>
+                        <h4>University</h4>
+                      </li>
+                      <li><a href="http://www.hull.ac.uk">University website</a></li>
+                      <li><a href="http://portal.hull.ac.uk">University portal</a></li>
+                      <li><a href="https://hull.avedas.com/converis/area/3734">Research portal</a></li>
+                      <li><a href="http://www2.hull.ac.uk/departments.aspx">Departments and faculties</a></li>
                     </ul>
                 </div>
             </div>
@@ -69,17 +80,22 @@
             </div>
           </div>
           <div class="row-fluid">
-              <div class="span16">
+              <div class="span16 footer-horizontal">
                 <p class="pull-right string">
                   &nbsp; &copy; <a href="http://www.hull.ac.uk">The University of Hull</a>
                   <%= Time.now.year %>
-                  &nbsp; | &nbsp;
-                  Powered by <a href="http://projectblacklight.org/">Blacklight</a>
                   &nbsp; | &nbsp;
                   Server Name
                   &nbsp; | &nbsp;
                   1.0.0
                   &nbsp;
+                </p>
+              </div>
+          </div>
+          <div class="row-fluid">
+              <div class="span16 footer-horizontal">
+                <p class="pull-right string">
+                  <%= link_to image_tag("hyhull/powered_by_hydra_grey_transparent.png"), root_url %>&nbsp;
                 </p>
               </div>
           </div>
