@@ -21,6 +21,13 @@ Hyhull::Application.routes.draw do
   resources :structural_sets
   match 'structural_sets/:id/update_permissions', to: 'structural_sets#update_permissions', via: [:put]
 
+  resources :display_sets do
+    resources :exhibits, only: [:index]
+  end
+
+  match 'display_sets/:id/update_permissions', to: 'display_sets#update_permissions', via: [:put]
+
+
   resources :content_metadata
   resources :files
   resources :resource_workflow

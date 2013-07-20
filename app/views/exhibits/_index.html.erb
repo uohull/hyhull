@@ -1,0 +1,16 @@
+<h1>Exhibits</h1>
+ 
+
+<% @exhibits.each do |exhibit| %>
+  <div>
+    <h4><%= exhibit.title %></h4>
+    <p><%= exhibit.description %></p>
+    <%= link_to "View exhibits", display_set_exhibits_path(exhibit) if exhibit.instance_of?(DisplaySet) %>
+  </div>
+<!--   display_set_exhibits -->
+     <!--  <td><%#= link_to "Show", book %></td> -->
+    <%#= link_to "Edit", edit_book_path(book) %>
+    <%#= link_to "Remove", book, method: :delete, data: { confirm: "Are you sure?" } %>
+  </tr>
+<% end %>
+

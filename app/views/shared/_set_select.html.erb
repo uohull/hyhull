@@ -1,6 +1,8 @@
 <% parent_field_id = "#{resource.class.name.underscore}_parent_id" %>
+<% set_class = StructuralSet if local_assigns[:set_class].nil? %>
+
 <script type="text/javascript">
-  var data = [<%= StructuralSet.tree.to_json.html_safe %>];
+  var data = [<%= set_class.tree.to_json.html_safe %>];
 
   $(function() {
     $('#set-tree').tree({
@@ -63,7 +65,9 @@
     <h3>Set selection</h3>
   </div>  
   <div class="modal-body">
-    <p>Selecting a set from below will give the resource its permissions.</p>
+    <% if set_class == StructuralSet %>
+      <p>Selecting a set from below will give the resource its permissions.</p>
+    <% end %>
     <div id="set-tree"></div>
   </div>
   <div class="modal-footer">

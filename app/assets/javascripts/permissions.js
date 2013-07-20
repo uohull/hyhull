@@ -120,6 +120,11 @@ $(function() {
       var td2 = $(document.createElement('td'));
       var remove = $('<button class="btn close">X</button>');
 
+      // If permissions form specifies a target_permissions_class
+      // i.e. "display_set" then use this for adding new groups...
+      // default to common structual_set
+      var target_permissions_class = get_permissions_target_class();
+    
       $('#save_perm_note').show();
 
       $('#new_perms').append(td1);
@@ -134,7 +139,7 @@ $(function() {
 
       $('<input>').attr({
           type: 'hidden',
-          name: 'structural_set[permissions]['+perm_type+']['+un+']',
+          name: target_permissions_class+'[permissions]['+perm_type+']['+un+']',
           value: perm_form
         }).appendTo(td2);
       tr.append(td1);
@@ -158,6 +163,23 @@ function get_visibility(){
   return $("input[name='visibility']:checked").val()
 }
 
+/* hyhull added method
+ * get_permissions_target_class()
+ * This method enables the permissions_form to be added to
+ * various model edit forms.
+ * Checks for a target_permissions_class hidden field 
+ * ie. "display_set" then use this for adding new groups...
+ * defaults to common structural_set
+ */ 
+function get_permissions_target_class(){
+  if ($("#target_permissions_class").length) { 
+    return $("#target_permissions_class").val();
+  } 
+  else { 
+    return "structural_set"
+  }
+}
+
 /*
  * if visibility is Open or Penn State then we can't selectively
  * set other users/groups to 'read' (it would be over ruled by the
@@ -170,9 +192,11 @@ function set_access_levels()
   if (vis == "open" || vis == "psu") {
     enabled_disabled = true;
   }
+  var target_permissions_class = get_permissions_target_class();
+
   $('#new_group_permission_skel option[value=read]').attr("disabled", enabled_disabled);
   $('#new_user_permission_skel option[value=read]').attr("disabled", enabled_disabled);
-  var perms_sel = $("select[name^='structural_set[permissions]']");
+  var perms_sel = $("select[name^='"+target_permissions_class+"[permissions]']");
   $.each(perms_sel, function(index, sel_obj) {
     $.each(sel_obj, function(j, opt) {
       if( opt.value == "read") {
@@ -190,8 +214,14 @@ function is_permission_duplicate(user_or_group_name)
 {
   s = "[" + user_or_group_name + "]";
   var patt = new RegExp(preg_quote(s), 'gi');
-  var perms_input = $("input[name^='structural_set[permissions]']");
-  var perms_sel = $("select[name^='structural_set[permissions]']");
+
+  // If permissions form specifies a target_permissions_class
+  // i.e. "display_set" then use this for adding new groups...
+  // default to common structual_set
+  var target_permissions_class = get_permissions_target_class();
+
+  var perms_input = $("input[name^='"+target_permissions_class+"[permissions]']");
+  var perms_sel = $("select[name^='"+target_permissions_class+"[permissions]']");
   var flag = 1;
   perms_input.each(function(index, form_input) {
       // if the name is already being used - return false (not valid)

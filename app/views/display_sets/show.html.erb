@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span10">
+      <div class="row">
+        <div class="span12">          
+          <h2><%= @display_set.title %></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">          
+          <h3>Display Set</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span2">
+          <%= link_to "Edit set", edit_display_set_path(@display_set) %>
+        </div>
+        <div class="span2">
+          <%= link_to "View all sets", display_sets_path %>
+        </div>
+        <div class="span2">
+         <%= link_to "View set resources", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/#{@display_set.pid}&results_view=true" %>
+        </div>
+        <div class="span2">  
+          <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @display_set }) %>
+        </div>
+      </div>
+      </div>      
+      <div class="row" id="breadcrumb">
+        <div class="span6">
+          <%= breadcrumb_trail_for_set(@display_set.pid) %>
+        </div>
+      </div>     
+      <%= render :partial => "show_description", :locals => { :resource => @display_set} %>
+    </div>
+  </div>
+</div>
