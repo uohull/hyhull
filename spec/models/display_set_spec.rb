@@ -84,7 +84,7 @@ describe DisplaySet do
     end
 
     it "should have the required relationships" do
-      @display_set.respond_to?(:parent).should == true
+      @display_set.respond_to?(:display_set).should == true
       @display_set.respond_to?(:apo).should == true
       @display_set.respond_to?(:children).should == true
     end
@@ -115,9 +115,9 @@ describe DisplaySet do
       json.include?("content").should be_false
     end
 
-    it "should enforce validation on title and parent" do
+    it "should enforce validation on title and display_set" do
       @display_set.save.should == false
-      @display_set.errors.messages.should == {:title=>["can't be blank"], :parent=>["can't be blank"]} 
+      @display_set.errors.messages.should == {:title=>["can't be blank"], :display_set=>["can't be blank"]} 
     end
 
     it "should do provide a set of options for a fedora_select nested select" do
@@ -129,7 +129,7 @@ describe DisplaySet do
       before do
         @instance = DisplaySet.new
         @instance.title = "Test set"
-        @instance.parent_id = "hull:rootDisplaySet"        
+        @instance.display_set_id = "hull:rootDisplaySet"        
         @instance.save
         @instance = DisplaySet.find(@instance.id)
       end

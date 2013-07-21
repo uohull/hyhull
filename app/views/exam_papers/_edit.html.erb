@@ -1,51 +1,38 @@
-<%= render "shared/error_messages", :target => @exam_paper %>
-<%= simple_form_for(@exam_paper, :html => {:class => 'form-horizontal' }) do |f| %>
-  	<legend>Edit Metadata</legend>
-  	<div class="fields">
-
-    <% unless @exam_paper.resource_proto? %>
-      <%= f.input :title %>
-    <% end %>
-
-    <h4>Module</h4> 
-
-    <%= render :partial => "module_edit", :locals => { exam_paper: @exam_paper } %>    
-
-    <% # class datepicker provides JQuery based date picker - not using at present %>
-    <%= f.input :date_issued, label: "Exam date (yyyy-mm)" %>
-
-    <h4>Subject</h4> 
-
-    <%= render partial: "metadata/multi_field_edit", locals: { object: @exam_paper, field: "subject_topic" } %> 
-
-    <%= f.input :exam_level %>
-
-    <%= f.input :additional_notes, as: :text %>
-
-    <h4>Department information</h4> 
- 
-    <%= f.input :department_name %>
-    <%= f.input :publisher %>
-
-    <%= render partial: "metadata/copyright_statement_edit", locals: { resource: @exam_paper, form: f } %>
-   
-    <% unless @exam_paper.resource_proto? %>
-      <%= render(:partial => "shared/set_select",  :locals => { resource: @exam_paper, form: f }) %>
-    <% end %>
-
-    <% # Do not display the adminstrative metadata when resource is in the proto queue %>
-    <% unless @exam_paper.resource_proto? %>
-      <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @exam_paper, form: f }) %>
-    <% end %>
-
+<div class="row">
+  <div class="span12">
+    <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %></li>
+    <ul class="nav nav-tabs">
+      <li class="active" id="edit_descriptive_metadata_link">
+        <a href="#descriptive_metadata" data-toggle="tab">Description</a>
+      </li>
+      <% unless @exam_paper.resource_proto? %>
+        <li id="edit_set_membership_link">              
+          <a href="#set_membership" data-toggle="tab">Set membership</a>
+        </li>
+        <li id="edit_admin_metadata_link">              
+          <a href="#admin_metadata" data-toggle="tab">Admin</a>
+        </li>
+      <% end %>
+    </ul>
+    <%= simple_form_for(@exam_paper, :html => {:class => 'form-horizontal' }) do |f| %>
+    <div class="tab-content">         
+      <div id="descriptive_metadata" class="tab-pane active">
+        <%= render :partial => "edit_description", locals: {f: f} %>
+      </div>
+      <% unless @exam_paper.resource_proto? %>
+        <div id="set_membership" class="tab-pane">            
+          <%= render(:partial => "shared/set_select",  :locals => { resource: @exam_paper, form: f }) %>
+        </div>
+        <div id="admin_metadata" class="tab-pane">            
+          <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @exam_paper, form: f }) %>
+        </div>
+      <% end %>
+    </div>
      <%= f.submit "Save" %>
-
-    </div>    
-<% end %>
-
-<% if @exam_paper.persisted? %>
-  <%= render partial: "shared/update_resource_state", locals: { object: @exam_paper } %>
-<% end %>
-
-
+    <% end %>
+    <% if @exam_paper.persisted? %>
+     <%= render partial: "shared/update_resource_state", locals: { object: @exam_paper } %>
+    <% end %>
+  </div> <!-- /.span12-->
+</div>
 

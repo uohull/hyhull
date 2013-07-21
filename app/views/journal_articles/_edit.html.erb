@@ -8,6 +8,14 @@
       <li id="edit_journal_metadata_link">              
         <a href="#journal_metadata" data-toggle="tab">Journal</a>
       </li>
+      <% unless @journal_article.resource_proto? %>
+        <li id="edit_set_membership_link">              
+          <a href="#set_membership" data-toggle="tab">Set membership</a>
+        </li>
+        <li id="edit_admin_metadata_link">              
+          <a href="#admin_metadata" data-toggle="tab">Admin</a>
+        </li>
+      <% end %>
     </ul>
 
     <%= simple_form_for(@journal_article, :html => {:class => 'form-horizontal' }) do |f| %>
@@ -18,6 +26,15 @@
       <div id="journal_metadata" class="tab-pane">            
           <%= render :partial => "edit_journal", locals: {f: f} %>
       </div>
+      <% unless @journal_article.resource_proto? %>
+        <div id="set_membership" class="tab-pane">            
+          <%#= render(:partial => "shared/set_management",  :locals => { resource: @journal_article, f: f }) %>
+          <%= render(:partial => "shared/set_select",  :locals => { resource: @journal_article, form: f }) %>
+        </div>
+        <div id="admin_metadata" class="tab-pane">            
+          <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @journal_article, form: f }) %>
+        </div>
+      <% end %>
     </div>
      <%= f.submit "Save" %>
     <% end %>

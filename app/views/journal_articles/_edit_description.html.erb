@@ -20,16 +20,6 @@
 
  <%= f.input :peer_reviewed, as: :select %>
 
-
- <% unless @journal_article.resource_proto? %>
-   <%= render(:partial => "shared/set_select",  :locals => { resource: @journal_article, form: f }) %>
- <% end %>
-
- <% # Do not display the adminstrative metadata when resource is in the proto queue %>
- <% unless @journal_article.resource_proto? %>
-   <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @journal_article, form: f }) %>
- <% end %>
- 
 </div>    
 
 

@@ -17,13 +17,12 @@ module Hyhull
 
         delegate_to :descMetadata, [:title, :description, :resource_status, :genre, :type_of_resource, :primary_display_url, :identifier], unique: true
           
-        belongs_to :parent, property: :is_member_of, :class_name => "DisplaySet"
         belongs_to :apo, property: :is_governed_by, :class_name => "DisplaySet"
         has_many :children, property: :is_member_of, :class_name => "ActiveFedora::Base"
        
         validates :title, presence: true
-        validates :parent, presence: true
-        validates_exclusion_of :parent_id, :in => lambda { |p| [p.id]}, :message => "cannot be a parent to itself"
+        validates :display_set, presence: true
+        validates_exclusion_of :display_set_id, :in => lambda { |p| [p.id]}, :message => "cannot be a parent to itself"
 
         # Overidden the hydra::ModelMixins::RightsMetadata#permissions= method to enable setting of permissions on a
         # non rightsMetadata ds

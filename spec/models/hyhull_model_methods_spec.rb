@@ -80,6 +80,12 @@ describe Hyhull::ModelMethods do
     end
   end
 
+  describe "relationships" do
+    it "should define a belongs_to display_set" do
+      @testclassone.respond_to?(:display_set).should == true
+    end
+  end
+
   context "utility methods" do
     describe "to_long_date" do
       it "should return the appropiate long date versions of the inputted dates" do

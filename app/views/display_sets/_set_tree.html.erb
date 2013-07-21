@@ -53,7 +53,7 @@
     var node = $('#set-tree').tree('getSelectedNode');
     if (node) {
       id = node.id;   
-      window.location.href = "/display_sets/new?parent_id=" + id; 
+      window.location.href = "/display_sets/new?display_set_id=" + id; 
     }
     else {
       alert("Please select a set");

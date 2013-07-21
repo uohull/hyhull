@@ -8,6 +8,9 @@ module Hyhull::ModelMethods
 
     before_save :apply_dublin_core_metadata, :apply_resource_object_label, :apply_additional_descMetadata
 
+    # Optionally belongs_to display set..
+    belongs_to :display_set, property: :is_member_of, :class_name => "DisplaySet"
+
     # Store Hyhull workflow properties
     has_metadata name: "properties", label: "Workflow properties", type: Hyhull::Datastream::WorkflowProperties 
     delegate_to :properties, [:depositor, :depositor_email], unique: true  

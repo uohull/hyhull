@@ -1,0 +1,29 @@
+<%= render "shared/error_messages", :target => @uketd_object %>
+<legend>Edit Metadata</legend>
+<div class="fields">
+  <h4>Author, and Contributor(s)</h4>  	
+  <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "person" } %>      
+  <h4>Publication</h4>
+
+  <%= f.input :title %>
+
+  <%= render partial: "metadata/copyright_statement_edit", locals: { resource: @uketd_object, form: f } %>
+
+  <%= f.input :abstract, as: :text %>
+
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "subject_topic" } %>
+
+  <%= render partial: "metadata/language_edit", locals: { resource: @uketd_object, form: f } %>
+
+ <h4>Author, and Contributor(s)</h4>   
+
+ <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>
+ <%= f.input :publisher %>
+ <% # class datepicker provides JQuery based date picker - not using at present %>
+ <%= f.input :date_issued %>
+ 
+</div>    
+
+
+
+

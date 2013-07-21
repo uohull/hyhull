@@ -4,7 +4,7 @@ class DisplaySetsController < ApplicationController
   include Hyhull::Controller::ControllerBehaviour 
 
   def new
-    @display_set = DisplaySet.new(:parent_id => params[:parent_id])
+    @display_set = DisplaySet.new(:display_set_id => params[:display_set_id])
 
     respond_to do |format|
       format.html # new.html.erb

@@ -1,58 +1,65 @@
-<%= render "shared/error_messages", :target => @uketd_object %>
-<%= simple_form_for(@uketd_object, :html => {:class => 'form-horizontal' }) do |f| %>
-  	<legend>Edit Metadata</legend>
-  	<div class="fields">
-  	  <h4>Author, and Contributor(s)</h4>  	
-      <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "person" } %>      
-  	  <h4>Publication</h4>
-   
-      <%= f.input :title %>
-   
-      <%= render partial: "metadata/copyright_statement_edit", locals: { resource: @uketd_object, form: f } %>
-
-      <%= f.input :abstract, as: :text %>
-
-      <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "subject_topic" } %>
-
-      <%= render partial: "metadata/language_edit", locals: { resource: @uketd_object, form: f } %>
-   
-     <h4>Author, and Contributor(s)</h4>   
-   
-     <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>
-     <%= f.input :publisher %>
-     <% # class datepicker provides JQuery based date picker - not using at present %>
-     <%= f.input :date_issued %>
-
-     <h4>Identifiers</h4>
-   
-     <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "grant_number" } %>
-     <%= f.input :ethos_identifier %>
-    
-     <h4>Qualification</h4>
-   
-     <%= f.input :qualification_level, collection: @uketd_object.qualification_level_terms %>
-     <%= f.input :qualification_name, collection: @uketd_object.qualification_name_terms %>
-    
-     <h4>Dissertations</h4>
-   
-     <%= f.input :dissertation_category, collection: @uketd_object.dissertation_category_terms %>
-
-     <% unless @uketd_object.resource_proto? %>
-       <%= render(:partial => "shared/set_select",  :locals => { resource: @uketd_object, form: f }) %>
-     <% end %>
-
-     <% # Do not display the adminstrative metadata when resource is in the proto queue %>
-     <% unless @uketd_object.resource_proto? %>
-       <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @uketd_object, form: f }) %>
-     <% end %>
-
+<div class="row">
+  <div class="span12">
+    <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %></li>
+    <ul class="nav nav-tabs">
+      <li class="active" id="edit_descriptive_metadata_link">
+        <a href="#descriptive_metadata" data-toggle="tab">Description</a>
+      </li>
+       <li id="edit_qualifications_metadata_link">
+        <a href="#qualifications_metadata" data-toggle="tab">Qualifications</a>
+      </li>
+      <li id="edit_identifiers_metadata_link">
+        <a href="#identifiers_metadata" data-toggle="tab">Identifiers</a>
+      </li>
+      <% unless @uketd_object.resource_proto? %>
+        <li id="edit_set_membership_link">              
+          <a href="#set_membership" data-toggle="tab">Set membership</a>
+        </li>
+        <li id="edit_admin_metadata_link">              
+          <a href="#admin_metadata" data-toggle="tab">Admin</a>
+        </li>
+      <% end %>
+    </ul>
+    <%= simple_form_for(@uketd_object, :html => {:class => 'form-horizontal' }) do |f| %>
+    <div class="tab-content">         
+      <div id="descriptive_metadata" class="tab-pane active">
+        <%= render :partial => "edit_description", locals: {f: f} %>
+      </div>
+      <div id="qualifications_metadata" class="tab-pane">
+        <%= render :partial => "edit_qualifications", locals: {f: f} %>
+      </div>
+      <div id="identifiers_metadata" class="tab-pane">
+        <%= render :partial => "edit_identifiers", locals: {f: f} %>
+      </div>
+      <% unless @uketd_object.resource_proto? %>
+        <div id="set_membership" class="tab-pane">            
+          <%= render(:partial => "shared/set_select",  :locals => { resource: @uketd_object, form: f }) %>
+        </div>
+        <div id="admin_metadata" class="tab-pane">            
+          <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @uketd_object, form: f }) %>
+        </div>
+      <% end %>
+    </div>
      <%= f.submit "Save" %>
-    </div>    
-<% end %>
+    <% end %>
+    <% if @uketd_object.persisted? %>
+     <%= render partial: "shared/update_resource_state", locals: { object: @uketd_object } %>
+    <% end %>
+  </div> <!-- /.span12-->
+</div>
 
-<% if @uketd_object.persisted? %>
-  <%= render partial: "shared/update_resource_state", locals: { object: @uketd_object } %>
-<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

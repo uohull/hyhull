@@ -1,0 +1,35 @@
+<%= render "shared/error_messages", :target => @exam_paper %>
+<legend>Edit Metadata</legend>
+<div class="fields">
+
+<% unless @exam_paper.resource_proto? %>
+  <%= f.input :title %>
+<% end %>
+
+<h4>Module</h4> 
+
+<%= render :partial => "module_edit", :locals => { exam_paper: @exam_paper } %>    
+
+<% # class datepicker provides JQuery based date picker - not using at present %>
+<%= f.input :date_issued, label: "Exam date (yyyy-mm)" %>
+
+<h4>Subject</h4> 
+
+<%= render partial: "metadata/multi_field_edit", locals: { object: @exam_paper, field: "subject_topic" } %> 
+
+<%= f.input :exam_level %>
+
+<%= f.input :additional_notes, as: :text %>
+
+<h4>Department information</h4> 
+
+<%= f.input :department_name %>
+<%= f.input :publisher %>
+
+<%= render partial: "metadata/copyright_statement_edit", locals: { resource: @exam_paper, form: f } %>
+
+</div>    
+
+
+
+

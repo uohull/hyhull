@@ -34,8 +34,4 @@
   <%= f.input :doi %>
   <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "citation" } %> 
 
-  <% # Do not display the adminstrative metadata when resource is in the proto queue %>
-  <% unless @dataset.resource_proto? %>
-    <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @dataset, form: f }) %>
-  <% end %>
 </div>

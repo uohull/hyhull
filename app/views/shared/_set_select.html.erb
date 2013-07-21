@@ -1,5 +1,9 @@
-<% parent_field_id = "#{resource.class.name.underscore}_parent_id" %>
+<% # optional params to specify the parent_field_name ie.. UketdObject."parent_id" or DisplaySet.display_set_id, "parent_id"/"display_set_id"  %> 
+<% # Resource class is used to specify the source of the tree data ie. StructuralSet/DisplaySet %> 
+<% parent_field_name = "parent_id" if local_assigns[:parent_field_name].nil? %> 
 <% set_class = StructuralSet if local_assigns[:set_class].nil? %>
+<% parent_field_id = "#{resource.class.name.underscore}_#{parent_field_name}" %>
+
 
 <script type="text/javascript">
   var data = [<%= set_class.tree.to_json.html_safe %>];
@@ -52,9 +56,9 @@
         :disabled => true,
         :id => "set-name"
     } %>
-    <%= form.input :parent_id, :as => :hidden,
+    <%= form.input parent_field_name.to_sym, :as => :hidden,
       :input_html => {
-        :value => resource.parent_id 
+        :value => eval("resource.#{parent_field_name}")
       } 
     %>
 </fieldset>
