@@ -35,6 +35,9 @@ class UketdObject < ActiveFedora::Base
   # Organisations
   delegate_to :descMetadata, [:organisation_name, :organisation_role_text]
   delegate_to :descMetadata, [:subject_topic, :grant_number]
+
+  # Ensure that description is available (redirects to abstract)
+  delegate :description, to: "descMetadata", :at =>[:abstract], unique: true
  
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsEtd

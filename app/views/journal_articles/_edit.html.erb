@@ -28,8 +28,7 @@
       </div>
       <% unless @journal_article.resource_proto? %>
         <div id="set_membership" class="tab-pane">            
-          <%#= render(:partial => "shared/set_management",  :locals => { resource: @journal_article, f: f }) %>
-          <%= render(:partial => "shared/set_select",  :locals => { resource: @journal_article, form: f }) %>
+          <%= render(:partial => "shared/set_management",  :locals => { resource: @journal_article, f: f }) %>
         </div>
         <div id="admin_metadata" class="tab-pane">            
           <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @journal_article, form: f }) %>

@@ -39,7 +39,7 @@
       </div>
       <% unless @generic_content.resource_proto? %>
         <div id="set_membership" class="tab-pane">            
-          <%= render(:partial => "shared/set_select",  :locals => { resource: @generic_content, form: f }) %>
+          <%= render(:partial => "shared/set_management",  :locals => { resource: @generic_content, f: f }) %>
         </div>
         <div id="admin_metadata" class="tab-pane">            
           <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @generic_content, form: f }) %>

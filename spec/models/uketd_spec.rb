@@ -75,6 +75,8 @@ describe UketdObject do
       @etd.subject_topic.should == attributes_hash["subject_topic"]  
       @etd.grant_number == [attributes_hash["grant_number"]]
 
+      # Added description as a readable version of abstract in order to provide a consistant field amongst content types
+      @etd.description.should == attributes_hash["abstract"] 
 
       @etd.save
     end
