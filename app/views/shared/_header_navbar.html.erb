@@ -22,6 +22,6 @@
         </div>
     </div>
 </div>
-<% if !(current_page?(action: 'home')) %>
+<% if !(current_page?(controller: 'pages', action: 'home')) %>
   <%= render_search_bar %>
 <% end %>

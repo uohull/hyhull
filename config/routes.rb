@@ -40,9 +40,9 @@ Hyhull::Application.routes.draw do
   match 'assets/:id/:datastream_id' => 'assets#show'
 
   # Route all pages contorller actions to #/action 
-  %w[home about contact cookies takedown].each do |page|
-    get page, controller: 'pages', action: page
-  end
+  #%w[home about contact cookies takedown].each do |page|
+  #  get page, controller: 'pages', action: page
+  #end
 
 
   # The priority is based upon order of creation:

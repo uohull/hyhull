@@ -1,3 +1,14 @@
+$primarycolor: #CB812A;
+$primarycolordark: #804f1b;
+$altcolor: #4E9799;
+$altcolorlight: #85BDBF;
+$neutralcolordark: #333;
+$neutralcolorlight: #ccc;
+$primarylinkcolor: $altcolor;
+$primarylinkhovercolor: $neutralcolordark;
+$formMaxWidth: 1200px;
+
+
 body {
   width: 100%;
   height: 100%;
@@ -28,6 +39,12 @@ a {
     color: #4E9799;
     text-decoration: none;
     &:hover { color: #333; }
+}
+
+#form-container{
+  margin: auto;
+  max-width: $formMaxWidth;
+  min-height: 560px;
 }
 
 .string {
@@ -127,7 +144,8 @@ a {
 }
 
 .subnav-position {
-	text-align: center;
+	text-align: left;
+	padding-left: 10px;
 }
 
 /* footer */
@@ -194,8 +212,9 @@ a {
 
 /* layout */
 
-.left-gutter {
+.page-gutter {
   padding-left: 1em;
+  padding-right: 1em;
 }
 
 .subnav {
@@ -218,16 +237,16 @@ a {
 }
 
 /* tiles */
-
 $greenishblue: #4e9799;
 $cleanwhite: #fff;
 $lightgrey: #ebebeb;
 $lightblue: #5bc0de;
 $lightlink: #fff;
 $darklink: #000;
+$tiletransparency: 0.94;
 
 @function tile-transparency($tile-color) {
-	@return rgba($tile-color, 0.94)
+	@return rgba($tile-color, $tiletransparency)
 }
 
 @function tile-text-color($tile-color) {
@@ -307,6 +326,133 @@ $darklink: #000;
 	background-image: -ms-radial-gradient(left top, farthest-corner, rgba(255, 251, 245, 0.98) 0%, rgba(251, 238, 213, 0.98) 100%);
 	background-image: -o-radial-gradient(left top, farthest-corner, rgba(255, 251, 245, 0.98) 0%, rgba(251, 238, 213, 0.98) 100%);
 	background-image: radial-gradient(farthest-corner at left top, rgba(255, 251, 245, 0.98) 0%, rgba(251, 238, 213, 0.98) 100%);
+}
+
+/* resources */
+
+.appliedFilter {
+	background: none repeat scroll 0 0 $altcolorlight;
+    border: 1px solid $altcolor;
+    color: #FFFFFF;
+    margin-left: 0.5em;
+    .btnRemove {
+    	background: url("/assets/blacklight/remove.gif") no-repeat scroll center center transparent;
+    	border-left: 1px solid $altcolor;  
+	}
+}
+
+.sidenav {
+    background-color: whitesmoke;
+    border: 0 none;
+    box-shadow: none;
+    .facet_limit:last-child > h5 {
+	    border-bottom-left-radius: 0;
+	    border-bottom-right-radius: 0;
+	}
+}
+
+.well, .constraints-container {
+    border: 1px solid $neutralcolorlight;
+    border-radius: 0;
+}
+
+#sortAndPerPage {
+    border: 1px solid $neutralcolorlight;
+    border-radius: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+
+#facets {
+	li { a { &:hover { background: transparent;} } }
+}
+
+#facets span.selected {
+    color: $primarycolordark;
+}
+
+.css-dropdown li, .css-dropdown li:hover, .css-dropdown li.hovering {
+	border-radius: 0 0 0 0;
+}
+
+/* flash message */
+.flash-message-container {
+    padding: 1em;
+    background: #4E9799;
+    color: #fff;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+    border: 0;
+    border-radius: 0;
+}
+
+.flash-message-container.alert-info {
+    padding: 1em;
+    background: #4E9799;
+    color: #fff;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+    border: 0;
+    border-radius: 0;
+}
+
+.flash-message-container.alert-error {
+    padding: 1em;
+    background: #b94a48;
+    color: #fff;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+    border: 0;
+    border-radius: 0;
+}
+
+.flash-message-container.alert-notice {
+    padding: 1em;
+    background: #4E9799;
+    color: #fff;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+    border: 0;
+    border-radius: 0;
+}
+
+.flash-message-container h3 {
+    color: #fff;
+    margin-top: 0;
+}
+
+.flash-message-container p {
+    font-size: 0.96em;
+}
+
+.flash-message-container.alert button.close{
+    right: 0;
+    color: #fff;
+    opacity: 1;
+}
+
+/* buttons */
+
+.btn-hydra {
+  color: #FFFFFF;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #4E9799;
+  *background-color: #4E9799;
+  background-image: -moz-linear-gradient(top, #85BDBF, #4E9799);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#85BDBF), to(#4E9799));
+  background-image: -webkit-linear-gradient(top, #85BDBF, #4E9799);
+  background-image: -o-linear-gradient(top, #85BDBF, #4E9799);
+  background-image: linear-gradient(to bottom, #85BDBF, #4E9799);
+  background-repeat: repeat-x;
+  border-color: #4E9799;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#85BDBF', endColorstr='#4E9799', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-hydra:hover,
+.btn-hydra:active,
+.btn-hydra.active,
+.btn-hydra.disabled,
+.btn-hydra[disabled] {
+  color: #FFFFFF;
+  background-color: #4E9799;
+  *background-color: #003bb3;
 }
 
 /* temp */

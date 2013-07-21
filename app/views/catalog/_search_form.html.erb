@@ -9,7 +9,7 @@
 
               <%= form_tag search_action_url, :method => :get, :class => 'form-inline form-search form-sub-search' do %>
                 <div class="input-append"> 
-                  <%= text_field_tag :q, params[:q], :class => "q input-xlarge search-query square-corners", :placeholder => 'Search the repository...' %>
+                  <%= text_field_tag :q, params[:q], :class => "q input-xxlarge search-query square-corners", :placeholder => 'Search the repository...' %>
                   <button class="btn square-corners" name="button" type="submit"><i class="icon-search icon hidden-phone"></i> Search</button>
                 </div>
                 <%= search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe %>
