@@ -1,69 +1,50 @@
 <% # optional params to specify the parent_field_name ie.. UketdObject."parent_id" or DisplaySet.display_set_id, "parent_id"/"display_set_id"  %> 
 <% # Resource class is used to specify the source of the tree data ie. StructuralSet/DisplaySet %> 
+<% title = "Set membership" if local_assigns[:title].nil? %>
 <% parent_field_name = "parent_id" if local_assigns[:parent_field_name].nil? %> 
 <% set_class = StructuralSet if local_assigns[:set_class].nil? %>
 <% parent_field_id = "#{resource.class.name.underscore}_#{parent_field_name}" %>
 
+<% parent_id = eval("resource.#{parent_field_name}") %>
+
+<% tree_div_id = "#{set_class}-set-tree" %>
+<% set_name_field_id = "#{set_class}-set-name"%>
+<% set_select_modal_id = "#{set_class}-set-select-modal" %>
 
 <script type="text/javascript">
-  var data = [<%= set_class.tree.to_json.html_safe %>];
-
   $(function() {
-    $('#set-tree').tree({
-        data: data
-    });
+    tree_div = "#<%= tree_div_id %>";
+    tree_data = [<%= set_class.tree.to_json.html_safe %>];
+    selected_id = "<%= parent_id %>";
+    self_id = "<%= resource.id %>";
+    set_name_target = "#<%= set_name_field_id %>";
 
+    BuildTree(tree_div, tree_data, self_id, selected_id, set_name_target);
 
-    var self_id = '<%= params["id"] %>'
-    if (self_id.length > 0) {
-      var node_to_remove = $('#set-tree').tree('getNodeById', self_id);
-      if (typeof node_to_remove != "undefined") {
-        $('#set-tree').tree('removeNode', node_to_remove);        
-      }
-    }
-
-    var current_set = $('#<%= parent_field_id %>').val(); 
-    var node = $('#set-tree').tree('getNodeById', current_set);
-    $('#set-tree').tree('selectNode', node); 
-    $('#set-name').val(node.name); 
-  });
-
-  function SelectSet() {
-    var node = $('#set-tree').tree('getSelectedNode');
-
-    if (node) {
-      $('#set-name').val(node.name);
-      $('#<%= parent_field_id %>').val(node.id);
-      $('#set-select-modal').modal('hide');
-    }
-    else {
-      alert("Please select a set");
-    }
-
-  }
+  })
 </script>
 
 
 <fieldset class="edit-standard">
-  <legend>Set membership</legend>
+  <legend><%= title %></legend>
     <!-- Button to trigger modal -->
     <p>
-      <a href="#set-select-modal" role="button" data-toggle="modal">Edit set membership</a>
+      <a href="#<%= set_select_modal_id %>" role="button" data-toggle="modal">Edit set membership</a>
     </p>
     <%= form.input :Set, 
       :input_html => {
         :value => "",
         :disabled => true,
-        :id => "set-name"
+        :id => set_name_field_id
     } %>
     <%= form.input parent_field_name.to_sym, :as => :hidden,
       :input_html => {
-        :value => eval("resource.#{parent_field_name}")
+        :value => parent_id
       } 
     %>
 </fieldset>
 <!-- Modal -->
-<div id="set-select-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="AdditionalMetadataLabel" aria-hidden="true">
+<div id="<%= set_select_modal_id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="AdditionalMetadataLabel" aria-hidden="true">
   <div class="modal-header">
      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3>Set selection</h3>
@@ -72,10 +53,10 @@
     <% if set_class == StructuralSet %>
       <p>Selecting a set from below will give the resource its permissions.</p>
     <% end %>
-    <div id="set-tree"></div>
+    <div id="<%= tree_div_id %>"></div>
   </div>
   <div class="modal-footer">
-    <button class="btn" aria-hidden="true" onclick="SelectSet()">Select</button>
+    <button class="btn" aria-hidden="true" onclick="SelectSet('#<%= tree_div_id %>', '#<%= set_name_field_id %>', '#<%= parent_field_id %>', '#<%= set_select_modal_id %>')">Select</button>
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
