@@ -4,7 +4,6 @@ class ExhibitsController < ApplicationController
 
   def index
     @exhibits = DisplaySet.find(params[:display_set_id]).children
-    debugger
     respond_to do |format|
       format.html
       format.json { render json: @exhibits}
