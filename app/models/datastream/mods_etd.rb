@@ -93,11 +93,21 @@
         t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
        }
 
-     
-      t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="creator"]' )
+      # These are generated to make easy solr fields for display
+      t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]' )
       t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:displayable, :facetable])
-     # t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
-     # t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
+
+      # Supervisor...
+      t.supervisor(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Supervisor"]')
+      t.supervisor_name(:proxy=>[:supervisor, :namePart], :index_as=>[:displayable, :facetable])
+
+      # Person Sponsor
+      t.person_sponsor(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Sponsor"]' )
+      t.person_sponsor_name(:proxy=>[:person_sponsor, :namePart], :index_as=>[:displayable, :facetable])
+
+      # Organisation Sponsor
+      t.sponsor(:ref=>:organisation, :path=>'name[./xmlns:role/xmlns:roleTerm="Sponsor"]' )
+      t.sponsor_name(:proxy=>[:sponsor, :namePart], :index_as=>[:displayable, :facetable])
 
 
       #Proxies for terminologies 

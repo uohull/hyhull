@@ -1,0 +1,16 @@
+<%# default partial to display solr document fields in catalog show view -%>
+<dl class="dl-horizontal dl-invert">
+  <% document_show_fields(document).each do |solr_fname, field| -%>
+    <% if should_render_show_field? document, field %>
+      <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>
+      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
+	<% end -%>
+	<% end -%>
+
+	<%= display_field(document, 'supervisor_name_ssm', 'Supervisor', 'supervisor_name_ssm') %>
+    <%= display_field(document, 'person_sponsor_name_ssm', 'Sponsor (person)', 'person_sponsor_name_ssm') %>
+	<%= display_field(document, 'sponsor_name_ssm', 'Sponsor (Organisation)', 'sponser_name_ssm') %>
+
+	<%= display_field(document, 'qualification_level_ssm', 'Qualification level', 'qualification_level_ssm') %>
+	<%= display_field(document, 'qualification_name_ssm', 'Qualification name', 'qualification_name_ssm') %>
+</dl>

@@ -1,0 +1,22 @@
+<%# default partial to display solr document fields in catalog show view -%>
+<dl class="dl-horizontal dl-invert">
+  <%= display_field(document, 'creator_name_ssm', 'Author', 'creator_name_ssm') %>
+  <% document_show_fields(document).each do |solr_fname, field| -%>
+    <% # We filter the creatpr out, because it is being displayed above with label author %>
+    <% unless field.label.downcase == "creator" %>
+	    <% if should_render_show_field? document, field %>
+        <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>
+	      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
+	    <% end -%>
+	  <% end %>
+  <% end -%>
+</dl>
+<h3>Journal</h3>
+<dl class="dl-horizontal dl-invert">
+  <%= display_field(document, 'journal_title_ssm', 'Journal title', 'journal_title_ssm') %>
+  <%= display_field(document, 'journal_article_doi_ssm', 'DOI', 'journal_article_doi_ssm') %>
+  <%= display_field(document, 'journal_volume_ssm', 'Volume', 'journal_volume_ssm') %>
+  <%= display_field(document, 'journal_issue_ssm', 'Issue', 'journal_issue_ssm') %>
+  <%= display_field(document, 'journal_start_page_ssm', 'Start page', 'journal_start_page_ssm') %>
+  <%= display_field(document, 'journal_end_page_ssm', 'End page', 'journal_end_page_ssm') %>
+</dl>

@@ -115,8 +115,9 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
     }
 
-     # t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
-     # t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
+    # These are generated to make easy solr fields for display
+    t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Author"]' )
+    t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:displayable, :facetable])
 
     #Proxies for terminologies
     # Removed due to issue with matching two fields

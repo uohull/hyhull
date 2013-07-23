@@ -85,19 +85,19 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('title', :stored_searchable, type: :string), :label => 'Title'
     config.add_show_field solr_name('creator_name', :displayable, type: :string), :label => 'Creator'
     config.add_show_field solr_name('creator_organisation_name', :displayable, type: :string), :label => 'Organisation Creator' 
+    config.add_show_field solr_name('contributor_name', :displayable, type: :string), :label => 'Contributor'  
     config.add_show_field solr_name('subject_topic', :displayable, type: :string), :label => 'Subject' 
-    config.add_show_field solr_name('rights', :displayable, type: :string), :label => 'Rights' 
+    config.add_show_field solr_name('rights', :displayable, type: :string), :label => 'Rights'
+    config.add_show_field solr_name('description', :displayable, type: :string), :label => 'Description'  
     config.add_show_field solr_name('abstract', :displayable, type: :string), :label => 'Abstract' 
-    config.add_show_field solr_name('person_name', :displayable, type: :string), :label => 'Contributors'
-    config.add_show_field solr_name('sponsor', :displayable, type: :string), :label => 'Sponsor'
     config.add_show_field solr_name('date_issued', :displayable, type: :string), :label => 'Date'
+    config.add_show_field solr_name('date_valid', :displayable, type: :string), :label => 'Date'
     config.add_show_field solr_name('language_text', :displayable, type: :string), :label => 'Language'
     config.add_show_field solr_name('publisher', :displayable, type: :string), :label => 'Publisher'
-    config.add_show_field solr_name('qualification_level', :displayable, type: :string), :label => 'Qualification level'
-    config.add_show_field solr_name('qualification_name', :displayable, type: :string), :label => 'Qualification name'
     config.add_show_field solr_name('extent', :displayable, type: :string), :label => 'Extent'
+    config.add_show_field solr_name('genre', :displayable, type: :string), :label => 'Resource type'
     config.add_show_field 'id', :label => 'Identifier'
-    
+
     config.add_show_field solr_name('title_vern', :stored_searchable, type: :string), :label => 'Title'
     config.add_show_field solr_name('subtitle', :stored_searchable, type: :string), :label => 'Subtitle:' 
     config.add_show_field solr_name('subtitle_vern', :stored_searchable, type: :string), :label => 'Subtitle:' 
@@ -110,6 +110,8 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('published_vern', :stored_searchable, type: :string), :label => 'Published:'
     config.add_show_field solr_name('lc_callnum', :stored_searchable, type: :string), :label => 'Call number:'
     config.add_show_field solr_name('isbn', :stored_searchable, type: :string), :label => 'ISBN:'
+
+
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

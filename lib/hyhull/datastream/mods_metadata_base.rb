@@ -29,7 +29,7 @@ module Hyhull::Datastream::ModsMetadataBase
       }
 
       # Description is stored in the 'abstract' field 
-      t.description(:path=>"abstract")
+      t.description(:path=>"abstract", :index_as=>[:displayable])
 
       # Subject element to store location/carts 
       t.location(:path=>"subject", :attributes=>{:ID=>"location"}) {
@@ -83,7 +83,7 @@ module Hyhull::Datastream::ModsMetadataBase
       }
 
       # Rights and identifiers
-      t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"})
+      t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"}, :index_as=>[:displayable])
       t.identifier(:attributes=>{:type=>"fedora"})
       t.related_private_object(:path=>"relatedItem", :attributes=>{:type=>"privateObject"}) {
         t.private_object_id(:path=>"identifier", :attributes=>{:type=>"fedora"})
@@ -117,8 +117,13 @@ module Hyhull::Datastream::ModsMetadataBase
         t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
       }
 
+      # Creator can be defined as a 'Creator/Photographer/Author...'
       t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Photographer" or ./xmlns:role/xmlns:roleTerm="Creator" or ./xmlns:role/xmlns:roleTerm="Author"]')
       t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:displayable, :facetable])
+
+      # Conttributor can be defined as a 'Sponsor/Supervisor...'
+      t.contributor(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Sponsor" or ./xmlns:role/xmlns:roleTerm="Supervisor" or ./xmlns:role/xmlns:roleTerm="Editor"]')
+      t.contributor_name(:proxy=>[:contributor, :namePart], :index_as=>[:displayable, :facetable])
 
       t.creator_organisation(:ref=>:organisation, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]')
       t.creator_organisation_name(:proxy=>[:creator_organisation, :namePart], :index_as=>[:displayable, :facetable])
@@ -128,18 +133,18 @@ module Hyhull::Datastream::ModsMetadataBase
       t.title(:proxy=>[:title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable])
       t.version(:proxy=>[:title_info, :part_name], :index_as=>[:displayable])      
       t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
-      t.subject_geographic(:proxy=>[:subject, :geographic])
-      t.subject_temporal(:proxy=>[:subject, :temporal])
-      t.location_coordinates(:proxy=>[:location, :cartographics, :coordinates])
-      t.location_label(:proxy=>[:location, :display_label])
-      t.location_coordinates_type(:proxy=>[:location, :coordinates_type])
+      t.subject_geographic(:proxy=>[:subject, :geographic], :index_as=>[:displayable])
+      t.subject_temporal(:proxy=>[:subject, :temporal], :index_as=>[:displayable])
+      t.location_coordinates(:proxy=>[:location, :cartographics, :coordinates], :index_as=>[:displayable])
+      t.location_label(:proxy=>[:location, :display_label], :index_as=>[:displayable])
+      t.location_coordinates_type(:proxy=>[:location, :coordinates_type], :index_as=>[:displayable])
 
       t.date_valid(:proxy=>[:origin_info, :date_valid], :index_as=>[:sortable, :displayable])
       t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable])
-      t.related_web_url(:proxy=>[:related_materials, :location, :primary_display])
+      t.related_web_url(:proxy=>[:related_materials, :location, :primary_display], :index_as=>[:displayable])
       t.publisher(:proxy=>[:origin_info, :publisher], :index_as=>[:displayable])
       t.extent(:proxy=>[:physical_description, :extent], :index_as=>[:displayable])
-      t.mime_type(:proxy=>[:physical_description, :mime_type])
+      t.mime_type(:proxy=>[:physical_description, :mime_type], :index_as=>[:displayable])
       t.digital_origin(:proxy=>[:physical_description, :digital_origin])
       
       # Removed due to issue with matching two fields

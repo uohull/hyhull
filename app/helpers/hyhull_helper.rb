@@ -190,4 +190,59 @@ module HyhullHelper
     end
   end
 
+  # display_field
+  def display_field(document, solr_fname, label_text='', html_class)
+     display_dt_dd_element(label_to_display(label_text), solr_field_value(document, solr_fname), html_class)
+  end
+
+  def display_field_as_link(document, solr_fname, label_text='', link_text, dd_class)
+    display_dt_dd_element(label_to_display(label_text), link(solr_field_value(document, solr_fname),  link_text) , html_class)
+  end
+
+  def display_encoded_html_field(document, solr_fname, label_text='', html_class)
+    display_dt_dd_element(label_to_display(label_text), return_unencoded_html_string(solr_field_value(document, solr_fname)), html_class)
+  end
+
+  private
+
+  def display_dt_dd_element(dt_value, dd_value, html_class)
+    if dd_value.length > 0
+      content_tag(:dt, dt_value, :class => blacklight_dd_class(html_class)) <<
+      content_tag(:dd, dd_value, :class => blacklight_dd_class(html_class))
+    end
+  end
+
+    
+  def solr_field_value(document, solr_fname)
+    if document.has? solr_fname
+      return render_index_field_value(:document => document, :field => solr_fname)
+    else 
+      return ""
+    end
+  end
+    
+  def label_to_display(label)
+    if label.to_s.length > 0
+      return label
+    else
+      return ""
+    end
+  end
+
+  def blacklight_dd_class(dd_class)
+    if dd_class.to_s.length > 0
+      return "blacklight-#{dd_class}"
+    else
+      return ""
+    end
+  end
+
+  def return_unencoded_html_string(value) 
+    value.to_s.gsub(/&lt\;/, "<").gsub(/&gt\;/, ">").html_safe
+  end
+
+  def link(url, text) 
+    link_to text.to_s, url.to_s
+  end
+
 end

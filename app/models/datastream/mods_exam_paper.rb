@@ -54,8 +54,8 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
 
 
     # Model specifics exam paper related information
-    t.exam_level(:path=>"note", :attributes=>{:type=>"examinationLevel"})
-    t.additional_notes(:path=>"note", :attributes=>{:type=>"additionalNotes"})    
+    t.exam_level(:path=>"note", :attributes=>{:type=>"examinationLevel"}, :index_as=>[:displayable])
+    t.additional_notes(:path=>"note", :attributes=>{:type=>"additionalNotes"}, :index_as=>[:displayable])    
 
     t.module(:path=>"relatedItem", :attributes=>{:ID=>"module"}) {
       t.name(:path=>"identifier", :attributes=>{:type=>"moduleName"})
@@ -75,7 +75,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
 
 
     # Rights and identifiers
-    t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"})
+    t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"}, :index_as=>[:displayable])
     t.identifier(:attributes=>{:type=>"fedora"})
     t.related_private_object(:path=>"relatedItem", :attributes=>{:type=>"privateObject"}) {
       t.private_object_id(:path=>"identifier", :attributes=>{:type=>"fedora"})
@@ -96,7 +96,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
       t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
     }
 
-    t.department(:ref=>:organisation, :path=>'name[./xmlns:role/xmlns:roleTerm="creator"]' )
+    t.department(:ref=>:organisation, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]' )
     t.department_name(:proxy=>[:department, :namePart], :index_as=>[:displayable, :facetable])
      # t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
      # t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
@@ -118,8 +118,8 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
     t.language_code(:proxy=>[:language, :lang_code])
 
     t.module_name(:proxy=>[:module,:name])
-    t.module_code(:proxy=>[:module, :code])
-    t.module_display(:proxy=>[:module, :combined_display], :index_as=>[:facetable])
+    t.module_code(:proxy=>[:module, :code], :index_as=>[:facetable])
+    t.module_display(:proxy=>[:module, :combined_display], :index_as=>[:displayable, :facetable])
     t.department_name(:proxy=>[:organisation, :namePart], :index_as=>[:displayable])
 
   end
