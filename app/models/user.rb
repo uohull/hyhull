@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
  has_and_belongs_to_many :roles
 # Connects this user object to Hydra behaviors. 
- include Hydra::User
+ include Hydra::User# Connects this user object to Role-management behaviors. 
+ include Hydra::RoleManagement::UserRoles
+
 # Connects this user object to Blacklights Bookmarks. 
  include Blacklight::User
   # Include default devise modules. Others available are:
@@ -22,9 +24,9 @@ class User < ActiveRecord::Base
     username
   end
 
-  def groups
-    RoleMapper.roles(user_key)
-  end
+  # def groups
+  #   RoleMapper.roles(user_key)
+  # end
 
   private
 

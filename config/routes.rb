@@ -5,6 +5,8 @@ Hyhull::Application.routes.draw do
   HydraHead.add_routes(self)
 
   devise_for :users
+  mount Hydra::RoleManagement::Engine => '/'
+
 
   resources :assets
   resources :uketd_objects
