@@ -53,6 +53,7 @@ GEM
       activesupport (>= 2.0)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
+    bootstrap_forms (4.0.0)
     builder (3.0.4)
     cancan (1.6.10)
     capybara (2.0.3)
@@ -137,6 +138,9 @@ GEM
       hydra-access-controls (= 6.3.1)
       hydra-core (= 6.3.1)
       rails (>= 3.2.6)
+    hydra-role-management (0.0.2)
+      bootstrap_forms
+      cancan
     i18n (0.6.1)
     jettywrapper (1.4.1)
       activesupport (>= 3.0.0)
@@ -296,6 +300,7 @@ PLATFORMS
 DEPENDENCIES
   blacklight (= 4.1.0)
   bootstrap-sass
+  bootstrap_forms
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
@@ -305,6 +310,7 @@ DEPENDENCIES
   devise_cas_authenticatable (~> 1.2.0)
   factory_girl_rails
   hydra-head (~> 6.3.1)
+  hydra-role-management (~> 0.0.2)
   jettywrapper
   jquery-rails
   rails (= 3.2.13)

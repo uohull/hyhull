@@ -11,6 +11,7 @@ gem 'rails', '3.2.13'
 #We still need the blacklight/hydra-head reference
 gem 'blacklight', '4.1.0'
 gem "hydra-head", "~> 6.3.1"
+gem 'hydra-role-management', '~> 0.0.2'
 
 #State machine
 gem 'state_machine', '~> 1.2.0'
@@ -75,3 +76,4 @@ gem "unicode", :platforms => [:mri_18, :mri_19]
 gem "devise"
 gem "devise-guests", "~> 0.3"
 gem "bootstrap-sass"
+gem "bootstrap_forms"

@@ -13,12 +13,12 @@ Given /^I am logged in as "([^\"]*)"$/ do |username|
   ActiveRecord::Base.connection.execute("INSERT INTO person (User_name, Forename, Surname, EmailAddress, type, DepartmentOU, SubDepartmentCode) VALUES ('bigwig', 'bigwig', 'user', 'bigwig@example.com', 'staff', 'Dep', 'SubDep')")
 
   #Insert all the roles into DB
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name, description, created_at, updated_at) VALUES ('contentAccessTeam', 'contentAccessTeam', #{today}, #{today})")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name, description, created_at, updated_at) VALUES ('staff', 'staff', #{today}, #{today})")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name, description, created_at, updated_at) VALUES ('student', 'student', #{today}, #{today})")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name, description, created_at, updated_at) VALUES ('archivist', 'archivist', #{today}, #{today})")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name, description, created_at, updated_at) VALUES ('guest', 'guest', #{today}, #{today})")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name, description, created_at, updated_at) VALUES ('researcher', 'researcher', #{today}, #{today})")
+  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('contentAccessTeam')")
+  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('staff')")
+  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('student')")
+  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('archivist')")
+  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('guest')")
+  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('researcher')")
 
   #Get the relevant reference to the role...
   if username.include? "staff"
