@@ -1,5 +1,12 @@
-module Hyhull::Controller::ControllerBehaviour 
+module Hyhull::Controller::ControllerBehaviour
+  extend ActiveSupport::Concern
 
+  included do
+     # Add the CanCan load_and_authorize_resource to Controllers including this...
+     # See https://github.com/ryanb/cancan/wiki/Authorizing-Controller-Actions  
+     load_and_authorize_resource
+  end
+ 
   def changed_fields(params)
     changes = Hash.new
     return changes if params[:document_fields].nil?
