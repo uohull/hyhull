@@ -5,10 +5,7 @@
     include Hydra::Ability
     include Hydra::PolicyAwareAbility
 
-    # Overriden initialize to add admin ability for 'Role'
-    def initialize(user, session=nil)
-      super(user, session)
-
+    def custom_permissions
       if @current_user.admin?
         can [:create, :show, :add_user, :remove_user, :index], Role
       end
