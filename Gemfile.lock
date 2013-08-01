@@ -166,6 +166,7 @@ GEM
     mediashelf-loggable (0.4.9)
     mime-types (1.22)
     multi_json (1.7.2)
+    mysql2 (0.3.13)
     nokogiri (1.5.9)
     nom-xml (0.5.1)
       activesupport
@@ -313,6 +314,7 @@ DEPENDENCIES
   hydra-role-management (~> 0.0.2)
   jettywrapper
   jquery-rails
+  mysql2
   rails (= 3.2.13)
   rspec-rails
   rubytree (~> 0.8.3)

@@ -96,7 +96,8 @@ namespace :hyhull do
     }
     jetty_params = Jettywrapper.load_config.merge(jetty_params)
 
-    Rake::Task["db:migrate"].invoke   
+    Rake::Task["db:migrate"].invoke
+    Rake::Task["db:seed"].invoke      
     
     error = Jettywrapper.wrap(jetty_params) do
       puts "Refreshing fixtures in test fedora/solr"

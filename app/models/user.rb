@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :remember_me, :username
   # attr_accessible :title, :body
 
-  before_save :get_user_attributes
+  before_save :update_user_attributes
 
   # Method added by Blacklight; Blacklight uses #to_s on your
   # user class to get a user-displayable login/identifier for
@@ -24,53 +24,75 @@ class User < ActiveRecord::Base
     username
   end
 
-  # def groups
-  #   RoleMapper.roles(user_key)
-  # end
+  # Override Hydra::RoleManagement::UserRoles to return the groups plus combined_user_organisation_roles
+  # Utilised to enable permissions to be targeted at department/faculity user type level..  
+  def groups 
+    combined_roles = get_combined_user_organisation_roles
+    super().concat(combined_roles)   
+  end 
 
   private
 
-  def get_user_attributes
+  # Updates the user attributes based upon the Person record (People table)
+  # Person attributes utilised include - email_address, user_type, department_ou, and faculty_code 
+  # user_type, department_ou, and faculty_code are used to create different roles for the user
+  def update_user_attributes
+    unless username.to_s.empty?
+      person = Person.person_by_username(username)
 
-    unless username.nil? || username.empty?
-      person = ActiveRecord::Base.connection.select_one("SELECT * FROM person WHERE person.user_name='" + username.to_s + "'")
+      # Update the e-mail address if required... 
+      self.email = person.email_address unless self.email == person.email_address
 
-      user_type = "guest"
-      email  = "guest@hydraathull.ac.uk"
+      # Roles generated from the Person fields, user/department/faculty roles are all 
+      # different RoleTypes
+      user_role = Role.match_user_role_by_name(person.user_type)
+      department_role = Role.match_department_role_by_name(person.department_ou)
+      faculty_role = Role.match_faculty_role_by_name(person.faculty_code)
 
-      unless person.nil?
-        user_type = person["type"] unless person["type"].nil?
-        email = person["EmailAddress"] unless person["EmailAddress"].nil? 
-      end
-
-      self.email = email
-      update_user_role(user_type)
+      # Only update the role if it doesn't match the currently stored role.
+      update_role(user_role) unless self.roles.include?(user_role)
+      update_role(department_role) unless self.roles.include?(department_role)
+      update_role(faculty_role) unless self.roles.include?(faculty_role)
     end
   end
 
-  def update_user_role (user_type)
-   #If the role exists in the local database use it (staff/student/guest), otherwise turn to guest... 
-   #Later throw exception, log, and set to guest... 
-   if Role.find_or_initialize_by_name(user_type).persisted? then role =  Role.find_or_initialize_by_name(user_type) else role = Role.find_or_initialize_by_name("guest") end
-
-   #Does this role exist in the current table...
-   if !self.roles.include?(role)
-     #If the self has roles in it already delete older roles from self     
-     if !self.roles.empty? then delete_standard_roles_from_user end     
-     self.roles << role 
-   end
-  end
-
-  #Use this method to remove all staff/student/guest roles from a user
-  def delete_standard_roles_from_user
-    standard_roles = []
-    ["staff", "student", "guest"].each {|r| standard_roles << Role.find_or_initialize_by_name(r) } 
-
+  # Update the role
+  # Roles of the same type 'department_ou' role will be deleted first 
+  # and then the new role added.  
+  def update_role(new_role)    
     self.roles.each do |role|
-      if standard_roles.include?(role)
-        #delete the role
-        self.roles.delete(role)
-      end
-    end   
+      self.roles.delete(role) if role.role_type == new_role.role_type
+    end
+    self.roles << new_role
   end
+
+  # Returns a combined role of the user_type and the organisation (department_role/faculity_role)
+  # example
+  # User with "staff" user_role, "IT" department_ou_role and "123" faculty_code will return:-
+  # ["IT_staff", "123_staff"]
+  def get_combined_user_organisation_roles
+    combined_roles = []
+
+    user_role = role_of_type(RoleType.user_role_type)
+    faculty_role = role_of_type(RoleType.faculty_code_role_type)
+    department_role = role_of_type(RoleType.department_ou_role_type)
+
+    combined_roles << "#{faculty_role.name}_#{user_role.name}" unless faculty_role.nil? 
+    combined_roles << "#{department_role.name}_#{user_role.name}" unless department_role.nil? 
+
+    return combined_roles
+  end
+
+  # Returns the role for a user based upon a type
+  # role_type = RoleType
+  def role_of_type(role_type)
+    role_of_type = nil
+
+    self.roles.each do |role| 
+      role_of_type = role if (role.role_type == role_type)
+    end
+
+    return role_of_type
+  end
+
 end
