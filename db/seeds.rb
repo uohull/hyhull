@@ -16,7 +16,6 @@ RoleType.delete_all
 # hyhull: hyhull application specific role types
 # user: user role types generally 'staff/student/guest'
 # department_ou/faculty_code
-debugger
 ["hyhull", "user", "department_ou", "faculty_code"].each {|rt| RoleType.create(name: rt)}
 
 
