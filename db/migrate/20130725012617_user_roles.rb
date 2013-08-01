@@ -1,7 +1,12 @@
 class UserRoles < ActiveRecord::Migration
   def up
+    create_table :role_types do |t|
+      t.string :name
+    end
     create_table :roles do |t|
       t.string :name
+      t.string :description 
+      t.belongs_to :role_type
     end
     create_table :roles_users, :id => false do |t|
       t.references :role
@@ -14,5 +19,6 @@ class UserRoles < ActiveRecord::Migration
   def down
     drop_table :roles_users
     drop_table :roles
+    drop_table :role_types
   end
 end

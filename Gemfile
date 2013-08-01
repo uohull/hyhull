@@ -20,6 +20,7 @@ gem 'state_machine', '~> 1.2.0'
 gem "simple_form", "~> 2.1.0"
 
 gem 'sqlite3'
+gem 'mysql2'
 
 #devise_cas_authenticable is used to enable CAS integration
 gem 'devise_cas_authenticatable', '~> 1.2.0'

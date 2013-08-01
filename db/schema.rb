@@ -22,18 +22,24 @@ ActiveRecord::Schema.define(:version => 20130725012617) do
     t.string   "user_type"
   end
 
-  create_table "person", :force => true do |t|
-    t.string "User_name"
-    t.string "Forename"
-    t.string "Surname"
-    t.string "EmailAddress"
-    t.string "type"
-    t.string "DepartmentOU"
-    t.string "SubDepartmentCode"
+  create_table "people", :force => true do |t|
+    t.string "username"
+    t.string "given_name"
+    t.string "family_name"
+    t.string "email_address"
+    t.string "user_type"
+    t.string "department_ou"
+    t.string "faculty_code"
+  end
+
+  create_table "role_types", :force => true do |t|
+    t.string "name"
   end
 
   create_table "roles", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.string  "description"
+    t.integer "role_type_id"
   end
 
   create_table "roles_users", :id => false, :force => true do |t|

@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   before_save :get_user_attributes
+  before_save :update_user_attributes
+
 
   # Method added by Blacklight; Blacklight uses #to_s on your
   # user class to get a user-displayable login/identifier for
@@ -30,7 +32,33 @@ class User < ActiveRecord::Base
 
   private
 
+  def update_user_attributes
+    unless username.to_s.empty?
+      person = Person.person_by_username(username)
+
+     
+
+
+  end
+
+  def update_roles_users(person_roles)
+    #If the role exists in the local database use it (staff/student/guest), otherwise turn to guest... 
+    #Later throw exception, log, and set to guest... 
+    if Role.find_or_initialize_by_name(user_type).persisted? then role =  Role.find_or_initialize_by_name(user_type) else role = Role.find_or_initialize_by_name("guest") end
+
+  end
+
+
   def get_user_attributes
+
+    
+    # Checks for empty string (nil.to_s = "")
+    unless username.to_s.empty?
+      person = Person.person_by_username(username)
+      
+
+
+    end
 
     unless username.nil? || username.empty?
       person = ActiveRecord::Base.connection.select_one("SELECT * FROM person WHERE person.user_name='" + username.to_s + "'")
