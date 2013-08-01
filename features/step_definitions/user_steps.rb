@@ -1,26 +1,10 @@
 Given /^I am logged in as "([^\"]*)"$/ do |username|
-  #user = User.create(:email => email, :password => "password", :password_confirmation => "password")
-  #User.find_by_email(email).should_not be_nil
 
   email = "#{username}@example.com"
   today = Date.today 
-	
-  #Insert the all the possible test users into DB
-  ActiveRecord::Base.connection.execute("INSERT INTO person (User_name, Forename, Surname, EmailAddress, type, DepartmentOU, SubDepartmentCode) VALUES ('contentaccessteam1', 'content', 'team', 'contentAccessTeam1@example.com', 'staff', 'Dep', 'SubDep')")
-  ActiveRecord::Base.connection.execute("INSERT INTO person (User_name, Forename, Surname, EmailAddress, type, DepartmentOU, SubDepartmentCode) VALUES ('staff1', 'staff', 'user', 'staff1@example.com', 'staff', 'Dep', 'SubDep')")
-  ActiveRecord::Base.connection.execute("INSERT INTO person (User_name, Forename, Surname, EmailAddress, type, DepartmentOU, SubDepartmentCode) VALUES ('student1', 'student', 'user', 'student1@example.com', 'student', 'Dep', 'SubDep')")
-  ActiveRecord::Base.connection.execute("INSERT INTO person (User_name, Forename, Surname, EmailAddress, type, DepartmentOU, SubDepartmentCode) VALUES ('archivist1', 'archivist', 'user', 'archivist1@example.com', 'archivist', 'Dep', 'SubDep')")
-  ActiveRecord::Base.connection.execute("INSERT INTO person (User_name, Forename, Surname, EmailAddress, type, DepartmentOU, SubDepartmentCode) VALUES ('bigwig', 'bigwig', 'user', 'bigwig@example.com', 'staff', 'Dep', 'SubDep')")
 
-  #Insert all the roles into DB
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('contentAccessTeam')")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('staff')")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('student')")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('archivist')")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('guest')")
-  ActiveRecord::Base.connection.execute("INSERT INTO roles (name) VALUES ('researcher')")
-
-  #Get the relevant reference to the role...
+  # Test users set in db/seeds.rb
+  #Get the relevant reference to the roles...
   if username.include? "staff"
     role = Role.find_or_initialize_by_name("staff")
   elsif username.include? "student"
@@ -33,8 +17,7 @@ Given /^I am logged in as "([^\"]*)"$/ do |username|
    role = Role.find_or_initialize_by_name("guest")
   end
 
-  #Create the user
-  @current_user = User.create!(:username => username, :email => email)
+  @current_user = User.create!(:username => username, :email => email)  
   #Add the role
   @current_user.roles = [role]
   User.find_by_email(email).should_not be_nil

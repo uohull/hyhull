@@ -25,8 +25,12 @@ describe RoleMapper do
 
   end
 
- it "should define the 7 roles" do  
-   RoleMapper.role_names.sort.should == %w(committeeSection contentAccessTeam contentCreator engineering guest staff student) 
+ it "should define the 5 roles" do  
+   RoleMapper.role_names.include?("contentAccessTeam").should be_true
+   RoleMapper.role_names.include?("contentCreator").should be_true
+   RoleMapper.role_names.include?("guest").should be_true
+   RoleMapper.role_names.include?("staff").should be_true
+   RoleMapper.role_names.include?("student").should be_true
  end
 
  it "should queryable for roles for a given user" do
