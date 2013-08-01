@@ -5,21 +5,6 @@ class Person < ActiveRecord::Base
    return self.where(username: username).first || NullPerson.new
   end
 
-  # Returns a list of groups the person belongs to..
-  # This is made up of the department_ou, faculty and user_type
-  def groups
-    groups = []
-    groups << user_type unless user_type.to_s.empty?
-    groups.concat(department_ou_groups)
-    groups.concat(faculty_code_groups)
-
-    # if no groups returned, add guest...
-    groups << "guest" if groups.empty? 
-    return groups;
-  end
-
-  private
-
   def department_ou_groups
     department_ou_groups = []
     department_ou_groups << department_ou unless department_ou.to_s.empty?
@@ -32,18 +17,30 @@ class Person < ActiveRecord::Base
     faculty_code_groups << combined_groups_string(faculty_code, user_type) unless faculty_code.to_s.empty? || user_type.to_s.empty? 
   end
 
+
+  private
+
   def combined_groups_string(group1="", group2="")
     "#{group1}_#{group2}"
   end
 end
 
-
+# NullPerson (NullObjectPattern)
 class NullPerson
-  def groups 
-    ["guest"]
+  def user_type
+    "guest"
+  end
+
+  def department_ou_groups 
+    []
+  end
+
+  def faculty_code_groups
+    []
   end
   
   def email_address 
     "no email"
   end
+
 end
