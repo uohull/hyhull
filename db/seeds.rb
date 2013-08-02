@@ -23,11 +23,15 @@ RoleType.delete_all
 [{ name:"contentAccessTeam", description: "Content access team role"}, 
   { name:"contentCreator", description: "Content creator role"},
   { name: "admin", description: "Admin role" }
-].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.where(name:"hyhull").first) }
+].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("hyhull")) }
 
 # Seed the user roles
 [{ name:"staff", description: "University staff role"},
  { name:"student", description: "University student role"},  
   { name:"guest", description: "University guest role"}
-].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.where(name:"user").first) }
+].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("user")) }
 
+# Add a test record to people
+if Rails.env.test?
+  ActiveRecord::Base.connection.execute("INSERT INTO people (username, given_name, family_name, email_address, user_type, department_ou, faculty_code) VALUES ('contentAccessTeam1', 'content', 'team', 'contentAccessTeam1@example.com', 'contentAccessTeam', 'Dep', 'SubDep')")
+end

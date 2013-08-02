@@ -1,3 +1,9 @@
+# This ActiveRecord class is used to store the Roles
+# Role includes the attributes: name, description, role_type
+# Roles include hyhull application roles, user_type roles,
+# department/faculty roles etc..
+# All of these can be assigned to a user and used for permissions 
+# based authorisation
 class Role < ActiveRecord::Base
   has_and_belongs_to_many :users
   belongs_to :role_type
@@ -9,22 +15,34 @@ class Role < ActiveRecord::Base
     format: { with: /\A[a-zA-Z0-9._-]+\z/,
       :message => "Only letters, numbers, hyphens, underscores and periods are allowed"}
 
-
+  # Matches a user_role type
+  # Returns an instance of Role based upon a string role_name 
+  # If no match is found, guest is the default usertype role
   def self.match_user_role_by_name(role_name)
-    role_record = self.find_or_initialize_by_name_and_role_type_id(role_name, RoleType.user_role_type.id)
+    role_record = self.match_role_by_name(role_name, RoleType.user_role_type)
     role_record.persisted? ? role_record : self.find_or_initialize_by_name_and_role_type_id(self.default_role, RoleType.user_role_type.id)
   end
 
-  def self.match_department_roles_by_names(role_names)
-  	self.match_roles_by_names(role_names, RoleType.department_ou_role_type) 
+  # Matches a department_role type
+  # Returns an instance of Role based upon a string role_name  
+  def self.match_department_role_by_name(role_name)
+    self.match_role_by_name(role_name, RoleType.department_ou_role_type)
   end
 
-  def self.match_faculty_roles_by_names(role_names)
-  	self.match_roles_by_names(role_names, RoleType.faculty_code_role_type) 
+  # Matches a faculty_role type
+  # Returns an instance of Role based upon a string role_name  
+  def self.match_faculty_role_by_name(role_name)
+    self.match_role_by_name(role_name, RoleType.faculty_code_role_type)
   end
 
-  private 
+  private
 
+  # Returns an instance of Role based upon role_name and role_type
+  def self.match_role_by_name(role_name, role_type)
+    role_record = self.find_or_initialize_by_name_and_role_type_id(role_name, role_type.id)
+  end 
+
+  # Returns an array of Role instances based upon role_names array and role_type
   def self.match_roles_by_names(role_names, role_type)
   	roles = []
   	unless role_names.empty?
@@ -36,6 +54,7 @@ class Role < ActiveRecord::Base
   	return roles
   end
 
+  # Default role used for user_type  RoleTypes 
   def self.default_role
     "guest"
   end
