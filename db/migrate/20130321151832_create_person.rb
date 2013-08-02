@@ -11,10 +11,6 @@ class CreatePerson < ActiveRecord::Migration
         t.string :faculty_code
       end
   	end
-
-  	if Rails.env.test?
-  		   ActiveRecord::Base.connection.execute("INSERT INTO people (username, given_name, family_name, email_address, user_type, department_ou, faculty_code) VALUES ('contentAccessTeam1', 'content', 'team', 'contentAccessTeam1@example.com', 'contentAccessTeam', 'Dep', 'SubDep')")
-  	end
   end
 
   def down 
