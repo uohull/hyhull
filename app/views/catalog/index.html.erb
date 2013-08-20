@@ -1,50 +1,35 @@
 <div class="row-fluid">
-  <div id="sidebar" class="span3">
-  <div class="sidebar-nav well" id="sidebar-nav">
-   <%= render :partial=>'facets' %>
-  </div><!--/well -->
-</div><!--/span -->
+  <div id="content" class="span11">
+    <div class="page-gutter">
+      <% unless has_search_parameters? %>
+        <%# if there are no input/search related params, display the "home" partial -%>
+          <%= render 'home' %>
+        <% else %>
+          <% @page_title = t('blacklight.search.title', :application_name => application_name) %>
+          <% extra_head_content << render_opensearch_response_metadata.html_safe %>
+          <%= render :partial => 'did_you_mean' %>
 
-<div id="content" class="span13">
-  <div class="page-gutter">
-    <% unless has_search_parameters? %>
-      <%# if there are no input/search related params, display the "home" partial -%>
-        <%= render 'home' %>
-      <% else %>
-        <% @page_title = t('blacklight.search.title', :application_name => application_name) %>
-        <% extra_head_content << render_opensearch_response_metadata.html_safe %>
-        <%= render :partial => 'did_you_mean' %>
+          <% topbar_items << capture do %>
+            <%= render 'constraints', :localized_params=>params %>
+        <% end %>
 
-        <% topbar_items << capture do %>
-          <%= render 'constraints', :localized_params=>params %>
+        <%= render 'sort_and_per_page' %>
+
+        <%= render 'results_pagination_top' %>
+        <%= render :partial => 'document_list' %>
+
+        <% sidebar_items << capture do %>
+        <%= render :partial=>'facets' %>
       <% end %>
 
-      <%= render 'sort_and_per_page' %>
-
-      <% #The pagination information is another bootstrap 'row' -%>
-      <div class="row-fluid">
-         <div class="span12">
-            <div class="pageEntriesInfo hidden-phone">
-              <%= render_pagination_info @response, :entry_name=>'item' %>
-              <%=link_to "(#{t('blacklight.search.start_over')})", root_path , :id=>"startOverLink" %>
-            </div>
-            <div class="pageEntriesInfo visible-phone phone-margins">
-              <%= render_pagination_info @response, :entry_name=>'item' %>
-              <%=link_to "(#{t('blacklight.search.start_over')})", root_path , :id=>"startOverLink" %>
-            </div>
-          </div>
-      </div>
-
-      <%= render 'results_pagination_top' %>
-      <%= render :partial => 'document_list' %>
-
-      <% sidebar_items << capture do %>
-      <%= render :partial=>'facets' %>
-    <% end %>
-
-    <%= render 'results_pagination' %>
-    
-    <% end %>
+      <%= render 'results_pagination' %>
+      
+      <% end %>
+    </div>
   </div>
-</div>
+  <div id="sidebar" class="span5">
+    <div class="sidebar-nav well" id="sidebar-nav">
+     <%= render :partial=>'facets' %>
+    </div>
+  </div>
 </div>

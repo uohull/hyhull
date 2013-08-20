@@ -1,0 +1,11 @@
+<div id="sortAndPerPage">
+
+   <div class="page_links">
+     <h3>Results <small><%= render :partial => "paginate_compact" %> <%=link_to "(#{t('blacklight.search.start_over')})", root_path , :id=>"startOverLink" %></small>
+     </h3>
+   </div>
+    <%= render :partial => 'sort_widget' %>
+
+    <%= render :partial => 'per_page_widget' %>
+
+</div>

@@ -1,3 +1,10 @@
+/* bootstrap variable overrides */
+$gridColumns: 16;
+$gridGutterWidth: 10px;
+$gridGutterWidth768: 10px;
+$gridGutterWidth1200: 10px;
+
+/* site */
 $primarycolor: #CB812A;
 $primarycolordark: #804f1b;
 $altcolor: #4E9799;
@@ -7,6 +14,23 @@ $neutralcolorlight: #ccc;
 $primarylinkcolor: $altcolor;
 $primarylinkhovercolor: $neutralcolordark;
 $formMaxWidth: 1200px;
+
+/* tiles */
+$greenishblue: #4e9799;
+$cleanwhite: #fff;
+$lightgrey: #ebebeb;
+$lightblue: #5bc0de;
+$lightlink: #fff;
+$darklink: #000;
+$tiletransparency: 0.94;
+
+/* highlighters */
+$selectedtextcolor: #b94a48;
+$alertcolor: #4E9799;
+$errorcolor: #b94a48;
+$noticecolor: #4E9799;
+$infocolor: #4E9799;
+
 
 
 body {
@@ -25,6 +49,7 @@ h2
 {
     font-size: 26px !important;
     line-height: normal !important;
+
 }
 
 h3 
@@ -41,6 +66,12 @@ a {
     &:hover { color: #333; }
 }
 
+.page-wrapper {
+  margin-bottom: 330px;
+  position: relative;
+  z-index: 1
+}
+
 #form-container{
   margin: auto;
   max-width: $formMaxWidth;
@@ -49,6 +80,11 @@ a {
 
 .string {
     font-size: 12px;
+}
+
+.vertical-divider {
+    border-right: 1px dotted #CCCCCC;
+    margin: 0 0.75em 0 0.55em
 }
 
 .row-spacer 
@@ -73,12 +109,23 @@ a {
 #background-container {
   background-image: url("/assets/hyhull/temp-backg2.jpg");
   width: 100%;
+
+  box-shadow: 0 10px 10px -2px #090909;
+    min-height: 814px;
+    padding-bottom: 24px;
+    position: relative;
 }
 
 #background-container-form
 {
    background: #fff;
    width: 100%;
+
+    box-shadow: 0 10px 10px -2px #090909;
+    min-height: 814px;
+    padding-bottom: 24px;
+    position: relative;
+
 }
 
 /* navbar fixes */
@@ -150,9 +197,17 @@ a {
 
 /* footer */
 
+footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    z-index: -20;
+}
+
 #footer-container {
     color: #999;
-    background-color: #0d0d0d;
+    /*background-color: #0d0d0d;*/
+    background-color: #1f1f1f;
     padding-top: 2em;
 }
 
@@ -237,13 +292,6 @@ a {
 }
 
 /* tiles */
-$greenishblue: #4e9799;
-$cleanwhite: #fff;
-$lightgrey: #ebebeb;
-$lightblue: #5bc0de;
-$lightlink: #fff;
-$darklink: #000;
-$tiletransparency: 0.94;
 
 @function tile-transparency($tile-color) {
 	@return rgba($tile-color, $tiletransparency)
@@ -342,7 +390,7 @@ $tiletransparency: 0.94;
 }
 
 .sidenav {
-    background-color: whitesmoke;
+    background-color: #fff;
     border: 0 none;
     box-shadow: none;
     .facet_limit:last-child > h5 {
@@ -362,23 +410,199 @@ $tiletransparency: 0.94;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
 }
 
+/* facets */
+
 
 #facets {
-	li { a { &:hover { background: transparent;} } }
+	li { 
+    margin-right: 0;
+    padding: 0.5em 1em;
+    background: transparent;
+    color: #333;
+    font-size: 90%;
+    a {
+      color: #333;
+      text-shadow:0px 1px 0px #efefef;
+      &:hover { background: transparent;} 
+   }
+   .count {
+    float: right;
+    margin-right: 0;
+    text-shadow:0px 1px 0px #fff;
+    }
+  }
+  li:hover {
+    transition: all 0.2s ease-in-out 0s;
+    background-color: lighten($neutralcolorlight, 5%);
+  }
+  ul {
+    padding-top: 0em;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+  span.selected {
+    color: $selectedtextcolor;
+    text-shadow:0px 1px 0px #efefef;
+  }
+  h3 {
+    padding-left: 0.5em;
+  }
 }
 
-#facets span.selected {
-    color: $primarycolordark;
+.facet_limit ul {
+  background-color: #efefef;
 }
 
-.css-dropdown li, .css-dropdown li:hover, .css-dropdown li.hovering {
-	border-radius: 0 0 0 0;
+.facets-collapse .facet_limit h5:hover {
+  transition: all 0.2s ease-in-out 0s;
+  background-color: lighten($neutralcolorlight, 5%);
+  text-shadow:0px 1px 0px #efefef;
 }
+
+#facets ul, #facets h5 + div {
+    padding-bottom: 0;
+}
+
+
+#sidebar .well, #sidebar .constraints-container, #sidebar {
+    padding: 0;
+}
+
+.well, .constraints-container {
+    border: 0;
+}
+
+.constraints-container, #sortAndPerPage {
+    background-color: transparent;
+    border: 0;
+}
+
+#facets div.facet_limit {
+    clear: both;
+    margin: 1em 0;
+    background: none repeat scroll 0 0 #efefef;
+}
+
+.sidenav h5 {
+  border: none;
+}
+
+
+
+
+
+/* sort and per page */
+
+#sortAndPerPage {
+box-shadow: none;
+padding: 0;
+  }
+
+.css-dropdown {
+  margin: 0.65em 0 0 0;
+  li {
+    padding: 2px 4px;
+  }
+}
+
+
+
+/* document */
+
+#document {
+ margin-top: 0;
+ padding: 0 1em;
+ h1 {
+  font-size: 26px;
+  padding-bottom: 1em;
+ }
+}
+
+.documentHeader{ 
+  h3 
+  { color: #333;
+    a { color: inherit; }
+  }
+}
+
+.document-controls {
+  padding: 0 1em 1em;
+}
+
+.document-view {
+  transition: all 0.2s ease-in-out 0s;
+  border-bottom: none; 
+  padding: 0 1em 0.75em;
+  margin-top: 0em;
+  &:hover { background-color: whitesmoke;}
+  dd {
+    padding-bottom: 0;
+  }
+  dl-invert dt {
+      clear: both;
+      margin-bottom: 0.25em;
+  }
+
+  .dl-horizontal dt {
+      clear: left;
+      float: left;
+      overflow: hidden;
+      text-align: left;
+  }
+
+  .dl-horizontal dd {
+      margin-left: 0;
+  }
+
+  dl {
+    margin-bottom: 0.5em;
+}
+
+.dl-horizontal dt {
+    width: calc(18% + 10px);
+}
+
+}
+
+.show-document .document {
+background: transparent;
+  .dl-invert dt {
+      clear: both;
+      margin-bottom: 0.25em;
+  }
+
+  .dl-horizontal dt {
+      clear: left;
+      float: left;
+      overflow: hidden;
+      text-align: left;
+  }
+
+  .dl-horizontal dd {
+      
+  }
+  dd {
+    clear: both;
+    margin-left: 0;
+    padding-bottom: 2em;
+  }
+}
+
+
+/* side nav */
+
+.nav-list {
+    margin-bottom: 0;
+    padding-bottom: 2em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
 
 /* flash message */
 .flash-message-container {
     padding: 1em;
-    background: #4E9799;
+    background: $alertcolor;
     color: #fff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     border: 0;
@@ -387,7 +611,7 @@ $tiletransparency: 0.94;
 
 .flash-message-container.alert-info {
     padding: 1em;
-    background: #4E9799;
+    background: $infocolor;
     color: #fff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     border: 0;
@@ -396,7 +620,7 @@ $tiletransparency: 0.94;
 
 .flash-message-container.alert-error {
     padding: 1em;
-    background: #b94a48;
+    background: $errorcolor;
     color: #fff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     border: 0;
@@ -405,7 +629,7 @@ $tiletransparency: 0.94;
 
 .flash-message-container.alert-notice {
     padding: 1em;
-    background: #4E9799;
+    background: $noticecolor;
     color: #fff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     border: 0;
@@ -455,14 +679,87 @@ $tiletransparency: 0.94;
   *background-color: #003bb3;
 }
 
-/* temp */
-.img-container200 {
+
+
+/* thumbnails */
+
+.thumbnail {
+    border: 0px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    display: block;
+    line-height: 20px;
+    padding: 0px;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+a.thumbnail:hover, a.thumbnail:focus {
+
+
+}
+
+.over {
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .35s ease-in-out;
+  -webkit-transition: .25s ease-in-out;
+  z-index: 1000;
+}
+
+.over:hover {
+opacity: 1;
+}
+
+.over .details {
+text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+padding-left: 20px;
+padding-bottom: 20px;
+padding-top: 20px;
+padding-right: 10px;
+color: #FFFFFF;
+text-align: left;
+margin: 60px auto 0;
+letter-spacing: 0;
+font-size: 96%;
+position: absolute;
+top: 0;
+}
+
+.img-container {
 display: block;
 position: relative;
-height: 200px;
+height: 350px;
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
 margin-top: -1px;
 margin-left: -2px;
 }
+
+.overlay {
+  margin-bottom: 20px;
+  position: absolute;
+  z-index: 100;
+  text-decoration: none;
+  width: 100%;
+  background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(0,0,0,0)));
+  background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+  background: -o-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+  background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 );
+    h2 { 
+      padding-left: 20px;
+      padding-right: 10px;
+      color: #fff; 
+      text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+    }
+}
+
+/* bootstrap fixes */
+.first-in-row { margin-left: 0 !important; }
+
+.thumbnails > li { margin-bottom: 10px;}

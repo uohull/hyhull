@@ -1,11 +1,62 @@
-<h1>Exhibits</h1>
-<% @exhibits.each do |exhibit| %>
-  <div>
-    <% if exhibit.datastreams["thumbnail"].nil? then image_url = "/assets/rails.png" else image_url = "/assets/#{exhibit.id}/thumbnail" end %>
-    <%= image_tag image_url, alt: exhibit.title %>
-    <h4><%= exhibit.title %></h4>
-    <p><%= exhibit.description %></p>
-    <%= link_to "View exhibits", display_set_exhibits_path(exhibit) if exhibit.instance_of?(DisplaySet) %>
-  </div>
-<% end %>
 
+<style type="text/css">
+#form-container {
+    max-width: 1600px;
+}
+</style>
+
+<div class="row-fluid">
+	<div class="span16">
+		<ul class="thumbnails">
+			<% @exhibits.each do |exhibit| %>
+			<li class="span8">
+			<%= link_to display_set_exhibits_path(exhibit), :class => "thumbnail" do %>
+			<% if exhibit.datastreams["thumbnail"].nil? then image_url = "/assets/rails.png" else image_url = "/assets/#{exhibit.id}/thumbnail" end %>
+			<div class="img-container" style="background-image:url('<%= image_url %>')">
+				<span class="overlay">
+					<h2 class="title"><%= exhibit.title %></h2>
+				</span>
+				<div class="over">
+					<div class="details">
+						<p>
+		                    <%= truncate(exhibit.description, :length => 250) %>
+		                </p>
+					</div>
+				</div>
+			</div>
+		<% end %>
+		</li>
+		<% end %>
+		</ul>
+	</div>
+</div>
+
+<!-- move to library -->
+<script type="text/javascript">
+/**
+ * Adds 0 left margin to the first thumbnail on each row that don't get it via CSS rules.
+ * Recall the function when the floating of the elements changed.
+ */
+function fixThumbnailMargins() {
+    $('.row-fluid .thumbnails').each(function () {
+        var $thumbnails = $(this).children(),
+            previousOffsetLeft = $thumbnails.first().offset().left;
+        $thumbnails.removeClass('first-in-row');
+        $thumbnails.first().addClass('first-in-row');
+        $thumbnails.each(function () {
+            var $thumbnail = $(this),
+                offsetLeft = $thumbnail.offset().left;
+            if (offsetLeft < previousOffsetLeft) {
+                $thumbnail.addClass('first-in-row');
+            }
+            previousOffsetLeft = offsetLeft;
+        });
+    });
+}
+
+// Fix the margins when potentally the floating changed
+$(window).resize(fixThumbnailMargins);
+
+fixThumbnailMargins()
+
+</script>
