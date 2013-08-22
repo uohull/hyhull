@@ -11,9 +11,8 @@ module HyhullHelper
       resources_size = document["resource_object_id_ssm"].size
       
       resources = <<-EOS
-        <fieldset id="assets">
-        <legend>#{pluralize_string(resources_size, "Download")}</legend>
-        <div id="asset-list">
+        <h3><small>#{pluralize_string(resources_size, "Download")}</small></h3>
+
       EOS
 
       resource_title = document["title_ssm"].first if document.has?("title_ssm")
@@ -54,14 +53,13 @@ module HyhullHelper
         # end
 
         resources << <<-EOS
-          </div>
+
          </div>
         EOS
       end
 
       resources << <<-EOS
         </div>
-       </fieldset>
       EOS
     end
     resources.html_safe

@@ -9,7 +9,9 @@
   #Added Bootstrap class well and 'hidden-phone' for the tools-bar 
 -%>
   <ul class="nav nav-list">
-      <li class="nav-header"><%= t('blacklight.tools.title') %></li>
+      <li>
+        <h3><%= t('blacklight.tools.title') %></h3>
+      </li>
       <li>
         <%= display_resources(@document) %>
       </li>
