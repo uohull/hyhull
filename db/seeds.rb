@@ -52,7 +52,7 @@ unless Rails.env.production?
   # These accounts are for test purposes only...
    [{ username: 'contentaccessteam1',  given_name: 'content', family_name: 'team', email_address: 'contentAccessTeam1@example.com', 
      user_type: 'contentAccessTeam', department_ou: 'IT', faculty_code: '123'},
-     { usernamename: 'staff1',  given_name: 'staff', family_name: 'user', email_address: 'staff1@example.com', 
+     { username: 'staff1',  given_name: 'staff', family_name: 'user', email_address: 'staff1@example.com', 
      user_type: 'staff', department_ou: 'IT', faculty_code: '123'},
      { username: 'student1',  given_name: 'student', family_name: 'user', email_address: 'student1@example.com', 
      user_type: 'student', department_ou: 'CompSci', faculty_code: '456'},
