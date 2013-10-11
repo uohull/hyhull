@@ -11,6 +11,7 @@
 #Clear existing roles
 Role.delete_all
 RoleType.delete_all
+Person.delete_all unless Rails.env.production?
 
 # Set role types..
 # hyhull: hyhull application specific role types
@@ -31,7 +32,44 @@ RoleType.delete_all
   { name:"guest", description: "University guest role"}
 ].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("user")) }
 
-# Add a test record to people
-if Rails.env.test?
-  ActiveRecord::Base.connection.execute("INSERT INTO people (username, given_name, family_name, email_address, user_type, department_ou, faculty_code) VALUES ('contentAccessTeam1', 'content', 'team', 'contentAccessTeam1@example.com', 'contentAccessTeam', 'Dep', 'SubDep')")
+
+# Add a test records to people
+unless Rails.env.production?
+  # For test lets seed some made up departments and faculities (these need to exist in the Roles DB to be picked up on user login)
+
+  # Seed the dep roles
+  [{ name:"IT", description: "IT Department"},
+  { name:"LLI", description: "LLI Department"},  
+  { name:"CompSci", description: "Computer Science"}
+  ].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("department_ou")) }
+
+  # Seed the faculty roles
+  [{ name:"123", description: "IT/LLI Faculty"},
+  { name:"456", description: "Science and Engineering"} 
+  ].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("faculty_code")) }
+
+  # Seed some 'people' into the Person model, in production the Person model is populated from the Portal Person DB
+  # These accounts are for test purposes only...
+   [{ username: 'contentaccessteam1',  given_name: 'content', family_name: 'team', email_address: 'contentAccessTeam1@example.com', 
+     user_type: 'contentAccessTeam', department_ou: 'IT', faculty_code: '123'},
+     { usernamename: 'staff1',  given_name: 'staff', family_name: 'user', email_address: 'staff1@example.com', 
+     user_type: 'staff', department_ou: 'IT', faculty_code: '123'},
+     { username: 'student1',  given_name: 'student', family_name: 'user', email_address: 'student1@example.com', 
+     user_type: 'student', department_ou: 'CompSci', faculty_code: '456'},
+     { username: 'archivist1',  given_name: 'archivist', family_name: 'user', email_address: 'archivist1@example.com', 
+     user_type: 'archivist', department_ou: 'LLI', faculty_code: '123'},
+     { username: 'bigwig',  given_name: 'bigwig', family_name: 'user', email_address: 'bigwig@example.com', 
+     user_type: 'staff', department_ou: 'LLI', faculty_code: '123'}
+     ].each do |p|
+         person = Person.new
+         person.username = p[:username]
+         person.given_name = p[:given_name]
+         person.family_name = p[:family_name]
+         person.email_address = p[:email_address]
+         person.user_type = p[:user_type]
+         person.department_ou = p[:department_ou]
+         person.faculty_code = p[:faculty_code]
+         person.save
+  end
+
 end

@@ -6,7 +6,12 @@ class Person < ActiveRecord::Base
 
   # Returns a person by there username
   def self.person_by_username(username)
-   return self.find_or_initialize_by_username(username) || NullPerson.new
+    person = self.find_or_initialize_by_username(username)
+    if person.persisted?
+      return person
+    else
+     return NullPerson.new
+    end
   end
 
 end
@@ -19,11 +24,11 @@ class NullPerson
     "guest"
   end
 
-  def department_ou_groups 
+  def department_ou 
     "no_department"
   end
 
-  def faculty_code_groups
+  def faculty_code
     "no_faculty"
   end
   
