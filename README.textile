@@ -29,11 +29,18 @@ Install the dependencies by running:
 <pre>bundle install
 </pre>
 
+*The database*
+
 Migrate the database
 <pre>rake db:migrate</pre>
 
-Seed the database with the pre-defined Repo roles (contentAccessTeam, staff, student etc..)
+Seed the database with the pre-defined Repo roles (contentAccessTeam, staff, student etc..).
+
+*Note*: At the end of _db/seeds.rb_ there is sample code to add users to the 'People' table and roles to the 'Roles' tables.  This is important if there is need to walk through sample logins in development mode.
+To seed the data...       
 <pre>rake db:seed</pre>
+
+*Jetty*
 
 Configure jetty:
 <pre>rake hydra:jetty:config

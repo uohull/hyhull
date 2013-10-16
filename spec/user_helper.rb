@@ -28,14 +28,5 @@ module UserHelper
   def delete_all_users
     User.delete_all 
   end
-  
-  def load_roles
-   delete_all_roles
-   ["contentAccessTeam", "staff", "student", "committeeSection", "engineering", "contentCreator"].each {|r| Role.create(:name => r) } 
-  end
-
-  def delete_all_roles
-    Role.delete_all
-  end
 
 end
