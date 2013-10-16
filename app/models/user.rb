@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
  has_and_belongs_to_many :roles
 # Connects this user object to Hydra behaviors. 
+# At present Users 'hydra' roles will not change unless they are changed manually (via inteface/db). This means that even if the users user_type/department/faculty change, the hydra role will remain same. 
+
  include Hydra::User# Connects this user object to Role-management behaviors. 
  include Hydra::RoleManagement::UserRoles
 

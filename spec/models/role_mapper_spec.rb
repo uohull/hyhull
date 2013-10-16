@@ -7,13 +7,7 @@ describe RoleMapper do
   before (:all) do
 
     #Just incase they didn't get cleared out from previous tests...
-    #delete_all_users
     delete_all_users
-    #Delete the roles
-    delete_all_roles
-
-    #Load the roles
-    load_roles
 
     #create a test cat user
     @cat_user = User.create!(:username => "contentAccessTeam1", :email => "contentAccessTeam1@example.com")
@@ -50,9 +44,6 @@ describe RoleMapper do
  after(:all) do
   #delete_all_users
   delete_all_users
-
-  #Delete the roles
-  delete_all_roles
  end 
 
 end
