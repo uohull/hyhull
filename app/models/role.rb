@@ -39,6 +39,11 @@ class Role < ActiveRecord::Base
     role_record.persisted? ? role_record : self.find_or_initialize_by_name_and_role_type_id(self.default_faculty_role, RoleType.faculty_code_role_type.id)
   end
 
+  # Returns all roles of the type hyhull_role_type
+  def self.hyhull_roles
+    self.where(role_type_id: RoleType.hyhull_role_type)
+  end
+
   private
 
   # Returns an instance of Role based upon role_name and role_type
