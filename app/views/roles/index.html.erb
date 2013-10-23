@@ -1,0 +1,12 @@
+<h2>Roles</h2>
+<p>This page shows the list of roles that exist within the Hydra application.</p>
+<p><em>Note:</em> The only roles that can be edited are the 'hydra based roles'.  Roles determined by user type (staff, student), Department or Faculty can not be edited in Hydra at Hull.<p>
+
+<h4>Hydra Roles</h4>
+<ul>
+  <% @roles.each do |role| %>
+    <li><%=link_to role.description, role_management.role_path(role) %></li>
+  <% end %>
+</ul>
+
+<% # Removed the standard Create role function %>

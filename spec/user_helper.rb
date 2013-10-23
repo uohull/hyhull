@@ -9,7 +9,7 @@ module UserHelper
   end
 
   def admin_user_sign_in 
-    #delete_all_users 
+    delete_all_users 
     #Create the user
     @user = User.create!(:username => "admin1", :email => "admin1@example.com")
     #Add the role

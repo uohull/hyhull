@@ -1,0 +1,21 @@
+<h2>Your details</h2>
+<p>The following are your details and the roles and groups that you are assigned to within Hydra.<p>
+<br/>
+<p>Username: <%= @user.username %></p>
+<p>Email: <%= @user.email %></p>
+<br/>
+<h4>Roles</h4>
+<p>You have the following roles...</p>
+<table class="table">
+  <thead>
+    <th>Role</th>
+    <th>Type</th>
+  </thead>
+  <% @user.roles.each do |role| %>
+    <tr>
+      <td><%= role.description %></td>
+      <td><%= role.role_type.name %></td>
+    </tr>
+  <% end %>
+</table>
+

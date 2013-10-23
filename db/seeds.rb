@@ -17,9 +17,9 @@ end
 
 # Seed the hyhull roles
 # These are the required hyhull specific roles
-[{ name:"contentAccessTeam", description: "Content access team role"}, 
-  { name:"contentCreator", description: "Content creator role"},
-  { name: "admin", description: "Admin role" }
+[{ name:"contentAccessTeam", description: "Content and Access Team"}, 
+  { name:"contentCreator", description: "Content creator"},
+  { name: "admin", description: "Hyhull admininstrator" }
 ].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("hyhull")) }
 
 # Seed the user roles
@@ -62,7 +62,9 @@ unless Rails.env.production?
 
   # Seed some 'people' into the Person model, in production the Person model is populated from the Portal Person DB
   # These accounts are for test purposes only...
-   [{ username: 'contentaccessteam1',  given_name: 'content', family_name: 'team', email_address: 'contentAccessTeam1@example.com', 
+   [{ username: 'admin1',  given_name: 'The', family_name: 'Admin', email_address: 'admin1@example.com', 
+     user_type: 'staff', department_ou: 'IT', faculty_code: '123'},
+     { username: 'contentaccessteam1',  given_name: 'content', family_name: 'team', email_address: 'contentAccessTeam1@example.com', 
      user_type: 'contentAccessTeam', department_ou: 'IT', faculty_code: '123'},
      { username: 'staff1',  given_name: 'staff', family_name: 'user', email_address: 'staff1@example.com', 
      user_type: 'staff', department_ou: 'IT', faculty_code: '123'},
