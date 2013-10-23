@@ -90,6 +90,14 @@ describe Role do
       end
     end
 
+    # Role Class method that returns the only the hyhull type roles
+    describe ".hyhull_roles" do
+      it "should return an array of roles with the hyhull_role_type" do
+        roles = subject.class.hyhull_roles
+        roles.should include(Role.find_by_name("contentAccessTeam"), Role.find_by_name("contentCreator"), Role.find_by_name("admin"))   
+      end
+    end
+
   end
 
 end
