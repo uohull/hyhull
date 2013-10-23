@@ -11,7 +11,7 @@ gem 'rails', '3.2.13'
 #We still need the blacklight/hydra-head reference
 gem 'blacklight', '4.1.0'
 gem "hydra-head", "~> 6.3.1"
-gem 'hydra-role-management', '~> 0.0.2'
+gem "hydra-role-management", "~> 0.1.0"
 
 #State machine
 gem 'state_machine', '~> 1.2.0'
@@ -50,7 +50,7 @@ group :development, :test do
 end
 
 group :test do 
-  gem 'rspec-rails'
+  gem "rspec-rails", "~> 2.14.0"
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'factory_girl_rails'

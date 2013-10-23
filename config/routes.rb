@@ -5,8 +5,13 @@ Hyhull::Application.routes.draw do
   HydraHead.add_routes(self)
 
   devise_for :users
-  mount Hydra::RoleManagement::Engine => '/'
 
+
+  # Added for the Roles Management gem
+  mount Hydra::RoleManagement::Engine => '/'
+  get "/roles" => 'roles#index'
+  # Profile resource used for user_profiles
+  resources :profile
 
   resources :assets
   resources :uketd_objects
@@ -33,6 +38,7 @@ Hyhull::Application.routes.draw do
   resources :content_metadata
   resources :files
   resources :resource_workflow
+
 
 
 

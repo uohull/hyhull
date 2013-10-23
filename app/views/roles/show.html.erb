@@ -1,0 +1,21 @@
+<h2>Role edit: <%= @role.description %></h2>
+<h4>User accounts</h4>
+<p>The follow is a list of user accounts that have the '<%= @role.description %>' role.</p>   
+<ul>
+  <% @role.users.each do |user| %>
+    <li><%= user.user_key %> (<%= user.email %>)
+      <% if can? :remove_user, Role %>
+        <%= button_to "Remove User", role_management.role_user_path(@role, user), :method=>:delete, :class=>'btn btn-danger' %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<h4>Add a new account</h4>
+<p>To add a new User to this role group, enter their Campus username below. Ensure that the username is correct before adding new user's to this group.</p>
+<%= bootstrap_form_tag role_management.role_users_path(@role) do %>
+  <%= bootstrap_text_field_tag 'user_key', '', :label=>'Campus username:' %>
+  <%= bootstrap_actions do %>
+    <%= bootstrap_submit_tag "Add" %>
+    <%= bootstrap_cancel_tag %>
+  <% end %>
+<% end %>

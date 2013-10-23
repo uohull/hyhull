@@ -7,7 +7,8 @@
 
     def custom_permissions
       if @current_user.admin?
-        can [:create, :show, :add_user, :remove_user, :index], Role
+        # We are not adding update/delete to this on purpose for Roles
+        can [:show, :add_user, :remove_user, :index], Role
       end
     end
 

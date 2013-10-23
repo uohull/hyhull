@@ -8,24 +8,43 @@ class RoleType < ActiveRecord::Base
   has_many :roles
   attr_accessible :name
 
-  # User role_type is "user"
   def self.user_role_type
-    find_or_initialize_by_name("user") 
+    find_or_initialize_by_name(self.user_role_type_name) 
   end
 
-  # Hyhull role_type is "hyhull"
   def self.hyhull_role_type
-    find_or_initialize_by_name("hyhull") 
+    find_or_initialize_by_name(self.hyhull_role_type_name) 
   end
 
-  # department_ou_role_type role_type is "department_ou"
   def self.department_ou_role_type
-    find_or_initialize_by_name("department_ou") 
+    find_or_initialize_by_name(self.department_ou_role_type_name) 
   end
 
-  # faculty_code_role_type role_type is "faculty_code"
   def self.faculty_code_role_type
-    find_or_initialize_by_name("faculty_code") 
+    find_or_initialize_by_name(self.faculty_code_role_type_name) 
+  end
+
+  private
+  #
+  # *_role_type_name - these provide the textual name that these role_types are persisted as in the DB
+  #  user_role name
+  def self.user_role_type_name
+    "user"
+  end
+
+  # hyhull_role name
+  def self.hyhull_role_type_name
+    "hyhull"
+  end
+
+  # department_ou name
+  def self.department_ou_role_type_name
+    "department_ou" 
+  end
+
+  # faculty_code name
+  def self.faculty_code_role_type_name
+    "faculty_code" 
   end
 
 end
