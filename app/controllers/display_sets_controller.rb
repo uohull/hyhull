@@ -65,9 +65,10 @@ class DisplaySetsController < ApplicationController
         format.html { render "edit" }
       end     
     end
-
   end
 
+  def tree
+  end
 
   private
 

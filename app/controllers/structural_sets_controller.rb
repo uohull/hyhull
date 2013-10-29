@@ -70,6 +70,8 @@ class StructuralSetsController < ApplicationController
 
   end
 
+  def tree
+  end
 
   private
 
