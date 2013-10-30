@@ -16,10 +16,10 @@ end
 ["hyhull", "user", "department_ou", "faculty_code"].each {|rt| RoleType.create(name: rt)}
 
 # Seed the hyhull roles
-# These are the required hyhull specific roles
-[{ name:"contentAccessTeam", description: "Content and Access Team"}, 
-  { name:"contentCreator", description: "Content creator"},
-  { name: "admin", description: "Hyhull admininstrator" }
+# These are the required hyhull specific roles - See config/inintializers/hyhull.rb for the configuration of the roles
+[{ name: HYHULL_USER_GROUPS[:content_access_team], description: "Content and Access Team"}, 
+  { name: HYHULL_USER_GROUPS[:content_creator], description: "Content creator"},
+  { name: HYHULL_USER_GROUPS[:administrator] , description: "Hyhull admininstrator" }
 ].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("hyhull")) }
 
 # Seed the user roles
@@ -66,6 +66,8 @@ unless Rails.env.production?
      user_type: 'staff', department_ou: 'IT', faculty_code: '123'},
      { username: 'contentaccessteam1',  given_name: 'content', family_name: 'team', email_address: 'contentAccessTeam1@example.com', 
      user_type: 'contentAccessTeam', department_ou: 'IT', faculty_code: '123'},
+     { username: 'contentcreator1',  given_name: 'content', family_name: 'creator', email_address: 'contentCreator1@example.com', 
+     user_type: 'staff', department_ou: 'IT', faculty_code: '123'},
      { username: 'staff1',  given_name: 'staff', family_name: 'user', email_address: 'staff1@example.com', 
      user_type: 'staff', department_ou: 'IT', faculty_code: '123'},
      { username: 'student1',  given_name: 'student', family_name: 'user', email_address: 'student1@example.com', 
