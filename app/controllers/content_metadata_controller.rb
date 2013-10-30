@@ -1,9 +1,10 @@
 class ContentMetadataController < ApplicationController
-  include Hyhull::Controller::ControllerBehaviour 
+  # We manually add the load_and_authorize_resource CanCan method to do and specify it to use the authorisation based on the Object
+  load_and_authorize_resource class: ActiveFedora::Base
 
   before_filter :set_return_url
 
-  def edit    
+  def edit 
     object = ActiveFedora::Base.find(params[:id], cast: true)
 
     if object.datastreams.include?("contentMetadata")
