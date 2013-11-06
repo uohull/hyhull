@@ -30,4 +30,19 @@ describe UketdObjectsController do
     end
   end
 
+  describe "deleting" do
+    before(:each) do
+      uketd_object = UketdObject.new(title: "A new piece of content", person_name: ["Bloggs Joe."], subject_topic: ["Test"], publisher: ["Uoh"], qualification_level: "Postgrad", qualification_name: "MSc", date_issued: "2009")
+      # We need to add permissions so we can delete...
+      uketd_object.rightsMetadata.update_permissions({"group"=>{"contentAccessTeam" => "edit"}})
+      uketd_object.save
+      @id = uketd_object.id
+    end
+
+    it "should support destroy requests" do
+      delete :destroy, :id=>@id
+      flash[:notice].should == "ETD #{@id} was successfully deleted."
+    end
+  end
+
 end

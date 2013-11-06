@@ -63,6 +63,17 @@ class ExamPapersController < ApplicationController
     end
   end
 
+  def destroy
+    exam_paper = ExamPaper.find(params[:id])
+    exam_paper.delete
+
+    respond_to do |format|
+      format.html { redirect_to(root_url, :notice => "Examination paper #{params[:id]} was successfully deleted.") }
+      format.json { render :json => exam_paper, :status => :deleted }
+    end
+
+  end
+
   private
 
   # This method will take the date params populated from the intial_step form

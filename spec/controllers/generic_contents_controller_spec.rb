@@ -46,4 +46,19 @@ describe GenericContentsController do
     end
   end
 
+  describe "deleting" do
+    before(:each) do
+      generic_content = GenericContent.new(title: "A new piece of content", genre: "Artwork")
+      # We need to add permissions so we can delete...
+      generic_content.rightsMetadata.update_permissions({"group"=>{"contentAccessTeam" => "edit"}})
+      generic_content.save
+      @id = generic_content.id
+    end
+
+    it "should support destroy requests" do
+      delete :destroy, :id=>@id
+      flash[:notice].should == "Resource #{@id} was successfully deleted."
+    end
+  end
+
 end

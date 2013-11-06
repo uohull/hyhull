@@ -63,4 +63,15 @@ class GenericContentsController < ApplicationController
     end
   end
 
+  def destroy
+    generic_content = GenericContent.find(params[:id])
+    generic_content.delete
+
+    respond_to do |format|
+      format.html { redirect_to(root_url, :notice => "Resource #{params[:id]} was successfully deleted.") }
+      format.json { render :json => generic_content, :status => :deleted }
+    end
+
+  end
+
 end

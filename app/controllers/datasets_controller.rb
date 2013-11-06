@@ -55,5 +55,16 @@ class DatasetsController < ApplicationController
 
   end
 
+  def destroy
+    dataset = Dataset.find(params[:id])
+    dataset.delete
+
+    respond_to do |format|
+      format.html { redirect_to(root_url, :notice => "Dataset #{params[:id]} was successfully deleted.") }
+      format.json { render :json => dataset, :status => :deleted }
+    end
+
+  end
+
 
 end

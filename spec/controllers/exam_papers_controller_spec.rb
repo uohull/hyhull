@@ -48,4 +48,19 @@ describe ExamPapersController do
     end
   end
 
+  describe "deleting" do
+    before(:each) do
+      exam_paper = ExamPaper.new(department_name: "ICTD", module_code: "12345", date_issued: "2009-09")
+      # We need to add permissions so we can delete...
+      exam_paper.rightsMetadata.update_permissions({"group"=>{"contentAccessTeam" => "edit"}})
+      exam_paper.save
+      @id = exam_paper.id
+    end
+
+    it "should support destroy requests" do
+      delete :destroy, :id=>@id
+      flash[:notice].should == "Examination paper #{@id} was successfully deleted."
+    end
+  end
+
 end
