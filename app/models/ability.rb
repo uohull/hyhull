@@ -24,10 +24,10 @@
         !deletable(obj)
       end
 
-      # Structural and Display Set Browse - ContentAccessTeam and Admin
+      # Structural and Display Set Browse and update_permissions - ContentAccessTeam and Admin
       if user_groups.include?(HYHULL_USER_GROUPS[:content_access_team]) || @current_user.admin?
-        can :tree, StructuralSet 
-        can :tree, DisplaySet
+        can [:tree, :update_permissions], StructuralSet 
+        can [:tree, :update_permissions], DisplaySet
       end
 
       # Role Management

@@ -55,7 +55,9 @@ describe "Abilities" do
   # - ie TreeView
   describe "StructuralSet" do
     describe ".custom_permissions" do      
-      # Only admin and contentAccessTeam have access to the treeview
+      # Only admin and contentAccessTeam have access to the treeview and update_permissions
+
+      #treeview
       context "when is a contentAccessTeam" do
         let(:user) { FactoryGirl.create(:cat) }
         it { should be_able_to(:tree, StructuralSet.new) }
@@ -66,15 +68,35 @@ describe "Abilities" do
         it { should be_able_to(:tree, StructuralSet.new) }
       end
 
+      #update_permissions
+      context "when is a contentAccessTeam" do
+        let(:user) { FactoryGirl.create(:cat) }
+        it { should be_able_to(:update_permissions, StructuralSet.new) }
+      end
+
+      context "when is a admin" do
+        let(:user) { FactoryGirl.create(:admin) }
+        it { should be_able_to(:update_permissions, StructuralSet.new) }
+      end
+
       # Content creators should not....
       context "when is a contentCreator" do
         let(:user) { FactoryGirl.create(:content_creator) }
         it { should_not be_able_to(:tree, StructuralSet.new) }
       end
 
+      context "when is a contentCreator" do
+        let(:user) { FactoryGirl.create(:content_creator) }
+        it { should_not be_able_to(:update_permissions, StructuralSet.new) }
+      end
+
       # Lets be on the safe side and test for public...
       context "when is a public user" do
         it { should_not be_able_to(:tree, StructuralSet.new) }
+      end
+
+      context "when is a public user" do
+        it { should_not be_able_to(:update_permissions, StructuralSet.new) }
       end
 
     end
@@ -84,7 +106,8 @@ describe "Abilities" do
   # - ie TreeView
   describe "DisplaySet" do
     describe ".custom_permissions" do
-      # Only admin and contentAccessTeam have access to the treeview
+      # Only admin and contentAccessTeam have access to the treeview and update_permissions
+      # treeview
       context "when is a contentAccessTeam" do
         let(:user) { FactoryGirl.create(:cat) }
         it { should be_able_to(:tree, DisplaySet.new) }
@@ -95,15 +118,35 @@ describe "Abilities" do
         it { should be_able_to(:tree, DisplaySet.new) }
       end
 
+      #update_permissions
+      context "when is a contentAccessTeam" do
+        let(:user) { FactoryGirl.create(:cat) }
+        it { should be_able_to(:update_permissions, DisplaySet.new) }
+      end
+
+      context "when is a admin" do
+        let(:user) { FactoryGirl.create(:admin) }
+        it { should be_able_to(:update_permissions, DisplaySet.new) }
+      end
+
       # Content creators should not....
       context "when is a contentCreator" do
         let(:user) { FactoryGirl.create(:content_creator) }
         it { should_not be_able_to(:tree, DisplaySet.new) }
       end
 
+      context "when is a contentCreator" do
+        let(:user) { FactoryGirl.create(:content_creator) }
+        it { should_not be_able_to(:update_permissions, DisplaySet.new) }
+      end
+
       # Lets be on the safe side and test for public...
       context "when is a public user" do
         it { should_not be_able_to(:tree, DisplaySet.new) }
+      end
+
+      context "when is a public user" do
+        it { should_not be_able_to(:update_permissions, DisplaySet.new) }
       end
 
     end
