@@ -173,12 +173,12 @@ describe JournalArticle do
 
         it "should return the necessary cModels" do
           solr_doc = @valid_ja.to_solr
-          solr_doc["has_model_ssim"].should == ["info:fedora/hydra-cModel:commonMetadata", "info:fedora/hull-cModel:journalArticle"]
+          solr_doc["has_model_ssim"].should == ["info:fedora/hydra-cModel:compoundContent", "info:fedora/hydra-cModel:commonMetadata", "info:fedora/hull-cModel:journalArticle"]
         end
       end
       describe ".save" do
         it "should create the appropriate cModel declarations" do       
-          @valid_ja.ids_for_outbound(:has_model).should == ["hydra-cModel:commonMetadata", "hull-cModel:journalArticle"] 
+          @valid_ja.ids_for_outbound(:has_model).should == ["hydra-cModel:compoundContent", "hydra-cModel:commonMetadata", "hull-cModel:journalArticle"] 
         end
         it "should contain the appropiately case for the journalArticle in the RELS-EXT (Lower Camelcase)" do
           @valid_ja.rels_ext.to_rels_ext.include?('info:fedora/hull-cModel:journalArticle').should == true
