@@ -43,6 +43,32 @@ describe Hyhull::GenericParentBehaviour do
         @generic_parent.next_asset_pid.should ==  "#{@pid}b"        
       end 
     end
+
+    describe "delete" do
+      before(:each) do
+        @generic_parent = GenericParentBehaviourTest.create
+        @file_asset_a = FileAsset.create
+        @file_asset_b = FileAsset.create
+        @generic_parent.file_assets << [@file_asset_a, @file_asset_b] 
+      end
+
+      it "should delete the GenericParent along with the FileAssets" do
+        # Sanity check that the objects persist in Repo
+        @generic_parent.id.should_not be_nil
+        @file_asset_a.id.should_not be_nil
+        @file_asset_b.id.should_not be_nil
+
+        # Delete the parent...
+        @generic_parent.delete
+
+        # The parent and file assets should now be deleted and no longer have id
+        @generic_parent.id.should be_nil
+        @file_asset_a.id.should be_nil
+        @file_asset_b.id.should be_nil
+      end
+
+    end
+
   end
 
   context "with the uketd_object hull:756 test fixture" do

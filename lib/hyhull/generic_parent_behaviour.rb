@@ -1,4 +1,4 @@
-module Hyhull::GenericParentBehaviour
+  module Hyhull::GenericParentBehaviour
   extend ActiveSupport::Concern
 
   included do
@@ -8,6 +8,23 @@ module Hyhull::GenericParentBehaviour
     # that conforms to it will take an Atomistic approach to content.  
     has_many :file_assets, property: :is_part_of, :inbound => true     
   end 
+
+  # We are overiding the standard delete from a for a GenericParent resource
+  # This delete will Delete all of the Child FileAssets before deleting the parent.
+  def delete
+    begin    
+      # file_assets
+      file_assets.each do |file_asset|
+        file_asset.delete
+      end
+      # We now reload the self to update that the child assets have been removed...
+      reload()
+      # Call ActiveFedora Deleted via super 
+      super()
+    rescue Exception => e
+      raise "There was an error deleting the resource: " + e.message
+    end
+  end
 
   def add_file_content(file_data)
     begin      
