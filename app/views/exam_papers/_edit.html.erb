@@ -28,11 +28,9 @@
         </div>
       <% end %>
     </div>
-     <%= f.submit "Save" %>
+      <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
     <% end %>
-    <% if @exam_paper.persisted? %>
-     <%= render partial: "shared/update_resource_state", locals: { object: @exam_paper } %>
-    <% end %>
+    <%= render partial: "shared/update_resource_state", locals: { object: @exam_paper } %>
   </div> <!-- /.span12-->
 </div>
 

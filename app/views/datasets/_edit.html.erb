@@ -46,10 +46,8 @@
         </div>
       <% end %>
     </div>
-     <%= f.submit "Save" %>
+    <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
     <% end %>
-    <% if @dataset.persisted? %>
-     <%= render partial: "shared/update_resource_state", locals: { object: @dataset } %>
-    <% end %>
+    <%= render partial: "shared/update_resource_state", locals: { object: @dataset } %>
   </div> <!-- /.span12-->
 </div>

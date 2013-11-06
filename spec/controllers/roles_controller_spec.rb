@@ -37,20 +37,43 @@ describe RolesController do
     end
 
     describe "CanCan::AccessDenied actions" do
-      # The following are actions that are controlled through the use of CanCan Abilities - See ability.rb
-      it "update should raise an auth error" do        
-        expect{put :update, id: 1, :role=>{name: 'my_role'}}.to raise_error(CanCan::AccessDenied)
+      # Previously Controllers would raise CanCan::AccessDenied exception.
+      # Now application_controller redirects CanCan::Access Denieds to root with an alert message
+      it "update should redirect to root with a alert" do
+         put :update, id: 1, :role=>{name: 'my_role'}
+         flash[:alert].should == "You are not authorized to access this page."
+         response.should redirect_to '/'
       end
 
-      it "destroy should raise an auth error" do
-        expect{delete :destroy, id: 1}.to raise_error(CanCan::AccessDenied)
+      it "delete should redirect to root with a alert" do
+         delete :destroy, id: 1
+         flash[:alert].should == "You are not authorized to access this page."
+         response.should redirect_to '/'
       end
 
-     it "edit should raise an auth error" do
-        expect{get :edit, id: 1}.to raise_error(CanCan::AccessDenied)
+      it "edit should redirect to root with a alert " do
+        get :edit, id: 1
+        flash[:alert].should == "You are not authorized to access this page."
+        response.should redirect_to '/'
       end
 
-    end
+    end    
+    # No longer expect a raise_error - it redirects to root_url with alert - See above
+    # describe "CanCan::AccessDenied actions" do
+    #   # The following are actions that are controlled through the use of CanCan Abilities - See ability.rb
+    #   it "update should raise an auth error" do        
+    #     expect{put :update, id: 1, :role=>{name: 'my_role'}}.to raise_error(CanCan::AccessDenied)
+    #   end
+
+    #   it "destroy should raise an auth error" do
+    #     expect{delete :destroy, id: 1}.to raise_error(CanCan::AccessDenied)
+    #   end
+
+    #   it "edit should raise an auth error" do
+    #     expect{get :edit, id: 1}.to raise_error(CanCan::AccessDenied)
+    #   end
+
+    # end
   end
 
   context "for unauthorised users" do
@@ -58,14 +81,18 @@ describe RolesController do
     login_cat
 
     describe "action" do
-      it "index should through a CanCan AccessDenied error" do
-        expect{get :index}.to raise_error(CanCan::AccessDenied)
+      it "index should redirect to root with alert" do
+        get :index
+        flash[:alert].should == "You are not authorized to access this page."
+        response.should redirect_to '/'
       end
 
-      it "show should through a CanCan AccessDenied error" do
+      it "show should redirect to root with alert" do
         # As a test we get the first hyhull role id
-        role_id = Role.hyhull_roles.first.id  
-        expect{get :show, id: role_id}.to raise_error(CanCan::AccessDenied)
+        role_id = Role.hyhull_roles.first.id
+        get :show, id: role_id
+        flash[:alert].should == "You are not authorized to access this page."
+        response.should redirect_to '/'
       end
     end
 

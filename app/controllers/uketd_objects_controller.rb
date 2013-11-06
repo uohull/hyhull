@@ -53,6 +53,17 @@ class UketdObjectsController < ApplicationController
 				#format.html { redirect_to(edit_uketd_object_path(@uketd_object, :alert => @uketd_object.errors.messages.values.to_s)) }
 			end
 		end
+  end
+
+  def destroy
+    uketd_object = UketdObject.find(params[:id])
+    # Calls by implicate the GenericParent variant of Delete
+    uketd_object.delete
+
+    respond_to do |format|
+      format.html { redirect_to(root_url, :notice => "ETD #{params[:id]} was successfully deleted.") }
+      format.json { render :json => uketd_object, :status => :deleted }
+    end
 
   end
 

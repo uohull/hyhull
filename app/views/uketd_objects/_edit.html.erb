@@ -21,31 +21,28 @@
       <% end %>
     </ul>
     <%= simple_form_for(@uketd_object, :html => {:class => 'form-horizontal' }) do |f| %>
-    <div class="tab-content">         
-      <div id="descriptive_metadata" class="tab-pane active">
-        <%= render :partial => "edit_description", locals: {f: f} %>
-      </div>
-      <div id="qualifications_metadata" class="tab-pane">
-        <%= render :partial => "edit_qualifications", locals: {f: f} %>
-      </div>
-      <div id="identifiers_metadata" class="tab-pane">
-        <%= render :partial => "edit_identifiers", locals: {f: f} %>
-      </div>
-      <% unless @uketd_object.resource_proto? %>
-        <div id="set_membership" class="tab-pane">            
-          <%#= render(:partial => "shared/set_select",  :locals => { resource: @uketd_object, form: f }) %>
-          <%= render(:partial => "shared/set_management",  :locals => { resource: @uketd_object, f: f }) %>
+      <div class="tab-content">         
+        <div id="descriptive_metadata" class="tab-pane active">
+          <%= render :partial => "edit_description", locals: {f: f} %>
         </div>
-        <div id="admin_metadata" class="tab-pane">            
-          <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @uketd_object, form: f }) %>
+        <div id="qualifications_metadata" class="tab-pane">
+          <%= render :partial => "edit_qualifications", locals: {f: f} %>
         </div>
-      <% end %>
-    </div>
-     <%= f.submit "Save" %>
+        <div id="identifiers_metadata" class="tab-pane">
+          <%= render :partial => "edit_identifiers", locals: {f: f} %>
+        </div>
+        <% unless @uketd_object.resource_proto? %>
+          <div id="set_membership" class="tab-pane">            
+            <%= render(:partial => "shared/set_management",  :locals => { resource: @uketd_object, f: f }) %>
+          </div>
+          <div id="admin_metadata" class="tab-pane">            
+            <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @uketd_object, form: f }) %>
+          </div>
+        <% end %>
+      </div>
+      <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
     <% end %>
-    <% if @uketd_object.persisted? %>
-     <%= render partial: "shared/update_resource_state", locals: { object: @uketd_object } %>
-    <% end %>
+    <%= render partial: "shared/update_resource_state", locals: { object: @uketd_object } %>
   </div> <!-- /.span12-->
 </div>
 

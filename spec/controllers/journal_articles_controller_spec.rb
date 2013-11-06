@@ -30,4 +30,19 @@ describe JournalArticlesController do
     end
   end
 
+  describe "deleting" do
+    before(:each) do
+      journal_article = JournalArticle.new(title: "A new piece of content", person_name: ["Bloggs Joe."], person_role_text: ["Author"], subject_topic: ["Test"], publisher: ["Uoh"])
+      # We need to add permissions so we can delete...
+      journal_article.rightsMetadata.update_permissions({"group"=>{"contentAccessTeam" => "edit"}})
+      journal_article.save
+      @id = journal_article.id
+    end
+
+    it "should support destroy requests" do
+      delete :destroy, :id=>@id
+      flash[:notice].should == "Journal article #{@id} was successfully deleted."
+    end
+  end
+
 end

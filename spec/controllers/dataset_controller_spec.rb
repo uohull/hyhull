@@ -30,4 +30,19 @@ describe DatasetsController do
     end
   end 
 
+  describe "deleting" do
+    before(:each) do
+      dataset = Dataset.new(title: "Title")
+      # We need to add permissions so we can delete...
+      dataset.rightsMetadata.update_permissions({"group"=>{"contentAccessTeam" => "edit"}})
+      dataset.save
+      @id = dataset.id
+    end
+
+    it "should support destroy requests" do
+      delete :destroy, :id=>@id
+      flash[:notice].should == "Dataset #{@id} was successfully deleted."
+    end
+  end
+
 end

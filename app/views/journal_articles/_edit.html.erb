@@ -34,11 +34,9 @@
           <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @journal_article, form: f }) %>
         </div>
       <% end %>
-    </div>
-     <%= f.submit "Save" %>
+     </div>
+      <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
     <% end %>
-    <% if @journal_article.persisted? %>
-     <%= render partial: "shared/update_resource_state", locals: { object: @journal_article } %>
-    <% end %>
+    <%= render partial: "shared/update_resource_state", locals: { object: @journal_article } %>
   </div> <!-- /.span12-->
 </div>

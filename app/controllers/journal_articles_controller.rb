@@ -53,4 +53,17 @@ class JournalArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    journal_article = JournalArticle.find(params[:id])
+    journal_article.delete
+
+    respond_to do |format|
+      format.html { redirect_to(root_url, :notice => "Journal article #{params[:id]} was successfully deleted.") }
+      format.json { render :json => journal_article, :status => :deleted }
+    end
+
+  end
+
+
+
 end
