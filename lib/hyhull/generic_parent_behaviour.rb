@@ -37,6 +37,7 @@
             pid = next_asset_pid()            
             file_asset = FileAsset.new(pid: pid)
             file_asset.label = file.original_filename
+
             add_posted_blob_to_asset(file_asset, file, file.original_filename)
             # Add the self.rightsMetadata to the child asset... 
             file_asset.datastreams["rightsMetadata"].content = self.rightsMetadata.content
@@ -119,22 +120,24 @@
 
   # Puts the contents of params[:Filedata] (posted blob) into a datastream within the given @asset
   # Sets asset label and title to filename if they're empty
+  # DEFAULT_CHECKSUM_TYPE defined in config/initializers/hyhull.rb
   #
   # @param [FileAsset] asset the File Asset to add the blob to
   # @param [#read] file the IO object that is the blob
   # @param [String] file the IO object that is the blob
   # @return [FileAsset] file the File Asset  
   def add_posted_blob_to_asset(asset, file, file_name)
-    file_name ||= file.original_filename
-    asset.add_file(file, datastream_id, file_name)
+    file_name ||= file.original_filename 
+    options = {:label=>file_name, :dsid => datastream_id, :checksumType => DEFAULT_CHECKSUM_TYPE}
+    ds_id  = asset.add_file_datastream(file, options)
   end
- 
+
   #Override this if you want to specify the datastream_id (dsID) for the created blob
   def datastream_id
     "content"
   end
 
-  # assert the genericParent cModel.  
+  # assert the genericParent cModel.    
   def assert_content_model
     add_relationship(:has_model, "info:fedora/hydra-cModel:genericParent")
     super

@@ -7,7 +7,7 @@ module Hyhull::GenericContentBehaviour
     # that conforms to it will take a compound approach to the addition of content.  
   end
 
-
+  # DEFAULT_CHECKSUM_TYPE defined in config/initializers/hyhull.rb
   def add_file_content(file_data)
     begin      
       if file_data
@@ -17,7 +17,7 @@ module Hyhull::GenericContentBehaviour
         file_data.each do |file|
           begin
           	label = file.original_filename
-            options = {:label=>label, :prefix=>'content', :checksumType => 'MD5'}
+            options = {:label=>label, :prefix=>'content', :checksumType => DEFAULT_CHECKSUM_TYPE}
             ds_id  = self.add_file_datastream(file, options)
             new_asset_datastreams << ds_id
           rescue Exception => e 
