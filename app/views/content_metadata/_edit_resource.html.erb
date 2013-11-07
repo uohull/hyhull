@@ -19,7 +19,7 @@
       <dd style="width: 20em;"> 
         <%= text_field_tag "content_metadata[resource_display_label][]", @content_metadata.resource_display_label[resource_counter] %>  
         <a href="/assets/<%= object_id%>/<%= ds_id%>" style="font-size:0.8em;"><%= file_name %></a>
-        <%= link_to image_tag("/images/remove.png"), file_path(object_id, :container_id=>params[:id], :index=>resource_counter), :method=>:delete, :confirm=>"Are you sure you want to delete the file?" %>
+        <%= link_to image_tag("hyhull/remove.png"), file_path(object_id, :container_id=>params[:id], :index=>resource_counter), :method=>:delete, :confirm=>"Are you sure you want to delete the file?" %>
       </dd>
     </div>
   </div>
