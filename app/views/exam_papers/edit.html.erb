@@ -10,7 +10,7 @@
       <div class="row">
         <% if @exam_paper.persisted? %>
           <div class="span6">
-            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @exam_paper %>
+            <%= link_to "Edit content files", controller: "content_metadata", action: "edit", id: @exam_paper %>
           </div>
           <div class="span6">  
             <% unless @exam_paper.resource_proto? %>

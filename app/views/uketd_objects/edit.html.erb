@@ -10,7 +10,7 @@
       <div class="row">
         <% if @uketd_object.persisted? %>
           <div class="span6">
-            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @uketd_object %>
+            <%= link_to "Edit content files", controller: "content_metadata", action: "edit", id: @uketd_object %>
           </div>
           <div class="span6">  
             <% unless @uketd_object.resource_proto? %>

@@ -10,7 +10,7 @@
       <div class="row">
         <% if @generic_content.persisted? %>
           <div class="span6">
-            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @generic_content %>
+            <%= link_to "Edit content files", controller: "content_metadata", action: "edit", id: @generic_content %>
           </div>
           <div class="span6">  
             <% unless @generic_content.resource_proto? %>
