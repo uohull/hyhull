@@ -21,6 +21,7 @@ describe Hyhull::ModelMethods do
     it "should define the contentMetadata Hyhull::Datastream::ContentMetadata as a metadata datastream" do
       @testclassone.datastreams.should include('contentMetadata')
       @testclassone.contentMetadata.should be_an_instance_of(Hyhull::Datastream::ContentMetadata)
+      @testclassone.contentMetadata.label.should == "Content metadata"
     end
   end
 

@@ -5,7 +5,7 @@ module Hyhull::ContentMetadataBehaviour
     logger.info("Adding Hyhull::ContentMetadataBehaviour to the Hydra model")
 
     # Include Hyhulls::Datastream::ContentMetadataBehaviouretadata for information about contents stroed against objects
-    has_metadata name: "contentMetadata", type: Hyhull::Datastream::ContentMetadata, versionable: true
+    has_metadata name: "contentMetadata", label: "Content metadata", type: Hyhull::Datastream::ContentMetadata, versionable: true
 
     delegate :sequence, to: "contentMetadata"
     delegate :resource_display_label, to: "contentMetadata"
