@@ -11,7 +11,7 @@
 
   <%= f.input :title %>
 
-  <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "subject_topic" } %> 
+  <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "subject_topic", required: true } %> 
   
   <%= f.input :description, as: :text %>
 

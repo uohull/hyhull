@@ -4,6 +4,7 @@
 <% parent_field_name = "parent_id" if local_assigns[:parent_field_name].nil? %> 
 <% set_class = StructuralSet if local_assigns[:set_class].nil? %>
 <% parent_field_id = "#{resource.class.name.underscore}_#{parent_field_name}" %>
+<% required = false if local_assigns[:required].nil? %>
 
 <% parent_id = eval("resource.#{parent_field_name}") %>
 
@@ -36,7 +37,7 @@
         :value => "",
         :disabled => true,
         :id => set_name_field_id
-    } %>
+    }, required: required %>
     <%= form.input parent_field_name.to_sym, :as => :hidden,
       :input_html => {
         :value => parent_id

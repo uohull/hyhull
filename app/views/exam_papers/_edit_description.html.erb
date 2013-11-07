@@ -15,7 +15,7 @@
 
 <h4>Subject</h4> 
 
-<%= render partial: "metadata/multi_field_edit", locals: { object: @exam_paper, field: "subject_topic" } %> 
+<%= render partial: "metadata/multi_field_edit", locals: { object: @exam_paper, field: "subject_topic", required: true } %> 
 
 <%= f.input :exam_level %>
 

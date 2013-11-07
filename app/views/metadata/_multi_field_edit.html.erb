@@ -2,9 +2,14 @@
   <div id="field-list">
     <% fields = eval("object.#{field}") %>   
     <% object_name = object.class.to_s.underscore %>
-    <% label = field.to_sym if local_assigns[:label].nil? %>
+    <% required = false if local_assigns[:required].nil? %>
 
-    <%= label_tag label, nil,  :class => "control-label" %><br />
+    <% label = field.to_sym if local_assigns[:label].nil? %>
+    <% # Set the label based on if * required %>   
+    <% label_text = required ? "#{t('simple_form.required.html')}&nbsp;#{label.to_s.humanize}".html_safe : label.to_s.humanize %>
+
+
+    <%= label_tag label, label_text,  :class => "control-label" %><br />
     <% if fields.empty? %>
       <div id="fields" class="controls">
         <%= text_field_tag "#{object_name}[#{field}][]", "" %>           

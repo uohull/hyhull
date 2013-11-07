@@ -1,6 +1,8 @@
  <div id="multi-field-edit">
   <div id="field-list">
     <% name_type = name_type.nil? ? "person" : name_type %>
+    <% # if required isn't specified assume as false %>
+    <% required = false if local_assigns[:required].nil? %>
 
     <% # Variables for storing the ids for the field tags ie.. person_name/person_role_text/organisation_name/etc %>
     <% name_field_id = "#{name_type}_name" %>
@@ -11,7 +13,11 @@
     <% role_texts = eval("object.#{name_type}_role_text") %>
     <% object_name = object.class.to_s.underscore %>
 
-    <%= label_tag name_field_id.to_sym, nil, :class => "control-label" %>
+    <% # Set the label based on if * required %>
+    <% label_id = name_field_id.to_sym %>
+    <% label_text = required ? "#{t('simple_form.required.html')}&nbsp;#{label_id.to_s.humanize}".html_safe : label_id.to_s.humanize %>
+
+    <%= label_tag label_id, label_text, :class => "control-label" %>
     <% if names.empty? %>
       <div id="fields" class="controls">      
         <%= text_field_tag "#{object_name}[#{name_field_id}][]", "" %>
