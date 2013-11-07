@@ -6,7 +6,7 @@
 
   <h4>Publication</h4>
 
-  <%= f.input :title %>
+  <%= f.input :title, label: "Article title" %>
 
   <%= render partial: "metadata/copyright_statement_edit", locals: { resource: @journal_article, form: f } %>
 
