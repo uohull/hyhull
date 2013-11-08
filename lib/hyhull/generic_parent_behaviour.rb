@@ -6,7 +6,10 @@
 
     # GenericParent https://wiki.duraspace.org/display/hydra/Generic+aggregation+parent+content+model specifies that an object 
     # that conforms to it will take an Atomistic approach to content.  
-    has_many :file_assets, property: :is_part_of, :inbound => true     
+    has_many :file_assets, property: :is_part_of, :inbound => true
+
+    # This routine will sync the file assets state with the parent.
+    before_save :sync_file_assets_state     
   end 
 
   # We are overiding the standard delete from a for a GenericParent resource
@@ -158,6 +161,20 @@
         return "#{self.id}#{id_array[-1].split('')[-1].succ}"
       else
         return nil
+      end
+    end
+  end
+
+  private
+
+  # Will synchronise the file assets inner_object state with self.state if they do not match.
+  def sync_file_assets_state
+    if inner_object.changed?   
+      file_assets.each do |file_asset|
+        unless file_asset.state == state 
+          file_asset.inner_object.state = state
+          file_asset.save
+        end  
       end
     end
   end

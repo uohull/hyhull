@@ -6,9 +6,6 @@ module Hyhull::ResourceWorkflowBehaviour
 
     logger.info("Adding Hyhull::ResourceWorkflowBehaviour to the Hydra model")
 
-    ACTIVE_OBJECT_STATE = "A"
-    DELETED_OBJECT_STATE = "D"
-
     # Queue set 
     belongs_to :queue, property: :is_member_of, class_name: "QueueSet"
     belongs_to :queue_apo, property: :is_governed_by, :class_name => "QueueSet"
@@ -70,12 +67,12 @@ module Hyhull::ResourceWorkflowBehaviour
 
       after_transition any => [:hidden, :deleted] do |resource, transition|
         # After a transition from any states to hidden and deleted, do the following...
-        resource.inner_object.state = DELETED_OBJECT_STATE      
+        resource.set_deleted_inner_state if resource.respond_to? :set_deleted_inner_state
       end
 
       after_transition [:hidden, :deleted] => [:qa] do |resource, transition|
         # After a transition from hidden and deleted to QA do the following...
-        resource.inner_object.state = ACTIVE_OBJECT_STATE      
+        resource.set_active_inner_state if resource.respond_to? :set_active_inner_state   
       end
 
     end 

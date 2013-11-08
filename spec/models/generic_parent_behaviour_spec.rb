@@ -69,6 +69,28 @@ describe Hyhull::GenericParentBehaviour do
 
     end
 
+    describe "save" do
+      before(:each) do
+        @generic_parent = GenericParentBehaviourTest.create
+        @file_asset_a = FileAsset.create
+        @file_asset_b = FileAsset.create
+        @generic_parent.file_assets << [@file_asset_a, @file_asset_b] 
+      end
+      after(:each) do
+        @generic_parent.delete      
+      end
+
+      it "should synchronise the states of the FileAssets with the Parent" do
+        # As default a resource with be 'Active', so will test by setting to Deleted
+        @generic_parent.inner_object.state = "D"
+        @generic_parent.save
+
+        # The file asset's state should be synced...
+        @file_asset_a.state.should == "D"
+        @file_asset_b.state.should == "D"
+      end   
+    end
+
   end
 
   context "with the uketd_object hull:756 test fixture" do
@@ -130,8 +152,3 @@ describe Hyhull::GenericParentBehaviour do
   end
 
 end
-
-
- # def add_file_content(file_data)
- # def delete_by_content_metadata_resource_at(index)
- # update_content_metadata(content_asset, content_ds)

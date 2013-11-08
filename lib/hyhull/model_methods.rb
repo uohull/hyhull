@@ -29,6 +29,16 @@ module Hyhull::ModelMethods
     end
   end
 
+  # Set the Fedora Object state to Deleted 'D'
+  def set_deleted_inner_state
+    set_inner_state("D")
+  end
+
+  # Set the Fedora Object state to Active 'A'
+  def set_active_inner_state
+    set_inner_state("A")
+  end
+
   # helper method to derive cmodel declaration from ruby model
   # standard pattern: pid_namespace:UketdObject
   # hulls pattern: pid_namespace:uketdObject 
@@ -211,5 +221,12 @@ module Hyhull::ModelMethods
     end
     return full_date
   end
+
+  private 
+
+  def set_inner_state(object_state)
+    inner_object.state = object_state
+  end
+
 
 end

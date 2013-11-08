@@ -94,6 +94,30 @@ describe Hyhull::ModelMethods do
         @testclassone.to_long_date("1999-05-10").should == "1999-05-10"
       end
     end
+
+    describe "set_deleted_inner_state" do
+      before(:each) do
+        # We just manually set the state to check it changes correctly
+        @testclassone.inner_object.state = "A"
+      end
+      it "should set the Inner object to Deleted D" do
+        @testclassone.set_deleted_inner_state
+        @testclassone.state.should == "D"
+      end       
+    end
+
+    describe "set_active_inner_state" do
+      before(:each) do
+        # We just manually set the state to check it changes correctly
+        @testclassone.inner_object.state = "D"
+      end
+
+      it "should set the Inner object to Active A" do
+        @testclassone.set_active_inner_state
+        @testclassone.state.should == "A"
+      end
+    end
+
   end
 
   context "added datastreams" do
