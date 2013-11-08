@@ -1,5 +1,23 @@
 module HyhullHelper
 
+  # Provides a edit_link to a resource based upon the data within the SolrDocument
+  def edit_resource_link(document)
+    active_fedora_model = model_from_document(document)
+    unless active_fedora_model.nil?
+      return link_to "Edit resource", controller: active_fedora_model.tableize, action: "edit", id: document.id 
+    end
+  end
+
+  # Provides a link to the Show page for a resource
+  def show_resource_link(id)
+    return link_to "Show resource", controller: "catalog", action: "show", id: id
+  end
+
+  # Returns the ActiveFedora model from the Solr document
+  def model_from_document(document)
+    active_fedora_model = document["active_fedora_model_ssi"]
+  end
+
   #This helper method will create a list of downloadable assets for a 
   #resource.
   #It also adds a google event tracker call to the link, in the form of:-

@@ -8,6 +8,14 @@
 
   #Added Bootstrap class well and 'hidden-phone' for the tools-bar 
 -%>
+  <% if can?(:edit, @document.id) %>
+    <ul class="nav nav-list">
+      <li class="nav-header">Tools</li>
+      <li>  
+        <%= edit_resource_link(@document) %>
+      </li>
+    </ul>
+  <% end %>
   <ul class="nav nav-list">
       <li class="nav-header"><%= t('blacklight.tools.title') %></li>
       <li>

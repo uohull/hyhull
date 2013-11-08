@@ -9,10 +9,13 @@
       </div>
       <div class="row">
         <% if @journal_article.persisted? %>
-          <div class="span6">
+          <div class="span4">
+            <%= show_resource_link(@journal_article.id) %>
+          </div>
+          <div class="span4">
             <%= link_to "Edit content files", controller: "content_metadata", action: "edit", id: @journal_article %>
           </div>
-          <div class="span6">  
+          <div class="span4">  
             <% unless @journal_article.resource_proto? %>
               <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @journal_article }) %>
             <% end %>

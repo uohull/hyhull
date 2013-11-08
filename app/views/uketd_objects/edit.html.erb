@@ -9,10 +9,13 @@
       </div>
       <div class="row">
         <% if @uketd_object.persisted? %>
-          <div class="span6">
+          <div class="span4">
+            <%= show_resource_link(@uketd_object.id) %>
+          </div>
+          <div class="span4">
             <%= link_to "Edit content files", controller: "content_metadata", action: "edit", id: @uketd_object %>
           </div>
-          <div class="span6">  
+          <div class="span4">  
             <% unless @uketd_object.resource_proto? %>
               <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @uketd_object }) %>
             <% end %>
