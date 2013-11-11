@@ -86,7 +86,7 @@ describe Hyhull::Datastream::ModsMetadataBase do
       @ds = Datastream::ModsEtd.from_xml(@mods)
 
       @file_asset_datastream = double("file_asset_datastream", size: 12345, mimeType: "application/pdf", )
-      @file_asset = double("file_asset", content: @file_asset_datastream, pid: "test:1235567")    
+      @file_asset = double("file_asset", content: @file_asset_datastream, pid: "test:1235567", datastreams: {"content" => @file_asset_datastream })
     end
 
     describe "update_mods_content_metadata" do
