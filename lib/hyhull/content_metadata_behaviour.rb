@@ -49,4 +49,19 @@ module Hyhull::ContentMetadataBehaviour
     end    
   end
 
+
+  # Enables the caller to retrieve key content metadata fields by the sequence no
+  def get_resource_metadata_by_sequence_no(sequence_no)
+    index = self.contentMetadata.sequence.find_index(sequence_no)
+
+    unless index.nil?
+      asset_id = self.contentMetadata.resource_object_id[index]
+      datastream_id = self.contentMetadata.resource_ds_id[index]
+      display_label = self.contentMetadata.resource_display_label[index]
+      mime_type = self.contentMetadata.content_mime_type[index]
+      content_size = self.contentMetadata.content_size[index]
+      return {:asset_id => asset_id, :datastream_id => datastream_id, :display_label => display_label, :mime_type => mime_type, :content_size => content_size}
+    end
+  end
+
 end

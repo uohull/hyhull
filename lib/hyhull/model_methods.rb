@@ -77,6 +77,17 @@ module Hyhull::ModelMethods
       if self.respond_to? "identifier" then self.identifier = self.pid end
       if self.respond_to? "primary_display_url" then self.primary_display_url = "http://hydra.hull.ac.uk/resources/#{self.pid}" end
       if self.respond_to? "record_change_date" then self.record_change_date = Time.now.strftime("%Y-%m-%d") end
+
+      if self.respond_to?("contentMetadata") && self.respond_to?(:get_resource_metadata_by_sequence_no)
+        if self.contentMetadata.changed?
+          # When the contentMetadata has changed, we retrieve the content with sequence no 1 (primary content)
+          content_metadata = self.get_resource_metadata_by_sequence_no("1")
+          # and update descMetadata with the metadata 
+          unless content_metadata.nil?
+            self.descMetadata.update_mods_content_metadata_by_params(content_metadata[:asset_id], content_metadata[:datastream_id], content_metadata[:content_size], content_metadata[:mime_type]) if self.descMetadata.respond_to? :update_mods_content_metadata_by_params
+          end          
+        end
+      end
     end
   end
 

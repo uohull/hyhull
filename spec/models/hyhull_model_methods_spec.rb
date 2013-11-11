@@ -166,6 +166,34 @@ describe Hyhull::ModelMethods do
       end
     end
 
+    describe "apply_additional_descMetadata" do
+      before(:each) do
+        # Load a generic parent test fixture
+        @etd = UketdObject.find("hull:756")
+      end
+
+      after(:each) do
+        @etd.sequence = ["1", "2", "3", "4", "5"]
+        @etd.save        
+      end
+
+      it "should update the descMetadata file metadata when the contentMetadata sequence is changed" do
+        # change the sequence
+        @etd.sequence = ["5", "2", "3", "4", "1"]        
+        @etd.save
+       
+        # descMetadata should be updated to reflect that item 5 in the array is the 1st in sequence (primary content)
+        asset_id = @etd.contentMetadata.resource_object_id[4]
+        ds_id = @etd.contentMetadata.resource_ds_id[4]
+        mime_type = @etd.contentMetadata.content_mime_type[4]
+        size_in_bytes = @etd.contentMetadata.content_size[4]
+
+        @etd.descMetadata.physical_description.extent.first.should == Datastream::ModsEtd.bits_to_human_readable(size_in_bytes.to_i)
+        @etd.descMetadata.physical_description.mime_type.first.should == mime_type
+        @etd.descMetadata.raw_object_url.first.should == "http://hydra.hull.ac.uk/assets/#{asset_id}/#{ds_id}"
+      end
+    end
+
     describe "#apply_resource_object_label" do
       before do
         @testclassthree = ModelMethodsTestClassThree.new

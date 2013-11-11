@@ -273,16 +273,28 @@ module Hyhull::Datastream::ModsMetadataBase
   end
 
   def update_mods_content_metadata(content_asset, content_ds)
-    content_size_bytes = eval "content_asset.#{content_ds}.size"
+    content_size_bytes = content_asset.datastreams[content_ds].size
     begin
       self.physical_description.extent = self.class.bits_to_human_readable(content_size_bytes)
-      self.physical_description.mime_type = eval "content_asset.#{content_ds}.mimeType"
-      self.raw_object_url = "http://hydra.hull.ac.uk/assets/" + content_asset.pid + "/content"
+      self.physical_description.mime_type = content_asset.datastreams[content_ds].mimeType
+      self.raw_object_url = "http://hydra.hull.ac.uk/assets/#{content_asset.pid}/#{content_ds}"
       return true
     rescue Exception => e  
       logger.warn("#{self.class.to_s}.descMetadata does not define terminologies required for storing file metadata")
       return false
     end    
-  end     
+  end 
+
+  def update_mods_content_metadata_by_params(asset_id, asset_ds_id , size, mime_type)  
+    begin
+      self.physical_description.extent = self.class.bits_to_human_readable(size.to_i)
+      self.physical_description.mime_type = mime_type
+      self.raw_object_url = "http://hydra.hull.ac.uk/assets/#{asset_id}/#{asset_ds_id}"
+      return true
+    rescue Exception => e  
+      logger.warn("#{self.class.to_s}.descMetadata does not define terminologies required for storing file metadata")
+      return false
+    end    
+  end  
 
 end
