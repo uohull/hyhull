@@ -1,5 +1,6 @@
 module Hyhull::GenericContentBehaviour 
   extend ActiveSupport::Concern
+  include Hyhull::FullTextDatastreamBehaviour
 
   included do
     logger.info("Adding Hyhull::GenericContentBehaviour to the Hydra model")

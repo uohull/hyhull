@@ -64,7 +64,7 @@
             end
           end
         else
-          logger.info("Hyhull::GenericParentBehaviour #{self.class.to_s} does not include the add_file_metadata method")
+          logger.info("Hyhull::GenericParentBehaviour #{self.class.to_s} does not include tje add_file_metadata method")
         end
 
         # Save the changes to self..
