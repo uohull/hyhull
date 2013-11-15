@@ -30,6 +30,10 @@ describe UketdObject do
       @etd.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
     end
 
+    it "should include Full text Indexable behaviour" do
+      @etd.class.ancestors.should include(Hyhull::FullTextIndexableBehaviour)
+    end
+
     it "should have the attributes of an etd object and support update_attributes" do
       attributes_hash = {
         "title" => "A thesis describing the...",

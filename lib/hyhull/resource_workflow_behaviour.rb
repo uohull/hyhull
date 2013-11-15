@@ -23,7 +23,8 @@ module Hyhull::ResourceWorkflowBehaviour
     # get/set the resource_state on object after_initialize/before_save - This is needed to make state_machine work with AF
     after_initialize :get_resource_state
     before_update :set_apo
-    before_save :set_resource_state, :apply_rights_metadata_from_apo
+    before_save :resource_before_save_actions
+
 
     # Important the properties datastream must exist - this stores the resource_state
     delegate :_resource_state, to: "properties", :unique=>"true"
@@ -56,7 +57,7 @@ module Hyhull::ResourceWorkflowBehaviour
         # Set the Resource
         if transition.to_name == :published
           resource.queue = nil
-          resource.apo = resource.parent 
+          resource.apo = resource.parent
         else
           resource.queue_id = HYHULL_QUEUES.invert[transition.to_name]
           resource.apo = resource.queue
@@ -113,6 +114,23 @@ module Hyhull::ResourceWorkflowBehaviour
       end
     end  
   end
+
+  # As part of saving a resource, the following callbacks should be completed...
+  def resource_before_save_actions
+    # set_resource_state - This updates _resource_state property of resource for persistence 
+    set_resource_state 
+    
+    # apply_rights_metadata_from_apo (hyhull:ModelMethods) - This method ensures that the resource rights reflect its APO
+    apply_rights_metadata_from_apo
+
+    # Full text indexing...
+    # When self is published... 
+    if self.resource_published? && self.class.ancestors.include?(Hyhull::FullTextIndexableBehaviour)
+      # We re-extract the Full text if required.. 
+      self.generate_full_text_datastream if self.require_text_extraction? 
+    end
+
+  end  
  
   # Retrieve the resource_state from delegated _resource_state
   def get_resource_state

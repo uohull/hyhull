@@ -6,6 +6,7 @@ class UketdObject < ActiveFedora::Base
   include Hyhull::ContentMetadataBehaviour
   include Hyhull::GenericParentBehaviour
   include Hyhull::ResourceWorkflowBehaviour
+  include Hyhull::FullTextIndexableBehaviour
   include Hyhull::Validators 
 
   # Extra validations for the resource_state state changes
