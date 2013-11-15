@@ -27,7 +27,7 @@ class ContentMetadataController < ApplicationController
         format.html { redirect_to({ action: "edit", id: params[:id] }, notice: 'ContentMetadata was successfully updated.' ) }
         format.json { render json: params[:id], status: :created, location: params[:id] }
       else
-        format.html { redirect_to({ action: "edit", id: params[:id] }, :alert => @content_metadata.errors.messages.values.to_s) }
+        format.html { redirect_to({ action: "edit", id: params[:id] }, :alert => object.errors.messages.values.to_s) }
       end
     end
 
