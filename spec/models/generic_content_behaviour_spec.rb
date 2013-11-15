@@ -12,12 +12,19 @@ end
 describe Hyhull::GenericContentBehaviour do
 
   context "with the GenericContentBehaviour" do
+    before(:all) do
+      @generic_content = GenericContentBehaviourTest.new
+      @test_file = fixture("hyhull/files/test_pdf_file.pdf")
+    end
+
+    describe "FullTextDatastreamBehaviour" do
+      it "should be included as part of the module" do
+        @generic_content.class.ancestors.should include(Hyhull::FullTextDatastreamBehaviour)
+      end
+    end
   
     describe "GenericContentBehaviour#generate_ds_id" do    
-      before(:all) do
-        @generic_content = GenericContentBehaviourTest.new
-        @test_file = fixture("hyhull/files/test_pdf_file.pdf")
-      end
+
 
       it "should return 'content' as the first available contentDs" do
         ds_id = @generic_content.generate_dsid("content")

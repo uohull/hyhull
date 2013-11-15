@@ -6,6 +6,13 @@ describe FileAsset do
     @file_asset = FileAsset.create
   end
 
+  describe "FullTextDatastreamBehaviour" do
+    it "should be included as part of the module" do
+      @file_asset.class.ancestors.should include(Hyhull::FullTextDatastreamBehaviour)
+    end
+  end
+  
+
   describe "class" do
     it "should have the specified datastreams" do
       #Check for descMetadata datastream

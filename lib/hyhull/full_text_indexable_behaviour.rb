@@ -39,34 +39,41 @@ module Hyhull::FullTextIndexableBehaviour
   end
 
   def primary_content_ds_and_object
-    # ContentMetadata contains self referencing identifiers, therefore the self needs to be persisted before checking for content
-    if self.persisted? && self.respond_to?("contentMetadata") && self.respond_to?(:get_resource_metadata_by_sequence_no)
-      # At the moment, we index the primary (1) ds of a resource
-      content_hash = self.get_resource_metadata_by_sequence_no("1")
-      
-      # If content_has nil the resource has no content
-      if content_hash.nil?
-         return nil, nil 
+    # Get the content reference we should be indexing... 
+    asset_id, ds_id  = get_indexable_ds_from_resource
+
+    # If content_has nil the resource has no content
+    if (asset_id.nil? || ds_id.nil?)
+      return nil, nil
+    else
+      if self.id == asset_id
+        return self.datastreams[ds_id], self
       else
-        if self.id == content_hash[:asset_id]
-          return self.datastreams[content_hash[:datastream_id]], self
-        else
-        	# Generally a GenericParent resource
-          if self.respond_to? :file_assets
-            file_asset_index = self.file_assets.rindex{ |file_asset| file_asset.id == content_hash[:asset_id] }
+      	# Generally a GenericParent resource
+        if self.respond_to? :file_assets
+          file_asset_index = self.file_assets.rindex{ |file_asset| file_asset.id == asset_id }
           
-            unless file_asset_index.nil? 
-              return self.file_assets[file_asset_index].datastreams[content_hash[:datastream_id]], self.file_assets[file_asset_index]
-             end
+          # Return the reference to file_asset object unless it is nil...
+          unless file_asset_index.nil? 
+            return self.file_assets[file_asset_index].datastreams[ds_id], self.file_assets[file_asset_index]
           end
+
         end
       end
     end
+
     return nil, nil
   end
 
+  # Simplistic method for checking whether a resource requires text extaction. It will:-
+  #  - Check for a Full_Text_Datastream, if it is nil - return true
+  #  - Check whether contentMetadata has been changed, if it has been changed the content could have possibly been updated. Therefore to be on the safeside return true
+  def require_text_extraction?
+    self.full_text_datastream.nil? || (self.respond_to?(:contentMetadata) && self.contentMetadata.changed?)
+  end
+
   def to_solr(solr_doc={}, opts={})
-  	# Pass through the solr_doc to superclass
+    # Pass through the solr_doc to superclass
     super(solr_doc, opts)
     solr_doc["full_text_ti"] = full_text_datastream.content unless full_text_datastream.nil?
     return solr_doc
@@ -92,4 +99,23 @@ module Hyhull::FullTextIndexableBehaviour
     ds.mimeType == "application/pdf"
   end
 
- end
+  # Returns the first indexable asset_id, ds_id from self
+  # This is based on the output from -get_resource_metadata_hash - this returns an ordered by sequence list of content for the resource
+  def get_indexable_ds_from_resource
+    asset_id = nil
+    ds_id = nil
+
+    if self.respond_to?(:get_resource_metadata_by_sequence_no)
+      self.get_resource_metadata_hash.each do |content| 
+        if content[:mime_type] == "application/pdf"
+          asset_id = content[:asset_id]
+          ds_id = content[:datastream_id]
+          break
+        end 
+      end
+    end
+
+    return asset_id, ds_id 
+  end
+
+end

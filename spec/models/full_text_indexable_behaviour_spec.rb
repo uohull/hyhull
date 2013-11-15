@@ -48,6 +48,24 @@ describe Hyhull::FullTextIndexableBehaviour do
       end
     end
 
+    describe ".require_text_extraction?" do
+      it "should return true if a fulltext datastream does not exist" do
+        @test_generic_content.require_text_extraction?.should == true
+      end
+
+      it "should return false if a fulltext datastream does exist" do
+        @test_generic_content.generate_full_text_datastream
+        @test_generic_content.require_text_extraction?.should == false
+      end
+
+      # This is because the sequence or content may have changed (which indicates a need for re-extraction)
+      it "should return true if contentMetadata metadata is changed" do
+        @test_generic_content.generate_full_text_datastream
+        @test_generic_content.contentMetadata.content_will_change!
+        @test_generic_content.require_text_extraction?.should == true
+      end
+    end
+
     describe ".full_text_datastream" do
       it "should be return a full text datastream after it has been generated" do
         @test_generic_content.full_text_datastream.should be_nil 
@@ -100,6 +118,24 @@ describe Hyhull::FullTextIndexableBehaviour do
       end
     end
 
+    describe ".require_text_extraction?" do
+      it "should return true if a fulltext datastream does not exist" do
+        @test_generic_parent.require_text_extraction?.should == true
+      end
+
+      it "should return false if a fulltext datastream does exist" do
+        @test_generic_parent.generate_full_text_datastream
+        @test_generic_parent.require_text_extraction?.should == false
+      end
+
+      # This is because the sequence or content may have changed (which indicates a need for re-extraction)
+      it "should return true if contentMetadata metadata is changed" do
+        @test_generic_parent.generate_full_text_datastream
+        @test_generic_parent.contentMetadata.content_will_change!
+        @test_generic_parent.require_text_extraction?.should == true
+      end
+    end
+
     describe ".generate_full_text_datastream" do
       it "should return true" do
         @test_generic_parent.generate_full_text_datastream.should == true
@@ -135,7 +171,33 @@ describe Hyhull::FullTextIndexableBehaviour do
         @test_generic_parent.to_solr["full_text_ti"].should_not be_nil 
       end
     end
-
   end 
+
+  describe ".get_indexable_ds_from_resource" do
+    before(:each) do 
+      @test_generic_parent = FullTextTestGenericParentClass.create
+      @test_generic_parent.apply_depositor_metadata("test", "test@test.com")
+
+      file1 = ActionDispatch::Http::UploadedFile.new({ :filename => 'hydra_logo.png', :type => 'image/png', :tempfile =>  fixture("hyhull/files/hydra_logo.png")})
+      file2 = ActionDispatch::Http::UploadedFile.new({ :filename => 'test_pdf_file.pdf', :type => 'application/pdf', :tempfile => fixture("hyhull/files/test_pdf_file.pdf")})
+
+      # Add the test file to the test fixture 
+      @test_generic_parent.add_file_content([file1])
+      @test_generic_parent.add_file_content([file2])
+      @test_generic_parent.save        
+    end
+
+    it "should return the first (based on sequence) indexable content datastream for the resource" do
+      # The second file asset should be the indexable datastream
+      pid = @test_generic_parent.file_assets.last.pid
+      dsid = @test_generic_parent.file_assets.last.content.dsid
+
+      ret_asset_pid, ret_ds_id = @test_generic_parent.send(:get_indexable_ds_from_resource)
+
+      ret_asset_pid.should == pid
+      ret_ds_id.should == dsid
+    end
+
+  end
 
 end

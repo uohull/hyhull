@@ -64,4 +64,17 @@ module Hyhull::ContentMetadataBehaviour
     end
   end
 
+  # Enables caller to get retreive a list of key resource metadata in single hash - Order by sequence
+  def get_resource_metadata_hash
+    resource_metadata = []
+    # We loop around the sequence in sorted order
+    self.contentMetadata.sequence.sort.each do |sequence|
+      # Get original index value of the current sequence 
+      resource_index = self.contentMetadata.sequence.find_index(sequence)
+      resource_metadata << { sequence: sequence, asset_id: self.contentMetadata.resource_object_id[resource_index], datastream_id: self.contentMetadata.resource_ds_id[resource_index],
+       display_label: self.contentMetadata.resource_display_label[resource_index], mime_type: self.contentMetadata.content_mime_type[resource_index], content_size: self.contentMetadata.content_size[resource_index] }
+    end
+    return resource_metadata
+  end
+
 end
