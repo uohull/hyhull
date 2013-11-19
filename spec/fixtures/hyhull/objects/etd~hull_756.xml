@@ -166,6 +166,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:hydra="http://projecthydra.org/ns/relations#">
           <rdf:Description rdf:about="info:fedora/hull:756">
 						<rel:isMemberOf rdf:resource="info:fedora/hull:673"></rel:isMemberOf>
+            <rel:isMemberOfCollection rdf:resource="info:fedora/hull:ETDBiosciences"></rel:isMemberOfCollection>
 						<hydra:isGovernedBy rdf:resource="info:fedora/hull:673"></hydra:isGovernedBy>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:genericParent"></fedora-model:hasModel>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>

@@ -1,2 +1,4 @@
  <%= render(:partial => "shared/set_select",  :locals => { title: "Structural set membership", set_class: StructuralSet, parent_field_name: "parent_id", resource: resource, form: f, required: true }) %>
  <%= render(:partial => "shared/set_select",  :locals => { title: "Display set membership", set_class: DisplaySet, parent_field_name: "display_set_id", resource: resource, form: f }) %>
+ <% # We only show the Harvesting set select if the resource has Hyhull::OaiHarvestableBehaviour %>
+ <%= render(:partial => "shared/set_select",  :locals => { title: "Harvesting set membership", set_class: HarvestingSet, parent_field_name: "harvesting_set_id", resource: resource, form: f }) if resource.kind_of?(Hyhull::OaiHarvestableBehaviour) %>

@@ -5,10 +5,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
 <foxml:objectProperties>
 <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
-<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Root harvesting set"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Root harvesting Set -"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-06-03T10:59:12.092Z"/>
-<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2012-01-04T09:24:43.765Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2013-11-19T15:49:07.809Z"/>
 </foxml:objectProperties>
 <foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
 <foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2011-06-03T10:59:12.092Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
@@ -94,6 +94,30 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:date>2012-01-04T09:24:43.765Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
+<audit:record ID="AUDREC11">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyObject</audit:action>
+<audit:componentID></audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2013-11-19T15:49:07.633Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC12">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByValue</audit:action>
+<audit:componentID>DC</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2013-11-19T15:49:07.725Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC13">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2013-11-19T15:49:07.809Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
 </audit:auditTrail>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
@@ -109,29 +133,14 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </oai_dc:dc>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
-</foxml:datastream>
-<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
-<foxml:datastreamVersion ID="descMetadata.0" LABEL="MODS metadata" CREATED="2012-01-04T09:24:43.765Z" MIMETYPE="text/xml" SIZE="1052">
-<foxml:binaryContent> 
-              PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NDQ08bW9kcyB4c2k6c2NoZW1hTG9j
-              YXRpb249Imh0dHA6Ly93d3cubG9jLmdvdi9tb2RzL3YzIGh0dHA6Ly93d3cubG9jLmdvdi9zdGFuZGFy
-              ZHMvbW9kcy92My9tb2RzLTMtNC54c2QiIHhtbG5zPSJodHRwOi8vd3d3LmxvYy5nb3YvbW9kcy92MyIg
-              eG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+DQ0NICA8
-              dGl0bGVJbmZvPg0NDSAgICA8dGl0bGU+Um9vdCBoYXJ2ZXN0aW5nIFNldDwvdGl0bGU+DQ0NICA8L3Rp
-              dGxlSW5mbz4NDQ0gIDx0eXBlT2ZSZXNvdXJjZSBjb2xsZWN0aW9uPSJ5ZXMiPm1peGVkIG1hdGVyaWFs
-              PC90eXBlT2ZSZXNvdXJjZT4NDQ0gIDxnZW5yZT5IYXJ2ZXN0aW5nIHNldDwvZ2VucmU+DQ0NICA8b3Jp
-              Z2luSW5mbz4NDQ0gICAgPHB1Ymxpc2hlcj5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9wdWJsaXNoZXI+
-              DQ0NICA8L29yaWdpbkluZm8+DQ0NICA8c3ViamVjdCBhdXRob3JpdHk9IlVvSCIgLz4NDQ0gIDxpZGVu
-              dGlmaWVyIHR5cGU9ImZlZG9yYSI+aHVsbDpyb290SGFydmVzdGluZ1NldDwvaWRlbnRpZmllcj4NDQ0g
-              IDxsb2NhdGlvbj4NDQ0gICAgPHVybCBhY2Nlc3M9InJhdyBvYmplY3QiPmh0dHA6Ly9oeWRyYS5odWxs
-              LmFjLnVrL3Jlc291cmNlcy9odWxsOnJvb3RIYXJ2ZXN0aW5nU2V0PC91cmw+DQ0NICA8L2xvY2F0aW9u
-              Pg0NDSAgPHJlY29yZEluZm8+DQ0NICAgIDxyZWNvcmRDb250ZW50U291cmNlPlRoZSBVbml2ZXJzaXR5
-              IG9mIEh1bGw8L3JlY29yZENvbnRlbnRTb3VyY2U+DQ0NICAgIDxyZWNvcmRDcmVhdGlvbkRhdGUgZW5j
-              b2Rpbmc9InczY2R0ZiIgLz4NDQ0gICAgPHJlY29yZENoYW5nZURhdGUgZW5jb2Rpbmc9InczY2R0ZiIg
-              Lz4NDQ0gICAgPGxhbmd1YWdlT2ZDYXRhbG9naW5nPg0NDSAgICAgIDxsYW5ndWFnZVRlcm0gYXV0aG9y
-              aXR5PSJpc282MzktMmIiPmVuZzwvbGFuZ3VhZ2VUZXJtPg0NDSAgICA8L2xhbmd1YWdlT2ZDYXRhbG9n
-              aW5nPg0NDSAgPC9yZWNvcmRJbmZvPg0NDTwvbW9kcz4=
-</foxml:binaryContent> 
+<foxml:datastreamVersion ID="DC.1" LABEL="Dublin Core Record for this object" CREATED="2013-11-19T15:49:07.725Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="430">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>Root harvesting Set</dc:title>
+  <dc:type>Harvesting set</dc:type>
+  <dc:identifier>hull:rootHarvestingSet</dc:identifier>
+</oai_dc:dc>
+</foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
@@ -220,6 +229,31 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   </embargo>
 </rightsMetadata>
 </foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
+<foxml:datastreamVersion ID="descMetadata.1" LABEL="MODS metadata" CREATED="2013-11-19T15:49:07.809Z" MIMETYPE="text/xml" SIZE="1126">
+<foxml:binaryContent> 
+              PG1vZHMgeG1sbnM9Imh0dHA6Ly93d3cubG9jLmdvdi9tb2RzL3YzIiB4bWxuczp4c2k9Imh0dHA6Ly93
+              d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6
+              Ly93d3cubG9jLmdvdi9tb2RzL3YzIGh0dHA6Ly93d3cubG9jLmdvdi9zdGFuZGFyZHMvbW9kcy92My9t
+              b2RzLTMtNC54c2QiPgoKCiAgPHRpdGxlSW5mbz4KCgogICAgPHRpdGxlPlJvb3QgaGFydmVzdGluZyBT
+              ZXQ8L3RpdGxlPgoKCiAgPC90aXRsZUluZm8+CgoKICA8dHlwZU9mUmVzb3VyY2UgY29sbGVjdGlvbj0i
+              eWVzIj5taXhlZCBtYXRlcmlhbDwvdHlwZU9mUmVzb3VyY2U+CgoKICA8Z2VucmU+SGFydmVzdGluZyBz
+              ZXQ8L2dlbnJlPgoKCiAgPG9yaWdpbkluZm8+CgoKICAgIDxwdWJsaXNoZXI+VGhlIFVuaXZlcnNpdHkg
+              b2YgSHVsbDwvcHVibGlzaGVyPgoKCiAgPC9vcmlnaW5JbmZvPgoKCiAgPHN1YmplY3QgYXV0aG9yaXR5
+              PSJVb0giLz4KCgogIDxpZGVudGlmaWVyIHR5cGU9ImZlZG9yYSI+aHVsbDpyb290SGFydmVzdGluZ1Nl
+              dDwvaWRlbnRpZmllcj4KCgogIDxsb2NhdGlvbj4KCgogICAgPHVybCBhY2Nlc3M9InJhdyBvYmplY3Qi
+              Pmh0dHA6Ly9oeWRyYS5odWxsLmFjLnVrL3Jlc291cmNlcy9odWxsOnJvb3RIYXJ2ZXN0aW5nU2V0PC91
+              cmw+CgoKICA8dXJsIGFjY2Vzcz0ib2JqZWN0IGluIGNvbnRleHQiIHVzYWdlPSJwcmltYXJ5IGRpc3Bs
+              YXkiPmh0dHA6Ly9oeWRyYS5odWxsLmFjLnVrL3Jlc291cmNlcy9odWxsOnJvb3RIYXJ2ZXN0aW5nU2V0
+              PC91cmw+PC9sb2NhdGlvbj4KCgogIDxyZWNvcmRJbmZvPgoKCiAgICA8cmVjb3JkQ29udGVudFNvdXJj
+              ZT5UaGUgVW5pdmVyc2l0eSBvZiBIdWxsPC9yZWNvcmRDb250ZW50U291cmNlPgoKCiAgICA8cmVjb3Jk
+              Q3JlYXRpb25EYXRlIGVuY29kaW5nPSJ3M2NkdGYiLz4KCgogICAgPHJlY29yZENoYW5nZURhdGUgZW5j
+              b2Rpbmc9InczY2R0ZiIvPgoKCiAgICA8bGFuZ3VhZ2VPZkNhdGFsb2dpbmc+CgoKICAgICAgPGxhbmd1
+              YWdlVGVybSBhdXRob3JpdHk9ImlzbzYzOS0yYiI+ZW5nPC9sYW5ndWFnZVRlcm0+CgoKICAgIDwvbGFu
+              Z3VhZ2VPZkNhdGFsb2dpbmc+CgoKICA8L3JlY29yZEluZm8+CgoKPC9tb2RzPg==
+</foxml:binaryContent> 
 </foxml:datastreamVersion>
 </foxml:datastream>
 </foxml:digitalObject>

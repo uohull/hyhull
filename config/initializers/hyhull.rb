@@ -1,5 +1,9 @@
 require 'hyhull'
 
+# Harvesting OAI Setting
+# OAI identifier base
+OAI_ITEM_IDENTIFIER_NS = "oai:hull.ac.uk:"
+
 # For all content - Fedora supports the following checksums:-
 # "MD5" "SHA-1" "SHA-256" "SHA-384" "SHA-512" or "DISABLED" (for none)
 DEFAULT_CHECKSUM_TYPE = "MD5"
