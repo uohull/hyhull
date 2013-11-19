@@ -127,7 +127,8 @@ module Hyhull::ResourceWorkflowBehaviour
     # When self is published... 
     if self.resource_published? && self.class.ancestors.include?(Hyhull::FullTextIndexableBehaviour)
       # We re-extract the Full text if required.. 
-      self.generate_full_text_datastream if self.require_text_extraction? 
+      full_text_added = self.generate_full_text_datastream if self.require_text_extraction? 
+      logger.warn "Resource workflow: Failed to extract the text from the content datastream of #{self.id}" unless full_text_added 
     end
 
   end  
