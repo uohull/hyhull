@@ -10,7 +10,7 @@ module Hyhull::OaiHarvestableBehaviour
     self.state_machine :resource_state do   
       # Validate that the harvesting set is set...
       state :published do
-        validates :harvesting_set, presence: true
+        validates :harvesting_set, presence: { message: "not assigned" }
       end
 
       after_transition any => [:hidden, :deleted] do |resource, transition|

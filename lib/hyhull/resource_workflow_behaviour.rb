@@ -34,7 +34,7 @@ module Hyhull::ResourceWorkflowBehaviour
 
       # Validate that the parent set is set within these states...
       state :published do
-        validates :parent, presence: true
+        validates :parent, presence: { message: "not assigned" }
       end
 
       event :submit, human_name: "Submit the resource to QA" do

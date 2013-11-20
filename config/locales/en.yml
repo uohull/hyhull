@@ -12,3 +12,9 @@ en:
     permissions:
       staff_label: "University of Hull - Staff"
       student_label: "University of Hull - Students"
+
+# Over-ride the human readable version of parent to be Structural set
+  activemodel:
+    attributes:
+      active_fedora/base:
+        parent: "Structural set"
