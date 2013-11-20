@@ -11,14 +11,16 @@ class ResourceWorkflowController < ApplicationController
       begin
         object.fire_resource_state_event(state)
         if object.save
-          notice = { :notice => "Sucessfully added resource to the #{ object.human_resource_state_name } queue" } 
+          notice = { :notice => "Sucessfully added resource #{object.id} to the #{ object.human_resource_state_name } queue" }
+          redirect_to root_url, notice 
         else
           notice = { :alert => "Problems saving the resource to the #{state} queue...</br></br>#{object.errors.full_messages.join("</br>")}".html_safe }
+          redirect_to :back, notice 
         end
       rescue Exception => e
-         notice = { :alert => "Problems executing the '#{state}' transition on the resource" }
+        notice = { :alert => "Problems executing the '#{state}' transition on the resource" }
+        redirect_to :back, notice 
       end
-      redirect_to :back, notice 
     end  
 
   end

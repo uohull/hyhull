@@ -52,7 +52,7 @@ describe ResourceWorkflowController do
         @test.mandatory_field_for_submit_transition = "This has been populated"
         @test.save
         put :update, :id=>@pid, :resource_state => "submit"
-        flash[:notice].should == "Sucessfully added resource to the qa queue"
+        flash[:notice].should == "Sucessfully added resource #{@pid} to the qa queue"
       end
     end
     context "invalid update" do
