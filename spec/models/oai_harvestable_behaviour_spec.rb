@@ -36,7 +36,7 @@ describe Hyhull::OaiHarvestableBehaviour do
         it "should return false when the resource is published without being set" do
           @harvesting_test_class.publish_resource!
           @harvesting_test_class.save.should be_false
-          @harvesting_test_class.errors.messages.should == {:harvesting_set=>["can't be blank"]}
+          @harvesting_test_class.errors.messages.should == {:harvesting_set=>["not assigned"]}
         end
 
         it "should return true when the resource is published and is set" do

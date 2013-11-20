@@ -163,7 +163,7 @@ describe Hyhull::ResourceWorkflowBehaviour do
         it "should be the state after calling publish_resource" do
           @object.publish_resource
           @object.save.should == false
-          @object.errors.messages.should == {:parent=>["can't be blank"]}
+          @object.errors.messages.should == {:parent=>["not assigned"]}
 
           @object = ResourceWorkflowBehaviourTestClass.find(@object.id)
           @object.parent_id = @test_parent_id
