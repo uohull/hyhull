@@ -58,7 +58,7 @@ class UketdObject < ActiveFedora::Base
   validates :publisher, presence: true
   validates :qualification_level, presence: true
   validates :qualification_name, presence: true
-  validates :date_issued, format: { with: /^(\d{4}-\d{2}-\d{2}|\d{4}-\d{2}|\d{4})/ }
+  validates :date_issued, presence: true, format: { with: /^(\d{4}-\d{2}-\d{2}|\d{4}-\d{2}|\d{4})/ }
 
   def apply_additional_metadata
     #personal_creator_name
