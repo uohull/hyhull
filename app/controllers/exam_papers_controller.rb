@@ -28,7 +28,7 @@ class ExamPapersController < ApplicationController
 
     respond_to do |format|
       if @exam_paper.save
-        format.html { redirect_to(edit_exam_paper_path(@exam_paper), :notice => 'Exam paper was successfully created.') }
+        format.html { redirect_to(edit_exam_paper_path(@exam_paper), :notice => "Exam paper was successfully created as #{@exam_paper.id}") }
         format.json { render :json => @exam_paper, :status => :created, :location => @exam_paper }
       else
         format.html {

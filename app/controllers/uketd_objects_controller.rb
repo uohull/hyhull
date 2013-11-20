@@ -19,7 +19,7 @@ class UketdObjectsController < ApplicationController
 
 		respond_to do |format|
 			if @uketd_object.save
-				format.html { redirect_to(edit_uketd_object_path(@uketd_object), :notice => 'ETD was successfully created.') }
+				format.html { redirect_to(edit_uketd_object_path(@uketd_object), :notice => "ETD was successfully created as #{@uketd_object.id}") }
         format.json { render :json => @uketd_object, :status => :created, :location => @uketd_object }
       else
      		format.html {

@@ -21,7 +21,7 @@ class StructuralSetsController < ApplicationController
 
     respond_to do |format|
       if @structural_set.save
-        format.html { redirect_to(edit_structural_set_path(@structural_set), :notice => 'Structural set was successfully created.') }
+        format.html { redirect_to(edit_structural_set_path(@structural_set), :notice => "Structural set was successfully created as #{@structural_set.id}") }
         format.json { render :json => @structural_set, :status => :created, :location => @structural_set }
       else
         format.html {

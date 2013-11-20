@@ -18,7 +18,7 @@ class JournalArticlesController < ApplicationController
 
     respond_to do |format|
       if @journal_article.save
-        format.html { redirect_to(edit_journal_article_path(@journal_article), :notice => 'Journal Article was successfully created.') }
+        format.html { redirect_to(edit_journal_article_path(@journal_article), :notice => "Journal Article was successfully created as #{@journal_article.id}") }
         format.json { render :json => @journal_article, :status => :created, :location => @journal_article }
       else
         format.html {

@@ -19,7 +19,7 @@ class DatasetsController < ApplicationController
 
     respond_to do |format|
       if @dataset.save
-        format.html { redirect_to(edit_dataset_path(@dataset), :notice => 'Dataset was successfully created.') }
+        format.html { redirect_to(edit_dataset_path(@dataset), :notice => "Dataset was successfully created as #{@dataset.id}") }
         format.json { render :json => @dataset, :status => :created, :location => @dataset }
       else
         format.html {

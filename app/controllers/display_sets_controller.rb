@@ -19,7 +19,7 @@ class DisplaySetsController < ApplicationController
 
     respond_to do |format|
       if @display_set.save
-        format.html { redirect_to(edit_display_set_path(@display_set), :notice => 'Display set was successfully created.') }
+        format.html { redirect_to(edit_display_set_path(@display_set), :notice => "Display set was successfully created as #{@display_set.id}") }
         format.json { render :json => @display_set, :status => :created, :location => @display_set }
       else
         format.html {

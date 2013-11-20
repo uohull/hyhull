@@ -27,7 +27,7 @@ class GenericContentsController < ApplicationController
     respond_to do |format|
       if @generic_content.save
         genre = @generic_content.genre
-        format.html { redirect_to(edit_generic_content_path(@generic_content), :notice => "#{genre} was successfully created.") }
+        format.html { redirect_to(edit_generic_content_path(@generic_content), :notice => "#{genre} was successfully created as #{@generic_content.id}") }
         format.json { render :json => @generic_content, :status => :created, :location => @generic_content }
       else
         format.html {
