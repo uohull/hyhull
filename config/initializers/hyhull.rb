@@ -8,6 +8,9 @@ OAI_ITEM_IDENTIFIER_NS = "oai:hull.ac.uk:"
 # "MD5" "SHA-1" "SHA-256" "SHA-384" "SHA-512" or "DISABLED" (for none)
 DEFAULT_CHECKSUM_TYPE = "MD5"
 
+# DOI Resolver link
+DOI_RESOLVER_SERVICE_URL = "http://dx.doi.org/"
+
 # These are the Hyhull User groups
 # String representation used for seeding Database roles and checking permissions - See app/models/ability.rb
 # Note: Once implemented it is not recommended to change the string values below 

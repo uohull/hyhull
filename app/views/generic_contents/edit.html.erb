@@ -13,7 +13,7 @@
             <%= show_resource_link(@generic_content.id) %>
           </div>
           <div class="span4">
-            <%= link_to "Edit content files", controller: "content_metadata", action: "edit", id: @generic_content %>
+            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @generic_content %>
           </div>
           <div class="span4">  
             <% unless @generic_content.resource_proto? %>

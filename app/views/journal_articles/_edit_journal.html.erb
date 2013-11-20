@@ -20,7 +20,7 @@
       <div class="fields">
         <%= f.input :journal_article_doi, label: "DOI" %>
         <div class="control-group">
-          <% publication_link = "http://dx.doi.org/#{@journal_article.journal_article_doi.strip}" unless @journal_article.journal_article_doi.nil? %>
+          <% publication_link = "#{DOI_RESOLVER_SERVICE_URL}#{@journal_article.journal_article_doi.strip}" unless @journal_article.journal_article_doi.nil? %>
           <div class="controls">
             <%= link_to publication_link, publication_link, :target => "_blank" %>
           </div>

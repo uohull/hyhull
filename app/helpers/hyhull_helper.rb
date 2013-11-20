@@ -213,12 +213,20 @@ module HyhullHelper
      display_dt_dd_element(label_to_display(label_text), solr_field_value(document, solr_fname), html_class)
   end
 
-  def display_field_as_link(document, solr_fname, label_text='', link_text, dd_class)
+  def display_field_as_link(document, solr_fname, label_text='', link_text, html_class)
     display_dt_dd_element(label_to_display(label_text), link(solr_field_value(document, solr_fname),  link_text) , html_class)
   end
 
   def display_encoded_html_field(document, solr_fname, label_text='', html_class)
     display_dt_dd_element(label_to_display(label_text), return_unencoded_html_string(solr_field_value(document, solr_fname)), html_class)
+  end
+
+  # Use to provide a DOI link within the standard dd/dt field elements
+  def doi_resolver_field(document, doi_fname, label_text='', html_class)
+    doi = solr_field_value(document, doi_fname)
+    if doi.length > 0      
+      display_dt_dd_element(label_to_display(label_text), link(doi_resolver_link(doi), doi), html_class)
+    end
   end
 
   private
@@ -261,6 +269,10 @@ module HyhullHelper
 
   def link(url, text) 
     link_to text.to_s, url.to_s
+  end
+
+  def doi_resolver_link(doi="")
+   return "#{DOI_RESOLVER_SERVICE_URL}#{doi}"
   end
 
 end
