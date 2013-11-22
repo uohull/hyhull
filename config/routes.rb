@@ -1,7 +1,17 @@
 Hyhull::Application.routes.draw do
   root :to => "catalog#index"
 
-  Blacklight.add_routes(self)
+  # We want to override the the Blacklight catalog route to direct to 'resources' 
+  Blacklight.add_routes(self, except: [:catalog, :solr_document])
+  # We don't add the Blacklight catalog/solr_document routes so that...
+  # ... we can override url route with 'resources'..
+  match 'resources/opensearch', to: 'catalog#opensearch',  as: 'opensearch_catalog'
+  match 'resources/facet/:id', to: 'catalog#facet', as: 'catalog_facet'
+  match 'resources', to: 'catalog#index', as: 'catalog_index'
+  resources :solr_document,  path: 'resources', controller: 'catalog', only: [:show, :update] 
+  resources :catalog, path: 'resources', controller: 'catalog', only:  [:show, :update]
+  # End of catalog/solr_document overides 
+
   HydraHead.add_routes(self)
 
   devise_for :users
