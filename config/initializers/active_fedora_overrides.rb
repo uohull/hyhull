@@ -40,7 +40,8 @@ module ActiveFedora
     # @param target an object to store
     def build_statement(uri, predicate, target)
       raise "Not allowed anymore" if uri == :self
-      # Overriding this line:-
+      # Overriding this line - In hyhull QueueSet is a Subclass of StructuralSet..
+      # ...calling QueueSet.instance.respond_to? :internal_uri returns false, even though it does respond to .internal_uri
       #target = target.internal_uri if target.respond_to? :internal_uri
       target = target.internal_uri if target.class.method_defined? :internal_uri
       subject =  RDF::URI.new(uri)  #TODO cache
