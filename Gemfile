@@ -1,16 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem "rails", "~> 3.2.15"
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-#Use the new Hydra release stack - this isn't working at the moment
-#gem 'hydra', '~> 6.0.0.rc2'
-
-#We still need the blacklight/hydra-head reference
-gem 'blacklight', '4.1.0'
-gem "hydra-head", "~> 6.3.1"
+#Use the new Hydra release stack
+gem "hydra", "~> 6.1.0"
 gem "hydra-role-management", "~> 0.1.0"
 
 #State machine
@@ -23,7 +16,7 @@ gem 'sqlite3'
 gem 'mysql2'
 
 #devise_cas_authenticable is used to enable CAS integration
-gem 'devise_cas_authenticatable', '~> 1.2.0'
+gem "devise_cas_authenticatable", "~> 1.3.2"
 
 # rubytree provides generic tree structures, used for building set trees...
 gem "rubytree", "~> 0.8.3"
@@ -34,6 +27,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'jquery-rails'
+  gem "jquery-ui-rails", "~> 4.1.0"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
@@ -46,7 +40,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'jettywrapper'
+  gem "jettywrapper", "~> 1.5.0"
 end
 
 group :test do 

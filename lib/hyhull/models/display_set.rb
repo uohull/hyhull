@@ -22,8 +22,10 @@ module Hyhull
        
         validates :title, presence: true
         validates :display_set, presence: true
-        validates_exclusion_of :display_set_id, :in => lambda { |p| [p.id]}, :message => "cannot be a parent to itself"
 
+        # Allows nil because the the test above will check for presence
+        validates_exclusion_of :display_set_id, :in => lambda { |display_set| [display_set.id]}, :message => "cannot be a parent to itself", :allow_nil => true 
+ 
         # Overidden the hydra::ModelMixins::RightsMetadata#permissions= method to enable setting of permissions on a
         # non rightsMetadata ds
         # See Hyhull::Models::StructuralSet::Permissions for implementation of set_permissions

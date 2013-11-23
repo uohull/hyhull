@@ -29,7 +29,9 @@ module Hyhull
 
         validates :title, presence: true
         validates :parent, presence: true
-        validates_exclusion_of :parent_id, :in => lambda { |p| [p.id]}, :message => "cannot be a parent to itself"
+
+        # Allows nil because the the test above will check for presence
+        validates_exclusion_of :parent_id, :in => lambda { |p| [p.id]}, :message => "cannot be a parent to itself", :allow_nil => true
 
         # Overidden the hydra::ModelMixins::RightsMetadata#permissions= method to enable setting of permissions on a
         # non rightsMetadata ds
