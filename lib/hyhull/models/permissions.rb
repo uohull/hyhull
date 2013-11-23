@@ -4,7 +4,7 @@ module Hyhull
 
       extend ActiveSupport::Concern
       #we're overriding the permissions= method which is in RightsMetadata
-      include Hydra::ModelMixins::RightsMetadata
+      include Hydra::AccessControls::Permissions
 
       included do
         has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata

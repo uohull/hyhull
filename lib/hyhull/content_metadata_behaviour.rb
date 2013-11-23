@@ -4,14 +4,9 @@ module Hyhull::ContentMetadataBehaviour
   included do
     logger.info("Adding Hyhull::ContentMetadataBehaviour to the Hydra model")
 
-    # Include Hyhulls::Datastream::ContentMetadataBehaviouretadata for information about contents stroed against objects
+    # Include Hyhulls::Datastream::ContentMetadataBehaviouretadata for information about contents stored against objects
     has_metadata name: "contentMetadata", label: "Content metadata", type: Hyhull::Datastream::ContentMetadata, versionable: true
-
-    delegate :sequence, to: "contentMetadata"
-    delegate :resource_display_label, to: "contentMetadata"
-    delegate :resource_object_id, to: "contentMetadata"
-    delegate :resource_ds_id, to: "contentMetadata" 
-    delegate :content_id, to: "contentMetadata"     
+    has_attributes :sequence, :resource_display_label, :resource_object_id, :resource_ds_id, :content_id, datastream: :contentMetadata, multiple: true     
   end 
 
   # Adds file information to self.contentMetadata

@@ -12,7 +12,7 @@ module Hyhull
         has_metadata name: "descMetadata", label: "MODS metadata", type: Hyhull::Datastream::ModsSet
         has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
        
-        delegate_to :descMetadata, [:title, :description, :resource_status, :genre, :type_of_resource, :primary_display_url, :identifier], unique: true
+        has_attributes :title, :description, :resource_status, :genre, :type_of_resource, :primary_display_url, :identifier, datastream: :descMetadata, multiple: false
           
         belongs_to :parent, property: :is_member_of, :class_name => "HarvestingSet"
         has_many :children, property: :is_member_of, :class_name => "HarvestingSet"

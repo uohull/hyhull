@@ -26,27 +26,27 @@ class UketdObject < ActiveFedora::Base
   has_metadata name: "descMetadata", label: "MODS metadata", type: Datastream::ModsEtd
   has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
  
-  #Delegate these attributes to the respective datastream
+  # Attributes to respective datastream
   #Unique fields
-  delegate_to :descMetadata, [:title, :abstract, :date_issued, :date_valid, :rights, :ethos_identifier, :language_text, :language_code, :publisher , :qualification_level, :qualification_name, 
-                             :dissertation_category, :type_of_resource, :genre, :mime_type, :digital_origin, :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, 
-                             :record_change_date, :resource_status ], unique: true
+  has_attributes :title, :abstract, :date_issued, :date_valid, :rights, :ethos_identifier, :language_text, :language_code, :publisher , :qualification_level, :qualification_name, 
+                   :dissertation_category, :type_of_resource, :genre, :mime_type, :digital_origin, :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, 
+                     :record_change_date, :resource_status, datastream: :descMetadata, multiple: false
   # Non-unique fields
   # People
-  delegate_to :descMetadata, [:person_name, :person_role_text]
+  has_attributes :person_name, :person_role_text, datastream: :descMetadata, multiple: true
   # Organisations
-  delegate_to :descMetadata, [:organisation_name, :organisation_role_text]
-  delegate_to :descMetadata, [:subject_topic, :grant_number]
+  has_attributes :organisation_name, :organisation_role_text, datastream: :descMetadata, multiple: true
+  has_attributes :subject_topic, :grant_number, datastream: :descMetadata, multiple: true
 
   # Ensure that description is available (redirects to abstract)
-  delegate :description, to: "descMetadata", :at =>[:abstract], unique: true
+  has_attributes :description, at: [:abstract], datastream: :descMetadata, multiple: false
  
   # Static Relator terms 
-  delegate :person_role_terms, to: Datastream::ModsEtd
-  delegate :organisation_role_terms, to: Datastream::ModsEtd
-  delegate :qualification_name_terms, to: Datastream::ModsEtd
-  delegate :qualification_level_terms, to: Datastream::ModsEtd
-  delegate :dissertation_category_terms, to: Datastream::ModsEtd
+  delegate :person_role_terms, to: Datastream::ModsEtd, multiple: false
+  delegate :organisation_role_terms, to: Datastream::ModsEtd, multiple: false
+  delegate :qualification_name_terms, to: Datastream::ModsEtd, multiple: false
+  delegate :qualification_level_terms, to: Datastream::ModsEtd, multiple: false
+  delegate :dissertation_category_terms, to: Datastream::ModsEtd, multiple: false
 
   # Standard validations for the object fields
   validates :title, presence: true

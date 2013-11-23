@@ -46,15 +46,15 @@ describe ActiveFedora::ContentModel do
 
     it "should return the appropiate model for the existing object models" do
       # Lets load an ETD into 'ActiveFedora::Base'
-      uketd_object = ActiveFedora::Base.find("hull:756")
-      journal_article = ActiveFedora::Base.find("hull:1729")
+      uketd_object = ActiveFedora::Base.find("hull:756", cast: false)
+      journal_article = ActiveFedora::Base.find("hull:1729", cast: false)
       # Now lets see if it matches to the correct object type 'UketdObject/JournalArticle'
       ActiveFedora::ContentModel.known_models_for(uketd_object).include?(UketdObject).should be_true
       ActiveFedora::ContentModel.known_models_for(journal_article).include?(JournalArticle).should be_true
     end
 
     it "should return the GeneriContent model for a valid object without a specific object model" do
-      presentation = ActiveFedora::Base.find("hull:2106")
+      presentation = ActiveFedora::Base.find("hull:2106", cast: false)
       ActiveFedora::ContentModel.known_models_for(presentation).include?(GenericContent).should be_true
     end
   end

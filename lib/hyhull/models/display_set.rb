@@ -15,7 +15,7 @@ module Hyhull
 
         has_metadata name: "descMetadata", label: "MODS metadata", type: Hyhull::Datastream::ModsSet
 
-        delegate_to :descMetadata, [:title, :description, :resource_status, :genre, :type_of_resource, :primary_display_url, :identifier], unique: true
+        has_attributes :title, :description, :resource_status, :genre, :type_of_resource, :primary_display_url, :identifier, datastream: :descMetadata, multiple: false
           
         belongs_to :apo, property: :is_governed_by, :class_name => "DisplaySet"
         has_many :children, property: :is_member_of, :class_name => "ActiveFedora::Base"
@@ -26,14 +26,14 @@ module Hyhull
         # Allows nil because the the test above will check for presence
         validates_exclusion_of :display_set_id, :in => lambda { |display_set| [display_set.id]}, :message => "cannot be a parent to itself", :allow_nil => true 
  
-        # Overidden the hydra::ModelMixins::RightsMetadata#permissions= method to enable setting of permissions on a
+        # Overidden the Hydra::AccessControls::Permissions#permissions= method to enable setting of permissions on a
         # non rightsMetadata ds
         # See Hyhull::Models::StructuralSet::Permissions for implementation of set_permissions
         def permissions=(params)
           self.set_permissions(params, "rightsMetadata")
         end
 
-        # Overidden the hydra::ModelMixins::RightsMetadata#permissions method to enable get of permissions on a
+        # Overidden the Hydra::AccessControls::Permissions#permissions method to enable get of permissions on a
         # non rightsMetadata ds
         # See Hyhull::Models::StructuralSet::Permissions for implementation of get_permissions
         def permissions

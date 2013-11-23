@@ -13,13 +13,13 @@ module Hyhull::ModelMethods
 
     # Store Hyhull workflow properties
     has_metadata name: "properties", label: "Workflow properties", type: Hyhull::Datastream::WorkflowProperties 
-    delegate_to :properties, [:depositor, :depositor_email], unique: true  
+    has_attributes :depositor, :depositor_email, datastream: :properties, multiple: false
   
     # Reference the standard Fedora DC for storing simple metadata
     has_metadata name: "DC", label: "Dublin Core Record for this object", type: Hyhull::Datastream::DublinCore
-    delegate :dc_title, to: "DC", at: [:title], unique: true
-    delegate :dc_genre, to: "DC", at: [:genre], unique: true
-    delegate :dc_date, to: "DC", at: [:date], unique: true
+    has_attributes :dc_title, datastream: :DC, at: [:title], multiple: false
+    has_attributes :dc_genre, datastream: :DC, at: [:genre], multiple: false
+    has_attributes :dc_date, datastream: :DC, at: [:date], multiple: false
   end
 
   module ClassMethods

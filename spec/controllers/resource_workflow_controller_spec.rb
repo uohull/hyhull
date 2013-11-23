@@ -31,7 +31,7 @@ class ResourceWorkflowControllerTestClass < ActiveFedora::Base
   end
 
   has_metadata :name => "test_ds", :label=>"test_ds", type: TestOmDatastream
-  delegate :mandatory_field_for_submit_transition, to: "test_ds"
+  has_attributes :mandatory_field_for_submit_transition, datastream: :test_ds, multiple: false
 
 end
 

@@ -9,9 +9,9 @@ class Dataset < GenericContent
   has_metadata name: "descMetadata", label: "MODS metadata", type: Datastream::ModsDataset
 
   # Static Relator terms 
-  delegate :person_role_terms, to: Datastream::ModsDataset
-  delegate :organisation_role_terms, to: Datastream::ModsDataset
-  delegate :coordinates_types, to: Datastream::ModsDataset
+  delegate :person_role_terms, to: Datastream::ModsDataset, multiple: false
+  delegate :organisation_role_terms, to: Datastream::ModsDataset, multiple: false
+  delegate :coordinates_types, to: Datastream::ModsDataset, multiple: false
 
   validates :type_of_resource, presence: true 
 

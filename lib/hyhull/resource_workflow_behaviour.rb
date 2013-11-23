@@ -27,7 +27,8 @@ module Hyhull::ResourceWorkflowBehaviour
 
 
     # Important the properties datastream must exist - this stores the resource_state
-    delegate :_resource_state, to: "properties", :unique=>"true"
+    has_attributes :_resource_state, datastream: :properties, multiple: false     
+
 
     # Standard resource_state workflow
     state_machine :resource_state, :initial => :proto, :namespace => 'resource'  do

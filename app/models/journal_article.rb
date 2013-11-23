@@ -23,23 +23,26 @@ class JournalArticle < ActiveFedora::Base
   has_metadata name: "descMetadata", label: "MODS metadata", type: Datastream::ModsJournalArticle
   has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
 
-  #Delegate these attributes to the respective datastream
-  #Unique fields
-  delegate :title, to: "descMetadata", :at =>[:mods,:title_info, :main_title], unique: true
-  delegate :publisher, to: "descMetadata", :at => [:mods, :origin_info, :publisher], unique: true
-  delegate_to :descMetadata, [:abstract, :rights, :language_text, :language_code, :date_issued,
-                              :peer_reviewed, :journal_title, :journal_publisher, :journal_publication_date, :journal_print_issn,
-                              :journal_electronic_issn, :journal_article_doi, :journal_volume, :journal_issue,  :journal_start_page,
-                              :journal_end_page, :journal_article_restriction, :type_of_resource, :genre, :mime_type, :digital_origin, 
-                              :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, :record_change_date, :resource_status ], unique: true
+  # Attributes to respective datastream
+  # Multiple false
+  has_attributes :title, datastream: :descMetadata, at: [:mods,:title_info, :main_title], multiple: false
+  has_attributes :publisher, datastream: :descMetadata, at: [:mods, :origin_info, :publisher], multiple: false
+
+  has_attributes :abstract, :rights, :language_text, :language_code, :date_issued,
+                  :peer_reviewed, :journal_title, :journal_publisher, :journal_publication_date, :journal_print_issn,
+                  :journal_electronic_issn, :journal_article_doi, :journal_volume, :journal_issue,  :journal_start_page,
+                  :journal_end_page, :journal_article_restriction, :type_of_resource, :genre, :mime_type, :digital_origin, 
+                  :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, :record_change_date, :resource_status,
+                  datastream: :descMetadata, multiple: false
 
   # Non-unique fields
+  # Subjects
+  has_attributes :subject_topic, datastream: :descMetadata, multiple: true
   # People
-  delegate_to :descMetadata, [:person_name, :person_role_text]
-  delegate_to :descMetadata, [:subject_topic]
+  has_attributes :person_name, :person_role_text, datastream: :descMetadata, multiple: true
  
   # Static Relator terms 
-  delegate :person_role_terms, to: Datastream::ModsJournalArticle
+  delegate :person_role_terms, to: Datastream::ModsJournalArticle, multiple: false
 
   # Standard validations for the object fields
   validates :title, presence: true

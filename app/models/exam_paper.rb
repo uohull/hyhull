@@ -25,17 +25,19 @@ class ExamPaper < ActiveFedora::Base
   has_metadata name: "descMetadata", label: "MODS metadata", type: Datastream::ModsExamPaper
   has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
 
-  #Delegate these attributes to the respective datastream
-  #Unique fields
-  delegate_to :descMetadata, [:department_name, :title, :date_issued, :rights, :language_text, :language_code, :publisher , :type_of_resource, 
-  	                         :genre, :mime_type, :digital_origin, :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, 
-                             :record_change_date, :resource_status, :exam_level, :additional_notes ], unique: true
-  # Non-unique fields
-  delegate_to :descMetadata, [:module_name, :module_code, :module_display]
+  # Attributes to respective datastream - Multiple false
+  has_attributes :department_name, :title, :date_issued, :rights, :language_text, :language_code, :publisher , :type_of_resource, 
+                   :genre, :mime_type, :digital_origin, :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, 
+                     :record_change_date, :resource_status, :exam_level, :additional_notes, datastream: :descMetadata, multiple: false  
+  
+  # Multple true
+  # Modules
+  has_attributes :module_name, :module_code, :module_display, datastream: :descMetadata, multiple: true
 
-  delegate_to :descMetadata, [:subject_topic]
+  # Subject
+  has_attributes :subject_topic, datastream: :descMetadata, multiple: true
 
-  delegate :department_names_list, to: Datastream::ModsEtd
+  delegate :department_names_list, to: Datastream::ModsEtd, multiple: false
 
   # Standard validations for the object fields
   #validates :title, presence: true
