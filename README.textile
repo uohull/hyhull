@@ -18,9 +18,9 @@ h3. Installation Prerequisites
 git checkout git@github.com:uohull/hyhull.git
 </pre>
 
-change the current directory to "hyhull"
+Change the current directory to "hyhull"
 
-Install hydra-jetty (this may take several minutes):
+Install hydra-jetty. Note, jetty has been added to hyhull as a git submodule (this may take several minutes):
 <pre>git submodule init
 git submodule update
 </pre>
@@ -45,6 +45,9 @@ To seed the data...
 Configure jetty:
 <pre>rake hydra:jetty:config
 </pre>
+
+hyhull includes full text indexing.  The necessary solr libraries are not included with Jetty as default, copy to solr using:
+<pre>rake hyhull:config:solr_text_extraction</pre>
 
 Then start jetty:
 <pre>rake jetty:start

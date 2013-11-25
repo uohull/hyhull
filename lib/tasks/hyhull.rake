@@ -8,6 +8,13 @@ require 'cucumber/rake/task'
 
 namespace :hyhull do
   
+  namespace :config do
+    desc "Copies the libraries necessary for text extraction with solr"
+    task :solr_text_extraction do
+      cp_r("solr_conf/text_extraction_support/contrib/extraction", "jetty/solr/lib/contrib/", verbose: true)
+    end
+  end
+
   namespace :default_fixtures do
 
 
@@ -84,7 +91,7 @@ namespace :hyhull do
   task :test do
     ENV["RAILS_ENV"] ||= 'test'
     workspace_dir = ENV['WORKSPACE'] # workspace should be set by Hudson
-    project_dir = workspace_dir ? workspace_dir : ENV['PWD']
+    project_dir = workspace_dir ? workspace_dir : ENV['PWD']   
     Rake::Task["hydra:jetty:config"].invoke
     jetty_params = {
       :jetty_home => "#{project_dir}/jetty",
@@ -94,6 +101,9 @@ namespace :hyhull do
       :fedora_home => "#{project_dir}/jetty/fedora/default",
       :startup_wait => 50
     }
+    # Copy across the Solr Text Extraction libraries
+    Rake::Task["hyhull:config:solr_text_extraction"].invoke
+
     jetty_params = Jettywrapper.load_config.merge(jetty_params)
 
     Rake::Task["db:migrate"].invoke
