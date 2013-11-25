@@ -9,8 +9,28 @@ require 'spec_helper'
 # At present Users 'hydra' roles will not change unless they are changed manually (via inteface/db). This means that even if the users user_type/department/faculty change, the hydra role will remain same. 
 
 describe User do
+  context "Devise modules" do
+    describe "cas_authenticatable" do
+       it "should be included" do
+         subject.class.ancestors.should include Devise::Models::CasAuthenticatable
+       end
+    end
+
+    describe "trackable" do
+       it "should be included" do
+         subject.class.ancestors.should include Devise::Models::Trackable
+       end
+     end
+
+    describe "timeoutable" do
+       it "should be included" do
+         subject.class.ancestors.should include Devise::Models::Timeoutable
+       end
+     end
+  end
+
   context "who exists within the People table" do
-    
+
     describe "with user department and faculty attributes" do
       # We need a test users - seeds creates a number of 'people' so we will use one of those...
       before(:each) do
