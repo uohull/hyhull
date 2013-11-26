@@ -1,16 +1,25 @@
-<%= form_tag( { controller: :content_metadata, action: :update }, { method: :put } ) do |f| %>
-  <fieldset class="edit-half">
-    <dl>
-    <div class="info-multiple">
-      <div class="left">
-        <dt><label>Sequence</label></dt>
-      </div>
-      <div class="right">
-        <dt><%= label_tag 'content_label', 'Content label'%></dt>
-      </div>
-    </div>
-    </dl>
-  </fieldset>
-  <%= render partial: 'edit_resource', collection: @content_metadata.find_by_terms(:resource) %>
-  <%= submit_tag "Save" %>
+<% # Only display  the form is the content_metadata local has been assigned... %>
+<% if local_assigns[:content_metadata] %>
+
+  <% # Don't display if there aren't any resourecs %>
+  <% unless content_metadata.find_by_terms(:resource).empty? %>
+    <%= form_tag( { controller: :content_metadata, action: :update }, { method: :put } ) do |f| %>
+      <h3>Content</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Label</th>
+            <th>Link</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: 'content_metadata/edit_resource', collection:content_metadata.find_by_terms(:resource), locals: {content_metadata: content_metadata } %>
+        </tbody>
+      </table>
+      <%= button_tag "Save", data: { :disable_with => "Please wait..." },  class: "btn" %>
+    <% end %>
+  <% end %>
+
 <% end %>

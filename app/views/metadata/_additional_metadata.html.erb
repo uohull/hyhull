@@ -1,56 +1,43 @@
-<!-- Button to trigger modal -->
-<a href="#additional-metadata-modal" role="button" data-toggle="modal">Additional metadata</a>
-<!-- Modal -->
-<div id="additional-metadata-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="AdditionalMetadataLabel" aria-hidden="true">
-  <div class="modal-header">
-     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3>Additional metadata</h3>
-  </div>
-  <div class="modal-body">
-    <h4>Resource metadata</h4>
-    <dl>
-      <dt>Identifier</dt>
-      <dd>
-        <%= resource.id %>
-      </dd>
-      <dt>Resource type</dt>
-      <dd> 
-        <%= resource.type_of_resource if resource.respond_to? :type_of_resource  %>
-      </dd>
-      <dt>Genre</dt>
-      <dd> 
-        <%= resource.genre if resource.respond_to? :genre %>
-      </dd>
-      <dt>Internet media type</dt>
-      <dd>
-        <%= resource.mime_type if resource.respond_to? :mime_type %>
-      </dd>
-      <dt>Digital origin</dt>
-      <dd>
-        <%= resource.digital_origin if resource.respond_to? :digital_origin%>
-      </dd>
-      <dt>Splash URL</dt>
-      <dd>
-        <%= resource.primary_display_url if resource.respond_to? :primary_display_url%>
-      </dd>
-      <dt>Primary download URL</dt>
-      <dd>
-        <%= resource.raw_object_url if resource.respond_to? :raw_object_url %>
-      </dd>
-    </dl>
-    <dl>
-      <h4>Depositor</h4>
-      <dt>User id</dt>
-      <dd>
-        <%= resource.depositor if resource.respond_to? :depositor%>
-      </dd>
-        <dt>E-mail address</dt>
-      <dd>
-        <%= resource.depositor_email if resource.respond_to? :depositor_email %>
-      </dd>
-    </dl>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>
+<h4>Resource metadata</h4>
+<dl>
+  <dt>Identifier</dt>
+  <dd>
+    <%= resource.id %>
+  </dd>
+  <dt>Resource type</dt>
+  <dd> 
+    <%= resource.type_of_resource if resource.respond_to? :type_of_resource  %>
+  </dd>
+  <dt>Genre</dt>
+  <dd> 
+    <%= resource.genre if resource.respond_to? :genre %>
+  </dd>
+  <dt>Internet media type</dt>
+  <dd>
+    <%= resource.mime_type if resource.respond_to? :mime_type %>
+  </dd>
+  <dt>Digital origin</dt>
+  <dd>
+    <%= resource.digital_origin if resource.respond_to? :digital_origin%>
+  </dd>
+  <dt>Splash URL</dt>
+  <dd>
+    <%= resource.primary_display_url if resource.respond_to? :primary_display_url%>
+  </dd>
+  <dt>Primary download URL</dt>
+  <dd>
+    <%= resource.raw_object_url if resource.respond_to? :raw_object_url %>
+  </dd>
+</dl>
+<dl>
+  <h4>Depositor</h4>
+  <dt>User id</dt>
+  <dd>
+    <%= resource.depositor if resource.respond_to? :depositor%>
+  </dd>
+    <dt>E-mail address</dt>
+  <dd>
+    <%= resource.depositor_email if resource.respond_to? :depositor_email %>
+  </dd>
+</dl>
+

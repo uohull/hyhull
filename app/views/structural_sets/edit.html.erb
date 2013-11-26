@@ -4,18 +4,8 @@
   	  <div class="row">
   	    <div class="span12">          
           <h2><%= @structural_set.title %></h2>
-          <h3>Structural Set</h3>
+          <h3>Structural Set <small><%= link_to "View set", structural_set_path(@structural_set) if @structural_set.persisted? %></small></h3>
         </div>
-      </div>
-      <div class="row">
-        <% if @structural_set.persisted? %>
-          <div class="span3">
-            <%= link_to "View set", structural_set_path(@structural_set) %>
-          </div>
-          <div class="span3">
-            <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @structural_set }) %>       
-          </div>
-        <% end %>
       </div>
       <div class="row">
         <div class="span12">
@@ -27,10 +17,16 @@
             <li id="edit_permissions_link">              
               <a href="#permissions_display" data-toggle="tab">Permissions</a>
             </li>
+            <li id="view_additional_metadata_link">
+              <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
+            </li>
           </ul>
           <div class="tab-content">
             <%= render :partial => "edit" %>
             <%= render :partial => "permission", :locals => { :gf => @structural_set} %>
+            <div id="additional_metadata" class="tab-pane">            
+              <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @structural_set }) %>
+            </div>
           </div>
         </div> <!-- /.span12-->
       </div>

@@ -2,6 +2,7 @@
 require 'spec_helper'
 
 describe FilesController do
+  set_referer
   login_cat
 
   describe "create" do

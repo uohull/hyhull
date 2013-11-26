@@ -4,24 +4,10 @@
       <div class="row">
         <div class="span12">          
           <h2><%= @journal_article.title %></h2>
-          <h3>Journal Article</h3>
+          <h3>Journal Article <small><%= show_resource_link(@journal_article.id) if @journal_article.persisted? %></small></h3>
         </div>
       </div>
-      <div class="row">
-        <% if @journal_article.persisted? %>
-          <div class="span4">
-            <%= show_resource_link(@journal_article.id) %>
-          </div>
-          <div class="span4">
-            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @journal_article %>
-          </div>
-          <div class="span4">  
-            <% unless @journal_article.resource_proto? %>
-              <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @journal_article }) %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <%= render partial: "shared/resource_content_edit", locals: { resource: @journal_article } %>
       <%= render partial: "edit" %>
     </div>
   </div>

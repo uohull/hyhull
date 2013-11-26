@@ -21,6 +21,9 @@
         <li id="edit_admin_metadata_link">              
           <a href="#admin_metadata" data-toggle="tab">Admin</a>
         </li>
+        <li id="view_additional_metadata_link">
+           <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
+        </li>
       <% end %>
     </ul>
     <%= simple_form_for(@generic_content, :html => {:class => 'form-horizontal' }) do |f| %>
@@ -43,6 +46,9 @@
         </div>
         <div id="admin_metadata" class="tab-pane">            
           <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @generic_content, form: f }) %>
+        </div>
+        <div id="additional_metadata" class="tab-pane">            
+          <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @generic_content }) %>
         </div>
       <% end %>
       </div>

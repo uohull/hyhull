@@ -12,7 +12,7 @@
         </div>
         <div class="span12">
           <%= render partial: 'shared/file_upload' %>
-          <%= render partial: 'edit_content_metadata' %>
+          <%= render partial: 'edit_content_metadata', locals: { content_metadata: @content_metadata } %>
         </div>
       </div>
     </div>

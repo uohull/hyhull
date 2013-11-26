@@ -1,6 +1,7 @@
+<h3>Upload new file</h3>
+<p>Add a new file to the resource.</p>
 <%= form_tag( {controller: :files}, { action: :post, multipart:true} ) do |f| %>
   <%= file_field_tag 'Filedata[]' %>
   <%= hidden_field_tag 'container_id', params[:id] %> 
-
-  <%= button_tag "Upload", data: { :disable_with => "Please wait..." } %>
+  <%= button_tag "Upload", data: { :disable_with => "Please wait..." }, class: "btn" %>
 <% end %>

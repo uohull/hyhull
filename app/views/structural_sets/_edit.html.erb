@@ -8,7 +8,7 @@
         <%= render(:partial => "shared/set_select",  :locals => { resource: @structural_set, form: f }) %>
         <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @structural_set, form: f }) %> 
         <% # Only show the Add/edit content files when the initial metadata has been added and object created %>
-        <%= f.submit "Save" %>
+        <%= f.button :submit, "Save" %>
       </div>    
   <% end %>
 </div>

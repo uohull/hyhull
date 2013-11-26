@@ -9,12 +9,14 @@ class FilesController < ApplicationController
       success = false
       message = "You must specify a file to upload" 
     end
-
+ 
     respond_to do |format|
       if success
-        format.html { redirect_to(edit_content_metadatum_path(id: params[:container_id]), notice: message) }
+        notice = { notice: message }    
+        format.html { redirect_to :back, notice  }
       else
-        format.html { redirect_to(edit_content_metadatum_path(id: params[:container_id]), flash: { error: message }) }
+        notice = { :error => message }    
+        format.html { redirect_to :back, notice }
       end
     end
 
@@ -33,9 +35,11 @@ class FilesController < ApplicationController
 
     respond_to do |format|
       if success
-        format.html { redirect_to(edit_content_metadatum_path(id: container_id), notice: message )}
+        notice = { notice: message }
+        format.html { redirect_to :back, notice }
       else
-        format.html { redirect_to(edit_content_metadatum_path(id: container_id), flash: { error: message }) }
+        notice = { error: message }
+        format.html { redirect_to :back, notice }
       end
     end   
   end

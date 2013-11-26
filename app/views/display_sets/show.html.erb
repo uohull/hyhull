@@ -21,9 +21,6 @@
         <div class="span2">
          <%= link_to "View set resources", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/#{@display_set.pid}&results_view=true" %>
         </div>
-        <div class="span2">  
-          <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @display_set }) %>
-        </div>
       </div>
       </div>      
       <div class="row" id="breadcrumb">

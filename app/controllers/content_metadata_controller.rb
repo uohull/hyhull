@@ -24,10 +24,12 @@ class ContentMetadataController < ApplicationController
 
     respond_to do |format|
       if object.save
-        format.html { redirect_to({ action: "edit", id: params[:id] }, notice: 'ContentMetadata was successfully updated.' ) }
+        notice = { :notice => "The content metadata was sucessfully updated" }       
+        format.html {  redirect_to :back, notice  }
         format.json { render json: params[:id], status: :created, location: params[:id] }
       else
-        format.html { redirect_to({ action: "edit", id: params[:id] }, :alert => object.errors.messages.values.to_s) }
+        notice = { :alert => "There was an issue saving the content metadata. Cause: #{object.errors.messages.values.to_s}" } 
+        format.html { redirect_to :back, notice }
       end
     end
 

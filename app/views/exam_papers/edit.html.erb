@@ -4,24 +4,10 @@
       <div class="row">
         <div class="span12">          
           <h2><%= @exam_paper.title %></h2>
-           <h3>Examination paper</h3>
+           <h3>Examination paper <small><%= show_resource_link(@exam_paper.id)  if @exam_paper.persisted?  %></small></h3>
         </div>
       </div>
-      <div class="row">
-        <% if @exam_paper.persisted? %>
-          <div class="span4">
-            <%= show_resource_link(@exam_paper.id) %>
-          </div>
-          <div class="span4">
-            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @exam_paper %>
-          </div>
-          <div class="span4">  
-            <% unless @exam_paper.resource_proto? %>
-              <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @exam_paper  }) %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <%= render partial: "shared/resource_content_edit", locals: { resource: @exam_paper } %>
       <%= render partial: "edit" %>
     </div>
   </div>

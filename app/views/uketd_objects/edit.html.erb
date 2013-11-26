@@ -4,24 +4,10 @@
       <div class="row">
         <div class="span12">          
           <h2><%= @uketd_object.title %></h2>
-          <h3>Thesis or dissertation</h3>
+          <h3>Thesis or dissertation <small><%= show_resource_link(@uketd_object.id)  if @uketd_object.persisted?  %></small></h3>
         </div>
       </div>
-      <div class="row">
-        <% if @uketd_object.persisted? %>
-          <div class="span4">
-            <%= show_resource_link(@uketd_object.id) %>
-          </div>
-          <div class="span4">
-            <%= link_to "Add/Edit content files", controller: "content_metadata", action: "edit", id: @uketd_object %>
-          </div>
-          <div class="span4">  
-            <% unless @uketd_object.resource_proto? %>
-              <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @uketd_object }) %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <%= render partial: "shared/resource_content_edit", locals: { resource: @uketd_object } %>
       <%= render partial: "edit" %>
     </div>
   </div>
