@@ -67,7 +67,7 @@ class JournalArticle < ActiveFedora::Base
   # to_solr overridden to add object_type facet field to document and to add title/publisher fields that are not handled in ModsJounalArticle
   def to_solr(solr_doc = {})
     super(solr_doc)
-    solr_doc.merge!("object_type_sim" => "Journal article", "title_ssm" => self.title, "publisher_ssm" => self.publisher)
+    solr_doc.merge!("object_type_sim" => "Journal article", "title_tesim" => self.title, "publisher_ssm" => self.publisher)
     solr_doc
   end
 

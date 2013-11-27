@@ -103,7 +103,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
 
 
     #Proxies for terminologies 
-    t.title(:proxy=>[:title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable])      
+    t.title(:proxy=>[:title_info, :main_title], :index_as=>[:stored_searchable])      
     t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
     t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable])
     t.publisher(:proxy=>[:origin_info, :publisher], :index_as=>[:displayable])

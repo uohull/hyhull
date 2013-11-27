@@ -33,26 +33,33 @@
        <float name="tie">0.01</float>
        <!-- this qf and pf are used by default, if not otherwise specified by
             client. The default blacklight_config will use these for the
-            "keywords" search. See the author_qf/author_pf, title_qf, etc 
+            "keywords" search. See the creator_qf/creator_pf, title_qf, etc 
             below, which the default blacklight_config will specify for
             those searches. You may also be interested in:
             http://wiki.apache.org/solr/LocalParams
        -->
         <str name="qf">
           id
+          title_tesim^250000
           all_text_timv
           active_fedora_model_ssi
           object_type_si
           full_text_ti
         </str>
         <str name="pf">
+          id
+          title_tesim^250000
           all_text_timv^10
           full_text_ti
         </str>
 
-       <str name="author_qf">
+       <str name="creator_qf">
+          creator_name_ssim^200
+          creator_name_tim^50
        </str>
-       <str name="author_pf">
+       <str name="creator_pf">
+          creator_name_ssim^2000
+          creator_name_tim^500       
        </str>
        <str name="title_qf">
        </str>

@@ -118,6 +118,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
           <rdf:Description rdf:about="info:fedora/hull:3112">
 						<rel:isMemberOf rdf:resource="info:fedora/hull:3375" />
 						<hydra:isGovernedBy rdf:resource="info:fedora/hull:3375"/>
+            <rel:isMemberOfCollection rdf:resource="info:fedora/hull:ETDAccounting"/>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:genericParent"></fedora-model:hasModel>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
             <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:uketdObject"></fedora-model:hasModel>
@@ -196,7 +197,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <name type="personal">
     <namePart>Kayed, Metwally Ahmed El-Sayed</namePart>
     <role>
-      <roleTerm type="text">creator</roleTerm>
+      <roleTerm type="text">Creator</roleTerm>
     </role>
   </name>
   <typeOfResource>text</typeOfResource>

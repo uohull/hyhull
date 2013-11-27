@@ -8,7 +8,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="The evolution of accounting in developing countries : the study of Jordan - Helles, Salem Abdalla Salem; "/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-02-23T10:50:50.034Z"/>
-<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-07-19T13:43:22.505Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2013-11-26T22:42:05.847Z"/>
 <foxml:extproperty NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraObject"/>
 </foxml:objectProperties>
 <foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
@@ -111,6 +111,14 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:date>2011-07-19T13:43:22.505Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
+<audit:record ID="AUDREC13">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2013-11-26T22:42:05.847Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
 </audit:auditTrail>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
@@ -145,12 +153,13 @@ Several recommendations are made concerning the development of the accounting pr
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-02-23T10:50:50.082Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="795">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-02-23T10:50:50.082Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="963">
 <foxml:xmlContent>
 <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:hydra="http://projecthydra.org/ns/relations#">
           <rdf:Description rdf:about="info:fedora/hull:3500">
 						<rel:isMemberOf rdf:resource="info:fedora/hull:3375"></rel:isMemberOf>
 						<hydra:isGovernedBy rdf:resource="info:fedora/hull:3375"></hydra:isGovernedBy>
+            <rel:isMemberOfCollection rdf:resource="info:fedora/hull:ETDAccounting"></rel:isMemberOfCollection>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:genericParent"></fedora-model:hasModel>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
             <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:uketdObject"></fedora-model:hasModel>
@@ -160,7 +169,7 @@ Several recommendations are made concerning the development of the accounting pr
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="151">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="194">
 <foxml:xmlContent>
 <fields>
   <depositor>302922</depositor>
@@ -304,7 +313,7 @@ Several recommendations are made concerning the development of the accounting pr
               YWdlT2ZDYXRhbG9naW5nPiAKICAgPC9yZWNvcmRJbmZvPiAKPC9tb2RzPgo=
 </foxml:binaryContent> 
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.2" LABEL="MODS Metadata" CREATED="2011-07-19T13:43:22.505Z" MIMETYPE="text/xml" SIZE="4780">
+<foxml:datastreamVersion ID="descMetadata.3" LABEL="MODS Metadata" CREATED="2013-11-26T22:42:05.847Z" MIMETYPE="text/xml" SIZE="4780">
 <foxml:binaryContent> 
               PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4gDTxtb2RzIHhtbG5zOnhzaT0iaHR0
               cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiDSAgICAgIHhtbG5zPSJodHRwOi8v
@@ -314,7 +323,7 @@ Several recommendations are made concerning the development of the accounting pr
               aW5nIGluIGRldmVsb3BpbmcgY291bnRyaWVzIDogdGhlIHN0dWR5IG9mIEpvcmRhbjwvdGl0bGU+IA0g
               ICA8L3RpdGxlSW5mbz4gDSAgIDxuYW1lIHR5cGU9InBlcnNvbmFsIj4gDSAgICAgIDxuYW1lUGFydD5I
               ZWxsZXMsIFNhbGVtIEFiZGFsbGEgU2FsZW08L25hbWVQYXJ0PiANICAgICAgPHJvbGU+IA0gICAgICAg
-              ICA8cm9sZVRlcm0gdHlwZT0idGV4dCI+Y3JlYXRvcjwvcm9sZVRlcm0+IA0gICAgICA8L3JvbGU+IA0g
+              ICA8cm9sZVRlcm0gdHlwZT0idGV4dCI+Q3JlYXRvcjwvcm9sZVRlcm0+IA0gICAgICA8L3JvbGU+IA0g
               ICA8L25hbWU+IA0gICA8bmFtZSB0eXBlPSJwZXJzb25hbCI+IA0gICAgICA8bmFtZVBhcnQ+QnJpc3Rv
               biwgUi4gSi48L25hbWVQYXJ0PiANICAgICAgPHJvbGU+IA0gICAgICAgICA8cm9sZVRlcm0gdHlwZT0i
               dGV4dCI+U3VwZXJ2aXNvcjwvcm9sZVRlcm0+IA0gICAgICA8L3JvbGU+IA0gICA8L25hbWU+IA0gICA8

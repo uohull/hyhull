@@ -95,7 +95,7 @@
 
       # These are generated to make easy solr fields for display
       t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]' )
-      t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:displayable, :facetable])
+      t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:symbol])
 
       # Supervisor...
       t.supervisor(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Supervisor"]')
@@ -111,7 +111,7 @@
 
 
       #Proxies for terminologies 
-      t.title(:proxy=>[:title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable])      
+      t.title(:proxy=>[:title_info, :main_title], :index_as=>[:stored_searchable])      
       t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
       t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable])
       t.date_valid(:proxy=>[:origin_info, :date_valid])

@@ -119,7 +119,7 @@ module Hyhull::Datastream::ModsMetadataBase
 
       # Creator can be defined as a 'Creator/Photographer/Author...'
       t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Photographer" or ./xmlns:role/xmlns:roleTerm="Creator" or ./xmlns:role/xmlns:roleTerm="Author"]')
-      t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:displayable, :facetable])
+      t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:symbol])
 
       # Conttributor can be defined as a 'Sponsor/Supervisor...'
       t.contributor(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Sponsor" or ./xmlns:role/xmlns:roleTerm="Supervisor" or ./xmlns:role/xmlns:roleTerm="Editor"]')
@@ -130,7 +130,7 @@ module Hyhull::Datastream::ModsMetadataBase
 
 
       #Proxies for terminologies 
-      t.title(:proxy=>[:title_info, :main_title], :index_as=>[:displayable, :searchable, :sortable])
+      t.title(:proxy=>[:title_info, :main_title], :index_as=>[:stored_searchable])
       t.version(:proxy=>[:title_info, :part_name], :index_as=>[:displayable])      
       t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
       t.subject_geographic(:proxy=>[:subject, :geographic], :index_as=>[:displayable])

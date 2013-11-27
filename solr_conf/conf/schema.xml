@@ -234,6 +234,9 @@
 
   </fields>
 
+  <!-- Hyhull copyfields -->
+  <copyField source="creator_name_ssim" dest="creator_name_tim" />
+
   <!-- START hydra deprecated items -->
 <!--  
   <defaultSearchField>text</defaultSearchField>

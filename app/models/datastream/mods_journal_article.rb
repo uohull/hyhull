@@ -117,7 +117,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
 
     # These are generated to make easy solr fields for display
     t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Author"]' )
-    t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:displayable, :facetable])
+    t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:symbol])
 
     #Proxies for terminologies
     # Removed due to issue with matching two fields

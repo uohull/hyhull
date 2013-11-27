@@ -25,12 +25,12 @@ class CatalogController < ApplicationController
     }
 
     # solr field configuration for search results/index views
-    config.index.show_link = 'title_ssm'
+    config.index.show_link = 'title_tesim'
     config.index.record_tsim_type = 'has_model_ssim'
 
     # solr field configuration for document/show views
-    config.show.html_title = 'title_ssm'
-    config.show.heading = 'title_ssm'
+    config.show.html_title = 'title_tesim'
+    config.show.heading = 'title_tesim'
     config.show.display_type = 'has_model_ssim'
 
     # solr fields that will be treated as facets by the blacklight application
@@ -51,10 +51,10 @@ class CatalogController < ApplicationController
     # app code to actually have it echo'd back to see it.  
     #
     # :show may be set to false if you don't want the facet to be drawn in the 
-    # facet bar
+    # facet bookmarked
     config.add_facet_field solr_name('genre', :facetable), :label => 'Resource Type' 
     config.add_facet_field solr_name('pub_date', :facetable), :label => 'Publication Year' 
-    config.add_facet_field solr_name('creator_name', :facetable), :label => 'Creator'
+    config.add_facet_field solr_name('creator_name', :symbol), :label => 'Creator'
     config.add_facet_field solr_name('creator_organisation_name', :facetable), :label => 'Organisation Creator'  
     config.add_facet_field solr_name('subject_topic', :facetable), :label => 'Topic', :limit => 20 
     config.add_facet_field solr_name('language_text', :facetable), :label => 'Language', :limit => true 
@@ -73,7 +73,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display 
     config.add_index_field solr_name('title_vern', :stored_searchable, type: :string), :label => 'Title:' 
-    config.add_index_field solr_name('creator_name', :displayable, type: :string), :label => 'Creator'
+    config.add_index_field solr_name('creator_name', :symbol, type: :string), :label => 'Creator'
     config.add_index_field solr_name('creator_organisation_name', :displayable, type: :string), :label => 'Organisation Creator'  
     config.add_index_field solr_name('genre', :displayable, type: :string), :label => 'Resource type'
     config.add_index_field solr_name('subject_topic', :displayable, type: :string), :label => 'Subject'
@@ -88,7 +88,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display 
     config.add_show_field solr_name('title', :stored_searchable, type: :string), :label => 'Title'
-    config.add_show_field solr_name('creator_name', :displayable, type: :string), :label => 'Creator'
+    config.add_show_field solr_name('creator_name', :symbol, type: :string), :label => 'Creator'
     config.add_show_field solr_name('creator_organisation_name', :displayable, type: :string), :label => 'Organisation Creator' 
     config.add_show_field solr_name('contributor_name', :displayable, type: :string), :label => 'Contributor'  
     config.add_show_field solr_name('subject_topic', :displayable, type: :string), :label => 'Subject' 
@@ -157,11 +157,11 @@ class CatalogController < ApplicationController
       }
     end
     
-    config.add_search_field('author') do |field|
-      field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+    config.add_search_field('creator') do |field|
+      #field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
       field.solr_local_parameters = { 
-        :qf => '$author_qf',
-        :pf => '$author_pf'
+        :qf => '$creator_qf',
+        :pf => '$creator_pf'
       }
     end
     

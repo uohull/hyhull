@@ -8,7 +8,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Kuwait&apos;s tax reformation, its alternatives and impact on a developing accounting profession - Al-Rashed, Wael E. R.; "/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-02-23T10:50:52.446Z"/>
-<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-07-19T13:42:48.278Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2013-11-26T22:39:30.610Z"/>
 <foxml:extproperty NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraObject"/>
 </foxml:objectProperties>
 <foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
@@ -111,6 +111,14 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:date>2011-07-19T13:42:48.278Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
+<audit:record ID="AUDREC13">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2013-11-26T22:39:30.610Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
 </audit:auditTrail>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
@@ -143,7 +151,7 @@ Moreover, recommendations concerning the development of the accounting professio
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-02-23T10:50:52.528Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="801">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-02-23T10:50:52.528Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="857">
 <foxml:xmlContent>
 <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:hydra="http://projecthydra.org/ns/relations#">
           <rdf:Description rdf:about="info:fedora/hull:3573">
@@ -158,7 +166,7 @@ Moreover, recommendations concerning the development of the accounting professio
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="151">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="187">
 <foxml:xmlContent>
 <fields>
   <depositor>302922</depositor>
@@ -396,7 +404,7 @@ Moreover, recommendations concerning the development of the accounting professio
               PiANICAgPC9yZWNvcmRJbmZvPiANPC9tb2RzPg0=
 </foxml:binaryContent> 
 </foxml:datastreamVersion>
-<foxml:datastreamVersion ID="descMetadata.3" LABEL="MODS Metadata" CREATED="2011-07-19T13:42:48.278Z" MIMETYPE="text/xml" SIZE="4705">
+<foxml:datastreamVersion ID="descMetadata.4" LABEL="MODS Metadata" CREATED="2013-11-26T22:39:30.610Z" MIMETYPE="text/xml" SIZE="4705">
 <foxml:binaryContent> 
               PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4gDTxtb2RzIHhtbG5zOnhzaT0iaHR0
               cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiDSAgICAgIHhtbG5zPSJodHRwOi8v
@@ -406,7 +414,7 @@ Moreover, recommendations concerning the development of the accounting professio
               LCBpdHMgYWx0ZXJuYXRpdmVzIGFuZCBpbXBhY3Qgb24gYSBkZXZlbG9waW5nIGFjY291bnRpbmcgcHJv
               ZmVzc2lvbjwvdGl0bGU+IA0gICA8L3RpdGxlSW5mbz4gDSAgIDxuYW1lIHR5cGU9InBlcnNvbmFsIj4g
               DSAgICAgIDxuYW1lUGFydD5BbC1SYXNoZWQsIFdhZWwgRS4gUi48L25hbWVQYXJ0PiANICAgICAgPHJv
-              bGU+IA0gICAgICAgICA8cm9sZVRlcm0gdHlwZT0idGV4dCI+Y3JlYXRvcjwvcm9sZVRlcm0+IA0gICAg
+              bGU+IA0gICAgICAgICA8cm9sZVRlcm0gdHlwZT0idGV4dCI+Q3JlYXRvcjwvcm9sZVRlcm0+IA0gICAg
               ICA8L3JvbGU+IA0gICA8L25hbWU+IA0gICA8bmFtZSB0eXBlPSJwZXJzb25hbCI+IA0gICAgICA8bmFt
               ZVBhcnQ+Sm9obnNvbiwgRS4gQy48L25hbWVQYXJ0PiANICAgICAgPHJvbGU+IA0gICAgICAgICA8cm9s
               ZVRlcm0gdHlwZT0idGV4dCI+U3VwZXJ2aXNvcjwvcm9sZVRlcm0+IA0gICAgICA8L3JvbGU+IA0gICA8

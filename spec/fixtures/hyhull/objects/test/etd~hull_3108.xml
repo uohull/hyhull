@@ -8,7 +8,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="The evolution and status of accounting in Libya - Kilani, Kilani Abdulkerim; "/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-02-23T10:50:42.354Z"/>
-<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-05-17T08:52:07.009Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2013-11-26T22:37:16.799Z"/>
 <foxml:extproperty NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraObject"/>
 </foxml:objectProperties>
 <foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
@@ -87,6 +87,22 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:date>2011-05-17T08:52:07.009Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
+<audit:record ID="AUDREC10">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2013-11-26T22:37:16.799Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
+<audit:record ID="AUDREC11">
+<audit:process type="Fedora API-M"/>
+<audit:action>setDatastreamVersionable</audit:action>
+<audit:componentID>descMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2013-11-26T22:37:16.799Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
 </audit:auditTrail>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
@@ -112,12 +128,12 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-02-23T10:50:42.400Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="637">
+<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2011-02-23T10:50:42.400Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="863">
 <foxml:xmlContent>
 <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:hydra="http://projecthydra.org/ns/relations#">
           <rdf:Description rdf:about="info:fedora/hull:3108">
-						<rel:isMemberOf rdf:resource="info:fedora/hull:protoQueue" />
-						<hydra:isGovernedBy rdf:resource="info:fedora/hull:protoQueue" />
+						<rel:isMemberOf rdf:resource="info:fedora/hull:protoQueue"></rel:isMemberOf>
+						<hydra:isGovernedBy rdf:resource="info:fedora/hull:protoQueue"></hydra:isGovernedBy>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:genericParent"></fedora-model:hasModel>
             <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
             <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:uketdObject"></fedora-model:hasModel>
@@ -127,7 +143,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="151">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="190">
 <foxml:xmlContent>
 <fields>
   <depositor>302922</depositor>
@@ -139,7 +155,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="rightsMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2011-02-23T10:50:42.401Z" MIMETYPE="text/xml" SIZE="949">
+<foxml:datastreamVersion ID="rightsMetadata.0" LABEL="Rights metadata" CREATED="2011-02-23T10:50:42.401Z" MIMETYPE="text/xml" SIZE="971">
 <foxml:xmlContent>
 <rightsMetadata xmlns="http://hydra-collab.stanford.edu/schemas/rightsMetadata/v1">
           <copyright>
@@ -186,7 +202,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:binaryContent> 
 </foxml:datastreamVersion>
 </foxml:datastream>
-<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="true">
+<foxml:datastream ID="descMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
 <foxml:datastreamVersion ID="descMetadata.0" LABEL="MODS Metadata" CREATED="2011-05-17T08:48:30.220Z" MIMETYPE="text/xml" SIZE="2277">
 <foxml:binaryContent> 
               PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4gCjxtb2RzIHhtbG5zPSJodHRwOi8v
@@ -229,10 +245,52 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
               ICAgICAgPC9sYW5ndWFnZU9mQ2F0YWxvZ2luZz4gCiAgIDwvcmVjb3JkSW5mbz4gCjwvbW9kcz4K
 </foxml:binaryContent> 
 </foxml:datastreamVersion>
+<foxml:datastreamVersion ID="descMetadata.1" LABEL="MODS Metadata" CREATED="2013-11-26T22:37:16.799Z" MIMETYPE="text/xml" SIZE="2277">
+<foxml:binaryContent> 
+              PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4gDTxtb2RzIHhtbG5zPSJodHRwOi8v
+              d3d3LmxvYy5nb3YvbW9kcy92MyINICAgICAgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAx
+              L1hNTFNjaGVtYS1pbnN0YW5jZSINICAgICAgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3Lmxv
+              Yy5nb3YvbW9kcy92MyBodHRwOi8vd3d3LmxvYy5nb3Yvc3RhbmRhcmRzL21vZHMvdjMvbW9kcy0zLTMu
+              eHNkIj4gDSAgIDx0aXRsZUluZm8+IA0gICAgICA8dGl0bGU+VGhlIGV2b2x1dGlvbiBhbmQgc3RhdHVz
+              IG9mIGFjY291bnRpbmcgaW4gTGlieWE8L3RpdGxlPiANICAgPC90aXRsZUluZm8+IA0gICA8bmFtZSB0
+              eXBlPSJwZXJzb25hbCI+IA0gICAgICA8bmFtZVBhcnQ+S2lsYW5pLCBLaWxhbmkgQWJkdWxrZXJpbTwv
+              bmFtZVBhcnQ+IA0gICAgICA8cm9sZT4gDSAgICAgICAgIDxyb2xlVGVybSB0eXBlPSJ0ZXh0Ij5DcmVh
+              dG9yPC9yb2xlVGVybT4gDSAgICAgIDwvcm9sZT4gDSAgIDwvbmFtZT4gDSAgIDx0eXBlT2ZSZXNvdXJj
+              ZT50ZXh0PC90eXBlT2ZSZXNvdXJjZT4gDSAgIDxnZW5yZT5UaGVzaXMgb3IgZGlzc2VydGF0aW9uPC9n
+              ZW5yZT4gDSAgIDxpZGVudGlmaWVyIHR5cGU9ImdyYW50TnVtYmVyIi8+IA0gICA8b3JpZ2luSW5mbz4g
+              DSAgICAgIDxwdWJsaXNoZXI+RGVwYXJ0bWVudCBvZiBBY2NvdW50aW5nLCBUaGUgVW5pdmVyc2l0eSBv
+              ZiBIdWxsPC9wdWJsaXNoZXI+IA0gICAgICA8ZGF0ZUlzc3VlZCBlbmNvZGluZz0idzNjZHRmIiBrZXlE
+              YXRlPSJ5ZXMiPjE5ODg8L2RhdGVJc3N1ZWQ+IA0gICA8L29yaWdpbkluZm8+IA0gICA8bGFuZ3VhZ2U+
+              IA0gICAgICA8bGFuZ3VhZ2VUZXJtIHR5cGU9InRleHQiPkVuZ2xpc2g8L2xhbmd1YWdlVGVybT4gDSAg
+              ICAgIDxsYW5ndWFnZVRlcm0gYXV0aG9yaXR5PSJpc282MzktMmIiIHR5cGU9ImNvZGUiPmVuZzwvbGFu
+              Z3VhZ2VUZXJtPiANICAgPC9sYW5ndWFnZT4gDSAgIDxwaHlzaWNhbERlc2NyaXB0aW9uPiANICAgICAg
+              PGV4dGVudC8+IA0gICAgICA8aW50ZXJuZXRNZWRpYVR5cGU+YXBwbGljYXRpb24vcGRmPC9pbnRlcm5l
+              dE1lZGlhVHlwZT4gDSAgICAgIDxkaWdpdGFsT3JpZ2luPmJvcm4gZGlnaXRhbDwvZGlnaXRhbE9yaWdp
+              bj4gDSAgIDwvcGh5c2ljYWxEZXNjcmlwdGlvbj4gDSAgIDxhYnN0cmFjdC8+IA0gICA8bm90ZSB0eXBl
+              PSJxdWFsaWZpY2F0aW9uTGV2ZWwiPkRvY3RvcmFsPC9ub3RlPiANICAgPG5vdGUgdHlwZT0icXVhbGlm
+              aWNhdGlvbk5hbWUiPlBoRDwvbm90ZT4gDSAgIDxzdWJqZWN0IGF1dGhvcml0eT0iVW9IIj4gDSAgICAg
+              IDx0b3BpYz5NYW5hZ2VtZW50PC90b3BpYz4gDSAgICAgIDx0b3BpYz5JbnRlcm5hdGlvbmFsIHRyYWRl
+              PC90b3BpYz4gDSAgIDwvc3ViamVjdD4gDSAgIDxpZGVudGlmaWVyIHR5cGU9ImZlZG9yYSI+aHVsbDoz
+              MTA4PC9pZGVudGlmaWVyPiANICAgPGxvY2F0aW9uPiANICAgICAgPHVybCBhY2Nlc3M9Im9iamVjdCBp
+              biBjb250ZXh0IiB1c2FnZT0icHJpbWFyeSBkaXNwbGF5Ij5odHRwOi8vaHlkcmEuaHVsbC5hYy51ay9h
+              c3NldHMvaHVsbDozMTA4PC91cmw+IA0gICAgICA8dXJsIGFjY2Vzcz0icmF3IG9iamVjdCI+aHR0cDov
+              L2h5ZHJhLmh1bGwuYWMudWsvYXNzZXRzL2h1bGw6MzEwOGEvZ2VuZXJpY0NvbnRlbnQvY29udGVudDwv
+              dXJsPiANICAgPC9sb2NhdGlvbj4gDSAgIDxhY2Nlc3NDb25kaXRpb24gdHlwZT0idXNlQW5kUmVwcm9k
+              dWN0aW9uIj7CqSAxOTg4IEtpbGFuaSBLaWxhbmkuIEFsbCByaWdodHMgcmVzZXJ2ZWQuIE5vIHBhcnQg
+              b2YgdGhpcyBwdWJsaWNhdGlvbiBtYXkgYmUgcmVwcm9kdWNlZCB3aXRob3V0IHRoZSB3cml0dGVuIHBl
+              cm1pc3Npb24gb2YgdGhlIGNvcHlyaWdodCBob2xkZXIuPC9hY2Nlc3NDb25kaXRpb24+IA0gICA8cmVj
+              b3JkSW5mbz4gDSAgICAgIDxyZWNvcmRDb250ZW50U291cmNlPlRoZSBVbml2ZXJzaXR5IG9mIEh1bGw8
+              L3JlY29yZENvbnRlbnRTb3VyY2U+IA0gICAgICA8cmVjb3JkQ3JlYXRpb25EYXRlIGVuY29kaW5nPSJ3
+              M2NkdGYiPjIwMTAtMTAtMTU8L3JlY29yZENyZWF0aW9uRGF0ZT4gDSAgICAgIDxyZWNvcmRDaGFuZ2VE
+              YXRlIGVuY29kaW5nPSJ3M2NkdGYiLz4gDSAgICAgIDxsYW5ndWFnZU9mQ2F0YWxvZ2luZz4gDSAgICAg
+              ICAgIDxsYW5ndWFnZVRlcm0gYXV0aG9yaXR5PSJpc282MzktMmIiPmVuZzwvbGFuZ3VhZ2VUZXJtPiAN
+              ICAgICAgPC9sYW5ndWFnZU9mQ2F0YWxvZ2luZz4gDSAgIDwvcmVjb3JkSW5mbz4gDTwvbW9kcz4N
+</foxml:binaryContent> 
+</foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="UKETD_DC" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
 <foxml:datastreamVersion ID="UKETD_DC.0" LABEL="UKETD_DC Metadata" CREATED="2011-05-17T08:52:07.009Z" MIMETYPE="text/xml">
-<foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora-test/objects/hull:3108/methods/hull-sDef:uketdObject/getUKETDMetadata"/>
+<foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora/objects/hull:3108/methods/hull-sDef:uketdObject/getUKETDMetadata"/>
 </foxml:datastreamVersion>
 </foxml:datastream>
 </foxml:digitalObject>
