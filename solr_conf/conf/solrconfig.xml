@@ -41,7 +41,7 @@
        <str name="qf">
           id
           title_tesim^100000
-          subject_topic_tim^1000
+          subject_topic_teim^1000
           creator_name_ssim^250
           creator_name_tim^100
           all_text_timv
@@ -52,7 +52,7 @@
        <str name="pf">
           id
           title_tesim^1000000
-          subject_topic_tim^10000
+          subject_topic_teim^10000
           creator_name_ssim^2500
           creator_name_tim^1000
           all_text_timv^100
@@ -74,10 +74,10 @@
           title_tesim
        </str>
        <str name="subject_qf">
-          subject_topic_tim
+          subject_topic_teim
        </str>
        <str name="subject_pf">
-          subject_topic_tim
+          subject_topic_teim
        </str>
        
        <str name="fl">

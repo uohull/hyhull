@@ -234,9 +234,9 @@
 
   </fields>
 
-  <!-- Hyhull copyfields -->
+  <!-- hyhull copyfields -->
   <copyField source="creator_name_ssim" dest="creator_name_tim" />
-  <copyField source="subject_topic_ssm" dest="subject_topic_tim" />
+  <copyField source="subject_topic_ssm" dest="subject_topic_teim" />
 
   <!-- START hydra deprecated items -->
 <!--  
@@ -403,11 +403,10 @@
         <tokenizer class="solr.ICUTokenizerFactory"/>
         <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
         <filter class="solr.EnglishPossessiveFilterFactory"/>
-        <!-- EnglishMinimalStemFilterFactory is less aggressive than PorterStemFilterFactory: -->
+        <!-- EnglishMinimalStemFilterFactory is less aggressive than PorterStemFilterFactory: 
         <filter class="solr.EnglishMinimalStemFilterFactory"/>
-        <!--
-        <filter class="solr.PorterStemFilterFactory"/>
         -->
+        <filter class="solr.PorterStemFilterFactory"/>
         <filter class="solr.TrimFilterFactory"/>
       </analyzer>
     </fieldType>
