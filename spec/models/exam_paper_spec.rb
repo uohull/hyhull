@@ -57,6 +57,9 @@ describe ExamPaper do
       @exam_paper.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
     end
 
+    it "genre should be set to 'Examination paper'" do
+      @exam_paper.genre.should == "Examination paper"
+    end
 
     it "should have the attributes of an exam_paper object and support update_attributes" do
       @exam_paper.update_attributes( @attributes_hash )

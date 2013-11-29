@@ -67,7 +67,7 @@ module Hyhull
         end
 
         def apply_genre
-          self.genre = "Display Set"
+          self.genre = "Display set"
         end
 
       end

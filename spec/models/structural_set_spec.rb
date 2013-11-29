@@ -83,6 +83,10 @@ describe StructuralSet do
 
     end
 
+    it "genre should be set to 'Structural set'" do
+      @structural_set.genre.should == "Structural set"
+    end
+
     it "should have the attributes of an structural set object and support update_attributes" do
       attributes_hash = {
         "title" => "Artwork",
@@ -96,8 +100,6 @@ describe StructuralSet do
       @structural_set.description.should == attributes_hash["description"]
       @structural_set.resource_status.should == attributes_hash["resource_status"]
       @structural_set.type_of_resource.should == attributes_hash["type_of_resource"]
-
-      @structural_set.genre.should == "Structural set"
     end
 
     it "should have the required relationships" do

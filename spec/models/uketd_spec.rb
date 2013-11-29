@@ -38,6 +38,11 @@ describe UketdObject do
       @etd.class.ancestors.should include(Hyhull::OaiHarvestableBehaviour)
     end
 
+
+    it "genre should be set to 'Thesis or dissertation'" do
+      @etd.genre.should == "Thesis or dissertation"
+    end
+
     it "should have the attributes of an etd object and support update_attributes" do
       attributes_hash = {
         "title" => "A thesis describing the...",

@@ -66,6 +66,10 @@ describe DisplaySet do
 
     end
 
+    it "genre should be set to 'Display set'" do
+      @display_set.genre.should == "Display set"
+    end
+
     it "should have the attributes of an display set object and support update_attributes" do
       attributes_hash = {
         "title" => "Artwork",
@@ -79,8 +83,6 @@ describe DisplaySet do
       @display_set.description.should == attributes_hash["description"]
       @display_set.resource_status.should == attributes_hash["resource_status"]
       @display_set.type_of_resource.should == attributes_hash["type_of_resource"]
-
-      @display_set.genre.should == "Display Set"
     end
 
     it "should have the required relationships" do

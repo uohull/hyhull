@@ -34,6 +34,10 @@ describe Dataset do
       @dataset.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
     end
 
+    it "genre should be set to 'Dataset'" do
+      @dataset.genre.should == "Dataset"
+    end
+
     # This is a copy of the GenericContent test - (Dataset < GenericContent)
     it "should have the attributes of an Generic Content and support update_attributes" do
       attributes_hash = {

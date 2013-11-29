@@ -30,6 +30,10 @@ describe JournalArticle do
       @ja.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
     end
 
+    it "genre should be set to 'Journal article'" do
+      @ja.genre.should == "Journal article"
+    end
+
     it "should have the attributes of an Journal article and support update_attributes" do
       attributes_hash = {
         "title" => "A thesis describing the...",

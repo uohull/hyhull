@@ -178,7 +178,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
                xml.roleTerm(:type=>"text")
              }
            }
-           xml.genre
+           xml.genre "Journal article"
            xml.language {
              xml.languageTerm(:type=>"text")
              xml.languageTerm(:authority=>"iso639-2b", :type=>"code")
