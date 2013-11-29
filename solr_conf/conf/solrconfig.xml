@@ -38,20 +38,26 @@
             those searches. You may also be interested in:
             http://wiki.apache.org/solr/LocalParams
        -->
-        <str name="qf">
+       <str name="qf">
           id
-          title_tesim^250000
+          title_tesim^100000
+          subject_topic_tim^1000
+          creator_name_ssim^250
+          creator_name_tim^100
           all_text_timv
           active_fedora_model_ssi
           object_type_si
           full_text_ti
-        </str>
-        <str name="pf">
+       </str>
+       <str name="pf">
           id
-          title_tesim^250000
-          all_text_timv^10
+          title_tesim^1000000
+          subject_topic_tim^10000
+          creator_name_ssim^2500
+          creator_name_tim^1000
+          all_text_timv^100
           full_text_ti
-        </str>
+       </str>
 
        <str name="creator_qf">
           creator_name_ssim^200
@@ -62,12 +68,16 @@
           creator_name_tim^500       
        </str>
        <str name="title_qf">
+          title_tesim
        </str>
        <str name="title_pf">
+          title_tesim
        </str>
        <str name="subject_qf">
+          subject_topic_tim
        </str>
        <str name="subject_pf">
+          subject_topic_tim
        </str>
        
        <str name="fl">

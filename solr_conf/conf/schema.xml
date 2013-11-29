@@ -236,6 +236,7 @@
 
   <!-- Hyhull copyfields -->
   <copyField source="creator_name_ssim" dest="creator_name_tim" />
+  <copyField source="subject_topic_ssm" dest="subject_topic_tim" />
 
   <!-- START hydra deprecated items -->
 <!--  
