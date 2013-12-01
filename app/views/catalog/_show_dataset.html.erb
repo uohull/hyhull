@@ -20,9 +20,8 @@
   <%= display_field(document, 'date_issued_ssm', 'Publication date', 'date_issued_ssm') %>
   <%= display_field(document, 'date_valid_ssm', 'Date valid', 'date_valid_ssm') %>
 
-  <% # Here for testing %>
-  <%= display_field(document, 'location_label_ssm', 'Location label', 'location_label_ssm') %>
-  <%= display_field(document, 'location_coordinates_type_ssm', 'Coordinates type', 'location_coordinates_type_ssm') %>
-  <%= display_field(document, 'location_coordinates_ssm', 'Coordinates', 'location_coordinates') %>
+  <% # Google Map preview of geo-data %>
+  <% geo_data = geo_data_from_solr_doc(document) %>
+  <%= display_google_js_map(geo_data[:coordinates], geo_data[:coordinates_type], geo_data[:label], "Geo-data") %>
 </dl>
 

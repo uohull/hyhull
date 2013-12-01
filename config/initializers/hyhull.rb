@@ -49,3 +49,6 @@ DEPARTMENTS = {
   "LLI" => "LLI",
   "Computer Science" => "Computer Science"
 }
+
+# Google Maps API key
+GOOGLE_MAPS_KEY = ""

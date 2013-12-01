@@ -59,17 +59,17 @@ module HyhullHelper
         EOS
 
         # #If the content is a KMZ or a KML file and less then 3MB...
-        # if (asset_mime_type[i].eql?("application/vnd.google-earth.kmz") || asset_mime_type[i].eql?("application/vnd.google-earth.kml+xml"))
-        #   if asset_file_size[i].to_i > 0 && asset_file_size[i].to_i < 3145728
-        #     # And if the document is public readable... We display a link to the Google maps View of the map - Google maps need the KML/KMZ to be public accessible...
-        #     if is_public_readable(document)
-        #       resources << <<-EOS
-        #         <div id="view-map-link">
-        #         <a href="/google_map.html?object_id=#{asset_object_id[i]}&asset_ds_id=#{ds_id[i]}" target="_blank">View as map<a></div>
-        #       EOS
-        #     end
-        #   end
-        # end
+        if (asset_mime_type[i].eql?("application/vnd.google-earth.kmz") || asset_mime_type[i].eql?("application/vnd.google-earth.kml+xml"))
+           if asset_file_size[i].to_i > 0 && asset_file_size[i].to_i < 3145728
+             # And if the document is public readable... We display a link to the Google maps View of the map - Google maps need the KML/KMZ to be public accessible...
+             if is_public_read(document)
+               resources << <<-EOS
+                 <div id="view-map-link">
+                 <a href="/assets/map_view/#{asset_object_id[i]}/#{asset_ds_id[i]}">View as map<a></div>
+               EOS
+             end
+           end
+        end
 
         resources << <<-EOS
           </div>
@@ -229,6 +229,13 @@ module HyhullHelper
     end
   end
 
+  def geo_data_from_solr_doc(document)
+    label = solr_field_value(document, "location_label_ssm")
+    coordinates_type = solr_field_value(document, "location_coordinates_type_ssm")
+    coordinates = solr_field_value(document, "location_coordinates_ssm")
+    return { label: label, coordinates_type: coordinates_type, coordinates: coordinates }
+  end
+
   private
 
   def display_dt_dd_element(dt_value, dd_value, html_class)
@@ -273,6 +280,20 @@ module HyhullHelper
 
   def doi_resolver_link(doi="")
    return "#{DOI_RESOLVER_SERVICE_URL}#{doi}"
+  end
+
+  # Checks whether a document/resource is public readable...
+  def is_public_read(document)
+    is_public_read = false
+    read_access_group = document.get("read_access_group_ssim")
+    unless read_access_group.blank? 
+      if read_access_group.is_a? Array
+        is_public_read = read_access_group.include? "public"
+      else
+        is_public_read = read_access_group == "public"
+      end
+    end
+    return is_public_read
   end
 
 end
