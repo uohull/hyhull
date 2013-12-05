@@ -31,10 +31,10 @@
   <% if can?(:create, :all) %>
     <h3>Resource queues</h3>
     <ul>
-      <li><%= link_to("Proto Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:protoQueue&results_view=true")%></li>
-      <li><%= link_to("QA Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:QAQueue&results_view=true") %></li>
-      <li><%= link_to("Hidden Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:hiddenQueue&results_view=true") %></li>
-      <li><%= link_to("Deleted Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:deletedQueue&results_view=true") %></li>
+      <li><%= link_to("Proto Queue", "resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:protoQueue&results_view=true")%></li>
+      <li><%= link_to("QA Queue", "resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:QAQueue&results_view=true") %></li>
+      <li><%= link_to("Hidden Queue", "resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:hiddenQueue&results_view=true") %></li>
+      <li><%= link_to("Deleted Queue", "resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:deletedQueue&results_view=true") %></li>
     </ul>
   <% end %>
 
