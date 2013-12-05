@@ -8,7 +8,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="44207 Principles of exercise and training... - Business School; "/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="contentaccessteam1@example.com"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-02-23T10:50:41.089Z"/>
-<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2012-01-10T17:31:16.810Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2013-12-02T20:12:07.389Z"/>
 <foxml:extproperty NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraObject"/>
 </foxml:objectProperties>
 <foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
@@ -199,6 +199,14 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:date>2012-01-10T17:31:16.810Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
+<audit:record ID="AUDREC24">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>contentMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2013-12-02T20:12:07.389Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
 </audit:auditTrail>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
@@ -225,7 +233,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 <foxml:datastreamVersion ID="DC.1" LABEL="DC Metadata" CREATED="2012-01-10T17:31:16.695Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="928">
 <foxml:xmlContent>
-<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:title>44207 Principles of exercise and training (June 2010)</dc:title>
   <dc:creator>Business School</dc:creator>
   <dc:subject>Business</dc:subject>
@@ -270,39 +278,22 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="contentMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="true">
-<foxml:datastreamVersion ID="contentMetadata.0" LABEL="Content metadata" CREATED="2011-03-28T16:54:13.575Z" MIMETYPE="text/xml" SIZE="770">
-<foxml:binaryContent> 
-              PGNvbnRlbnRNZXRhZGF0YSB0eXBlPSJ0ZXh0IiB4bWxucz0iaHR0cDovL2h5ZHJhLWNvbGxhYi5odWxs
-              LmFjLnVrL3NjaGVtYXMvY29udGVudE1ldGFkYXRhL3YxIj48cmVzb3VyY2Ugc2VxdWVuY2U9IjEiIGlk
-              PSJFeGFtaW5hdGlvblBhcGVyIiBkaXNwbGF5TGFiZWw9IkV4YW1pbmF0aW9uIHBhcGVyIiBvYmplY3RJ
-              RD0iaHVsbDozMDU4IiBkc0lEPSJjb250ZW50IiBkaXNzVHlwZT0iZ2VuZXJpY0NvbnRlbnQvY29udGVu
-              dCI+PGZpbGUgaWQ9ImNvbnRlbnQiIGZvcm1hdD0icGRmIiBtaW1lVHlwZT0iYXBwbGljYXRpb24vcGRm
-              IiBzaXplPSIzNDMzOSI+PGxvY2F0aW9uIHR5cGU9InVybCI+aHR0cDovL2h5ZHJhLmh1bGwuYWMudWsv
-              YXNzZXRzL2h1bGw6MzA1OC9nZW5lcmljQ29udGVudC9jb250ZW50PC9sb2NhdGlvbj48L2ZpbGU+PC9y
-              ZXNvdXJjZT48cmVzb3VyY2Ugc2VxdWVuY2U9IjIiIGlkPSJDYXNlU3R1ZHkiIGRpc3BsYXlMYWJlbD0i
-              Q2FzZSBzdHVkeSIgb2JqZWN0SUQ9Imh1bGw6MzA1OCIgZHNJRD0iY29udGVudDAyIiBkaXNzVHlwZT0i
-              Y29tcG91bmRDb250ZW50L2NvbnRlbnQwMiI+PGZpbGUgZm9ybWF0PSJwZGYiIG1pbWVUeXBlPSJhcHBs
-              aWNhdGlvbi9wZGYiIGlkPSJjb250ZW50MDIiIHNpemU9IiI+PGxvY2F0aW9uIHR5cGU9InVybCI+aHR0
-              cDovL2h5ZHJhLmh1bGwuYWMudWsvYXNzZXRzL2h1bGw6MzA1OC9jb21wb3VuZENvbnRlbnQvY29udGVu
-              dDAyPC9sb2NhdGlvbj48L2ZpbGU+PC9yZXNvdXJjZT48L2NvbnRlbnRNZXRhZGF0YT4=
-</foxml:binaryContent> 
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="contentMetadata.1" LABEL="Content metadata" CREATED="2012-01-10T17:31:16.810Z" MIMETYPE="text/xml" SIZE="818">
+<foxml:datastreamVersion ID="contentMetadata.0" LABEL="Content metadata" CREATED="2013-12-02T20:12:07.389Z" MIMETYPE="text/xml" SIZE="823">
 <foxml:binaryContent> 
               PGNvbnRlbnRNZXRhZGF0YSB4bWxucz0iaHR0cDovL2h5ZHJhLWNvbGxhYi5odWxsLmFjLnVrL3NjaGVt
-              YXMvY29udGVudE1ldGFkYXRhL3YxIiB0eXBlPSJ0ZXh0Ij4KICA8cmVzb3VyY2Ugc2VxdWVuY2U9IjEi
+              YXMvY29udGVudE1ldGFkYXRhL3YxIiB0eXBlPSJ0ZXh0Ij4NICA8cmVzb3VyY2Ugc2VxdWVuY2U9IjEi
               IGlkPSJFeGFtaW5hdGlvblBhcGVyIiBkaXNwbGF5TGFiZWw9IkV4YW1pbmF0aW9uIHBhcGVyIiBvYmpl
               Y3RJRD0iaHVsbDozMDU4IiBkc0lEPSJjb250ZW50IiBkaXNzVHlwZT0iZ2VuZXJpY0NvbnRlbnQvY29u
-              dGVudCI+CiAgICA8ZmlsZSBpZD0iY29udGVudCIgZm9ybWF0PSJwZGYiIG1pbWVUeXBlPSJhcHBsaWNh
-              dGlvbi9wZGYiIHNpemU9IjM0MzM5Ij4KICAgICAgPGxvY2F0aW9uIHR5cGU9InVybCI+aHR0cDovL2h5
+              dGVudCI+DSAgICA8ZmlsZSBpZD0iY29udGVudCIgZm9ybWF0PSJwZGYiIG1pbWVUeXBlPSJhcHBsaWNh
+              dGlvbi9wZGYiIHNpemU9IjM0MzM5Ij4NICAgICAgPGxvY2F0aW9uIHR5cGU9InVybCI+aHR0cDovL2h5
               ZHJhLmh1bGwuYWMudWsvYXNzZXRzL2h1bGw6MzA1OC9nZW5lcmljQ29udGVudC9jb250ZW50PC9sb2Nh
-              dGlvbj4KICAgIDwvZmlsZT4KICA8L3Jlc291cmNlPgogIDxyZXNvdXJjZSBzZXF1ZW5jZT0iMiIgaWQ9
+              dGlvbj4NICAgIDwvZmlsZT4NICA8L3Jlc291cmNlPg0gIDxyZXNvdXJjZSBzZXF1ZW5jZT0iMiIgaWQ9
               IkNhc2VTdHVkeSIgZGlzcGxheUxhYmVsPSJDYXNlIHN0dWR5IiBvYmplY3RJRD0iaHVsbDozMDU4IiBk
-              c0lEPSJjb250ZW50MDIiIGRpc3NUeXBlPSJjb21wb3VuZENvbnRlbnQvY29udGVudDAyIj4KICAgIDxm
+              c0lEPSJjb250ZW50MDIiIGRpc3NUeXBlPSJjb21wb3VuZENvbnRlbnQvY29udGVudDAyIj4NICAgIDxm
               aWxlIGZvcm1hdD0icGRmIiBtaW1lVHlwZT0iYXBwbGljYXRpb24vcGRmIiBpZD0iY29udGVudDAyIiBz
-              aXplPSIiPgogICAgICA8bG9jYXRpb24gdHlwZT0idXJsIj5odHRwOi8vaHlkcmEuaHVsbC5hYy51ay9h
-              c3NldHMvaHVsbDozMDU4L2NvbXBvdW5kQ29udGVudC9jb250ZW50MDI8L2xvY2F0aW9uPgogICAgPC9m
-              aWxlPgogIDwvcmVzb3VyY2U+CjwvY29udGVudE1ldGFkYXRhPgo=
+              aXplPSI5NjMzNyI+DSAgICAgIDxsb2NhdGlvbiB0eXBlPSJ1cmwiPmh0dHA6Ly9oeWRyYS5odWxsLmFj
+              LnVrL2Fzc2V0cy9odWxsOjMwNTgvY29tcG91bmRDb250ZW50L2NvbnRlbnQwMjwvbG9jYXRpb24+DSAg
+              ICA8L2ZpbGU+DSAgPC9yZXNvdXJjZT4NPC9jb250ZW50TWV0YWRhdGE+DQ==
 </foxml:binaryContent> 
 </foxml:datastreamVersion>
 </foxml:datastream>
@@ -3658,7 +3649,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-10-26T11:10:14.550Z" MIMETYPE="text/xml" SIZE="143">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2012-10-26T11:10:14.550Z" MIMETYPE="text/xml" SIZE="182">
 <foxml:xmlContent>
 <fields>
   <depositorEmail>s.lamb@hull.ac.uk</depositorEmail>

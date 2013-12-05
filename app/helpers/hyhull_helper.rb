@@ -34,7 +34,6 @@ module HyhullHelper
         <div id="asset-list">
       EOS
 
-      resource_title = document["title_ssm"].first if document.has?("title_ssm")
       display_label = document["resource_display_label_ssm"] if document.has?("resource_display_label_ssm")
       asset_object_id = document["resource_object_id_ssm"] if document.has?("resource_object_id_ssm")
       asset_ds_id = document["resource_ds_id_ssm"] if document.has?("resource_ds_id_ssm")
@@ -50,12 +49,12 @@ module HyhullHelper
         i = sequence_hash[seq]
         resources << <<-EOS
           <div id="download"> 
-            <div id="download_image" class="#{download_image_class_by_mime_type(asset_mime_type[i])}" ></div>
-             <a href="/assets/#{asset_object_id[i]}/#{asset_ds_id[i]}" onClick="_gaq.push(['_trackEvent','Downloads', '#{asset_object_id[i]}/#{asset_ds_id[i]}', '#{resource_title}']);">#{display_label[i]}</a> 
+            <div id="download_image" class="#{download_image_class_by_mime_type(asset_mime_type[i].to_s)}" ></div>
+             <a href="/assets/#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}" onClick="_gaq.push(['_trackEvent','Downloads', '#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}', '#{document_title(document)}']);">#{display_label[i].to_s}</a> 
         EOS
 
         resources << <<-EOS
-           <div id="file-size">(#{get_friendly_file_size(asset_file_size[i])} #{asset_format[i]})
+           <div id="file-size">(#{get_friendly_file_size(asset_file_size[i].to_s)} #{asset_format[i].to_s})
         EOS
 
         # #If the content is a KMZ or a KML file and less then 3MB...
@@ -65,7 +64,7 @@ module HyhullHelper
              if is_public_read(document)
                resources << <<-EOS
                  <div id="view-map-link">
-                 <a href="/assets/map_view/#{asset_object_id[i]}/#{asset_ds_id[i]}">View as map<a></div>
+                 <a href="/assets/map_view/#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}">View as map<a></div>
                EOS
              end
            end
@@ -237,6 +236,10 @@ module HyhullHelper
   end
 
   private
+
+  def document_title(document)
+    return solr_field_value(document, "title_tesim")
+  end
 
   def display_dt_dd_element(dt_value, dd_value, html_class)
     if dd_value.length > 0

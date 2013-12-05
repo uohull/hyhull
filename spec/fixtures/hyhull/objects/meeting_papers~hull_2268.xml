@@ -466,54 +466,10 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="contentMetadata" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="contentMetadata.0" LABEL="Content metadata" CREATED="2011-07-21T11:25:29.664Z" MIMETYPE="text/xml" SIZE="463">
-<foxml:xmlContent>
-<contentMetadata xmlns="http://hydra-collab.hull.ac.uk/schemas/contentMetadata/v1" type="text">
-  <resource displayLabel="Document" dissType="genericContent/content" dsID="content" id="minutes.pdf" objectID="hull:2268" sequence="1">
-    <file format="pdf" id="minutes.pdf" mimeType="application/pdf" size="165545">
-      <location type="url">http://hydra.hull.ac.uk/assets/hull:2268/genericContent/content</location>
-    </file>
-  </resource>
-</contentMetadata>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="contentMetadata.1" LABEL="Content metadata" CREATED="2011-07-21T11:26:45.105Z" MIMETYPE="text/xml" SIZE="455">
-<foxml:xmlContent>
-<contentMetadata xmlns="http://hydra-collab.hull.ac.uk/schemas/contentMetadata/v1" type="text">
-  <resource displayLabel="Document" dissType="genericContent" dsID="content" id="minutes.pdf" objectID="hull:2268" sequence="1">
-    <file format="pdf" id="minutes.pdf" mimeType="application/pdf" size="165545">
-      <location type="url">http://hydra.hull.ac.uk/assets/hull:2268/genericContent/content</location>
-    </file>
-  </resource>
-</contentMetadata>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="contentMetadata.2" LABEL="Content metadata" CREATED="2011-07-25T12:51:26.495Z" MIMETYPE="text/xml" SIZE="500">
+<foxml:datastreamVersion ID="contentMetadata.0" LABEL="Content metadata" CREATED="2012-01-11T10:07:30.809Z" MIMETYPE="text/xml" SIZE="499">
 <foxml:xmlContent>
 <contentMetadata xmlns="http://hydra-collab.hull.ac.uk/schemas/contentMetadata/v1">
-  <resource contains="content" displayLabel="Document" dsId="content" id="minutes.pdf" objectID="hull:2268" sequence="1" serviceDef="hull-sDef:meetingPapers" serviceMethod="getContent">
-    <file format="pdf" id="minutes.pdf" mimeType="application/pdf" size="165545">
-      <location type="url">http://hydra.hull.ac.uk/assets/hull:2268/genericContent/content</location>
-    </file>
-  </resource>
-</contentMetadata>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="contentMetadata.3" LABEL="Content metadata" CREATED="2011-07-25T12:51:56.377Z" MIMETYPE="text/xml" SIZE="499">
-<foxml:xmlContent>
-<contentMetadata xmlns="http://hydra-collab.hull.ac.uk/schemas/contentMetadata/v1">
-  <resource contains="content" displayLabel="Document" dsId="content" id="minutes.pdf" objectID="hull:2268" sequence="1" serviceDef="hull-sDef:meetingPaper" serviceMethod="getContent">
-    <file format="pdf" id="minutes.pdf" mimeType="application/pdf" size="165545">
-      <location type="url">http://hydra.hull.ac.uk/assets/hull:2268/genericContent/content</location>
-    </file>
-  </resource>
-</contentMetadata>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="contentMetadata.4" LABEL="Content metadata" CREATED="2012-01-11T10:07:30.809Z" MIMETYPE="text/xml" SIZE="499">
-<foxml:xmlContent>
-<contentMetadata xmlns="http://hydra-collab.hull.ac.uk/schemas/contentMetadata/v1">
-  <resource contains="content" displayLabel="Document" dsId="content" id="minutes.pdf" objectID="hull:2268" sequence="1" serviceDef="hull-sDef:meetingPaper" serviceMethod="getContent">
+  <resource contains="content" displayLabel="Document" dsID="content" id="minutes.pdf" objectID="hull:2268" sequence="1" serviceDef="hull-sDef:meetingPaper" serviceMethod="getContent">
     <file format="pdf" id="minutes.pdf" mimeType="application/pdf" size="165545">
       <location type="url">http://hydra.hull.ac.uk/assets/hull:2268/genericContent/content</location>
     </file>

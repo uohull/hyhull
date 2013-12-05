@@ -8,7 +8,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Content models in the Hydra Project - Green, Richard A.; "/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-02-23T10:56:37.825Z"/>
-<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-07-25T12:54:47.548Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2013-12-02T19:45:46.015Z"/>
 <foxml:extproperty NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraObject"/>
 </foxml:objectProperties>
 <foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
@@ -103,12 +103,20 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:date>2011-07-25T12:54:47.548Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
+<audit:record ID="AUDREC12">
+<audit:process type="Fedora API-M"/>
+<audit:action>modifyDatastreamByReference</audit:action>
+<audit:componentID>contentMetadata</audit:componentID>
+<audit:responsibility>fedoraAdmin</audit:responsibility>
+<audit:date>2013-12-02T19:45:46.015Z</audit:date>
+<audit:justification></audit:justification>
+</audit:record>
 </audit:auditTrail>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="DC.0" LABEL="DC Metadata" CREATED="2011-02-23T10:56:37.880Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="1222">
+<foxml:datastreamVersion ID="DC.0" LABEL="DC Metadata" CREATED="2011-02-23T10:56:37.880Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="1228">
 <foxml:xmlContent>
 <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:title>Content models in the Hydra Project</dc:title>
@@ -131,7 +139,7 @@ The presentation describes the &apos;simple yet flexible&apos; approach of the H
 </foxml:datastreamVersion>
 <foxml:datastreamVersion ID="DC.1" LABEL="DC Metadata" CREATED="2011-07-22T13:59:35.312Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="463">
 <foxml:xmlContent>
-<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
   <dc:title>Content models in the Hydra Project</dc:title>
   <dc:date>2009-12-14</dc:date>
   <dc:type>Presentation</dc:type>
@@ -2508,23 +2516,8 @@ The presentation describes the &apos;simple yet flexible&apos; approach of the H
 </foxml:binaryContent> 
 </foxml:datastreamVersion>
 </foxml:datastream>
-<foxml:datastream ID="contentMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
-<foxml:datastreamVersion ID="contentMetadata.2" LABEL="Content metadata" CREATED="2011-07-25T12:54:47.548Z" MIMETYPE="text/xml" SIZE="512">
-<foxml:binaryContent> 
-              DTxjb250ZW50TWV0YWRhdGEgeG1sbnM9Imh0dHA6Ly9oeWRyYS1jb2xsYWIuaHVsbC5hYy51ay9zY2hl
-              bWFzL2NvbnRlbnRNZXRhZGF0YS92MSI+DSAgPHJlc291cmNlIGRpc3BsYXlMYWJlbD0iUHJlc2VudGF0
-              aW9uIiBjb250YWlucz0iY29udGVudCIgc2VydmljZURlZj0iaHVsbC1zRGVmOnByZXNlbnRhdGlvbiIg
-              ZHNJZD0iY29udGVudCIgc2VydmljZU1ldGhvZD0iZ2V0Q29udGVudCIgaWQ9InByZXNlbnRhdGlvbi5w
-              ZGYiIG9iamVjdElEPSJodWxsOjIxMDYiIHNlcXVlbmNlPSIxIj4NICAgIDxmaWxlIGZvcm1hdD0icGRm
-              IiBpZD0icHJlc2VudGF0aW9uLnBkZiIgbWltZVR5cGU9ImFwcGxpY2F0aW9uL3BkZiIgc2l6ZT0iNjQy
-              MTA4Ij4NICAgICAgPGxvY2F0aW9uIHR5cGU9InVybCI+aHR0cDovL2h5ZHJhLmh1bGwuYWMudWsvYXNz
-              ZXRzL2h1bGw6MjEwNi9nZW5lcmljQ29udGVudC9jb250ZW50PC9sb2NhdGlvbj4NICAgIDwvZmlsZT4N
-              ICA8L3Jlc291cmNlPg08L2NvbnRlbnRNZXRhZGF0YT4=
-</foxml:binaryContent> 
-</foxml:datastreamVersion>
-</foxml:datastream>
 <foxml:datastream ID="properties" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="151">
+<foxml:datastreamVersion ID="properties.0" LABEL="Workflow properties" CREATED="2013-02-18T23:10:13.270Z" MIMETYPE="text/xml" SIZE="194">
 <foxml:xmlContent>
 <fields>
   <depositor>302922</depositor>
@@ -2533,6 +2526,21 @@ The presentation describes the &apos;simple yet flexible&apos; approach of the H
   <resourceState>published</resourceState>
 </fields>
 </foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="contentMetadata" STATE="A" CONTROL_GROUP="M" VERSIONABLE="false">
+<foxml:datastreamVersion ID="contentMetadata.3" LABEL="Content metadata" CREATED="2013-12-02T19:45:46.015Z" MIMETYPE="text/xml" SIZE="512">
+<foxml:binaryContent> 
+              DTxjb250ZW50TWV0YWRhdGEgeG1sbnM9Imh0dHA6Ly9oeWRyYS1jb2xsYWIuaHVsbC5hYy51ay9zY2hl
+              bWFzL2NvbnRlbnRNZXRhZGF0YS92MSI+DSAgPHJlc291cmNlIGRpc3BsYXlMYWJlbD0iUHJlc2VudGF0
+              aW9uIiBjb250YWlucz0iY29udGVudCIgc2VydmljZURlZj0iaHVsbC1zRGVmOnByZXNlbnRhdGlvbiIg
+              ZHNJRD0iY29udGVudCIgc2VydmljZU1ldGhvZD0iZ2V0Q29udGVudCIgaWQ9InByZXNlbnRhdGlvbi5w
+              ZGYiIG9iamVjdElEPSJodWxsOjIxMDYiIHNlcXVlbmNlPSIxIj4NICAgIDxmaWxlIGZvcm1hdD0icGRm
+              IiBpZD0icHJlc2VudGF0aW9uLnBkZiIgbWltZVR5cGU9ImFwcGxpY2F0aW9uL3BkZiIgc2l6ZT0iNjQy
+              MTA4Ij4NICAgICAgPGxvY2F0aW9uIHR5cGU9InVybCI+aHR0cDovL2h5ZHJhLmh1bGwuYWMudWsvYXNz
+              ZXRzL2h1bGw6MjEwNi9nZW5lcmljQ29udGVudC9jb250ZW50PC9sb2NhdGlvbj4NICAgIDwvZmlsZT4N
+              ICA8L3Jlc291cmNlPg08L2NvbnRlbnRNZXRhZGF0YT4=
+</foxml:binaryContent> 
 </foxml:datastreamVersion>
 </foxml:datastream>
 </foxml:digitalObject>

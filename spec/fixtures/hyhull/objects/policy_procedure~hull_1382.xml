@@ -3001,7 +3001,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:datastreamVersion ID="contentMetadata.0" LABEL="Content metadata" CREATED="2011-07-25T12:52:59.181Z" MIMETYPE="text/xml" SIZE="491">
 <foxml:xmlContent>
 <contentMetadata xmlns="http://hydra-collab.hull.ac.uk/schemas/contentMetadata/v1">
-  <resource contains="content" displayLabel="Document" dsId="content" id="policy.pdf" objectID="hull:1382" sequence="1" serviceDef="hull-sDef:policy" serviceMethod="getContent">
+  <resource contains="content" displayLabel="Document" dsID="content" id="policy.pdf" objectID="hull:1382" sequence="1" serviceDef="hull-sDef:policy" serviceMethod="getContent">
     <file format="pdf" id="policy.pdf" mimeType="application/pdf" size="165545">
       <location type="url">http://hydra.hull.ac.uk/assets/hull:1382/genericContent/content</location>
     </file>
