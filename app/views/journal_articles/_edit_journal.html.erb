@@ -19,12 +19,14 @@
       </div>
       <div class="fields">
         <%= f.input :journal_article_doi, label: "DOI" %>
-        <div class="control-group">
-          <% publication_link = "#{DOI_RESOLVER_SERVICE_URL}#{@journal_article.journal_article_doi.strip}" unless @journal_article.journal_article_doi.nil? %>
-          <div class="controls">
-            <%= link_to publication_link, publication_link, :target => "_blank" %>
+        <% unless @journal_article.journal_article_doi.nil? %>
+          <div class="control-group">
+            <% publication_link = "#{DOI_RESOLVER_SERVICE_URL}#{@journal_article.journal_article_doi.strip}" %>
+            <div class="controls">
+              <%= link_to publication_link, publication_link, :target => "_blank" %>
+            </div>
           </div>
-        </div>
+        <% end %>
         <%= f.input :journal_volume, label: "Volume" %>
         <%= f.input :journal_issue, label: "Issue" %>
         <%= f.input :journal_start_page, label: "Page start" %>
