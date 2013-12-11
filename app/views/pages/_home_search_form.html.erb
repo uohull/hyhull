@@ -1,0 +1,13 @@
+<%= form_tag search_action_url, :id => 'form-search-main', :method => :get, :class => 'form-inline form-search form-sub-search'  do %>
+  
+<span syle="width: 100%;">
+  <div class='input-prepend input-append'>
+        <%= search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe %>
+  <%- search_tag = search_fields.empty? ? "" : select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => t('blacklight.search.form.search_field.title'), :class=>"search-field square-corners input-small") %>
+  <%= search_tag %>
+    <%= text_field_tag :q, params[:q], :class => "q search-query square-corners" %>
+    <button id="main-search-submit" class="btn square-corners" name="button" type="submit"><i class="icon-search icon visible-desktop"></i> Search</button>
+  </div>
+</span>
+
+<% end %>

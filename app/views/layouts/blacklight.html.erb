@@ -13,11 +13,15 @@
       <meta http-equiv="cleartype" content="on">
     <![endif]-->
 
+    <%= render :partial => 'shared/head_favicon_links' %>
+    <%= render :partial => 'shared/head_add_to_home' %>
+
     <title><%= h(@page_title || application_name) %></title>
     <link href="<%= opensearch_catalog_path(:format => 'xml', :only_path => false) %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
     <%= favicon_link_tag asset_path('favicon.ico') %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag 'stay_standalone' %> 
     <%= csrf_meta_tags %>
     <%= raw(render_head_content) %> 
 
@@ -36,26 +40,52 @@
 
   <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
 
-<!-- /container -->
-  <div id="main-container" class="container">
-            <!-- Top bar -->
-            <div id="search-found" class="row hidden-phone">
-              <%= topbar_items.join('').html_safe %>
-            </div>
-            <!-- /Top bar -->
-                  <div class="row">
-                      <div class="span12">
-                        <div id="main-flashes">
-                          <%= render :partial=>'/flash_msg' %>
-                        </div>
-                      </div>    
-                  </div>              
+  <div class="page-wrapper">
 
-                  <div class="row">
-                       <%= yield %>
-                       </div>   
-</div>
+  <% if (current_page?(controller: 'pages', action: 'home')) %>
+    <div id="background-container" class="container">
+    <% else %>
+      <div id="background-container-form" class="container">
+  <% end %>
 
-<%= render :partial => 'shared/footer' %>
+    <div class="inner-container">
+
+      <% if !(current_page?(controller: 'pages', action: 'home')) %>
+        <div id="form-container">
+      <% end %>
+
+      <div class="container-fluid">
+
+        <!-- Top bar 
+        <div id="search-found" class="row hidden-phone">
+          <%#= topbar_items.join('').html_safe %>
+        </div>
+        -->
+
+        <!-- /Top bar -->
+        <div class="row-fluid">
+          
+        <% if !(current_page?(controller: 'pages', action: 'home')) %>
+          <div class="desktop-top-spacer visible-desktop"></div>
+          <div class="tablet-top-spacer visible-tablet"></div>
+        <% end %>
+
+          <%= render :partial=>'/flash_msg' %>
+        </div>
+
+          <%= yield %>
+
+      </div>
+
+      <% if !(current_page?(controller: 'pages', action: 'home')) %>
+        </div>
+      <% end %>
+
+    </div>  
+  </div>
+
+  </div>
+
+  <%= render :partial => 'shared/footer' %>
     </body>
 </html>

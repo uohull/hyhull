@@ -1,0 +1,34 @@
+<% #Using the Bootstrap Pagination class -%>
+<% if @previous_document || @next_document %>
+<div id="previousNextDocument">
+<h3>
+  <small>
+      <span class="hidden-phone">
+      <%= link_to_previous_document @previous_document %>
+      </span>
+
+    <span class="vertical-divider hidden-phone"></span>
+
+    <span class="hidden-phone">
+      <span>
+        <%= item_page_entry_info %>
+      </span>
+      <span class="vertical-divider"></span>
+    </span>
+
+    <span class="hidden-phone">
+      <%= link_to_next_document @next_document %>
+    </span>
+
+  <span class="vertical-divider hidden-phone"></span>
+
+  <span>
+      <%= link_back_to_catalog %>
+      <span class="vertical-divider"></span>
+      <%=link_to "#{t('blacklight.search.start_over')}", catalog_index_path, :id=>"startOverLink" %>
+    </span>
+
+  </small>
+</h3>
+</div>
+<% end %>

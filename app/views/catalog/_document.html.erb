@@ -1,0 +1,25 @@
+<% # container for a single doc -%>
+<div class="document <%= render_document_class document %>">
+
+  <div class="page-gutter row">
+    <div class="span3">
+      <div id="cover-art">
+          <%#= link_to document, :'data-counter' => (document_counter + 1 + @response.params[:start].to_i) do %>
+          <%#= render_book_cover_img(document) %>
+          <%# end %>
+      </div>
+    </div>
+
+    <div class="span13">
+
+      <%= render :partial => 'document_header', :locals => { :document => document, :document_counter => document_counter } %>
+        <%= render_document_partial document, :thumbnail, :document_counter => document_counter %>
+
+        <% # main container for doc partial view -%>
+        <%= render_document_partial document, :index, :document_counter => document_counter %>
+    </div>
+  </div>
+
+</div>
+
+<hr/>

@@ -1,0 +1,39 @@
+<div class="subnav navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container container-fluid-fix">
+      <div class="row-fluid">
+          <div class="subnav-position">
+
+            <%= form_tag catalog_index_path, :method => :get, :class => 'form-inline form-search form-sub-search'  do %>
+
+            <div class="input-prepend input-append">
+
+              <%= search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe %> 
+
+              <% unless search_fields.empty? %>
+                <%= select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => t('blacklight.search.form.search_field.title'), :class=>"search-field square-corners input-medium") %>
+              <% end %>
+
+              <%= text_field_tag :q, params[:q], :class =>  "q input-xlarge search-query square-corners", :placeholder => 'Search the catalogue...' %>
+
+              <button class="btn square-corners" name="button" type="submit"><i class="icon-search icon hidden-phone"></i> Search</button>
+ 
+            </div>
+            <span class="hidden-phone">
+              <span class="vertical-divider hidden-phone"></span>
+              <%#= link_to 'Advanced search', params.merge(:controller=>"advanced", :action=>"index") , :class=>"advanced_search row-spacer"%>
+            </span>
+
+            <div class="visible-phone">
+              <hr style="margin-bottom: 10px;"/>
+              <span>
+                <%#= link_to 'Advanced search', params.merge(:controller=>"advanced", :action=>"index") , :class=>"advanced_search row-spacer"%>
+              </span>              
+            </div>  
+                     
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

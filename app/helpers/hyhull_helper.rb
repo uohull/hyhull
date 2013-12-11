@@ -1,5 +1,9 @@
 module HyhullHelper
 
+  def application_name
+    'Digital Repository'
+  end
+
   # Provides a edit_link to a resource based upon the data within the SolrDocument
   def edit_resource_link(document)
     active_fedora_model = model_from_document(document)
@@ -30,7 +34,7 @@ module HyhullHelper
       
       resources = <<-EOS
         <fieldset id="assets">
-        <legend>#{pluralize_string(resources_size, "Download")}</legend>
+        <legend><h3>#{pluralize_string(resources_size, "Download")}</h3></legend>
         <div id="asset-list">
       EOS
 

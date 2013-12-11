@@ -1,0 +1,21 @@
+/* search tools */
+
+.appliedFilter {
+  background: none repeat scroll 0 0 $altcolor;
+    border: 1px solid lighten($altcolor, 10%);
+    color: #FFFFFF;
+    margin: 0 0.5em 0.5em;
+    .btnRemove {
+      background: url("/assets/blacklight/remove.png") no-repeat scroll 5px 5px transparent;
+      border-left: 1px solid lighten($altcolor, 10%);  
+  }
+  .filterName {
+    background: url("/assets/blacklight/separator.png") no-repeat scroll right center transparent;
+    padding-right: 1.75em;
+  }
+}
+
+.catalog_startOverLink {
+  float: none;
+  padding-top: 0.3em;
+}

@@ -1,0 +1,58 @@
+<%= favicon_link_tag asset_path('blah/favicon.ico') %>
+
+<!-- Icons for apple touch devices -->
+<!-- retina iPad iOS 7 -->
+<%= favicon_link_tag asset_path('blah/blacklight-icon-152-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => "152x152" %>
+<!-- retina iPad pre iOS 7 -->
+<%= favicon_link_tag asset_path('blah/blacklight-icon-144-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => "144x144" %>
+<!-- retina iPhone iOS 7 -->
+<%= favicon_link_tag asset_path('blah/blacklight-icon-120-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => "120x120" %>
+<!-- retina iPhone pre iOS 7 -->
+<%= favicon_link_tag asset_path('blah/blacklight-icon-114-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => "114x114" %>
+<!-- non-retina iPad iOS 7 -->
+<%= favicon_link_tag asset_path('blah/blacklight-icon-76-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => "76x76" %>
+<!-- non-retina iPad pre iOS 7 -->
+<%= favicon_link_tag asset_path('blah/blacklight-icon-72-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => "72x72" %>
+<!-- non-retina iPhone pre iOS 7 -->
+<%= favicon_link_tag asset_path('blah/blacklight-icon-57-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => "57x57" %>
+
+<!-- Splash screen images for Apple touch devices (provides startup screen on iPhone/iPads etc...)  -->
+<!-- iPhone -->
+<%= favicon_link_tag asset_path('blah/blacklight-splash-320x460-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)' %>
+<!-- iPhone (Retina) -->
+<%= favicon_link_tag asset_path('blah/blacklight-splash-640x920-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)' %>
+<!-- iPhone 5 -->
+<%= favicon_link_tag asset_path('blah/blacklight-splash-640x1096-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)' %>
+<!-- iPad (portrait) -->
+<%= favicon_link_tag asset_path('blah/blacklight-splash-768x1004-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 768px) and (orientation: portrait) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1)' %>
+<!-- iPad (landscape) -->
+<%= favicon_link_tag asset_path('blah/blacklight-splash-748x1024-landscape.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)' %>
+<!-- iPad (Retina, portrait) -->
+<%= favicon_link_tag asset_path('blah/blacklight-splash-1536x2008-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 768px) and (orientation: portrait) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)' %>
+<!-- iPad (Retina, landscape) -->
+<%= favicon_link_tag asset_path('blah/blacklight-splash-1496x2048-landscape.png'),
+ :rel => 'apple-touch-startup-image', 
+ :media => '(device-width: 768px) and (device-height: 1536px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)' %>
+
+ <!-- W8 specific -->
+<meta name="msapplication-TileImage" content="/assets/blah/blacklight-w8-144-precomposed.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta content="Library Catalogue" name="application-name" />
+<meta content="Library Catalogue" name="msapplication-tooltip" />
+<meta content="width=1024;height=768" name="msapplication-window" />
+<meta content="/" name="msapplication-starturl" />
+<meta content="name=Search;
+action-uri=http://blacklight.hull.ac.uk/;
+icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />
+<meta content="name=Advanced Search;
+action-uri=/advanced/?FORM=IE0006;
+icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />
+<meta content="name=Search History;
+action-uri=/search_history/?FORM=IE0006;
+icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />
+<meta content="name=FAQ;
+action-uri=/faq/?FORM=IE0006;
+icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />
+<meta content="name=Feedback;
+action-uri=/contact/?FORM=IE0006;
+icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />

@@ -1,0 +1,87 @@
+/* blah - fonts */
+
+@font-face {
+  font-family: 'open_sansbold';
+  src: url('opensans-bold-webfont.eot');
+  src: url('opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('opensans-bold-webfont.woff') format('woff'),
+       url('opensans-bold-webfont.ttf') format('truetype'),
+       url('opensans-bold-webfont.svg#open_sansbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sanslight';
+  src: url('opensans-light-webfont.eot');
+  src: url('opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('opensans-light-webfont.woff') format('woff'),
+       url('opensans-light-webfont.ttf') format('truetype'),
+       url('opensans-light-webfont.svg#open_sanslight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('opensans-regular-webfont.eot');
+  src: url('opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('opensans-regular-webfont.woff') format('woff'),
+       url('opensans-regular-webfont.ttf') format('truetype'),
+       url('opensans-regular-webfont.svg#open_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sanssemibold';
+  src: url('opensans-semibold-webfont.eot');
+  src: url('opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('opensans-semibold-webfont.woff') format('woff'),
+       url('opensans-semibold-webfont.ttf') format('truetype'),
+       url('opensans-semibold-webfont.svg#open_sanssemibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: 'open_sanssemibold', sans-serif !important;
+  font-size: 42px !important;
+  font-weight: normal;
+  line-height: 1.1em;
+  margin-bottom: 0.5em;
+}
+
+h2 
+{
+  font-size: 32px !important;
+  font-family: 'open_sansregular', sans-serif !important;
+  font-weight: 400;
+  /*color: #333;*/
+  margin-bottom: 0.75em;
+}
+
+h3 
+{
+  font-family: 'open_sanslight', sans-serif !important;
+  font-weight: 100;
+  font-size: 24px !important;
+  line-height: normal !important;
+  color: #666;
+}
+
+h4 
+{
+  font-family: 'open_sansbold', sans-serif !important;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+h5 {
+  font-family: 'open_sansregular', sans-serif !important;
+  font-weight: normal;
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  color: #555;
+}

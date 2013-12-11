@@ -1,0 +1,88 @@
+/* footer */
+
+/* mobile footer adjustment */
+@media (max-width: 480px), (max-width: 767px) { 
+  footer #footer{
+    position: relative !important;
+  } 
+  #background-container {
+  	background: transparent;
+  }
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  z-index: -20;
+  height: 272px;
+  #footer {
+    background: $footerColor;
+    position: fixed;
+  }
+  #footer-container {
+    color: $footerTextColor;
+    background-color: transparent;
+    padding-top: 2em;
+    a {
+      color: $footerTextColor;
+	    &:hover { color: lighten($footerTextColor, 25%) }
+    }
+  }
+  #footer-title {
+    padding-bottom:10px;
+  }
+  #footer-row {
+    margin: 0.5em 0 0;
+    text-shadow: 1px 1px darken($footerTextColor, 55%)
+  }
+  #footer-container-top {
+    max-height: 30px;
+    min-height: 5px;
+  }
+  #footer-container-bottom {
+    background: #000;
+    max-height: 30px;
+    min-height: 5px;
+  }
+}
+
+.navbar-fixed-bottom .navbar-inner {
+  padding: 1em 0.5em 1em 1em;
+}
+
+.footer-column {
+	ul {
+	  list-style: none inside;
+	  margin-left: 0.5em;
+	  padding: 0 0 0.5em;
+ 	  border-right: 1px dotted darken($footerTextColor, 55%);
+ 	  height: 128px;
+ 	  margin-bottom: 1em;
+	  li 
+		{
+		    font-size: 85%;
+		    padding-left: 1em;
+        padding-right: 1em;
+		    h4 { margin: 0; padding-bottom: 0.5em;}
+		}
+	  li:nth-child(5) {  
+		  color: red;
+		}
+	}
+	a {
+	  color: $footerTextColor;
+	  line-height: 1.6em;
+	  &:hover { color: lighten($footerTextColor, 25%) };
+	}
+}
+
+.footer-horizontal {
+	border-top: 1px dotted darken($footerTextColor, 55%);
+  margin-top: 0.75em;
+  padding-top: 1.6em;
+}
+
+ul.footer-sub-list {
+  list-style: circle inside none;
+  border: 0;
+}

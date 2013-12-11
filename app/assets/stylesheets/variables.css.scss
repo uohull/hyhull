@@ -1,0 +1,52 @@
+/* uoh - bootstrap variables */
+$gridColumns: 16;
+$gridGutterWidth: 0px;
+$gridGutterWidth768: 0px;
+$gridGutterWidth1200: 0px;
+$inputBorderRadius: 2px;
+$navbarBrandColor: #fff !important;
+$navbarLinkColor: #c5c5c5 !important;
+$navbarLinkColorHover: #fff !important;
+$textColor: #333333;
+$bodyBackground: #ffffff; 
+
+/* site */
+/*$primarycolor: #ff0000;*/
+$primarycolor: #186718;
+$primarycolordark: #126112;
+$linkColor: $primarycolordark;
+/* $primarycolordark: #1a6a1a; */
+/*$altcolor: #3d7a7a;*/
+$altcolor: #256262;
+$altcolorlight: #75bdbd;
+$neutralcolordark: #444;
+$neutralcolorlight: #ccc;
+$primarylinkcolor: #0E5D0E;
+$primarylinkhovercolor: $neutralcolordark;
+$formMaxWidth: 1200px;
+$footerTextColor: #c1c1c1;
+$footerColor: #1F1F1F;
+
+/* tiles */
+$greenishblue: #4e9799;
+$cleanwhite: #fff;
+$lightgrey: #ebebeb;
+$lightgreen: #EDFFC4;
+$lightblue: #75bdbd;
+$lightlink: #fff;
+$darklink: #000;
+$tiletransparency: 1;
+$tilerowgutter: 0;
+
+/* highlighters */
+$selectedtextcolor: #842121;
+$alertcolor: #4E9799;
+$errorcolor: #cc6565;
+$successcolor: #236524 ;
+$noticecolor: #3d7a7a;
+$infocolor: #9ebe5e;
+$warningcolor: #BE5A13;
+
+/* images */
+$logo_image: 'blah/logo.gif';
+$home_background_image: "blah/bjl-1c.jpg" !default;

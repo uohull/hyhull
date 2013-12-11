@@ -1,23 +1,13 @@
-<%-
-  # Compare with render_document_functions_partial helper, and
-  # _document_functions partial. BL actually has two groups
-  # of document-related tools. "document functions" by default
-  # contains Bookmark functionality shown on both results and
-  # item view. While "document tools" contains external export type
-  # functions by default only on detail.
-
-  #Added Bootstrap class well and 'hidden-phone' for the tools-bar 
--%>
-  <% if can?(:edit, @document.id) %>
+<% if can?(:edit, @document.id) %>
     <ul class="nav nav-list">
-      <li class="nav-header">Tools</li>
-      <li>  
+      
+      <li>
         <%= edit_resource_link(@document) %>
       </li>
     </ul>
+    <br/>
   <% end %>
   <ul class="nav nav-list">
-      <li class="nav-header"><%= t('blacklight.tools.title') %></li>
       <li>
         <%= display_resources(@document) %>
       </li>
@@ -25,3 +15,4 @@
         <%= set_children_link(@document) %>
       </li>
   </ul>
+  <br/>

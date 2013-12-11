@@ -1,0 +1,13 @@
+<div class="flash_messages">
+  <% [:success, :notice, :error, :alert].each do |type| %>
+    <%- alert_class = type == :notice ? 'info' : type %>
+    <% if flash[type] %>
+      <% if (current_page?(controller: 'pages', action: 'home')) %>
+  		<div class="desktop-top-margin visible-desktop"></div>
+		<% end %>
+      <div class="flash-message-container alert-<%=alert_class%>"><%= flash[type] %>
+         <a class="close" data-dismiss="alert" href="#">x</a>
+      </div>
+    <% end %>
+  <% end %>
+</div>

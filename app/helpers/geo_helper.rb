@@ -23,7 +23,7 @@ module GeoHelper
        map = <<-EOS
        <dt>#{dt_title}</dt>
         <dd>
-          <div id="map_canvas" style="width:500px; height:281px"></div>
+          <div id="map_canvas" style="width:100%; height:281px"></div>
         </dd>
        #{hidden_field(:document_fedora, :coordinates, :value => coordinates )}
        #{hidden_field(:document_fedora, :coordinates_type, :value => coordinates_type )}

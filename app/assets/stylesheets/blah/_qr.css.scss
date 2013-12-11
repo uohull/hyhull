@@ -1,0 +1,9 @@
+/* QR Code modal customisations */
+/* Unfortunately the close 'x' on the qr modal is being hidden by a blacklight control, this shows it */
+#qr-close {
+  display:block; 
+}
+
+#qr-code {
+  text-align: center;
+}

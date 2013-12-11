@@ -1,0 +1,92 @@
+/* facets */
+
+#facets .btn-navbar .icon-bar {
+    background-color: $neutralcolordark;
+}
+#facets {
+  li { 
+    margin-right: 0;
+    padding: 0.5em 1em;
+    background: transparent;
+    color: #333;
+    font-size: 90%;
+    a {
+      color: $neutralcolordark;
+      text-shadow:0px 1px 0px #efefef;
+      &:hover { background: transparent;} 
+   }
+   .count {
+    float: right;
+    margin-right: 0;
+    text-shadow:0px 1px 0px #fff;
+    }
+  }
+  li:hover {
+    transition: all 0.2s ease-in-out 0s;
+    background-color: lighten($neutralcolorlight, 5%);
+  }
+  ul {
+    padding-top: 0em;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+  span.selected {
+    color: $selectedtextcolor;
+    text-shadow:0px 1px 0px #efefef;
+  }
+  h3 {
+    padding-left: 0.5em;
+  }
+  h5 {
+    color: $neutralcolordark;
+  }
+}
+
+.facet_limit h5 a {
+  background: transparent !important;
+  border: none !important;
+}
+
+.facet_limit ul {
+  background-color: #efefef;
+}
+
+.facets-collapse .facet_limit h5:hover {
+  transition: all 0.2s ease-in-out 0s;
+  background-color: lighten($neutralcolorlight, 5%);
+  text-shadow:0px 1px 0px #efefef;
+}
+
+#facets ul, #facets h5 + div {
+    padding-bottom: 0;
+}
+
+.facet_limit:last-child > h5 {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.well, .constraints-container {
+    border: 0;
+}
+
+.constraints-container {
+    background-color: whitesmoke;
+    border: 0;
+}
+
+#facets div.facet_limit {
+    clear: both;
+    margin-bottom: 1em;
+    background: none repeat scroll 0 0 #efefef;
+}
+
+.sidenav h5 {
+  border: none;
+}
+
+.label {
+    font-size: 92%;
+    padding: 6px 10px !important;
+    vertical-align: baseline;
+}

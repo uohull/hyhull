@@ -1,0 +1,17 @@
+/* holding */
+
+#icon-holding-available {
+  background-color: $successcolor !important;
+  border-radius: 2px 2px 2px 2px !important;
+  border-style: solid !important;
+  border-width: 2px 3px 3px !important;
+  border-color: $successcolor;
+}
+
+#icon-holding-unavailable {
+  background-color: $warningcolor !important;
+  border-radius: 2px 2px 2px 2px !important;
+  border-style: solid !important;
+  border-width: 2px 3px 3px !important;
+  border-color: $warningcolor;
+}

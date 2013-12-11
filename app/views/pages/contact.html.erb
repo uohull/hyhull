@@ -1,2 +1,25 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<div class="row-fluid">
+
+  <div id="sidebar" class="span4 hidden-phone">
+    <div class="page-gutter">
+    	<div class="hydra-logo-large"></div>
+    </div>
+  </div>
+
+  <div id="content" class="span8">
+    <div class="page-gutter">
+      <%= render :partial=>'contact_text.html.erb' %>
+    </div>
+  </div>
+  <div id="content" class="span4 hidden-phone">
+    <div class="page-gutter">
+      <div class="affix">
+        <%= render :partial=>'about_menu.html.erb' %>
+      </div>
+    </div>
+  </div>
+  <div class="span4 visible-phone">
+    <%= render :partial=>'about_menu.html.erb' %>
+  </div>
+
+</div>

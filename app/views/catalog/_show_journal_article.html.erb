@@ -1,5 +1,5 @@
 <%# default partial to display solr document fields in catalog show view -%>
-<dl class="dl-horizontal dl-invert">
+<dl class="dl-vertical-left dl-invert">
   <%= display_field(document, 'creator_name_ssm', 'Author', 'creator_name_ssm') %>
   <% document_show_fields(document).each do |solr_fname, field| -%>
     <% # We filter the creatpr out, because it is being displayed above with label author %>

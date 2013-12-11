@@ -1,0 +1,103 @@
+/* document */
+
+#document {
+  margin-top: 0em;
+  #previousNextDocument {
+    margin-bottom: 2em;
+  }
+  #previousNextDocument.well {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+  h1 {
+    padding: inherit !important;
+    line-height: 1em !important;
+    margin-bottom: -10px;
+  }
+}
+
+.document {
+    margin: 0;
+    padding: 0;
+	border: none;
+}
+
+.document-phone.document {
+  background-color: #EFEFEF;
+  margin-top: 1em !important;
+  padding: 1em !important;
+  #cover-art {
+    clear: both !important;
+    height: 210px !important;
+  }
+}
+
+.availability-table {
+  background-color: #E3E3E3;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 0 0;
+  margin: 0 0 1em;  
+  thead {
+    background-color: #E3E3E3;
+  }
+  tbody tr {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E9E9E9;
+    border-right: 1px solid #E9E9E9;
+  }
+  /* IE7 fix for the availability label */
+  i {
+    *margin-right:0;
+  }
+}
+
+.holdings{
+  .table-container {
+    font-size: 90%;
+    padding: 0;
+  }
+}
+
+.holdings-label {
+  width: 79%;
+}
+
+.page_links {
+  padding-left: 0.75em;
+}
+
+#cover-art {
+  height: 150px !important;
+  max-width: 132px !important;
+  margin-right: 1em;
+  margin-top: 8px;
+  background: -moz-linear-gradient(top, rgba(198,198,198,0.65) 10%, rgba(204,204,204,0.65) 20%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,rgba(198,198,198,0.65)), color-stop(20%,rgba(204,204,204,0.65)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(198,198,198,0.65) 10%,rgba(204,204,204,0.65) 20%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(198,198,198,0.65) 10%,rgba(204,204,204,0.65) 20%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(198,198,198,0.65) 10%,rgba(204,204,204,0.65) 20%,rgba(255,255,255,0) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(198,198,198,0.65) 10%,rgba(204,204,204,0.65) 20%,rgba(255,255,255,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6c6c6c6', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */  
+}
+
+#google-preview {
+  margin-top: 1.5em;
+  position: relative;
+  text-align: center;
+}
+
+.document-phone {
+  #cover-art {
+    clear: both !important;
+    height: calc(200px + 0.5em) !important;
+  }
+  h3 {
+    padding-bottom: 0.15em !important;
+  }
+} 
+
+.document-phone #holdings-record-element .defList {
+  dt { font-size: 16px; padding-bottom: 0; }
+  dd { font-size: 96%;}
+} 

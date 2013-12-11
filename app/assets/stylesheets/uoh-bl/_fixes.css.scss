@@ -1,0 +1,25 @@
+/* fixes & overrides */
+
+/* bl fixes */
+
+#holdings-record-element dd {
+  margin-left: 0;
+}
+
+#search_field {
+  min-width: 120px;
+}
+
+.form-search .input-prepend .search-query {
+  margin-left: -1px;
+}
+
+.search_history .filterName, .search_history .label {
+    color: $neutralcolordark;
+    font-style: italic;
+}
+
+ul.nav li.menu-item a {
+    color: $neutralcolordark;
+    padding: 8px 14px;
+}

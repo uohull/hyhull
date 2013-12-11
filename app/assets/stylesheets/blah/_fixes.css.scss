@@ -1,0 +1,11 @@
+/* fixes & overrides */
+
+/* Twitter widget overrides */
+
+
+.new-tweet {
+  color: $primarylinkcolor;
+  text-decoration: none;
+  border-bottom:1px dotted;
+  &:hover { color: $primarylinkhovercolor; text-decoration: none;}
+}

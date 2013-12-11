@@ -1,0 +1,42 @@
+/* tables */
+
+.table th, .table td {
+  vertical-align: middle;
+  border-top: medium none;
+}
+
+/* datatables */
+
+.dl-horizontal-left dd {
+  margin-left: 110px;
+}
+
+.dl-horizontal-left dt {
+  text-align: left;
+  clear: left;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 110px;
+}
+
+.dl-vertical-left {
+  dt {
+    text-align: left;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 110px;
+  }
+  dd {
+    margin-left: 0;
+    padding-bottom: 1em;
+  }
+}
+
+.dl-invert dt {
+  color: #444444;
+  font-style: italic;
+}
