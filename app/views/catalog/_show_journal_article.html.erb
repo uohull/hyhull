@@ -14,7 +14,7 @@
 <h3>Journal</h3>
 <dl class="dl-horizontal dl-invert">
   <%= display_field(document, 'journal_title_ssm', 'Journal title', 'journal_title_ssm') %>
-  <%= display_field(document, 'journal_publication_date_ssm', 'Publication date', 'journal_publication_date_ssm') %>
+  <%= display_date_field(document, 'journal_publication_date_ssm', 'Publication date', 'journal_publication_date_ssm') %>
   <%= display_field(document, 'journal_publisher_ssm', 'Publisher', 'journal_publisher_ssm') %>
   <%= doi_resolver_field(document, 'journal_article_doi_ssm', 'DOI', 'journal_article_doi_ssm') %>
   <%= display_field(document, 'journal_print_issn_ssm', 'ISSN (Print)', 'journal_print_issn_ssm') %>

@@ -183,33 +183,13 @@ module HyhullHelper
     end
   end
 
-
-  def get_friendly_file_size(size_in_bytes_str)
-  text = ""
-  if size_in_bytes_str.length > 0
-    begin
-      size_in_bytes = Float(size_in_bytes_str)
-      text = bits_to_human_readable(size_in_bytes).to_s
-    rescue ArgumentError
-      text = ""
-    end
-  end
-  text  
-  end
-
-  def bits_to_human_readable(num)
-   ['bytes','KB','MB','GB','TB'].each do |x|
-    if num < 1024.0
-     return "#{num.to_i} #{x}"
-    else
-     num = num/1024.0
-     end
-    end
-  end
-
   # display_field
   def display_field(document, solr_fname, label_text='', html_class)
      display_dt_dd_element(label_to_display(label_text), solr_field_value(document, solr_fname), html_class)
+  end
+
+  def display_date_field(document, solr_fname, label_text='', html_class)
+     display_dt_dd_element(label_to_display(label_text), display_friendly_date(solr_field_value(document, solr_fname)), html_class)
   end
 
   def display_field_as_link(document, solr_fname, label_text='', link_text, html_class)
@@ -298,5 +278,58 @@ module HyhullHelper
     end
     return is_public_read
   end
+
+  def get_friendly_file_size(size_in_bytes_str)
+    text = ""
+    if size_in_bytes_str.length > 0
+      begin
+        size_in_bytes = Float(size_in_bytes_str)
+        text = bits_to_human_readable(size_in_bytes).to_s
+      rescue ArgumentError
+        text = ""
+      end
+    end
+    text  
+  end
+
+  def bits_to_human_readable(num)
+   ['bytes','KB','MB','GB','TB'].each do |x|
+    if num < 1024.0
+     return "#{num.to_i} #{x}"
+    else
+     num = num/1024.0
+     end
+    end
+  end
+
+
+  # Pass through a string date in the format of YYYY-MM-DD/YYYY-MM/YYYY and it will return a human readable version
+  def display_friendly_date(date)
+    display_date = date
+    begin
+      if date.match(/^\d{4}-\d{2}$/)
+        display_date = Date.parse(to_long_date(date)).strftime("%B") + " " + Date.parse(to_long_date(date)).strftime("%Y")
+      elsif date.match(/^\d{4}-\d{2}-\d{2}$/)
+        display_date = Date.parse(date).day().to_s + " " + Date.parse(date).strftime("%B") + " " + Date.parse(date).strftime("%Y")
+      end
+    rescue
+      # Just rescue an issue with parsing the date...
+    end 
+    
+    return display_date
+  end
+
+   #Utility method used to get long version of a date (YYYY-MM-DD) from short form (YYYY-MM) - Defaults 01 for unknowns - Exists in hull_model_methods too
+  def to_long_date(flexible_date)
+    full_date = ""
+    if flexible_date.match(/^\d{4}$/)
+            full_date = flexible_date + "-01-01"
+    elsif flexible_date.match(/^\d{4}-\d{2}$/)
+            full_date = flexible_date + "-01"
+    elsif flexible_date.match(/^\d{4}-\d{2}-\d{2}$/)
+            full_date = flexible_date
+    end
+    return full_date
+  end 
 
 end

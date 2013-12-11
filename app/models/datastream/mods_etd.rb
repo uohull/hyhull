@@ -86,8 +86,8 @@
         t.raw_object(:path=>"url", :attributes=>{:access=>"raw object"})
       }
 
-      t.grant_number(:path=>"identifier", :attributes=>{:type=>"grantNumber"})
-      t.ethos_identifier(:path=>"identifier", :attributes=>{:type=>"ethos"})
+      t.grant_number(:path=>"identifier", :attributes=>{:type=>"grantNumber"}, :index_as=>[:displayable])
+      t.ethos_identifier(:path=>"identifier", :attributes=>{:type=>"ethos"}, :index_as=>[:displayable])
       t.record_info(:path=>"recordInfo") {
         t.record_creation_date(:path=>"recordCreationDate", :attributes=>{:encoding=>"w3cdtf"})
         t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})

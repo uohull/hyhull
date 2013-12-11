@@ -1,11 +1,9 @@
 <%# default partial to display solr document fields in catalog show view -%>
 <dl class="dl-horizontal dl-invert">
   <% document_show_fields(document).each do |solr_fname, field| -%>
-    <% unless field.label.downcase == "date" %>
-      <% if should_render_show_field? document, field %>
-        <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>
-        <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
-      <% end -%>
+    <% if should_render_show_field? document, field %>
+      <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>
+      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
     <% end -%>
   <% end %>
   <%= display_field(document, 'citation_ssm', 'Citation', 'citation_ssm') %>
@@ -17,8 +15,8 @@
   <%= display_field(document, 'doi_ssm', 'DOI', 'doi_ssm') %> 
   <%= display_field(document, 'additional_notes_ssm', 'Additional notes', 'additional_notes_ssm') %> 
 
-  <%= display_field(document, 'date_issued_ssm', 'Publication date', 'date_issued_ssm') %>
-  <%= display_field(document, 'date_valid_ssm', 'Date valid', 'date_valid_ssm') %>
+  <%= display_date_field(document, 'date_issued_ssm', 'Publication date', 'date_issued_ssm') %>
+  <%= display_date_field(document, 'date_valid_ssm', 'Date valid', 'date_valid_ssm') %>
 
   <% # Google Map preview of geo-data %>
   <% geo_data = geo_data_from_solr_doc(document) %>

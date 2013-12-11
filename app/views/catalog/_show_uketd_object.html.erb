@@ -4,13 +4,14 @@
     <% if should_render_show_field? document, field %>
       <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>
       <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
+	  <% end -%>
 	<% end -%>
-	<% end -%>
-
+  <%= display_date_field(document, 'date_issued_ssm', 'Date', 'date_issued_ssm') %>
 	<%= display_field(document, 'supervisor_name_ssm', 'Supervisor', 'supervisor_name_ssm') %>
-    <%= display_field(document, 'person_sponsor_name_ssm', 'Sponsor (person)', 'person_sponsor_name_ssm') %>
+  <%= display_field(document, 'person_sponsor_name_ssm', 'Sponsor (person)', 'person_sponsor_name_ssm') %>
 	<%= display_field(document, 'sponsor_name_ssm', 'Sponsor (Organisation)', 'sponser_name_ssm') %>
-
+  <%= display_field(document, 'grant_number_ssm', 'Grant number', 'grant_number_ssm') %>
+  <%= display_field(document, 'ethos_identifier_ssm', 'Ethos identifier', 'ethos_identifier_ssm') %>
 	<%= display_field(document, 'qualification_level_ssm', 'Qualification level', 'qualification_level_ssm') %>
 	<%= display_field(document, 'qualification_name_ssm', 'Qualification name', 'qualification_name_ssm') %>
 </dl>

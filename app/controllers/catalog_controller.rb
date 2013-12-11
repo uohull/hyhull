@@ -26,12 +26,12 @@ class CatalogController < ApplicationController
 
     # solr field configuration for search results/index views
     config.index.show_link = 'title_tesim'
-    config.index.record_tsim_type = 'has_model_ssim'
+    config.index.record_tsim_type = 'active_fedora_model_ssi'
 
     # solr field configuration for document/show views
     config.show.html_title = 'title_tesim'
     config.show.heading = 'title_tesim'
-    config.show.display_type = 'has_model_ssim'
+    config.show.display_type = 'active_fedora_model_ssi'
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -95,8 +95,6 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('rights', :displayable, type: :string), :label => 'Rights'
     config.add_show_field solr_name('description', :displayable, type: :string), :label => 'Description'  
     config.add_show_field solr_name('abstract', :displayable, type: :string), :label => 'Abstract' 
-    config.add_show_field solr_name('date_issued', :displayable, type: :string), :label => 'Date'
-    config.add_show_field solr_name('date_valid', :displayable, type: :string), :label => 'Date'
     config.add_show_field solr_name('language_text', :displayable, type: :string), :label => 'Language'
     config.add_show_field solr_name('publisher', :displayable, type: :string), :label => 'Publisher'
     config.add_show_field solr_name('extent', :displayable, type: :string), :label => 'Extent'
