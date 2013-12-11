@@ -10,7 +10,6 @@ class ContentMetadataBehaviourTest < ActiveFedora::Base
 
 end
 
-
 describe Hyhull::ModelMethods do
 
   before(:each) do
@@ -43,7 +42,8 @@ describe Hyhull::ModelMethods do
 
       @test_file = fixture("hyhull/files/test_pdf_file.pdf") 
       @file_name = File.basename(@test_file)
-      @file_asset.add_file(@test_file, "content", @file_name)
+      # Changed ds to content_test to test behaviour below...
+      @file_asset.add_file(@test_file, "content_test", @file_name)
       @file_asset.save
     end
 
@@ -54,7 +54,7 @@ describe Hyhull::ModelMethods do
     end
 
     it "should add appropiate content metadata for valid object" do
-      @test_object.add_content_metadata(@file_asset, "content").should == 0
+      @test_object.add_content_metadata(@file_asset, "content_test").should == 0
 
       @test_object.contentMetadata.resource.size.should == 1
 
@@ -63,8 +63,8 @@ describe Hyhull::ModelMethods do
       @test_object.contentMetadata.content_mime_type.first.should == "application/pdf"
       @test_object.contentMetadata.content_format.first.should == "pdf"
       @test_object.contentMetadata.resource_object_id.first.should == @file_asset.pid
-      @test_object.contentMetadata.resource_ds_id.first.should == "content"
-      @test_object.contentMetadata.resource.file.location.first.should == "http://hydra.hull.ac.uk/assets/#{@file_asset.pid}/content"
+      @test_object.contentMetadata.resource_ds_id.first.should == "content_test"
+      @test_object.contentMetadata.resource.file.location.first.should == "http://hydra.hull.ac.uk/assets/#{@file_asset.pid}/content_test"
       @test_object.contentMetadata.resource.diss_service_def.first.should == "afmodel:FileAsset"
       @test_object.contentMetadata.resource.diss_service_method.first.should == "getContent"
       @test_object.contentMetadata.resource_display_label.first.should == @file_name

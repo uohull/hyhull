@@ -272,12 +272,14 @@ module Hyhull::Datastream::ModsMetadataBase
      end
   end
 
+  # Uses CONTENT_LOCATION_URL_BASE configured in config/initializers/hyhull.rb
+  # TODO Refactor the shared code in these methods 
   def update_mods_content_metadata(content_asset, content_ds)
     content_size_bytes = content_asset.datastreams[content_ds].size
     begin
       self.physical_description.extent = self.class.bits_to_human_readable(content_size_bytes)
       self.physical_description.mime_type = content_asset.datastreams[content_ds].mimeType
-      self.location_element.raw_object = "http://hydra.hull.ac.uk/assets/#{content_asset.pid}/#{content_ds}"
+      self.location_element.raw_object = "#{CONTENT_LOCATION_URL_BASE}/assets/#{content_asset.pid}/#{content_ds}"
       return true
     rescue Exception => e  
       logger.warn("#{self.class.to_s}.descMetadata does not define terminologies required for storing file metadata")
@@ -285,11 +287,13 @@ module Hyhull::Datastream::ModsMetadataBase
     end    
   end 
 
+  # Uses CONTENT_LOCATION_URL_BASE configured in config/initializers/hyhull.rb 
+  # TODO Refactor the shared code in these methods 
   def update_mods_content_metadata_by_params(asset_id, asset_ds_id , size, mime_type)  
     begin
       self.physical_description.extent = self.class.bits_to_human_readable(size.to_i)
       self.physical_description.mime_type = mime_type
-      self.location_element.raw_object = "http://hydra.hull.ac.uk/assets/#{asset_id}/#{asset_ds_id}"
+      self.location_element.raw_object = "#{CONTENT_LOCATION_URL_BASE}/assets/#{asset_id}/#{asset_ds_id}"
       return true
     rescue Exception => e  
       logger.warn("#{self.class.to_s}.descMetadata does not define terminologies required for storing file metadata")

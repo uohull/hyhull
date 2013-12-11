@@ -1,5 +1,10 @@
 require 'hyhull'
 
+# Content Location URL Base - Utilised in Content/descMetadata 
+# This is used for the basis of the <location type="url">http://hydra.hull.ac.uk... We are purposefully NOT automatically setting this 
+# based upon the web server url. We want manual control of this.
+CONTENT_LOCATION_URL_BASE = "http://hydra.hull.ac.uk"
+
 # Harvesting OAI Setting
 # OAI identifier base
 OAI_ITEM_IDENTIFIER_NS = "oai:hull.ac.uk:"

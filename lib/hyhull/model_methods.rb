@@ -72,10 +72,11 @@ module Hyhull::ModelMethods
   end
 
   # Apply additional metadata to the descMetadata
+  # Uses CONTENT_LOCATION_URL_BASE configured in config/initializers/hyhull.rb
   def apply_additional_descMetadata
     if self.respond_to? "descMetadata"
       if self.respond_to? "identifier" then self.identifier = self.pid end
-      if self.respond_to? "primary_display_url" then self.primary_display_url = "http://hydra.hull.ac.uk/resources/#{self.pid}" end
+      if self.respond_to? "primary_display_url" then self.primary_display_url = "#{CONTENT_LOCATION_URL_BASE}/resources/#{self.pid}" end
       if self.respond_to? "record_change_date" then self.record_change_date = Time.now.strftime("%Y-%m-%d") end
 
       if self.respond_to?("contentMetadata") && self.respond_to?(:get_resource_metadata_by_sequence_no)

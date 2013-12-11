@@ -12,6 +12,7 @@ module Hyhull::ContentMetadataBehaviour
   # Adds file information to self.contentMetadata
   # based upon the Content objects content datastream 
   # Returns the position of the resource in the contentMetadata
+  # Uses CONTENT_LOCATION_URL_BASE configured in config/initializers/hyhull.rb 
   def add_content_metadata(content_asset, content_ds)
     if content_asset.kind_of? ActiveFedora::Base
       pid = content_asset.pid
@@ -32,7 +33,7 @@ module Hyhull::ContentMetadataBehaviour
 
       service_method = "getContent"
 
-      self.contentMetadata.insert_resource(object_id: pid, ds_id: content_ds, file_size: size, file_id: content_id, url: "http://hydra.hull.ac.uk/assets/#{pid}/content", display_label: label, id: label, mime_type: mime_type, format: format, service_def: service_def, service_method: service_method, :checksum => checksum, :checksum_type => checksum_type)
+      self.contentMetadata.insert_resource(object_id: pid, ds_id: content_ds, file_size: size, file_id: content_id, url: "#{CONTENT_LOCATION_URL_BASE}/assets/#{pid}/#{content_ds}", display_label: label, id: label, mime_type: mime_type, format: format, service_def: service_def, service_method: service_method, :checksum => checksum, :checksum_type => checksum_type)
       self.contentMetadata.save
 
       resource_no = self.contentMetadata.resource.size - 1
