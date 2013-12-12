@@ -18,7 +18,7 @@ module Hyhull
 
         def retrieve_sets(set_c_model)
           fields = "has_model_ssim:#{set_c_model}"
-          options = {:fl=>["id", "title_ssm", "is_member_of_ssim", "active_fedora_model_ssim"], :rows=>10000, :sort=>"system_create_dtsi asc" }
+          options = {:fl=>["id", "title_tesim", "is_member_of_ssim", "active_fedora_model_ssim"], :rows=>10000, :sort=>"system_create_dtsi asc" }
           ActiveFedora::SolrService.query(fields,options)
         end
 
@@ -41,7 +41,7 @@ module Hyhull
         def build_children node, nodes
           if nodes.fetch(node.name,nil)
             nodes[node.name][:children].each do |child|
-              title = if child["title_ssm"].nil? then "No title defined" else child["title_ssm"].first end          
+              title = if child["title_tesim"].nil? then "No title defined" else child["title_tesim"].first end          
               child_node = Hyhull::Models::SetTree.new(child["id"], title)
               node << build_children(child_node, nodes)
             end

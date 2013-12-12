@@ -84,6 +84,13 @@ module HyhullHelper
     resources.html_safe
   end
 
+  def set_children_link(document)
+    model = model_from_document(document)
+    if model == "DisplaySet" || model == "StructuralSet"
+      link_to "Show collection members", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/#{document.id}&results_view=true" 
+    end
+  end
+
   def display_resource_permissions(resource, permission_ds)
     groups = resource.datastreams[permission_ds].groups
 
@@ -186,6 +193,10 @@ module HyhullHelper
   # display_field
   def display_field(document, solr_fname, label_text='', html_class)
      display_dt_dd_element(label_to_display(label_text), solr_field_value(document, solr_fname), html_class)
+  end
+
+  def display_truncated_field(document, solr_fname, label_text='', html_class, truncate_length)
+     display_dt_dd_element(label_to_display(label_text), truncate(solr_field_value(document, solr_fname), length: truncate_length), html_class)
   end
 
   def display_date_field(document, solr_fname, label_text='', html_class)

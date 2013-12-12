@@ -6,6 +6,8 @@
 
   <p>This is a placeholder for ease of access for different sections of hyhull... This will change.<p>  
 
+  <%= link_to "Collections", "/resources/?f[is_member_of_ssim][]=info:fedora/hull:rootDisplaySet&results_view=true" %>
+
   <% if can?(:create, :all) %>
     <h3>Create resources</h3>
     <ul>

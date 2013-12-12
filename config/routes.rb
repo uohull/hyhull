@@ -35,14 +35,16 @@ Hyhull::Application.routes.draw do
   match 'exam_papers/initial_step', to: 'exam_papers#initial_step', via: [:get]
   resources :exam_papers
   
+  # Structural set routes
   match 'structural_sets/tree', to: 'structural_sets#tree', via: [:get]
   resources :structural_sets
   match 'structural_sets/:id/update_permissions', to: 'structural_sets#update_permissions', via: [:put]
 
+  # Display set routes
   match 'display_sets/tree', to: 'display_sets#tree', via: [:get]
-  resources :display_sets do
-    resources :exhibits, only: [:index]
-  end
+  # Removing until further development
+  # match 'display_sets/exhibit/:id', to: 'display_sets#exhibit'
+  resources :display_sets
   match 'display_sets/:id/update_permissions', to: 'display_sets#update_permissions', via: [:put]
 
   resources :content_metadata

@@ -308,8 +308,8 @@ describe StructuralSet do
     it "should return a list of all children" do
       ancestors_ = StructuralSet.ancestry @parent.pid 
 
-      ancestors_.should include({"active_fedora_model_ssi"=>"StructuralSet", "id"=>@first_child.pid, "title_ssm"=>[@first_child.title], "is_member_of_ssim"=>["info:fedora/#{@parent.pid}"]},
-                           {"active_fedora_model_ssi"=>"StructuralSet", "id"=>@second_child.pid, "title_ssm"=>[@second_child.title], "is_member_of_ssim"=>["info:fedora/#{@parent.pid}"]},
+      ancestors_.should include({"active_fedora_model_ssi"=>"StructuralSet", "id"=>@first_child.pid, "title_tesim"=>[@first_child.title], "is_member_of_ssim"=>["info:fedora/#{@parent.pid}"]},
+                           {"active_fedora_model_ssi"=>"StructuralSet", "id"=>@second_child.pid, "title_tesim"=>[@second_child.title], "is_member_of_ssim"=>["info:fedora/#{@parent.pid}"]},
                            {"active_fedora_model_ssi"=>"ChildObjectTestClass", "id"=>@first_child_content_object.pid, "is_member_of_ssim"=>["info:fedora/#{@first_child.pid}"]},
                            {"active_fedora_model_ssi"=>"ChildObjectTestClass", "id"=>@second_child_content_object.pid, "is_member_of_ssim"=>["info:fedora/#{@second_child.pid}"]})
     end

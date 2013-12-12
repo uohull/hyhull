@@ -9,7 +9,6 @@ module Hyhull
         t.title_info(:path=>"titleInfo") {
           t.main_title(:path=>"title", :label=>"title")
         } 
-        t.title(:proxy=>[:mods, :title_info, :main_title]) 
         t.genre(:path=>'genre')
         t.type_of_resource(:path=>"typeOfResource", :attributes=>{:collection=>"yes"})
         t.origin_info(:path=>'originInfo') {
@@ -21,7 +20,7 @@ module Hyhull
           t.lang_text(:path=>"languageTerm", :attributes=>{:type=>"text"})
           t.lang_code(:index_as=>[:facetable], :path=>"languageTerm", :attributes=>{:type=>"code"})
         }
-        t.description(:path=>"abstract")
+        t.description(:path=>"abstract", :index_as=>[:displayable])
       
         t.identifier(:path => 'identifier',:attributes=>{:type=>"fedora"})
 
@@ -35,7 +34,7 @@ module Hyhull
         t.resource_status(:path=>"note", :attributes=>{:type=>"admin"})
 
         # Proxies for terminologies   
-        t.title(:proxy=>[:title_info, :main_title], :index_as=>[:searchable, :displayable])
+        t.title(:proxy=>[:title_info, :main_title], :index_as=>[:stored_searchable])
         t.primary_display_url(:proxy=>[:location, :primary_display])
         t.publisher(:proxy=>[:origin_info, :publisher], :index_as=>[:displayable]) 
         t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable]) 

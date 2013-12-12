@@ -30,6 +30,10 @@ describe JournalArticle do
       @ja.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
     end
 
+    it "should include Full text Indexable behaviour" do
+      @ja.class.ancestors.should include(Hyhull::FullTextIndexableBehaviour)
+    end
+
     it "genre should be set to 'Journal article'" do
       @ja.genre.should == "Journal article"
     end

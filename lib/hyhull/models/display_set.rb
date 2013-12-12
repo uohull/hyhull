@@ -21,7 +21,8 @@ module Hyhull
         has_many :children, property: :is_member_of, :class_name => "ActiveFedora::Base"
        
         validates :title, presence: true
-        validates :display_set, presence: true
+        # The root display set do not have display_set parent...
+        validates :display_set, presence: true, unless: Proc.new { |d| d.id == "hull:rootDisplaySet" }
 
         # Allows nil because the the test above will check for presence
         validates_exclusion_of :display_set_id, :in => lambda { |display_set| [display_set.id]}, :message => "cannot be a parent to itself", :allow_nil => true 

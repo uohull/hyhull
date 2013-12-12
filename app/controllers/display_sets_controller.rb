@@ -70,6 +70,16 @@ class DisplaySetsController < ApplicationController
   def tree
   end
 
+  # Removed for now...
+  # def exhibit
+  #   @exhibits = DisplaySet.find(params[:id]).children
+  #   respond_to do |format|
+  #     format.html
+  #     format.json { render json: @exhibits}
+  #   end
+  # end
+
+
   private
 
   def update_metadata
