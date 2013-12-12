@@ -53,9 +53,9 @@ footer {
 .footer-column {
 	ul {
 	  list-style: none inside;
-	  margin-left: 0.5em;
+	  margin-left: 1.5em;
 	  padding: 0 0 0.5em;
- 	  border-right: 1px dotted darken($footerTextColor, 55%);
+ 	  /*border-right: 1px dotted darken($footerTextColor, 55%);*/
  	  height: 128px;
  	  margin-bottom: 1em;
 	  li 
