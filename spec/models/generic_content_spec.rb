@@ -30,6 +30,10 @@ describe GenericContent do
       @generic_content.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
     end
 
+    it "should include Full text Indexable behaviour" do
+      @generic_content.class.ancestors.should include(Hyhull::FullTextIndexableBehaviour)
+    end
+
     it "should have the attributes of an Generic Content and support update_attributes" do
       attributes_hash = {
         "title" => "A thesis describing the...",

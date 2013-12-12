@@ -57,6 +57,10 @@ describe ExamPaper do
       @exam_paper.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
     end
 
+    it "should include Full text Indexable behaviour" do
+      @exam_paper.class.ancestors.should include(Hyhull::FullTextIndexableBehaviour)
+    end
+
     it "genre should be set to 'Examination paper'" do
       @exam_paper.genre.should == "Examination paper"
     end

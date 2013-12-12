@@ -6,7 +6,8 @@ class JournalArticle < ActiveFedora::Base
   include Hyhull::GenericContentBehaviour
   include Hyhull::ContentMetadataBehaviour
   include Hyhull::ResourceWorkflowBehaviour
-  include Hyhull::Validators 
+  include Hyhull::Validators
+  include Hyhull::FullTextIndexableBehaviour 
 
   # Extra validations for the resource_state state changes
   JournalArticle.state_machine :resource_state do   

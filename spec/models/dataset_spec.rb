@@ -34,6 +34,10 @@ describe Dataset do
       @dataset.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
     end
 
+    it "should include Full text Indexable behaviour" do
+      @dataset.class.ancestors.should include(Hyhull::FullTextIndexableBehaviour)
+    end
+
     it "genre should be set to 'Dataset'" do
       @dataset.genre.should == "Dataset"
     end
