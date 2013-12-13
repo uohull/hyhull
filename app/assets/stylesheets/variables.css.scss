@@ -12,26 +12,29 @@ $bodyBackground: #ffffff;
 
 /* site */
 /*$primarycolor: #ff0000;*/
-$primarycolor: #186718;
-$primarycolordark: #126112;
+$primarycolor: #7EC6C8;
+$primarycolordark: #188092;
 $linkColor: $primarycolordark;
 /* $primarycolordark: #1a6a1a; */
 /*$altcolor: #3d7a7a;*/
-$altcolor: #256262;
-$altcolorlight: #75bdbd;
+$altcolor: #72698a;
+$altcolorlight: #a285c5;
 $neutralcolordark: #444;
 $neutralcolorlight: #ccc;
-$primarylinkcolor: #0E5D0E;
+$primarylinkcolor: #188092;
 $primarylinkhovercolor: $neutralcolordark;
 $formMaxWidth: 1200px;
 $footerTextColor: #c1c1c1;
 $footerColor: #1F1F1F;
 
 /* tiles */
-$greenishblue: #4e9799;
+$greenishblue: #68cab6;
 $cleanwhite: #fff;
-$lightgrey: #E5E9EC;
+$lightgrey: #f3f3f3;
 $lightgreen: #EDFFC4;
+$aubergine: #72698a;
+$tangerine: #fbb168;
+$maroon: #e17695;
 $lightblue: #75bdbd;
 $lightlink: #fff;
 $darklink: #000;
@@ -39,7 +42,7 @@ $tiletransparency: 1;
 $tilerowgutter: 0;
 
 /* highlighters */
-$selectedtextcolor: #842121;
+$selectedtextcolor: #f67872;
 $alertcolor: #4E9799;
 $errorcolor: #cc6565;
 $successcolor: #236524 ;
