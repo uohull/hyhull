@@ -23,7 +23,7 @@
   padding: 3.75em 2.5em;
 >>>>>>> Initial work on new home page
   margin-bottom: $tilerowgutter;
-  min-height: 289px;
+  /*min-height: 289px;*/
 }
 
 .picture-tile {
@@ -67,10 +67,17 @@
 }
 
 .hero-tile {
-  padding: 20px 30px 20px;
+  /*padding: 20px 30px 20px;*/
   border-radius: 0 0 0 0;
   margin-bottom: $tilerowgutter;
+  color: #fff;
+  background-color: $primarycolor;
   p { padding: 1em 0; }
+  h1, small { text-shadow: 1px 1px 1px darken($primarycolor, 25%); }
+  a { 
+    color: $lightlink;
+    &:hover { color: darken($lightlink, 15%);}
+  }
 }
 
 .tile-shadow 
@@ -112,6 +119,33 @@
 		color: $lightlink;
 		&:hover { color: darken($lightlink, 15%);}
 	}
+}
+
+.tile-aubergine {
+  background-color: tile-transparency($aubergine);
+  color: tile-text-color($aubergine);
+  a { 
+    color: $lightlink;
+    &:hover { color: darken($lightlink, 15%);}
+  }
+}
+
+.tile-tangerine {
+  background-color: tile-transparency($tangerine);
+  color: tile-text-color($tangerine);
+  a { 
+    color: $lightlink;
+    &:hover { color: darken($lightlink, 15%);}
+  }
+}
+
+.tile-maroon {
+  background-color: tile-transparency($maroon);
+  color: tile-text-color($maroon);
+  a { 
+    color: $lightlink;
+    &:hover { color: darken($lightlink, 15%);}
+  }
 }
 
 .tile-light-grey {
@@ -162,6 +196,15 @@
   background-image: -ms-radial-gradient(left top, farthest-corner, rgba(115, 197, 115, 0.98) 0%, rgba(81, 163, 81, 0.98) 100%);
   background-image: -o-radial-gradient(left top, farthest-corner, rgba(115, 197, 115, 0.98) 0%, rgba(81, 163, 81, 0.98) 100%);
   background-image: radial-gradient(farthest-corner at left top, rgba(115, 197, 115, 0.98) 0%, rgba(81, 163, 81, 0.98) 100%);
+  a {
+      color: $lightlink;
+      &:hover { color: darken($lightlink, 15%);}
+    }
+}
+
+.tile-hydra-blue {
+  color: #fff;
+  background-color: Sprimarycolor;
   a {
       color: $lightlink;
       &:hover { color: darken($lightlink, 15%);}
