@@ -3,11 +3,6 @@
   <%= render :partial => 'shared/home_search_tile' %>
 </div>
 
-<div class="row-fluid">
-  <!-- needs work -->
-  <%#= render :partial => 'shared/home_content_management_tile' %>
-</div>
-
 <div class="row-fluid tile-white">
   <%= render :partial => 'shared/home_popular_searches_tile' %>
 </div>
@@ -16,6 +11,14 @@
   <%= render :partial => 'shared/home_university_content_tile' %>
   <%= render :partial => 'shared/home_help_tile' %>
 </div>
+
+
+<% if can?(:create, :all) %>
+  <div class="row-fluid tile-cream">
+    <!-- needs work -->
+    <%= render :partial => 'shared/home_content_management_tile' %>
+</div>
+<% end %>
     
 <div class="row-fluid">
   <%#= render :partial => 'shared/home_twitter_tile' %>

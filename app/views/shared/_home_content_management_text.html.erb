@@ -1,37 +1,39 @@
-<h2>Content management</h2>
-  <% if can?(:create, :all) %>
-    <h3>Create resources</h3>
-    <ul>
-    <li><%= link_to "Create Dataset", new_dataset_path %></li>
-    <li><%= link_to "Create ETD", new_uketd_object_path %></li>
-    <li><%= link_to "Create Examination paper", exam_papers_initial_step_path %></li>
-    <li><%= link_to "Create Journal article", new_journal_article_path %></li>
-    <li><%= link_to "Create Generic content", generic_contents_initial_step_path %></li>
-    </ul>
-  <% end %>
+<div class="tile">
+  <h2>Content management</h2>
+    <% if can?(:create, :all) %>
+      <h3>Create resources</h3>
+      <ul>
+      <li><%= link_to "Create Dataset", new_dataset_path %></li>
+      <li><%= link_to "Create ETD", new_uketd_object_path %></li>
+      <li><%= link_to "Create Examination paper", exam_papers_initial_step_path %></li>
+      <li><%= link_to "Create Journal article", new_journal_article_path %></li>
+      <li><%= link_to "Create Generic content", generic_contents_initial_step_path %></li>
+      </ul>
+    <% end %>
 
-  <% if can?(:tree, StructuralSet) && can?(:tree, DisplaySet) %>
-    <h3>Management links</h3>
-    <h4>Set management</h4>
-    <ul>
-      <li><%= link_to("Structural sets", structural_sets_tree_path) %></li>
-      <li><%= link_to("Display sets", display_sets_tree_path) %></li>
-    </ul>
-  <% end %>
+    <% if can?(:tree, StructuralSet) && can?(:tree, DisplaySet) %>
+      <h3>Management links</h3>
+      <h4>Set management</h4>
+      <ul>
+        <li><%= link_to("Structural sets", structural_sets_tree_path) %></li>
+        <li><%= link_to("Display sets", display_sets_tree_path) %></li>
+      </ul>
+    <% end %>
 
-  <% if can?(:create, :all) %>
-    <h3>Resource queues</h3>
-    <ul>
-      <li><%= link_to("Proto Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:protoQueue&results_view=true")%></li>
-      <li><%= link_to("QA Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:QAQueue&results_view=true") %></li>
-      <li><%= link_to("Hidden Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:hiddenQueue&results_view=true") %></li>
-      <li><%= link_to("Deleted Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:deletedQueue&results_view=true") %></li>
-    </ul>
-  <% end %>
+    <% if can?(:create, :all) %>
+      <h3>Resource queues</h3>
+      <ul>
+        <li><%= link_to("Proto Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:protoQueue&results_view=true")%></li>
+        <li><%= link_to("QA Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:QAQueue&results_view=true") %></li>
+        <li><%= link_to("Hidden Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:hiddenQueue&results_view=true") %></li>
+        <li><%= link_to("Deleted Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:deletedQueue&results_view=true") %></li>
+      </ul>
+    <% end %>
 
-  <% if can?(:index, Role) %>
-    <h3>Adminstration</h3>
-    <ul>
-      <li><%= link_to "Role Management", roles_path %></li>
-    </ul>
-  <% end %>
+    <% if can?(:index, Role) %>
+      <h3>Adminstration</h3>
+      <ul>
+        <li><%= link_to "Role Management", roles_path %></li>
+      </ul>
+    <% end %>
+</div>
