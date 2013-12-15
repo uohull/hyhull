@@ -1,0 +1,9 @@
+<h1>Hyhull::Config::Property#edit</h1>
+<p>Find me in app/views/hyhull/config/property/edit.html.erb</p>
+<%= simple_form_for(@property, url: property_type_property_path, :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :value %>
+  <%= f.button :submit, "Save" %>
+<% end %>
+
+

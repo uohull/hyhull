@@ -1,0 +1,16 @@
+<h1>Hyhull::Config::PropertyTypes#index</h1>
+<p>Find me in app/views/hyhull/config/property/index.html.erb</p>
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+  </thead>
+  <% @property_types.each do |property_type| %>
+    <tr>
+      <td><%= property_type.name %></td>
+      <td><%= property_type.description %></td>
+      <td><%= link_to 'Edit properties', property_type_properties_path(property_type) %></td>
+    </tr>
+  <% end %>
+</table>

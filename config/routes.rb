@@ -24,6 +24,13 @@ Hyhull::Application.routes.draw do
   # Profile resource used for user_profiles
   resources :profile
 
+  #resources :properties
+
+  #match 'properties_admin', to: 'property_types#index', via: [:get]
+  resources :property_types do
+    resources :properties
+  end
+  
   resources :assets
   resources :uketd_objects
   resources :journal_articles
@@ -42,11 +49,12 @@ Hyhull::Application.routes.draw do
 
   # Display set routes
   match 'display_sets/tree', to: 'display_sets#tree', via: [:get]
+
   # Removing until further development
   # match 'display_sets/exhibit/:id', to: 'display_sets#exhibit'
   resources :display_sets
   match 'display_sets/:id/update_permissions', to: 'display_sets#update_permissions', via: [:put]
-
+  
   resources :content_metadata
   resources :files
   resources :resource_workflow
