@@ -1,0 +1,16 @@
+<!-- QR Code modal popup on record view page -->
+<li class="qr_code">
+  <%= link_to "QR Code", "#myModal", {:id => 'qr-link', :name => 'qr-view', :class => 'btn btn-small square-corners', "data-toggle" => "modal" } %>
+</li> 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button id="qr-close" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="myModalLabel">QR Code</h3>
+  </div> 
+  <div class="modal-body">
+    <%= content_tag(:p, t('hyhull.resource.qr.description')) %>
+    <% # qr-code div is populated with the correct QR image tag using Javascript - see assets/javascripts/qr_code.js %>
+    <div id="qr-code"></div>
+  </div>
+</div>

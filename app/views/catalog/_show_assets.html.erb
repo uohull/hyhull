@@ -1,0 +1,17 @@
+<% if can?(:edit, @document.id) %>
+  <ul class="nav nav-list">    
+    <li>
+      <%= edit_resource_link(@document) %>
+    </li>
+  </ul>
+  <br/>
+<% end %>
+  <ul class="nav nav-list">
+      <li>
+        <%= display_resources(@document) %>
+      </li>
+      <li>
+        <%= set_children_link(@document) %>
+      </li>
+  </ul>
+<br/>

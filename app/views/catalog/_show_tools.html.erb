@@ -1,18 +1,18 @@
-<% if can?(:edit, @document.id) %>
-    <ul class="nav nav-list">
-      
-      <li>
-        <%= edit_resource_link(@document) %>
-      </li>
-    </ul>
-    <br/>
-  <% end %>
-  <ul class="nav nav-list">
-      <li>
-        <%= display_resources(@document) %>
-      </li>
-      <li>
-        <%= set_children_link(@document) %>
+  <%-
+  # Compare with render_document_functions_partial helper, and
+  # _document_functions partial. BL actually has two groups
+  # of document-related tools. "document functions" by default
+  # contains Bookmark functionality shown on both results and
+  # item view. While "document tools" contains external export type
+  # functions by default only on detail.
+
+  #Added Bootstrap class well and 'hidden-phone' for the tools-bar 
+-%>
+  <ul class="nav nav-pills">
+      <li class="nav-header"><%= t('blacklight.tools.title') %></li>
+      <%= render :partial => 'qr_code' %>
+      <%#= render :partial => 'addthis_tool' %>
+      <li class="mods">
+      <%#= link_to "Metadata", asset_path(:id => @document.id, :datastream_id => "descMetadata"), {:id => 'modsLink', :name => '', :class => 'lightboxLink btn btn-small square-corners'} %>
       </li>
   </ul>
-  <br/>

@@ -2,16 +2,17 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  blacklight:
-    tools:
-      title: "Assets"
-
   hyhull:
     institution_name: "University of Hull"
     product_name: "Hydra at Hull"
     permissions:
       staff_label: "University of Hull - Staff"
       student_label: "University of Hull - Students"
+    assets:
+      title: "Assets"
+    resource:
+      qr:
+        description: "Scan the code with your phone to capture the URL of this resource."
 
 # Over-ride the human readable version of parent to be Structural set
   activemodel:
