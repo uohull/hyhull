@@ -1,0 +1,6 @@
+<h3>Add a new property</h3>
+<%= simple_form_for(@property, url: property_type_properties_path, :html => {:class => 'form-inline' }) do |f| %>
+  <%= f.input_field :name, placeholder: "Name" %>
+  <%= f.input_field :value, placeholder: "Value" %>
+  <%= f.button :submit, "Add" %>
+<% end %>

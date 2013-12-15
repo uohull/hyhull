@@ -1,0 +1,21 @@
+<h2>Property edit</h2>
+
+<p>You are editing the properties for... <%= @property_type.description %></p>
+
+<table class="table table-condensed">
+  <thead>
+    <th>Name</th>
+    <th>Value</th>
+    <th></th>
+  </thead>
+  <% @properties.each do |property| %>
+    <tr>
+      <td><%= property.name %></td>
+      <td><%= property.value %></td>
+      <td><%= link_to "Edit", edit_property_type_property_path(id: property.id) %>&nbsp;<%= link_to "Delete", property_type_property_path(id: property.id), method: "delete" %></td>
+    </tr>
+  <% end %>
+</table>
+<%= render partial: "new" %>
+
+<p>Back to <%= link_to "Property Types", property_types_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130725012617) do
+ActiveRecord::Schema.define(:version => 20131208185212) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id",     :null => false
@@ -31,6 +31,21 @@ ActiveRecord::Schema.define(:version => 20130725012617) do
     t.string "department_ou"
     t.string "faculty_code"
   end
+
+  create_table "properties", :force => true do |t|
+    t.string  "name"
+    t.string  "value"
+    t.integer "property_type_id"
+  end
+
+  add_index "properties", ["value", "property_type_id"], :name => "index_properties_on_value_and_property_type_id"
+
+  create_table "property_types", :force => true do |t|
+    t.string "name"
+    t.string "description"
+  end
+
+  add_index "property_types", ["name"], :name => "index_property_types_on_name"
 
   create_table "role_types", :force => true do |t|
     t.string "name"
