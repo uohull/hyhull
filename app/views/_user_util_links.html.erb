@@ -13,7 +13,7 @@
 <% if has_user_authentication_provider? %>
   <li>
     <% if current_user %>
-      <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %> <%= link_to current_user, profile_index_path %>
+      <%= link_to t('blacklight.header_links.logout').concat(' : ').concat(current_user.to_s())  , destroy_user_session_path %>
     <% else %>
       <%= link_to t('blacklight.header_links.login'), new_user_session_path %>
     <% end %>
