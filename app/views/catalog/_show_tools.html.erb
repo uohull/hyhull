@@ -8,11 +8,30 @@
 
   #Added Bootstrap class well and 'hidden-phone' for the tools-bar 
 -%>
+<div class="tools-nav">  
   <ul class="nav nav-pills">
       <li class="nav-header"><%= t('blacklight.tools.title') %></li>
       <%= render :partial => 'qr_code' %>
-      <%#= render :partial => 'addthis_tool' %>
-      <li class="mods">
-      <%#= link_to "Metadata", asset_path(:id => @document.id, :datastream_id => "descMetadata"), {:id => 'modsLink', :name => '', :class => 'lightboxLink btn btn-small square-corners'} %>
-      </li>
+      <%#= render :partial => 'addthis_tool' %>     
   </ul>
+</div>
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Metadata
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li class="mods">
+      <%= link_to "MODS", asset_path(:id => @document.id, :datastream_id => "descMetadata") %>
+    </li>
+    <li class="dc">
+      <%= link_to "Dublin Core", asset_path(:id => @document.id, :datastream_id => "oai_dc") %>
+    </li>
+    <% # Only ETDs have UKETD-DC metadata %> 
+    <% if model_from_document(@document) == "UketdObject" %>
+      <li class="uketd_dc">
+        <%= link_to "UKETD-DC", asset_path(:id => @document.id, :datastream_id => "UKETD_DC") %>
+      </li>
+    <% end %>
+  </ul>
+</div>

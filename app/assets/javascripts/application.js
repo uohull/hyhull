@@ -19,4 +19,4 @@
 //= require_tree .
 
 //= require bootstrap-tab
-
+//= require bootstrap-dropdown
