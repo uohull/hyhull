@@ -1,7 +1,7 @@
 <div id="descriptive_metadata" class="tab-pane active">
   <%= render "shared/error_messages", :target => @structural_set %>
   <%= simple_form_for(@structural_set, :html => {:class => 'form-horizontal' }) do |f| %>
-    	<legend>Edit Metadata</legend>
+    	<legend><h2>Edit Metadata</h2></legend>
     	<div class="fields">
         <%= f.input :title %>
         <%= f.input :description, as: :text %> 

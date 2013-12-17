@@ -31,7 +31,10 @@
             <div class="span12">
               <h3>Resource information</h3>
               <%= render_document_partial @document, :show %>
-              <%= render :partial => 'show_tools' %>
+
+              <div id="tools-nav" class="well square-corners">
+                <%= render :partial => 'show_tools' %>
+              </div>
             </div>
           </div>
 

@@ -1,9 +1,9 @@
 <%= render "shared/error_messages", :target => @uketd_object %>
-<legend>Edit Metadata</legend>
+<legend><h2>Edit Metadata</h2></legend>
 <div class="fields">
-  <h4>Personal author, and contributors</h4>
+  <h3>Personal author, and contributors</h3>
   <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "person", required: true } %>      
-  <h4>Publication</h4>
+  <h3>Publication</h3>
 
   <%= f.input :title %>
 
@@ -15,7 +15,7 @@
 
   <%= render partial: "metadata/language_edit", locals: { resource: @uketd_object, form: f } %>
 
- <h4>Institutional contributors</h4>   
+ <h3>Institutional contributors</h3>   
 
  <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>
  <%= f.input :publisher %>

@@ -1,39 +1,31 @@
 <fieldset>
-  <legend>Journal metadata</legend>
-  <div class="row">
-    <div class="span6">
-      <div class="controls">
-        <legend>Journal</legend>
-      </div>
-      <div class="fields">     
-        <%= f.input :journal_title, label: "Journal name" %>
-        <%= f.input :journal_publication_date, label: "Publication date" %>
-        <%= f.input :journal_print_issn, label: "ISSN (Print)" %>
-        <%= f.input :journal_electronic_issn, label: "ISSN (Electronic)" %>
-        <%= f.input :journal_publisher, label: "Publisher" %>
-      </div>
+  <legend><h2>Journal metadata</h2></legend>
+  <div class="row-fluid">
+    <h3>Journal</h3>
+    <div class="fields">     
+      <%= f.input :journal_title, label: "Journal name" %>
+      <%= f.input :journal_publication_date, label: "Publication date" %>
+      <%= f.input :journal_print_issn, label: "ISSN (Print)" %>
+      <%= f.input :journal_electronic_issn, label: "ISSN (Electronic)" %>
+      <%= f.input :journal_publisher, label: "Publisher" %>
     </div>
-    <div class="span6">
-      <div class="controls">
-        <legend>Article</legend>
-      </div>
-      <div class="fields">
-        <%= f.input :journal_article_doi, label: "DOI" %>
-        <% unless @journal_article.journal_article_doi.nil? %>
-          <div class="control-group">
-            <% publication_link = "#{DOI_RESOLVER_SERVICE_URL}#{@journal_article.journal_article_doi.strip}" %>
-            <div class="controls">
-              <%= link_to publication_link, publication_link, :target => "_blank" %>
-            </div>
+
+    <h3>Article</h3>
+    <div class="fields">
+      <%= f.input :journal_article_doi, label: "DOI" %>
+      <% unless @journal_article.journal_article_doi.nil? %>
+        <div class="control-group">
+          <% publication_link = "#{DOI_RESOLVER_SERVICE_URL}#{@journal_article.journal_article_doi.strip}" %>
+          <div class="controls">
+            <%= link_to publication_link, publication_link, :target => "_blank" %>
           </div>
-        <% end %>
-        <%= f.input :journal_volume, label: "Volume" %>
-        <%= f.input :journal_issue, label: "Issue" %>
-        <%= f.input :journal_start_page, label: "Page start" %>
-        <%= f.input :journal_end_page, label: "Page end" %>
-        <%= f.input :journal_article_restriction, label: "Restriction" %>
-      </div>
-    </div>    
+        </div>
+      <% end %>
+      <%= f.input :journal_volume, label: "Volume" %>
+      <%= f.input :journal_issue, label: "Issue" %>
+      <%= f.input :journal_start_page, label: "Page start" %>
+      <%= f.input :journal_end_page, label: "Page end" %>
+      <%= f.input :journal_article_restriction, label: "Restriction" %>
+    </div>
   </div>
 </fieldset>
-

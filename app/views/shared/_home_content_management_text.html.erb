@@ -2,7 +2,7 @@
   <div class="row-fluid">
 
       <div class="span4">
-        <div class="tile tile-white">
+        <div class="tile tile-white tile-min-height">
           <% if can?(:create, :all) %>
             <h2>Create</h2>
             <p>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="span4">
-        <div class="tile tile-white">
+        <div class="tile tile-white tile-min-height">
           <% if can?(:tree, StructuralSet) && can?(:tree, DisplaySet) %>
             <h2>Manage</h2>
             <p>
@@ -27,20 +27,20 @@
         </div>
       </div>
       <div class="span4">
-        <div class="tile tile-white">
+        <div class="tile tile-white tile-min-height">
           <% if can?(:create, :all) %>
             <h2>Queues</h2>
             <p>
-              <%= link_to("Proto Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:protoQueue&results_view=true")%><br>
-              <%= link_to("QA Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:QAQueue&results_view=true") %><br>
-              <%= link_to("Hidden Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:hiddenQueue&results_view=true") %><br>
-              <%= link_to("Deleted Queue", "/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:deletedQueue&results_view=true") %><br>
+              <%= link_to("Proto Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:protoQueue&results_view=true")%><br>
+              <%= link_to("QA Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:QAQueue&results_view=true") %><br>
+              <%= link_to("Hidden Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:hiddenQueue&results_view=true") %><br>
+              <%= link_to("Deleted Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:deletedQueue&results_view=true") %><br>
             </p>
           <% end %>
         </div>
       </div>
       <div class="span4">
-        <div class="tile tile-white">
+        <div class="tile tile-white tile-min-height">
           <% if can?(:index, Role) %>
             <h2>Admin</h2>
             <p>

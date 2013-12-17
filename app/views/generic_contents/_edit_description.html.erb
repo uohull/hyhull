@@ -1,13 +1,13 @@
 <%= render "shared/error_messages", :target => @generic_content %>
-<legend>Edit Metadata</legend>
+<legend><h2>Edit Metadata</h2></legend>
 <div class="fields">
-  <h4>Author, and Contributor(s)</h4>    
+  <h3>Author, and Contributor(s)</h3>    
 
   <%= render(:partial => "metadata/name_edit", :locals => { object: @generic_content, name_type: "person" }) %>
 
   <%= render(:partial => "metadata/name_edit", :locals => { object: @generic_content, name_type: "organisation" }) %>
 
-  <h4>Resource</h4>  
+  <h3>Resource</h3>  
 
   <%= f.input :title %>
 
@@ -20,7 +20,7 @@
 
   <%= f.input :publisher %>
 
-  <h4>Rights statement</h4>  
+  <h3>Rights statement</h3>  
 
   <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "rights" } %> 
 

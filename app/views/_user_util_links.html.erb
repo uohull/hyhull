@@ -10,18 +10,24 @@
   <%= link_to 'Contact', 'contact' %>
 </li>
 
-<% if has_user_authentication_provider? %>
-  <li>
-    <% if current_user %>
-      <%= link_to t('blacklight.header_links.logout').concat(' : ').concat(current_user.to_s())  , destroy_user_session_path %>
-    <% else %>
-      <%= link_to t('blacklight.header_links.login'), new_user_session_path %>
-    <% end %>
-  </li>
-
-<% end %>
-
 <li> 
   <%= link_to t('blacklight.header_links.search_history'), search_history_path %>
 </li>
 
+<% if has_user_authentication_provider? %>
+  <li>
+    <% if current_user %>
+      <%= link_to 'Details : '.concat(current_user.to_s), profile_index_path %>
+    <% end %>
+  </li>
+<% end %>
+
+<% if has_user_authentication_provider? %>
+  <li>
+    <% if current_user %>
+      <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %>
+    <% else %>
+      <%= link_to t('blacklight.header_links.login'), new_user_session_path %>
+    <% end %>
+  </li>
+<% end %>

@@ -1,9 +1,9 @@
 <%= render "shared/error_messages", :target => resource %>
-<legend>Edit related materials</legend>
+<legend><h2>Edit related materials</h2></legend>
 <div class="fields">
-  <h4>Web materials</h4> 
+  <h3>Web materials</h3> 
   <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "related_web_url", label: "Related materials" } %> 
 
-  <h4>Non web</h4>
+  <h3>Non web</h3>
   <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "see_also" } %>
  </div>

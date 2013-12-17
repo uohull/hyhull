@@ -1,42 +1,43 @@
-<div class="row">
-  <div class="span12">
-    <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %></li>
-    <ul id="metadata-edit-nav" class="nav nav-tabs">
-      <li class="active" id="edit_descriptive_metadata_link">
-        <a href="#descriptive_metadata" data-toggle="tab">Description</a>
-      </li>
-      <% unless @exam_paper.resource_proto? %>
-        <li id="edit_set_membership_link">              
-          <a href="#set_membership" data-toggle="tab">Set membership</a>
+<div class="page-gutter">
+  <div class="row-fluid">
+    <div class="span16">
+      <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %></li>
+      <ul id="metadata-edit-nav" class="nav nav-tabs">
+        <li class="active" id="edit_descriptive_metadata_link">
+          <a href="#descriptive_metadata" data-toggle="tab">Description</a>
         </li>
-        <li id="edit_admin_metadata_link">              
-          <a href="#admin_metadata" data-toggle="tab">Admin</a>
-        </li>
-        <li id="view_additional_metadata_link">
-          <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
-        </li>
-      <% end %>
-    </ul>
-    <%= simple_form_for(@exam_paper, :html => {:class => 'form-horizontal' }) do |f| %>
-    <div class="tab-content">         
-      <div id="descriptive_metadata" class="tab-pane active">
-        <%= render :partial => "edit_description", locals: {f: f} %>
+        <% unless @exam_paper.resource_proto? %>
+          <li id="edit_set_membership_link">              
+            <a href="#set_membership" data-toggle="tab">Set membership</a>
+          </li>
+          <li id="edit_admin_metadata_link">              
+            <a href="#admin_metadata" data-toggle="tab">Admin</a>
+          </li>
+          <li id="view_additional_metadata_link">
+            <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
+          </li>
+        <% end %>
+      </ul>
+      <%= simple_form_for(@exam_paper, :html => {:class => 'form-horizontal' }) do |f| %>
+      <div class="tab-content">         
+        <div id="descriptive_metadata" class="tab-pane active">
+          <%= render :partial => "edit_description", locals: {f: f} %>
+        </div>
+        <% unless @exam_paper.resource_proto? %>
+          <div id="set_membership" class="tab-pane">            
+            <%= render(:partial => "shared/set_management",  :locals => { resource: @exam_paper, f: f }) %>
+          </div>
+          <div id="admin_metadata" class="tab-pane">            
+            <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @exam_paper, form: f }) %>
+          </div>
+          <div id="additional_metadata" class="tab-pane">            
+            <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @exam_paper }) %>
+          </div>
+        <% end %>
       </div>
-      <% unless @exam_paper.resource_proto? %>
-        <div id="set_membership" class="tab-pane">            
-          <%= render(:partial => "shared/set_management",  :locals => { resource: @exam_paper, f: f }) %>
-        </div>
-        <div id="admin_metadata" class="tab-pane">            
-          <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @exam_paper, form: f }) %>
-        </div>
-        <div id="additional_metadata" class="tab-pane">            
-          <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @exam_paper }) %>
-        </div>
+        <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
       <% end %>
-    </div>
-      <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
-    <% end %>
-    <%= render partial: "shared/update_resource_state", locals: { object: @exam_paper } %>
-  </div> <!-- /.span12-->
+      <%= render partial: "shared/update_resource_state", locals: { object: @exam_paper } %>
+    </div> <!-- /.span12-->
+  </div>
 </div>
-
