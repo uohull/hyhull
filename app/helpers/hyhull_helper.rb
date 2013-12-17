@@ -196,7 +196,11 @@ module HyhullHelper
 
   # display_field
   def display_field(document, solr_fname, label_text='', html_class)
-     display_dt_dd_element(label_to_display(label_text), solr_field_value(document, solr_fname), html_class)
+    display_dt_dd_element(label_to_display(label_text), solr_field_value(document, solr_fname), html_class)
+  end
+
+  def display_text_area_field(document, solr_fname, label_text='', html_class)
+    display_dt_dd_element(label_to_display(label_text), simple_format(solr_field_value(document, solr_fname)), html_class)
   end
 
   def display_truncated_field(document, solr_fname, label_text='', html_class, truncate_length)
@@ -237,7 +241,8 @@ module HyhullHelper
   end
 
   def display_dt_dd_element(dt_value, dd_value, html_class)
-    if dd_value.length > 0
+    # Only display if length > 0 and value isn't <p></p> (empty simple_format default)
+    if dd_value.length > 0 && dd_value != "<p></p>"
       content_tag(:dt, dt_value, :class => blacklight_dd_class(html_class)) <<
       content_tag(:dd, dd_value, :class => blacklight_dd_class(html_class))
     end

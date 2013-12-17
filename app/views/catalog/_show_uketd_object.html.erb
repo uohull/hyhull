@@ -6,6 +6,10 @@
       <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
 	  <% end -%>
 	<% end -%>
+
+  <%= display_text_area_field(document, 'abstract_ssm', 'Abstract', 'abstract_ssm') %>
+  <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
+  <%= display_field(document, 'genre_ssm', 'Resource type', 'genre_ssm') %>
   <%= display_date_field(document, 'date_issued_ssm', 'Date', 'date_issued_ssm') %>
 	<%= display_field(document, 'supervisor_name_ssm', 'Supervisor', 'supervisor_name_ssm') %>
   <%= display_field(document, 'person_sponsor_name_ssm', 'Sponsor (person)', 'person_sponsor_name_ssm') %>
@@ -13,5 +17,13 @@
   <%= display_field(document, 'grant_number_ssm', 'Grant number', 'grant_number_ssm') %>
   <%= display_field(document, 'ethos_identifier_ssm', 'Ethos identifier', 'ethos_identifier_ssm') %>
 	<%= display_field(document, 'qualification_level_ssm', 'Qualification level', 'qualification_level_ssm') %>
-	<%= display_field(document, 'qualification_name_ssm', 'Qualification name', 'qualification_name_ssm') %>
+  <%= display_field(document, 'qualification_name_ssm', 'Qualification name', 'qualification_name_ssm') %>
+  <%= display_field(document, 'language_text_ssm', 'Language', 'language_text_ssm') %>
+  <%= display_field(document, 'extent_ssm', 'Extent', 'extent_ssm') %>
+  <%= display_field(document, 'id', 'Identifier', 'id') %>
 </dl>
+
+<!--     config.add_show_field solr_name('language_text', :displayable, type: :string), :label => 'Language'
+    config.add_show_field solr_name('publisher', :displayable, type: :string), :label => 'Publisher'
+    config.add_show_field solr_name('extent', :displayable, type: :string), :label => 'Extent'
+    config.add_show_field solr_name('genre', :displayable, type: :string), :label => 'Resource type' -->
