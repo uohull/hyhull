@@ -36,8 +36,9 @@ function BuildTree(tree_div, tree_data, self_id, selected_id, set_name_target) {
  * set_id_target - A hidden/text id to place the selected tree item id
  * set_name_target - A text box id to place the selected tree item name
  * modal_id - a modal identifier (if passed in the method will close the modal popup)
+ * required - Determines whether a Please select a set message will be display if a set isn't selected (false will enabled null set to be selected)
  */
-function SelectSet(tree_div, set_name_target, set_id_target, modal_id) {
+function SelectSet(tree_div, set_name_target, set_id_target, modal_id, required) {
   var node = $(tree_div).tree('getSelectedNode');
 
   if (node) {
@@ -49,6 +50,17 @@ function SelectSet(tree_div, set_name_target, set_id_target, modal_id) {
     }   
   }
   else {
-    alert("Please select a set");
+    // If it isn't a required field we will reset the values to ""
+    if (required == false) {
+      $(set_name_target).val("");
+      $(set_id_target).val("");
+
+      if (modal_id.length > 0) {
+        $(modal_id).modal('hide');
+      }
+    }
+    else {
+      alert("Please select a set");
+    }
   }
 }

@@ -33,11 +33,12 @@ describe Hyhull::OaiHarvestableBehaviour do
       end
 
       describe "validation" do
-        it "should return false when the resource is published without being set" do
-          @harvesting_test_class.publish_resource!
-          @harvesting_test_class.save.should be_false
-          @harvesting_test_class.errors.messages.should == {:harvesting_set=>["not assigned"]}
-        end
+        # Removed validation...
+        # it "should return false when the resource is published without being set" do
+        #   @harvesting_test_class.publish_resource!
+        #   @harvesting_test_class.save.should be_false
+        #   @harvesting_test_class.errors.messages.should == {:harvesting_set=>["not assigned"]}
+        # end
 
         it "should return true when the resource is published and is set" do
           @harvesting_test_class.harvesting_set = HarvestingSet.find("hull:ETDAccounting")
@@ -80,6 +81,34 @@ describe Hyhull::OaiHarvestableBehaviour do
         # Check the RELS-EXT does not include OAI item id
         @harvesting_test_class.rels_ext.content.should_not include("<oai:itemID>#{OAI_ITEM_IDENTIFIER_NS}#{@harvesting_test_class.id}</oai:itemID>")
       end
+
+      it "should be removed if the harvesting_set is removed from a resource in the published state" do
+        @harvesting_test_class.harvesting_set = HarvestingSet.find("hull:ETDAccounting")
+        @harvesting_test_class.publish_resource!
+        @harvesting_test_class.save
+
+        # Lets set the set to nil...
+        @harvesting_test_class.harvesting_set = nil
+        @harvesting_test_class.save
+
+        # Reload....
+        @harvesting_test_class.reload
+        @harvesting_test_class.rels_ext.content.should_not include("<oai:itemID>#{OAI_ITEM_IDENTIFIER_NS}#{@harvesting_test_class.id}</oai:itemID>")
+      end
+
+      it "should be added if the harvesting_set is added while the resource is in the published state" do
+        @harvesting_test_class.publish_resource!
+        @harvesting_test_class.save!
+   
+        # Lets set the set...
+        @harvesting_test_class.harvesting_set = HarvestingSet.find("hull:ETDAccounting")
+        @harvesting_test_class.save
+
+        # Reload....
+        @harvesting_test_class.reload
+        @harvesting_test_class.rels_ext.content.should include("<oai:itemID>#{OAI_ITEM_IDENTIFIER_NS}#{@harvesting_test_class.id}</oai:itemID>")
+      end
+
     end
   end
 
