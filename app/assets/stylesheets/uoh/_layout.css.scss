@@ -114,6 +114,10 @@ p a, dd a, h3 a, h5 a, td a {
 .square-corners 
 {
   border-radius: 2px !important;
+  border-bottom-left-radius: 2px !important;
+  border-top-left-radius: 2px !important;
+  border-bottom-right-radius: 2px !important;
+  border-top-right-radius: 2px !important;
 }
 
 .label {

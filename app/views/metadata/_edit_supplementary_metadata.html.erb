@@ -1,5 +1,5 @@
 <%= render "shared/error_messages", :target => resource %>
-<legend>Supplementary metadata</legend>
+<legend><h2>Supplementary metadata</h2></legend>
 <div class="fields">    
   <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "extent" } %> 
   <%= f.input :language_text %>

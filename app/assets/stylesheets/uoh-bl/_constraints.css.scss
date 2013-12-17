@@ -5,3 +5,13 @@
   padding: 1em 1em 0.5em 1em;
   background-color: whitesmoke;
 }
+
+.well, .constraints-container, #sortAndPerPage {
+    background-color: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 19px 19px 29px;
+}

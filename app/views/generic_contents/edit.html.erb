@@ -1,14 +1,12 @@
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span10">
-      <div class="row">
-        <div class="span12">          
-          <h2><%= @generic_content.title %></h2>
-          <h3>Generic content <small><%= show_resource_link(@generic_content.id)  if @generic_content.persisted?  %></small></h3>
-        </div>
+  <div class="page-gutter">
+    <div class="row-fluid">
+      <div class="span16">          
+        <h2><%= @generic_content.title %></h2>
+        <h3>Generic content <small><%= show_resource_link(@generic_content.id)  if @generic_content.persisted?  %></small></h3>
       </div>
-      <%= render partial: "shared/resource_content_edit", locals: { resource: @generic_content } %>
-      <%= render partial: "edit" %>
     </div>
+    <%= render partial: "shared/resource_content_edit", locals: { resource: @generic_content } %>
+    <%= render partial: "edit" %>
   </div>
 </div>
