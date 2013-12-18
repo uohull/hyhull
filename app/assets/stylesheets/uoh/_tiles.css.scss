@@ -45,7 +45,8 @@
   border-radius: 0 0 0 0;
   margin-bottom: $tilerowgutter;
   color: #fff;
-  background-color: $primarycolor;
+  /*background-color: $primarycolor;*/
+  background-color: #000;
   p { padding: 1em 0; }
   h1, #header-text { text-shadow: 1px 1px 1px darken($neutralcolordark, 25%); }
   a { 

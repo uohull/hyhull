@@ -10,9 +10,13 @@
   <%= link_to 'Contact', 'contact' %>
 </li>
 
-<li> 
-  <%= link_to t('blacklight.header_links.search_history'), search_history_path %>
-</li>
+<% if has_user_authentication_provider? %>
+  <li> 
+    <% if current_user %>
+      <%= link_to t('blacklight.header_links.search_history'), search_history_path %>
+    <% end %>
+  </li>
+<% end %>
 
 <% if has_user_authentication_provider? %>
   <li>
