@@ -1,14 +1,12 @@
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span10">
-      <div class="row">
-        <div class="span12">          
+  <div class="page-gutter">
+      <div class="row-fluid">
+        <div class="span16">          
           <h2><%= @journal_article.title %></h2>
           <h3>Journal Article <small><%= show_resource_link(@journal_article.id) if @journal_article.persisted? %></small></h3>
         </div>
       </div>
       <%= render partial: "shared/resource_content_edit", locals: { resource: @journal_article } %>
       <%= render partial: "edit" %>
-    </div>
   </div>
 </div>

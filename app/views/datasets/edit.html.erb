@@ -1,6 +1,5 @@
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span10">
+  <div class="page-gutter">
       <div class="row">
         <div class="span12">          
           <h2><%= @dataset.title %></h2>
@@ -9,6 +8,5 @@
       </div>
       <%= render partial: "shared/resource_content_edit", locals: { resource: @dataset } %>
       <%= render partial: "edit" %>
-    </div>
   </div>
 </div>
