@@ -1,6 +1,6 @@
 <% # Resources do not have changeable states until they saved... %>
 <% if object.persisted? && !object.resource_state.nil? %>
-    <h3>Resource workflow<h3>
+    <h3>Resource workflow</h3>
     <h4>The resource is currently within the <%= object.human_resource_state_name %> queue</h4>  
     <% # Gets the current Resource state queue membership %>
     <% resource_state = object.resource_state  %>

@@ -7,13 +7,13 @@
         </small>
     </h2>
     <p>
-        <i class="icon-asterisk"></i> If you are a University of Hull student or member of staff and have not yet signed into Hydra, please do so using the link in the main header bar anytime. <a href="#" title="Link">Sign in</a>
+        <i class="icon-asterisk"></i> If you are a University of Hull student or member of staff and have not yet signed into Hydra, please do so using the link in the main header bar anytime. <%= link_to t('blacklight.header_links.login'), new_user_session_path %>
     </p>
     <p>
         <i class="icon-eye-open"></i> Signing in will allow you access to <em>University only</em> content.
     </p>
     <p>
-        <i class="icon-asterisk"></i> You can sign in anytime whilst using Hydra by clicking <em>Sign in</em> on the main header.
+        <i class="icon-asterisk"></i> You can sign in anytime whilst using Hydra by clicking  <%= link_to t('blacklight.header_links.login'), new_user_session_path %> on the main header.
     </p>
   </div>
 </div>

@@ -1,5 +1,8 @@
 <% if can?(:edit, @document.id) %>
-  <ul class="nav nav-list">    
+  <ul class="nav nav-list">
+    <li>
+      <fieldset><legend><h3>Content management</h3></legend></fieldset>
+    </li>
     <li>
       <%= edit_resource_link(@document) %>
     </li>
