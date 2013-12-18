@@ -10,6 +10,12 @@
 	    <% end -%>
 	  <% end %>
   <% end -%>
+  <%= display_text_area_field(document, 'abstract_ssm', 'Abstract', 'abstract_ssm') %>
+  <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
+  <%= display_field(document, 'genre_ssm', 'Resource type', 'genre_ssm') %>
+  <%= display_field(document, 'language_text_ssm', 'Language', 'language_text_ssm') %>
+  <%= display_field(document, 'extent_ssm', 'Extent', 'extent_ssm') %>
+  <%= display_field(document, 'id', 'Identifier', 'id') %>
 </dl>
 <h3>Journal</h3>
 <dl class="dl-horizontal dl-invert">

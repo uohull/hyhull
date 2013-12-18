@@ -93,13 +93,6 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('contributor_name', :displayable, type: :string), :label => 'Contributor'  
     config.add_show_field solr_name('subject_topic', :displayable, type: :string), :label => 'Subject' 
     config.add_show_field solr_name('rights', :displayable, type: :string), :label => 'Rights'
-    config.add_show_field solr_name('description', :displayable, type: :string), :label => 'Description'  
-    config.add_show_field solr_name('abstract', :displayable, type: :string), :label => 'Abstract' 
-    config.add_show_field solr_name('language_text', :displayable, type: :string), :label => 'Language'
-    config.add_show_field solr_name('publisher', :displayable, type: :string), :label => 'Publisher'
-    config.add_show_field solr_name('extent', :displayable, type: :string), :label => 'Extent'
-    config.add_show_field solr_name('genre', :displayable, type: :string), :label => 'Resource type'
-    config.add_show_field 'id', :label => 'Identifier'
 
     config.add_show_field solr_name('title_vern', :stored_searchable, type: :string), :label => 'Title'
     config.add_show_field solr_name('subtitle', :stored_searchable, type: :string), :label => 'Subtitle:' 

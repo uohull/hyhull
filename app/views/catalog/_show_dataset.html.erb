@@ -12,6 +12,11 @@
       <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
     <% end -%>
   <% end %>
+
+  <%= display_text_area_field(document, 'description_ssm', 'Description', 'description_ssm') %>
+  <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
+  <%= display_field(document, 'genre_ssm', 'Resource type', 'genre_ssm') %>
+  <%= display_field(document, 'language_text_ssm', 'Language', 'language_text_ssm') %>
   
   <%= display_field(document, 'citation_ssm', 'Citation', 'citation_ssm') %>
   <%= display_field(document, 'subject_geographic_ssm', 'Coverage', 'subject_geographic_ssm') %>
@@ -25,6 +30,7 @@
   <%= display_date_field(document, 'date_issued_ssm', 'Publication date', 'date_issued_ssm') %>
   <%= display_date_field(document, 'date_valid_ssm', 'Date valid', 'date_valid_ssm') %>
 
-  
+  <%= display_field(document, 'extent_ssm', 'Extent', 'extent_ssm') %>
+  <%= display_field(document, 'id', 'Identifier', 'id') %>  
 </dl>
 
