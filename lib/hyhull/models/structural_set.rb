@@ -28,7 +28,8 @@ module Hyhull
         has_many :apo_children, property: :is_governed_by, :class_name => "ActiveFedora::Base"
 
         validates :title, presence: true
-        validates :parent, presence: true
+        # The root set do not have structural_set parent...
+        validates :parent, presence: true, unless: Proc.new { |d| d.id == "hull:rootSet" }
 
         # Allows nil because the the test above will check for presence
         validates_exclusion_of :parent_id, :in => lambda { |p| [p.id]}, :message => "cannot be a parent to itself", :allow_nil => true
