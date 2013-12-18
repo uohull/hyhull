@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  include BlacklightGoogleAnalytics::ControllerExtraHead
+  
   def home
   end
 

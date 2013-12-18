@@ -1,8 +1,8 @@
 # -*- encoding : utf-8 -*-
 require 'blacklight/catalog'
 
-class CatalogController < ApplicationController  
-
+class CatalogController < ApplicationController
+  include BlacklightGoogleAnalytics::ControllerExtraHead
   include Blacklight::Catalog
   include Hydra::Controller::ControllerBehavior
 

@@ -20,3 +20,5 @@
 
 //= require bootstrap-tab
 //= require bootstrap-dropdown
+
+// Removed require blacklight_google_analytics due to use of .live function, replaced with . on and created blacklight_google_analytics file
