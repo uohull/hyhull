@@ -61,7 +61,8 @@ Hyhull::Application.routes.draw do
   %w[home about contact cookies takedown].each do |page|
     get page, controller: 'pages', action: page
   end
-
+  # Add health checkpage
+  match 'healthcheck/rails-health' => 'pages#rails_health'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
