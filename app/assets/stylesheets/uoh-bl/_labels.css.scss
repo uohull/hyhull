@@ -1,0 +1,50 @@
+/* alerts */
+.label-error { background: $errorcolor;
+color: label-text-color($primarycolor) !important;
+	a { color: label-text-color($primarycolor) !important; }
+ }
+.label-info { background: $infocolor; }
+.label-notice { background: $noticecolor; }
+.label-success, .label-success { background: $successcolor; }
+.label-warning { background: $warningcolor; }
+
+@function label-text-color($label-color) {
+  @return if( lightness( $label-color ) > 50, #333, #fff);
+}
+
+.label-primary {
+	background: $primarycolor;
+	&:hover {	background: lighten($primarycolor, 5%); } 
+	color: label-text-color($primarycolor) !important;
+	a { color: label-text-color($primarycolor) !important;
+			&:hover {	text-decoration: none; }
+		}
+}
+.label-primary-dark {
+	background: $primarycolordark;
+	&:hover {	background: lighten($primarycolordark, 5%); } 
+	color: label-text-color($primarycolordark) !important;
+	a { color: label-text-color($primarycolordark) !important;
+			&:hover {	text-decoration: none; }
+		}
+}
+.label-alt {
+	background: $altcolor;
+	&:hover {	background: lighten($altcolor, 5%); } 
+	color: label-text-color($altcolor) !important;
+	a { color: label-text-color($altcolor) !important;
+			&:hover {	text-decoration: none; }
+		}
+}
+
+
+.label {
+	line-height: 18px;
+  font-size: 92%;
+  padding: 6px 10px !important;
+  vertical-align: baseline;
+}
+
+.badge {
+  line-height: 18px;
+}

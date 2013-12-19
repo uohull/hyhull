@@ -42,14 +42,10 @@
 }
 
 /* alerts */
-
+.alert-primary { background: $primarycolor }
+.alert-alt { background: $altcolor }
 .alert-error { background: $errorcolor; }
 .alert-info { background: $infocolor; }
 .alert-notice { background: $noticecolor; }
 .alert-success, .label-success { background: $successcolor; }
 .alert-warning { background: $warningcolor; }
-
-
-.label, .badge {
-  line-height: 18px;
-}

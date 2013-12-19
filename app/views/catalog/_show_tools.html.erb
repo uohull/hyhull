@@ -23,9 +23,9 @@
     <li class="mods">
       <%= link_to "MODS", asset_path(:id => @document.id, :datastream_id => "descMetadata") %>
     </li>
-    <li class="dc">
-      <%= link_to "Dublin Core", asset_path(:id => @document.id, :datastream_id => "oai_dc") %>
-    </li>
+<!--     <li class="dc">
+      <%#= link_to "Dublin Core", asset_path(:id => @document.id, :datastream_id => "oai_dc") %>
+    </li> -->
     <% # Only ETDs have UKETD-DC metadata %> 
     <% if model_from_document(@document) == "UketdObject" %>
       <li class="uketd_dc">

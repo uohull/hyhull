@@ -52,9 +52,10 @@ module HyhullHelper
       sequence_hash.keys.sort.each do |seq| 
         i = sequence_hash[seq]
         resources << <<-EOS
-          <div id="download"> 
-            <div id="download_image" class="#{download_image_class_by_mime_type(asset_mime_type[i].to_s)}" ></div>
-             <a href="/assets/#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}" onClick="_gaq.push(['_trackEvent','Downloads', '#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}', '#{document_title(document)}']);">#{display_label[i].to_s}</a> 
+          <div id="download" class="clearfix">
+            <div class="pull-left"> 
+              <div id="download_image" class="#{download_image_class_by_mime_type(asset_mime_type[i].to_s)}" ></div>
+              <a href="/assets/#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}" onClick="_gaq.push(['_trackEvent','Downloads', '#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}', '#{document_title(document)}']);">#{display_label[i].to_s}</a> 
         EOS
 
         resources << <<-EOS
@@ -75,6 +76,14 @@ module HyhullHelper
         end
 
         resources << <<-EOS
+            </div>
+          </div>
+
+          <div class="pull-right ">
+            <span class="label label-alt">
+              <i class="icon-white icon-download"></i>
+              <a href="/assets/#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}" onClick="_gaq.push(['_trackEvent','Downloads', '#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}', 'Download">Download</a>
+            </span>
           </div>
          </div>
         EOS
