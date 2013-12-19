@@ -28,6 +28,11 @@ describe UketdObject do
       #Check for the properties datastream
       @etd.datastreams.keys.should include("properties")
       @etd.properties.should be_kind_of Hyhull::Datastream::WorkflowProperties
+
+      #Check for the UKETD_DC disseminator datastream
+      @etd.datastreams.keys.should include("UKETD_DC")
+      @etd.properties.should be_kind_of ActiveFedora::OmDatastream
+
     end
 
     it "should include Full text Indexable behaviour" do

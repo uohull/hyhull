@@ -21,6 +21,9 @@ gem "devise_cas_authenticatable", "~> 1.3.2"
 # rubytree provides generic tree structures, used for building set trees...
 gem "rubytree", "~> 0.8.3"
 
+#Blacklight google analytics plugin by Jason Ronallo
+gem 'blacklight_google_analytics', '~> 0.0.1.pre2'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

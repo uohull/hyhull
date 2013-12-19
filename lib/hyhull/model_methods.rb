@@ -224,14 +224,50 @@ module Hyhull::ModelMethods
   #Quick utility method used to get long version of a date (YYYY-MM-DD) from short form (YYYY-MM) - Defaults 01 for unknowns
   def to_long_date(flexible_date)
     full_date = ""
-    if flexible_date.match(/^\d{4}$/)
-      full_date = flexible_date + "-01-01"
-    elsif flexible_date.match(/^\d{4}-\d{2}$/)
-      full_date = flexible_date +  "-01"
-    elsif flexible_date.match(/^\d{4}-\d{2}-\d{2}$/)
-      full_date = flexible_date
+    unless flexible_date.to_s == ""
+      if flexible_date.match(/^\d{4}$/)
+        full_date = flexible_date + "-01-01"
+      elsif flexible_date.match(/^\d{4}-\d{2}$/)
+        full_date = flexible_date +  "-01"
+      elsif flexible_date.match(/^\d{4}-\d{2}-\d{2}$/)
+        full_date = flexible_date
+      end
     end
     return full_date
+  end
+
+  def get_solr_sortable_date 
+    date = nil
+    begin
+      if self.respond_to?("date_valid") && !self.date_valid.nil? && !(self.date_valid == "")
+        val = to_long_date(self.date_valid)
+      elsif self.respond_to?("date_issued") && !self.date_issued.nil? && !(self.date_issued == "")
+        val = to_long_date(self.date_issued)
+      elsif self.respond_to?("journal_publication_date") && !self.journal_publication_date.nil? && !(self.journal_publication_date == "")
+        val = to_long_date(self.journal_publication_date)
+      end
+      if val
+        date = "#{Time.parse(val).iso8601}Z"
+      end 
+    rescue Exception => e
+      # Rescue an error getting a sortable date
+      logger.warn("Solr sortable date cannot be generated for #{self.pid}")
+    end 
+    return date 
+  end
+
+  # to_solr overridden to add object_type facet field to document
+  def to_solr(solr_doc = {}, opts)
+    super(solr_doc)
+
+    # Get a sortable date from the resource
+    date = get_solr_sortable_date
+
+    unless date.nil?
+      solr_doc.merge!("sortable_date_dtsi" => date )
+    end
+
+    solr_doc
   end
 
   private 

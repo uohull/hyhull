@@ -50,6 +50,7 @@ GEM
       rails (>= 3.2.6, < 5)
       rsolr (~> 1.0.6)
       sass-rails
+    blacklight_google_analytics (0.0.1.pre3)
     block_helpers (0.3.3)
       activesupport (>= 2.0)
     bootstrap-sass (2.3.2.2)
@@ -317,6 +318,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  blacklight_google_analytics (~> 0.0.1.pre2)
   bootstrap-sass
   bootstrap_forms
   coffee-rails (~> 3.2.1)

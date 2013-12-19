@@ -59,7 +59,7 @@ module HyhullHelper
         EOS
 
         resources << <<-EOS
-           <div id="file-size">(#{get_friendly_file_size(asset_file_size[i].to_s)} #{asset_format[i].to_s})
+           <div id="file-size">(#{get_friendly_file_size(asset_file_size[i].to_s) unless asset_file_size.nil?} #{asset_format[i].to_s} )
         EOS
 
         # #If the content is a KMZ or a KML file and less then 3MB...
@@ -216,6 +216,14 @@ module HyhullHelper
      display_dt_dd_element(label_to_display(label_text), truncate(solr_field_value(document, solr_fname), length: truncate_length), html_class)
   end
 
+  # display_boolean_field value as Yes/No
+  def display_boolean_field(document, solr_fname, label_text='', html_class)
+    unless solr_field_value(document, solr_fname).blank?
+      boolean_value = solr_field_value(document, solr_fname) == "true" ? true : false
+      display_dt_dd_element(label_to_display(label_text), human_boolean(boolean_value), html_class)
+    end
+  end
+
   def display_date_field(document, solr_fname, label_text='', html_class)
      display_dt_dd_element(label_to_display(label_text), display_friendly_date(solr_field_value(document, solr_fname)), html_class)
   end
@@ -359,6 +367,10 @@ module HyhullHelper
             full_date = flexible_date
     end
     return full_date
+  end
+
+  def human_boolean(boolean)
+    boolean ? 'Yes' : 'No'
   end 
 
 end
