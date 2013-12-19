@@ -18,41 +18,33 @@
 
 <!-- Splash screen images for Apple touch devices (provides startup screen on iPhone/iPads etc...)  -->
 <!-- iPhone -->
-<%= favicon_link_tag asset_path('blah/blacklight-splash-320x460-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)' %>
+<%= favicon_link_tag asset_path('hyhull/hyhull-splash-320x460-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)' %>
 <!-- iPhone (Retina) -->
-<%= favicon_link_tag asset_path('blah/blacklight-splash-640x920-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)' %>
+<%= favicon_link_tag asset_path('hyhull/hyhull-splash-640x920-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)' %>
 <!-- iPhone 5 -->
-<%= favicon_link_tag asset_path('blah/blacklight-splash-640x1096-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)' %>
+<%= favicon_link_tag asset_path('hyhull/hyhull-splash-640x1096-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)' %>
 <!-- iPad (portrait) -->
-<%= favicon_link_tag asset_path('blah/blacklight-splash-768x1004-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 768px) and (orientation: portrait) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1)' %>
+<%= favicon_link_tag asset_path('hyhull/hyhull-splash-768x1004-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 768px) and (orientation: portrait) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1)' %>
 <!-- iPad (landscape) -->
-<%= favicon_link_tag asset_path('blah/blacklight-splash-748x1024-landscape.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)' %>
+<%= favicon_link_tag asset_path('hyhull/hyhull-splash-748x1024-landscape.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)' %>
 <!-- iPad (Retina, portrait) -->
-<%= favicon_link_tag asset_path('blah/blacklight-splash-1536x2008-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 768px) and (orientation: portrait) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)' %>
+<%= favicon_link_tag asset_path('hyhull/hyhull-splash-1536x2008-portrait.png'), :rel => 'apple-touch-startup-image', :media => '(device-width: 768px) and (orientation: portrait) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)' %>
 <!-- iPad (Retina, landscape) -->
-<%= favicon_link_tag asset_path('blah/blacklight-splash-1496x2048-landscape.png'),
+<%= favicon_link_tag asset_path('hyhull/hyhull-splash-1496x2048-landscape.png'),
  :rel => 'apple-touch-startup-image', 
  :media => '(device-width: 768px) and (device-height: 1536px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)' %>
 
  <!-- W8 specific -->
 <meta name="msapplication-TileImage" content="/assets/hyhull/hyhull-w8-144-precomposed.png">
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta content="Library Catalogue" name="application-name" />
-<meta content="Library Catalogue" name="msapplication-tooltip" />
+<meta content="Digital Repository" name="application-name" />
+<meta content="Digital Repository" name="msapplication-tooltip" />
 <meta content="width=1024;height=768" name="msapplication-window" />
 <meta content="/" name="msapplication-starturl" />
 <meta content="name=Search;
-action-uri=http://blacklight.hull.ac.uk/;
-icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />
-<meta content="name=Advanced Search;
-action-uri=/advanced/?FORM=IE0006;
-icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />
-<meta content="name=Search History;
-action-uri=/search_history/?FORM=IE0006;
-icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />
-<meta content="name=FAQ;
-action-uri=/faq/?FORM=IE0006;
-icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />
-<meta content="name=Feedback;
-action-uri=/contact/?FORM=IE0006;
-icon-uri=/assets/blah/favicon.ico" name="msapplication-task" />
+action-uri=http://hydra.hull.ac.uk/;
+icon-uri=/assets/hyhull/favicon.ico" name="msapplication-task" />
+<meta content="name=Collections;
+action-uri=/resources/?f[is_member_of_ssim][]=info:fedora/hull:rootDisplaySet&results_view=true?FORM=IE0006;
+icon-uri=/assets/hyhull/favicon.ico" name="msapplication-task" />
+<!-- add more sections on completion -->
