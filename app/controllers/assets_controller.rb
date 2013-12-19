@@ -21,4 +21,25 @@ class AssetsController < ApplicationController
     def map_view_mimetype 
       ["application/vnd.google-earth.kmz", "application/vnd.google-earth.kml+xml"]
     end
+
+    # Overridden for to enable the download of E datastream (hyhull usage includes disseminator metadata)
+    # Handle the HTTP show request
+    def send_content(asset)
+      response.headers['Accept-Ranges'] = 'bytes'
+
+      if request.head?
+        content_head
+      elsif request.headers['HTTP_RANGE']
+        send_range
+      else
+        send_file_headers! content_options
+        
+        # For controlGroup E (External) we just return the content 
+        if datastream.controlGroup == "E"
+          self.response_body = datastream.content
+        else
+          self.response_body = datastream.stream
+        end
+      end
+    end
 end

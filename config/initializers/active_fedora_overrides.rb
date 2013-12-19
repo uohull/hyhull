@@ -67,3 +67,24 @@ module ActiveFedora
 
   end
 end
+
+
+# Overriding the following code to enable the saving of Disseminator type datastream
+# See https://github.com/projecthydra/active_fedora/issues/291 for further info
+module ActiveFedora
+  module Datastreams
+
+    # Adds the disseminator location to the datastream after the pid has been established
+    def add_disseminator_location_to_datastreams
+      self.ds_specs.each do |name,ds_config|
+        ds = datastreams[name]
+        if ds && ds.controlGroup == 'E' && ds_config[:disseminator].present?
+          ds.dsLocation = "#{ ActiveFedora.config.credentials[:url] }/objects/#{pid}/methods/#{ds_config[:disseminator]}"
+        end
+      end
+      true
+    end
+
+  end
+end
+

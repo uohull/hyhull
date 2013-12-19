@@ -58,7 +58,7 @@ module HyhullHelper
         EOS
 
         resources << <<-EOS
-           <div id="file-size">(#{get_friendly_file_size(asset_file_size[i].to_s)} #{asset_format[i].to_s})
+           <div id="file-size">(#{get_friendly_file_size(asset_file_size[i].to_s) unless asset_file_size.nil?} #{asset_format[i].to_s} )
         EOS
 
         # #If the content is a KMZ or a KML file and less then 3MB...
