@@ -31,7 +31,7 @@
   
   <h3>Citations and external identifiers</h3>
 
-  <%= f.input :doi %>
+  <%= f.input :doi, :label => 'DOI' %>
   <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "citation" } %> 
 
 </div>

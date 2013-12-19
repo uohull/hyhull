@@ -7,10 +7,20 @@
     </p>
 
     <p>
-    	<a href="">Examination papers</a><br/>
-    	<a href="">Electronic theses</a><br/>
-    	<a href="">Student handbooks</a><br/>
-    	<a href="">Domesday dataset</a><br/>
+
+    <% if has_user_authentication_provider? %>
+        <% if current_user %>
+        	<a href="">Examination papers</a><br/>
+        	<a href="">Electronic theses</a><br/>
+        	<a href="">Student handbooks</a><br/>
+        <% else %>
+            <a href="">Examination papers</a><br/>
+            <a href="">University policies</a><br/>
+            <a href="">Domesday dataset</a><br/>
+        <% end %>
+
+    <% end %>
+
     </p>
 
   </div>

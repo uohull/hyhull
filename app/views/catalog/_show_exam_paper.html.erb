@@ -3,7 +3,7 @@
   <%= display_field(document, 'module_display_ssm', 'Module', 'module_display_ssm') %>
   <%= display_date_field(document, 'date_issued_ssm', 'Examination date', 'date_issued_ssm') %>
   <%= display_field(document, 'department_name_ssm', 'Department', 'department_name_ssm') %>
-  <%= display_field(document, 'exam_level_ssm', 'Exam level level', 'exam_level_ssm') %>
+  <%= display_field(document, 'exam_level_ssm', 'Exam level', 'exam_level_ssm') %>
   <% document_show_fields(document).each do |solr_fname, field| -%>
 	  <% if should_render_show_field? document, field %>
       <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>

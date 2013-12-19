@@ -15,10 +15,10 @@
   text-align: left;
   clear: left;
   float: left;
-  overflow: hidden;
+  /*overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 110px;
+  width: 110px;*/
 }
 
 .dl-vertical-left {
@@ -26,9 +26,9 @@
     text-align: left;
 
     overflow: hidden;
-    text-overflow: ellipsis;
+    /*text-overflow: ellipsis;
     white-space: nowrap;
-    width: 110px;
+    width: 110px;*/
   }
   dd {
     margin-left: 0;

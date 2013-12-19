@@ -33,3 +33,14 @@ ul.nav li.menu-item a {
   padding: 14px 15px 15px;
   text-align: right;
 }
+
+ul.facet_extended_list .count { 
+  float: none;
+}
+
+.count:before {
+    content: ' ( ';
+}
+.count:after {
+    content: ' )';
+}
