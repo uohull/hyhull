@@ -13,15 +13,15 @@
       <meta http-equiv="cleartype" content="on">
     <![endif]-->
 
-    <%= render :partial => 'shared/head_favicon_links' %>
-    <%= render :partial => 'shared/head_add_to_home' %>
+    <%#= render :partial => 'shared/head_favicon_links' %>
+    <%#= render :partial => 'shared/head_add_to_home' %>
 
     <title><%= h(@page_title || application_name) %></title>
     <link href="<%= opensearch_catalog_path(:format => 'xml', :only_path => false) %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
     <%= favicon_link_tag asset_path('favicon.ico') %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag 'stay_standalone' %> 
+    <%#= javascript_include_tag 'stay_standalone' %> 
     <%= csrf_meta_tags %>
     <%= raw(render_head_content) %> 
 
