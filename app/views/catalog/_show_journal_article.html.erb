@@ -1,6 +1,6 @@
 <%# default partial to display solr document fields in catalog show view -%>
 <dl class="dl-vertical-left dl-invert">
-  <%= display_field(document, 'creator_name_ssm', 'Author', 'creator_name_ssm') %>
+  <%= display_field(document, 'creator_name_ssim', 'Author', 'creator_name_ssim') %>
   <% document_show_fields(document).each do |solr_fname, field| -%>
     <% # We filter the creatpr out, because it is being displayed above with label author %>
     <% unless field.label.downcase == "creator" %>
@@ -12,6 +12,7 @@
   <% end -%>
   <%= display_text_area_field(document, 'abstract_ssm', 'Abstract', 'abstract_ssm') %>
   <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
+  <%= display_boolean_field(document, 'peer_reviewed_ssm', 'Peer reviewed', 'peer_reviewed_ssm') %>
   <%= display_field(document, 'genre_ssm', 'Resource type', 'genre_ssm') %>
   <%= display_field(document, 'language_text_ssm', 'Language', 'language_text_ssm') %>
   <%= display_field(document, 'extent_ssm', 'Extent', 'extent_ssm') %>

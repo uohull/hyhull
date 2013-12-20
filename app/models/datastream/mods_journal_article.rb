@@ -81,7 +81,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       t.note_restriction(:path=>'note', :attributes=>{:type=>'restriction'})
     }
     # Should be set to true/false
-    t.peer_reviewed(:path=>'note', :attributes=>{:type=>'peerReviewed'})
+    t.peer_reviewed(:path=>'note', :attributes=>{:type=>'peerReviewed'}, :index_as=>[:displayable])
 
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])

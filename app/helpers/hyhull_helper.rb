@@ -207,6 +207,14 @@ module HyhullHelper
      display_dt_dd_element(label_to_display(label_text), truncate(solr_field_value(document, solr_fname), length: truncate_length), html_class)
   end
 
+  # display_boolean_field value as Yes/No
+  def display_boolean_field(document, solr_fname, label_text='', html_class)
+    unless solr_field_value(document, solr_fname).blank?
+      boolean_value = solr_field_value(document, solr_fname) == "true" ? true : false
+      display_dt_dd_element(label_to_display(label_text), human_boolean(boolean_value), html_class)
+    end
+  end
+
   def display_date_field(document, solr_fname, label_text='', html_class)
      display_dt_dd_element(label_to_display(label_text), display_friendly_date(solr_field_value(document, solr_fname)), html_class)
   end
@@ -350,6 +358,10 @@ module HyhullHelper
             full_date = flexible_date
     end
     return full_date
+  end
+
+  def human_boolean(boolean)
+    boolean ? 'Yes' : 'No'
   end 
 
 end
