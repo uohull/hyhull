@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   def takedown
   end
 
-  def rails_health
+  def rails_status
     @rails_healthy = true
     #@solr_healthy = true
     #@fedora_healthy = true
