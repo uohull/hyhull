@@ -256,8 +256,8 @@ module Hyhull::ModelMethods
     return date 
   end
 
-  # to_solr overridden to add object_type facet field to document
-  def to_solr(solr_doc = {}, opts)
+  # to_solr override to add sortable date to solr_doc
+  def to_solr(solr_doc = Hash.new, opts = {})
     super(solr_doc)
 
     # Get a sortable date from the resource
