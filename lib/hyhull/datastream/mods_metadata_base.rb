@@ -299,6 +299,31 @@ module Hyhull::Datastream::ModsMetadataBase
       logger.warn("#{self.class.to_s}.descMetadata does not define terminologies required for storing file metadata")
       return false
     end    
+  end
+
+  # Returns a solr sortable_creator from the mods metadata
+  # Note a solr sortable field cannot be multi-valued -Returning the first creator in array.
+  def get_solr_sortable_creator
+    solr_sortable_creator = ""
+
+    begin
+      solr_sortable_creator = self.creator_name.first unless self.creator_name.empty?
+    rescue NoMethodError
+      # creator_name does not exist for this mods datastream
+    end
+
+    return solr_sortable_creator
+  end
+
+  # Overrides to_solr to include a sortable creator name (if it exists)
+  def to_solr(solr_doc = Hash.new)
+    super(solr_doc)
+
+    creator = get_solr_sortable_creator
+    unless creator == ""
+      solr_doc.merge!("creator_name_ssort" => creator )
+    end
+    solr_doc   
   end  
 
 end
