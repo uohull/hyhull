@@ -8,7 +8,7 @@ hydra-head gem: "https://github.com/projecthydra/hydra-head":https://github.com/
 
 h2. Code Status
 
-!https://travis-ci.org/simonlamb/hyhull.png?branch=master!:https://travis-ci.org/simonlamb/hyhull
+!https://travis-ci.org/uohull/hyhull.png?branch=master!:https://travis-ci.org/uohull/hyhull
 
 h2. Installation/Setup
 
@@ -48,6 +48,9 @@ Configure jetty:
 
 hyhull includes full text indexing.  The necessary solr libraries are not included with Jetty as default, copy to solr using:
 <pre>rake hyhull:config:solr_text_extraction</pre>
+
+hyhull also makes use of the saxon xslt processor (generally bundled with fedora-commons) to generate metadata different schemas from the mods source metadata. To include the required war and context file, use:
+<pre>rake hyhull:config:saxon_xslt_engine</pre>
 
 Then start jetty:
 <pre>rake jetty:start

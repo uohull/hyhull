@@ -13,6 +13,12 @@ namespace :hyhull do
     task :solr_text_extraction do
       cp_r("solr_conf/text_extraction_support/contrib/extraction", "jetty/solr/lib/contrib/", verbose: true)
     end
+
+    desc "Copies the libraries and war necessary for xslt processing within Fedora"
+    task :saxon_xslt_engine do
+      cp("fedora_conf/saxon_xslt_engine/contexts/saxon.xml", "jetty/contexts/", verbose: true)
+      cp("fedora_conf/saxon_xslt_engine/webapps/saxon.war", "jetty/webapps/", verbose: true)
+    end
   end
 
   namespace :default_fixtures do
@@ -103,6 +109,8 @@ namespace :hyhull do
     }
     # Copy across the Solr Text Extraction libraries
     Rake::Task["hyhull:config:solr_text_extraction"].invoke
+    # Copy across the saxon_xslt_engine libraries
+    Rake::Task["hyhull:config:saxon_xslt_engine"].invoke
 
     jetty_params = Jettywrapper.load_config.merge(jetty_params)
 
@@ -131,7 +139,7 @@ def fixture_files
 end
 
 def dependencies
-  Dir.glob(File.join("#{Rails.root}","spec","fixtures","hyhull", Rails.env, "dependencies","*.xml")) +
+  Dir.glob(File.join("#{Rails.root}","spec","fixtures","hyhull", "dependencies", Rails.env,"*.xml")) +
   Dir.glob(File.join("#{Rails.root}","spec","fixtures","hyhull","dependencies","*.xml"))
 end
 

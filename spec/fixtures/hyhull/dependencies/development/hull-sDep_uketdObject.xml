@@ -8,7 +8,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="UKETD Object Service Deployment"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2009-03-04T14:22:57.466Z"/>
-<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2011-05-16T16:12:18.438Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2013-12-21T20:49:43.678Z"/>
 </foxml:objectProperties>
 <foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
 <foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" CREATED="2009-03-04T14:22:57.466Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
@@ -102,102 +102,6 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <audit:date>2009-03-04T16:08:16.655Z</audit:date>
 <audit:justification></audit:justification>
 </audit:record>
-<audit:record ID="AUDREC12">
-<audit:process type="Fedora API-M"/>
-<audit:action>purgeDatastream</audit:action>
-<audit:componentID>METHODMAP</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2009-03-04T16:52:37.119Z</audit:date>
-<audit:justification>DatastreamPane generated this logMessage. . . . Purged datastream (ID=METHODMAP), versions ranging from 2009-03-04T14:22:57.505Z to 2009-03-04T14:52:56.767Z.  This resulted in the permanent removal of 2 datastream version(s) (2009-03-04T14:22:57.505Z, 2009-03-04T14:52:56.767Z) and all associated audit records.</audit:justification>
-</audit:record>
-<audit:record ID="AUDREC13">
-<audit:process type="Fedora API-M"/>
-<audit:action>purgeDatastream</audit:action>
-<audit:componentID>DSINPUTSPEC</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2009-03-04T16:52:49.239Z</audit:date>
-<audit:justification>DatastreamPane generated this logMessage. . . . Purged datastream (ID=DSINPUTSPEC), versions ranging from 2009-03-04T14:22:57.505Z to 2009-03-04T14:56:03.028Z.  This resulted in the permanent removal of 2 datastream version(s) (2009-03-04T14:22:57.505Z, 2009-03-04T14:56:03.028Z) and all associated audit records.</audit:justification>
-</audit:record>
-<audit:record ID="AUDREC14">
-<audit:process type="Fedora API-M"/>
-<audit:action>purgeDatastream</audit:action>
-<audit:componentID>WSDL</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2009-03-04T16:52:59.911Z</audit:date>
-<audit:justification>DatastreamPane generated this logMessage. . . . Purged datastream (ID=WSDL), versions ranging from 2009-03-04T14:22:57.506Z to 2009-03-04T15:41:40.936Z.  This resulted in the permanent removal of 4 datastream version(s) (2009-03-04T14:22:57.506Z, 2009-03-04T15:02:58.019Z, 2009-03-04T15:34:12.723Z, 2009-03-04T15:41:40.936Z) and all associated audit records.</audit:justification>
-</audit:record>
-<audit:record ID="AUDREC15">
-<audit:process type="Fedora API-M"/>
-<audit:action>ingest</audit:action>
-<audit:componentID></audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2009-07-29T14:23:40.336Z</audit:date>
-<audit:justification>Ingested from local file C:\Users\Richard\Desktop\xml\hydra-sdep_uketdObject.xml</audit:justification>
-</audit:record>
-<audit:record ID="AUDREC16">
-<audit:process type="Fedora API-M"/>
-<audit:action>ingest</audit:action>
-<audit:componentID></audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2011-01-18T11:12:30.924Z</audit:date>
-<audit:justification>Ingested from local file C:\Users\Simon\Desktop\New Folder\CM\hydra-sDep_uketdObject.xml</audit:justification>
-</audit:record>
-<audit:record ID="AUDREC17">
-<audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>METHODMAP</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2011-01-18T11:46:05.238Z</audit:date>
-<audit:justification></audit:justification>
-</audit:record>
-<audit:record ID="AUDREC18">
-<audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>METHODMAP</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2011-01-18T14:18:59.135Z</audit:date>
-<audit:justification></audit:justification>
-</audit:record>
-<audit:record ID="AUDREC19">
-<audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>WSDL</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2011-01-18T14:29:29.426Z</audit:date>
-<audit:justification></audit:justification>
-</audit:record>
-<audit:record ID="AUDREC20">
-<audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>METHODMAP</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2011-05-16T16:03:59.587Z</audit:date>
-<audit:justification></audit:justification>
-</audit:record>
-<audit:record ID="AUDREC21">
-<audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>DSINPUTSPEC</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2011-05-16T16:06:20.042Z</audit:date>
-<audit:justification></audit:justification>
-</audit:record>
-<audit:record ID="AUDREC22">
-<audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>WSDL</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2011-05-16T16:08:22.497Z</audit:date>
-<audit:justification></audit:justification>
-</audit:record>
-<audit:record ID="AUDREC23">
-<audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByValue</audit:action>
-<audit:componentID>WSDL</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2011-05-16T16:12:18.438Z</audit:date>
-<audit:justification></audit:justification>
-</audit:record>
 </audit:auditTrail>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
@@ -251,8 +155,8 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:xmlContent>
 </foxml:datastreamVersion>
 </foxml:datastream>
-<foxml:datastream ID="WSDL" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="WSDL.7" LABEL="WSDL Bindings" CREATED="2011-05-16T16:12:18.438Z" MIMETYPE="text/xml" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/" SIZE="3063">
+<foxml:datastream ID="WSDL" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+<foxml:datastreamVersion ID="WSDL.10" LABEL="WSDL Bindings" CREATED="2013-12-21T20:49:43.678Z" MIMETYPE="text/xml" FORMAT_URI="http://schemas.xmlsoap.org/wsdl/" SIZE="3104">
 <foxml:xmlContent>
 <wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap" xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="sdep" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UKETD Object Service Deployment" targetNamespace="sdep">
   <wsdl:types>
@@ -291,7 +195,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <wsdl:binding name="UKETDObjectSdep_http" type="this:UKETDObjectSdepPortType">
     <http:binding verb="GET"></http:binding>
     <wsdl:operation name="getUKETDMetadata">
-      <http:operation location="http://local.fedora.server/saxon/SaxonServlet?source=(descMetadata)&amp;pid=(pid)&amp;style=http://local.fedora.server/fedora/objects/hull%3AuketdMetadataTransform/datastreams/modsToUketddcXSL/content&amp;format=mods&amp;clear-stylesheet-cache=yes"></http:operation>
+      <http:operation location="http://local.fedora.server/saxon/SaxonServlet?source=http://local.fedora.server/fedora/objects/(pid)/datastreams/descMetadata/content&amp;pid=(pid)&amp;style=http://local.fedora.server/fedora/objects/hull%3AuketdMetadataTransform/datastreams/modsToUketddcXSL/content&amp;format=mods&amp;clear-stylesheet-cache=yes"></http:operation>
       <wsdl:input>
         <http:urlReplacement></http:urlReplacement>
       </wsdl:input>

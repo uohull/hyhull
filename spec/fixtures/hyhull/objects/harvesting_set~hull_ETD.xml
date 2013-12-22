@@ -106,22 +106,12 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastreamVersion>
 </foxml:datastream>
 <foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Enter a label here." CREATED="2008-09-22T15:22:01.245Z" MIMETYPE="text/xml" SIZE="437">
-<foxml:xmlContent>
-<rdf:RDF xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
-          <rdf:Description rdf:about="info:fedora/hull:ETD">
-            <oai:setSpec>ETD</oai:setSpec>
-            <oai:setName>Set of ETD materials on University of Hull Institutional Repository</oai:setName>
-          </rdf:Description>
-        </rdf:RDF>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
 <foxml:datastreamVersion ID="RELS-EXT.1" LABEL="Enter a label here." CREATED="2008-09-22T15:25:46.955Z" MIMETYPE="text/xml" SIZE="686">
 <foxml:xmlContent>
 <rdf:RDF xmlns:oai="http://www.openarchives.org/OAI/2.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#" xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#">
           <rdf:Description rdf:about="info:fedora/hull:ETD">
-						<fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:harvestingSet"></fedora-model:hasModel>
-						<rel:isMemberOf rdf:resource="info:fedora/hull:rootHarvestingSet"></rel:isMemberOf>
+						<fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:harvestingSet"/>
+            <rel:isMemberOf rdf:resource="info:fedora/hull:rootHarvestingSet"/>
 		        <oai:setSpec>ETD</oai:setSpec>
             <oai:setName>ETD objects</oai:setName>
           </rdf:Description>

@@ -291,7 +291,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <wsdl:binding name="UKETDObjectSdep_http" type="this:UKETDObjectSdepPortType">
     <http:binding verb="GET"></http:binding>
     <wsdl:operation name="getUKETDMetadata">
-      <http:operation location="http://local.fedora.server/saxon/SaxonServlet?source=(descMetadata)&amp;pid=(pid)&amp;style=http://local.fedora.server/fedora-test/objects/hull%3AuketdMetadataTransform/datastreams/modsToUketddcXSL/content&amp;format=mods&amp;clear-stylesheet-cache=yes"></http:operation>
+      <http:operation location="http://local.fedora.server/saxon/SaxonServlet?source=http://local.fedora.server/fedora-test/objects/(pid)/datastreams/descMetadata/content&amp;pid=(pid)&amp;style=http://local.fedora.server/fedora-test/objects/hull%3AuketdMetadataTransform/datastreams/modsToUketddcXSL/content&amp;format=mods&amp;clear-stylesheet-cache=yes"></http:operation>
       <wsdl:input>
         <http:urlReplacement></http:urlReplacement>
       </wsdl:input>

@@ -290,7 +290,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 </foxml:datastream>
 <foxml:datastream ID="UKETD_DC" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
 <foxml:datastreamVersion ID="UKETD_DC.0" LABEL="UKETD_DC Metadata" CREATED="2011-05-17T08:52:07.009Z" MIMETYPE="text/xml">
-<foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora/objects/hull:3108/methods/hull-sDef:uketdObject/getUKETDMetadata"/>
+<foxml:contentLocation TYPE="URL" REF="http://local.fedora.server/fedora-test/objects/hull:3108/methods/hull-sDef:uketdObject/getUKETDMetadata"/>
 </foxml:datastreamVersion>
 </foxml:datastream>
 </foxml:digitalObject>

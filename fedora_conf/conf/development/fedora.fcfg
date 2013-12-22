@@ -21,7 +21,7 @@ https://wiki.duraspace.org/display/FEDORA36/Spring+Security
   <param name="datastreamExtensionMappingSource" value="mime-to-extensions.xml">
     <comment>Source of mappings from MIMETYPE to file extension</comment>
   </param>
-  <param name="fedoraServerPort" value="8080">
+  <param name="fedoraServerPort" value="8983">
     <comment>Defines the port number on which the Fedora server runs; 
     default is 8080.</comment>
   </param>
