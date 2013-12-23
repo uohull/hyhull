@@ -24,7 +24,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
     t.name_ {
       t.type(:path => {:attribute=>"type"}, :namespace_prefix => nil)
       # this is a namepart
-      t.namePart(:type=>:string, :label=>"generic name")
+      t.namePart(:type=>:string)
       t.role {
         t.text(:path=>"roleTerm",:attributes=>{:type=>"text"})
         t.code(:path=>"roleTerm",:attributes=>{:type=>"code"})
@@ -48,11 +48,6 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
       t.part(:path=>"namePart",:index_as=>[:facetable])
     }
 
-    # lookup :person, :first_name        
-    #t.department(:ref=>:name, :attributes=>{:type=>"corporate"}, :index_as=>[:facetable])
-    #t.conference(:ref=>:name, :attributes=>{:type=>"conference"}, :index_as=>[:facetable])
-
-
     # Model specifics exam paper related information
     t.exam_level(:path=>"note", :attributes=>{:type=>"examinationLevel"}, :index_as=>[:displayable])
     t.additional_notes(:path=>"note", :attributes=>{:type=>"additionalNotes"}, :index_as=>[:displayable])    
@@ -72,7 +67,6 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
       t.date_valid(:path=>"dateValid", :attributes=>{:encoding=>'iso8601'})
       t.publisher
     }
-
 
     # Rights and identifiers
     t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"}, :index_as=>[:displayable])
@@ -96,12 +90,6 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
       t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
     }
 
-    t.department(:ref=>:organisation, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]' )
-    t.department_name(:proxy=>[:department, :namePart], :index_as=>[:displayable, :facetable])
-     # t.supervisor(:ref=>:name, :attributes=>{:type=>"personal"}, :path=>'name[./role/roleTerm="Supervisor"]')
-     # t.sponsor(:ref=>:name, :attributes=>{:type=>"corporate"}, :path=>'name[./role/roleTerm="sponsor"]')
-
-
     #Proxies for terminologies 
     t.title(:proxy=>[:title_info, :main_title], :index_as=>[:stored_searchable])      
     t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
@@ -120,7 +108,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
     t.module_name(:proxy=>[:module,:name])
     t.module_code(:proxy=>[:module, :code], :index_as=>[:facetable])
     t.module_display(:proxy=>[:module, :combined_display], :index_as=>[:displayable, :facetable])
-    t.department_name(:proxy=>[:organisation, :namePart], :index_as=>[:displayable])
+    t.department_name(:proxy=>[:organisation, :namePart], :index_as=>[:displayable, :facetable])
 
   end
   
