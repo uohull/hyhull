@@ -127,7 +127,7 @@ describe ExamPaper do
       # errors...
       #@exam_paper.errors.messages[:title].should == ["can't be blank"]
       @exam_paper.errors.messages[:department_name].should == ["can't be blank"]
-      @exam_paper.errors.messages[:module_name].should == ["is too short (minimum is 5 characters)"]
+      @exam_paper.errors.messages[:module_name].should == ["is too short (minimum is 3 characters)"]
       @exam_paper.errors.messages[:module_code].should == ["is too short (minimum is 5 characters)"]
       @exam_paper.errors.messages[:subject_topic].should == ["is too short (minimum is 2 characters)"]
       @exam_paper.errors.messages[:publisher].should == ["can't be blank"]

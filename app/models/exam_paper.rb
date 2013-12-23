@@ -43,7 +43,7 @@ class ExamPaper < ActiveFedora::Base
   # Standard validations for the object fields
   #validates :title, presence: true
   validates :department_name, presence: true
-  validates :module_name, array: { :length => { :minimum => 5 } }
+  validates :module_name, array: { :length => { :minimum => 3 } }
   validates :module_code, array: { :length => { :minimum => 5 } } 
  # validates :module_display, array: { :length => { :minimum => 5 } }
   validates :date_issued, format: { with: /^(\d{4}-\d{2}-\d{2}|\d{4}-\d{2}|\d{4})/ }
