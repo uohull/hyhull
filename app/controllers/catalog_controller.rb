@@ -52,13 +52,13 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the 
     # facet bookmarked
-    config.add_facet_field solr_name('genre', :facetable), :label => 'Resource Type' 
-    config.add_facet_field solr_name('pub_date', :facetable), :label => 'Publication Year' 
-    config.add_facet_field solr_name('creator_name', :symbol), :label => 'Creator'
-    config.add_facet_field solr_name('creator_organisation_name', :facetable), :label => 'Organisation Creator'  
-    config.add_facet_field solr_name('subject_topic', :facetable), :label => 'Topic', :limit => 20 
-    config.add_facet_field solr_name('language_text', :facetable), :label => 'Language', :limit => true 
-    config.add_facet_field solr_name('department_name', :facetable), :label => 'Department', :limit => 20 
+    config.add_facet_field solr_name('genre', :facetable), :label => 'Resource Type', :limit => 10
+    config.add_facet_field solr_name('pub_date', :facetable), :label => 'Publication Year', :limit => 10
+    config.add_facet_field solr_name('creator_name', :symbol), :label => 'Creator', :limit => 10
+    config.add_facet_field solr_name('creator_organisation_name', :facetable), :label => 'Organisation Creator',:limit => 10
+    config.add_facet_field solr_name('subject_topic', :facetable), :label => 'Topic', :limit => 10
+    config.add_facet_field solr_name('language_text', :facetable), :label => 'Language', :limit => 10
+    config.add_facet_field solr_name('department_name', :facetable), :label => 'Department', :limit => 10
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
