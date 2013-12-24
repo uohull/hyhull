@@ -21,7 +21,8 @@ class UketdObject < ActiveFedora::Base
     end
   end
 
-  before_save :apply_additional_metadata 
+  # We only apply additional metadata on save when in proto queue...
+  before_save :apply_additional_metadata, if: :resource_proto? 
 
   has_metadata name: "descMetadata", label: "MODS metadata", type: Datastream::ModsEtd
   has_metadata name: "rightsMetadata", label: "Rights metadata" , type: Hydra::Datastream::RightsMetadata
