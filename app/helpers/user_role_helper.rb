@@ -1,8 +1,8 @@
-module UserHelper
+module UserRoleHelper
 
   #########################################################
   #                                                       #
-  # UserHelper                                            #
+  # UserRoleHelper                                        #
   # * Provides user/session helper methods                #
   #                                                       #
   #########################################################
