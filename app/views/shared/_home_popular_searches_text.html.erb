@@ -1,26 +1,12 @@
 <div class="tile">
-    <h2>
-        Popular searches <br/><small>Why not try some of our most popular searches</small></h2>
-    
+    <h2>Popular searches <br/><small>Why not try some of our most popular searches</small></h2>    
+    <p></p>
     <p>
-
-    </p>
-
-    <p>
-
-    <% if has_user_authentication_provider? %>
-        <% if current_user %>
-        	<a href="">Examination papers</a><br/>
-        	<a href="">Electronic theses</a><br/>
-        	<a href="">Student handbooks</a><br/>
-        <% else %>
-            <a href="">Examination papers</a><br/>
-            <a href="">University policies</a><br/>
-            <a href="">Domesday dataset</a><br/>
-        <% end %>
-
-    <% end %>
-
+        <%= link_to("Electronic theses and dissertations", "resources?f[genre_sim][]=Thesis+or+dissertation") << content_tag(:br) %>
+        <%= link_to("Examination papers", "resources?f[genre_sim][]=Examination+paper") << content_tag(:br) if staff_or_student_user? %>
+        <%= link_to("Student handbooks", "resources?f[genre_sim][]=Handbook") << content_tag(:br)  if staff_or_student_user? %>
+        <%= link_to("Domesday dataset", "/resources/hull:domesdayDisplaySet") << content_tag(:br)  %>
+        <%= link_to("University policies", "resources?f[genre_sim][]=Policy+or+procedure") << content_tag(:br) %>
     </p>
 
   </div>
