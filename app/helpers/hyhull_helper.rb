@@ -1,8 +1,24 @@
 module HyhullHelper
+  
+  #########################################################
+  #                                                       #
+  # Blacklight Helper over-rides                          #
+  # * Overrides methods within BlacklightHelperBehavior   #
+  #                                                       #
+  #########################################################
 
   def application_name
     'Digital Repository'
   end
+
+  # Default seperator change
+  def field_value_separator
+    '; '
+  end
+
+  #######################################################
+  # - End of Blacklight Helper over-rides               #
+  #######################################################
 
   # Provides a edit_link to a resource based upon the data within the SolrDocument
   def edit_resource_link(document)
@@ -20,6 +36,13 @@ module HyhullHelper
   # Returns the ActiveFedora model from the Solr document
   def model_from_document(document)
     active_fedora_model = document["active_fedora_model_ssi"]
+  end
+
+  # Returns the Resource type/Genre from the Solr document
+  def resource_type_from_document(document)
+    resource_type = ""
+    resource_type = document["genre_ssm"] unless document["genre_ssm"].nil?
+    resource_type = resource_type.is_a?(Array) ?  resource_type.first : resource_type
   end
 
   #This helper method will create a list of downloadable assets for a 
@@ -251,10 +274,37 @@ module HyhullHelper
     return { label: label, coordinates_type: coordinates_type, coordinates: coordinates }
   end
 
+  def display_resource_thumbnail(document)
+    content_tag(:div, nil, class: thumbnail_class_from_document(document), id: "cover-art")
+  end
+
+  def thumbnail_class_from_document(document)
+    resource_type = resource_type_from_document(document)
+
+    thumbnail_class = case resource_type
+    when "Examination paper"
+      "exam-thumb"
+    when "Meeting papers or minutes"
+      "calendar-thumb"
+    when "Dataset"
+      "dataset-thumb"
+    when "Presentation"
+      "presentation-thumb"
+    when "Policy or procedure", "Regulation"
+      "policy-thumb"
+    when "Photograph", "Artwork"
+      "image-thumb"
+    else
+      "generic-thumb"
+    end
+
+  end
+
+
   private
 
   def document_title(document)
-    return solr_field_value(document, "title_tesim")
+    return solr_field_value(document, nil, "title_tesim")
   end
 
   def display_dt_dd_element(dt_value, dd_value, html_class)
