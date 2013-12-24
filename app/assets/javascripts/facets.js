@@ -4,14 +4,13 @@
  * The code will expand the main 'content' div to the full width of the container (span 16) to utilise the extra space.
  */
 $( document ).ready(function() {
-  if ($("#sidebar").length > 0) {
+  if ($("#sidebar").children(".page-gutter").length > 0) {
     //Sidebar is on the page...    
-    if ($("#sidebar").html().trim() == "") {
+    if ($("#sidebar").children(".page-gutter").html().trim() == "") {
       //The side bar is empty, therefore we are going to add the hide class to it..
       $("#sidebar").addClass("hide");
       //... and reset the main content to span16
-      $('#content').addClass("span16").removeClass("span9");
+      $('#content').addClass("span16").removeClass("span12");
     }
   }  
 });
-
