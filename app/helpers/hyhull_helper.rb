@@ -304,7 +304,7 @@ module HyhullHelper
   private
 
   def document_title(document)
-    return solr_field_value(document, nil, "title_tesim")
+    return solr_field_value(document, "title_tesim")
   end
 
   def display_dt_dd_element(dt_value, dd_value, html_class)
