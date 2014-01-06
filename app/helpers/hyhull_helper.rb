@@ -294,6 +294,12 @@ module HyhullHelper
       "policy-thumb"
     when "Photograph", "Artwork"
       "image-thumb"
+    when "Thesis or dissertation"
+      "thesis-thumb"
+    when "Handbook"
+      "handbook-thumb"
+    when "Book"
+      "domesday-thumb"
     else
       "generic-thumb"
     end
