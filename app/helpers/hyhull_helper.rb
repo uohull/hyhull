@@ -20,6 +20,15 @@ module HyhullHelper
   # - End of Blacklight Helper over-rides               #
   #######################################################
 
+  # Return the Hyhull version - see config/application.rb for origin of config.version
+  def hyhull_version
+    if Hyhull::Application.config.respond_to? :version
+      return Hyhull::Application.config.version.to_s.chop.html_safe
+    else
+      return ""
+    end
+  end
+
   # Provides a edit_link to a resource based upon the data within the SolrDocument
   def edit_resource_link(document)
     active_fedora_model = model_from_document(document)

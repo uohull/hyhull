@@ -71,5 +71,16 @@ module Hyhull
 
     # Add locale enforce
     config.i18n.enforce_available_locales = true
+
+    # Set the version based upon the latest tag
+    # Only attempt update on local machine
+    if Rails.env.development?
+      # Update version file from latest git tag
+      File.open('config/version', 'w') do |file|
+        file.write `git describe --tags --always` # or equivalent
+      end
+    end
+    config.version = File.read('config/version')
+
   end
 end
