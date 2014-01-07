@@ -4,7 +4,6 @@
     <p>
         <%= link_to("Electronic theses and dissertations", "resources?f[genre_sim][]=Thesis+or+dissertation") << content_tag(:br) %>
         <%= link_to("Examination papers", "resources?f[genre_sim][]=Examination+paper") << content_tag(:br) if staff_or_student_user? %>
-        <%= link_to("Student handbooks", "resources?f[genre_sim][]=Handbook") << content_tag(:br)  if staff_or_student_user? %>
         <%= link_to("Domesday dataset", "/resources/hull:domesdayDisplaySet") << content_tag(:br)  %>
         <%= link_to("University policies", "resources?f[genre_sim][]=Policy+or+procedure") << content_tag(:br) %>
     </p>
