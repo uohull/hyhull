@@ -1,6 +1,8 @@
 class AssetsController < ApplicationController
   include Hydra::Controller::DownloadBehavior
 
+  before_filter :filter_datastreams
+
   def map_view
     if map_view_mimetype.include? datastream.mimeType
       @asset_url = "#{asset_url}/#{datastream.dsid}"
@@ -12,6 +14,15 @@ class AssetsController < ApplicationController
   end
 
   protected
+
+    # This filter_datastreams that we do not generally like users to download
+    def filter_datastreams
+      ds_ids = ["DC", "RELS-EXT", "contentMetadata", "rightsMetadata", "properties"]      
+      if ds_ids.include? datastream.dsid
+        redirect_to root_url
+      end
+    end
+
     # Overriden the DownloadsBehavior 
     # LoadFromSolr due to issue with GenericContentObjects and ResourceState
     def load_asset
