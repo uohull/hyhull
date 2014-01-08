@@ -31,10 +31,10 @@
           <% if can?(:create, :all) %>
             <h2>Queues</h2>
             <p>
-              <%= link_to("Proto Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:protoQueue&results_view=true")%><br>
-              <%= link_to("QA Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:QAQueue&results_view=true") %><br>
-              <%= link_to("Hidden Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:hiddenQueue&results_view=true") %><br>
-              <%= link_to("Deleted Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:deletedQueue&results_view=true") %><br>
+              <%= link_to("Proto Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:protoQueue&results_view=true") << tag(:br) %>
+              <%= link_to("QA Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:QAQueue&results_view=true") << tag(:br) if contentAccessTeam_user? %>
+              <%= link_to("Hidden Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:hiddenQueue&results_view=true") << tag(:br) if contentAccessTeam_user? %>
+              <%= link_to("Deleted Queue", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/hull:deletedQueue&results_view=true") << tag(:br) if admin_user? %>
             </p>
           <% end %>
         </div>
