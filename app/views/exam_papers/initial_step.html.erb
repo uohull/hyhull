@@ -21,9 +21,12 @@
                     </div>              
                     <%= label_tag "year", "Year", class: "control-label"  %>
                     <div class="controls">
-                      <%= select_year(Date.today, start_year: 2000, end_year: Date.today.year) %>
+                      <%= select_year(Date.today.year-1, start_year:  Date.today.year, end_year: 2000 ) %>
                     </div>
                   </div>
+                  <h3>Exam paper</h3>
+                  <%= f.input :exam_level, collection: @exam_paper.examination_paper_levels %>
+
                   <%= f.submit "Next" %>
               <% end %>
             </div>

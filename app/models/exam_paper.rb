@@ -38,7 +38,8 @@ class ExamPaper < ActiveFedora::Base
   # Subject
   has_attributes :subject_topic, datastream: :descMetadata, multiple: true
 
-  delegate :department_names_list, to: Datastream::ModsEtd, multiple: false
+  delegate :department_names_list, to: Datastream::ModsExamPaper, multiple: false
+  delegate :examination_paper_levels, to: Datastream::ModsExamPaper, multiple: false
 
   # Standard validations for the object fields
   #validates :title, presence: true
@@ -64,7 +65,7 @@ class ExamPaper < ActiveFedora::Base
       copyright_year = Date.parse(to_long_date(date_issued)).strftime("%Y")
     end
 
-    self.rights = Datastream::ModsEtd.all_rights_reserved_statement(publisher, copyright_year)
+    self.rights = Datastream::ModsExamPaper.all_rights_reserved_statement(publisher, copyright_year)
   end
 
   def get_exam_title
