@@ -1,21 +1,36 @@
-<h2>Role edit: <%= @role.description %></h2>
-<h4>User accounts</h4>
-<p>The follow is a list of user accounts that have the '<%= @role.description %>' role.</p>   
-<ul>
-  <% @role.users.each do |user| %>
-    <li><%= user.user_key %> (<%= user.email %>)
-      <% if can? :remove_user, Role %>
-        <%= button_to "Remove User", role_management.role_user_path(@role, user), :method=>:delete, :class=>'btn btn-danger' %>
+<div class="page-gutter">
+  <h2>Role edit: <%= @role.description %></h2>
+  <h4>User accounts</h4>
+  <p>The follow is a list of user accounts that have the '<%= @role.description %>' role.</p>   
+  <div class="row-fluid">
+    <div class="span8">
+      <table class="table table-striped table-bordered square-corners">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>E-mail address</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <% @role.users.each do |user| %>
+          <tr>
+            <td><%= user.user_key %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to(image_tag("hyhull/remove.png"), role_management.role_user_path(@role, user), :method=>:delete, :confirm=>"Are you sure you want to remove #{user.user_key} from #{@role.description}?") if can? :remove_user, Role %></td>
+           </tr>
+         <% end %>
+      </table>
+    </div>
+  </div>
+  <h4>Add a new account</h4>
+  <p>To add a new User to this role group, enter their Campus username below. Ensure that the username is correct before adding new user's to this group.</p>
+  <%= bootstrap_form_tag role_management.role_users_path(@role) do %>
+    <%= bootstrap_text_field_tag 'user_key', '', :label=>'Campus username:' %>
+    <div class="span6">
+      <%= bootstrap_actions do %>
+        <%= bootstrap_submit_tag "Add" %>
+        <%= bootstrap_cancel_tag %>
       <% end %>
-    </li>
+     </div>
   <% end %>
-</ul>
-<h4>Add a new account</h4>
-<p>To add a new User to this role group, enter their Campus username below. Ensure that the username is correct before adding new user's to this group.</p>
-<%= bootstrap_form_tag role_management.role_users_path(@role) do %>
-  <%= bootstrap_text_field_tag 'user_key', '', :label=>'Campus username:' %>
-  <%= bootstrap_actions do %>
-    <%= bootstrap_submit_tag "Add" %>
-    <%= bootstrap_cancel_tag %>
-  <% end %>
-<% end %>
+</div>
