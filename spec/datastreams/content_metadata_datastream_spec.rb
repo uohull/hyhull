@@ -80,6 +80,10 @@ describe Hyhull::Datastream::ContentMetadata do
       before do
         @cm = fixture("hyhull/datastreams/contentMetadata.xml")
         @ds = Hyhull::Datastream::ContentMetadata.from_xml(@cm)
+
+        @cm_multiple_resources = fixture("hyhull/datastreams/contentMetadata_two.xml")
+        @ds_mr = Hyhull::Datastream::ContentMetadata.from_xml(@cm_multiple_resources)
+
       end
       it "should remove the corresponding resource from the xml and then mark the datastream as changed" do
         @ds.resource.length.should == 1
@@ -87,6 +91,21 @@ describe Hyhull::Datastream::ContentMetadata do
         @ds.resource.length.should == 0
         @ds.changed.should be_true
       end
+
+      it "should maintain a valid sequence when a resource is removed" do
+        # Three resources within the contentMetadata 
+        # New style expectation...
+        expect(@ds_mr.resource.length).to eq(3)
+        expect(@ds_mr.resource.sequence).to eq(["1", "2", "3"])
+
+        #Now lets remove the middle resource "2"
+        @ds_mr.remove_resource("1")
+
+        # The code should maintain a valid sequence, so instead of 1,3 - we should have 1,2
+        expect(@ds_mr.resource.sequence).to eq(["1", "2"])
+        
+      end
+
     end
 
   end 

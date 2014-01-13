@@ -123,4 +123,54 @@ describe Hyhull::ModelMethods do
 
   end
 
+
+  describe "validation" do
+    before(:each) do
+      #Create some valid test objects  
+      @test_object = ContentMetadataBehaviourTest.create
+
+      @file_asset_one = FileAsset.create
+      @test_file = fixture("hyhull/files/test_pdf_file.pdf") 
+      @file_name = File.basename(@test_file)
+      # Changed ds to content_test to test behaviour below...
+      @file_asset_one.add_file(@test_file, "content_test", @file_name)
+      @file_asset_one.save
+
+
+      @file_asset_two = FileAsset.create
+      @test_file_doc = fixture("hyhull/files/test_docx.docx") 
+      @file_name_doc = File.basename(@test_file_doc)
+      # Changed ds to content_test to test behaviour below...
+      @file_asset_two.add_file(@test_file, "content_test_doc", @file_name)
+      @file_asset_two.save
+
+      @test_object.add_content_metadata(@file_asset_one, "content_test")
+      @test_object.add_content_metadata(@file_asset_two, "content_test_doc")
+    end
+
+    it "should not allow a empty resource_display_label" do
+      # Blanking the first resource_display_label
+      @test_object.contentMetadata.resource(1).display_label = [""]
+      expect(@test_object.save).to be_false 
+      expect(@test_object.errors.messages[:resource_display_label]).to include("is too short (minimum is 2 characters)") 
+    end
+
+    it "should not allow a empty sequence" do
+      # Blanking the first sequence
+      @test_object.contentMetadata.resource(1).sequence = [""]
+      expect(@test_object.save).to be_false 
+      expect(@test_object.errors.messages[:sequence]).to include("is too short (minimum is 1 characters)") 
+    end
+
+    it "should not allow an incorrect sequence" do
+      # Changing the 2nd resource to sequence "3"  (so its trying to save "1" and "3")
+      @test_object.contentMetadata.resource(1).sequence = ["3"]
+      expect(@test_object.save).to be_false 
+      # We expect there to be a "2" sequence number instead of 3..
+      expect(@test_object.errors.messages[:sequence]).to include("2 is missing.") 
+    end
+
+
+  end
+
 end

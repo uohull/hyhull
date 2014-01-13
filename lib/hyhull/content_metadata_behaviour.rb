@@ -7,6 +7,11 @@ module Hyhull::ContentMetadataBehaviour
     # Include Hyhulls::Datastream::ContentMetadataBehaviouretadata for information about contents stored against objects
     has_metadata name: "contentMetadata", label: "Content metadata", type: Hyhull::Datastream::ContentMetadata, versionable: true
     has_attributes :sequence, :resource_display_label, :resource_object_id, :resource_ds_id, :content_id, datastream: :contentMetadata, multiple: true     
+ 
+    validates :resource_display_label, array: { :length => { :minimum => 2 } }
+    validates :sequence, array: { :length => { :minimum => 1 } }
+    validates_with ContentMetadataCustomValidator
+
   end 
 
   # Adds file information to self.contentMetadata

@@ -19,7 +19,7 @@ class ContentMetadataController < ApplicationController
     object = ActiveFedora::Base.find(params[:id], cast: true)
 
     if object.datastreams.include?("contentMetadata")
-      object.update_attributes(params[:content_metadata])  
+      object.update_attributes(params[:content_metadata])
     end
 
     respond_to do |format|
@@ -28,7 +28,7 @@ class ContentMetadataController < ApplicationController
         format.html {  redirect_to :back, notice  }
         format.json { render json: params[:id], status: :created, location: params[:id] }
       else
-        notice = { :alert => "There was an issue saving the content metadata. Cause: #{object.errors.messages.values.to_s}" } 
+        notice = { :alert => "There was an issue saving the content metadata. Cause: #{object.errors.full_messages.to_sentence}" } 
         format.html { redirect_to :back, notice }
       end
     end

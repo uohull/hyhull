@@ -116,6 +116,19 @@ module Hyhull
 
     def remove_resource(index)
       self.find_by_terms(:resource)[index.to_i].remove
+
+      # We've removed the resource from contentMetadata now need to make sure that the sequences are updated... 
+      sequences = self.resource.sequence
+
+      valid_sequence_array = ("1"..sequences.size.to_s).to_a
+      removed_seq_no = (valid_sequence_array - sequences).first.to_i
+
+      # removed_seq_no == 0 means that the new sequence is already correct...
+      unless removed_seq_no == 0 
+        # For each sequence number, if it is greater than the sequence number removed minus 1 else just leave it
+        self.resource.sequence = sequences.collect {|seq| seq.to_i > removed_seq_no ? seq = (seq.to_i - 1).to_s : seq }
+      end
+
       self.ng_xml_will_change!
     end 
 

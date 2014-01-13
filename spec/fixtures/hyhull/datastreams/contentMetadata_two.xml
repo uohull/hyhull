@@ -1,0 +1,17 @@
+<contentMetadata type="text" xmlns="http://hydra-collab.hull.ac.uk/schemas/contentMetadata/v1">
+  <resource sequence="1" id="Document" displayLabel="Document" objectID="hull:3112a" dsID="content" dissType="genericContent/content">
+    <file id="content" format="pdf" mimeType="application/pdf" size="26349568">
+      <location type="url">http://hydra.hull.ac.uk/assets/hull:3112a/genericContent/content</location>
+    </file>
+  </resource>
+  <resource sequence="2" id="Document2" displayLabel="Additional document" objectID="hull:3112b" dsID="content" dissType="genericContent/content">
+    <file id="content" format="pdf" mimeType="application/pdf" size="26349568">
+      <location type="url">http://hydra.hull.ac.uk/assets/hull:3112b/genericContent/content</location>
+    </file>
+  </resource>
+  <resource sequence="3" id="Document3" displayLabel="Cover sheet" objectID="hull:3112c" dsID="content" dissType="genericContent/content">
+    <file id="content" format="pdf" mimeType="application/pdf" size="26349568">
+      <location type="url">http://hydra.hull.ac.uk/assets/hull:3112c/genericContent/content</location>
+    </file>
+  </resource> 
+</contentMetadata>

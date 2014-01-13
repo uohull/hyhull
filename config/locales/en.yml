@@ -19,3 +19,5 @@ en:
     attributes:
       active_fedora/base:
         parent: "Structural set"
+        resource_display_label: "Content label"
+        sequence: "Content sequence number"
