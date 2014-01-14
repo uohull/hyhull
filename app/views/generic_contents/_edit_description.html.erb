@@ -9,11 +9,11 @@
 
   <h3>Resource</h3>  
 
-  <%= f.input :title %>
+  <%= f.input :title, :input_html => { :class => 'input-block-level' } %>
 
   <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "subject_topic", required: true } %> 
   
-  <%= f.input :description, as: :text %>
+  <%= f.input :description, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
 
   <% # class datepicker provides JQuery based date picker - not using at present %>
   <%= f.input :date_valid %>

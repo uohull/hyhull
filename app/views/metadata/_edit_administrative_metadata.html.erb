@@ -1,7 +1,7 @@
 <fieldset class="edit-standard">
 <legend><h2>Administrative metadata</h2></legend>
 <% if resource.respond_to?("resource_status") %>
-  <%= form.input :resource_status, as: :text %>
+  <%= form.input :resource_status, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
 <% else %>
   <p>Administrative metadata cannot be display for this resource</p>
 <% end %>

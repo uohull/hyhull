@@ -9,14 +9,14 @@
 
   <h3>Resource</h3>  
 
-  <%= f.input :title %>
+  <%= f.input :title, :input_html => { :class => 'input-block-level' } %>
   <%= f.input :version %>
 
   <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "subject_topic" } %>
   <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "subject_temporal", label: "Temporal" } %> 
   <%= render partial: "metadata/multi_field_edit", locals: { object: @dataset, field: "subject_geographic", label: "Coverage" } %> 
   
-  <%= f.input :description, as: :text %>
+  <%= f.input :description, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
 
   <%= f.input :publisher %>
   <%= f.input :date_issued, label: "Publication year (yyyy)" %>

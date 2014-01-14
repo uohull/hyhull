@@ -5,11 +5,11 @@
   <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "person", required: true } %>      
   <h3>Publication</h3>
 
-  <%= f.input :title %>
+  <%= f.input :title, :input_html => { :class => 'input-block-level' } %>
 
   <%= render partial: "metadata/copyright_statement_edit", locals: { resource: @uketd_object, form: f } %>
 
-  <%= f.input :abstract, as: :text %>
+  <%= f.input :abstract, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
 
   <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "subject_topic", required: true } %>
 
@@ -18,12 +18,8 @@
  <h3>Institutional contributors</h3>   
 
  <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>
- <%= f.input :publisher %>
+ <%= f.input :publisher, :input_html => { :class => 'input-block-level' } %>
  <% # class datepicker provides JQuery based date picker - not using at present %>
  <%= f.input :date_issued %>
  
-</div>    
-
-
-
-
+</div>

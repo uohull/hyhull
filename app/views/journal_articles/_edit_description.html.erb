@@ -6,22 +6,18 @@
 
   <h3>Publication</h3>
 
-  <%= f.input :title, label: "Article title" %>
+  <%= f.input :title, label: "Article title", :input_html => { :class => 'input-block-level' } %>
 
   <%= render partial: "metadata/copyright_statement_edit", locals: { resource: @journal_article, form: f } %>
 
-  <%= f.input :abstract, as: :text %>
+  <%= f.input :abstract, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
 
   <%= render partial: "metadata/multi_field_edit", locals: { object: @journal_article, field: "subject_topic", required: true } %>
 
   <%= render partial: "metadata/language_edit", locals: { resource: @journal_article, form: f } %>
 
- <%= f.input :publisher %>
+ <%= f.input :publisher, :input_html => { :class => 'input-block-level' } %>
 
  <%= f.input :peer_reviewed, as: :select %>
 
-</div>    
-
-
-
-
+</div>
