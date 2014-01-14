@@ -65,13 +65,16 @@
 <div class="row-fluid">
   <div class="span16">
     <p>This is a full list of all the sets within hyhull</p>
-    <div class="well">
-      <div id="set-tree"></div>      
-    </div>
-    <div class="btn-group">
-        <button id="view-set" class="btn" disabled onclick="ViewSet('view')">View</button>
-        <button id="edit-set" class="btn" disabled onclick="ViewSet('edit')">Edit</button>
-        <button id="new-set" class="btn" disabled onclick="NewSet()">New set</button>
+    <div class="">
+      
+      <div id="set-tree" class="modal-body"></div> 
+
+      <div class="well btn-group span16 square-corners">
+          <button id="view-set" class="btn square-corners" disabled onclick="ViewSet('view')">View</button>
+          <button id="edit-set" class="btn square-corners" disabled onclick="ViewSet('edit')">Edit</button>
+          <button id="new-set" class="btn square-corners" disabled onclick="NewSet()">New set</button>
+      </div>
+
     </div>
   </div>
 </div>

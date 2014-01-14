@@ -9,3 +9,10 @@
   border-bottom:1px dotted;
   &:hover { color: $primarylinkhovercolor; text-decoration: none;}
 }
+
+
+/* control height of modal popups which can get very large */
+.modal-body {
+    max-height: 568px;
+    overflow: scroll;
+}
