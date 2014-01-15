@@ -6,4 +6,8 @@ class Property < ActiveRecord::Base
   validates :name, presence: true
   validates :value, presence: true
   validates :property_type, presence: true  
+
+  validates :name, uniqueness: { scope: :property_type_id }
+  validates :value, uniqueness: { scope: [:name, :property_type_id] }
+
 end

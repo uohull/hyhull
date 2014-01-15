@@ -6,7 +6,7 @@ class CreateProperties < ActiveRecord::Migration
       t.belongs_to :property_type
     end
 
-    add_index :properties, [:value, :property_type_id]
+    add_index :properties, [:value, :property_type_id], unique: true
 
     create_table :property_types do |t|
       t.string :name
