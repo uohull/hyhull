@@ -1,10 +1,8 @@
 <legend><h2>Edit Qualifications</h2></legend>
 <div class="fields">
  <h3>Qualification</h3>
-
- <%= f.input :qualification_level, collection: @uketd_object.qualification_level_terms %>
- <%= f.input :qualification_name, collection: @uketd_object.qualification_name_terms %>
-
+ <%= select_by_property_type(f, :qualification_level, "ETD-QUALIFICATION-LEVEL") %>
+ <%= select_by_property_type(f, :qualification_name, "ETD-QUALIFICATION-NAME") %>
  <h3>Dissertations</h3>
- <%= f.input :dissertation_category, collection: @uketd_object.dissertation_category_terms %>
+ <%= select_by_property_type(f, :dissertation_category, "ETD-DISSERTATION-CATEGORY") %>
 </div>    

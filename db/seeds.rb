@@ -8,6 +8,7 @@ unless Rails.env.production?
   RoleType.delete_all 
   Person.delete_all
   PropertyType.delete_all
+  Property.delete_all
 end
 
 # Set role types - These are required for the Hyhull Application
@@ -45,8 +46,35 @@ end
   { name: "EXAM-PAPER-LEVEL", description: "Examination paper level"},
   { name: "ETD-QUALIFICATION-LEVEL", description: "ETD qualification level"},
   { name: "ETD-QUALIFICATION-NAME", description: "ETD qualification name"},
-  { name: "ETD-DISSERTATION-CATEGORY", description: "ETD dissertation category"}
+  { name: "ETD-DISSERTATION-CATEGORY", description: "ETD dissertation category"},
+  { name: "FEDORA-PID-NAMESPACE", description: "Fedora PID namespace"}
 ].each { |p| PropertyType.create(name: p[:name], description: p[:description]) }
+
+
+# Seed some default/test values in the Property table
+unless Rails.env.production? 
+  # EXAM-PAPER-DEPARTMENT
+  ["Accounting and Finance","Business School","Centre for Lifelong Learning","Centre for Mathematics","Centre for Neuroscience",
+    "Community/Rehabilitation Studies","Department of Chemistry",
+    "Department of Computer Science"].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "EXAM-PAPER-DEPARTMENT").first)}
+  
+  #EXAM-PAPER-LEVEL
+  ["Level 4", "Level 5", "Level 6", "Level 7", "Level M", "Foundation level"].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "EXAM-PAPER-LEVEL").first)}
+
+  #ETD-QUALIFICATION-LEVEL
+  ["Doctoral", "Masters", "Undergraduate"].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "ETD-QUALIFICATION-LEVEL").first)}
+
+  #ETD-QUALIFICATION-NAME
+  ["PhD", "ClinPsyD", "MD", "PsyD", "MA" , "MEd", "MEng", "MPhil", "MRes",
+    "MSc" , "MTheol", "EdD" , "DBA", "BA", "BSc"].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "ETD-QUALIFICATION-NAME").first)}
+
+  #ETD-DISSERTATION-CATEGORY
+  ["Blue", "Green", "Red"].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "ETD-DISSERTATION-CATEGORY").first)}
+
+  #FEDORA-PID-NAMESPACE
+  ["hull", "hull-archives"].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "FEDORA-PID-NAMESPACE").first)}
+end
+
 
 
 # **************************** #
