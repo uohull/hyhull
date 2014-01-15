@@ -1,9 +1,15 @@
+<div class="page-gutter">
+<div class="row-spacer"></div>
 <%= render "shared/error_messages", :target => @uketd_object %>
-<legend><h2>Edit Metadata</h2></legend>
+<!-- <legend><h2>Edit Metadata</h2></legend> -->
 <div class="fields">
-  <h3>Personal author, and contributors</h3>
-  <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "person", required: true } %>      
-  <h3>Publication</h3>
+
+  <h6>Personal author, and contributors</h6>
+  <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "person", required: true } %>   
+
+  <hr/>
+
+  <h6>Publication</h6>
 
   <%= f.input :title, :input_html => { :class => 'input-block-level' } %>
 
@@ -15,11 +21,13 @@
 
   <%= render partial: "metadata/language_edit", locals: { resource: @uketd_object, form: f } %>
 
- <h3>Institutional contributors</h3>   
+<hr/>
+ <h6>Institutional contributors</h6>   
 
  <%= render :partial => "metadata/name_edit", :locals => { object: @uketd_object, name_type: "organisation" } %>
  <%= f.input :publisher, :input_html => { :class => 'input-block-level' } %>
  <% # class datepicker provides JQuery based date picker - not using at present %>
  <%= f.input :date_issued %>
  
+</div>
 </div>

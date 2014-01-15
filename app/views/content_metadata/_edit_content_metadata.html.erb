@@ -4,7 +4,7 @@
   <% # Don't display if there aren't any resourecs %>
   <% unless content_metadata.find_by_terms(:resource).empty? %>
     <%= form_tag( { controller: :content_metadata, action: :update }, { method: :put } ) do |f| %>
-      <h3>Content</h3>
+      <h6>Content</h6>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -18,7 +18,7 @@
           <%= render partial: 'content_metadata/edit_resource', collection:content_metadata.find_by_terms(:resource), locals: {content_metadata: content_metadata } %>
         </tbody>
       </table>
-      <%= button_tag "Save", data: { :disable_with => "Please wait..." },  class: "btn" %>
+      <%= button_tag "Save", data: { :disable_with => "Please wait..." },  class: "btn square-corners" %>
     <% end %>
   <% end %>
 

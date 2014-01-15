@@ -1,10 +1,12 @@
-<legend><h2>Edit Qualifications</h2></legend>
+<div class="page-gutter">
+<div class="row-spacer"></div>
 <div class="fields">
- <h3>Qualification</h3>
+ <h6>Qualification</h6>
 
  <%= f.input :qualification_level, collection: @uketd_object.qualification_level_terms %>
  <%= f.input :qualification_name, collection: @uketd_object.qualification_name_terms %>
 
- <h3>Dissertations</h3>
+ <h6>Dissertations</h6>
  <%= f.input :dissertation_category, collection: @uketd_object.dissertation_category_terms %>
-</div>    
+</div>
+</div> 

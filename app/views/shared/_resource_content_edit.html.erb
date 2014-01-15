@@ -2,23 +2,35 @@
   <div class="row-fluid">
     <% if resource.persisted? %>
       <div class="span16">
-        <div class="accordian" id="content-accordian">
-          <div class="accordian-group">
-            <div class="accordion-heading">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#content-accordian" href="#collapse-content">Add & edit content</a>
-            </div>
-          </div>      
-        </div>
-        <div class="accordian" id="content-accordian">
-          <div class="accordian-group">
-            <div id="collapse-content" class="accordion-body collapse">
-              <div class="accordion-inner well">
-                <%= render partial: 'content_metadata/edit_content_metadata', locals: { content_metadata: resource.contentMetadata } %>
-                <%= render partial: 'shared/file_upload' %>
+
+        <div class="page-gutter">
+
+          <div class="sidenav" id="facets">
+            <div class="accordian-group">
+              <div class="facet_limit">
+                <h5 data-toggle="collapse" data-parent="#content-accordian" href="#collapse-content" style="cursor: pointer;">
+                Add & edit content
+               <!--  <a class="accordion-toggle" data-toggle="collapse" data-parent="#content-accordian" href="#collapse-content">Add & edit content</a> -->
+                </h5>
+
+
+              <div id="collapse-content" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <%= render partial: 'content_metadata/edit_content_metadata', locals: { content_metadata: resource.contentMetadata } %>
+                  <%= render partial: 'shared/file_upload' %>
+                </div>
               </div>
-            </div>
-          </div>      
+
+              </div>
+
+
+
+
+            </div>      
+          </div>
+          
         </div>
+
       </div>
     <% end %>  
   </div>

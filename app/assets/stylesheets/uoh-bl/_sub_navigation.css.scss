@@ -10,3 +10,49 @@
 	text-align: left;
   margin: 0.5em 0 0.5em 0.5em;
 }
+
+/* nav tabs */
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus {
+  background: none repeat scroll 0 0 $active-tab-color;
+  border-color: $active-tab-color;
+
+}
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+	background-color: $primarycolor;
+	color: #fff;
+	border-bottom: 1px solid darken($primarycolor, 15%);
+	border-left: 1px solid darken($primarycolor, 15%);
+	border-right: 1px solid darken($primarycolor, 15%);
+}
+
+.tab-content {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 $active-tab-color;
+    border-bottom: 1px solid $active-tab-color;
+    border-image: none;
+    border-left: 1px solid $active-tab-color;
+    border-right: 1px solid $active-tab-color;
+    overflow: auto;
+}
+
+/* workflow controls */
+.workflow-wrapper {
+	border: 2px solid $primarycolordark;
+  .wrapper-header {
+    background: $primarycolordark;
+    padding: 1em;
+    color: #fff;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+    form {
+      margin: 0em;
+    }
+  }
+}
+
+/*.wrapper-header {
+    background: none repeat scroll 0 0 #FF0000;
+    padding: 1em;
+}*/

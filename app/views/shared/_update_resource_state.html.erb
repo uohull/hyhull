@@ -1,15 +1,15 @@
 <% # Resources do not have changeable states until they saved... %>
 <% if object.persisted? && !object.resource_state.nil? %>
-    <h3>Resource workflow</h3>
-    <h4>The resource is currently within the <%= object.human_resource_state_name %> queue</h4>  
+<!--     <h3>Resource workflow</h3> -->
+    <div class="pull-left">This resource is currently within the <%= object.human_resource_state_name %> queue</div>  
     <% # Gets the current Resource state queue membership %>
     <% resource_state = object.resource_state  %>
 
     <% # Get the evailable state events, e.g proto => qa... %>
     <% state_events = object.resource_state_events %>
-    <%= form_tag( { controller: :resource_workflow, action: :update, id: params[:id]}, { method: :put } ) do |f| %>
+    <%= form_tag( { controller: :resource_workflow, action: :update, id: params[:id]}, { method: :put, :class => 'pull-right' } ) do |f| %>
       <% state_events.each do |event| %>
-        <%= button_tag( object.class.human_resource_state_event_name(event), :type => 'submit', name: :resource_state, :value => event.to_s, :confirm => "Are you sure you want to #{object.class.human_resource_state_event_name(event)}?", class: "btn") %>
+        <%= button_tag( object.class.human_resource_state_event_name(event), :type => 'submit', name: :resource_state, :value => event.to_s, :confirm => "Are you sure you want to #{object.class.human_resource_state_event_name(event)}?", class: "btn square-corners") %>
       <% end %>       
     <% end %>
 

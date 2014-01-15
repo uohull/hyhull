@@ -1,7 +1,9 @@
-<h3>Resource actions</h3>
-<div class="span10 offset2">
-  <%= f.button :submit, "Save" %>
-  <% if f.object.persisted? && can?(:destroy, f.object) %>
-    <%= link_to "Delete", f.object, class: 'btn btn-danger', data: {confirm: "Are you sure you want to permanently Delete this resource?", method: :delete } %>
-  <% end %>
+<!-- <h3>Resource actions</h3> -->
+<div class="row-spacer">
+	<div class="span16 well square-corners">
+	  <%= f.button :submit, "Save resource", :class => 'btn square-corners' %>
+	  <% if f.object.persisted? && can?(:destroy, f.object) %>
+	    <%= link_to "Delete resource", f.object, class: 'btn btn-danger square-corners', data: {confirm: "Are you sure you want to permanently Delete this resource?", method: :delete } %>
+	  <% end %>
+	</div>
 </div>

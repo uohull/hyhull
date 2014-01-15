@@ -1,5 +1,8 @@
-<legend><h2>Identifiers</h2></legend>
-<div class="fields">
- <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "grant_number" } %>
- <%= f.input :ethos_identifier %>
+<div class="page-gutter">
+	<div class="row-spacer"></div>
+
+	<div class="fields">
+	 <%= render partial: "metadata/multi_field_edit", locals: { object: @uketd_object, field: "grant_number" } %>
+	 <%= f.input :ethos_identifier %>
+	</div>
 </div>

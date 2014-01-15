@@ -8,3 +8,8 @@
   border-bottom:1px dotted;
   &:hover { color: $primarylinkhovercolor; text-decoration: none;}
 }
+
+#facets.sidenav div.accordian-group div.facet_limit h5.twiddle:hover {
+	background: #d9d9d9;
+	transition: all 0.2s ease-in-out 0s;
+}
