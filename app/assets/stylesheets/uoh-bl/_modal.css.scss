@@ -1,0 +1,5 @@
+/* control height of modal popups which can get very large */
+.modal-body {
+  max-height: $modal-body-maxheight;
+  overflow-y: auto;
+}

@@ -66,3 +66,7 @@ $presentation-thumb: 'hyhull/hyhull-thumb-presentation.png';
 $domesday-thumb: 'hyhull/hyhull-thumb-domesday.png';
 $handbook-thumb: 'hyhull/hyhull-thumb-handbook.png';
 $thesis-thumb: 'hyhull/hyhull-thumb-thesis.png';
+
+/* modal */
+/* adjust to fit modal on lowest prefereable resolution (currently set for 1024x768) */
+$modal-body-maxheight: 406px;

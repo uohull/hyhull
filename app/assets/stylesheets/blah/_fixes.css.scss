@@ -2,17 +2,9 @@
 
 /* Twitter widget overrides */
 
-
 .new-tweet {
   color: $primarylinkcolor;
   text-decoration: none;
   border-bottom:1px dotted;
   &:hover { color: $primarylinkhovercolor; text-decoration: none;}
-}
-
-
-/* control height of modal popups which can get very large */
-.modal-body {
-    max-height: 568px;
-    overflow-y: auto;
 }

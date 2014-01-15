@@ -45,7 +45,7 @@
     %>
 </fieldset>
 <!-- Modal -->
-<div id="<%= set_select_modal_id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="AdditionalMetadataLabel" aria-hidden="true">
+<div id="<%= set_select_modal_id %>" class="modal hide fade square-corners" tabindex="-1" role="dialog" aria-labelledby="AdditionalMetadataLabel" aria-hidden="true">
   <div class="modal-header">
      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3>Set selection</h3>
@@ -57,7 +57,7 @@
     <div id="<%= tree_div_id %>"></div>
   </div>
   <div class="modal-footer">
-    <button class="btn" aria-hidden="true" onclick="SelectSet('#<%= tree_div_id %>', '#<%= set_name_field_id %>', '#<%= parent_field_id %>', '#<%= set_select_modal_id %>', <%= required %>)">Select</button>
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn square-corners" aria-hidden="true" onclick="SelectSet('#<%= tree_div_id %>', '#<%= set_name_field_id %>', '#<%= parent_field_id %>', '#<%= set_select_modal_id %>', <%= required %>)">Select</button>
+    <button class="btn square-corners" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
