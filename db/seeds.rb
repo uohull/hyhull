@@ -7,6 +7,7 @@ unless Rails.env.production?
   Role.delete_all 
   RoleType.delete_all 
   Person.delete_all
+  PropertyType.delete_all
 end
 
 # Set role types - These are required for the Hyhull Application
@@ -39,6 +40,14 @@ end
 [{ name:"no_faculty", description: "No Faculty code"} 
 ].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("faculty_code")) }
   
+# Seed the PropertyType table
+[ { name: "EXAM-PAPER-DEPARTMENT", description: "Examination paper department"},
+  { name: "EXAM-PAPER-LEVEL", description: "Examination paper level"},
+  { name: "ETD-QUALIFICATION-LEVEL", description: "ETD qualification level"},
+  { name: "ETD-QUALIFICATION-NAME", description: "ETD qualification name"},
+  { name: "ETD-DISSERTATION-CATEGORY", description: "ETD dissertation category"}
+].each { |p| PropertyType.create(name: p[:name], description: p[:description]) }
+
 
 # **************************** #
 #  IMPORTANT - For Test #

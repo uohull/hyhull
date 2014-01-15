@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20131208185212) do
     t.integer "property_type_id"
   end
 
-  add_index "properties", ["value", "property_type_id"], :name => "index_properties_on_value_and_property_type_id"
+  add_index "properties", ["value", "property_type_id"], :name => "index_properties_on_value_and_property_type_id", :unique => true
 
   create_table "property_types", :force => true do |t|
     t.string "name"
