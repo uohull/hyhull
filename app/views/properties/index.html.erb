@@ -1,21 +1,25 @@
-<h2>Property edit</h2>
+<div class="page-gutter">
+  <h2>Property edit <small>- <%= @property_type.description %></small></h2>
+  <p><strong>Name</strong> is the text that will be displayed in the forms dropdown, <strong>Value</strong> will be text that will be saved into the Resource metadata. Editing the names and values within this list will <strong>not</strong> update the metadata on any pre-existing Resources. In most cases Name and Value should be kept the same for clarity.</p><p>&nbsp</p>
 
-<p>You are editing the properties for... <%= @property_type.description %></p>
-
-<table class="table table-condensed">
-  <thead>
-    <th>Name</th>
-    <th>Value</th>
-    <th></th>
-  </thead>
-  <% @properties.each do |property| %>
-    <tr>
-      <td><%= property.name %></td>
-      <td><%= property.value %></td>
-      <td><%= link_to "Edit", edit_property_type_property_path(id: property.id) %>&nbsp;<%= link_to "Delete", property_type_property_path(id: property.id), method: "delete" %></td>
-    </tr>
-  <% end %>
-</table>
-<%= render partial: "new" %>
-
-<p>Back to <%= link_to "Property Types", property_types_path %>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-condensed table-striped table-bordered square-corners">
+        <thead>
+          <th>Name</th>
+          <th>Value</th>
+          <th></th>
+        </thead>
+        <% @properties.each do |property| %>
+          <tr>
+            <td><%= property.name %></td>
+            <td><%= property.value %></td>
+            <td><%= link_to "Edit", edit_property_type_property_path(id: property.id) %>&nbsp;&nbsp;<%= link_to image_tag("hyhull/remove.png"), property_type_property_path(id: property.id), method: "delete", :confirm=>"Are you sure you want to delete this property?"  %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <%= render partial: "new" %>
+  <p>Back to <%= link_to "Property Types", property_types_path %>
+</div>

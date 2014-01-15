@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController  
-
+  include Hyhull::Controller::ControllerBehaviour 
+  
   def index
     begin
       @property_type = PropertyType.find(params[:property_type_id])
@@ -40,10 +41,9 @@ class PropertiesController < ApplicationController
     @property.property_type = PropertyType.find(params[:property_type_id])
     
     if @property.save
-      notice = { :notice => "Property successfully created" }
-      redirect_to property_type_properties_path(params[:property_type_id]), notice
+      redirect_to property_type_properties_path(params[:property_type_id])
     else
-      notice = { :alert => "Could not create property" }
+      notice = { :alert => "Could not create property: #{ @property.errors.full_messages.to_sentence }" }
       redirect_to property_type_properties_path(params[:property_type_id]), notice
     end
   end

@@ -41,10 +41,11 @@
       </div>
       <div class="span4">
         <div class="tile tile-white tile-min-height">
-          <% if can?(:index, Role) %>
+          <% if can?(:index, Role) || can?(:index, PropertyType) %>
             <h2>Admin</h2>
             <p>
-              <%= link_to "Role Management", roles_path %><br>
+              <%= link_to("Role Management", roles_path) << tag(:br) if can?(:index, Role) %>       
+              <%= link_to("Properties Management", property_types_path) << tag(:br) if can?(:index, PropertyType) %>
             </p>
           <% end %>
         </div>

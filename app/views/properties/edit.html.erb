@@ -1,10 +1,13 @@
-<h1>Hyhull::Config::Property#edit</h1>
-<p>Find me in app/views/hyhull/config/property/edit.html.erb</p>
-<%= simple_form_for(@property, url: property_type_property_path, :html => {:class => 'form-horizontal' }) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :value %>
-  <%= f.button :submit, "Save" %>
-<% end %>
-<%= link_to "Back to properties", :back %>
+<div class="page-gutter">
+  <h2>Property edit <small>- <%= @property.property_type.description %></small></h2>
+  <h3><%= @property.name %></h3>
+  <p>&nbsp;</p>
+  <%= simple_form_for(@property, url: property_type_property_path, :html => {:class => 'form-horizontal' }) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :value %>
+    <%= f.button :submit, "Save" %> 
+  <% end %>
+  <%= link_to "Back to properties", property_type_properties_path(@property.property_type) %>
+</div>
 
 

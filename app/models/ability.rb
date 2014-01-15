@@ -30,9 +30,16 @@
         can [:tree, :update_permissions], DisplaySet
       end
 
+      # Adminstration forms
+      #
       # Role Management
       # We are not adding update/delete to this on purpose for Roles
       can [:show, :add_user, :remove_user, :index], Role if @current_user.admin?
+      #
+      # Properties Management - PropertyType and Property objects
+      can :read, PropertyType if @current_user.admin?
+      can :manage, Property if @current_user.admin?
+
     end
 
     private

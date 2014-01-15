@@ -1,16 +1,24 @@
-<h1>Hyhull::Config::PropertyTypes#index</h1>
-<p>Find me in app/views/hyhull/config/property/index.html.erb</p>
-<table class="table">
-  <thead>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-  </thead>
-  <% @property_types.each do |property_type| %>
-    <tr>
-      <td><%= property_type.name %></td>
-      <td><%= property_type.description %></td>
-      <td><%= link_to 'Edit properties', property_type_properties_path(property_type) %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="page-gutter">
+  <h2>Hydra at Hull properties</h2>
+  <p>The following is a list of property types.  These are used to populate various metadata and resource options within the Hydra at Hull application.</p><p><strong>Note:</strong> These are global properties, adding or removing options will be reflected throughout the application's edit forms.</p>
+  <p>&nbsp;</p>
+
+  <div class="row">
+    <div class="span12">
+      <table class="table table-striped table-bordered square-corners">
+        <thead>
+          <th>Name</th>
+          <th>Description</th>
+          <th></th>
+        </thead>
+        <% @property_types.each do |property_type| %>
+          <tr>
+            <td><%= property_type.name %></td>
+            <td><%= property_type.description %></td>
+            <td><%= link_to 'Edit properties', property_type_properties_path(property_type) %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
