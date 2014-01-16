@@ -1,7 +1,9 @@
-<fieldset>
-  <legend><h2>Journal metadata</h2></legend>
+<div class="page-gutter">
+  <div class="row-spacer"></div>
+
+  <!-- <legend><h2>Journal metadata</h2></legend> -->
   <div class="row-fluid">
-    <h3>Journal</h3>
+    <h6>Journal</h6>
     <div class="fields">     
       <%= f.input :journal_title, label: "Journal name", :input_html => { :class => 'input-block-level' } %>
       <%= f.input :journal_publication_date, label: "Publication date" %>
@@ -9,8 +11,8 @@
       <%= f.input :journal_electronic_issn, label: "ISSN (Electronic)" %>
       <%= f.input :journal_publisher, label: "Publisher" %>
     </div>
-
-    <h3>Article</h3>
+    <hr/>
+    <h6>Article</h6>
     <div class="fields">
       <%= f.input :journal_article_doi, label: "DOI" %>
       <% unless @journal_article.journal_article_doi.nil? %>
@@ -28,4 +30,5 @@
       <%= f.input :journal_article_restriction, label: "Restriction" %>
     </div>
   </div>
-</fieldset>
+
+</div>

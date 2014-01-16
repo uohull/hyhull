@@ -1,34 +1,39 @@
 <div class="container-fluid">
-  <div class="page-gutter">
-    <div class="row-fluid">
-      <div class="span16">          
-        <h2><%= @structural_set.title %></h2>
-        <h2>Structural Set <small><%= link_to "View set", structural_set_path(@structural_set) if @structural_set.persisted? %></small></h2>
-      </div>
-    </div>
 
     <div class="row-fluid">
-      <div class="span16">
-        <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %>
-        <ul id="metadata-edit-nav" class="nav nav-tabs">
-          <li class="active" id="edit_descriptive_metadata_link">
-            <a href="#descriptive_metadata" data-toggle="tab">Description</a>
-          </li>
-          <li id="edit_permissions_link">              
-            <a href="#permissions_display" data-toggle="tab">Permissions</a>
-          </li>
-          <li id="view_additional_metadata_link">
-            <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <%= render :partial => "edit" %>
-          <%= render :partial => "permission", :locals => { :gf => @structural_set} %>
-          <div id="additional_metadata" class="tab-pane">            
-            <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @structural_set }) %>
+      <div class="page-gutter">
+        <div class="span16">
+          <h2>
+            <small>Structural Set: <%= @structural_set.title %>
+              <span class="vertical-divider hidden-phone"></span>
+              <span class="label label-alt">
+              <%= link_to "View set", structural_set_path(@structural_set) if @structural_set.persisted? %></span>
+            </small>
+          </h2>
+
+          <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %>
+          <ul id="metadata-edit-nav" class="nav nav-tabs">
+            <li class="active" id="edit_descriptive_metadata_link">
+              <a href="#descriptive_metadata" data-toggle="tab">Description</a>
+            </li>
+            <li id="edit_permissions_link">              
+              <a href="#permissions_display" data-toggle="tab">Permissions</a>
+            </li>
+            <li id="view_additional_metadata_link">
+              <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <%= render :partial => "edit" %>
+            <%= render :partial => "permission", :locals => { :gf => @structural_set} %>
+            <div id="additional_metadata" class="tab-pane">            
+              <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @structural_set }) %>
+            </div>
           </div>
+
         </div>
       </div>
+
     </div>
-  </div>
+
 </div>

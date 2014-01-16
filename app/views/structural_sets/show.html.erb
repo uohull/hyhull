@@ -1,34 +1,49 @@
 <div class="container-fluid">
+
   <div class="row-fluid">
-    <div class="span10">
-      <div class="row">
-        <div class="span12">          
-          <h2><%= @structural_set.title %></h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span12">          
-          <h3>Structural Set</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span2">
-          <%= link_to "Edit set", edit_structural_set_path(@structural_set) %>
-        </div>
-        <div class="span2">
-          <%= link_to "View all sets", structural_sets_tree_path %>
-        </div>
-        <div class="span2">
-         <%= link_to "View set resources", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/#{@structural_set.pid}&results_view=true" %>
-        </div>
-      </div>
-      </div>      
-      <div class="row" id="breadcrumb">
-        <div class="span6">
+    <div class="page-gutter">
+      <div class="span16">
+
+        <h2>
+          <small>Structural Set: <%= @structural_set.title %>
+          </small>
+        </h2>
+
+        <ul class="breadcrumb square-corners">
           <%= breadcrumb_trail_for_set(@structural_set.pid) %>
+        </ul>      
+        <ul id="actions-nav" class="nav nav-tabs">
+          <li id="view_actions_link" class="active" >
+            <a href="#actions" data-toggle="tab">Actions</a>
+          </li>
+          <li id="view_additional_metadata_link">
+            <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+            <div class="row-spacer"></div>
+              <div id="actions" class="tab-pane active">
+                <div class="page-gutter">
+                  <div class="row-fluid">
+                    <%= link_to "Edit set", edit_structural_set_path(@structural_set) %>
+                  </div>
+                  <div class="row-fluid">
+                    <%= link_to "View all sets", structural_sets_tree_path %>
+                  </div>
+                  <div class="row-fluid">
+                  <%= link_to "View set resources", "/resources/?f%5Bis_member_of_ssim%5D%5B%5D=info:fedora/#{@structural_set.pid}&results_view=true" %>
+                  </div>
+                </div>
+              </div>
+            <div class="row-spacer"></div>
+            <div id="additional_metadata" class="tab-pane">
+              <div class="page-gutter">
+                <%= render :partial => "show_description", :locals => { :resource => @structural_set} %>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>     
-      <%= render :partial => "show_description", :locals => { :resource => @structural_set} %>
+      </div>
     </div>
   </div>
 </div>

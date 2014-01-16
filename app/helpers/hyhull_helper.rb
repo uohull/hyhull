@@ -141,9 +141,8 @@ module HyhullHelper
 
     unless groups.nil?
       permissions = <<-EOS
-         <fieldset>
-           <dl>
-           <dt><strong>Default permissions</strong></dt><dd></dd>
+           <h6>Default permissions</h6>
+           <dl class="dl-horizontal dl-invert">
       EOS
       groups.each do |group|
         group_permission = group[1].to_s
@@ -171,7 +170,6 @@ module HyhullHelper
     end
     permissions << <<-EOS
           </dl>
-         </fieldset>
      EOS
     permissions.html_safe
   end
@@ -195,9 +193,11 @@ module HyhullHelper
       parentage_sets.each do |set| 
         pid = set.name
         name = set.content
-        breadcrumb << name if parentage_sets.first == set
-        breadcrumb << link_to(name , structural_set_path(pid)) if parentage_sets.first != set
-        breadcrumb << " &gt; " if parentage_sets.last != set
+        unless parentage_sets.first == set
+          breadcrumb << content_tag(:li) do
+            link_to(name, structural_set_path(pid)) << content_tag(:span, "/", class: "divider") if parentage_sets.first != set
+          end
+        end
       end
     end
 

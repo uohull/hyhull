@@ -1,9 +1,12 @@
-<%= render "shared/error_messages", :target => resource %>
-<legend><h2>Edit related materials</h2></legend>
-<div class="fields">
-  <h3>Web materials</h3> 
-  <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "related_web_url", label: "Related materials" } %> 
-
-  <h3>Non web</h3>
-  <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "see_also" } %>
+<div class="page-gutter">
+<div class="row-spacer"></div>
+	<%= render "shared/error_messages", :target => resource %>
+	<!-- <legend><h2>Edit related materials</h2></legend> -->
+	<div class="fields">
+	  <h6>Web materials</h6> 
+	  <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "related_web_url", label: "Related materials" } %> 
+	  <hr/>
+	  <h6>Non web</h6>
+	  <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "see_also" } %>
+	 </div>
  </div>

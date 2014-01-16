@@ -1,7 +1,10 @@
-<%= render "shared/error_messages", :target => resource %>
-<legend><h2>Edit Geographic metadata</h2></legend>
-<div class="fields">    
-  <%= f.input :location_label, :input_html => { :class => 'input-block-level' } %>
-  <%= f.input :location_coordinates_type, collection:  Datastream::ModsGenericContent.coordinates_types, label: "Coordinates type" %>
-  <%= f.input :location_coordinates, as: :text, :input_html => { :class => 'input-block-level', :rows => '14' } %>
- </div> 
+<div class="page-gutter">
+<div class="row-spacer"></div>
+	<%= render "shared/error_messages", :target => resource %>
+	<!-- <legend><h2>Edit Geographic metadata</h2></legend> -->
+	<div class="fields">    
+	  <%= f.input :location_label, :input_html => { :class => 'input-block-level' } %>
+	  <%= f.input :location_coordinates_type, collection:  Datastream::ModsGenericContent.coordinates_types, label: "Coordinates type" %>
+	  <%= f.input :location_coordinates, as: :text, :input_html => { :class => 'input-block-level', :rows => '14' } %>
+	 </div> 
+</div>

@@ -27,7 +27,6 @@
       <%= simple_form_for(@uketd_object, :html => {:class => 'form-horizontal' }) do |f| %>
         <div class="tab-content">
 
-
           <div id="descriptive_metadata" class="tab-pane active">
             <%= render :partial => "edit_description", locals: {f: f} %>
           </div>
@@ -48,9 +47,6 @@
               <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @uketd_object }) %>
             </div>
           <% end %>
-
-
-
 
         </div>
         <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 

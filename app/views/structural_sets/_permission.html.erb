@@ -22,8 +22,9 @@ limitations under the License.
         <%= hidden_field_tag('skip_warning', params[:warn]) %>
       <% end %>      
       <%= render :partial => "structural_sets/permission_form", :locals => { :gf => @structural_set, :f=> f } %>
-      <div class="row form-actions" id="permissions_submit">
-              <%= button_tag 'Save'.html_safe, :type => 'submit', :class => 'btn-primary btn-large', :onclick => "confirmation_needed = false;", :id => "upload_submit", :name => "update_permission" %>
+      <div class="page-gutter" id="permissions_submit">
+      <hr/>
+              <%= button_tag 'Save'.html_safe, :type => 'submit', :class => 'btn', :onclick => "confirmation_needed = false;", :id => "upload_submit", :name => "update_permission" %>
       </div>
   <% end %>
 </div><!-- /#permissions_display -->

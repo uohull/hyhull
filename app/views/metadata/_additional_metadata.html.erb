@@ -1,5 +1,7 @@
-<h2>Resource metadata</h2>
-<dl>
+<div class="page-gutter">
+
+<h6>Resource metadata</h6>
+<dl class="document-metadata dl-horizontal dl-invert">
   <dt>Identifier</dt>
   <dd>
     <%= resource.id %>
@@ -29,8 +31,8 @@
     <%= resource.raw_object_url if resource.respond_to? :raw_object_url %>
   </dd>
 </dl>
-<dl>
-  <h4>Depositor</h4>
+<h6>Depositor</h6>
+<dl class="document-metadata dl-horizontal dl-invert">
   <dt>User id</dt>
   <dd>
     <%= resource.depositor if resource.respond_to? :depositor%>
@@ -41,3 +43,4 @@
   </dd>
 </dl>
 
+</div>

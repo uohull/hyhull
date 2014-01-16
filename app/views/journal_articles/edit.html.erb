@@ -1,12 +1,36 @@
 <div class="container-fluid">
-  <div class="page-gutter">
+
+  <div class="workflow-wrapper">
+
+  <!-- css classes to add to wrapper-header div based on workflow status
+  flash-message-container alert-error - deleted
+  flash-message-container alert-neutral - hidden
+  flash-message-container alert-success - published -->
+
+    <div class="wrapper-header">
       <div class="row-fluid">
-        <div class="span16">          
-          <h2><%= @journal_article.title %></h2>
-          <h3>Journal Article <small><%= show_resource_link(@journal_article.id) if @journal_article.persisted? %></small></h3>
+        <div class="span16">
+          <%= render partial: "shared/update_resource_state", locals: { object: @journal_article } %>
         </div>
       </div>
+    </div>
+  
+      <div class="row-fluid">
+        <div class="page-gutter">
+          <div class="span16">          
+            <h2>
+              <small><%= @journal_article.title %>
+                <span class="vertical-divider hidden-phone"></span>
+                <span class="label label-alt">
+                <%= show_resource_link(@journal_article.id) if @journal_article.persisted?  %></span>
+              </small>
+            </h2>
+          </div>
+        </div>
+      </div>
+
       <%= render partial: "shared/resource_content_edit", locals: { resource: @journal_article } %>
       <%= render partial: "edit" %>
+
   </div>
 </div>

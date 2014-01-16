@@ -12,14 +12,14 @@
 %>
 <input type="hidden" id="target_permissions_class" value="<%= gf.class.name.underscore %>">
 <input type="hidden" name="display_set[permissions][group][public]" value="1" />
-<h2>Permissions</h2>
 <div class="alert hide" id="save_perm_note">Permissions are <strong>not</strong> saved until the &quot;Save&quot; button is pressed at the bottom of the page.</div>
 <div class="alert alert-error hide" id="permissions_error"><a class="close" data-dismiss="alert" href="#">×</a><span id="permissions_error_text"></span></div>
-<div class="well">
-  <div class="row">
+<div class="row-spacer"></div>
+<div class="page-gutter">
+  <div class="row-fluid">
     <p class="pull-right">
     <!-- Button to trigger modal -->
-    <a href="#myModal" role="button" class="btn btn-warning" data-toggle="modal">What's this <i class="icon-question-sign icon-large"></i></a>
+    <a href="#myModal" role="button" class="btn btn-warning square-corners" data-toggle="modal">What's this <i class="icon-question-sign icon-white"></i></a>
 <!-- Modal -->
 <div class="modal hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
@@ -63,7 +63,8 @@
     </p>
   </div>
   <div class="control-group">
-    <h3>Visibility - <small>who should have the ability to read and download</small></h3>
+    <h6>Visibility</h6>
+    <p>Who should have the ability to read and download?</p>
       <div class="controls">
         <label class="radio">
           <input type="radio" id="visibility_open" name="visibility" value="open" <% if !public_perm.blank? %> checked="true"<% end %>/> <span class="label label-success">Open Access</span> Visible to the world.
@@ -84,41 +85,44 @@
   </div><!-- /.control-group --> 
 
   <div class="control-group">
-  <h3>Share With <small>(optional)</small></h3>
+  <hr/>
+  <h6>Share with (optional)</h6>
     <div id="new-group" >
       <div class="input-append">
-        <%= select_tag 'new_group_name_skel', options_for_select(PERMISSION_GROUPS), :class => 'span38' %>
-        <%= select_tag 'new_group_permission_skel', options_for_select(PERMISSION_LEVELS), :class => 'span17' %>
-        <button class="btn btn-mini btn-inverse" id="add_new_group_skel" ><i class="icon-plus-sign"></i> Add</button>
+        <%= select_tag 'new_group_name_skel', options_for_select(PERMISSION_GROUPS) %>
+        <%= select_tag 'new_group_permission_skel', options_for_select(PERMISSION_LEVELS) %>
+        <button class="btn square-corners" id="add_new_group_skel" ><i class="icon-plus-sign"></i> Add</button>
         <br /><span id="directory_group_result"></span>
       </div>
     </div>
   </div>
 </div><!-- /.well -->
-<table class="table table-bordered"> 
-  <tr> 
-    <th width="60%">Person/Group</th>
-    <th width="40%">Access Level</th>
-  </tr>
-  <tr id="file_permissions">
-    <td><%#= label_tag :owner_access, "Depositor (<span id=\"file_owner\">#{link_to_profile depositor}</span>)".html_safe, :class=>"control-label" %></td>
-    <td>
-    <%#= Sufia.config.owner_permission_levels.keys[0] %>
-    </td>
-  </tr>
-  <% gf.permissions.each do |permission| %>
-    <%# skip the public, penn state (aka registered), and depositor perms as they are displayed first at the top %>
-    <% next if permission[:name].downcase == 'contentaccessteam' %>
-    <% next if permission[:name].downcase == 'public' %>
-    <% next if permission[:name].downcase == 'staff' %>
-    <% next if permission[:name].downcase == 'student' %>
-    <% next if permission[:name].downcase == depositor %>
-    <tr>
-      <td><%= label_tag "display_set[permissions][#{permission[:type]}][#{permission[:name]}]", permission[:name], :class=>"control-label" %></td>
+<div class="page-gutter">
+  <table class="table table-bordered square-corners"> 
+    <tr> 
+      <th width="60%">Person/Group</th>
+      <th width="40%">Access Level</th>
+    </tr>
+    <tr id="file_permissions">
+      <td><%#= label_tag :owner_access, "Depositor (<span id=\"file_owner\">#{link_to_profile depositor}</span>)".html_safe, :class=>"control-label" %></td>
       <td>
-      <%= select_tag "display_set[permissions][#{permission[:type]}][#{permission[:name]}]", options_for_select(PERMISSION_LEVELS, permission[:access]), :class=>'span20 select_perm' %>
-      <button class="btn close remove_perm">X</button>
+      <%#= Sufia.config.owner_permission_levels.keys[0] %>
       </td>
     </tr>
-  <% end %>
-</table>
+    <% gf.permissions.each do |permission| %>
+      <%# skip the public, penn state (aka registered), and depositor perms as they are displayed first at the top %>
+      <% next if permission[:name].downcase == 'contentaccessteam' %>
+      <% next if permission[:name].downcase == 'public' %>
+      <% next if permission[:name].downcase == 'staff' %>
+      <% next if permission[:name].downcase == 'student' %>
+      <% next if permission[:name].downcase == depositor %>
+      <tr>
+        <td><%= label_tag "display_set[permissions][#{permission[:type]}][#{permission[:name]}]", permission[:name], :class=>"control-label" %></td>
+        <td>
+        <%= select_tag "display_set[permissions][#{permission[:type]}][#{permission[:name]}]", options_for_select(PERMISSION_LEVELS, permission[:access]), :class=>'span4 select_perm' %>
+        <button class="btn close remove_perm">X</button>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

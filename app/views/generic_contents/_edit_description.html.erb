@@ -1,27 +1,34 @@
-<%= render "shared/error_messages", :target => @generic_content %>
-<legend><h2>Edit Metadata</h2></legend>
-<div class="fields">
-  <h3>Author, and Contributor(s)</h3>    
+<div class="page-gutter">
+<div class="row-spacer"></div>
+  <%= render "shared/error_messages", :target => @generic_content %>
+  <!-- <legend><h2>Edit Metadata</h2></legend> -->
+  <div class="fields">
+    <h6>Author, and Contributor(s)</h6>    
 
-  <%= render(:partial => "metadata/name_edit", :locals => { object: @generic_content, name_type: "person" }) %>
+    <%= render(:partial => "metadata/name_edit", :locals => { object: @generic_content, name_type: "person" }) %>
 
-  <%= render(:partial => "metadata/name_edit", :locals => { object: @generic_content, name_type: "organisation" }) %>
+    <%= render(:partial => "metadata/name_edit", :locals => { object: @generic_content, name_type: "organisation" }) %>
 
-  <h3>Resource</h3>  
+    <hr/>
 
-  <%= f.input :title, :input_html => { :class => 'input-block-level' } %>
+    <h6>Resource</h6>  
 
-  <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "subject_topic", required: true } %> 
-  
-  <%= f.input :description, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
+    <%= f.input :title, :input_html => { :class => 'input-block-level' } %>
 
-  <% # class datepicker provides JQuery based date picker - not using at present %>
-  <%= f.input :date_valid %>
+    <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "subject_topic", required: true } %> 
+    
+    <%= f.input :description, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
 
-  <%= f.input :publisher %>
+    <% # class datepicker provides JQuery based date picker - not using at present %>
+    <%= f.input :date_valid %>
 
-  <h3>Rights statement</h3>  
+    <%= f.input :publisher %>
 
-  <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "rights" } %> 
+    <hr/>
 
+    <h6>Rights statement</h6>  
+
+    <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "rights" } %> 
+
+  </div>
 </div>

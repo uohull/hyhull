@@ -1,12 +1,15 @@
-<%= render "shared/error_messages", :target => resource %>
-<legend><h2>Supplementary metadata</h2></legend>
-<div class="fields">    
-  <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "extent" } %> 
-  <%= f.input :language_text %>
-  <%= f.input :language_code %>
-  <%= f.input :digital_origin %>
-  <% #Can only set the Genre if its a Generic Content resource %>
-  <%= f.input :genre, collection: Genre.all.sort {|a,b| a.name <=> b.name }, value_method: "name" if resource.instance_of? GenericContent %>
-  <%= f.input :type_of_resource unless resource.resource_proto? %>
-  <%= f.input :additional_notes, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>  
+<div class="page-gutter">
+<div class="row-spacer"></div>
+	<%= render "shared/error_messages", :target => resource %>
+	<!-- <legend><h2>Supplementary metadata</h2></legend>
+	<div class="fields">     -->
+	  <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "extent" } %> 
+	  <%= f.input :language_text %>
+	  <%= f.input :language_code %>
+	  <%= f.input :digital_origin %>
+	  <% #Can only set the Genre if its a Generic Content resource %>
+	  <%= f.input :genre, collection: Genre.all.sort {|a,b| a.name <=> b.name }, value_method: "name" if resource.instance_of? GenericContent %>
+	  <%= f.input :type_of_resource unless resource.resource_proto? %>
+	  <%= f.input :additional_notes, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>  
+	</div>
 </div>
