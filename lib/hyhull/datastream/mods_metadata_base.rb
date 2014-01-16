@@ -189,26 +189,6 @@ module Hyhull::Datastream::ModsMetadataBase
       [ "Creator", "Host", "Sponsor"]
     end
 
-    def qualification_name_terms
-      ["PhD", "ClinPsyD", "MD", "PsyD", "MA" , "MEd", "MEng", "MPhil", "MRes", "MSc" , "MTheol", "EdD" , "DBA", "BA", "BSc"]  
-    end
-
-    def qualification_level_terms
-      ["Doctoral", "Masters", "Undergraduate"]
-    end
-
-    def dissertation_category_terms
-      ["Blue", "Green", "Red"]
-    end
-
-    def department_names_list
-      return DEPARTMENTS
-    end
-
-    def examination_paper_levels
-      ["Level 4", "Level 5", "Level 6", "Level 7", "Level M", "Foundation level"]
-    end
-
     def coordinates_types
       {
         "Path" => "LineString",

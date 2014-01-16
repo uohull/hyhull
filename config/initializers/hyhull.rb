@@ -49,11 +49,5 @@ OWNER_PERMISSION_LEVELS = {
   "Edit" => "edit"
 }
 
-DEPARTMENTS = {
-  "ICTD" => "ICTD",
-  "LLI" => "LLI",
-  "Computer Science" => "Computer Science"
-}
-
 # Google Maps API key
 GOOGLE_MAPS_KEY = ""

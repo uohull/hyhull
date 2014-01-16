@@ -38,9 +38,6 @@ class ExamPaper < ActiveFedora::Base
   # Subject
   has_attributes :subject_topic, datastream: :descMetadata, multiple: true
 
-  delegate :department_names_list, to: Datastream::ModsExamPaper, multiple: false
-  delegate :examination_paper_levels, to: Datastream::ModsExamPaper, multiple: false
-
   # Standard validations for the object fields
   #validates :title, presence: true
   validates :department_name, presence: true

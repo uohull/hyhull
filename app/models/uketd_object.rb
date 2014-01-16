@@ -49,9 +49,6 @@ class UketdObject < ActiveFedora::Base
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsEtd, multiple: false
   delegate :organisation_role_terms, to: Datastream::ModsEtd, multiple: false
-  delegate :qualification_name_terms, to: Datastream::ModsEtd, multiple: false
-  delegate :qualification_level_terms, to: Datastream::ModsEtd, multiple: false
-  delegate :dissertation_category_terms, to: Datastream::ModsEtd, multiple: false
 
   # Standard validations for the object fields
   validates :title, presence: true

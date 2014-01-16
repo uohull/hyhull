@@ -1,6 +1,9 @@
+# This ActiveRecord::Base class is used to store the Properties for Hyhull
+# Property includes the attributes: name, value, property_type
+# A property has one PropertyType
 class Property < ActiveRecord::Base
   
-  attr_accessible :name, :value, :property_type_id
+  attr_accessible :name, :value, :property_type
   belongs_to :property_type 
 
   validates :name, presence: true

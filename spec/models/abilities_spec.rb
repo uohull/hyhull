@@ -182,6 +182,62 @@ describe "Abilities" do
     end
   end
 
+  # Property is model used to store various properties in Hydra
+  describe "Property" do
+    describe ".custom_permissions" do
+      before(:all) do
+        @property_name = "Business School"
+      end      
+      # Admin users are the only ones that modify roles
+      context "when user is a admin" do
+        let(:user) { FactoryGirl.create(:admin) }
+        it { should be_able_to(:show, Property.find_or_initialize_by_name(@property_name))}
+        it { should be_able_to(:index, Property.find_or_initialize_by_name(@property_name))}
+        it { should be_able_to(:update, Property.find_or_initialize_by_name(@property_name))}
+        it { should be_able_to(:destroy, Property.find_or_initialize_by_name(@property_name))}
+      end
+
+      # These users should NOT be able modify roles
+      context "when user is a cat" do
+        let(:user) { FactoryGirl.create(:cat) }
+        it { should_not be_able_to(:show, Property.find_or_initialize_by_name(@property_name))}
+        it { should_not be_able_to(:index, Property.find_or_initialize_by_name(@property_name))}
+        it { should_not be_able_to(:update, Property.find_or_initialize_by_name(@property_name))}
+        it { should_not be_able_to(:destroy, Property.find_or_initialize_by_name(@property_name))}
+      end
+
+      # These users should NOT be able modify roles
+      context "when user is public" do
+        it { should_not be_able_to(:show, Property.find_or_initialize_by_name(@property_name))}
+        it { should_not be_able_to(:index, Property.find_or_initialize_by_name(@property_name))}
+        it { should_not be_able_to(:update, Property.find_or_initialize_by_name(@property_name))}
+        it { should_not be_able_to(:destroy, Property.find_or_initialize_by_name(@property_name))}
+      end
+    end
+  end
+
+  # PropertyType model (only index available) - no manage operations at present
+  describe "PropertyType" do
+    describe ".custom_permissions" do
+      # Admin users are the only ones that modify roles
+      context "when user is a admin" do
+        let(:user) { FactoryGirl.create(:admin) }
+        it { should be_able_to(:index, PropertyType) }
+      end
+
+      # These users should NOT be able modify roles
+      context "when user is a cat" do
+        let(:user) { FactoryGirl.create(:cat) }
+        it { should_not be_able_to(:index, PropertyType) }
+      end
+
+      # These users should NOT be able modify roles
+      context "when user is public" do
+        it { should_not be_able_to(:index, PropertyType) }
+      end
+    end
+  end
+
   # In hyhull we have overridden the permissions of ActiveFedora::Based so that it's not just based upon whether the user is an editor.
   # Resources can only be deleted when their resource_state is proto, qa or deleted.  Resources in other state CANNOT be deleted
   describe "UketdObject" do
