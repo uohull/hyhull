@@ -1,6 +1,3 @@
-Dataset:
- type: dataset
- c_model: hull-cModel:dataset
 Event:
  type: event
  c_model: hull-cModel:event
@@ -43,9 +40,6 @@ Conference paper or abstract:
 Conference poster:
  type: text
  c_model: hull-cModel:conferencePoster
-Examination paper:
- type: text
- c_model: hull-cModel:examPaper
 Guidance:
  type: text
  c_model: hull-cModel:guidance
@@ -55,9 +49,6 @@ Handbook:
 Internet publication:
  type: text
  c_model: hull-cModel:internetPublication
-Journal article:
- type: text
- c_model: hull-cModel:journalArticle
 Learning materials:
  type: text
  c_model: hull-cModel:learningMaterial
