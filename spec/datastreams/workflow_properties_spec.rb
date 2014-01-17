@@ -16,6 +16,12 @@ describe Hyhull::Datastream::WorkflowProperties do
       @ds.fields.collection.should == ["uketd_object"]
       @ds.fields._resource_state.should == ["proto"]   
     end
+
+    describe ".to_solr" do
+      it "should generate the required solr fields" do
+        @ds.to_solr["_resource_state_ssi"].should == "proto"
+      end
+    end
   end
 
   context "with a new ContentMetadata instance" do
@@ -31,5 +37,6 @@ describe Hyhull::Datastream::WorkflowProperties do
       @workflow_properties_ds.to_xml.should be_equivalent_to("<fields><depositor>aperson</depositor><depositorEmail>aperson@example.com</depositorEmail><collection>video</collection><resourceState>published</resourceState></fields>")
     end
   end
+
 
 end

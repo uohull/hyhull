@@ -75,7 +75,7 @@ module Hyhull::Datastream::ModsMetadataBase
       # Resource types 
       t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
       t.type_of_resource(:path=>"typeOfResource")
-      t.resource_status(:path=>"note", :attributes=>{:type=>"admin"})
+      t.resource_status(:path=>"note", :attributes=>{:type=>"admin"}, :index_as=>[:displayable])
       t.origin_info(:path=>'originInfo') {
         t.date_issued(:path=>'dateIssued')
         t.date_valid(:path=>'dateValid', :attributes=>{:encoding=>'iso8601'})
