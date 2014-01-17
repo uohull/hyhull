@@ -7,7 +7,7 @@ module Hyhull
         t.depositor
         t.depositor_email(:path=>'depositorEmail')
         t.collection
-        t._resource_state(:path=>'resourceState')
+        t._resource_state(:path=>'resourceState', :index_as=>[:stored_sortable])
       end
 
       # Generates an empty contentMetadata

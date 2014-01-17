@@ -1,0 +1,7 @@
+<% unless local_assigns[:document].nil? %>
+  <% if contentAccessTeam_user? || admin_user? %>
+    <% resource_status = solr_field_value(document, "resource_status_ssm" ) %>
+    <%= render partial: "shared/accordian_partial", locals: { accordian_id: document.id.gsub(":", "-"), 
+        content_hash: [ { heading: "Resource status", body: resource_status }]} unless resource_status.blank? %> 
+  <% end %>
+<% end %>

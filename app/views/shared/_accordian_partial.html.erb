@@ -1,0 +1,19 @@
+<% accordian_id = "acordian1" if local_assigns[:accordian_id].nil? %>
+<% content_hash = [] if local_assigns[:content_hash].nil? %>
+<%# content_hash = [{ heading: "heading text", body: "Body text "} , { heading: "heading text 2", body: "Body text 2 "}  ] %>
+<%= content_tag :div, { class: "accordion", id: accordian_id } do -%>
+  <% content_hash.each_with_index do |content, i| %>
+    <%= content_tag :div, class: "accordion-group" do -%>
+      <%= content_tag :div, class: "accordion-heading" do -%>
+        <%= content_tag :a,  { class: "accordion-toggle", "data-toggle" => "collapse", "data-parent" => "##{accordian_id}", href: "#collapse-#{accordian_id}-#{i}" } do -%>
+          <%= content[:heading] %>
+        <% end -%>
+      <% end -%>
+      <%= content_tag :div, { id: "collapse-#{accordian_id}-#{i}", class: "accordion-body collapse" } do -%>
+        <%= content_tag :div, class: "accordion-inner" do -%>
+           <%= content[:body] %>
+        <% end -%>
+      <% end -%>
+    <% end -%>
+  <% end %>
+<% end -%>

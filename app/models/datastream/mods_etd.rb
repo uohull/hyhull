@@ -61,7 +61,7 @@
       t.qualification_level(:path=>"note", :attributes=>{:type=>"qualificationLevel"}, :index_as=>[:displayable])
       t.qualification_name(:path=>"note", :attributes=>{:type=>"qualificationName"}, :index_as=>[:displayable])
       t.dissertation_category(:path=>"note", :attributes=>{:type=>"dissertationCategory"})
-      t.resource_status(:path=>"note", :attributes=>{:type=>"admin"})
+      t.resource_status(:path=>"note", :attributes=>{:type=>"admin"}, :index_as=>[:displayable])
       t.origin_info(:path=>'originInfo') {
         t.date_issued(:path=>'dateIssued')
         t.date_valid(:path=>"dateValid", :attributes=>{:encoding=>'iso8601'})

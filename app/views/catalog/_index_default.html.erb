@@ -6,5 +6,5 @@
 	    <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value document, :field => solr_fname %></dd>
     <% end -%>
   <% end -%>
-
 </dl>
+<%= render partial: "shared/resource_status_panel", locals: { document: document } %>
