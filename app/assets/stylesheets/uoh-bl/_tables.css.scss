@@ -39,4 +39,9 @@
 .dl-invert dt {
   color: #444444;
   font-style: italic;
+  padding-right: 1em;
+}
+
+dl.dl-horizontal dt, dl.dl-horizontal dd {
+  line-height: 30px;
 }

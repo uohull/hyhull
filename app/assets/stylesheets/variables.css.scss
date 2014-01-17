@@ -46,7 +46,7 @@ $tilerowgutter: 0;
 $selectedtextcolor: #f67872;
 $alertcolor: #4E9799;
 $errorcolor: #cc6565;
-$successcolor: #236524 ;
+$successcolor: #3E803F;
 $noticecolor: #3d7a7a;
 $infocolor: #9ebe5e;
 $warningcolor: #BE5A13;
@@ -73,3 +73,10 @@ $modal-body-maxheight: 406px;
 
 /* nav-tabs */
 $active-tab-color: whitesmoke;
+
+/* workflow colors */
+$proto-color: #7EC6C8;
+$qa-color: #188092;
+$hidden-color: #444;
+$published-color: #3E803F;
+$deleted-color: #cc6565;
