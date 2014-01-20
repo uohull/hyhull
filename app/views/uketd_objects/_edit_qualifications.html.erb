@@ -3,7 +3,7 @@
   <div class="fields">
     <h6>Qualification</h6>
       <%= select_by_property_type(f, :qualification_level, "ETD-QUALIFICATION-LEVEL") %>
-      <%= select_by_property_type(f, :qualification_name, "ETD-QUALIFICATION-NAME") %>
+      <%= select_by_property_type(f, :qualification_name, "ETD-QUALIFICATION-NAME", false) %>
     <hr/>
     <h6>Dissertations</h6>
     <%= select_by_property_type(f, :dissertation_category, "ETD-DISSERTATION-CATEGORY") %>

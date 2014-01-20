@@ -14,12 +14,16 @@ class Property < ActiveRecord::Base
   validates :value, uniqueness: { scope: :property_type_id }
 
   # Return a list of Property instances based upon the PropertyType Name
-  def self.select_by_property_type_name(property_type_name)
+  def self.select_by_property_type_name(property_type_name, sort_by_property_name=true)
     unless property_type_name.blank?
       property_type = PropertyType.where(name: property_type_name)
 
-      unless property_type.empty?      
-        Property.where(property_type_id: property_type.first.id)
+      unless property_type.empty?
+        if sort_by_property_name      
+          Property.where(property_type_id: property_type.first.id).order(:name)
+        else
+          Property.where(property_type_id: property_type.first.id)
+        end
       end     
 
     end
