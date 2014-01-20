@@ -1,11 +1,6 @@
 <div class="container-fluid">
 
-  <div class="workflow-wrapper">
-
-  <!-- css classes to add to wrapper-header div based on workflow status
-  flash-message-container alert-error - deleted
-  flash-message-container alert-neutral - hidden
-  flash-message-container alert-success - published -->
+  <div class="workflow-wrapper <%= resource_workflow_class(@uketd_object) %>">
 
     <div class="wrapper-header">
       <div class="row-fluid">
@@ -23,8 +18,6 @@
           <span class="label label-alt">
           <%= show_resource_link(@uketd_object.id) if @uketd_object.persisted?  %></span>
           </small></h2>
-          
-          <!-- <h3>Thesis or dissertation <small><%= show_resource_link(@uketd_object.id)  if @uketd_object.persisted?  %></small></h3> -->
         </div>
       </div>
     </div>

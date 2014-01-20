@@ -1,11 +1,6 @@
 <div class="container-fluid">
 
-  <div class="workflow-wrapper">
-
-  <!-- css classes to add to wrapper-header div based on workflow status
-  flash-message-container alert-error - deleted
-  flash-message-container alert-neutral - hidden
-  flash-message-container alert-success - published -->
+  <div class="workflow-wrapper <%= resource_workflow_class(@journal_article) %>">
 
     <div class="wrapper-header">
       <div class="row-fluid">

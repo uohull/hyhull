@@ -1,16 +1,6 @@
 <div class="container-fluid">
-  <div class="workflow-wrapper">
-    <!-- css classes to add to wrapper-header div based on workflow status
+  <div class="workflow-wrapper <%= resource_workflow_class(@generic_content) %>">
 
-    workflow-proto (alt-color light)  - proto
-    workflow-qa (alt-color)           - qa
-    workflow-hidden (neutral)         - hidden
-    workflow-published (success)      - published
-    workflow-deleted (error)          - deleted
-
-    e.g. <div class="workflow-wrapper workflow-published">
-
-    -->
       <div class="wrapper-header">
         <div class="row-fluid">
           <div class="span16" id="workflow-message">
