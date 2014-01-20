@@ -20,8 +20,15 @@ class GenericContentsController < ApplicationController
 
   end
 
-  def create 
-    @generic_content = GenericContent.new(params[:generic_content])
+  def create
+    # If admin user, on create the namespace of the object will be defined by the pid_namespace attribute 
+    if current_user.admin?
+      @generic_content =  GenericContent.new(params[:generic_content].merge({ namespace: params[:generic_content][:pid_namespace]}))
+    else
+      # Other users cannot define the pidnamespace therefore Fedora default will be used...
+      @generic_content = GenericContent.new(params[:generic_content])
+    end
+
     @generic_content.apply_depositor_metadata(current_user.username, current_user.email)
 
     respond_to do |format|

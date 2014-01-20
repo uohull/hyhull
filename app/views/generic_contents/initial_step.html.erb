@@ -10,6 +10,7 @@
         <div class="span16">
           <%= simple_form_for(@generic_content, url: { action: "new" },  :method => "get", :html => {:class => 'form-horizontal' }) do |f| %>
             <%= f.input :genre, collection: Genre.all.sort {|a,b| a.name <=> b.name }, value_method: "name" %>
+            <%= select_by_property_type(f, :pid_namespace, "FEDORA-PID-NAMESPACE", true, false) if admin_user? %>
             <%= f.submit "Next" %>
           <% end %>
         </div>

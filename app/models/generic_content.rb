@@ -48,6 +48,8 @@ class GenericContent < ActiveFedora::Base
   # Organisations
   has_attributes :organisation_name, :organisation_role_text, datastream: :descMetadata, multiple: true
 
+  attr_accessor :pid_namespace
+
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsGenericContent, multiple: false
   delegate :organisation_role_terms, to: Datastream::ModsGenericContent, multiple: false
@@ -59,6 +61,10 @@ class GenericContent < ActiveFedora::Base
   validates :subject_topic, array: { :length => { :minimum => 2 } }
   validates :language_code, presence: true
   validates :language_text, presence: true 
+
+  # Safety check to ensure that pid_namespace being set in the params is actually a valid configuration
+  validates :pid_namespace, inclusion: { in: proc { PropertyType.where(name:"FEDORA-PID-NAMESPACE").first.properties.collect {|p| p.value } },
+    message: "'%{value}' is not a valid namespace" }
 
   # Overridden so that we can store a cmodel and "complex Object"
   def assert_content_model
@@ -76,7 +82,12 @@ class GenericContent < ActiveFedora::Base
     end
   end
 
-    # Overide the attributes method to enable the calling of custom methods
+  # pid_namespace is just a placeholder to store a namespace for the create operation - see above for validation 
+  def pid_namespace
+    @pid_namespace || "hull"
+  end
+
+  # Overide the attributes method to enable the calling of custom methods
   def attributes=(properties)
     super(properties)
     self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person") unless properties["person_name"].nil? or properties["person_role_text"].nil?

@@ -123,6 +123,19 @@ describe GenericContent do
       @generic_content.errors.messages[:language_code].should == ["can't be blank"]    
     end
 
+    context "custom pid namespace" do
+      before(:each) do
+        @generic_content.title = "Test"
+        @generic_content.genre = "Book"
+        @generic_content.subject_topic = "Test topic" 
+      end
+
+      it "should validate against the configured list" do
+        @generic_content.pid_namespace = "something-made-up"
+        @generic_content.save.should be_false
+        @generic_content.errors.messages[:pid_namespace].to_sentence.include?("'something-made-up' is not a valid namespace").should be_true
+      end   
+    end
 
     describe "assert_content_model" do
       it "should set the cModels" do

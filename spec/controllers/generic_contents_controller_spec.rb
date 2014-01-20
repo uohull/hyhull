@@ -1,7 +1,10 @@
 # spec/controllers/generic_contents_controller_spec.rb
 require 'spec_helper'
+require 'user_helper'
 
 describe GenericContentsController do
+  include UserHelper
+
   login_cat
 
   describe "initial_step" do
@@ -13,24 +16,47 @@ describe GenericContentsController do
   end
 
   describe "creating" do
-    it "should render the create page" do
-       get :new
-       assigns[:generic_content].should be_kind_of GenericContent
-       response.should render_template("new")
-    end
-    it "should render the crete page with valid params specified" do
-      get :new, "generic_content"=>{"genre"=>"Presentation"}
-      generic_content = assigns[:generic_content]
-      generic_content.should be_kind_of GenericContent
 
-      generic_content.genre.should == "Presentation"
-      response.should render_template("new")
+    describe "login_cat" do
+      it "should render the create page" do
+         get :new
+         assigns[:generic_content].should be_kind_of GenericContent
+         response.should render_template("new")
+      end
+      it "should render the create page with valid params specified" do
+        get :new, "generic_content"=>{"genre"=>"Presentation"}
+        generic_content = assigns[:generic_content]
+        generic_content.should be_kind_of GenericContent
+
+        generic_content.genre.should == "Presentation"
+        response.should render_template("new")
+      end
+      it "should support create requests" do
+         post :create, :generic_content=>{"title"=>"A Generic title"}
+         generic_content = assigns[:generic_content]
+         generic_content.title.should == "A Generic title"
+      end
+
+      it "should NOT support create requests with custom pid_namespace specified" do
+        post :create, :generic_content=>{"title"=>"A Generic title", "genre" => "Book", "pid_namespace"=>"hull-archives"}
+        generic_content = assigns[:generic_content]
+        generic_content.pid.include?("changeme").should be_true
+      end
     end
-    it "should support create requests" do
-       post :create, :generic_content=>{"title"=>"A Generic title"}
-       generic_content = assigns[:generic_content]
-       generic_content.title.should == "A Generic title"
+
+    describe  "login_admin" do
+      before(:each) do
+        admin_user_sign_in
+      end
+
+      it "should support create requests with custom pid_namespace specified" do
+        post :create, :generic_content=>{"title"=>"A Generic title", "genre" => "Book", "pid_namespace"=>"hull-archives"}
+        generic_content = assigns[:generic_content]
+        generic_content.pid.include?("hull-archives").should be_true
+      end
+
     end
+
   end
 
  describe "editing" do
