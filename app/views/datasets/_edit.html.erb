@@ -1,7 +1,7 @@
 <div class="page-gutter">
   <div class="row-fluid">
     <div class="span16">
-      <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %></li>
+      <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %>
       <ul id="metadata-edit-nav" class="nav nav-tabs">
         <li class="active" id="edit_descriptive_metadata_link">
           <a href="#descriptive_metadata" data-toggle="tab">Description</a>
@@ -28,7 +28,6 @@
         <% end %>
       </ul>
       <%= simple_form_for(@dataset, :html => {:class => 'form-horizontal' }) do |f| %>
-      
       <div class="tab-content">         
         <div id="descriptive_metadata" class="tab-pane active">
           <%= render :partial => "edit_description", locals: {f: f} %>
@@ -41,27 +40,21 @@
         </div>
         <div id="supplementary_metadata" class="tab-pane">            
           <%= render :partial => "metadata/edit_supplementary_metadata", locals: {f: f, resource: @dataset} %>
-        </div>      
+        </div>   
         <% unless @dataset.resource_proto? %>
-          <div id="set_membership" class="tab-pane">            
+          <div id="set_membership" class="tab-pane">          
             <%= render(:partial => "shared/set_management",  :locals => { resource: @dataset, f: f }) %>
           </div>
-          <div id="admin_metadata" class="tab-pane">            
+          <div id="admin_metadata" class="tab-pane">             
             <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @dataset, form: f }) %>
           </div>
           <div id="additional_metadata" class="tab-pane">            
             <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @dataset }) %>
           </div>
         <% end %>
-      </div>
-
-      <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
-
+       </div>
+        <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
       <% end %>
-      
-    </div> 
-    <!-- <div class="span16">
-      <%#= render partial: "shared/update_resource_state", locals: { object: @dataset } %>
-    </div> -->
+    </div>
   </div>
 </div>

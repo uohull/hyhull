@@ -1,18 +1,32 @@
-<div id="descriptive_metadata" class="tab-pane active">
-  <div class="row-spacer"></div>
-  <%= render "shared/error_messages", :target => @display_set %>
-  <%= simple_form_for(@display_set, :html => {:class => 'form-horizontal' }) do |f| %>
-    	
-    	<div class="page-gutter">
-        <%= f.input :title, :input_html => { :class => 'input-block-level' } %>
-        <%= f.input :description, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %> 
-        <hr/>
-        <%= render(:partial => "shared/set_select",  :locals => { set_class: DisplaySet, parent_field_name: "display_set_id", resource: @display_set, form: f }) %>
-        <hr/>
-        <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @display_set, form: f }) %> 
-        <% # Only show the Add/edit content files when the initial metadata has been added and object created %>
-        <hr/>
-        <%= f.button :submit, "Save", :class => 'btn square-corners' %>
-      </div>    
-  <% end %>
+<div class="row-fluid">
+  <div class="span16">
+    <div class="page-gutter">
+      <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %>
+      <ul id="set-tree-nav" class="nav nav-tabs">
+        <li class="active" id="edit_descriptive_metadata_link">
+          <a href="#descriptive_metadata" data-toggle="tab">New display set</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="descriptive_metadata" class="tab-pane active">
+          <div class="row-spacer"></div>
+          <%= render "shared/error_messages", :target => @display_set %>
+          <%= simple_form_for(@display_set, :html => {:class => 'form-horizontal' }) do |f| %>
+          <div class="page-gutter">
+            <%= f.input :title, :input_html => { :class => 'input-block-level' } %>
+            <%= f.input :description, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %> 
+            <hr/>
+            <%= render(:partial => "shared/set_select",  :locals => { set_class: DisplaySet, parent_field_name: "display_set_id", resource: @display_set, form: f }) %>
+            <hr/>
+            <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @display_set, form: f }) %> 
+            <% # Only show the Add/edit content files when the initial metadata has been added and object created %>
+            <hr/>
+            <%= f.button :submit, "Save", :class => 'btn square-corners' %>
+          </div>    
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

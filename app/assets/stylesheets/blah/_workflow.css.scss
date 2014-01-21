@@ -4,6 +4,7 @@
 
 .workflow-wrapper.workflow-proto {
 	border: 10px solid $proto-color !important;
+	margin-top: 0.75em;
 	div.wrapper-header {
 		background: $proto-color !important;
 		div#workflow-message { color: workflow-text-colour($proto-color) !important; }

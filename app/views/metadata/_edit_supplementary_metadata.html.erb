@@ -11,5 +11,4 @@
 	  <%= f.input :genre, collection: Genre.all.sort {|a,b| a.name <=> b.name }, value_method: "name" if resource.instance_of? GenericContent %>
 	  <%= f.input :type_of_resource unless resource.resource_proto? %>
 	  <%= f.input :additional_notes, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>  
-	</div>
 </div>

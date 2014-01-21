@@ -12,18 +12,20 @@
 
     <div class="row-fluid">
       <div class="page-gutter">
-        <div class="span16">          
-          <h2>
-          <small><%= @dataset.title %>
-          <span class="vertical-divider hidden-phone"></span>
-          <span class="label label-alt">
-          <%= show_resource_link(@dataset.id) if @dataset.persisted?  %></span>
-          </small></h2>
+        <div class="span16">   
+          <span class="pull-left">        
+            <h2>
+              <small><%= @dataset.title %>
+              </small>
+            </h2>
+          </span>
+          <span class="label label-alt pull-right" style="margin-top: 20px;" i>
+            <%= show_resource_link(@dataset.id) if @dataset.persisted?  %></span>
+          </span>
         </div>
       </div>
+    </div>
     <%= render partial: "shared/resource_content_edit", locals: { resource: @dataset } %>
     <%= render partial: "edit" %>
-    </div>
-
   </div>
 </div>

@@ -62,15 +62,25 @@
 
 </script>
 
-<p>This is a full list of all the sets within hyhull</p>
 <div class="row-fluid">
-  <div class="span12">
-    <div id="set-tree" class="modal-body"></div> 
-
-    <div class="well btn-group span16 square-corners">
-        <button id="view-set" class="btn square-corners" disabled onclick="ViewSet('view')">View</button>
-        <button id="edit-set" class="btn square-corners" disabled onclick="ViewSet('edit')">Edit</button>
-        <button id="new-set" class="btn square-corners" disabled onclick="NewSet()">New set</button>
+  <div class="span16">
+    <div class="page-gutter">
+      <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %>
+      <ul id="set-tree-nav" class="nav nav-tabs">
+        <li class="active" id="set_tree_link">
+          <a href="#set_tree" data-toggle="tab">Full list of all the sets within hyhull</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="set_tree" class="tab-pane active">            
+          <div id="set-tree" class="modal-body"></div> 
+          <div class="well btn-group span16 square-corners">
+              <button id="view-set" class="btn square-corners" disabled onclick="ViewSet('view')">View</button>
+              <button id="edit-set" class="btn square-corners" disabled onclick="ViewSet('edit')">Edit</button>
+              <button id="new-set" class="btn square-corners" disabled onclick="NewSet()">New set</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -38,12 +38,14 @@
     overflow: auto;
 }
 
-/* workflow controls */
+/* workflow controls - default (see _workflow status overrides*/
 .workflow-wrapper {
 	border: 10px solid $primarycolordark;
+  margin-top: 0.75em;
   .wrapper-header {
     background: $primarycolordark;
-    padding: 0.5em 1em 1.25em 1em;
+    line-height: 28px;
+    padding: 0.5em 1em 1.15em 1.25em;
     color: #fff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     #workflow-message { line-height: 34px; }
@@ -52,8 +54,3 @@
     }
   }
 }
-
-/*.wrapper-header {
-    background: none repeat scroll 0 0 #FF0000;
-    padding: 1em;
-}*/

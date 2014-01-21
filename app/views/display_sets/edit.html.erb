@@ -1,20 +1,22 @@
 <div class="container-fluid">
-
-
-
-
   <div class="row-fluid">
     <div class="page-gutter">
       <div class="span16">
-
-        <h2>
-          <small>Display set: <%= @display_set.title %>
-            <span class="vertical-divider hidden-phone"></span>
-            <span class="label label-alt">
-            <%= link_to "View set", display_set_path(@display_set) if @display_set.persisted? %></span>
-          </small>
-        </h2>
-
+        <span class="pull-left">
+          <h2>
+            <small>Display Set > <%= @display_set.title %>
+            </small>
+          </h2>
+        </span>
+        <span class="label label-alt pull-right" style="margin-top: 20px;" i>
+          <%= link_to "View set", display_set_path(@display_set) if @display_set.persisted? %>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="page-gutter">
+      <div class="span16">
         <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %>
         <ul id="metadata-edit-nav" class="nav nav-tabs">
           <li class="active" id="edit_descriptive_metadata_link">
@@ -36,6 +38,5 @@
         </div>
       </div> 
     </div>
-
   </div>
 </div>

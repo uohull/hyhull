@@ -13,11 +13,15 @@
     <div class="row-fluid">
       <div class="page-gutter">
         <div class="span16">          
-          <h2><small><%= @uketd_object.title %>
-          <span class="vertical-divider hidden-phone"></span>
-          <span class="label label-alt">
-          <%= show_resource_link(@uketd_object.id) if @uketd_object.persisted?  %></span>
-          </small></h2>
+          <span class="pull-left">
+            <h2>
+              <small><%= @uketd_object.title %>
+              </small>
+            </h2>
+          </span>
+          <span class="label label-alt pull-right" style="margin-top: 20px;" i>
+            <%= show_resource_link(@uketd_object.id) if @uketd_object.persisted?  %>
+          </span>
         </div>
       </div>
     </div>
