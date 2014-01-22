@@ -18,8 +18,8 @@
 }
 
 .document {
-    margin: 0;
-    padding: 0;
+  margin: 0 0 1.5em;
+  padding: 0;
 	border: none;
 }
 
@@ -71,7 +71,7 @@
   height: 150px !important;
   max-width: 132px !important;
   margin-right: 1em;
-  margin-top: 19px;
+  margin-top: 1em;
   /*
   background: -moz-linear-gradient(top, rgba(243, 243, 243, 0.65) 10%, rgba(243,243,243,0.65) 20%, rgba(255,255,255,0) 100%); 
   background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,rgba(198,198,198,0.65)), color-stop(20%,rgba(204,204,204,0.65)), color-stop(100%,rgba(255,255,255,0))); 
