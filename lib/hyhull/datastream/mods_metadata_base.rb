@@ -126,7 +126,7 @@ module Hyhull::Datastream::ModsMetadataBase
       t.contributor_name(:proxy=>[:contributor, :namePart], :index_as=>[:displayable, :facetable])
 
       t.creator_organisation(:ref=>:organisation, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]')
-      t.creator_organisation_name(:proxy=>[:creator_organisation, :namePart], :index_as=>[:displayable, :facetable])
+      t.creator_organisation_name(:proxy=>[:creator_organisation, :namePart], :index_as=>[:symbol])
 
 
       #Proxies for terminologies 

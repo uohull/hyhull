@@ -1,15 +1,29 @@
-<%# default partial to display solr document fields in catalog show view -%>
-<dl class="dl-vertical-left  dl-invert">
-  <% document_show_fields(document).each do |solr_fname, field| -%>
-    <% if should_render_show_field? document, field %>
-      <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>
-      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
-    <% end -%>
-  <% end -%>
-  <%= display_text_area_field(document, 'description_ssm', 'Description', 'description_ssm') %>
-  <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
-  <%= display_field(document, 'genre_ssm', 'Resource type', 'genre_ssm') %>
-  <%= display_field(document, 'language_text_ssm', 'Language', 'language_text_ssm') %>
-  <%= display_field(document, 'extent_ssm', 'Extent', 'extent_ssm') %>
-  <%= display_field(document, 'id', 'Identifier', 'id') %>
-</dl>
+<%# Sub header display fields %>
+<%= display_field_within_element(document, 'creator_name_ssim', element='h3') %>
+<%= display_field_within_element(document, 'subject_topic_ssm', element='h4') %>
+<%= display_field_within_element(document, 'date_issued_ssm', element='h4', :date_field => true) %>
+<%= display_field_within_element(document, 'genre_ssm', element='p') %>
+
+<div class="row">
+  <hr/>
+  <div class="span4">
+    <%= display_resource_thumbnail(document) %>
+  </div>
+
+  <div class="span12">
+    <%# default partial to display solr document fields in catalog show view -%>
+    <dl class="dl-vertical-left  dl-invert">
+      <% document_show_fields(document).each do |solr_fname, field| -%>
+        <% if should_render_show_field? document, field %>
+          <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>
+          <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
+        <% end -%>
+      <% end -%>
+      <%= display_text_area_field(document, 'description_ssm', 'Description', 'description_ssm') %>
+      <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
+      <%= display_field(document, 'language_text_ssm', 'Language', 'language_text_ssm') %>
+      <%= display_field(document, 'extent_ssm', 'Extent', 'extent_ssm') %>
+      <%= display_field(document, 'id', 'Identifier', 'id') %>
+    </dl>
+  </div>
+</div>

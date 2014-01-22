@@ -18,25 +18,15 @@
         <%= render_document_heading(:h2).html_safe %>
 
         <div class="document">
-
           <div class="row-fluid">
-            <div class="span4">
-              <%= display_resource_thumbnail(@document) %>
-            </div>
-            <div class="span12">
-              <h3>Resource information</h3>
+            <div class="span16">
               <%= render_document_partial @document, :show %>
-
               <div id="tools-nav" class="well square-corners">
                 <%= render :partial => 'show_tools' %>
               </div>
             </div>
           </div>
-
-
-        </div>
-
-       
+        </div>       
       </div>
     </div>
 

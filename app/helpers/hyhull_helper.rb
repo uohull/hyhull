@@ -96,12 +96,14 @@ module HyhullHelper
 
         # #If the content is a KMZ or a KML file and less then 3MB...
         if (asset_mime_type[i].eql?("application/vnd.google-earth.kmz") || asset_mime_type[i].eql?("application/vnd.google-earth.kml+xml"))
-           if asset_file_size[i].to_i > 0 && asset_file_size[i].to_i < 3145728
+           # Added asset_file_size[i].nil? as a quick fix to issue with filesize arrays
+           if ( asset_file_size[i].nil? ||  ( asset_file_size[i].to_i > 0 && asset_file_size[i].to_i < 3145728 ) )
              # And if the document is public readable... We display a link to the Google maps View of the map - Google maps need the KML/KMZ to be public accessible...
              if is_public_read(document)
                resources << <<-EOS
                  <div id="view-map-link">
-                 <a href="/assets/map_view/#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}">View as map<a></div>
+                   <a href="/assets/map_view/#{asset_object_id[i].to_s}/#{asset_ds_id[i].to_s}">View as map</a>
+                 </div>
                EOS
              end
            end
@@ -266,6 +268,20 @@ module HyhullHelper
 
   def display_encoded_html_field(document, solr_fname, label_text='', html_class)
     display_dt_dd_element(label_to_display(label_text), return_unencoded_html_string(solr_field_value(document, solr_fname)), html_class)
+  end
+
+  def display_field_within_element(document, solr_fname, element='h1', options={})
+    default_options = { element_class: nil, date_field: false }
+    options.reverse_merge!(default_options)
+
+    if document.has? solr_fname
+      if options[:date_field] 
+        content_tag element, display_friendly_date(render_index_field_value(:document => document, :field => solr_fname)), :class => options[:element_class]
+      else
+        content_tag element, render_index_field_value(:document => document, :field => solr_fname), :class => options[:element_class]
+      end
+    end
+        
   end
 
   # Use to provide a DOI link within the standard dd/dt field elements

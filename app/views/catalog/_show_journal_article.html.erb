@@ -1,34 +1,48 @@
-<%# default partial to display solr document fields in catalog show view -%>
-<dl class="dl-vertical-left dl-invert">
-  <%= display_field(document, 'creator_name_ssim', 'Author', 'creator_name_ssim') %>
-  <% document_show_fields(document).each do |solr_fname, field| -%>
-    <% # We filter the creatpr out, because it is being displayed above with label author %>
-    <% unless field.label.downcase == "creator" %>
-	    <% if should_render_show_field? document, field %>
-        <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>
-	      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
-	    <% end -%>
-	  <% end %>
-  <% end -%>
-  <%= display_text_area_field(document, 'abstract_ssm', 'Abstract', 'abstract_ssm') %>
-  <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
-  <%= display_boolean_field(document, 'peer_reviewed_ssm', 'Peer reviewed', 'peer_reviewed_ssm') %>
-  <%= display_field(document, 'genre_ssm', 'Resource type', 'genre_ssm') %>
-  <%= display_field(document, 'language_text_ssm', 'Language', 'language_text_ssm') %>
-  <%= display_field(document, 'extent_ssm', 'Extent', 'extent_ssm') %>
-  <%= display_field(document, 'id', 'Identifier', 'id') %>
-</dl>
-<h3>Journal</h3>
-<dl class="dl-horizontal dl-invert">
-  <%= display_field(document, 'journal_title_ssm', 'Journal title', 'journal_title_ssm') %>
-  <%= display_date_field(document, 'journal_publication_date_ssm', 'Publication date', 'journal_publication_date_ssm') %>
-  <%= display_field(document, 'journal_publisher_ssm', 'Publisher', 'journal_publisher_ssm') %>
-  <%= doi_resolver_field(document, 'journal_article_doi_ssm', 'DOI', 'journal_article_doi_ssm') %>
-  <%= display_field(document, 'journal_print_issn_ssm', 'ISSN (Print)', 'journal_print_issn_ssm') %>
-  <%= display_field(document, 'journal_electronic_issn_ssm', 'ISSN (Electronic)', 'journal_electronic_issn_ssm') %>
-  <%= display_field(document, 'journal_volume_ssm', 'Volume', 'journal_volume_ssm') %>
-  <%= display_field(document, 'journal_issue_ssm', 'Issue', 'journal_issue_ssm') %>
-  <%= display_field(document, 'journal_start_page_ssm', 'Start page', 'journal_start_page_ssm') %>
-  <%= display_field(document, 'journal_end_page_ssm', 'End page', 'journal_end_page_ssm') %>
-  <%= display_field(document, 'journal_article_restriction_ssm', 'Restriction', 'journal_article_restriction_ssm') %>
-</dl>
+<%# Sub header display fields %>
+<%= display_field_within_element(document, 'creator_name_ssim', element='h3') %>
+<%= display_field_within_element(document, 'subject_topic_ssm', element='h4') %>
+<%= display_field_within_element(document, 'journal_publication_date_ssm', element='h4', :date_field => true) %>
+<%= display_field_within_element(document, 'genre_ssm', element='p') %>
+
+<div class="row">
+  <hr/>
+  <div class="span4">
+    <%= display_resource_thumbnail(document) %>
+  </div>
+
+  <div class="span12">
+    <%# default partial to display solr document fields in catalog show view -%>
+    <dl class="dl-vertical-left dl-invert">
+      <% document_show_fields(document).each do |solr_fname, field| -%>
+        <% # We filter the creatpr out, because it is being displayed above with label author %>
+        <% unless field.label.downcase == "creator" %>
+    	    <% if should_render_show_field? document, field %>
+            <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %></dt>
+    	      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
+    	    <% end -%>
+    	  <% end %>
+      <% end -%>
+      <%= display_text_area_field(document, 'abstract_ssm', 'Abstract', 'abstract_ssm') %>
+      <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
+      <%= display_boolean_field(document, 'peer_reviewed_ssm', 'Peer reviewed', 'peer_reviewed_ssm') %>
+      <%= display_field(document, 'language_text_ssm', 'Language', 'language_text_ssm') %>
+      <%= display_field(document, 'extent_ssm', 'Extent', 'extent_ssm') %>
+      <%= display_field(document, 'id', 'Identifier', 'id') %>
+    </dl>
+    <h3>Journal</h3>
+    <dl class="dl-horizontal dl-invert">
+      <%= display_field(document, 'journal_title_ssm', 'Journal title', 'journal_title_ssm') %>
+      <%= display_date_field(document, 'journal_publication_date_ssm', 'Publication date', 'journal_publication_date_ssm') %>
+      <%= display_field(document, 'journal_publisher_ssm', 'Publisher', 'journal_publisher_ssm') %>
+      <%= doi_resolver_field(document, 'journal_article_doi_ssm', 'DOI', 'journal_article_doi_ssm') %>
+      <%= display_field(document, 'journal_print_issn_ssm', 'ISSN (Print)', 'journal_print_issn_ssm') %>
+      <%= display_field(document, 'journal_electronic_issn_ssm', 'ISSN (Electronic)', 'journal_electronic_issn_ssm') %>
+      <%= display_field(document, 'journal_volume_ssm', 'Volume', 'journal_volume_ssm') %>
+      <%= display_field(document, 'journal_issue_ssm', 'Issue', 'journal_issue_ssm') %>
+      <%= display_field(document, 'journal_start_page_ssm', 'Start page', 'journal_start_page_ssm') %>
+      <%= display_field(document, 'journal_end_page_ssm', 'End page', 'journal_end_page_ssm') %>
+      <%= display_field(document, 'journal_article_restriction_ssm', 'Restriction', 'journal_article_restriction_ssm') %>
+    </dl>
+  </div>
+
+</div>
