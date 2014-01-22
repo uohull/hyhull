@@ -1,6 +1,11 @@
 <% # container for a single doc -%>
-<div class="document <%= render_document_class document %>">
 
+<!-- To change workflow status inject the class workflow-hidden or workflow-deleted etc into the document workflow-wrapper div 
+eg. <div class="document workflow-wrapper workflow-hidden"> -->
+<div class="document workflow-wrapper <%= render_document_class document %>">
+  <!-- For workflow status text inject status into workflow-wrapper-header div
+  eg. <div class="wrapper-header-sm">Workflow Status > Hidden</div> -->
+  <div class="wrapper-header-sm"></div>
   <div class="page-gutter row">
     <div class="span3">
       <%= display_resource_thumbnail(document) %>
@@ -15,7 +20,11 @@
         <%= render_document_partial document, :index, :document_counter => document_counter %>
     </div>
   </div>
-
+  <div class="row">
+    <div class="span16">
+      <div class="resource-status">
+        <%= render partial: "shared/resource_status_panel", locals: { document: document } %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<hr/>

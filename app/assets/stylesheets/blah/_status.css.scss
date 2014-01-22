@@ -1,0 +1,138 @@
+@function workflow-text-color($text-color) {
+  @return if( lightness( $text-color ) > 50, #333, #fff);
+}
+
+/* workflow controls - default (see _workflow status overrides*/
+.workflow-wrapper {
+  margin-top: 0.75em;
+  /*padding-bottom: 1em;*/
+  margin-bottom: 1em;
+  .wrapper-header {
+    line-height: 28px;
+    #workflow-message { line-height: 34px; }
+    form {
+      margin: 0em;
+    }
+  }
+}
+
+.workflow-wrapper.workflow-proto {
+	border: 10px solid $proto-color;
+	div.wrapper-header {
+		color: #fff;
+		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+		padding: 0.5em 1em 1.15em 1.25em;
+		background: $proto-color;
+		div#workflow-message { color: workflow-text-colour($proto-color); }
+	}
+	div.wrapper-header-sm {
+		background: $proto-color;
+		line-height: inherit !important;
+  	padding: 0 1em 0.5em 0 !important;
+  	color: #fff;
+  	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  	padding: 0.5em 1em 1.15em 1.25em;
+		div#workflow-message { color: workflow-text-colour($proto-color); }
+	}
+}
+
+.workflow-wrapper.workflow-qa {
+	border: 10px solid $qa-color;
+	div.wrapper-header {
+		color: #fff;
+		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+		padding: 0.5em 1em 1.15em 1.25em;
+		background: $qa-color;
+		div#workflow-message { color: workflow-text-colour($qa-color); }
+	}
+	div.wrapper-header-sm {
+		background: $qa-color;
+		line-height: inherit !important;
+  	padding: 0 1em 0.5em 0 !important;
+  	color: #fff;
+  	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  	padding: 0.5em 1em 1.15em 1.25em;
+		div#workflow-message { color: workflow-text-colour($qa-color); }
+	}
+}
+
+.workflow-wrapper.workflow-hidden {
+	border: 10px solid $hidden-color;
+	div.wrapper-header {
+		color: #fff;
+		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+		padding: 0.5em 1em 1.15em 1.25em;
+		background: $hidden-color;
+		div#workflow-message { color: workflow-text-colour($hidden-color); }
+	}
+	div.wrapper-header-sm {
+		background: $hidden-color;
+		line-height: inherit !important;
+  	padding: 0 1em 0.5em 0 !important;
+  	color: #fff;
+  	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  	padding: 0.5em 1em 1.15em 1.25em;
+		div#workflow-message { color: workflow-text-colour($hidden-color); }
+	}
+}
+
+.workflow-wrapper.workflow-published {
+	border: 10px solid $published-color;
+	div.wrapper-header {
+		color: #fff;
+		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+		padding: 0.5em 1em 1.15em 1.25em;
+		background: $published-color;
+		div#workflow-message { color: workflow-text-colour($published-color); }
+	}
+	div.wrapper-header-sm {
+		background: $published-color;
+		line-height: inherit !important;
+  	padding: 0 1em 0.5em 0 !important;
+  	color: #fff;
+  	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  	padding: 0.5em 1em 1.15em 1.25em;
+		div#workflow-message { color: workflow-text-colour($published-color); }
+	}
+}
+
+.workflow-wrapper.workflow-deleted {
+	border: 10px solid $deleted-color;
+	div.wrapper-header {
+		color: #fff;
+		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+		padding: 0.5em 1em 1.15em 1.25em;
+		background: $deleted-color;
+		div#workflow-message { color: workflow-text-colour($deleted-color); }
+	}
+	div.wrapper-header-sm {
+		background: $deleted-color;
+		line-height: inherit !important;
+  	padding: 0 1em 0.5em 0 !important;
+  	color: #fff;
+  	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  	padding: 0.5em 1em 1.15em 1.25em;
+		div#workflow-message { color: workflow-text-colour($deleted-color); }
+	}
+}
+
+/* resource status for search results */
+.resource-status .accordion {
+	background: whitesmoke;
+	margin-bottom: 0;
+	margin-top: 1em;
+	.accordion-heading:hover {
+    transition: all 0.2s ease-in-out 0s;
+    background-color: lighten($neutralcolorlight, 5%);
+  }
+	.accordion-group {
+    border: 0px solid #E5E5E5;
+    border-radius: 0px;
+    margin-bottom: 0px;
+	}
+	a {
+		text-decoration: none;
+		border-bottom: 1px dotted;
+		/*&:hover {  };*/
+	}
+}
