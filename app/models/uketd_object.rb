@@ -29,7 +29,7 @@ class UketdObject < ActiveFedora::Base
 
   # UKETD_DC Datastream - Utilises Disseminator on the Fedora instance
   has_metadata name: "UKETD_DC", label: "UKETD_DC metadata", autocreate: true, control_group: "E", 
-                disseminator: "hull-sDef:uketdObject/getUKETDMetadata", :type => ActiveFedora::OmDatastream
+                disseminator: "hull-sDef:uketdObject/getUKETDMetadata", versionable: false, :type => ActiveFedora::OmDatastream
 
   # Attributes to respective datastream
   #Unique fields
