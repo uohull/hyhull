@@ -2,10 +2,8 @@
 
 <!-- To change workflow status inject the class workflow-hidden or workflow-deleted etc into the document workflow-wrapper div 
 eg. <div class="document workflow-wrapper workflow-hidden"> -->
-<div class="document workflow-wrapper <%= render_document_class document %>">
-  <!-- For workflow status text inject status into workflow-wrapper-header div
-  eg. <div class="wrapper-header-sm">Workflow Status > Hidden</div> -->
-  <div class="wrapper-header-sm"></div>
+<div class="document <%= document_resource_state_class document %> <%= render_document_class document %>">
+  <%= resource_state_wrapper_header document %>
   <div class="row-spacer"></div>
   <div class="page-gutter row">
     <div class="span3">

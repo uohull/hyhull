@@ -15,6 +15,11 @@ en:
         description: "Scan the code with your phone to capture the URL of this resource."
     roles:
       edit_role_link_text: "Edit membership"
+    search:
+      documents:
+        resource_state:
+          hidden: "Resource state > Hidden"
+          deleted: "Resource state > Deleted"
 
 # Over-ride the human readable version of parent to be Structural set
   activemodel:
