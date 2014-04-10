@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
   include BlacklightGoogleAnalytics::ControllerExtraHead
+
+  # This applies a require login check for the show and index methods - Calls require_login
+  # This needs to be applied before enforce_show_permissions to ensure that login redirect is done prior to the auth check. 
+  # See ApplicationController
+  before_filter :require_login, only: [:home]
   
   def home
   end

@@ -7,7 +7,8 @@ class CatalogController < ApplicationController
   include Hydra::Controller::ControllerBehavior
 
   # This applies a require login check for the show and index methods - Calls require_login
-  # This needs to be applied before enforce_show_permissions to ensure that login redirect is done prior to the auth check.
+  # This needs to be applied before enforce_show_permissions to ensure that login redirect is done prior to the auth check. 
+  # See ApplicationController
   before_filter :require_login, only: [:show, :index]
 
   # These before_filters apply the hydra access controls
@@ -174,15 +175,6 @@ class CatalogController < ApplicationController
     # If there are more than this many search results, no spelling ("did you 
     # mean") suggestion is offered.
     config.spell_max = 5
-  end
-
-  # Method to determine whether a login is required before continuing to action....
-  # Specifying ?login=true onto a URL will force the controller to undertake a redirect to login page, and back again after a successful login.  
-  def require_login
-    unless params["login"].nil?
-      #Call the devise helper to authenticate the user (returns back to orig dest)
-      authenticate_user! if params["login"] == "true"
-    end
   end
 
 end 
