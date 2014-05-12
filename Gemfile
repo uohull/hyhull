@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "rails", "~> 3.2.16"
+gem "rails", "3.2.18"
 
 #Use the new Hydra release stack
 gem "hydra", "~> 6.1.0"
