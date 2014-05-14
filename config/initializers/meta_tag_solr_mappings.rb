@@ -1,3 +1,8 @@
+# Meta_tag_solr_mappings configuration 
+# This configuration file can be used to specify the mappings between solr fields and meta_tag mappings.
+# These can be customised based upon the resource_type_field i.e. active_fedora_model_ssi
+# The available meta fields are title, author, date, publisher,journal_title,journal_issue,
+#    journal_start_page, journal_end_page, doi, print_issn, electronic_issn, isbn, keywords
 META_TAG_SOLR_MAPPINGS =  {
   resource_type_field: "active_fedora_model_ssi",
 
@@ -16,9 +21,12 @@ META_TAG_SOLR_MAPPINGS =  {
     electronic_issn: "journal_electronic_issn_ssm",
     keywords: "subject_topic_ssm"
   },
-
-  UketdObject: { 
-    title: "title_tsim"
+  Default: { 
+    title: "title_tesim",
+    author: "creator_name_ssim",
+    keywords: "subject_topic_ssm",
+    publisher: "publisher_ssm",
+    date: "date_issued_ssm"
   }
 }
 
