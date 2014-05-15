@@ -1,13 +1,14 @@
 <div class="tile">
-    <h2>
-        Collections <br/><small>Have a look at our collections...</small></h2>
-    
-    <p>
-
-    </p>
-
-    <p>
-        <%= link_to "Collections", "/resources/?f[is_member_of_ssim][]=info:fedora/hull:rootDisplaySet&results_view=true" %>
-    </p>
-    
-  </div>
+  <h2>
+    Collections <br/><small>Have a look at our collections...</small></h2>
+  <p>
+  </p>
+  <p>
+    <%= link_to "Collections", "/resources/?f[is_member_of_ssim][]=info:fedora/hull:rootDisplaySet&results_view=true" %>
+  </p>
+  <p>
+  </p>
+  <p>
+    <%= link_to("Examination papers", "resources?f[genre_sim][]=Examination+paper") if staff_or_student_user? %>
+  </p>
+</div>
