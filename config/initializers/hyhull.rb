@@ -51,3 +51,7 @@ OWNER_PERMISSION_LEVELS = {
 
 # Google Maps API key
 GOOGLE_MAPS_KEY = ""
+
+# Hyhull default Institution name
+# This is used for auto-population of metadata fields
+DEFAULT_INSTITUTION_NAME = "The University of Hull"

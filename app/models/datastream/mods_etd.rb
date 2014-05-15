@@ -175,7 +175,7 @@
         xml.identifier(:type=>"grantNumber")
         xml.accessCondition(:type=>"useAndReproduction")
         xml.recordInfo {
-         xml.recordContentSource "The University of Hull"
+         xml.recordContentSource self.default_institution_name
          xml.recordCreationDate(Time.now.strftime("%Y-%m-%d"), :encoding=>"w3cdtf")
          xml.recordChangeDate(:encoding=>"w3cdtf")
          xml.languageOfCataloging {

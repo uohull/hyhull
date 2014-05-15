@@ -224,8 +224,8 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
            }
            xml.accessCondition(:type=>"useAndReproduction")
            xml.recordInfo {
-             xml.recordContentSource
-             xml.recordCreationDate(:encoding=>"w3cdtf")
+             xml.recordContentSource self.default_institution_name 
+             xml.recordCreationDate(Time.now.strftime("%Y-%m-%d"), :encoding=>"w3cdtf")
              xml.recordChangeDate(:encoding=>"w3cdtf")
              xml.languageOfCataloging {
                xml.languageTerm(:authority=>"iso639-2b")  

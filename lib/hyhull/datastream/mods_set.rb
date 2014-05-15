@@ -53,7 +53,7 @@ module Hyhull
              xml.genre
              xml.abstract
              xml.originInfo {
-               xml.publisher "The University of Hull"
+               xml.publisher self.default_institution_name
                xml.dateIssued(Time.now.strftime("%Y-%m-%d"))
              }
              xml.identifier(:type=>"fedora")
@@ -61,7 +61,7 @@ module Hyhull
                xml.url(:access=>"raw object")
              } 
              xml.recordInfo {
-               xml.recordContentSource "The University of Hull"
+               xml.recordContentSource self.default_institution_name
                xml.recordCreationDate(Time.now.strftime("%Y-%m-%d"), :encoding=>"w3cdtf")
                xml.recordChangeDate(:encoding=>"w3cdtf")
                xml.languageOfCataloging {
@@ -71,6 +71,10 @@ module Hyhull
           }
         end
         return builder.doc    
+      end
+
+      def self.default_institution_name 
+        return DEFAULT_INSTITUTION_NAME.nil? ? "" : DEFAULT_INSTITUTION_NAME
       end
 
     end

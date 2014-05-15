@@ -110,11 +110,11 @@ module SearchOptimisationMetaHelper
   # and return if there is a match
   def dissertation_institution(document)
     if document_resource_type(document) == "UketdObject"
-      # Hull ETDs usually in the form of Department, The University of Hull
+      # Local standards dictate ETDs usually in the form of Department, Institution
       publisher = publisher(document, string_output: true)
-      
-      if !publisher.nil? && publisher.downcase.include?("university of hull")
-        return "The University of Hull"
+
+      if !publisher.nil? && publisher.downcase.include?(default_institution_name.downcase)
+        return default_institution_name
       end
     end
 
@@ -126,11 +126,11 @@ module SearchOptimisationMetaHelper
   def report_institution(document)
     # Call HyhullHelper.resource_type_from_document(document) - Gets the Genre
     if resource_type_from_document(document) == "Report"
-      # Hull Reports usually in the form of Department, The University of Hull
+      # Local standards dictate Reports usually in the form of Department, Institution
       publisher = publisher(document, string_output: true)
 
-      if !publisher.nil? && publisher.downcase.include?("university of hull")
-        return "The University of Hull"
+      if !publisher.nil? && publisher.downcase.include?(default_institution_name.downcase)
+        return default_institution_name
       end
     end
   end
@@ -182,6 +182,10 @@ module SearchOptimisationMetaHelper
 
   def url_base
     return CONTENT_LOCATION_URL_BASE
+  end
+
+  def default_institution_name 
+    return DEFAULT_INSTITUTION_NAME.nil? ? "" : DEFAULT_INSTITUTION_NAME
   end
 
 end

@@ -91,4 +91,10 @@ describe Datastream::ModsExamPaper do
     end
   end
 
+  describe "class methods" do
+    it "xml_template should set the recordContentSource element to the DEFAULT_INSTITUTION_NAME configuration" do
+      Datastream::ModsExamPaper.xml_template.to_s.include?("<recordContentSource>#{DEFAULT_INSTITUTION_NAME}</recordContentSource>")
+    end
+  end
+
 end

@@ -25,6 +25,12 @@ describe Hyhull::Datastream::ModsSet do
     @ds.origin_info.publisher.should == ["The University of Hull"]
     @ds.origin_info.date_issued.should == ["2013-07-19"]
     @ds.record_info.record_creation_date.should == ["2013-07-19"]
-  end   
+  end 
+
+  describe "class methods" do
+    it "xml_template should set the recordContentSource element to the DEFAULT_INSTITUTION_NAME configuration" do
+      Hyhull::Datastream::ModsSet.xml_template.to_s.include?("<recordContentSource>#{DEFAULT_INSTITUTION_NAME}</recordContentSource>")
+    end
+  end 
 
 end

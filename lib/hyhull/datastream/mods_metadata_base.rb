@@ -228,6 +228,10 @@ module Hyhull::Datastream::ModsMetadataBase
       end     
     end 
 
+    def default_institution_name 
+      return DEFAULT_INSTITUTION_NAME.nil? ? "" : DEFAULT_INSTITUTION_NAME
+    end
+
   end
 
   def add_subject_topic(values)

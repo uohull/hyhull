@@ -99,6 +99,11 @@ describe Datastream::ModsEtd do
      it "ModsEtd self.organisation_role_terms should only return the valid roles" do
       Datastream::ModsEtd.organisation_role_terms.sort.should ==  ["Sponsor"]
     end
+    
+    it "xml_template should set the recordContentSource element to the DEFAULT_INSTITUTION_NAME configuration" do
+      Datastream::ModsEtd.xml_template.to_s.include?("<recordContentSource>#{DEFAULT_INSTITUTION_NAME}</recordContentSource>")
+    end
+
   end
 
 end

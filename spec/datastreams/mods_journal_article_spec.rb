@@ -110,6 +110,10 @@ describe Datastream::ModsJournalArticle do
     it "ModsEtd self.person_role_terms should only return the valid roles" do
       Datastream::ModsJournalArticle.person_role_terms.sort.should == ["Author"]
     end
+
+    it "xml_template should set the recordContentSource element to the DEFAULT_INSTITUTION_NAME configuration" do
+      Datastream::ModsJournalArticle.xml_template.to_s.include?("<recordContentSource>#{DEFAULT_INSTITUTION_NAME}</recordContentSource>")
+    end
   end
 
 end

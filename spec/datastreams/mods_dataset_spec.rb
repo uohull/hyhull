@@ -15,6 +15,10 @@ describe Datastream::ModsDataset do
       Datastream::ModsDataset.xml_template.to_s.include?("<typeOfResource>dataset</typeOfResource>").should be_true
     end
 
+    it "xml_template should set the recordContentSource element to the DEFAULT_INSTITUTION_NAME configuration" do
+      Datastream::ModsDataset.xml_template.to_s.include?("<recordContentSource>#{DEFAULT_INSTITUTION_NAME}</recordContentSource>")
+    end
+
     it "ModsGenericContent self.person_role_terms should only return the valid roles" do
       Datastream::ModsGenericContent.person_role_terms.sort.should ==  ["Author", "Creator", "Editor", "Module leader", "Photographer", "Sponsor", "Supervisor"]
     end

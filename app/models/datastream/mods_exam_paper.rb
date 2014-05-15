@@ -132,7 +132,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
         xml.typeOfResource "text"
         xml.genre "Examination paper"
         xml.originInfo {
-          xml.publisher "The University of Hull"
+          xml.publisher self.default_institution_name 
           xml.dateIssued
         }
         xml.language {                
@@ -157,7 +157,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
         }
         xml.accessCondition(:type=>"useAndReproduction")
         xml.recordInfo {
-          xml.recordContentSource "The University of Hull"
+          xml.recordContentSource self.default_institution_name
           xml.recordCreationDate(Time.now.strftime("%Y-%m-%d"), :encoding=>"w3cdtf")
           xml.recordChangeDate(:encoding=>"w3cdtf")
           xml.languageOfCataloging {
