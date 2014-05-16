@@ -20,6 +20,24 @@ module Hyhull::ModelMethods
     has_attributes :dc_title, datastream: :DC, at: [:title], multiple: false
     has_attributes :dc_genre, datastream: :DC, at: [:genre], multiple: false
     has_attributes :dc_date, datastream: :DC, at: [:date], multiple: false
+
+    # Custom pid_namespace code
+    # Provides a model attribute for storing the pid namespace for object instantiation (the benefit is that it gives a hook for standard ActiveModel validations)
+    attr_accessor :pid_namespace
+    # Safety check to ensure that pid_namespace being set in the params is actually a valid configuration valid pid_namespace should exist within the PropertyTypes table
+    validates :pid_namespace, inclusion: { in: proc { PropertyType.where(name:"FEDORA-PID-NAMESPACE").first.properties.collect {|p| p.value } },
+      message: "'%{value}' is not a valid namespace" }, on: :create
+    
+    # pid_namespace is just a placeholder (nothing more) to store a namespace for the create operation - see above for validation 
+    def pid_namespace
+      @pid_namespace || default_pid_namespace
+    end
+
+    # Default namespace for pid creation
+    def default_pid_namespace
+      DEFAULT_PID_NAMESPACE.nil? ? "hull" : DEFAULT_PID_NAMESPACE 
+    end
+
   end
 
   module ClassMethods

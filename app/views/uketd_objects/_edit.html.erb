@@ -12,6 +12,11 @@
         <li id="edit_identifiers_metadata_link">
           <a href="#identifiers_metadata" data-toggle="tab">Identifiers</a>
         </li>
+        <% if admin_user? && !@uketd_object.persisted? %>
+          <li id="edit_pid_namespace_link">
+            <a href="#pid_namespace" data-toggle="tab">Pid</a>
+          </li>
+        <% end %>
         <% unless @uketd_object.resource_proto? %>
           <li id="edit_set_membership_link">              
             <a href="#set_membership" data-toggle="tab">Set membership</a>
@@ -36,6 +41,11 @@
           <div id="identifiers_metadata" class="tab-pane">
             <%= render :partial => "edit_identifiers", locals: {f: f} %>
           </div>
+          <% if admin_user? && !@uketd_object.persisted? %>
+            <div id="pid_namespace" class="tab-pane">            
+                <%= render :partial => "shared/pid_namespace", locals: {f: f, resource: @uketd_object } %>
+            </div>
+          <% end %>
           <% unless @uketd_object.resource_proto? %>
             <div id="set_membership" class="tab-pane">            
               <%= render(:partial => "shared/set_management",  :locals => { resource: @uketd_object, f: f }) %>

@@ -41,6 +41,7 @@ describe GenericContentsController do
         post :create, :generic_content=>{"title"=>"A Generic title", "genre" => "Book", "pid_namespace"=>"hull-archives"}
         generic_content = assigns[:generic_content]
         generic_content.pid.include?("changeme").should be_true
+        generic_content.delete
       end
     end
 
@@ -53,6 +54,7 @@ describe GenericContentsController do
         post :create, :generic_content=>{"title"=>"A Generic title", "genre" => "Book", "pid_namespace"=>"hull-archives"}
         generic_content = assigns[:generic_content]
         generic_content.pid.include?("hull-archives").should be_true
+        generic_content.delete
       end
 
     end

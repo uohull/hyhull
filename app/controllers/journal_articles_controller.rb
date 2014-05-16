@@ -12,8 +12,15 @@ class JournalArticlesController < ApplicationController
 
   end
 
-  def create 
-    @journal_article = JournalArticle.new(params[:journal_article])
+  def create     
+    # If admin user, on create the namespace of the object will be defined by the pid_namespace attribute 
+    if current_user.admin?
+      @journal_article =  JournalArticle.new(params[:journal_article].merge({ namespace: params[:journal_article][:pid_namespace]}))
+    else
+      # Other users cannot define the pidnamespace therefore Fedora default will be used (we ensure it isn't set by using nil)...
+      @journal_article = JournalArticle.new(params[:journal_article].merge({ namespace: nil}))
+    end
+
     @journal_article.apply_depositor_metadata(current_user.username, current_user.email)
 
     respond_to do |format|

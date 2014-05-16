@@ -13,8 +13,15 @@ class UketdObjectsController < ApplicationController
 
 	end
 
-	def create 
-		@uketd_object = UketdObject.new(params[:uketd_object])
+	def create
+    # If admin user, on create the namespace of the object will be defined by the pid_namespace attribute 
+    if current_user.admin?
+      @uketd_object = UketdObject.new(params[:uketd_object].merge({ namespace: params[:uketd_object][:pid_namespace]}))
+    else
+      # Other users cannot define the pidnamespace therefore Fedora default will be used (we ensure it isn't set by using nil)...
+      @uketd_object = UketdObject.new(params[:uketd_object].merge({ namespace: nil}))
+    end
+
 		@uketd_object.apply_depositor_metadata(current_user.username, current_user.email)
 
 		respond_to do |format|

@@ -14,6 +14,11 @@
         <li id="edit_supplementary_metadata_link">              
           <a href="#supplementary_metadata" data-toggle="tab">Supplementary</a>
         </li>
+        <% if admin_user? && !@generic_content.persisted? %>
+          <li id="edit_pid_namespace_link">
+            <a href="#pid_namespace" data-toggle="tab">Pid</a>
+          </li>
+        <% end %>
         <% unless @generic_content.resource_proto? %>
           <li id="edit_set_membership_link">              
             <a href="#set_membership" data-toggle="tab">Set membership</a>
@@ -40,6 +45,11 @@
         <div id="supplementary_metadata" class="tab-pane">            
           <%= render :partial => "metadata/edit_supplementary_metadata", locals: {f: f, resource: @generic_content} %>
         </div>
+        <% if admin_user? && !@generic_content.persisted? %>
+          <div id="pid_namespace" class="tab-pane">            
+              <%= render :partial => "shared/pid_namespace", locals: {f: f, resource: @generic_content } %>
+          </div>
+        <% end %>
         <% unless @generic_content.resource_proto? %>
           <div id="set_membership" class="tab-pane">            
             <%= render(:partial => "shared/set_management",  :locals => { resource: @generic_content, f: f }) %>
@@ -52,8 +62,6 @@
           </div>
         <% end %>
         </div>
-        <%= f.input :pid_namespace, as: :hidden  if admin_user? %>
-
         <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
       <% end %>
     </div> 

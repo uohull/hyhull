@@ -1,7 +1,9 @@
 # spec/controllers/uketd_object_controller_spec.rb
 require 'spec_helper'
+require 'user_helper'
 
 describe JournalArticlesController do
+  include UserHelper
   login_cat
 
   describe "creating" do
@@ -14,6 +16,13 @@ describe JournalArticlesController do
        post :create, :journal_article=>{"title"=>"My title"}
        ja = assigns[:journal_article]
        ja.title.should == "My title"
+    end
+    it "should NOT support create requests with custom pid_namespace specified" do
+        post :create, :journal_article=>{"title"=>"A Generic title","pid_namespace"=>"hull-archives", "person_name"=>["Smith, John"],
+          "person_role_text"=>["Author"], "subject_topic" => ["Test topic"], "publisher" => "Publisher" }
+        ja = assigns[:journal_article]
+        ja.pid.include?("changeme").should be_true
+        ja.delete
     end
   end
 
@@ -42,6 +51,20 @@ describe JournalArticlesController do
     it "should support destroy requests" do
       delete :destroy, :id=>@id
       flash[:notice].should == "Journal article #{@id} was successfully deleted."
+    end
+  end
+
+  describe  "login_admin" do
+    before(:each) do
+      admin_user_sign_in
+    end
+
+    it "should support create requests with custom pid_namespace specified" do
+      post :create, :journal_article=>{"title"=>"A Generic title","pid_namespace"=>"hull-archives", "person_name"=>["Smith, John"],
+          "person_role_text"=>["Author"], "subject_topic" => ["Test topic"], "publisher" => "Publisher"}
+      ja = assigns[:journal_article]
+      ja.pid.include?("hull-archives").should be_true
+      ja.delete
     end
   end
 

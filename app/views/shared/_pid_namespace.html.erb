@@ -1,0 +1,8 @@
+<div class="page-gutter">
+<div class="row-spacer"></div>
+  <%= render "shared/error_messages", :target => resource %>
+  <p></p>
+  <div class="fields">
+    <%= select_by_property_type(f, :pid_namespace, "FEDORA-PID-NAMESPACE", true, false) if admin_user? %>
+  </div>
+</div>

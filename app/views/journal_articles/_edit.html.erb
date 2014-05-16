@@ -9,6 +9,11 @@
         <li id="edit_journal_metadata_link">              
           <a href="#journal_metadata" data-toggle="tab">Journal</a>
         </li>
+        <% if admin_user? && !@journal_article.persisted? %>
+          <li id="edit_pid_namespace_link">
+            <a href="#pid_namespace" data-toggle="tab">Pid</a>
+          </li>
+        <% end %>
         <% unless @journal_article.resource_proto? %>
           <li id="edit_set_membership_link">              
             <a href="#set_membership" data-toggle="tab">Set membership</a>
@@ -21,7 +26,6 @@
           </li>
         <% end %>
       </ul>
-
       <%= simple_form_for(@journal_article, :html => {:class => 'form-horizontal' }) do |f| %>
       <div class="tab-content">         
         <div id="descriptive_metadata" class="tab-pane active">
@@ -30,6 +34,11 @@
         <div id="journal_metadata" class="tab-pane">            
             <%= render :partial => "edit_journal", locals: {f: f} %>
         </div>
+        <% if admin_user? && !@journal_article.persisted? %>
+          <div id="pid_namespace" class="tab-pane">            
+              <%= render :partial => "shared/pid_namespace", locals: {f: f, resource: @journal_article } %>
+          </div>
+        <% end %>
         <% unless @journal_article.resource_proto? %>
           <div id="set_membership" class="tab-pane">            
             <%= render(:partial => "shared/set_management",  :locals => { resource: @journal_article, f: f }) %>
