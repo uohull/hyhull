@@ -192,9 +192,9 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
              xml.titleInfo {
                xml.title
              }
-             xml.issn_print(:path=>"identifier", :type=>"issn", :displayLabel=>"print")
-             xml.issn_electronic(:path=>"identifier", :type=>"issn", :displayLabel=>"electronic")
-             xml.doi(:path=>"identifier", :type=>"doi")
+             xml.identifier(:type=>"issn", :displayLabel=>"print")
+             xml.identifier(:type=>"issn", :displayLabel=>"electronic")
+             xml.identifier(:type=>"doi")
              xml.part {
                xml.detail(:type=>"volume") {
                  xml.number
