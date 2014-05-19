@@ -29,7 +29,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [ :username ]
+  config.authentication_keys = [ :email ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -41,12 +41,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :username ]
+  config.case_insensitive_keys = [ :email ]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :username ]
+  config.strip_whitespace_keys = [ :email ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -146,7 +146,7 @@ Devise.setup do |config|
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # We have left at 30 minutes, we may want to reduce...
-  config.timeout_in = 30.minutes
+  # config.timeout_in = 30.minutes
 
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = true
@@ -253,16 +253,13 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  # CAS Authenticable settings
-  config.cas_base_url = ""
-
   # If you want to use the Devise Timeoutable module with single sign out, 
   # uncommenting this will redirect timeouts to the logout url, so that the CAS can
   # take care of signing out the other serviced applocations. Note that each
   # application manages timeouts independently, so one application timing out will 
   # kill the session on all applications serviced by the CAS.
-  config.warden do |manager|
-    manager.failure_app = DeviseCasAuthenticatable::SingleSignOut::WardenFailureApp
-  end
+  #config.warden do |manager|
+  #  manager.failure_app = RedirectToWebAccessFailure
+  #end
 
 end
