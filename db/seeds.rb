@@ -137,6 +137,33 @@ end
 # We would also need to add faculty and department to the Roles table for them to be recognised on login. See commented example below...
 if Rails.env.development?
 
+  development_users = [
+                        { email: 'cat@hyhull.com', password: 'cat123', password_confirmation: 'cat123' },
+                        { email: 'creator@hyhull.com', password: 'creator123', password_confirmation: 'creator123' },
+                        { email: 'admin@hyhull.com', password: 'admin123', password_confirmation: 'admin123' },
+                        { email: 'staff@hyhull.com', password: 'staff123', password_confirmation: 'staff123' },
+                        { email: 'student@hyhull.com', password: 'student123', password_confirmation: 'student123' }
+                      ]
+
+  # Create the dev users...
+  development_users.each do |user|
+    User.create(email: user[:email], password: user[:password], password_confirmation: user[:password_confirmation])
+  end
+
+  # Assign roles to the users..
+  User.where(email: "cat@hyhull.com").first.roles << Role.where(name: "contentAccessTeam")
+  User.where(email: "cat@hyhull.com").first.roles << Role.where(name: "staff")
+   
+  User.where(email: "creator@hyhull.com").first.roles << Role.where(name: "contentCreator")
+  User.where(email: "cat@hyhull.com").first.roles << Role.where(name: "staff")
+   
+  User.where(email: "admin@hyhull.com").first.roles << Role.where(name: "admin")
+  User.where(email: "admin@hyhull.com").first.roles << Role.where(name: "contentAccessTeam")
+  User.where(email: "admin@hyhull.com").first.roles << Role.where(name: "staff")
+
+  User.where(email: "staff@hyhull.com").first.roles << Role.where(name: "staff")
+  User.where(email: "student@hyhull.com").first.roles << Role.where(name: "student")
+
  # ******************************************************************************************
  # NOTE: The following is example of a Person you can add to People for development purposes
 

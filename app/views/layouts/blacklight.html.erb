@@ -42,7 +42,7 @@
 
   <div class="page-wrapper">
 
-  <% if (current_page?(controller: 'pages', action: 'home')) %>
+  <% if (current_page?(controller: '/pages', action: 'home')) %>
     <div id="background-container" class="container">
     <% else %>
       <div id="background-container-form" class="container">
@@ -50,7 +50,7 @@
 
     <div class="inner-container">
 
-      <% if !(current_page?(controller: 'pages', action: 'home')) %>
+      <% if !(current_page?(controller: '/pages', action: 'home')) %>
         <div id="form-container">
       <% end %>
 
@@ -65,7 +65,7 @@
         <!-- /Top bar -->
         <div class="row-fluid">
           
-        <% if !(current_page?(controller: 'pages', action: 'home')) %>
+        <% if !(current_page?(controller: '/pages', action: 'home')) %>
           <div class="desktop-top-spacer visible-desktop"></div>
           <div class="tablet-top-spacer visible-tablet"></div>
         <% end %>
@@ -77,7 +77,7 @@
 
       </div>
 
-      <% if !(current_page?(controller: 'pages', action: 'home')) %>
+      <% if !(current_page?(controller: '/pages', action: 'home')) %>
         </div>
       <% end %>
 
