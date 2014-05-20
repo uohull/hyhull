@@ -16,13 +16,14 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation
 
-  # Not utilised in db_auth version
-  #before_save :update_user_attributes
-
   # Method added by Blacklight; Blacklight uses #to_s on your
   # user class to get a user-displayable login/identifier for
   # the account. 
   def to_s
+    email
+  end
+
+  def username
     email
   end
 
@@ -35,29 +36,6 @@ class User < ActiveRecord::Base
 
   private
 
-  # Updates the user attributes based upon the Person record (People table)
-  # Person attributes utilised include - email_address, user_type, department_ou, and faculty_code 
-  # user_type, department_ou, and faculty_code are used to create different roles for the user
-  def update_user_attributes
-    unless username.to_s.empty?
-      person = Person.person_by_username(username)
-
-      # Update the e-mail address if required... 
-      self.email = person.email_address unless self.email == person.email_address
-
-      # Roles generated from the Person fields, user/department/faculty roles are all 
-      # different RoleTypes
-      user_role = Role.match_user_role_by_name(person.user_type)
-      department_role = Role.match_department_role_by_name(person.department_ou)
-      faculty_role = Role.match_faculty_role_by_name(person.faculty_code)
-
-      # Only update the role if it doesn't match the currently stored role.
-      update_role(user_role) unless self.roles.include?(user_role)
-      update_role(department_role) unless self.roles.include?(department_role)
-      update_role(faculty_role) unless self.roles.include?(faculty_role)
-    end
-  end
-
   # Update the role
   # Roles of the same type 'department_ou' role will be deleted first 
   # and then the new role added.  
@@ -68,7 +46,7 @@ class User < ActiveRecord::Base
     self.roles << new_role
   end
 
-  # Returns a combined role of the user_type and the organisation (department_role/faculity_role)
+  # Returns a combined role of the user_type and the organisation (department_role/faculty_role)
   # example
   # User with "staff" user_role, "IT" department_ou_role and "123" faculty_code will return:-
   # ["IT_staff", "123_staff"]
