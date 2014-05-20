@@ -61,8 +61,12 @@ describe JournalArticle do
         "journal_issue" => "2",
         "journal_start_page" => "100",
         "journal_end_page" => "200",
-        "journal_article_restriction" => "No restriction"
+        "journal_article_restriction" => "No restriction",
+        "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
+        "journal_url_access" => ["raw object", "preview"],
+        "journal_url_display_label" => ["Full text", "Abstract"]
       } 
+
       @ja.update_attributes( attributes_hash )
 
       # Marked as 'unique' in the call to delegate... 
@@ -91,6 +95,10 @@ describe JournalArticle do
       @ja.person_name.should == attributes_hash["person_name"]
       @ja.person_role_text.should == attributes_hash["person_role_text"]
       @ja.subject_topic.should == attributes_hash["subject_topic"]  
+
+      @ja.journal_url.should == attributes_hash["journal_url"]
+      @ja.journal_url_access.should == attributes_hash["journal_url_access"]
+      @ja.journal_url_display_label.should == attributes_hash["journal_url_display_label"]
 
       @ja.save
     end
@@ -127,7 +135,10 @@ describe JournalArticle do
           "person_name" => ["Smith, John.", "Supervisor, A."],
           "person_role_text" => ["Creator", "Supervisor"],
           "abstract" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "subject_topic" => ["Subject of the matter"]
+          "subject_topic" => ["Subject of the matter"],
+          "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
+          "journal_url_access" => ["raw object", "preview"],
+          "journal_url_display_label" => ["Full text", "Abstract"]
         } 
         @ja.update_attributes( @attributes_hash )        
       end
@@ -150,6 +161,16 @@ describe JournalArticle do
         new_attributes_hash = { "title" => "A new title part 3" }
         @ja.update_attributes( new_attributes_hash )
         @ja.title.should == new_attributes_hash["title"]
+      end
+
+      it "should not overwrite the journal urls if they are not within the attributes" do
+        new_attributes_hash = { "title" => "A new title part 3" }
+        @ja.update_attributes( new_attributes_hash )
+
+        @ja.title.should == new_attributes_hash["title"]
+        @ja.journal_url.should == @attributes_hash["journal_url"]
+        @ja.journal_url_access.should == @attributes_hash["journal_url_access"]
+        @ja.journal_url_display_label.should == @attributes_hash["journal_url_display_label"]
       end
     end
 

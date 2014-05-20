@@ -79,6 +79,14 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
         t.publication_date(:path=>"date")
       }
       t.note_restriction(:path=>'note', :attributes=>{:type=>'restriction'})
+
+      t.location {
+        t.url
+        t.url {
+          t.access(:path=>{:attribute=>"access"})
+          t.display_label(:path=>{:attribute=>"displayLabel"})
+        }       
+      }
     }
     # Should be set to true/false
     t.peer_reviewed(:path=>'note', :attributes=>{:type=>'peerReviewed'}, :index_as=>[:displayable])
@@ -159,6 +167,9 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.journal_end_page(:proxy=>[:journal, :part, :pages, :end], :index_as=>[:displayable] )
     t.journal_article_restriction(:proxy=>[:journal, :note_restriction], :index_as=>[:displayable] )
 
+    t.journal_url(:proxy=>[:journal, :location, :url], :index_as=>[:displayable])
+    t.journal_url_access(:proxy=>[:journal, :location, :url, :access], :index_as=>[:displayable])
+    t.journal_url_display_label(:proxy=>[:journal, :location, :url, :display_label], :index_as=>[:displayable])
   end
   
 
@@ -234,7 +245,27 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       }
     end
     return builder.doc
-  end 
+  end
+
+
+  def add_journal_urls(url_list, url_access_list, url_display_label_list)
+    begin 
+      self.ng_xml.search(self.journal.location.url.xpath, { oxns: "http://www.loc.gov/mods/v3"}).each do |n|
+        n.remove
+      end
+   
+      # Create the url elements
+      self.journal.location.url = url_list
+
+      # For each of the url elements, add the access amd display label
+      url_list.each_with_index do |url, i|
+        self.journal.location.url(i).access = url_access_list[i]
+        self.journal.location.url(i).display_label = url_display_label_list[i] 
+      end
+    rescue
+      logger.error "Problem adding journal urls to xml"
+    end
+  end
 
    # Over-ride ModsMetadataMethods person_role_terms for mods-etd roles 
   def self.person_role_terms

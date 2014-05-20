@@ -134,6 +134,12 @@ describe Hyhull::Datastream::ModsMetadataBase do
       end
     end
 
+    describe "url_access_terms" do
+      it "will return the valid values" do
+        Datastream::ModsEtd.url_access_terms.should == { "preview" => "preview", "raw object" => "raw object", "object in context" => "object in context" }
+      end
+    end
+
   end
 
 end

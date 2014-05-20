@@ -41,9 +41,14 @@ class JournalArticle < ActiveFedora::Base
   has_attributes :subject_topic, datastream: :descMetadata, multiple: true
   # People
   has_attributes :person_name, :person_role_text, datastream: :descMetadata, multiple: true
- 
+
+  # Journal URLS
+  has_attributes :journal_url, :journal_url_access, :journal_url_display_label, datastream: :descMetadata, multiple: true
+
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsJournalArticle, multiple: false
+  delegate :url_access_terms, to: Datastream::ModsJournalArticle, multiple: false
+
 
   # Standard validations for the object fields
   validates :title, presence: true
@@ -63,6 +68,7 @@ class JournalArticle < ActiveFedora::Base
   def attributes=(properties)
     super(properties)
     self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person") unless properties["person_name"].nil? or properties["person_role_text"].nil?
+    self.descMetadata.add_journal_urls(properties["journal_url"], properties["journal_url_access"], properties["journal_url_display_label"]) unless properties["journal_url"].nil? or properties["journal_url_access"].nil? or properties["journal_url_display_label"].nil?
   end
 
   # to_solr overridden to add object_type facet field to document and to add title/publisher fields that are not handled in ModsJounalArticle

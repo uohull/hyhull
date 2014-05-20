@@ -48,6 +48,11 @@ describe Datastream::ModsJournalArticle do
     @ds.journal_end_page.should == ["523"]
     @ds.journal_article_restriction.should == ["This is not restricted"]
 
+    # Journal article related URLs...
+    @ds.journal_url.should == ["http://www.sampleurl.com/2323434/splash", "http://www.sampleurl.com/2323434/document.pdf", "http://www.sampleurl.com/2323434/abstract.html"]
+    @ds.journal_url_access.should == ["object in context", "raw object", "preview"]
+    @ds.journal_url_display_label.should == ["Article splash", "Full text", "Abstract"]
+
     @ds.peer_reviewed.should == ["true"]
 
   end
@@ -81,29 +86,70 @@ describe Datastream::ModsJournalArticle do
     @ds.journal.part.pages.start.should == ["511"]
     @ds.journal.part.pages.end.should == ["523"]
     @ds.journal.note_restriction.should == ["This is not restricted"]
+    # Journal location urls
+    @ds.journal.location.url.should == ["http://www.sampleurl.com/2323434/splash", "http://www.sampleurl.com/2323434/document.pdf", "http://www.sampleurl.com/2323434/abstract.html"]
+    @ds.journal.location.url.access.should == ["object in context", "raw object", "preview"]
+    @ds.journal.location.url.display_label.should == ["Article splash", "Full text", "Abstract"]
+
   end   
 
 
-  describe "Set metadata methods" do
-    before(:all) do
-      @person_names = ["Smith, John.", "Jones, David."]
-      @person_roles = ["Author", "Photographer"]
+  describe "Set metadata method" do
+    
+    describe "roles" do
+      before(:all) do
+        @person_names = ["Smith, John.", "Jones, David."]
+        @person_roles = ["Author", "Photographer"]
+      end
+
+      it "should let me update the names elements with multiple items" do
+        #Add the names...
+        @ds.add_names(@person_names, @person_roles, "person")
+
+        #Test the names...
+        @ds.person_name.should == @person_names
+        @ds.person_role_text.should == @person_roles
+      end
     end
 
-    it "should let me update the names elements with multiple items" do
-      #Add the names...
-      @ds.add_names(@person_names, @person_roles, "person")
-
-      #Test the names...
-      @ds.person_name.should == @person_names
-      @ds.person_role_text.should == @person_roles
+    describe "subjects" do
+      it "should let me update subject_topic with multiple items" do
+        new_subject_topics = ["New topic", "New topic 2"]
+        @ds.add_subject_topic(new_subject_topics)
+        @ds.subject_topic.should == new_subject_topics
+      end
     end
 
-    it "should let me update subject_topic with multiple items" do
-      new_subject_topics = ["New topic", "New topic 2"]
-      @ds.add_subject_topic(new_subject_topics)
-      @ds.subject_topic.should == new_subject_topics
+    describe "journal urls" do
+      it "should let me update related journal urls with related access type and display labels" do
+         url_list = [
+           "http://www.sampleurl.com/2323434/splash",
+           "http://www.sampleurl.com/2323434/document.pdf",
+           "http://www.sampleurl.com/2323434/abstract.html"
+         ]
+
+         url_access_list = [
+           "object in context",
+           "raw object",
+           "preview"
+         ]
+
+         url_display_label_list = [
+           "Article splash page",
+           "Full text",
+           "Preview"
+         ]
+
+        # Add the urls, access type, and labels
+        @ds.add_journal_urls(url_list, url_access_list, url_display_label_list)
+
+        # Check they are set correct...
+        @ds.journal.location.url.should == url_list
+        @ds.journal.location.url.access.should == url_access_list
+        @ds.journal.location.url.display_label.should == url_display_label_list
+      end
     end
+  
   end
 
   describe "class methods" do

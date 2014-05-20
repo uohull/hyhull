@@ -1,0 +1,40 @@
+ <div id="multi-field-edit">
+  <div id="field-list">
+    <% journal_url_list = journal_article.journal_url %>
+    <% journal_url_access_list = journal_article.journal_url_access %>    
+    <% journal_url_display_label_list = journal_article.journal_url_display_label %>
+    
+    <div class="controls">
+      <%#= label_tag :journal_url, "Url",  :class => "control-label" %>
+      <%#= label_tag :journal_url_access, "Access",  :class => "control-label" %>
+      <%#= label_tag :journal_url_display_label, " Display label",  :class => "control-label" %>
+    </div>
+    <br />
+
+  <% if journal_url_list.empty? %>
+      <div id="fields" class="controls">
+        <%= text_field_tag "journal_article[journal_url][]", nil , { "placeholder" => "URL"} %> 
+        <%= select_tag "journal_article[journal_url_access][]", options_for_select(journal_article.url_access_terms), :prompt => "- Select access -" %> 
+        <%= text_field_tag "journal_article[journal_url_display_label][]", nil, { "placeholder" => "Display label"} %>  
+      </div>
+    <% else %>
+      <% journal_url_list.each_with_index do |f,i| %>
+       <div id="fields" class="controls">
+        <div style="display:block; clear:both;">
+          <span class="field" style="float:left">
+            <%= text_field_tag "journal_article[journal_url][]", f, { "placeholder" => "URL"} %> 
+            <%= select_tag "journal_article[journal_url_access][]", options_for_select(journal_article.url_access_terms, journal_url_access_list[i]), :prompt => "- Select access -" %> 
+            <%= text_field_tag "journal_article[journal_url_display_label][]", journal_url_display_label_list[i], { "placeholder" => "Display label"} %>  
+          </span>
+          <% unless i.zero? %>
+            <span class="icon-minus-sign remove-field"></span><br /> 
+          <% end %>     
+        </div>
+      </div>
+      <% end %> 
+     <% end %>
+   </div>  
+  <br /><br />
+  <div class="add-field icon-plus-sign controls"></div>  
+</div>
+<br />

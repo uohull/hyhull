@@ -29,6 +29,11 @@
       <%= f.input :journal_end_page, label: "Page end" %>
       <%= f.input :journal_article_restriction, label: "Restriction" %>
     </div>
+    <hr/>
+    <h6>Web links</h6>
+    <div class="fields">
+        <%= render :partial => "journal_web_edit", :locals => { journal_article: @journal_article } %>   
+    </div>
   </div>
 
 </div>
