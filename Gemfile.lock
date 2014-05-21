@@ -183,7 +183,6 @@ GEM
     mini_portile (0.6.0)
     multi_json (1.10.1)
     multi_test (0.1.1)
-    mysql2 (0.3.16)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     nom-xml (0.5.1)
@@ -327,7 +326,6 @@ DEPENDENCIES
   jettywrapper (~> 1.5.0)
   jquery-rails
   jquery-ui-rails (~> 4.1.0)
-  mysql2
   rails (= 3.2.18)
   rspec-rails (~> 2.14.0)
   rubytree (~> 0.8.3)
