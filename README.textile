@@ -1,4 +1,4 @@
-h1. Hydra at Hull
+h1. Hydra at Hull (Community edition)
 
 Hydra project at the University of Hull.  This is the hyhull repo based upon the latest the hydra software, for more information about the Hydra project see:-
 
@@ -6,11 +6,7 @@ hydra project site: "http://projecthydra.org/":http://projecthydra.org/
 hydra gem: "https://github.com/projecthydra/hydra":https://github.com/projecthydra/hydra
 hydra-head gem: "https://github.com/projecthydra/hydra-head":https://github.com/projecthydra/hydra-head 
 
-h3. Important information 
-
-If you are interesting in trying hyhull in your own environment, we recommend that you use the 'community' branch.  The community branch includes a few small changes to make setting up hyhull much easier, for example CAS based authentication is replaced with simple DB auth. 
-
-Please see  "Community branch":https://github.com/uohull/hyhull/tree/community  
+The hyhull community version aims to provide a version of the application that is easier to setup and configure.   This includes a number of changes from the original version of hyhull, but most notably, the use of simple DB authentication. 
 
 h2. Code Status
 
@@ -20,8 +16,10 @@ h2. Installation/Setup
 
 h3. Installation Prerequisites
 
+To clone the community branch of hyhull
+
 <pre>
-git clone https://github.com/uohull/hyhull.git
+git clone -b community --single-branch https://github.com/uohull/hyhull 
 </pre>
 
 Change the current directory to "hyhull"
@@ -40,9 +38,17 @@ Install the dependencies by running:
 Migrate the database
 <pre>rake db:migrate</pre>
 
-Seed the database with the pre-defined Repo roles (contentAccessTeam, staff, student etc..).
+Seed the database with the pre-defined development/test Users and Repo roles (contentAccessTeam, staff, student etc..).
 
-*Note*: At the end of _db/seeds.rb_ there is sample code to add users to the 'People' table and roles to the 'Roles' tables.  This is important if there is need to walk through sample logins in development mode.
+*Note*:  The seeds process will create the following users/passwords.  This will enable you to test various roles within Hyhull, and get a flavour of how authentication/authorisation provides differentiated access.
+
+<pre>email: 'cat@hyhull.com', password: 'cat123' (ContentAccessTeam role)
+email: 'creator@hyhull.com', password: 'creator123' (ContentCreator role)
+email: 'admin@hyhull.com', password: 'admin123' (Admin role)
+email: 'staff@hyhull.com', password: 'staff123' (Staff role)
+email: 'student@hyhull.com', password: 'student123' (Student role)
+</pre>
+
 To seed the data...       
 <pre>rake db:seed</pre>
 
