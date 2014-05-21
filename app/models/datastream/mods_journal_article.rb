@@ -79,6 +79,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
         t.publication_date(:path=>"date")
       }
       t.note_restriction(:path=>'note', :attributes=>{:type=>'restriction'})
+      t.note_publications(:path=>'note', :attributes=>{:type=>'publications'})
 
       t.location {
         t.url
@@ -102,7 +103,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     }
 
     # Rights and identifiers
-    t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"})
+    t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"}, :index_as=>[:displayable])
     t.identifier(:attributes=>{:type=>"fedora"})
     t.related_private_object(:path=>"relatedItem", :attributes=>{:type=>"privateObject"}) {
       t.private_object_id(:path=>"identifier", :attributes=>{:type=>"fedora"})
@@ -166,9 +167,10 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.journal_start_page(:proxy=>[:journal, :part, :pages, :start], :index_as=>[:displayable] )
     t.journal_end_page(:proxy=>[:journal, :part, :pages, :end], :index_as=>[:displayable] )
     t.journal_article_restriction(:proxy=>[:journal, :note_restriction], :index_as=>[:displayable] )
+    t.journal_publications_note(:proxy=>[:journal, :note_publications], :index_as=>[:displayable] )
 
     t.journal_url(:proxy=>[:journal, :location, :url], :index_as=>[:displayable])
-    t.journal_url_access(:proxy=>[:journal, :location, :url, :access], :index_as=>[:displayable])
+    t.journal_url_access(:proxy=>[:journal, :location, :url, :access])
     t.journal_url_display_label(:proxy=>[:journal, :location, :url, :display_label], :index_as=>[:displayable])
   end
   

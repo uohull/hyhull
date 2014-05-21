@@ -270,6 +270,7 @@ module HyhullHelper
     display_dt_dd_element(label_to_display(label_text), return_unencoded_html_string(solr_field_value(document, solr_fname)), html_class)
   end
 
+
   def display_field_within_element(document, solr_fname, element='h1', options={})
     default_options = { element_class: nil, date_field: false }
     options.reverse_merge!(default_options)
@@ -282,6 +283,27 @@ module HyhullHelper
       end
     end
         
+  end
+
+  # Method that enables the display of multiple urls/url-labels from two related solr fields
+  # i.e if url_solr_fname contains ["http://www.google.com", "http://www.bing.com"] and url_label_solr_fname contains ["Google", "Bing"]
+  # It will produce links with the two elements combined. 
+  def display_related_urls(document, url_solr_fname, label_text='', url_label_solr_fname, html_class )
+    if document.has?(url_solr_fname)
+      urls = document[url_solr_fname]
+      url_labels = document[url_label_solr_fname] if document.has?(url_label_solr_fname)
+      link_list = []
+
+      urls.each_with_index do |url, i|
+        if url_labels.nil?
+          url_label = url
+        else
+         url_label = url_labels[i].nil? ? url : url_labels[i]
+        end
+        link_list << link(url, url_label)
+      end 
+      display_dt_dd_element(label_to_display(pluralize_string(urls.size, label_text)), return_unencoded_html_string(link_list.join("<br/>")) , html_class)
+    end
   end
 
   # Use to provide a DOI link within the standard dd/dt field elements

@@ -62,6 +62,7 @@ describe JournalArticle do
         "journal_start_page" => "100",
         "journal_end_page" => "200",
         "journal_article_restriction" => "No restriction",
+        "journal_publications_note" => "To access this article...",
         "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
         "journal_url_access" => ["raw object", "preview"],
         "journal_url_display_label" => ["Full text", "Abstract"]
@@ -90,6 +91,7 @@ describe JournalArticle do
       @ja.journal_start_page.should == attributes_hash["journal_start_page"]
       @ja.journal_end_page.should == attributes_hash["journal_end_page"]
       @ja.journal_article_restriction.should == attributes_hash["journal_article_restriction"]
+      @ja.journal_publications_note.should == attributes_hash["journal_publications_note"]
 
       # These attributes are not marked as 'unique' in the call to delegate, results will be arrays...
       @ja.person_name.should == attributes_hash["person_name"]
