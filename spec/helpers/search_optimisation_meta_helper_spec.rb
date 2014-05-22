@@ -20,11 +20,12 @@ describe SearchOptimisationMetaHelper do
       "journal_electronic_issn_ssm", ["1234-1234X"],
       "subject_topic_ssm", ["Keyword 1", "Keyword 2"],
       "journal_article_doi_ssm", ["00.1234/s1212-123223y"],
+      "journal_url_ssm", ["http://hydra.hull.ac.uk/res/doc.pdf","http://hydra.hull.ac.uk/res/abstract.html","http://hydra.hull.ac.uk/res/journal.html"],
+      "journal_url_display_label_ssm", ["Full text document", "Abstract", "Journal article information"],
       "resource_object_id_ssm", ["ObjectID", "ObjectID"],
       "resource_ds_id_ssm", ["Content", "DsID"],
       "sequence_ssm", ["2","1"]
     ] }
-
 
     describe ".meta_tags" do
       it "returns the expected dc.Title meta tag" do
@@ -94,9 +95,19 @@ describe SearchOptimisationMetaHelper do
         expect(tags).to include('<meta content="Keyword 1; Keyword 2" name="citation_keywords" />')
       end
 
-      it "returns the expected pdf url (prime content - Sequence 1) of resource" do
+      it "returns the expected citation_pdf_url (prime content - Sequence 1) of resource" do
         tags = helper.meta_tags(document)
         expect(tags).to include('<meta content="http://hydra.hull.ac.uk/resources/ObjectID/DsID" name="citation_pdf_url" />')
+      end
+
+      it "returns the expected citation_abstract_html_url meta tag" do
+        tags = helper.meta_tags(document)
+        expect(tags).to include('<meta content="http://hydra.hull.ac.uk/res/abstract.html" name="citation_abstract_html_url" />')
+      end
+    
+      it "returns the expected citation_fulltext_html_url meta tag" do
+        tags = helper.meta_tags(document)
+        expect(tags).to include('<meta content="http://hydra.hull.ac.uk/res/doc.pdf" name="citation_fulltext_html_url" />')
       end
     
     end

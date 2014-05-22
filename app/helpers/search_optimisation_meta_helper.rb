@@ -66,6 +66,10 @@ module SearchOptimisationMetaHelper
     highwire_press_meta_tags << meta_tag("citation_dissertation_institution", dissertation_institution(document))
     # citation_technical_report_institution  
     highwire_press_meta_tags << meta_tag("citation_technical_report_institution", report_institution(document))
+    # citation_abstract_html_url
+    highwire_press_meta_tags << meta_tag("citation_abstract_html_url", abstract_html_url(document))
+    # citation_fulltext_html_url
+    highwire_press_meta_tags << meta_tag("citation_fulltext_html_url", fulltext_html_url(document))
 
     return highwire_press_meta_tags.compact
   end
@@ -133,6 +137,41 @@ module SearchOptimisationMetaHelper
         return default_institution_name
       end
     end
+  end
+
+  # abstract_html_url is only retrieved for JournalArticle and based on a url with label "abstract"
+  def abstract_html_url(document)
+    if document_resource_type(document) == "JournalArticle"
+      return url_from_journal_urls_by_label(document, "abstract")      
+    end
+  end
+
+  # fulltext_html_url is only retrieved for JournalArticle and based on a url with label "full text"
+  def fulltext_html_url(document)
+    if document_resource_type(document)  == "JournalArticle"
+      return url_from_journal_urls_by_label(document, "full text")      
+    end
+  end
+
+  # url_from_journal_urls_by_label is a method used primarily for JournalArticles
+  # The method will retrieve a URL (journal_url_ssm) by matching label_text
+  # against the URL label (journal_url_display_label_ssm)
+  # The method errs on caution if the   journal_url_display_label_ssm/journal_url_ssm
+  # array sizes don't match
+  def url_from_journal_urls_by_label(document, label_text="")
+    journal_urls = document["journal_url_ssm"]
+    journal_url_display_labels = document["journal_url_display_label_ssm"]
+ 
+    unless journal_urls.nil? || journal_url_display_labels.nil?
+      if journal_urls.size == journal_url_display_labels.size        
+        journal_url_display_labels.each_with_index do |url_display_label, i|
+          if url_display_label.downcase.include?(label_text.downcase)
+            return journal_urls[i]
+          end
+        end
+      end
+    end
+     
   end
 
 
