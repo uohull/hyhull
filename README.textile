@@ -6,6 +6,12 @@ hydra project site: "http://projecthydra.org/":http://projecthydra.org/
 hydra gem: "https://github.com/projecthydra/hydra":https://github.com/projecthydra/hydra
 hydra-head gem: "https://github.com/projecthydra/hydra-head":https://github.com/projecthydra/hydra-head 
 
+h3. Important information 
+
+If you are interesting in trying hyhull in your own environment, we recommend that you use the 'community' branch.  The community branch includes a few small changes to make setting up hyhull much easier, for example CAS based authentication is replaced with simple DB auth. 
+
+Please see  "Community branch":https://github.com/uohull/hyhull/tree/community  
+
 h2. Code Status
 
 !https://travis-ci.org/uohull/hyhull.png?branch=master!:https://travis-ci.org/uohull/hyhull
@@ -15,7 +21,7 @@ h2. Installation/Setup
 h3. Installation Prerequisites
 
 <pre>
-git checkout git@github.com:uohull/hyhull.git
+git clone https://github.com/uohull/hyhull.git
 </pre>
 
 Change the current directory to "hyhull"
