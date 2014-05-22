@@ -8,6 +8,7 @@ unless Rails.env.production?
   RoleType.delete_all 
   PropertyType.delete_all
   Property.delete_all
+  User.delete_all
 end
 
 # Set role types - These are required for the Hyhull Application
@@ -105,7 +106,6 @@ end
 # This code will seed the development database with users with various role types
 # The users created have the following roles - contentAccessTeam (content management), contentCreator, Admin, staff role, student role 
 #
-
 if Rails.env.development?
 
   development_users = [
