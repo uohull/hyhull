@@ -9,6 +9,8 @@ Hyhull::Application.routes.draw do
   match 'resources/opensearch', to: 'catalog#opensearch',  as: 'opensearch_catalog'
   match 'resources/facet/:id', to: 'catalog#facet', as: 'catalog_facet'
   match 'resources', to: 'catalog#index', as: 'catalog_index'
+  match 'oai_provider', to: 'catalog#oai', as: 'oai_provider'
+
   resources :solr_document,  path: 'resources', controller: 'catalog', only: [:show, :update] 
   resources :catalog, path: 'resources', controller: 'catalog', only:  [:show, :update]
   # End of catalog/solr_document overides 

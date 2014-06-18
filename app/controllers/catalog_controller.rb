@@ -4,6 +4,8 @@ require 'blacklight/catalog'
 class CatalogController < ApplicationController
   include BlacklightGoogleAnalytics::ControllerExtraHead
   include Blacklight::Catalog
+  include BlacklightOaiProvider::ControllerExtension
+
   include Hydra::Controller::ControllerBehavior
 
   # This applies a require login check for the show and index methods - Calls require_login
@@ -175,6 +177,24 @@ class CatalogController < ApplicationController
     # If there are more than this many search results, no spelling ("did you 
     # mean") suggestion is offered.
     config.spell_max = 5
+
+    config.oai = {
+      :provider => {
+        :repository_name => 'Test',
+        :repository_url => 'http://localhost',
+        :record_prefix => 'oai:hull.ac.uk',
+        :admin_email => 'root@localhost'
+      },
+      :document => {
+        :timestamp => 'timestamp',
+        :limit => 25
+      }
+    }
+
+  end
+
+  def oai_config    
+    self.class.configure_blacklight[:oai] || {}
   end
 
 end 

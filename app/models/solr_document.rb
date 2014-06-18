@@ -2,6 +2,8 @@
 class SolrDocument 
 
   include Blacklight::Solr::Document
+  SolrDocument.use_extension( BlacklightOaiProvider::SolrDocumentExtension )
+
 
   # self.unique_key = 'id'
   
@@ -25,9 +27,16 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension( Blacklight::Solr::Document::DublinCore)    
   field_semantics.merge!(    
-                         :title => "title_display",
-                         :author => "author_display",
-                         :language => "language_facet",
-                         :format => "format"
+                         :title => "title_tesim",
+                         :creator => "creator_name_ssim",
+                         :language => "language_text_ssm",
+                         :description => "abstract_ssm",
+                         :subject => "subject_topic_ssm",
+                         :date => "date_issued_ssm",
+                         :format => "format",                         
+                         :type => "genre_ssm",
+                         :identifier => "id",
+                         :rights => "rights_ssm",
+                         :publisher => "publisher_ssm"
                          )
 end

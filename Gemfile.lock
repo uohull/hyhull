@@ -49,6 +49,10 @@ GEM
       rsolr (~> 1.0.6)
       sass-rails
     blacklight_google_analytics (0.0.1.pre3)
+    blacklight_oai_provider (0.0.2)
+      blacklight
+      oai
+      rails (~> 3.0)
     block_helpers (0.3.3)
       activesupport (>= 2.0)
     bootstrap-sass (2.3.2.2)
@@ -116,6 +120,10 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
     fastercsv (1.5.5)
     ffi (1.9.3)
     gherkin (2.12.2)
@@ -186,6 +194,7 @@ GEM
     mini_portile (0.6.0)
     multi_json (1.10.1)
     multi_test (0.1.1)
+    multipart-post (2.0.0)
     mysql2 (0.3.16)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
@@ -193,6 +202,10 @@ GEM
       activesupport
       i18n
       nokogiri
+    oai (0.3.1)
+      builder (>= 2.0.0)
+      faraday
+      faraday_middleware
     om (3.0.4)
       activemodel
       activesupport
@@ -318,6 +331,7 @@ PLATFORMS
 
 DEPENDENCIES
   blacklight_google_analytics (~> 0.0.1.pre2)
+  blacklight_oai_provider
   bootstrap-sass
   bootstrap_forms
   coffee-rails (~> 3.2.1)
