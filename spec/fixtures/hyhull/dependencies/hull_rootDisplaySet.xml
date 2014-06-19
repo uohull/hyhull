@@ -133,7 +133,6 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <access type="discover">
     <human></human>
     <machine>
-      <group>public</group>
       <group>contentAccessTeam</group>
     </machine>
   </access>
