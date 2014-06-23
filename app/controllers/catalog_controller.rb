@@ -188,6 +188,32 @@ class CatalogController < ApplicationController
       :document => {
         :timestamp => 'timestamp',
         :limit => 25
+      },
+      :sets => {
+        :UketdObject => {
+           :solr_field => "active_fedora_model_ssi",
+           :set_spec => "ThesisOrDissertations",
+           :set_name => "Thesis or Dissertations",
+           :set_description=> "The set of theses and dissertations items in the University of Hull Institutional Repository"
+        },
+        :JournalArticle => {
+          :solr_field => "active_fedora_model_ssi",
+          :set_spec => "JournalArticles",
+          :set_name => "Journal articles",
+          :set_description => "The set of Journal article items in the University of Hull Institutional Repository"
+        },
+        :Dataset => {
+          :solr_field => "active_fedora_model_ssi",
+          :set_spec => "Datasets",
+          :set_name => "Datasets",
+          :set_description => "The set of Dataset items in the University of Hull Institutional Repository"
+        },
+         :Presentation => {
+           :solr_field => "genre_sim",
+           :set_spec => "Presentation",
+           :set_name => "Presentation",
+           :set_description => "The set of Presentation items in the University of Hull Institutional Repository"
+         }
       }
     }
 

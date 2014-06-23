@@ -5,8 +5,11 @@ module BlacklightOaiProvider
     def initialize controller, options = {}
       options[:provider] ||= {}
       options[:document] ||= {}
+      options[:sets] ||= {}
 
-      self.class.model = SolrDocumentWrapper.new(controller, options[:document])
+      opts = options[:document].merge(sets: options[:sets])
+
+      self.class.model = SolrDocumentWrapper.new(controller, opts)
       # Add the UketdDC metadata provider
       self.class.register_format(OAI::Provider::Metadata::UketdDC.instance)
       
@@ -18,10 +21,5 @@ module BlacklightOaiProvider
       end
     end
 
-    # Equivalent to '&verb=ListSets', returns a list of sets that are supported
-    # by the repository or an error if sets are not supported.
-    def list_sets(options = {})
-      BlacklightOaiProvider::ListSets.new(self.class, options).to_xml
-    end
   end
 end
