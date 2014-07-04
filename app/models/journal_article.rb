@@ -52,7 +52,7 @@ class JournalArticle < ActiveFedora::Base
 
   # Standard validations for the object fields
   validates :title, presence: true
-  validates :person_name, array: { :length => { :minimum => 5 } }
+  validates :person_name, array: { :length => { :minimum => 3 } }
   validates :person_role_text, array: { :length => { :minimum => 3 } } 
   validates :subject_topic, array: { :length => { :minimum => 2 } }
   validates :publisher, presence: true
