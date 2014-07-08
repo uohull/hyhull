@@ -65,7 +65,9 @@ describe JournalArticle do
         "journal_publications_note" => "To access this article...",
         "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
         "journal_url_access" => ["raw object", "preview"],
-        "journal_url_display_label" => ["Full text", "Abstract"]
+        "journal_url_display_label" => ["Full text", "Abstract"], 
+        "converis_publication_id" => "123456", 
+        "unit_of_assessment" => "UoA 15"
       } 
 
       @ja.update_attributes( attributes_hash )
@@ -102,6 +104,9 @@ describe JournalArticle do
       @ja.journal_url_access.should == attributes_hash["journal_url_access"]
       @ja.journal_url_display_label.should == attributes_hash["journal_url_display_label"]
 
+      @ja.unit_of_assessment.should == attributes_hash["unit_of_assessment"]
+      @ja.converis_publication_id.should == attributes_hash["converis_publication_id"]
+
       @ja.save
     end
 
@@ -124,7 +129,7 @@ describe JournalArticle do
 
       # errors...
       @ja.errors.messages[:title].should == ["can't be blank"]
-      @ja.errors.messages[:person_name].should == ["is too short (minimum is 5 characters)"]
+      @ja.errors.messages[:person_name].should == ["is too short (minimum is 3 characters)"]
       @ja.errors.messages[:person_role_text].should == ["is too short (minimum is 3 characters)"]
       @ja.errors.messages[:subject_topic].should == ["is too short (minimum is 2 characters)"]
       @ja.errors.messages[:publisher].should == ["can't be blank"]

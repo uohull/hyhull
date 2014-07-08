@@ -1,9 +1,5 @@
 <div class="row-spacer"></div>
 <div class="page-gutter">
-	<!-- <legend><h2>Administrative metadata</h2></legend> -->
-	<% if resource.respond_to?("resource_status") %>
-	  <%= form.input :resource_status, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
-	<% else %>
-	  <p>Administrative metadata cannot be display for this resource</p>
-	<% end %>
+	<%= form.input :resource_status, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } if resource.respond_to?(:resource_status)  %>
+      <%= form.input :unit_of_assessment, label: "Unit of assessment" if resource.respond_to?(:unit_of_assessment) %>
 </div>

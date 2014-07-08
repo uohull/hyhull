@@ -71,7 +71,8 @@ describe Dataset do
         "extent" => ["Filesize: 123KB", "Something else"],
         "rights" => ["Rights 1", "Rights 2"],
         "citation" => ["Citation 1", "Citation 2"],
-        "software" => ["Linux", "Ubuntu"]
+        "software" => ["Linux", "Ubuntu"],
+        "converis_publication_id" => "123456"
       } 
       @dataset.update_attributes( attributes_hash )
 
@@ -94,6 +95,7 @@ describe Dataset do
       @dataset.extent.should == attributes_hash["extent"]
       @dataset.rights.should == attributes_hash["rights"]
       @dataset.doi.should == attributes_hash["doi"]
+      @dataset.converis_publication_id.should == attributes_hash["converis_publication_id"]
 
       # These attributes are not marked as 'unique' in the call to delegate, results will be arrays...
       @dataset.person_name.should == attributes_hash["person_name"]

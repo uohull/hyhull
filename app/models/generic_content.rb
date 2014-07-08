@@ -33,8 +33,10 @@ class GenericContent < ActiveFedora::Base
   # Attributes to respective datastream
   # Unique fields
   has_attributes :title, :version, :date_valid, :date_issued, :location_coordinates, :location_label, :location_coordinates_type, :language_text, :language_code, 
-                   :publisher, :type_of_resource, :description, :genre, :mime_type, :digital_origin, :identifier, :doi, :record_creation_date, 
-                     :record_change_date, :resource_status, :additional_notes, 
+                   :publisher, :type_of_resource, :description, :genre, :mime_type, :digital_origin, :identifier, :doi, :record_creation_date, :peer_reviewed,
+                     :record_change_date, :resource_status, :additional_notes,  :converis_publication_id, :related_item_title, :related_item_publisher,
+                     :related_item_publication_date, :related_item_print_issn, :related_item_electronic_issn, :related_item_isbn,  :related_item_doi, :related_item_volume, 
+                     :related_item_issue, :related_item_start_page, :related_item_end_page, :related_item_restriction, :related_item_publications_note, :unit_of_assessment,
                      datastream: :descMetadata, multiple: false
 
   # Non-unique fields

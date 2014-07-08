@@ -24,19 +24,35 @@
 
       <%= display_text_area_field(document, 'description_ssm', 'Description', 'description_ssm') %>
       <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
+      <%= display_boolean_field(document, 'peer_reviewed_ssm', 'Peer reviewed', 'peer_reviewed_ssm') %>
       <%= display_field(document, 'language_text_ssm', 'Language', 'language_text_ssm') %>
-
       <%= display_field(document, 'citation_ssm', 'Citation', 'citation_ssm') %>
       <%= display_field(document, 'subject_geographic_ssm', 'Coverage', 'subject_geographic_ssm') %>
       <%= display_field(document, 'subject_temporal_ssm', 'Temporal', 'subject_temporal_ssm') %> 
-      <%= display_field(document, 'related_web_url_ssm', 'Related web materials', 'related_web_url_ssm') %> 
-      <%= display_field(document, 'see_also_ssm', 'See also', 'see_also_ssm') %> 
       <%= display_field(document, 'software_ssm', 'Software', 'software_ssm') %> 
       <%= display_field(document, 'doi_ssm', 'DOI', 'doi_ssm') %> 
-      <%= display_field(document, 'additional_notes_ssm', 'Additional notes', 'additional_notes_ssm') %> 
-
+      <%= display_field(document, 'additional_notes_ssm', 'Additional notes', 'additional_notes_ssm') %>
       <%= display_field(document, 'extent_ssm', 'Extent', 'extent_ssm') %>
-      <%= display_field(document, 'id', 'Identifier', 'id') %>
+      <%= display_field(document, 'id', 'Identifier', 'id') %> 
+    </dl>
+
+    <h3>Related</h3>
+    <dl class="dl-horizontal dl-invert">
+      <%= display_field(document, 'related_item_title_ssm', 'Name/title', 'related_item_title_ssm') %>
+      <%= display_date_field(document, 'related_item_publication_date_ssm', 'Publication date', 'related_item_publication_date_ssm') %>
+      <%= display_field(document, 'related_item_publisher_ssm', 'Publisher', 'related_item_publisher_ssm') %>
+      <%= doi_resolver_field(document, 'related_item_doi_ssm', 'DOI', 'related_item_article_doi_ssm') %>
+      <%= display_field(document, 'related_item_print_issn_ssm', 'ISSN (Print)', 'related_item_print_issn_ssm') %>
+      <%= display_field(document, 'related_item_electronic_issn_ssm', 'ISSN (Electronic)', 'related_item_electronic_issn_ssm') %>
+      <%= display_field(document, 'related_item_isbn_ssm', 'ISSN (Electronic)', 'related_item_isbn_ssm') %>
+      <%= display_field(document, 'related_item_volume_ssm', 'Volume', 'related_item_volume_ssm') %>
+      <%= display_field(document, 'related_item_issue_ssm', 'Issue', 'related_item_issue_ssm') %>
+      <%= display_field(document, 'related_item_start_page_ssm', 'Start page', 'related_item_start_page_ssm') %>
+      <%= display_field(document, 'related_item_end_page_ssm', 'End page', 'related_item_end_page_ssm') %>
+      <%= display_field(document, 'related_item_restriction_ssm', 'Restriction', 'related_item_restriction_ssm') %>
+      <%= display_field(document, 'related_web_url_ssm', 'Related web materials', 'related_web_url_ssm') %> 
+      <%= display_field(document, 'see_also_ssm', 'See also', 'see_also_ssm') %> 
+    </dl>
 
       <% # Google Map preview of geo-data %>
       <% geo_data = geo_data_from_solr_doc(document) %>

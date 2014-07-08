@@ -10,7 +10,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
      }
 
-    t.language(:path=>"language"){
+    t.language(:path=>"language") {
       t.lang_text(:path=>"languageTerm", :attributes=>{:type=>"text"})
       t.lang_code(:path=>"languageTerm", :attributes=>{:type=>"code"})
     }
@@ -91,6 +91,8 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     }
     # Should be set to true/false
     t.peer_reviewed(:path=>'note', :attributes=>{:type=>'peerReviewed'}, :index_as=>[:displayable])
+    # Unit of assessment used in REF items
+    t.unit_of_assessment(:path=>"note",  :attributes=>{:type=>"unitOfAssessment"}, :index_as=>[:displayable]) 
 
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
@@ -107,6 +109,11 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.identifier(:attributes=>{:type=>"fedora"})
     t.related_private_object(:path=>"relatedItem", :attributes=>{:type=>"privateObject"}) {
       t.private_object_id(:path=>"identifier", :attributes=>{:type=>"fedora"})
+    }
+
+    # Converis identifiers 
+    t.converis_related(:path=>"relatedItem", :attributes=>{:ID=>"converis", :type=>"original" }) {
+      t.publication_id(:path=>"identifier", :attributes=>{:type=>"local", :displayLabel=>"iot_publication"})
     }
 
     # General cataloguing fields
@@ -139,8 +146,8 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.extent(:proxy=>[:physical_description, :extent], :index_as=>[:displayable])
     t.mime_type(:proxy=>[:physical_description, :mime_type])
     t.digital_origin(:proxy=>[:physical_description, :digital_origin])
-    t.primary_display_url(:proxy=>[:location_element, :primary_display])
-    t.raw_object_url(:proxy=>[:location_element, :raw_object])
+    t.primary_display_url(:proxy=>[:mods, :location_element, :primary_display])
+    t.raw_object_url(:proxy=>[:mods, :location_element, :raw_object])
     t.record_creation_date(:proxy=>[:record_info, :record_creation_date])
     t.record_change_date(:proxy=>[:record_info, :record_change_date])
     t.language_text(:proxy=>[:language, :lang_text], :index_as=>[:displayable, :facetable])
@@ -172,6 +179,9 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.journal_url(:proxy=>[:journal, :location, :url], :index_as=>[:displayable])
     t.journal_url_access(:proxy=>[:journal, :location, :url, :access])
     t.journal_url_display_label(:proxy=>[:journal, :location, :url, :display_label], :index_as=>[:displayable])
+
+    # Converis
+    t.converis_publication_id(:proxy=>[:converis_related, :publication_id], :index_as =>[:searchable])
   end
   
 

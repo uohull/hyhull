@@ -1,0 +1,42 @@
+<div class="page-gutter">
+  <div class="row-spacer"></div>
+
+ <div class="row-fluid">      
+    <h4>Related item</h4>
+    <div class="fields">     
+      <%= f.input :related_item_title, label: "Name/title", :input_html => { :class => 'input-block-level' } %>
+      <%= f.input :related_item_publication_date, label: "Publication date" %>
+      <%= f.input :related_item_print_issn, label: "ISSN (Print)" %>
+      <%= f.input :related_item_electronic_issn, label: "ISSN (Electronic)" %>
+      <%= f.input :related_item_isbn, label: "ISBN" %>
+      <%= f.input :related_item_publisher, label: "Publisher" %>
+    </div>
+    <h6>Article</h6>
+    <div class="fields">
+      <%= f.input :related_item_doi, label: "DOI" %>
+      <% unless @generic_content.related_item_doi.nil? %>
+        <div class="control-group">
+          <% publication_link = "#{DOI_RESOLVER_SERVICE_URL}#{@generic_content.related_item_doi.strip}" %>
+          <div class="controls">
+            <%= link_to publication_link, publication_link, :target => "_blank" %>
+          </div>
+        </div>
+      <% end %>
+      <%= f.input :related_item_volume, label: "Volume" %>
+      <%= f.input :related_item_issue, label: "Issue" %>
+      <%= f.input :related_item_start_page, label: "Page start" %>
+      <%= f.input :related_item_end_page, label: "Page end" %>
+      <%= f.input :related_item_restriction, label: "Restriction" %>
+    </div>
+    <hr/>
+    <div class="fields">
+      <h4>Related materials</h4>
+      <br/>
+      <h6>Web materials</h6> 
+      <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "related_web_url", label: "Related materials" } %> 
+      <hr/>
+      <h6>Non web</h6>
+      <%= render partial: "metadata/multi_field_edit", locals: { object: @generic_content, field: "see_also" } %>
+     </div>
+  </div>
+</div>

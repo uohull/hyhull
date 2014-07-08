@@ -79,7 +79,7 @@ module Hyhull::Datastream::ModsMetadataBase
       t.origin_info(:path=>'originInfo') {
         t.date_issued(:path=>'dateIssued')
         t.date_valid(:path=>'dateValid', :attributes=>{:encoding=>'iso8601'})
-        t.publisher
+        t.publisher #(:index_as=>[:displayable])
       }
 
       # Rights and identifiers
@@ -97,10 +97,59 @@ module Hyhull::Datastream::ModsMetadataBase
         }
       }
 
+      # Related item specific metadata
+      # relatedItem type="otherVersion"
+      t.related_item(:path=>'relatedItem', :attributes=>{:type=>'otherVersion'}) {
+        t.related_item_title_info(:path=>"titleInfo") {
+          t.related_item_main_title(:path=>"title", :label=>"title")
+        }
+        t.origin_info(:path=>"originInfo") {
+          t.publisher
+          t.date_issued(:path=>"dateIssued")
+        }
+        t.issn_print(:path=>'identifier', :attributes=>{:type=>'issn', :displayLabel=>'print'})
+        t.issn_electronic(:path=>'identifier', :attributes=>{:type=>'issn', :displayLabel=>'electronic'})
+        t.isbn(:path=>"identifier", :attributes=>{:type=>"isbn"})
+        t.related_doi(:path=>'identifier', :attributes=>{:type=>'doi'})
+        t.part {
+          t.volume(:path=>'detail', :attributes=>{:type=>'volume'}) {
+            t.number
+          }
+          t.issue(:path=>'detail', :attributes=>{:type=>'issue'}) {
+            t.number
+          }
+          t.pages(:path=>'extent', :attributes=>{:unit=>'pages'}) {
+            t.start
+            t.end 
+          }
+          t.start_page(:proxy=>[:pages, :start])
+          t.end_page(:proxy=>[:pages, :end])
+          t.publication_date(:path=>"date")
+        }
+        t.note_restriction(:path=>'note', :attributes=>{:type=>'restriction'})
+        t.note_publications(:path=>'note', :attributes=>{:type=>'publications'})
+        t.location {
+          t.url
+          t.url {
+            t.access(:path=>{:attribute=>"access"})
+            t.display_label(:path=>{:attribute=>"displayLabel"})
+          }       
+        }
+      }
+
+      # Converis identifiers 
+      t.converis_related(:path=>"relatedItem", :attributes=>{:ID=>"converis", :type=>"original" }) {
+        t.publication_id(:path=>"identifier", :attributes=>{:type=>"local", :displayLabel=>"iot_publication"})
+      }
+
       t.see_also(:path=>"note", :attributes=>{:type=>"seeAlso"}, :index_as=>[:displayable])
       t.additional_notes(:path=>"note", :attributes=>{:type=>"additionalNotes"}, :index_as=>[:displayable])
       t.citation(:path=>"note", :attributes=>{:type=>"citation"}, :index_as=>[:displayable])
       t.software(:path=>"note", :attributes=>{:type=>"software"}, :index_as=>[:displayable])
+      # Unit of assessment used in REF items
+      t.unit_of_assessment(:path=>"note",  :attributes=>{:type=>"unitOfAssessment"}, :index_as=>[:displayable])
+      # Should be set to true/false
+      t.peer_reviewed(:path=>'note', :attributes=>{:type=>'peerReviewed'}, :index_as=>[:displayable])
 
       # General cataloguing fields
       t.physical_description(:path=>"physicalDescription") {
@@ -121,16 +170,16 @@ module Hyhull::Datastream::ModsMetadataBase
       t.creator(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Photographer" or ./xmlns:role/xmlns:roleTerm="Creator" or ./xmlns:role/xmlns:roleTerm="Author"]')
       t.creator_name(:proxy=>[:creator, :namePart], :index_as=>[:symbol])
 
-      # Conttributor can be defined as a 'Sponsor/Supervisor...'
+      # Contributor can be defined as a 'Sponsor/Supervisor...'
       t.contributor(:ref=>:person, :path=>'name[./xmlns:role/xmlns:roleTerm="Sponsor" or ./xmlns:role/xmlns:roleTerm="Supervisor" or ./xmlns:role/xmlns:roleTerm="Editor"]')
       t.contributor_name(:proxy=>[:contributor, :namePart], :index_as=>[:displayable, :facetable])
 
       t.creator_organisation(:ref=>:organisation, :path=>'name[./xmlns:role/xmlns:roleTerm="Creator"]')
       t.creator_organisation_name(:proxy=>[:creator_organisation, :namePart], :index_as=>[:symbol])
 
-
       #Proxies for terminologies 
-      t.title(:proxy=>[:title_info, :main_title], :index_as=>[:stored_searchable])
+      # Added :mods due to issue with matching two fields
+      t.title(:proxy=>[:mods, :title_info, :main_title], :index_as=>[:stored_searchable])
       t.version(:proxy=>[:title_info, :part_name], :index_as=>[:displayable])      
       t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
       t.subject_geographic(:proxy=>[:subject, :geographic], :index_as=>[:displayable])
@@ -142,14 +191,14 @@ module Hyhull::Datastream::ModsMetadataBase
       t.date_valid(:proxy=>[:origin_info, :date_valid], :index_as=>[:sortable, :displayable])
       t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable])
       t.related_web_url(:proxy=>[:related_materials, :location, :primary_display], :index_as=>[:displayable])
-      t.publisher(:proxy=>[:origin_info, :publisher], :index_as=>[:displayable])
+      # Add :mods due to issue with matching two fields
+      t.publisher(:proxy=>[:mods, :origin_info, :publisher], :index_as=>[:displayable])
       t.extent(:proxy=>[:physical_description, :extent], :index_as=>[:displayable])
       t.mime_type(:proxy=>[:physical_description, :mime_type], :index_as=>[:displayable])
       t.digital_origin(:proxy=>[:physical_description, :digital_origin])
       
-      # Removed due to issue with matching two fields
-      #t.primary_display_url(:proxy=>[:location_element, :primary_display])
-      #t.raw_object_url(:proxy=>[:location_element, :raw_object])
+      t.primary_display_url(:proxy=>[:mods, :location_element, :primary_display])
+      t.raw_object_url(:proxy=>[:mods, :location_element, :raw_object])
       
       t.record_creation_date(:proxy=>[:record_info, :record_creation_date])
       t.record_change_date(:proxy=>[:record_info, :record_change_date])
@@ -162,7 +211,30 @@ module Hyhull::Datastream::ModsMetadataBase
 
       t.organisation_name(:proxy=>[:organisation, :namePart], :index_as=>[:displayable])
       t.organisation_role_text(:proxy=>[:organisation, :role, :text], :index_as=>[:displayable])
-      t.organisation_role_code(:proxy=>[:organisation, :role, :code])        
+      t.organisation_role_code(:proxy=>[:organisation, :role, :code]) 
+
+      # Related item proxies 
+      t.related_item_title(:proxy=>[:related_item, :related_item_title_info, :related_item_main_title], :index_as=>[:displayable] )
+      t.related_item_publisher(:proxy=>[:related_item, :origin_info, :publisher], :index_as=>[:displayable] )
+      t.related_item_publication_date(:proxy=>[:related_item, :part, :publication_date], :index_as=>[:displayable, :sortable] )
+      t.related_item_print_issn(:proxy=>[:related_item, :issn_print], :index_as=>[:displayable] )
+      t.related_item_electronic_issn(:proxy=>[:related_item, :issn_electronic], :index_as=>[:displayable] )
+      t.related_item_isbn(:proxy=>[:related_item, :isbn], :index_as=>[:displayable])
+      t.related_item_doi(:proxy=>[:related_item, :related_doi], :index_as=>[:displayable] )
+
+      t.related_item_volume(:proxy=>[:related_item, :part, :volume, :number], :index_as=>[:displayable])
+      t.related_item_issue(:proxy=>[:related_item, :part, :issue, :number], :index_as=>[:displayable] )
+      t.related_item_start_page(:proxy=>[:related_item, :part, :pages, :start], :index_as=>[:displayable] )
+      t.related_item_end_page(:proxy=>[:related_item, :part, :pages, :end], :index_as=>[:displayable] )
+      t.related_item_restriction(:proxy=>[:related_item, :note_restriction], :index_as=>[:displayable] )
+      t.related_item_publications_note(:proxy=>[:related_item, :note_publications], :index_as=>[:displayable] )
+
+      t.related_item_url(:proxy=>[:related_item, :location, :url], :index_as=>[:displayable])
+      t.related_item_url_access(:proxy=>[:related_item, :location, :url, :access])
+      t.related_item_url_display_label(:proxy=>[:related_item, :location, :url, :display_label], :index_as=>[:displayable])
+
+      # Converis
+      t.converis_publication_id(:proxy=>[:converis_related, :publication_id], :index_as =>[:searchable])       
     end
 
   end

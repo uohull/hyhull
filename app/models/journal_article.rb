@@ -33,7 +33,7 @@ class JournalArticle < ActiveFedora::Base
                   :peer_reviewed, :journal_title, :journal_publisher, :journal_publication_date, :journal_print_issn,
                   :journal_electronic_issn, :journal_article_doi, :journal_volume, :journal_issue,  :journal_start_page,
                   :journal_end_page, :journal_article_restriction, :journal_publications_note, :type_of_resource, :genre, :mime_type, :digital_origin, 
-                  :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, :record_change_date, :resource_status,
+                  :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, :record_change_date, :resource_status, :converis_publication_id, :unit_of_assessment,
                   datastream: :descMetadata, multiple: false
 
   # Non-unique fields
@@ -48,7 +48,6 @@ class JournalArticle < ActiveFedora::Base
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsJournalArticle, multiple: false
   delegate :url_access_terms, to: Datastream::ModsJournalArticle, multiple: false
-
 
   # Standard validations for the object fields
   validates :title, presence: true

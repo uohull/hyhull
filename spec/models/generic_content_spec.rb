@@ -60,8 +60,25 @@ describe GenericContent do
         "extent" => ["Filesize: 123KB", "Something else"],
         "rights" => ["Rights 1", "Rights 2"],
         "citation" => ["Citation 1", "Citation 2"],
-        "software" => ["Linux", "Ubuntu"]
+        "software" => ["Linux", "Ubuntu"],
+        "converis_publication_id" => "123456",
+        "peer_reviewed" => "false",
+        "related_item_title" => "This is a related item title...",
+        "related_item_publisher" => "Related item publisher",
+        "related_item_publication_date" => "2010-12-02",
+        "related_item_print_issn" => "12345",
+        "related_item_electronic_issn" => "12345x",
+        "related_item_isbn" => "123456789",
+        "related_item_doi" => "123454/doi.org",
+        "related_item_volume" => "1",
+        "related_item_issue" => "23",
+        "related_item_start_page" => "55",
+        "related_item_end_page" => "57",
+        "related_item_restriction" => "Restricted too...",
+        "related_item_publications_note" => "Publications note", 
+        "unit_of_assessment" => "UoA 15"
       } 
+
       @generic_content.update_attributes( attributes_hash )
 
       # Marked as 'unique' in the call to delegate... 
@@ -81,6 +98,26 @@ describe GenericContent do
       @generic_content.see_also.should == attributes_hash["see_also"]
       @generic_content.extent.should == attributes_hash["extent"]
       @generic_content.rights.should == attributes_hash["rights"]
+
+      @generic_content.unit_of_assessment.should == attributes_hash["unit_of_assessment"]
+      @generic_content.converis_publication_id.should == attributes_hash["converis_publication_id"]
+      @generic_content.peer_reviewed.should == attributes_hash["peer_reviewed"]
+
+      # Related item attributes
+      @generic_content.related_item_title.should == attributes_hash["related_item_title"]
+      @generic_content.related_item_publisher.should == attributes_hash["related_item_publisher"]
+      @generic_content.related_item_publication_date.should == attributes_hash["related_item_publication_date"]
+      @generic_content.related_item_print_issn.should == attributes_hash["related_item_print_issn"]
+      @generic_content.related_item_electronic_issn.should == attributes_hash["related_item_electronic_issn"]
+      @generic_content.related_item_isbn.should == attributes_hash["related_item_isbn"]
+      @generic_content.related_item_doi.should == attributes_hash["related_item_doi"]
+      @generic_content.related_item_volume.should == attributes_hash["related_item_volume"]
+      @generic_content.related_item_issue.should == attributes_hash["related_item_issue"]
+      @generic_content.related_item_start_page.should == attributes_hash["related_item_start_page"]
+      @generic_content.related_item_end_page.should == attributes_hash["related_item_end_page"]
+      @generic_content.related_item_restriction.should == attributes_hash["related_item_restriction"]
+      @generic_content.related_item_publications_note.should == attributes_hash["related_item_publications_note"]
+
 
       # These attributes are not marked as 'unique' in the call to delegate, results will be arrays...
       @generic_content.person_name.should == attributes_hash["person_name"]

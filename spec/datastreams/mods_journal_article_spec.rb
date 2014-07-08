@@ -8,27 +8,25 @@ describe Datastream::ModsJournalArticle do
     @ds = Datastream::ModsJournalArticle.from_xml(@mods)
   end
 
-  it "should expose etd metadata for etd objects with explicit terms and simple proxies" do
+  it "should expose journal article metadata for journal objects with explicit terms and simple proxies" do
     # Removed due to issue with matching two fields 
     #@ds.title.should == ["The title of the Journal article"]  
 
     @ds.abstract.should == ["Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
-    @ds.subject_topic == ["Forms of knowledge", "University futures", "Learning technologies", "Knowledge economy"]
-    @ds.topic_tag == ["Forms of knowledge", "University futures", "Learning technologies", "Knowledge economy"]
-    @ds.rights == ["© 2010 The University of Hull"]
-    @ds.identifier == ["hull:2376"]
-
+    @ds.subject_topic.should == ["Forms of knowledge", "University futures", "Learning technologies", "Knowledge economy"]
+    @ds.rights.should == ["© 2010 The University of Hull"]
+    @ds.mods.identifier.should == ["hull:2376"]
 
     # Removed due to issue with matching two fields 
     # @ds.publisher == ["ICTD, University of Hull"]
-    @ds.extent == ["Filesize: 64 MB"]
-    @ds.mime_type == ["application/pdf"]
-    @ds.digital_origin == ["born digital"]
-    @ds.primary_display_url ==["http://hydra.hull.ac.uk/assets/hull:2376"]
-    @ds.raw_object_url == ["http://hydra.hull.ac.uk/assets/hull:2376/genericContent/content"]
-    @ds.record_creation_date == ["2010-04-14"]
-    @ds.record_change_date == ["2010-04-15"]
-    @ds.language_text == ["English"]
+    @ds.extent.should == ["Filesize: 228 KB"]
+    @ds.mime_type.should == ["application/pdf"]
+    @ds.digital_origin.should == ["born digital"]
+    @ds.primary_display_url.should ==["http://hydra.hull.ac.uk/assets/hull:2376"]
+    @ds.raw_object_url.should == ["http://hydra.hull.ac.uk/assets/hull:2376/genericContent/content"]
+    @ds.record_creation_date.should == ["2010-04-14"]
+    @ds.record_change_date.should == ["2010-04-15"]
+    @ds.language_text.should == ["English"]
 
     #Names (personal and organisations)
     @ds.person_name.should == ["Smith, Peter"]
@@ -55,6 +53,11 @@ describe Datastream::ModsJournalArticle do
     @ds.journal_url_display_label.should == ["Article splash", "Full text", "Abstract"]
 
     @ds.peer_reviewed.should == ["true"]
+
+    # Converis Pub ID
+    @ds.converis_publication_id.should == ["1234"]
+    # Unit of assessement
+    @ds.unit_of_assessment.should == ["Uoa 15"]
 
   end
 
@@ -93,6 +96,8 @@ describe Datastream::ModsJournalArticle do
     @ds.journal.location.url.access.should == ["object in context", "raw object", "preview"]
     @ds.journal.location.url.display_label.should == ["Article splash", "Full text", "Abstract"]
 
+    # Converis Pub ID
+    @ds.converis_related.publication_id.should == ["1234"]
   end   
 
 

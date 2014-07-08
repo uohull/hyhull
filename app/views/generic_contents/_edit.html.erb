@@ -6,7 +6,7 @@
           <a href="#descriptive_metadata" data-toggle="tab">Description</a>
         </li>
         <li id="edit_related_metadata_link">              
-          <a href="#related_metadata" data-toggle="tab">Related materials</a>
+          <a href="#related" data-toggle="tab">Related</a>
         </li>
         <li id="edit_geographic_metadata_link">              
           <a href="#geographic_metadata" data-toggle="tab">Geographical</a>
@@ -36,8 +36,8 @@
         <div id="descriptive_metadata" class="tab-pane active">
           <%= render :partial => "edit_description", locals: {f: f} %>
         </div>
-         <div id="related_metadata" class="tab-pane">            
-            <%= render :partial => "metadata/edit_related_metadata", locals: {f: f, resource: @generic_content} %>
+        <div id="related" class="tab-pane">            
+            <%= render :partial => "edit_related", locals: {f: f} %>
         </div>
         <div id="geographic_metadata" class="tab-pane">            
             <%= render :partial => "metadata/edit_geographical_metadata", locals: {f: f, resource: @generic_content} %>
