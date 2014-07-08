@@ -26,6 +26,7 @@ class ManifestImport
 
   def process_csv
     import_status = {}
+    resource_without_content_set = DisplaySet.find("hull:refwithoutcontent")
 
     csv = CSV.read(csv_path, { col_sep: "|", headers: true, return_headers: true})
 
@@ -45,12 +46,14 @@ class ManifestImport
           model, message = model_instance_by_publication_type(output["publication_type"])    
 
           if model
-
            # general fields          
             model.title = remove_ctrl_chars_from_string(output["title"])  unless output["title"].to_s.empty?  
             model.publisher = "The University of Hull"
+            model.converis_publication_id = output_id
             add_keywords_to_resource(model, remove_ctrl_chars_from_string(output["keywords"]))
             add_authors_to_resource(model, remove_ctrl_chars_from_string(output["authors"]), output["author_first_name"], output["author_last_name"])
+            model.peer_reviewed = peer_reviewed?(output["peer_reviewed"]).to_s unless output["peer_reviewed"].to_s.empty?
+            model.unit_of_assessment = output["uoa"]
 
             # journal article
             if model.class == JournalArticle
@@ -64,20 +67,20 @@ class ManifestImport
               model.journal_issue = output["journal_issue"] unless output["journal_issue"].to_s.empty? 
               model.journal_start_page = output["start_page"] unless output["start_page"].to_s.empty? 
               model.journal_end_page = output["end_page"] unless output["end_page"].to_s.empty? 
-              model.peer_reviewed = peer_reviewed?(output["peer_reviewed"]).to_s unless output["peer_reviewed"].to_s.empty? 
-           else
+           else            
               # generic content derived
               model.description = clean_abstract(output["abstract"]) unless output["abstract"].to_s.empty?
+              model.related_item_title = output["journal_name"] unless output["journal_name"].to_s.empty? 
+              model.related_item_publisher = output["publisher"] unless output["publisher"].to_s.empty? 
+              model.related_item_print_issn = output ["issn"] unless output["issn"].to_s.empty? 
+              model.related_item_isbn = output ["isbn"] unless output["isbn"].to_s.empty? 
+              model.related_item_doi = output["doi"] unless output["doi"].to_s.empty? 
+              model.related_item_volume = output["journal_volume"] unless output["journal_volume"].to_s.empty? 
+              model.related_item_issue = output["journal_issue"] unless output["journal_issue"].to_s.empty? 
+              model.related_item_start_page = output["start_page"] unless output["start_page"].to_s.empty? 
+              model.related_item_end_page = output["end_page"] unless output["end_page"].to_s.empty? 
               model.date_issued = format_date(output["publication_date"]) unless output["publication_date"].to_s.empty? 
             end
-            # Need to add doi to generic content model (authored book examples)
-            # Need to add ISBN to generic content model
-            # Need to add start and end page to generic content model (book chapter example)   - Journal volume??? Check with Chris
-            # Conference contribution has a journal name... hmmm
-            # other forms have a journal name issue number,  start page, end page etc...
-            # book chapter
-            # authored book
-            #dataset
 
             assign_permissions_to_rights(model)   
 
@@ -98,7 +101,11 @@ class ManifestImport
                       end
                    rescue
                       errors = "Problem adding file to resource"
-                   end                 
+                   end 
+                else
+                  # Put in to the resources without content set...
+                  model.display_set = resource_without_content_set
+                  model.save           
                 end
               else
                 errors = "Resource failed to save, error reported: #{model.errors.messages.to_s}"
@@ -146,8 +153,12 @@ class ManifestImport
         return GenericContent.new(default_params.merge(genre: "Sound")), "Defaulting to GenericContent - Sound - Check genre"
       when "conference contribution"
         return GenericContent.new(default_params.merge(genre: "Conference paper or abstract")), ""
+      when "conference proceedings"
+        return GenericContent.new(default_params.merge(genre: "Book")), ""
+      when "exhibitions"
+        return GenericContent.new(default_params.merge(genre: "Event")), ""
       when "digital and visual media"
-        return GenericContent.new(default_params.merge(genre: "Sound")) , ""
+        return GenericContent.new(default_params.merge(genre: "Moving image")) , ""
        when "edited book"
          return GenericContent.new(default_params.merge(genre: "Book")), ""
        when "journal article"
@@ -198,8 +209,6 @@ class ManifestImport
       return false, "File does not exist at specified path"
   end
 end
-
-
 
   def peer_reviewed?(peer_reviewed)
     peer_reviewed.downcase.eql?("yes") ? true : false 
@@ -279,11 +288,4 @@ end
     string.nil? ? "" : string.gsub(10.chr, " ").gsub(13.chr, " ").gsub(12.chr, " ").gsub(1.chr, "").gsub(3.chr, "")
   end
 
-
-end
-
-
-class Hello
-  def self.speak
-  end
 end
