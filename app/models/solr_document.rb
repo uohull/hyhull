@@ -1,7 +1,8 @@
 # -*- encoding : utf-8 -*-
-class SolrDocument 
-
+class SolrDocument
   include Blacklight::Solr::Document
+  include Hyhull::Solr::DocumentExt
+
   SolrDocument.use_extension( BlacklightOaiProvider::SolrDocumentExtension )
 
 
@@ -36,8 +37,11 @@ class SolrDocument
                          :subject => "subject_topic_ssm",
                          :date => "date_issued_ssm",
                          :issued => "date_issued_ssm",
+                         :date_created => "system_create_dtsi",
                          :format => "format",                         
                          :type => "genre_ssm",
+                         :language => "language_code_ssm",
+                         :language_text => "language_text_ssm",
                          :identifier => "id",
                          :rights => "rights_ssm",
                          :publisher => "publisher_ssm",
@@ -46,7 +50,7 @@ class SolrDocument
                          :advisor => "supervisor_name_ssm",
                          :sponsor => "sponsor_name_ssm"
                          )
-  use_extension( Blacklight::Solr::Document::UketdDc)
+  use_extension( Hyhull::Solr::Document::UketdDc)
 
   def to_uketd_dc
     export_as("uketd_dc_xml")
