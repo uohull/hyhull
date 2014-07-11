@@ -12,7 +12,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
 
     t.language(:path=>"language"){
       t.lang_text(:path=>"languageTerm", :attributes=>{:type=>"text"})
-      t.lang_code(:index_as=>[:facetable], :path=>"languageTerm", :attributes=>{:type=>"code"})
+      t.lang_code(:path=>"languageTerm", :attributes=>{:type=>"code"})
     }
 
     t.abstract(:index_as=>[:displayable, :searchable])
@@ -144,7 +144,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.record_creation_date(:proxy=>[:record_info, :record_creation_date])
     t.record_change_date(:proxy=>[:record_info, :record_change_date])
     t.language_text(:proxy=>[:language, :lang_text], :index_as=>[:displayable, :facetable])
-    t.language_code(:proxy=>[:language, :lang_code])
+    t.language_code(:proxy=>[:language, :lang_code], :index_as=>[:displayable])
 
     t.person_name(:proxy=>[:person, :namePart], :index_as=>[:displayable])
     t.person_role_text(:proxy=>[:person, :role, :text], :index_as=>[:displayable])
