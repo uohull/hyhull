@@ -52,6 +52,12 @@ describe Hyhull::Solr::Document::UketdDc do
     end
   end
 
+  describe "mime_type" do
+    it "will return the mimetype of the main asset for the resource" do
+      expect(test_document_instance.mime_type).to eq "application/pdf"
+    end
+  end
+
   # TODO Add test to check xml
   describe ".export_as_xml" do
     it "will be derived from the publisher where the format is compatable" do

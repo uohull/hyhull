@@ -23,6 +23,13 @@ describe Hyhull::Solr::DocumentExt do
     end
   end
 
+  describe(:main_asset) do
+    it "will return the main asset hash for the resource" do
+      content = test_document_instance.main_asset
+      expect(content).to include(mimetype: "application/pdf", size: "22705152", format:"pdf", relative_path: "/assets/hull:3500a/content")
+    end
+  end
+
   describe(:resource_path) do
     it "will return the relative path for the resource" do
       path = test_document_instance.resource_path
@@ -42,5 +49,18 @@ describe Hyhull::Solr::DocumentExt do
       expect(language).to eq("eng")
     end
   end
+
+  describe (:full_resource_uri) do
+    it "will return the resource uri" do
+      expect(test_document_instance.full_resource_uri).to eq "http://hydra.hull.ac.uk/resources/hull:3500"
+    end
+  end
+
+  describe(:main_asset_uri) do
+    it "will return the main asset full uri" do
+      expect(test_document_instance.main_asset_uri).to eq "http://hydra.hull.ac.uk/assets/hull:3500a/content"
+    end
+  end
+
 
 end

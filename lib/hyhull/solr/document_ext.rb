@@ -1,8 +1,14 @@
 module Hyhull::Solr::DocumentExt
   extend ActiveSupport::Concern
 
-  def resource_path
-    "/#{resource_controller_name}/#{self.id}"
+
+  # Just a convenience method that returns the 'main asset' for the resource - In hyhull this is the asset with sequence no 1.
+  # However contentmetadata could specify an attribute to define this...
+  def main_asset
+    assets = resource_assets
+    unless assets.nil?
+      return assets["1"] 
+    end
   end
 
   def resource_assets
@@ -39,6 +45,32 @@ module Hyhull::Solr::DocumentExt
         end
       end      
     end
+  end
+
+  def main_asset_uri
+    return self.main_asset[:relative_path].nil? ? "" : "#{base_url}#{self.main_asset[:relative_path]}"
+  end
+
+  def full_resource_uri
+    return "#{base_url}#{resource_path}"
+  end
+
+  def resource_path
+    "/#{resource_controller_name}/#{self.id}"
+  end
+
+  # Returns the description for a resource (could come from two places)
+  def description
+    if self.has?  "abstract_ssm"
+      return self.get "abstract_ssm"
+    elsif self.has? "description_ssm"
+      return self.get "description_ssm"
+    end
+  end
+
+  # Resource type ie.. Text, Moving image etc...
+  def resource_type
+    return self.get("type_of_resource_ssm")
   end
 
   private
@@ -79,8 +111,10 @@ module Hyhull::Solr::DocumentExt
     "assets"
   end
 
-  def iso639_2_language_code
-    
+
+  def base_url
+    CONTENT_LOCATION_URL_BASE.nil? ? "localhost" : CONTENT_LOCATION_URL_BASE 
   end
+
 
 end

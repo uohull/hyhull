@@ -26,13 +26,14 @@ class SolrDocument
   # single valued. See Blacklight::Solr::Document::ExtendableClassMethods#field_semantics
   # and Blacklight::Solr::Document#to_semantic_values
   # Recommendation: Use field names from Dublin Core
-  use_extension( Blacklight::Solr::Document::DublinCore) 
+  use_extension( Hyhull::Solr::Document::DublinCore)
+  use_extension( Hyhull::Solr::Document::UketdDc) 
 
   field_semantics.merge!(    
                          :title => "title_tesim",
                          :creator => "creator_name_ssim",
                          :language => "language_text_ssm",
-                         :description => "abstract_ssm",
+                         :description => "description_ssm",
                          :abstract => "abstract_ssm",
                          :subject => "subject_topic_ssm",
                          :date => "date_issued_ssm",
@@ -50,7 +51,7 @@ class SolrDocument
                          :advisor => "supervisor_name_ssm",
                          :sponsor => "sponsor_name_ssm"
                          )
-  use_extension( Hyhull::Solr::Document::UketdDc)
+
 
   def to_uketd_dc
     export_as("uketd_dc_xml")
