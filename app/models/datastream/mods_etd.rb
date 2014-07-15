@@ -57,7 +57,7 @@
       }
 
       t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
-      t.type_of_resource(:path=>"typeOfResource")
+      t.type_of_resource(:path=>"typeOfResource", :index_as=>[:displayable])
       t.qualification_level(:path=>"note", :attributes=>{:type=>"qualificationLevel"}, :index_as=>[:displayable])
       t.qualification_name(:path=>"note", :attributes=>{:type=>"qualificationName"}, :index_as=>[:displayable])
       t.dissertation_category(:path=>"note", :attributes=>{:type=>"dissertationCategory"})

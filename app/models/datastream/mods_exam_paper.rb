@@ -60,7 +60,7 @@ class Datastream::ModsExamPaper < ActiveFedora::OmDatastream
 
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
-    t.type_of_resource(:path=>"typeOfResource")
+    t.type_of_resource(:path=>"typeOfResource", :index_as=>[:displayable])
     t.resource_status(:path=>"note", :attributes=>{:type=>"admin"}, :index_as=>[:displayable])
     t.origin_info(:path=>'originInfo') {
       t.date_issued(:path=>'dateIssued')
