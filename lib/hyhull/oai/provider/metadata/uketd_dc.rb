@@ -1,10 +1,10 @@
   # Simple implementation of the Dublin Core metadata format.
-  class OAI::Provider::Metadata::UketdDC < OAI::Provider::Metadata::Format
+  class Hyhull::OAI::Provider::Metadata::UketdDC < OAI::Provider::Metadata::Format
 
     def initialize
       @prefix = 'uketd_dc'
-      @schema = 'http://www.openarchives.org/OAI/2.0/oai_dc.xsd'
-      @namespace = 'http://www.openarchives.org/OAI/2.0/oai_dc/'
+      @schema = 'http://naca.central.cranfield.ac.uk/ethos-oai/2.0/uketd_dc.xsd'
+      @namespace = 'http://naca.central.cranfield.ac.uk/ethos-oai/uketd_dc/'
       @element_namespace = 'dc'
       @fields = [ :title, :creator, :subject, :description, :publisher,
                   :contributor, :date, :type, :format, :identifier,

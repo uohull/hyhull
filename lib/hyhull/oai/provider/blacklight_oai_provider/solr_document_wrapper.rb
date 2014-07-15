@@ -1,10 +1,7 @@
-module BlacklightOaiProvider
+module Hyhull::OAI::Provider::BlacklightOaiProvider
   class SolrDocumentWrapper < ::OAI::Provider::Model
     attr_reader :model, :timestamp_field
     attr_accessor :options
-
-    # A new struct for a Set
-    Set = Struct.new(:spec, :name, :description) 
 
     def initialize(controller, options = {})
       @controller = controller
@@ -79,11 +76,13 @@ module BlacklightOaiProvider
       select_partial(token)
     end
 
+    private
+
     def  build_sets_response(records)
       sets = []      
       records.each do |set|
         unless set.get("oai_set_spec_ssim").to_s.empty?
-          sets << Set.new(set.get("oai_set_spec_ssim"), set.get("oai_set_name_ssim"), "")
+          sets << OAI::Set.new(spec: set.get("oai_set_spec_ssim"), name: set.get("oai_set_name_ssim"), description: "" )
         end
       end
       sets
@@ -99,7 +98,7 @@ module BlacklightOaiProvider
           set_description = v[:set_description] if v.has_key? :set_description
           
           unless set_spec.nil? 
-            sets << Set.new(set_spec, set_name, set_description)
+            sets <<OAI::Set.new(spec: set_spec, name: set_name, description: set_description)
           end
         end
       end      

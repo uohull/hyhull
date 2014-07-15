@@ -1,4 +1,4 @@
-module BlacklightOaiProvider
+module Hyhull::OAI::Provider::BlacklightOaiProvider
   class SolrDocumentProvider < ::OAI::Provider::Base
     attr_accessor :options
 
@@ -9,9 +9,7 @@ module BlacklightOaiProvider
 
       opts = options[:document].merge(sets: options[:sets])
 
-      self.class.model = SolrDocumentWrapper.new(controller, opts)
-      # Add the UketdDC metadata provider
-      self.class.register_format(OAI::Provider::Metadata::UketdDC.instance)
+      self.class.model = Hyhull::OAI::Provider::BlacklightOaiProvider::SolrDocumentWrapper.new(controller, opts)
       
       options[:repository_name] ||= controller.view_context.send(:application_name)
       options[:repository_url] ||= controller.view_context.send(:oai_provider_url)

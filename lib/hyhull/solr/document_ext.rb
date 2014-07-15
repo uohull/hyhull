@@ -14,11 +14,12 @@ module Hyhull::Solr::DocumentExt
   def resource_assets
     resource_assets ={}
 
-     asset_count = asset_sequence.size
-     
-     if (asset_object_id.size != asset_count || asset_ds_id.size != asset_count)
+    unless asset_sequence.nil? 
+      asset_count = asset_sequence.size
+
+      if (asset_object_id.size != asset_count || asset_ds_id.size != asset_count)
         return nil
-     else
+      else
        asset_sequence.each_with_index do |seq, i|       
          resource_assets[seq] = { 
                                                  mimetype: asset_mime_type[i], 
@@ -27,8 +28,9 @@ module Hyhull::Solr::DocumentExt
                                                  relative_path: relative_asset_path[i]
                                             }
        end
-     end
-     resource_assets
+      end
+    end
+    resource_assets
   end
 
   #Will return the ISO 639-2 three letter language code for the resource 
@@ -48,7 +50,9 @@ module Hyhull::Solr::DocumentExt
   end
 
   def main_asset_uri
-    return self.main_asset[:relative_path].nil? ? "" : "#{base_url}#{self.main_asset[:relative_path]}"
+    unless main_asset.nil? 
+      return self.main_asset[:relative_path].nil? ? "" : "#{base_url}#{self.main_asset[:relative_path]}"
+    end
   end
 
   def full_resource_uri

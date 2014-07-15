@@ -183,7 +183,8 @@ class CatalogController < ApplicationController
         :repository_name => 'Test',
         :repository_url => 'http://localhost',
         :record_prefix => 'oai:hull.ac.uk',
-        :admin_email => 'root@localhost'
+        :admin_email => 'root@localhost',
+        :register_format  => Hyhull::OAI::Provider::Metadata::UketdDC.instance
       },
       :document => {
         :timestamp => 'timestamp',
@@ -217,6 +218,11 @@ class CatalogController < ApplicationController
       }
     }
 
+  end
+
+ # Register the Hyhull SolrDocumentProvider as the oai_provider
+  def oai_provider
+    @oai_provider ||= Hyhull::OAI::Provider::BlacklightOaiProvider::SolrDocumentProvider.new(self, oai_config)
   end
 
   def oai_config    

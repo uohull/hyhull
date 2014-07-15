@@ -30,12 +30,12 @@ module Hyhull::Solr::Document::DublinCore
     contributors
   end
 
-  def extent 
-    size = main_asset[:size]    
-    unless size.nil? 
-      return Hyhull::Utils::StringFormatting.get_friendly_file_size(size)
+  def extent
+    unless self.main_asset.nil?  
+      if self.main_asset.include?(:size) && !main_asset[:size].nil?    
+        return Hyhull::Utils::StringFormatting.get_friendly_file_size(main_asset[:size])
+      end
     end
-    nil
   end
 
   # dublin core elements are mapped against the #dublin_core_field_names whitelist.
