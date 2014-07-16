@@ -60,7 +60,7 @@ module Hyhull::Solr::Document::DublinCore
        xml.tag!("dc:language", self.language_code, "xsi:type" => "dcterms:ISO6392") unless self.language_code.nil? 
 
        self.contributors.each do |v|
-         xml.tag! "dc:contributors", v
+         xml.tag! "dc:contributor", v
        end 
 
      end
