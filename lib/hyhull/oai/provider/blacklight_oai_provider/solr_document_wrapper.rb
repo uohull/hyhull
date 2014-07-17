@@ -31,26 +31,8 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
 
     def find(selector, options={})
       return next_set(options[:resumption_token]) if options[:resumption_token]
-      if :all == selector
-        if options.has_key? :set          
-          set_spec = options[:set]
-
-          config_set, set_key_field, solr_field = configuration_set?(set_spec)
-          # If this is a configuration based set we will query solr based upon the configuration_set_solr_field
-          if config_set
-            response, records = @controller.get_search_results(@controller.params, {:q => ["#{solr_field}:\"#{set_key_field}\" "], :sort => @timestamp_field + ' asc', :per_page => @limit})
-          else
-            # Else we query for sets based upon membership of the HarvestingSet collection..
-            # Search solr for the id of the set_spec 
-            set_record = @controller.get_search_results(@controller.params, {:fq => ["oai_set_spec_ssim:\"#{set_spec}\" "],  :fl => ["id"] , :sort => @timestamp_field + ' asc', :per_page => @limit}).last.first 
-            set_id = set_record.get("id")
-            # Retrieve items recording membership of the harvesting set_id
-            response, records = @controller.get_search_results(@controller.params, {:q => ["is_member_of_collection_ssim:\"info:fedora/#{set_id}\" "], :sort => @timestamp_field + ' asc', :per_page => @limit})
-          end
-
-         else
-          response, records = @controller.get_search_results(@controller.params, {:sort => @timestamp_field + ' asc', :per_page => @limit})
-        end
+      if :all == selector 
+        response, records = @controller.get_search_results(@controller.params, {:q => [build_query(options)], :sort => @timestamp_field + ' asc', :per_page => @limit})
 
         if @limit && response.total >= @limit
           return select_partial(OAI::Provider::ResumptionToken.new(options.merge({:last => 0})))
@@ -77,6 +59,39 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
     end
 
     private
+
+    def build_query(options={})
+      query = ""
+
+      if options.has_key? :set          
+        config_set, set_key_field, solr_field = configuration_set?(options[:set])
+
+        if config_set
+          query =  "#{solr_field}:\"#{set_key_field}\" "
+        else
+          set_id =  set_id_from_set_spec(options[:set])
+          query =  "is_member_of_collection_ssim:\"info:fedora/#{set_id}\" "
+        end
+      end
+
+      if options.has_key?(:from) && options.has_key?(:until)           
+        datetime_query = datetime_solr_query(options[:from], options[:until])
+        query.empty? ? query = datetime_query : query.concat(" AND  #{datetime_query}")
+      end
+
+      return query
+   end
+
+   def datetime_solr_query(from, to)
+      "#{self.timestamp_field}:[#{from.iso8601} TO #{to.iso8601}]"
+   end
+   
+
+    # Method that queries to retrieve the set PID based upon the set_spec identifier
+    def set_id_from_set_spec(set_spec)
+        set_record = @controller.get_search_results(@controller.params, {:fq => ["oai_set_spec_ssim:\"#{set_spec}\" "],  :fl => ["id"] , :sort => @timestamp_field + ' asc', :per_page => @limit}).last.first 
+        set_record.get("id") || ""
+    end
 
     def  build_sets_response(records)
       sets = []      

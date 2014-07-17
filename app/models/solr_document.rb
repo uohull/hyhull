@@ -57,4 +57,9 @@ class SolrDocument
     export_as("uketd_dc_xml")
   end
 
+  # This is required to ensure that OAI-OMH can retrieve system_modified date
+  def system_modified_dtsi
+   Time.parse get('system_modified_dtsi')
+  end
+
 end

@@ -187,14 +187,14 @@ class CatalogController < ApplicationController
         :register_format  => Hyhull::OAI::Provider::Metadata::UketdDC.instance
       },
       :document => {
-        :timestamp => 'timestamp',
+        :timestamp => 'system_modified_dtsi',
         :limit => 25
       },
       :sets => {
         :UketdObject => {
            :solr_field => "active_fedora_model_ssi",
-           :set_spec => "ThesisOrDissertations",
-           :set_name => "Thesis or Dissertations",
+           :set_spec => "ThesesOrDissertations",
+           :set_name => "Theses or Dissertations",
            :set_description=> "The set of theses and dissertations items in the University of Hull Institutional Repository"
         },
         :JournalArticle => {
@@ -211,8 +211,8 @@ class CatalogController < ApplicationController
         },
          :Presentation => {
            :solr_field => "genre_sim",
-           :set_spec => "Presentation",
-           :set_name => "Presentation",
+           :set_spec => "Presentations",
+           :set_name => "Presentations",
            :set_description => "The set of Presentation items in the University of Hull Institutional Repository"
          }
       }
