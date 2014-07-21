@@ -3,8 +3,7 @@ class SolrDocument
   include Blacklight::Solr::Document
   include Hyhull::Solr::DocumentExt
 
-  SolrDocument.use_extension( BlacklightOaiProvider::SolrDocumentExtension )
-
+  SolrDocument.use_extension( Hyhull::OAI::Provider::BlacklightOaiProvider::SolrDocumentExtension )
 
   # self.unique_key = 'id'
   
@@ -51,15 +50,5 @@ class SolrDocument
                          :advisor => "supervisor_name_ssm",
                          :sponsor => "sponsor_name_ssm"
                          )
-
-
-  def to_uketd_dc
-    export_as("uketd_dc_xml")
-  end
-
-  # This is required to ensure that OAI-OMH can retrieve system_modified date
-  def system_modified_dtsi
-   Time.parse get('system_modified_dtsi')
-  end
 
 end
