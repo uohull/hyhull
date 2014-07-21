@@ -90,6 +90,7 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
     # Method that queries to retrieve the set PID based upon the set_spec identifier
     def set_id_from_set_spec(set_spec)
         set_record = @controller.get_search_results(@controller.params, {:fq => ["oai_set_spec_ssim:\"#{set_spec}\" "],  :fl => ["id"] , :sort => @timestamp_field + ' asc', :per_page => @limit}).last.first 
+        raise ::OAI::NoMatchException.new unless set_record 
         set_record.get("id") || ""
     end
 
