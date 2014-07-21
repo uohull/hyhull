@@ -58,6 +58,7 @@ module Hyhull::Solr::Document::DublinCore
        xml.tag!("dc:format", self.extent, "xsi:type" => "dcterms:extent") unless extent.nil?  
        xml.tag!("dc:identifier", self.main_asset_uri, "xsi:type" => "dcterms:URI") unless self.main_asset_uri.nil?
        xml.tag!("dc:language", self.language_code, "xsi:type" => "dcterms:ISO6392") unless self.language_code.nil? 
+       xml.tag!("dc:relation", self.full_resource_uri) unless self.full_resource_uri.nil? 
 
        self.contributors.each do |v|
          xml.tag! "dc:contributor", v
