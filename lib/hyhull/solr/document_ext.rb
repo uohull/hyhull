@@ -20,14 +20,14 @@ module Hyhull::Solr::DocumentExt
       if (asset_object_id.size != asset_count || asset_ds_id.size != asset_count)
         return nil
       else
-       asset_sequence.each_with_index do |seq, i|       
-         resource_assets[seq] = { 
-                                                 mimetype: asset_mime_type[i], 
-                                                 size: asset_size[i], 
-                                                 format: asset_format[i],
-                                                 relative_path: relative_asset_path[i]
-                                            }
-       end
+        asset_sequence.each_with_index do |seq, i|       
+          resource_assets[seq] = { 
+            mimetype: asset_mime_type.nil? ? nil : asset_mime_type[i],
+            size: asset_size.nil? ? nil : asset_size[i],
+            format: asset_format.nil? ? nil : asset_format[i],
+            relative_path: relative_asset_path.nil? ? nil : relative_asset_path[i]
+          }
+        end
       end
     end
     resource_assets
