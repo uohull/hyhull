@@ -14,7 +14,7 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
 
     def sets
       # Retrieve sets from Solr_index are marked as HarvestingSet ActiveFedoraModel
-      records = @controller.get_search_results(@controller.params, {:sort => @timestamp_field +' asc',:fq => ["active_fedora_model_ssi:\"HarvestingSet\""] , :fl => "id, oai_set_spec_ssim, oai_set_name_ssim" }).last
+      records = @controller.get_search_results(@controller.params, {:sort => @timestamp_field +' asc',:fq => ["active_fedora_model_ssi:\"HarvestingSet\""] , :fl => "id, oai_set_spec_ssim, oai_set_name_ssim", :rows => @limit }).last
       sets = build_sets_response(records)
       # Builds static sets from configuration options based on model 
       sets.concat(build_sets_from_options)
