@@ -37,14 +37,18 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
         if @limit && response.total >= @limit
           return select_partial(OAI::Provider::ResumptionToken.new(options.merge({:last => 1})))
         end
+        records = add_set_membership_to_records(records)
       else
         records = @controller.get_search_results(@controller.params, {:q => ["id:\"#{ selector.split('/', 2).last }\""]}).last.first 
+        records = add_set_membership_to_records([records]).first
       end
+
       records
     end
 
     def select_partial token
       records = @controller.get_search_results(@controller.params.merge({ :q => [build_query(token.to_conditions_hash)], :sort => @timestamp_field + ' asc', :page => token.last, :rows=> @limit}), {}).last
+      records = add_set_membership_to_records(records)
 
       raise ::OAI::ResumptionTokenException.new unless records
 
@@ -80,12 +84,55 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
       end
 
       return query
-   end
+    end
 
-   def datetime_solr_query(from, to)
+    def datetime_solr_query(from, to)
       "#{self.timestamp_field}:[#{from.utc.iso8601} TO #{to.utc.iso8601}]"
-   end
-   
+    end
+
+    # Add OAI::Set membership information to the records list
+    def add_set_membership_to_records(records)
+      records.each do |record|
+        sets = []
+        sets.concat(harvesting_set_membership(record))
+        sets.concat(options_set_membership(record))
+        record.sets = sets
+      end
+      records
+    end
+
+    # Returns OAI::Set membership based up on the records membership of a set
+    def harvesting_set_membership(record)
+      harvesting_sets = record.get("is_member_of_collection_ssim", sep: nil) || []
+      sets = []
+
+      harvesting_sets.each do |set_id|
+        set_spec = set_spec_from_id(set_id)
+        sets << OAI::Set.new(spec: set_spec) unless set_spec.nil? 
+      end
+      sets
+    end
+
+    # Returns OAI::Set membership based up on options specified in the configuration and the record
+    def options_set_membership(record)
+      sets = []            
+      if @options[:sets]
+        @options[:sets].each do |k,v|
+          solr_value = record.get(v[:solr_field], sep: nil)
+        
+          unless solr_value.nil?
+            sets << OAI::Set.new(spec: v[:set_spec]) if solr_value.include?(k.to_s) 
+          end
+        end
+      end
+      sets
+    end
+
+    # Method that queries to retrieve the set PID based upon the set_spec identifier
+    def set_spec_from_id(id)
+      set_record = @controller.get_search_results(@controller.params, {:fq => ["id:\"#{ id.split('/', 2).last }\""]}).last.first 
+      set_record.get("oai_set_spec_ssim")
+    end
 
     # Method that queries to retrieve the set PID based upon the set_spec identifier
     def set_id_from_set_spec(set_spec)
