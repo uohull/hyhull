@@ -37,10 +37,10 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
         if @limit && response.total >= @limit
           return select_partial(OAI::Provider::ResumptionToken.new(options.merge({:last => 1})))
         end
-        records = add_set_membership_to_records(records)
+        add_set_membership_to_records(records)
       else
         records = @controller.get_search_results(@controller.params, {:q => ["id:\"#{ selector.split('/', 2).last }\""]}).last.first 
-        records = add_set_membership_to_records([records]).first
+        add_set_membership_to_records([records]).first
       end
 
       records
@@ -48,11 +48,17 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
 
     def select_partial token
       records = @controller.get_search_results(@controller.params.merge({ :q => [build_query(token.to_conditions_hash)], :sort => @timestamp_field + ' asc', :page => token.last, :rows=> @limit}), {}).last
-      records = add_set_membership_to_records(records)
+      add_set_membership_to_records(records)
 
       raise ::OAI::ResumptionTokenException.new unless records
 
-      OAI::Provider::PartialResult.new(records, token.next(token.last+1))
+      # Only return a PartialResult when there are more records to follow...
+      unless records.size < @limit 
+        OAI::Provider::PartialResult.new(records, token.next(token.last+1))  
+      else
+        records
+      end
+
     end
 
     def next_set(token_string)
