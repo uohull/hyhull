@@ -4,7 +4,7 @@
     def initialize
       @prefix = 'uketd_dc'
       @schema = 'http://naca.central.cranfield.ac.uk/ethos-oai/2.0/uketd_dc.xsd'
-      @namespace = 'http://naca.central.cranfield.ac.uk/ethos-oai/uketd_dc/'
+      @namespace = 'http://naca.central.cranfield.ac.uk/ethos-oai/2.0/'
       @element_namespace = 'dc'
       @fields = [ :title, :creator, :subject, :description, :publisher,
                   :contributor, :date, :type, :format, :identifier,
