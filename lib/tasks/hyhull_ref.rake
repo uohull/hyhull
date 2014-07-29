@@ -143,7 +143,7 @@ class ManifestImport
   end
 
   def model_instance_by_publication_type(publication_type)
-    default_params = { namespace: "ref-test" }
+    default_params = { namespace: "hull" }
     case publication_type.downcase
       when "authored book"
          return GenericContent.new(default_params.merge(genre: "Book")), ""

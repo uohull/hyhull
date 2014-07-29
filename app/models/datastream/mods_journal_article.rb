@@ -203,8 +203,8 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
            }
            xml.genre "Journal article"
            xml.language {
-             xml.languageTerm(:type=>"text")
-             xml.languageTerm(:authority=>"iso639-2b", :type=>"code")
+             xml.languageTerm("English", :type=>"text")
+             xml.languageTerm("eng", :authority=>"iso639-2b", :type=>"code")
            }
            xml.abstract
            xml.subject(:authority=>"UoH") {
