@@ -39,7 +39,7 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
         end
         add_set_membership_to_records(records)
       else
-        records = @controller.get_search_results(@controller.params, {:q => ["id:\"#{ selector.split('/', 2).last }\""]}).last.first 
+        records = @controller.get_search_results(@controller.params, {:q => ["id:\"#{ selector.split(':', 3).last }\""]}).last.first 
         add_set_membership_to_records([records]).first
       end
 
@@ -151,7 +151,7 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
       sets = []      
       records.each do |set|
         unless set.get("oai_set_spec_ssim").to_s.empty?
-          sets << OAI::Set.new(spec: set.get("oai_set_spec_ssim"), name: set.get("oai_set_name_ssim"), description: "" )
+          sets << OAI::Set.new(spec: set.get("oai_set_spec_ssim"), name: set.get("oai_set_name_ssim"))
         end
       end
       sets
@@ -164,10 +164,11 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
         @options[:sets].each_pair do |k,v|
           set_spec = v[:set_spec] if v.has_key? :set_spec
           set_name = v[:set_name] if v.has_key? :set_name
-          set_description = v[:set_description] if v.has_key? :set_description
+          # set description not implemented yet
+          # set_description = v[:set_description] if v.has_key? :set_description
           
           unless set_spec.nil? 
-            sets <<OAI::Set.new(spec: set_spec, name: set_name, description: set_description)
+            sets <<OAI::Set.new(spec: set_spec, name: set_name)
           end
         end
       end      

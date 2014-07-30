@@ -183,8 +183,8 @@ class CatalogController < ApplicationController
         :repository_name => 'Test',
         :repository_url => 'http://localhost',
         :record_prefix => 'oai:hull.ac.uk',
-        :admin_email => 'root@localhost',
-        :sample_identifier => "hull:123",
+        :admin_email => ['test1@localhost.com', 'test2@localhost.com'],
+        :sample_id => "hull:123",
         :register_format  => Hyhull::OAI::Provider::Metadata::UketdDC.instance
       },
       :document => {
