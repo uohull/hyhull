@@ -17,11 +17,11 @@
                   <div class="control-group">
                     <%= label_tag "month", "Month", class: "control-label" %>
                     <div class="controls">
-                      <%= select_month(Date.today) %>
+                      <%= select_month(1) %>
                     </div>              
                     <%= label_tag "year", "Year", class: "control-label"  %>
                     <div class="controls">
-                      <%= select_year(Date.today.year-1, start_year:  Date.today.year, end_year: 2000 ) %>
+                      <%= select_year(Date.today.year, start_year:  Date.today.year, end_year: 2000 ) %>
                     </div>
                   </div>
                   <h3>Exam paper</h3>
