@@ -10,6 +10,7 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
       @options = defaults.merge options
       @timestamp_field = @options[:timestamp]
       @limit = @options[:limit]
+      @logger = Hyhull.logger
     end
 
     def sets
@@ -136,8 +137,13 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
 
     # Method that queries to retrieve the set PID based upon the set_spec identifier
     def set_spec_from_id(id)
-      set_record = @controller.get_search_results(@controller.params, {:fq => ["id:\"#{ id.split('/', 2).last }\""]}).last.first 
-      set_record.get("oai_set_spec_ssim")
+      set_record = @controller.get_search_results(@controller.params, {:fq => ["id:\"#{ id.split('/', 2).last }\""]}).last.first
+      if set_record.nil?  
+        @logger.warn("SolrDocumentWrapper#set_spec_from_id  #{id} - Could not find the set within the index") 
+        return nil
+      else   
+        return set_record.get("oai_set_spec_ssim")
+      end 
     end
 
     # Method that queries to retrieve the set PID based upon the set_spec identifier
