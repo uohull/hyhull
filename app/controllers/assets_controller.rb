@@ -1,7 +1,9 @@
 class AssetsController < ApplicationController
   include Hydra::Controller::DownloadBehavior
+  include IrusAnalytics::Controller::AnalyticsBehaviour 
 
   before_filter :filter_datastreams
+  after_filter :send_analytics 
 
   def map_view
     if map_view_mimetype.include? datastream.mimeType
@@ -14,6 +16,21 @@ class AssetsController < ApplicationController
   end
 
   protected
+
+    # Return the item_identier - for use with the IrusAnalytics gem
+    def item_identifier
+      if @asset.is_a? FileAsset
+        id = @asset.container.id 
+      else
+        id = @asset.id
+      end
+      oai_prefix.nil? ? id : "#{oai_prefix}:#{id}" 
+    end
+
+     # oai_prefix is returned from the CatalogController (uses the Blacklight oai configuration)
+    def oai_prefix
+      CatalogController.configure_blacklight.oai[:provider][:record_prefix] || nil
+    end
 
     # This filter_datastreams that we do not generally like users to download
     def filter_datastreams

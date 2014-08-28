@@ -75,6 +75,11 @@ Hyhull::Application.routes.draw do
   # Add health checkpage
   match 'healthcheck/rails-status' => 'pages#rails_status'
 
+  # Mount the Hyhull modified version of Resque::Server - Use authenticate :user to ensure auth
+  authenticate :user do
+    mount Hyhull::Resque::AuthorisedResqueServer.new, at: '/resque'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -24,8 +24,10 @@ gem "rubytree", "~> 0.8.3"
 #Blacklight google analytics plugin by Jason Ronallo
 gem 'blacklight_google_analytics', '~> 0.0.1.pre2'
 
-
+# OAI provider used to Repository
 gem "blacklight_oai_provider"
+# IRUS-UK analytics client 
+gem 'irus_analytics', '~> 0.0.1'
 
 # Gems used only for assets and not required
 # in production environments by default.

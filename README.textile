@@ -72,6 +72,15 @@ Start the webserver
 
 You should now be able to see the application at: http://localhost:3000/
 
+h3. Irus Analytics 
+
+hyhull currently uses the "irus_analytics" library to send statistics to the IRUS-UK service (see "https://github.com/uohull/irus_analytics":https://github.com/uohull/irus_analytics.  The configuration for IRUS is stored in config/initializers/irus_analytics.rb.  The customisations to enable download analytics are specified in app/controllers/assets_controller.rb.  
+
+To start the resque workers for this, we run:
+<pre>QUEUE=irus_analytics rake resque:work</pre> 
+
+The resque console is available at "http://localhost:3000/resque"
+
 h3. Testing
 
 The quickest way to test is to run this task

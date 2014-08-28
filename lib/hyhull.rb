@@ -5,6 +5,7 @@ module Hyhull
   autoload :RoleMapperBehaviour
   autoload :Datastream
   autoload :Models
+  autoload :Resque
 end
 
 require 'hyhull'
