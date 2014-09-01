@@ -76,11 +76,11 @@ module Hyhull
     # Only attempt update on local machine
     if Rails.env.development?
       # Update version file from latest git tag
-      File.open('config/version', 'w') do |file|
+      File.open("#{config.root}/config/version", 'w') do |file|
         file.write `git describe --tags --always` # or equivalent
       end
     end
-    config.version = File.read('config/version')
-
+    config.version = File.read("#{config.root}/config/version")
+    
   end
 end
