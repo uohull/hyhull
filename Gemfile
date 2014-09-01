@@ -12,9 +12,6 @@ gem 'state_machine', '~> 1.2.0'
 #simple_form gem for forms
 gem "simple_form", "~> 2.1.0"
 
-gem 'sqlite3'
-gem 'mysql2'
-
 #devise_cas_authenticable is used to enable CAS integration
 gem "devise_cas_authenticatable", "~> 1.3.2"
 
@@ -49,6 +46,7 @@ end
 
 group :development, :test do
   gem "jettywrapper", "~> 1.5.0"
+  gem 'sqlite3'
 end
 
 group :test do 
@@ -59,6 +57,9 @@ group :test do
   gem 'warden'
 end
 
+group :production do
+  gem 'mysql2'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
