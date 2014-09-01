@@ -192,11 +192,12 @@ class ManifestImport
   end
 
   def add_keywords_to_resource(resource, keywords) 
+    default_topic = ["REF 2014 submission"]
     # if no keywords, add placeholder
     if !keywords.nil? && !keywords.empty?
-      resource.subject_topic  = split_into_array(keywords)
+      resource.subject_topic  = split_into_array(keywords).concat(default_topic)
     else
-       resource.subject_topic = ["Subject topic goes here"]
+      resource.subject_topic  =  default_topic
     end
   end
 
