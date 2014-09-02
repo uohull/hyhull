@@ -1,10 +1,5 @@
-# require File.expand_path(File.dirname(__FILE__) + '/hydra_jetty.rb')
-require 'jettywrapper'
 require 'win32/process' if RUBY_PLATFORM =~ /mswin32|mingw|cygwin/
-require 'rubygems'
-require 'cucumber'
-require 'cucumber/rake/task'
-
+require 'bundler/setup'
 
 namespace :hyhull do
   

@@ -1,9 +1,5 @@
-require 'rspec/core/rake_task'
+require 'bundler/setup'
 
-RSpec::Core::RakeTask.new(:spec)
-
+RSpec::Core::RakeTask.new(:spec) if defined? RSpec
 #Makre sure hyhull default task is used...
 #task :default => :spec
-  
-
-
