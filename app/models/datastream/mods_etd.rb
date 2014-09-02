@@ -194,10 +194,6 @@
    self.grant_number = values
   end
 
-  def personal_creator_names
-   ng_xml.xpath("//xmlns:name[@type='personal'][./xmlns:role/xmlns:roleTerm='Creator']/xmlns:namePart/text()").map { |creator| creator.to_s }
-  end
-
   # Over-ride ModsMetadataMethods person_role_terms for mods-etd roles 
   def self.person_role_terms
   ["Creator", "Sponsor", "Supervisor"]
