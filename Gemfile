@@ -24,7 +24,7 @@ gem 'blacklight_google_analytics', '~> 0.0.1.pre2'
 # OAI provider used to Repository
 gem "blacklight_oai_provider"
 # IRUS-UK analytics client 
-gem 'irus_analytics', '~> 0.0.1'
+gem 'irus_analytics', '~> 0.0.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
