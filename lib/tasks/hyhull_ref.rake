@@ -27,6 +27,7 @@ class ManifestImport
   def process_csv
     import_status = {}
     resource_without_content_set = DisplaySet.find("hull:refwithoutcontent")
+    resource_with_content_set = DisplaySet.find("hull:refwithcontent")
 
     csv = CSV.read(csv_path, { col_sep: "|", headers: true, return_headers: true})
 
@@ -95,8 +96,11 @@ class ManifestImport
                 resource_id = model.id
                 unless output["relative_file_path"].to_s.empty?
                    begin 
-                     success, message = add_file_to_resource(model, full_file_path(output["relative_file_path"]), output["original_filename"])                  
-                      unless success 
+                     success, message = add_file_to_resource(model, full_file_path(output["relative_file_path"]), output["original_filename"])
+                     model.display_set = resource_with_content_set
+                     model.save 
+
+                     unless success 
                          errors  = message.empty? ? "Problem adding file to resource" : message
                       end
                    rescue
