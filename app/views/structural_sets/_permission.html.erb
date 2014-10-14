@@ -13,18 +13,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 %>
-
-<div id="permissions_display" class="tab-pane">
-    <%= form_for @structural_set, :url => { :action => "update_permissions" }, :html => {:multipart => true, :class => 'form-horizontal', :id => 'permission'} do |f| %>
-      <%= hidden_field_tag('redirect_tab', 'permissions') %>
-      <% #Display warning about non-matching sets %>
-      <% if params[:warn] == "true" %>
-        <%= hidden_field_tag('skip_warning', params[:warn]) %>
-      <% end %>      
-      <%= render :partial => "structural_sets/permission_form", :locals => { :gf => @structural_set, :f=> f } %>
-      <div class="page-gutter" id="permissions_submit">
-      <hr/>
-              <%= button_tag 'Save'.html_safe, :type => 'submit', :class => 'btn', :onclick => "confirmation_needed = false;", :id => "upload_submit", :name => "update_permission" %>
-      </div>
-  <% end %>
-</div><!-- /#permissions_display -->
+<%= form_for @structural_set, :url => { :action => "update_permissions" }, :html => {:multipart => true, :class => 'form-horizontal', :id => 'permission'} do |f| %>
+  <%= hidden_field_tag('redirect_tab', 'permissions') %>
+  <% #Display warning about non-matching sets %>
+  <% if params[:warn] == "true" %>
+    <%= hidden_field_tag('skip_warning', params[:warn]) %>
+  <% end %>      
+  <%= render :partial => "structural_sets/permission_form", :locals => { :gf => @structural_set, :f=> f } %>
+  <div class="page-gutter" id="permissions_submit">
+  <hr/>
+          <%= button_tag 'Save'.html_safe, :type => 'submit', :class => 'btn', :onclick => "confirmation_needed = false;", :id => "upload_submit", :name => "update_permission" %>
+  </div>
+<% end %>

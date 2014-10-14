@@ -32,13 +32,15 @@
           </li>
         </ul>
         <div class="tab-content">
-
-            <%= render :partial => "edit" %>
-            <%= render :partial => "permission", :locals => { :gf => @structural_set} %>
+            <div id="descriptive_metadata" class="tab-pane active">
+              <%= render :partial => "edit" %>
+            </div>
+            <div id="permissions_display" class="tab-pane">
+              <%= render :partial => "permission", :locals => { :gf => @structural_set} %>
+            </div>
             <div id="additional_metadata" class="tab-pane">            
               <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @structural_set }) %>
             </div>
-
         </div>
       </div>
     </div>
