@@ -5,7 +5,7 @@
   <name type="personal">
     <namePart>Smith, John A.</namePart>
     <role>
-      <roleTerm type="text">creator</roleTerm>
+      <roleTerm type="text">Creator</roleTerm>
     </role>
   </name>
   <name type="personal">
@@ -14,10 +14,16 @@
       <roleTerm type="text">Supervisor</roleTerm>
     </role>
   </name>
+  <name type="personal">
+    <namePart>Sponsor Person A.</namePart>
+    <role>
+      <roleTerm type="text">Sponsor</roleTerm>
+    </role>
+  </name>
   <name type="corporate">
     <namePart>Sponsor, A B.</namePart>
     <role>
-      <roleTerm type="text">sponsor</roleTerm>
+      <roleTerm type="text">Sponsor</roleTerm>
     </role>
   </name>
   <typeOfResource>text</typeOfResource>

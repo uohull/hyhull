@@ -27,12 +27,12 @@ describe Datastream::ModsEtd do
     @ds.language_text == ["English"]
 
     #Names (personal and organisations)
-    @ds.person_name.should == ["Smith, John A.","Supervisor A."]
-    @ds.person_role_text.should == ["creator","Supervisor"]
+    @ds.person_name.should == ["Smith, John A.",  "Supervisor A.", "Sponsor Person A."]
+    @ds.person_role_text.should == ["Creator","Supervisor", "Sponsor"]
     @ds.person_role_code.should == []
 
     @ds.organisation_name.should == ["Sponsor, A B."]
-    @ds.organisation_role_text.should == ["sponsor"]
+    @ds.organisation_role_text.should == ["Sponsor"]
     @ds.organisation_role_code.should == []
 
   end
@@ -89,6 +89,12 @@ describe Datastream::ModsEtd do
       new_grant_numbers = ["gn:123455", "56333"]
       @ds.add_grant_number(new_grant_numbers)
       @ds.grant_number.should == new_grant_numbers
+    end
+
+    it "person_name and organisation_name will be searchable and stored as strings for solr" do
+       solr_doc = @ds.to_solr
+       solr_doc["person_name_ssim"].should == ["Smith, John A.", "Supervisor A.", "Sponsor Person A."]
+       solr_doc["organisation_name_ssim"].should ==  ["Sponsor, A B."]
     end
   end
 

@@ -177,6 +177,8 @@
 
   <!-- hyhull copyfields -->
   <copyField source="creator_name_ssim" dest="creator_name_tim" />
+  <copyField source="person_name_ssim" dest="person_name_tim" />
+  <copyField source="organisation_name_ssim" dest="organisation_name_tim" />  
   <copyField source="subject_topic_ssm" dest="subject_topic_teim" />
   <!-- hyhull sort fields -->
   <copyField source="title_tesim" dest="title_ssort" />

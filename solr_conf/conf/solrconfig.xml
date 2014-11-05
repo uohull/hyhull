@@ -44,6 +44,10 @@
           subject_topic_teim^1000
           creator_name_ssim^250
           creator_name_tim^100
+          person_name_ssim^100
+          person_name_tim^50
+          organisation_name_ssim^100
+          organisation_name_tim^50
           all_text_timv
           active_fedora_model_ssi
           object_type_si
@@ -55,17 +59,29 @@
           subject_topic_teim^10000
           creator_name_ssim^2500
           creator_name_tim^1000
-          all_text_timv^100
+          person_name_ssim^1000
+          person_name_tim^500
+          organisation_name_ssim^1000
+          organisation_name_tim^500
+          all_text_timv^100          
           full_text_ti
        </str>
 
        <str name="creator_qf">
           creator_name_ssim^200
           creator_name_tim^50
+          person_name_ssim^50
+          person_name_tim^25
+          organisation_name_ssim^50
+          organisation_name_tim^25          
        </str>
        <str name="creator_pf">
           creator_name_ssim^2000
-          creator_name_tim^500       
+          creator_name_tim^500
+          person_name_ssim^500
+          person_name_tim^250
+          organisation_name_ssim^500
+          organisation_name_tim^250          
        </str>
        <str name="title_qf">
           title_tesim
