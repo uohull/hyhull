@@ -268,9 +268,10 @@ end
     File.dirname(@csv_path)
   end
 
+  # We are currently just using the year of the date because the source isn't accurate...
   def format_date(date_string)
     begin
-      return Date.parse(date_string).strftime('%F')
+      return Date.parse(date_string).strftime('%Y')
     rescue
       return  ""
     end
