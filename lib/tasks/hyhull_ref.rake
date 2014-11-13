@@ -79,8 +79,10 @@ class ManifestImport
               model.related_item_volume = output["journal_volume"] unless output["journal_volume"].to_s.empty? 
               model.related_item_issue = output["journal_issue"] unless output["journal_issue"].to_s.empty? 
               model.related_item_start_page = output["start_page"] unless output["start_page"].to_s.empty? 
-              model.related_item_end_page = output["end_page"] unless output["end_page"].to_s.empty? 
-              model.date_issued = format_date(output["publication_date"]) unless output["publication_date"].to_s.empty? 
+              model.related_item_end_page = output["end_page"] unless output["end_page"].to_s.empty?
+              # We are putting the date issued into both fields 
+              model.date_issued = format_date(output["publication_date"]) unless output["publication_date"].to_s.empty?
+              model.related_item_publication_date = format_date(output["publication_date"]) unless output["publication_date"].to_s.empty?
             end
 
             assign_permissions_to_rights(model)   
