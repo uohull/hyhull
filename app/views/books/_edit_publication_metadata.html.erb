@@ -1,0 +1,29 @@
+<div class="page-gutter">
+  <div class="row-spacer"></div>
+
+    <%= render "shared/error_messages", :target => @book %>
+
+    <h6>Publication</h6>
+    <%= f.input :publication_date, label: "Publication year (yyyy)" %>
+    <%= f.input :publication_publisher, label: "Publisher" %>
+    <%= f.input :publication_place, label: "Place" %>
+
+     <h6>Physical description</h6>
+    <%= f.input :publication_issuance, collection: @book.issuance_terms %>
+    <%= f.input :related_item_physical_extent, label: "Physical extent" %>
+    <%= f.input :related_item_form, label: "Form (MARC)", collection: @book.marc_form_terms %>
+
+    <h6>Identifiers</h6>
+    <%= f.input :related_item_isbn, label: "ISBN" %>
+    <%= f.input :related_item_print_issn, label: "Print ISSN" %>
+    <%= f.input :related_item_electronic_issn, label: "Electronic ISSN" %>    
+    <%= f.input :related_item_doi, label: "DOI" %>
+      <% unless @book.related_item_doi.nil? %>
+        <div class="control-group">
+          <% publication_link = "#{DOI_RESOLVER_SERVICE_URL}#{@book.related_item_doi.strip}" %>
+          <div class="controls">
+            <%= link_to publication_link, publication_link, :target => "_blank" %>
+          </div>
+        </div>
+      <% end %>
+</div>

@@ -1,0 +1,60 @@
+<div class="page-gutter">
+  <div class="row-fluid">
+    <div class="span16">
+      <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %>
+      <ul id="metadata-edit-nav" class="nav nav-tabs">
+        <li class="active" id="edit_descriptive_metadata_link">
+          <a href="#descriptive_metadata" data-toggle="tab">Description</a>
+        </li>
+         <li id="edit_publication_metadata_link">              
+          <a href="#publication_metadata" data-toggle="tab">Publication</a>
+        </li>       
+        <li id="edit_related_metadata_link">              
+          <a href="#related_metadata" data-toggle="tab">Related materials</a>
+        </li>
+        <li id="edit_supplementary_metadata_link">              
+          <a href="#supplementary_metadata" data-toggle="tab">Supplementary</a>
+        </li>
+        <% unless @book.resource_proto? %>
+          <li id="edit_set_membership_link">              
+            <a href="#set_membership" data-toggle="tab">Set membership</a>
+          </li>
+          <li id="edit_admin_metadata_link">              
+            <a href="#admin_metadata" data-toggle="tab">Admin</a>
+          </li>
+          <li id="view_additional_metadata_link">
+             <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
+          </li>        
+        <% end %>
+      </ul>
+      <%= simple_form_for(@book, :html => {:class => 'form-horizontal' }) do |f| %>
+      <div class="tab-content">         
+        <div id="descriptive_metadata" class="tab-pane active">
+          <%= render :partial => "edit_description", locals: {f: f} %>
+        </div>
+         <div id="publication_metadata" class="tab-pane">            
+            <%= render :partial => "edit_publication_metadata", locals: {f: f, resource: @book} %>
+        </div>        
+         <div id="related_metadata" class="tab-pane">            
+            <%= render :partial => "metadata/edit_related_metadata", locals: {f: f, resource: @book} %>
+        </div>
+        <div id="supplementary_metadata" class="tab-pane">            
+          <%= render :partial => "metadata/edit_supplementary_metadata", locals: {f: f, resource: @book} %>
+        </div>   
+        <% unless @book.resource_proto? %>
+          <div id="set_membership" class="tab-pane">          
+            <%= render(:partial => "shared/set_management",  :locals => { resource: @book, f: f }) %>
+          </div>
+          <div id="admin_metadata" class="tab-pane">             
+            <%= render(:partial => "metadata/edit_administrative_metadata", :locals => { resource: @book, form: f }) %>
+          </div>
+          <div id="additional_metadata" class="tab-pane">            
+            <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @book }) %>
+          </div>
+        <% end %>
+       </div>
+        <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -90,10 +90,7 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display 
     config.add_show_field solr_name('contributor_name', :displayable, type: :string), :label => 'Contributor'  
     config.add_show_field solr_name('rights', :displayable, type: :string), :label => 'Rights'
-
     config.add_show_field solr_name('title_vern', :stored_searchable, type: :string), :label => 'Title'
-    config.add_show_field solr_name('subtitle', :stored_searchable, type: :string), :label => 'Subtitle:' 
-    config.add_show_field solr_name('subtitle_vern', :stored_searchable, type: :string), :label => 'Subtitle:' 
     config.add_show_field solr_name('author_vern', :stored_searchable, type: :string), :label => 'Author:' 
     config.add_show_field solr_name('format', :symbol), :label => 'Format:' 
     config.add_show_field solr_name('url_fulltext_tsim', :stored_searchable, type: :string), :label => 'URL:'

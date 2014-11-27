@@ -180,7 +180,7 @@ module Hyhull::Datastream::ModsMetadataBase
       #Proxies for terminologies 
       # Added :mods due to issue with matching two fields
       t.title(:proxy=>[:mods, :title_info, :main_title], :index_as=>[:stored_searchable])
-      t.version(:proxy=>[:title_info, :part_name], :index_as=>[:displayable])      
+      t.version(:proxy=>[:title_info, :part_name], :index_as=>[:displayable])
       t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
       t.subject_geographic(:proxy=>[:subject, :geographic], :index_as=>[:displayable])
       t.subject_temporal(:proxy=>[:subject, :temporal], :index_as=>[:displayable])
@@ -240,6 +240,179 @@ module Hyhull::Datastream::ModsMetadataBase
   end
 
   module ClassMethods
+    
+    # Some commonly used terms that can be used throughout all content models.
+    # NOTE: These add_*_terminology methods where designed to be called from the ROOT node of a mods based terminology
+
+    # Adds terms for title, sub title, partname terms
+    # Proxies title, subtitle, version (partname used for version info)
+    def add_title_terminology(t)
+      #
+      t.title_info(:path=>"titleInfo") {
+        t.main_title(:path=>"title", :label=>"title", :index_as=>[:facetable])
+        t.sub_title(:path => "subTitle")
+        t.part_name(:path=>"partName") 
+      }
+      t.title(:proxy=>[:mods, :title_info, :main_title], :index_as=>[:stored_searchable])
+      t.subtitle(:proxy=>[:mods, :title_info, :sub_title], :index_as=>[:stored_searchable])
+      t.version(:proxy=>[:title_info, :part_name], :index_as=>[:displayable])
+    end
+
+    # Adds terms for language text, language code
+    # Proxies language_text (displayable, facetable), language_code(displayable)
+    def add_language_terminology(t)
+      t.language(:path=>"language"){
+        t.lang_text(:path=>"languageTerm", :attributes=>{:type=>"text"})
+        t.lang_code(:path=>"languageTerm", :attributes=>{:type=>"code"})
+      }
+      t.language_text(:proxy=>[:language, :lang_text], :index_as=>[:displayable, :facetable])
+      t.language_code(:proxy=>[:language, :lang_code], :index_as=>[:displayable])
+    end
+
+    # Adds terms for terminology for subject information including topic, temporal and geographic
+    # Proxies subject_topic, subject_geographic, subject_temporal
+    def add_subject_terminology(t)
+      t.subject(:attributes=>{:authority=>"UoH"}) {
+        t.topic
+        t.temporal
+        t.geographic
+      }
+      t.subject_topic(:proxy=>[:subject, :topic], :index_as=>[:displayable, :facetable])
+      t.subject_geographic(:proxy=>[:subject, :geographic], :index_as=>[:displayable])
+      t.subject_temporal(:proxy=>[:subject, :temporal], :index_as=>[:displayable])
+    end
+     
+    # Add term description - uses mods:abstract 
+    def add_description_terminology(t)
+      # Description is stored in the 'abstract' field 
+      t.description(:path=>"abstract", :index_as=>[:displayable])
+    end
+
+    # Add generic name terminologies to t
+    # This will add term references for handling mods:names with type personal (t.person), corporate (t.organisation) and conference (t.conference)
+    #  Proxies exist for person_name, person_role_text, person_role_code, and organisation variants. 
+    #  
+    def add_name_terminology(t)
+      # This is a mods:name.  The underscore is purely to avoid namespace conflicts.
+      t.name_ {
+        t.type(:path => {:attribute=>"type"}, :namespace_prefix => nil)
+        # this is a namepart
+        t.namePart(:type=>:string, :label=>"generic name")
+        t.role {
+          t.text(:path=>"roleTerm",:attributes=>{:type=>"text"})
+          t.code(:path=>"roleTerm",:attributes=>{:type=>"code"})
+        }
+      }
+
+      # lookup :person, :first_name        
+      t.person(:ref=>:name, :attributes=>{:type=>"personal"}, :index_as=>[:facetable])
+      t.organisation(:ref=>:name, :attributes=>{:type=>"corporate"}, :index_as=>[:facetable])
+      t.conference(:ref=>:name, :attributes=>{:type=>"conference"}, :index_as=>[:facetable])
+
+      t.role {
+        t.text(:path=>"roleTerm",:attributes=>{:type=>"text"})
+        t.code(:path=>"roleTerm",:attributes=>{:type=>"code"})
+      }
+      #corporate_name/personal_name created to provide facets without an appended roleTerm
+      t.corporate_name(:path=>"name", :attributes=>{:type=>"corporate"}) {
+        t.part(:path=>"namePart",:index_as=>[:facetable])
+      }
+      t.personal_name(:path=>"name", :attributes=>{:type=>"personal"}) {
+        t.part(:path=>"namePart",:index_as=>[:facetable])
+      }
+
+      t.person_name(:proxy=>[:person, :namePart], :index_as=>[:displayable])
+      t.person_role_text(:proxy=>[:person, :role, :text], :index_as=>[:displayable])
+      t.person_role_code(:proxy=>[:person, :role, :code])
+
+      t.organisation_name(:proxy=>[:organisation, :namePart], :index_as=>[:displayable])
+      t.organisation_role_text(:proxy=>[:organisation, :role, :text], :index_as=>[:displayable])
+      t.organisation_role_code(:proxy=>[:organisation, :role, :code])  
+    end
+
+    # These terminologies should be used within all hyhull resources that have mods metadata
+    # Includes the key terms resource info with genre, type_of_resource, resource_status,
+    # Primary location/raw object metadata, along with record create/update data
+    def add_hyhull_terminology(t)
+      # genre is used to store the resource type in all resources 
+      t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
+      t.type_of_resource(:path=>"typeOfResource", :index_as=>[:displayable])
+      t.resource_status(:path=>"note", :attributes=>{:type=>"admin"}, :index_as=>[:displayable])
+      t.additional_notes(:path=>"note", :attributes=>{:type=>"additionalNotes"}, :index_as=>[:displayable])   
+
+      # Location is used to store the primary_display url (i.e. splash page), raw_object is the text/image/etc asset
+      t.location_element(:path=>"location") {
+        t.primary_display(:path=>"url", :attributes=>{:access=>"object in context", :usage=>"primary display" })
+        t.raw_object(:path=>"url", :attributes=>{:access=>"raw object"})
+      }
+
+      # Main fields for storing creation/update data
+      t.record_info(:path=>"recordInfo") {
+        t.record_creation_date(:path=>"recordCreationDate", :attributes=>{:encoding=>"w3cdtf"})
+        t.record_change_date(:path=>"recordChangeDate", :attributes=>{:encoding=>"w3cdtf"})
+      }
+
+      # General cataloguing fields - mime_type is usually populated with mimeType of prime asset
+      t.physical_description(:path=>"physicalDescription") {
+        t.extent(:path=>"extent")
+        t.mime_type(:path=>"internetMediaType")
+        t.digital_origin(:path=>"digitalOrigin")
+      }
+      
+      # Copyrights statement for resource ()
+      t.rights(:path=>"accessCondition", :attributes=>{:type=>"useAndReproduction"},  :index_as=>[:displayable])
+      # Location to store the Fedora PID
+      t.identifier(:attributes=>{:type=>"fedora"})
+
+      # Proxies for ease of referencing
+      t.primary_display_url(:proxy=>[:mods, :location_element, :primary_display])
+      t.raw_object_url(:proxy=>[:mods, :location_element, :raw_object])      
+      t.record_creation_date(:proxy=>[:mods, :record_info, :record_creation_date])
+      t.record_change_date(:proxy=>[:mods, :record_info, :record_change_date])
+      t.extent(:proxy=>[:mods, :physical_description, :extent], :index_as=>[:displayable])
+      t.mime_type(:proxy=>[:mods, :physical_description, :mime_type], :index_as=>[:displayable])
+      t.digital_origin(:proxy=>[:mods, :physical_description, :digital_origin])
+    end
+
+    # Terminology for adding a Converis identifier to the resource
+    #  Used primarily to store a publication_id 
+    def add_converis_identifier_terminology(t)
+      # Converis identifiers 
+      t.converis_related(:path=>"relatedItem", :attributes=>{:ID=>"converis", :type=>"original" }) {
+        t.publication_id(:path=>"identifier", :attributes=>{:type=>"local", :displayLabel=>"iot_publication"})
+      }
+      # Converis
+      t.converis_publication_id(:proxy=>[:converis_related, :publication_id], :index_as =>[:searchable])   
+    end
+
+    # Terminology for storing Geo type information
+    # Includes proxies for "location_coordinates", "location_label", "location_coordinates_type" (see coordinates_types for valid types )
+    def add_geo_terminology(t)
+      # Subject element to store location/carts 
+      t.location(:path=>"subject", :attributes=>{:ID=>"location"}) {
+        t.display_label(:path=>{:attribute=>"displayLabel"}, :namespace_prefix => nil)
+        t.coordinates_type(:path=>"topic")
+        t.cartographics {
+          t.coordinates
+        }
+      }
+      # Added :mods due to issue with matching two fields
+      t.location_coordinates(:proxy=>[:mods, :location, :cartographics, :coordinates], :index_as=>[:displayable])
+      t.location_label(:proxy=>[:mods, :location, :display_label], :index_as=>[:displayable])
+      t.location_coordinates_type(:proxy=>[:mods, :location, :coordinates_type], :index_as=>[:displayable])
+    end
+
+    # Adds the REF Unit of assessment terminology 
+    def add_ref_uoa_terminology(t)
+      # Unit of assessment used in REF items
+      t.unit_of_assessment(:path=>"note",  :attributes=>{:type=>"unitOfAssessment"}, :index_as=>[:displayable])
+    end
+
+    def add_peer_reviewed_terminology(t)
+      # Should be set to true/false
+      t.peer_reviewed(:path=>'note', :attributes=>{:type=>'peerReviewed'}, :index_as=>[:displayable])
+    end
+
     #Overrides the pid_namespace method to use hull NS
     def person_relator_terms
       {

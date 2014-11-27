@@ -1,0 +1,34 @@
+<div class="page-gutter">
+  <div class="row-spacer"></div>
+
+    <%= render "shared/error_messages", :target => @book %>
+    <!-- <legend><h2>Edit Metadata</h2></legend> -->
+    <h6>Author, and Editors</h6>    
+
+    <%= render(:partial => "metadata/name_edit", :locals => { object: @book, name_type: "person" }) %>
+
+    <%#= render(:partial => "metadata/name_edit", :locals => { object: @book, name_type: "organisation" }) %>
+    <hr/>
+    <h6>Resource</h6>  
+
+    <%= f.input :title, :input_html => { :class => 'input-block-level' } %>
+    <%= f.input :subtitle, :input_html => { :class => 'input-block-level' } %>
+    <%= f.input :series_title, :input_html => { :class => 'input-block-level' } %>
+
+    <%= render partial: "metadata/multi_field_edit", locals: { object: @book, field: "subject_topic" } %>
+    
+    <%= f.input :description, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
+
+    <%#= f.input :publisher %>
+    <%#= f.input :date_issued, label: "Publication year (yyyy)" %>
+    <% # class datepicker provides JQuery based date picker - not using at present %>
+    <%#= f.input :date_valid %>
+
+    <hr/>
+    <h6>Rights statement</h6>  
+
+    <%= render partial: "metadata/multi_field_edit", locals: { object: @book, field: "rights" } %> 
+    <hr/>
+    <h6>Citations</h6>
+    <%= render partial: "metadata/multi_field_edit", locals: { object: @book, field: "citation" } %> 
+</div>
