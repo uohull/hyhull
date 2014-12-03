@@ -1,0 +1,16 @@
+<div class="page-gutter">
+  <div class="row-spacer"></div>
+
+    <%= render "shared/error_messages", :target => @book_chapter %>     
+
+    <h6>Chapter Publication details</h6>
+    <%= f.input :related_item_title, label: "Publication title" %>
+    <%= f.input :related_item_subtitle, label: "Publisher subtitle" %>
+    <%= f.input :related_item_start_page, label: "Page start" %>
+    <%= f.input :related_item_end_page, label: "Page end" %>
+    <%= f.input :related_item_volume, label: "Volume" %>
+    <%= f.input :related_item_issue, label: "Issue" %>
+
+    <%= render :partial => "books/publication_fields", :locals => { f: f , resource: @book_chapter } %>
+
+</div>

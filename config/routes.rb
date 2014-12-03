@@ -39,6 +39,7 @@ Hyhull::Application.routes.draw do
   resources :journal_articles
   resources :datasets
   resources :books
+  resources :book_chapters
 
   match 'generic_contents/initial_step', to: 'generic_contents#initial_step', via: [:get]
   resources :generic_contents

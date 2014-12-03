@@ -32,7 +32,7 @@ class Book < ActiveFedora::Base
                      datastream: :descMetadata, multiple: false
 
   # Addtional fields that the Book CModel makes use of...
-   has_attributes  :publication_date, :publication_publisher, :publication_issuance, :publication_place, :series_title, :related_item_physical_extent, :related_item_form, datastream: :descMetadata, 
+   has_attributes  :related_item_date, :related_item_publisher, :related_item_issuance, :related_item_place, :series_title, :related_item_physical_extent, :related_item_form, datastream: :descMetadata, 
        multiple: false
 
   # Non-unique fields

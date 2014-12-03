@@ -1,14 +1,15 @@
-class Datastream::ModsBook < ActiveFedora::OmDatastream
+class Datastream::ModsBookChapter < ActiveFedora::OmDatastream
   include Hyhull::Datastream::ModsMetadataBase
   include Hyhull::Datastream::BookTerminologies
 
-   # Setup a default terminology for this module     
-    set_terminology do |t|
+ # Setup a default terminology for this module     
+  set_terminology do |t|
       t.root(:path=>"mods", :xmlns=>"http://www.loc.gov/mods/v3", :schema=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd")
-      add_book_terminology(t)
-      add_book_related_item_terminology(t, 'otherVersion')
-    end
 
+      add_book_terminology(t)
+      # For the BookChapter mods metadata model we use the relatedItem type of 'host'
+      add_book_related_item_terminology(t, 'host')
+  end
 
   # Generates an empty Mods Book (used when you call ModsBook.new without passing in existing xml)
   def self.xml_template
@@ -27,7 +28,7 @@ class Datastream::ModsBook < ActiveFedora::OmDatastream
           }
         }
         xml.typeOfResource "text"
-        xml.genre "Book"
+        xml.genre "Book chapter"
         xml.originInfo {
           xml.publisher
           xml.dateValid(:encoding=>"iso8601")
@@ -36,7 +37,7 @@ class Datastream::ModsBook < ActiveFedora::OmDatastream
           xml.languageTerm("English", :type=>"text")
           xml.languageTerm("eng", :authority=>"iso639-2b", :type=>"code")
         }
-        xml.relatedItem(:type =>"otherVersion") {
+        xml.relatedItem(:type =>"host") {
           xml.physicalDescription {
             xml.form("print", :authority=>"marcform")
           }

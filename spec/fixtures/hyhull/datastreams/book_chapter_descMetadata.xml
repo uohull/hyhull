@@ -1,0 +1,92 @@
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Chapter title</title>
+  </titleInfo>
+  <relatedItem type="series">
+    <titleInfo>
+      <title>Test title series of the resource</title>
+    </titleInfo>
+</relatedItem>
+  <name type="personal">
+    <namePart>Smith, John A</namePart>
+    <role>
+      <roleTerm type="text">Author</roleTerm>
+    </role>
+  </name>
+  <name type="personal">
+    <namePart>Jones, Bobby A</namePart>
+    <role>
+      <roleTerm type="text">Editor</roleTerm>
+    </role>
+  </name>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>The publication title</title>
+      <subTitle>The publication subtitle</subTitle>
+    </titleInfo>
+    <originInfo eventType="publication">
+      <publisher>Made up University press</publisher>
+      <dateIssued encoding="marc">1999</dateIssued>
+      <issuance>monographic</issuance>
+      <place>
+        <placeTerm type="text">Ithaca, N.Y</placeTerm>
+      </place>
+    </originInfo>
+    <identifier type="isbn">1234-343434</identifier>
+    <identifier type="issn" displayLabel="electronic">1573-174X</identifier>
+    <physicalDescription>
+      <form authority="marcform">print</form>
+      <extent>vii, 322 p. ; 23 cm.</extent>
+    </physicalDescription>
+    <part>
+      <extent unit="page">
+        <start>23</start>
+        <end>45</end>
+      </extent>
+      <detail type="volume">
+        <number>54</number>
+      </detail>
+      <detail type="issue">
+        <number>1</number>
+      </detail>          
+    </part>
+  </relatedItem>
+  <relatedItem ID="relatedMaterials">
+    <location>
+      <url access="object in context" usage="primary display">http://blacklight.hull.ac.uk/catalogue/ID</url>
+    </location>
+  </relatedItem>
+  <typeOfResource>text</typeOfResource>
+  <genre>Book chapter</genre>
+  <language>
+    <languageTerm type="text">English</languageTerm>
+    <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+  </language>
+  <physicalDescription>
+    <extent>Filesize: 64 MB</extent>
+    <digitalOrigin>born digital</digitalOrigin>
+    <internetMediaType>application/pdf</internetMediaType>
+  </physicalDescription>
+  <abstract>Lorem ipsum dolor sit amet, consectetur adipisicing elit....</abstract>
+  <note type="unitOfAssessment">Uoa 15</note>
+  <subject authority="UoH">
+    <topic>Something quite complicated</topic>
+  </subject>
+  <location>
+    <url usage="primary display" access="object in context">http://hydra.hull.ac.uk/resources/hull-test:132</url>
+    <url access="raw object">http://hydra.hull.ac.uk/assets/hull-test:132a/content</url>
+  </location>
+  <identifier type="fedora">hull:2106</identifier>
+  <relatedItem type="original" ID="converis">
+    <identifier type="local" displayLabel="iot_publication">1234</identifier>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">© 1999 The Author. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright holder.</accessCondition>
+  <recordInfo>
+    <recordContentSource>The University of Hull</recordContentSource>
+    <recordCreationDate encoding="w3cdtf">2013-02-18</recordCreationDate>
+    <recordChangeDate encoding="w3cdtf">2013-03-25</recordChangeDate>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">eng</languageTerm>
+    </languageOfCataloging>
+  </recordInfo>
+</mods>

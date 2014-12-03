@@ -27,10 +27,10 @@ describe Datastream::ModsBook do
     @ds.language_code.should == ["eng"]
 
     # Publication info
-    @ds.publication_publisher.should == ["Made up University press"]
-    @ds.publication_date.should == ["1999"]
-    @ds.publication_issuance.should == ["monographic"]
-    @ds.publication_place.should == ["Ithaca, N.Y"]
+    @ds.related_item_publisher.should == ["Made up University press"]
+    @ds.related_item_date.should == ["1999"]
+    @ds.related_item_issuance.should == ["monographic"]
+    @ds.related_item_place.should == ["Ithaca, N.Y"]
 
     @ds.related_item_physical_extent.should == ["vii, 322 p. ; 23 cm."]
     @ds.related_item_form.should == ["print"]

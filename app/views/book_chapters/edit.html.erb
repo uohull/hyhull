@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+  <div class="workflow-wrapper <%= resource_workflow_class(@book_chapter) %>">
+
+    <div class="wrapper-header">
+      <div class="row-fluid">
+        <div class="span16">
+          <%= render partial: "shared/update_resource_state", locals: { object: @book_chapter } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="page-gutter">
+        <div class="span16">   
+          <span class="pull-left">        
+            <h2>
+              <small><%= @book_chapter.title %>
+              </small>
+            </h2>
+          </span>
+          <span class="label label-alt pull-right" style="margin-top: 20px;" i>
+            <%= show_resource_link(@book_chapter.id) if @book_chapter.persisted?  %></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <%= render partial: "shared/resource_content_edit", locals: { resource: @book_chapter } %>
+    <%= render partial: "edit" %>
+  </div>
+</div>

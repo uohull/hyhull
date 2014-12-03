@@ -1,11 +1,11 @@
 <div class="page-gutter">
   <div class="row-spacer"></div>
 
-    <%= render "shared/error_messages", :target => @book %>
+    <%= render "shared/error_messages", :target => resource %>
     <!-- <legend><h2>Edit Metadata</h2></legend> -->
     <h6>Author, and Editors</h6>    
 
-    <%= render(:partial => "metadata/name_edit", :locals => { object: @book, name_type: "person" }) %>
+    <%= render(:partial => "metadata/name_edit", :locals => { object: resource, name_type: "person" }) %>
 
     <%#= render(:partial => "metadata/name_edit", :locals => { object: @book, name_type: "organisation" }) %>
     <hr/>
@@ -15,7 +15,7 @@
     <%= f.input :subtitle, :input_html => { :class => 'input-block-level' } %>
     <%= f.input :series_title, :input_html => { :class => 'input-block-level' } %>
 
-    <%= render partial: "metadata/multi_field_edit", locals: { object: @book, field: "subject_topic" } %>
+    <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "subject_topic" } %>
     
     <%= f.input :description, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
 
@@ -27,8 +27,8 @@
     <hr/>
     <h6>Rights statement</h6>  
 
-    <%= render partial: "metadata/multi_field_edit", locals: { object: @book, field: "rights" } %> 
+    <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "rights" } %> 
     <hr/>
     <h6>Citations</h6>
-    <%= render partial: "metadata/multi_field_edit", locals: { object: @book, field: "citation" } %> 
+    <%= render partial: "metadata/multi_field_edit", locals: { object: resource, field: "citation" } %> 
 </div>

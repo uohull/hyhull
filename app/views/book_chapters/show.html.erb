@@ -1,0 +1,16 @@
+<h4>Book chapter</h4>
+<h2><%= @book_chapter.title %></h2>
+<dl>
+   <dt>Subject</dt>
+  <dd>
+    <%= @book_chapter.subject_topic.join('; ') %>
+  </dd>  
+  <dt>Rights</dt>
+  <dd>
+    <%= @book_chapter.rights %>
+  </dd>  
+  <dt>Identifier</dt>
+  <dd>
+    <%= @book_chapter.id %>
+  </dd>  
+</dl>
