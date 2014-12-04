@@ -56,8 +56,8 @@ module Hyhull::Datastream::BookTerminologies
         # Related item for series
         t.series_title(:proxy=>[:related_series_item, :related_series_title_info, :related_series_main_title], :index_as=>[:displayable])
      
-        t.date_valid(:proxy=>[:origin_info, :date_valid], :index_as=>[:sortable, :displayable])
-        t.date_issued(:proxy=>[:origin_info, :date_issued], :index_as=>[:sortable, :displayable])
+        t.date_valid(:proxy=>[:mods, :origin_info, :date_valid], :index_as=>[:sortable, :displayable])
+        t.date_issued(:proxy=>[:mods, :origin_info, :date_issued], :index_as=>[:sortable, :displayable])
         t.related_web_url(:proxy=>[:mods, :related_materials, :location, :primary_display], :index_as=>[:displayable])
         # Add :mods due to issue with matching two fields
         t.publisher(:proxy=>[:mods, :origin_info, :publisher], :index_as=>[:displayable])
@@ -124,7 +124,7 @@ module Hyhull::Datastream::BookTerminologies
       t.related_item_subtitle(:proxy=>[:mods, :related_item, :publication_title_info, :publication_subtitle], :index_as=>[:displayable])
 
       #originInfo for publication information - Generally Book resources
-      t.related_item_date(:proxy=>[:mods, :related_item, :publication_origin_info, :publication_date_issued], :index_as=>[:displayable])
+      t.related_item_publication_date(:proxy=>[:mods, :related_item, :publication_origin_info, :publication_date_issued], :index_as=>[:displayable])
       t.related_item_publisher(:proxy=>[:mods, :related_item, :publication_origin_info, :publication_publisher], :index_as=>[:displayable])
       t.related_item_issuance(:proxy=>[:mods, :related_item, :publication_origin_info, :publication_issuance])
       t.related_item_place(:proxy=>[:mods, :related_item, :publication_origin_info, :publication_place, :placeTerm], :index_as=>[:displayable])

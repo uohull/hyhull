@@ -41,7 +41,7 @@ describe BookChapter do
           "related_item_electronic_issn" => "54321-09877",
           "related_item_isbn" => "233334343443",
           "related_item_doi" => "1.097/34354",
-          "related_item_date" => "c2009",
+          "related_item_publication_date" => "c2009",
           "related_item_publisher" => "University press",
           "related_item_issuance" => "monographic",
           "related_item_place" => "Kingston Upon Hull, UK.",
@@ -75,7 +75,7 @@ describe BookChapter do
         @book_chapter.related_item_electronic_issn.should == attributes_hash["related_item_electronic_issn"]
         @book_chapter.related_item_isbn.should == attributes_hash["related_item_isbn"]
         @book_chapter.related_item_doi.should == attributes_hash["related_item_doi"]
-        @book_chapter.related_item_date.should == attributes_hash["related_item_date"]
+        @book_chapter.related_item_publication_date.should == attributes_hash["related_item_publication_date"]
         @book_chapter.related_item_publisher.should == attributes_hash["related_item_publisher"]
         @book_chapter.related_item_issuance.should == attributes_hash["related_item_issuance"]
         @book_chapter.related_item_place.should == attributes_hash["related_item_place"]

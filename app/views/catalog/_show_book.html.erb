@@ -4,8 +4,7 @@
 <%= display_field_within_element(document, 'creator_name_ssim', element='h3') %>
 <%= display_field_within_element(document, 'creator_organisation_name_ssim', element='h3') %>
 <%= display_field_within_element(document, 'subject_topic_ssm', element='h6') %>
-<%= display_field_within_element(document, 'date_issued_ssm', element='h6', :date_field => true) %>
-<%= display_field_within_element(document, 'date_valid_ssm', element='h6', :date_field => true) %>
+<%= display_field_within_element(document, 'related_item_publication_date_ssm', element='h6', :date_field => true) %>
 <%= display_field_within_element(document, 'genre_ssm', element='p') %>
 
 <%= render partial:'book_fields' , locals: { document: document }%>

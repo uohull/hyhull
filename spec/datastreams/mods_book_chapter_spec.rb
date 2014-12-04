@@ -32,7 +32,7 @@ describe Datastream::ModsBookChapter do
         @ds.related_item_title.should == ["The publication title"]
         @ds.related_item_subtitle.should == ["The publication subtitle"]
         @ds.related_item_publisher.should == ["Made up University press"]
-        @ds.related_item_date.should == ["1999"]
+        @ds.related_item_publication_date.should == ["1999"]
         @ds.related_item_issuance.should == ["monographic"]
         @ds.related_item_place.should == ["Ithaca, N.Y"]
         @ds.related_item_issue.should == ["1"]   

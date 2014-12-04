@@ -28,7 +28,7 @@ describe Datastream::ModsBook do
 
     # Publication info
     @ds.related_item_publisher.should == ["Made up University press"]
-    @ds.related_item_date.should == ["1999"]
+    @ds.related_item_publication_date.should == ["1999"]
     @ds.related_item_issuance.should == ["monographic"]
     @ds.related_item_place.should == ["Ithaca, N.Y"]
 
