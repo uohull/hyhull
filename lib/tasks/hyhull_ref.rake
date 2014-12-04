@@ -47,12 +47,17 @@ class ManifestImport
           model, message = model_instance_by_publication_type(output["publication_type"])    
 
           if model
+
+            # Reset the person_name/role_text members of model
+            model.person_name = []
+            model.person_role_text = []
+
            # general fields          
-            model.title = remove_ctrl_chars_from_string(output["title"])  unless output["title"].to_s.empty?  
+            model.title = remove_ctrl_chars_from_string(output["title"])  unless output["title"].to_s.empty?
             model.publisher = "The University of Hull"
             model.converis_publication_id = output_id
             add_keywords_to_resource(model, remove_ctrl_chars_from_string(output["keywords"]))
-            add_authors_to_resource(model, remove_ctrl_chars_from_string(output["authors"]), output["author_first_name"], output["author_last_name"])
+            add_people_to_resource(model, remove_ctrl_chars_from_string(output["authors"]), output["author_first_name"], output["author_last_name"], "Author")
             model.peer_reviewed = peer_reviewed?(output["peer_reviewed"]).to_s unless output["peer_reviewed"].to_s.empty?
             model.unit_of_assessment = output["uoa"]
 
@@ -68,8 +73,8 @@ class ManifestImport
               model.journal_issue = output["journal_issue"] unless output["journal_issue"].to_s.empty? 
               model.journal_start_page = output["start_page"] unless output["start_page"].to_s.empty? 
               model.journal_end_page = output["end_page"] unless output["end_page"].to_s.empty? 
-           else            
-              # generic content derived
+            else            
+              # generic content derived, book and bookchapter models
               model.description = clean_abstract(output["abstract"]) unless output["abstract"].to_s.empty?
               model.related_item_title = output["journal_name"] unless output["journal_name"].to_s.empty? 
               model.related_item_publisher = output["publisher"] unless output["publisher"].to_s.empty? 
@@ -78,11 +83,21 @@ class ManifestImport
               model.related_item_doi = output["doi"] unless output["doi"].to_s.empty? 
               model.related_item_volume = output["journal_volume"] unless output["journal_volume"].to_s.empty? 
               model.related_item_issue = output["journal_issue"] unless output["journal_issue"].to_s.empty? 
-              model.related_item_start_page = output["start_page"] unless output["start_page"].to_s.empty? 
-              model.related_item_end_page = output["end_page"] unless output["end_page"].to_s.empty?
+              model.related_item_start_page = output["start_page"] unless !model.respond_to?(:related_item_start_page) ||  output["start_page"].to_s.empty? 
+              model.related_item_end_page = output["end_page"] unless !model.respond_to?(:related_item_end_page) ||  output["end_page"].to_s.empty?
               # We are putting the date issued into both fields 
               model.date_issued = format_date(output["publication_date"]) unless output["publication_date"].to_s.empty?
               model.related_item_publication_date = format_date(output["publication_date"]) unless output["publication_date"].to_s.empty?
+
+              # We are checking if these attributes exist against model class
+              model.series_title = remove_ctrl_chars_from_string(output["series"]) unless !model.respond_to?(:series_title) || output["series"].to_s.empty? 
+              model.related_item_title = remove_ctrl_chars_from_string(output["book_title"]) unless !model.respond_to?(:related_item_title) || output["book_title"].to_s.empty? 
+              model.related_item_publisher = output["publisher"] unless !model.respond_to?(:related_item_publisher) || output["publisher"].to_s.empty? 
+              model.related_item_place = output["place"] unless !model.respond_to?(:related_item_place) || output["place"].to_s.empty? 
+             
+              # Add the Editors (if they exist) 
+              add_people_to_resource(model, remove_ctrl_chars_from_string(output["editor"]), nil, nil, "Editor") unless output["editor"].to_s.empty? 
+
             end
 
             assign_permissions_to_rights(model)   
@@ -149,12 +164,12 @@ class ManifestImport
   end
 
   def model_instance_by_publication_type(publication_type)
-    default_params = { namespace: "hull" }
+    default_params = { namespace: "ref-test" }
     case publication_type.downcase
-      when "authored book"
-         return GenericContent.new(default_params.merge(genre: "Book")), ""
+      when "authored book", "edited book", "scholarly edition"
+         return Book.new(default_params), ""
       when "chapter in book"
-         return GenericContent.new(default_params.merge(genre: "Book chapter")), ""
+        return BookChapter.new(default_params), ""
       when "composition"
         return GenericContent.new(default_params.merge(genre: "Sound")), "Defaulting to GenericContent - Sound - Check genre"
       when "conference contribution"
@@ -165,8 +180,6 @@ class ManifestImport
         return GenericContent.new(default_params.merge(genre: "Event")), ""
       when "digital and visual media"
         return GenericContent.new(default_params.merge(genre: "Moving image")) , ""
-       when "edited book"
-         return GenericContent.new(default_params.merge(genre: "Book")), ""
        when "journal article"
          return JournalArticle.new(default_params), ""
        when "internet publication"
@@ -177,23 +190,20 @@ class ManifestImport
          return Dataset.new(default_params), ""
       when "research report (for external body)"
          return GenericContent.new(default_params.merge(genre: "Report")), ""
-      when "scholarly edition"
-         return GenericContent.new(default_params.merge(genre: "Book")), ""
       else 
         return nil,  "No match found"
      end
   end
 
+  def add_people_to_resource(resource, person_list, person_first_name, person_last_name, role_type="Author")
+    people = authors_as_array(person_list, person_first_name, person_last_name)
 
-  def add_authors_to_resource(resource, author_list, author_first_name, author_last_name)
-    authors = authors_as_array(author_list, author_first_name, author_last_name)
-
-    resource.person_name = []
-    resource.person_role_text = []
+    all_people = resource.person_name + people
+    all_roles = resource.person_role_text  + Array.new(people.size) { role_type }
 
     # Add authors...
-    unless authors.empty?
-      resource.descMetadata.add_names(authors,Array.new(authors.size) { "Author" }, "person")
+    unless people.empty?
+      resource.descMetadata.add_names(all_people, all_roles, "person")
     end
   end
 
@@ -228,13 +238,18 @@ end
 
   # Adds the prime author to the display
   def authors_as_array(author_list, prime_author_first_name, prime_author_last_name)
-      full_author_list =  author_list.to_s.empty? ? [] :  author_list.split(",").map { |a| a.strip }
-      # returns Lamb S from Simon Lamb
-      author_to_match = "#{prime_author_last_name} #{prime_author_first_name[0]}"      
-      full_author_list.delete_if{|a| a.include?(author_to_match) }
+      prime_author_fname = prime_author_first_name.to_s
+      prime_author_sname = prime_author_last_name.to_s 
 
-      author_to_add = "#{prime_author_last_name}, #{prime_author_first_name}"
-      full_author_list.unshift(author_to_add)      
+      full_author_list =  author_list.to_s.empty? ? [] :  author_list.split(",").map { |a| a.strip }
+
+      unless prime_author_fname.empty? && prime_author_sname.empty?
+        # returns Lamb S from Simon Lamb
+        author_to_match = "#{prime_author_sname} #{prime_author_fname[0]}"
+        full_author_list.delete_if{|a| a.include?(author_to_match) }
+        author_to_add = "#{prime_author_sname}, #{prime_author_fname}"
+        full_author_list.unshift(author_to_add)
+      end   
 
       full_author_list.delete_if{|i| i.strip == "" } 
  
