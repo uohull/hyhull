@@ -270,16 +270,15 @@ module HyhullHelper
     display_dt_dd_element(label_to_display(label_text), return_unencoded_html_string(solr_field_value(document, solr_fname)), html_class)
   end
 
-
   def display_field_within_element(document, solr_fname, element='h1', options={})
-    default_options = { element_class: nil, date_field: false }
+    default_options = { element_class: nil, date_field: false, prepend:"" }
     options.reverse_merge!(default_options)
 
     if document.has? solr_fname
       if options[:date_field] 
         content_tag element, display_friendly_date(render_index_field_value(:document => document, :field => solr_fname)), :class => options[:element_class]
       else
-        content_tag element, render_index_field_value(:document => document, :field => solr_fname), :class => options[:element_class]
+        content_tag element, options[:prepend] + render_index_field_value(:document => document, :field => solr_fname), :class => options[:element_class]
       end
     end
         
