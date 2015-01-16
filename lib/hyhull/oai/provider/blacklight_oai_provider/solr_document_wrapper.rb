@@ -40,10 +40,20 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
         end
         add_set_membership_to_records(records)
       else
-        records = @controller.get_search_results(@controller.params, {:q => ["id:\"#{ selector.split(':', 3).last }\""]}).last.first 
-        add_set_membership_to_records([records]).first
-      end
+        id = identifier_from_selector(selector) 
+        # This will query solr with auth filtering..
+        records = @controller.get_search_results(@controller.params, {:q => ["id:\"" + id + "\""]}).last.first 
+        
+        if records.nil?
+          # We query solr again to check if the resource does exist without auth filtering...           
+          record = @controller.get_search_results(@controller.params, {:fq => ["id:\"" + id + "\""]}).last.first 
+          # We raise locally defined ResourceNoAccessibleException to state that a resource exists but it isn't accessible due to permissions
+          raise ResourceNotAccessibleException unless record.nil? 
+       else
+         add_set_membership_to_records([records]).first 
+        end 
 
+      end
       records
     end
 
@@ -192,8 +202,26 @@ module Hyhull::OAI::Provider::BlacklightOaiProvider
         end
       end
       return false, "", ""
+    end
+    
+    # Returns an identifer from selector
+    # "hull:4777" from "oai:hull.ac.uk:hull:4777"
+    def identifier_from_selector(selector)
+      "#{ selector.split(':', 3).last }"
     end  
 
   end
+
+  # We have added this exception to aide the IRUS-UK statistics tool
+  # This should be used when a resource is available but not accessible due to rights...
+  # Note we are uding the idDoesNotExist reason code
+  # The error message is opaque about the id existence by design. 
+  class ResourceNotAccessibleException < OAI::Exception
+    def initialize()
+      super('The value of the identifier argument is '\
+        'unknown or is marked as private.', 'idDoesNotExist')
+    end
+  end
+
 end
 
