@@ -31,6 +31,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
         t.text(:path=>"roleTerm",:attributes=>{:type=>"text"})
         t.code(:path=>"roleTerm",:attributes=>{:type=>"code"})
       }
+      t.affiliation 
     }
 
     # lookup :person, :first_name        
@@ -200,6 +201,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
              xml.role {
                xml.roleTerm(:type=>"text")
              }
+             xml.affiliation
            }
            xml.genre "Journal article"
            xml.language {
