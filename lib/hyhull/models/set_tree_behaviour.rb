@@ -18,7 +18,7 @@ module Hyhull
 
         def retrieve_sets(set_c_model)
           fields = "has_model_ssim:#{set_c_model}"
-          options = {:fl=>["id", "title_tesim", "is_member_of_ssim", "active_fedora_model_ssim"], :rows=>10000, :sort=>" title_ssort asc" }
+          options = {:fl=>["id", "title_tesim", "title_alternative_tesim", "is_member_of_ssim", "active_fedora_model_ssim"], :rows=>10000, :sort=>" title_ssort asc" }
           ActiveFedora::SolrService.query(fields,options)
         end
 

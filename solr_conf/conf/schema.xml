@@ -182,6 +182,7 @@
   <copyField source="subject_topic_ssm" dest="subject_topic_teim" />
   <!-- hyhull sort fields -->
   <copyField source="title_tesim" dest="title_ssort" />
+  <copyfield source="title_altenative_tesim" dest="title_ssort" />
 
   <types>
     <fieldType name="string" class="solr.StrField" sortMissingLast="true" />

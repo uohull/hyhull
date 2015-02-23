@@ -30,6 +30,7 @@ class SolrDocument
 
   field_semantics.merge!(    
                          :title => "title_tesim",
+                         :title_alternative => "title_alternative_tesim",
                          :creator => "creator_name_ssim",
                          :language => "language_text_ssm",
                          :description => "description_ssm",

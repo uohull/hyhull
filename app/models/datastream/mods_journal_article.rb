@@ -10,6 +10,11 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
      }
 
+    t.title_info_alternative(:path=>"titleInfo", :attributes=>{:type=>"alternative"}) {
+      t.main_title(:path=>"title", :label=>"title", :index_as=>[:searchable]) 
+      t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
+    }
+
     t.language(:path=>"language") {
       t.lang_text(:path=>"languageTerm", :attributes=>{:type=>"text"})
       t.lang_code(:path=>"languageTerm", :attributes=>{:type=>"code"})
@@ -31,7 +36,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
         t.text(:path=>"roleTerm",:attributes=>{:type=>"text"})
         t.code(:path=>"roleTerm",:attributes=>{:type=>"code"})
       }
-      t.affiliation 
+      t.affiliation(:index_as=>[:facetable, :searchable, :displayable], :label=>"affiliation")
     }
 
     # lookup :person, :first_name        
@@ -157,6 +162,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.person_name(:proxy=>[:person, :namePart], :index_as=>[:displayable])
     t.person_role_text(:proxy=>[:person, :role, :text], :index_as=>[:displayable])
     t.person_role_code(:proxy=>[:person, :role, :code])
+    t.person_affiliation(:proxy=>[:person, :affiliation], :index_as=>[:displayable])
 
     t.organisation_name(:proxy=>[:organisation, :namePart], :index_as=>[:displayable])
     t.organisation_role_text(:proxy=>[:organisation, :role, :text], :index_as=>[:displayable])
@@ -194,6 +200,9 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
          "xmlns"=>"http://www.loc.gov/mods/v3",
          "xsi:schemaLocation"=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd") {
            xml.titleInfo(:lang=>"") {
+             xml.title
+           }
+           xml.titleinfo(:type=>"alternative", :lang=>"") {
              xml.title
            }
            xml.name(:type=>"personal") {

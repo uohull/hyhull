@@ -89,6 +89,12 @@
        <str name="title_pf">
           title_tesim
        </str>
+       <str name="title_alternative_qf">
+          title_alternative_tesim
+       </str>
+       <str name="title_alternative_pf">
+          title_alternative_tesim
+       </str>
        <str name="subject_qf">
           subject_topic_teim
        </str>

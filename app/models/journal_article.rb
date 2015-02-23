@@ -26,7 +26,8 @@ class JournalArticle < ActiveFedora::Base
 
   # Attributes to respective datastream
   # Multiple false
-  has_attributes :title, datastream: :descMetadata, at: [:mods,:title_info, :main_title], multiple: false
+  has_attributes :title, datastream: :descMetadata, at: [:mods, :title_info, :main_title], multiple: false
+  has_attributes :title_alternative, datastream: :descMetadata, at: [:mods, :title_info_alternative, :main_title], multiple: false
   has_attributes :publisher, datastream: :descMetadata, at: [:mods, :origin_info, :publisher], multiple: false
 
   has_attributes :abstract, :rights, :language_text, :language_code, :date_issued,
@@ -41,6 +42,7 @@ class JournalArticle < ActiveFedora::Base
   has_attributes :subject_topic, datastream: :descMetadata, multiple: true
   # People
   has_attributes :person_name, :person_role_text, datastream: :descMetadata, multiple: true
+  has_attributes :person_affiliation, datastream: :descMetadata, multiple: true
 
   # Journal URLS
   has_attributes :journal_url, :journal_url_access, :journal_url_display_label, datastream: :descMetadata, multiple: true
@@ -73,7 +75,8 @@ class JournalArticle < ActiveFedora::Base
   # to_solr overridden to add object_type facet field to document and to add title/publisher fields that are not handled in ModsJounalArticle
   def to_solr(solr_doc = {})
     super(solr_doc)
-    solr_doc.merge!("object_type_sim" => "Journal article", "title_tesim" => self.title, "publisher_ssm" => self.publisher)
+    # solr_doc.merge!("object_type_sim" => "Journal article", "title_tesim" => self.title, "publisher_ssm" => self.publisher)
+    solr_doc.merge!("object_type_sim" => "Journal article", "title_tesim" => self.title, "publisher_ssm" => self.publisher, "title_alternative_tesim" => self.title_alternative)
     solr_doc
   end
 

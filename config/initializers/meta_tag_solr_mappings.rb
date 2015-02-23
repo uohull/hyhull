@@ -8,6 +8,7 @@ META_TAG_SOLR_MAPPINGS =  {
 
   JournalArticle: { 
     title: "title_tesim",
+    title_alternative: "title_alternative_tesim",
     author: "creator_name_ssim",
     date: "journal_publication_date_ssm",
     publisher: "journal_publisher_ssm",
@@ -23,10 +24,10 @@ META_TAG_SOLR_MAPPINGS =  {
   },
   Default: { 
     title: "title_tesim",
+    title_alternative: "title_alternative_tesim",
     author: "creator_name_ssim",
     keywords: "subject_topic_ssm",
     publisher: "publisher_ssm",
     date: "date_issued_ssm"
   }
 }
-
