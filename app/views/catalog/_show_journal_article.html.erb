@@ -1,5 +1,6 @@
 <%# Sub header display fields %>
 <%= display_field_within_element(document, 'creator_name_ssim', element='h3') %>
+<%= display_field_within_element(document, 'name_affiliation_ssm', element='h6') %>
 <%= display_field_within_element(document, 'subject_topic_ssm', element='h6') %>
 <%= display_field_within_element(document, 'journal_publication_date_ssm', element='h6', :date_field => true) %>
 <%= display_field_within_element(document, 'genre_ssm', element='p') %>
@@ -22,6 +23,7 @@
     	    <% end -%>
     	  <% end %>
       <% end -%>
+      <%= display_field(document, 'title_alternative_tesim', 'Alternative title', 'title_alternative_tesim') %>
       <%= display_text_area_field(document, 'abstract_ssm', 'Abstract', 'abstract_ssm') %>
       <%= display_field(document, 'publisher_ssm', 'Publisher', 'publisher_ssm') %>
       <%= display_boolean_field(document, 'peer_reviewed_ssm', 'Peer reviewed', 'peer_reviewed_ssm') %>
@@ -30,6 +32,7 @@
       <%= display_field(document, 'id', 'Identifier', 'id') %>
     </dl>
     <h3>Journal</h3>
+
     <dl class="dl-horizontal dl-invert">
       <%= display_field(document, 'journal_title_ssm', 'Journal title', 'journal_title_ssm') %>
       <%= display_date_field(document, 'journal_publication_date_ssm', 'Publication date', 'journal_publication_date_ssm') %>

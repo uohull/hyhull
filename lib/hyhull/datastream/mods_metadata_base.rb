@@ -158,7 +158,7 @@ module Hyhull::Datastream::ModsMetadataBase
         t.digital_origin(:path=>"digitalOrigin")
       }
       t.location_element(:path=>"location") {
-        t.primary_display(:path=>"url", :attributes=>{:access=>"object in context", :usage=>"primary display" })
+        t.primary_display(:path=>"urll", :attributes=>{:access=>"object in context", :usage=>"primary display" })
         t.raw_object(:path=>"url", :attributes=>{:access=>"raw object"})
       }
       t.record_info(:path=>"recordInfo") {
@@ -248,6 +248,7 @@ module Hyhull::Datastream::ModsMetadataBase
     # Proxies title, subtitle, version (partname used for version info)
     def add_title_terminology(t)
       #
+     
       t.title_info(:path=>"titleInfo") {
         t.main_title(:path=>"title", :label=>"title", :index_as=>[:facetable])
         t.sub_title(:path => "subTitle")

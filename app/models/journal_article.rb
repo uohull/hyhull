@@ -27,7 +27,7 @@ class JournalArticle < ActiveFedora::Base
   # Attributes to respective datastream
   # Multiple false
   has_attributes :title, datastream: :descMetadata, at: [:mods, :title_info, :main_title], multiple: false
-  has_attributes :title_alternative, datastream: :descMetadata, at: [:mods, :title_info_alternative, :main_title], multiple: false
+  has_attributes :title_alternative, datastream: :descMetadata, at: [:mods, :title_info_alternative, :main_title_alternative], multiple: false
   has_attributes :publisher, datastream: :descMetadata, at: [:mods, :origin_info, :publisher], multiple: false
 
   has_attributes :abstract, :rights, :language_text, :language_code, :date_issued,
@@ -41,8 +41,8 @@ class JournalArticle < ActiveFedora::Base
   # Subjects
   has_attributes :subject_topic, datastream: :descMetadata, multiple: true
   # People
-  has_attributes :person_name, :person_role_text, datastream: :descMetadata, multiple: true
-  has_attributes :person_affiliation, datastream: :descMetadata, multiple: true
+  has_attributes :person_name, :person_role_text, :person_affiliation, datastream: :descMetadata, multiple: true
+  # has_attributes :person_affiliation, datastream: :descMetadata, multiple: true
 
   # Journal URLS
   has_attributes :journal_url, :journal_url_access, :journal_url_display_label, datastream: :descMetadata, multiple: true
@@ -55,6 +55,7 @@ class JournalArticle < ActiveFedora::Base
   validates :title, presence: true
   validates :person_name, array: { :length => { :minimum => 3 } }
   validates :person_role_text, array: { :length => { :minimum => 3 } } 
+  validates :person_affiliation, array: { :length => { :minimum => 1 } } 
   validates :subject_topic, array: { :length => { :minimum => 2 } }
   validates :publisher, presence: true
 
@@ -65,10 +66,11 @@ class JournalArticle < ActiveFedora::Base
     super
   end
 
-  # Overide the attributes method to enable the calling of custom methods
+  # Overide the attributes method to enable the calling of custom methods  :  names, roles, type, affiliation
   def attributes=(properties)
     super(properties)
-    self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person") unless properties["person_name"].nil? or properties["person_role_text"].nil?
+    self.descMetadata.add_title_terminology(properties["title"], properties["title_alternative"]) unless properties["title"].nil? or properties["title_alternative"].nil?
+    self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person", properties["person_affiliation"]) unless properties["person_name"].nil? or properties["person_role_text"].nil? or properties["person_affiliation"].nil?
     self.descMetadata.add_journal_urls(properties["journal_url"], properties["journal_url_access"], properties["journal_url_display_label"]) unless properties["journal_url"].nil? or properties["journal_url_access"].nil? or properties["journal_url_display_label"].nil?
   end
 

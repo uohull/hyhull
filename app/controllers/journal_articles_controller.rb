@@ -46,6 +46,7 @@ class JournalArticlesController < ApplicationController
   end
 
   def update
+
     @journal_article = JournalArticle.find(params[:id])
 
     @journal_article.update_attributes(params[:journal_article])

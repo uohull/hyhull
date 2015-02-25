@@ -5,11 +5,15 @@
 	<!-- <legend><h2>Edit descriptive metadata</h2></legend> -->
 	<div class="fields">
 	  <h6>Author, and Contributor(s)</h6>  	
-	  <%= render partial: "metadata/name_edit", :locals => { object: @journal_article, name_type: "person", required: true } %> 
+	  <%= render partial: "metadata/name_affiliation_edit", :locals => { object: @journal_article, name_type: "person", required: true } %> 
+	  <%#= f.input :person_affiliation, label: "Affiliation", :input_html => { :class => 'input-block-level' } %>
+	  <%#= render partial: "metadata/multi_field_edit", locals: { object: @journal_article, field: "person_affiliation", label: "Affiliation", required: false } %>
 	  <hr/>
 	  <h6>Publication</h6>
 
 	  <%= f.input :title, label: "Article title", :input_html => { :class => 'input-block-level' } %>
+
+	  <%= f.input :title_alternative, label: "Alternative title", :input_html => { :class => 'input-block-level' } %>
 
 	  <%= render partial: "metadata/copyright_statement_edit", locals: { resource: @journal_article, form: f } %>
 

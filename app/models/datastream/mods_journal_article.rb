@@ -11,7 +11,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
      }
 
     t.title_info_alternative(:path=>"titleInfo", :attributes=>{:type=>"alternative"}) {
-      t.main_title(:path=>"title", :label=>"title", :index_as=>[:searchable]) 
+      t.main_title_alternative(:path=>"title", :label=>"title_alternative", :index_as=>[:facetable]) 
       t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
     }
 
@@ -270,6 +270,50 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     return builder.doc
   end
 
+  def add_title_terminology(t, t_alternative)
+      #
+
+      # t.title_info(:path=>"titleInfo") {
+      #   t.main_title(:path=>"title", :label=>"title", :index_as=>[:facetable])
+      #   t.sub_title(:path => "subTitle")
+      #   t.part_name(:path=>"partName") 
+      # }
+      # t.title(:proxy=>[:mods, :title_info, :main_title], :index_as=>[:stored_searchable])
+      # t.subtitle(:proxy=>[:mods, :title_info, :sub_title], :index_as=>[:stored_searchable])
+      # t.version(:proxy=>[:title_info, :part_name], :index_as=>[:displayable])
+#debugger
+#title_alternative = t_alternative
+#title = t
+      # t.title_info(:path=>"titleInfo") {
+      #   t.main_title(:path=>"title", :label=>"title", :index_as=>[:facetable]) 
+      #   t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
+      #  }
+
+      # t_alternative.title_info_alternative(:path=>"titleInfo", :attributes=>{:type=>"alternative"}) {
+      #   t_alternative.main_title_alternative(:path=>"title", :label=>"title", :index_as=>[:facetable]) 
+      #   t_alternative.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
+      # }
+    end
+
+  def add_names(names, roles, type, affiliations)
+    if type == "person"
+      xpath_type = "personal"
+    elsif type == "organisation"
+      xpath_type = "corporate"
+    elsif type == "conference"
+      xpath_type = "conference"
+    end  
+   
+     ng_xml.search("//xmlns:name[@type=\"#{xpath_type}\"]").each do |n|
+       n.remove
+     end
+
+     names.each_with_index do |name, index|    
+       eval "self.#{type}(#{index}).namePart = name"
+       eval "self.#{type}(#{index}).role.text = roles[index]"
+       eval "self.#{type}(#{index}).affiliation = affiliations[index]"
+     end
+  end
 
   def add_journal_urls(url_list, url_access_list, url_display_label_list)
     begin 
