@@ -14,7 +14,6 @@ class JournalArticle < ActiveFedora::Base
     state :hidden, :deleted do
       validates :resource_status, presence: true
     end
-
     state :qa, :published do
       validates :title, presence: true
     end
@@ -31,11 +30,11 @@ class JournalArticle < ActiveFedora::Base
   has_attributes :publisher, datastream: :descMetadata, at: [:mods, :origin_info, :publisher], multiple: false
 
   has_attributes :abstract, :rights, :language_text, :language_code, :date_issued,
-                  :peer_reviewed, :journal_title, :journal_publisher, :journal_publication_date, :journal_print_issn,
-                  :journal_electronic_issn, :journal_article_doi, :journal_volume, :journal_issue,  :journal_start_page,
-                  :journal_end_page, :journal_article_restriction, :journal_publications_note, :type_of_resource, :genre, :mime_type, :digital_origin, 
-                  :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, :record_change_date, :resource_status, :converis_publication_id, :unit_of_assessment,
-                  datastream: :descMetadata, multiple: false
+                 :peer_reviewed, :journal_title, :journal_publisher, :journal_publication_date, :journal_print_issn,
+                 :journal_electronic_issn, :journal_article_doi, :journal_volume, :journal_issue,  :journal_start_page,
+                 :journal_end_page, :journal_article_restriction, :journal_publications_note, :type_of_resource, :genre, :mime_type, :digital_origin, 
+                 :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, :record_change_date, :resource_status, :converis_publication_id, :unit_of_assessment,
+                 datastream: :descMetadata, multiple: false
 
   # Non-unique fields
   # Subjects
@@ -55,7 +54,7 @@ class JournalArticle < ActiveFedora::Base
   validates :title, presence: true
   validates :person_name, array: { :length => { :minimum => 3 } }
   validates :person_role_text, array: { :length => { :minimum => 3 } } 
-  validates :person_affiliation, array: { :length => { :minimum => 1 } } 
+  # validates :person_affiliation, array: { :length => { :minimum => 1 } }
   validates :subject_topic, array: { :length => { :minimum => 2 } }
   validates :publisher, presence: true
 
@@ -69,7 +68,6 @@ class JournalArticle < ActiveFedora::Base
   # Overide the attributes method to enable the calling of custom methods  :  names, roles, type, affiliation
   def attributes=(properties)
     super(properties)
-    self.descMetadata.add_title_terminology(properties["title"], properties["title_alternative"]) unless properties["title"].nil? or properties["title_alternative"].nil?
     self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person", properties["person_affiliation"]) unless properties["person_name"].nil? or properties["person_role_text"].nil? or properties["person_affiliation"].nil?
     self.descMetadata.add_journal_urls(properties["journal_url"], properties["journal_url_access"], properties["journal_url_display_label"]) unless properties["journal_url"].nil? or properties["journal_url_access"].nil? or properties["journal_url_display_label"].nil?
   end
@@ -77,10 +75,8 @@ class JournalArticle < ActiveFedora::Base
   # to_solr overridden to add object_type facet field to document and to add title/publisher fields that are not handled in ModsJounalArticle
   def to_solr(solr_doc = {})
     super(solr_doc)
-    # solr_doc.merge!("object_type_sim" => "Journal article", "title_tesim" => self.title, "publisher_ssm" => self.publisher)
     solr_doc.merge!("object_type_sim" => "Journal article", "title_tesim" => self.title, "publisher_ssm" => self.publisher, "title_alternative_tesim" => self.title_alternative)
     solr_doc
   end
 
 end
-

@@ -158,7 +158,7 @@ module Hyhull::Datastream::ModsMetadataBase
         t.digital_origin(:path=>"digitalOrigin")
       }
       t.location_element(:path=>"location") {
-        t.primary_display(:path=>"urll", :attributes=>{:access=>"object in context", :usage=>"primary display" })
+        t.primary_display(:path=>"url", :attributes=>{:access=>"object in context", :usage=>"primary display" })
         t.raw_object(:path=>"url", :attributes=>{:access=>"raw object"})
       }
       t.record_info(:path=>"recordInfo") {

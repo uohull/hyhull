@@ -5,11 +5,10 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.root(:path=>"mods", :xmlns=>"http://www.loc.gov/mods/v3", :schema=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd")
 
     # Main fields title, authors, language etc...
-    t.title_info(:path=>"titleInfo") {
+    t.title_info(:path=>"titleInfo", :attributes => { :type => :none } ) {
       t.main_title(:path=>"title", :label=>"title", :index_as=>[:facetable]) 
       t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
-     }
-
+    }
     t.title_info_alternative(:path=>"titleInfo", :attributes=>{:type=>"alternative"}) {
       t.main_title_alternative(:path=>"title", :label=>"title_alternative", :index_as=>[:facetable]) 
       t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
@@ -162,7 +161,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.person_name(:proxy=>[:person, :namePart], :index_as=>[:displayable])
     t.person_role_text(:proxy=>[:person, :role, :text], :index_as=>[:displayable])
     t.person_role_code(:proxy=>[:person, :role, :code])
-    t.person_affiliation(:proxy=>[:person, :affiliation], :index_as=>[:displayable])
+    t.person_affiliation(:proxy=>[:person, :affiliation], :index_as=>[:displayable, :searchable])
 
     t.organisation_name(:proxy=>[:organisation, :namePart], :index_as=>[:displayable])
     t.organisation_role_text(:proxy=>[:organisation, :role, :text], :index_as=>[:displayable])
@@ -200,9 +199,6 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
          "xmlns"=>"http://www.loc.gov/mods/v3",
          "xsi:schemaLocation"=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd") {
            xml.titleInfo(:lang=>"") {
-             xml.title
-           }
-           xml.titleinfo(:type=>"alternative", :lang=>"") {
              xml.title
            }
            xml.name(:type=>"personal") {
@@ -269,31 +265,6 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     end
     return builder.doc
   end
-
-  def add_title_terminology(t, t_alternative)
-      #
-
-      # t.title_info(:path=>"titleInfo") {
-      #   t.main_title(:path=>"title", :label=>"title", :index_as=>[:facetable])
-      #   t.sub_title(:path => "subTitle")
-      #   t.part_name(:path=>"partName") 
-      # }
-      # t.title(:proxy=>[:mods, :title_info, :main_title], :index_as=>[:stored_searchable])
-      # t.subtitle(:proxy=>[:mods, :title_info, :sub_title], :index_as=>[:stored_searchable])
-      # t.version(:proxy=>[:title_info, :part_name], :index_as=>[:displayable])
-#debugger
-#title_alternative = t_alternative
-#title = t
-      # t.title_info(:path=>"titleInfo") {
-      #   t.main_title(:path=>"title", :label=>"title", :index_as=>[:facetable]) 
-      #   t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
-      #  }
-
-      # t_alternative.title_info_alternative(:path=>"titleInfo", :attributes=>{:type=>"alternative"}) {
-      #   t_alternative.main_title_alternative(:path=>"title", :label=>"title", :index_as=>[:facetable]) 
-      #   t_alternative.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
-      # }
-    end
 
   def add_names(names, roles, type, affiliations)
     if type == "person"

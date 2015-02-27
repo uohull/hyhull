@@ -52,6 +52,7 @@ class JournalArticlesController < ApplicationController
     @journal_article.update_attributes(params[:journal_article])
 
     respond_to do |format|
+
       if @journal_article.save
         format.html { redirect_to(edit_journal_article_path(@journal_article), :notice => 'Journal Article was successfully updated.') }
         format.json { render :json => @journal_article, :status => :created, :location => @journal_article }
