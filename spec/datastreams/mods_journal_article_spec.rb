@@ -107,15 +107,17 @@ describe Datastream::ModsJournalArticle do
       before(:all) do
         @person_names = ["Smith, John.", "Jones, David."]
         @person_roles = ["Author", "Photographer"]
+        @person_affiliation = ["Department of library", "Department of Physics"]
       end
 
       it "should let me update the names elements with multiple items" do
         #Add the names...
-        @ds.add_names(@person_names, @person_roles, "person")
+        @ds.add_names(@person_names, @person_roles, "person", @person_affiliation)
 
         #Test the names...
         @ds.person_name.should == @person_names
         @ds.person_role_text.should == @person_roles
+        @ds.person_affiliation.should == @person_affiliation
       end
     end
 
