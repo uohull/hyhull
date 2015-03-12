@@ -254,15 +254,25 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # CAS Authenticable settings
-  config.cas_base_url = ""
+  # config.cas_base_url = ""
+
+  # ==> DeviseSamlAuthenticatable Configuration
+  # Create user if the user does not exist. (Default is false)
+  config.saml_create_user = true
+
+  # Set the default user key (default is email). The user will be looked up by this key. Make sure that the Authentication Response includes
+  # the attribute
+  config.saml_default_user_key = :email
 
   # If you want to use the Devise Timeoutable module with single sign out, 
   # uncommenting this will redirect timeouts to the logout url, so that the CAS can
   # take care of signing out the other serviced applocations. Note that each
   # application manages timeouts independently, so one application timing out will 
   # kill the session on all applications serviced by the CAS.
-  config.warden do |manager|
-    manager.failure_app = DeviseCasAuthenticatable::SingleSignOut::WardenFailureApp
-  end
+
+  # Removed as there is no support for Single Logout in the ProofID solution
+  # config.warden do |manager|
+  #   manager.failure_app = DeviseCasAuthenticatable::SingleSignOut::WardenFailureApp
+  # end
 
 end

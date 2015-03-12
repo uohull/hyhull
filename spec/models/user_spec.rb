@@ -10,9 +10,9 @@ require 'spec_helper'
 
 describe User do
   context "Devise modules" do
-    describe "cas_authenticatable" do
+    describe "saml_authenticatable" do
        it "should be included" do
-         subject.class.ancestors.should include Devise::Models::CasAuthenticatable
+         subject.class.ancestors.should include Devise::Models::SamlAuthenticatable
        end
     end
 

@@ -13,7 +13,10 @@ gem 'state_machine', '~> 1.2.0'
 gem "simple_form", "~> 2.1.0"
 
 #devise_cas_authenticable is used to enable CAS integration
-gem "devise_cas_authenticatable", "~> 1.3.2"
+#gem "devise_cas_authenticatable", "~> 1.3.2"
+
+#devise_saml_authenticatable - for Ping Federate (Proof ID)
+gem "devise_saml_authenticatable"
 
 # rubytree provides generic tree structures, used for building set trees...
 gem "rubytree", "~> 0.8.3"
