@@ -9,7 +9,7 @@
     <% role_text_field_id = "#{name_type}_role_text" %>
     <% affiliation_field_id = "#{name_type}_affiliation" %>    
 
-    <% # Get names and role_texts based upon the evaluated name_type %>
+        <% # Get names and role_texts based upon the evaluated name_type %>
     <% names = eval("object.#{name_type}_name") %>
     <% role_texts = eval("object.#{name_type}_role_text") %>
     <% affiliations = eval("object.#{name_type}_affiliation") %>
@@ -33,15 +33,15 @@
           </span>
           <span class="field" style="float:left;">
             <% if eval("object.#{name_type}_role_terms").size == 1 %>
-               <%= select_tag "#{object_name}[#{role_text_field_id}][]", options_for_select(eval("object.#{name_type}_role_terms"), role_texts[i] ) %>
+              <%= select_tag "#{object_name}[#{role_text_field_id}][]", options_for_select(eval("object.#{name_type}_role_terms"), role_texts[i] ) %>
             <% else %>
-               <%= select_tag "#{object_name}[#{role_text_field_id}][]", options_for_select([[""]]  + eval("object.#{name_type}_role_terms"), role_texts[i] ) %>
+              <%= select_tag "#{object_name}[#{role_text_field_id}][]", options_for_select([[""]]  + eval("object.#{name_type}_role_terms"), role_texts[i] ) %>
             <% end %>
           </span>
           <span class="field" style="float: left;">
-          <%= text_field_tag "#{object_name}[#{affiliation_field_id}][]", affiliations[i] %>
-            <%#= text_field_tag "#{object_name}[#{affiliation_field_id}][]", affiliation %>
-          </span>
+            <%# display drop down menu of JOURNAL-ARTICLE-AFFILIATION list, which is stored in DB properties table and can be edited in Hydra admin %>
+            <%= select_tag "#{object_name}[#{affiliation_field_id}][]", options_for_select([[""]]  + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION", false).map(&:name), affiliations[i] ) %>
+           </span> 
             
           </style>
           <% unless i.zero? %>

@@ -47,7 +47,8 @@ end
   { name: "ETD-QUALIFICATION-LEVEL", description: "ETD qualification level"},
   { name: "ETD-QUALIFICATION-NAME", description: "ETD qualification name"},
   { name: "ETD-DISSERTATION-CATEGORY", description: "ETD dissertation category"},
-  { name: "FEDORA-PID-NAMESPACE", description: "Fedora PID namespace"}
+  { name: "FEDORA-PID-NAMESPACE", description: "Fedora PID namespace"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION", description: "Journal Article Department Affiliation"}
 ].each { |p| PropertyType.create(name: p[:name], description: p[:description]) }
 
 
@@ -73,6 +74,12 @@ unless Rails.env.production?
 
   #FEDORA-PID-NAMESPACE
   ["hull", "hull-archives"].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "FEDORA-PID-NAMESPACE").first)}
+
+  #JOURNAL-ARTICLE-AFFILIATION
+  ["Faculty of Science and Engineering", " Centre for Environmental and Marine Sciences", " Department of Chemistry", " Department of Computer Science", " Department of Geography", " Environment and Earth Sciences", " Department of Mathematics", " Department of Physics", " Department of Psychology", " Department of Sport, Health and Exercise Science", " Institute for Estuarine and Coastal Studies", " School of Biological, Biomedical and Environmental Sciences", " School of Engineering",
+   "Faculty of Arts and Social Sciences", " Department of American Studies", " Department of English", " Department of History", " Law School", " Maritime Historical Studies Centre", " School of Arts and New Media", " School of Drama, Music and Screen", " School of Languages, Linguistics and Culture", " School of Politics, Philosophy and International Studies", " School of Social Sciences", " Wilberforce Institute for the study of Slavery and Emancipation"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION").first)}
+
 end
 
 

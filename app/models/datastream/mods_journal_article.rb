@@ -310,4 +310,10 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     ["Author"]
   end   
 
+  def self.person_affiliation_terms
+   #Get list of departments from Properties DB Table to be used for Jounal Article Person Affiliation
+   #beacause they are properties in the DB, they can be edited within Hydra admin
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION")
+  end   
+
 end

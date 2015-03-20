@@ -49,6 +49,7 @@ class JournalArticle < ActiveFedora::Base
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsJournalArticle, multiple: false
   delegate :url_access_terms, to: Datastream::ModsJournalArticle, multiple: false
+  delegate :person_affiliation_terms, to: Datastream::ModsJournalArticle, multiple: false
 
   # Standard validations for the object fields
   validates :title, presence: true
