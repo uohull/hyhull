@@ -278,7 +278,7 @@ module HyhullHelper
       if options[:date_field] 
         content_tag element, display_friendly_date(render_index_field_value(:document => document, :field => solr_fname)), :class => options[:element_class]
       else
-        content_tag element, options[:prepend] + render_index_field_value(:document => document, :field => solr_fname), :class => options[:element_class]
+        content_tag element, options[:prepend].html_safe + render_index_field_value(:document => document, :field => solr_fname), :class => options[:element_class]
       end
     end
         
