@@ -1,7 +1,7 @@
 /* facets */
 
 #facets .btn-navbar .icon-bar {
-    background-color: $neutralcolordark;
+    background-color: $neutral-color-dark;
 }
 #facets {
   li { 
@@ -11,7 +11,7 @@
     color: #333;
     font-size: 90%;
     a {
-      color: $neutralcolordark;
+      color: $neutral-color-dark;
       text-shadow:0px 1px 0px #efefef;
       &:hover { background: transparent;} 
    }
@@ -23,7 +23,7 @@
   }
   li:hover {
     transition: all 0.2s ease-in-out 0s;
-    background-color: lighten($neutralcolorlight, 5%);
+    background-color: lighten($neutral-color-light, 5%);
   }
   ul {
     padding-top: 0em;
@@ -38,7 +38,7 @@
     padding-left: 0.5em;
   }
   h5 {
-    color: $neutralcolordark;
+    color: $neutral-color-dark;
   }
 }
 
@@ -53,7 +53,7 @@
 
 .facets-collapse .facet_limit h5:hover {
   transition: all 0.2s ease-in-out 0s;
-  background-color: lighten($neutralcolorlight, 5%);
+  background-color: lighten($neutral-color-light, 5%);
   text-shadow:0px 1px 0px #efefef;
 }
 

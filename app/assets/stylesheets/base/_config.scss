@@ -1,17 +1,20 @@
 // site config
+
+$site-max-width: 1200px;
+
+// colors
 $primarycolor: #7ec6c8;
 $primarycolordark: #188092;
 $primarycolorlight: #ccefe1;
 $linkColor: $primarycolordark; // bootstrap link
 $altcolor: #72698a;
 $altcolorlight: #a285c5;
-$neutralcolordark: #444;
-$neutralcolorlight: #ccc;
-$primarylinkcolor: #188092;
-$primarylinkhovercolor: $neutralcolordark;
-$formMaxWidth: 1200px;
-$footerTextColor: #c1c1c1;
-$footerColor: #1f1f1f;
+$neutral-color-dark: #444;
+$neutral-color-light: #cacaca;
+
+// links
+$primarylinkcolor: $primarycolordark;
+$primarylinkhovercolor: $neutral-color-dark;
 
 // tiles 
 $greenishblue: #68cab6;
@@ -37,8 +40,8 @@ $infocolor: #9ebe5e;
 $warningcolor: #be5a13;
 
 // images
-$logo_image: 'blah/logo.gif';
-$home_background_image: 'blah/bjl-1c.jpg' !default;
+$logo-image: 'blah/logo.gif';
+$home-background-image: 'blah/bjl-1c.jpg' !default;
 
 // thumbs
 $generic-thumb: 'hyhull/hyhull-thumb-generic.png';

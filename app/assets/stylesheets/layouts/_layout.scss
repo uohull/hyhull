@@ -1,5 +1,8 @@
-/* layout */
+// config
+$form-max-width: $site-max-width;
+$shadow-color: #333;
 
+// base
 .page-wrapper {
   position: relative;
   z-index: 1
@@ -16,18 +19,18 @@
 }
 
 #background-container {
-  /*background-image: url($home_background_image);*/
+  /*background-image: url($home-background-image);*/
   /*background-repeat: repeat-x;*/
   background-color: #F6F6F6;
   width: 100%;
-  box-shadow: 0 10px 10px -2px darken($footerColor, 50%);
+  box-shadow: 0 10px 10px -2px darken(#333, 50%);
 }
 
 #background-container-form
 {
   background: #fff;
   width: 100%;
-  box-shadow: 0 10px 10px -2px darken($footerColor, 50%);
+  box-shadow: 0 10px 10px -2px darken(#333, 50%);
   min-height: 814px;
   padding-bottom: 24px;
   position: relative;
@@ -35,7 +38,7 @@
 
 #form-container{
   margin: auto;
-  max-width: $formMaxWidth;
+  max-width: $form-max-width;
   min-height: 1050px;
 }
 
@@ -76,7 +79,7 @@
 /* Generic form controls */
 
 .form-label {
-  color: $neutralcolordark;
+  color: $neutral-color-dark;
   font-style: italic;
 }
 
@@ -128,8 +131,3 @@ p a, dd a, h3 a, h5 a, td a {
 */
 
 
-/* bootstrap icon placement */
-[class^="icon-"], [class*=" icon-"] {
-  margin-top: 3px;
-  vertical-align: top;
-}

@@ -96,7 +96,7 @@
   /*background-color: $primarycolor;*/
   background-color: #000;
   p { padding: 1em 0; }
-  h1, #header-text { text-shadow: 1px 1px 1px darken($neutralcolordark, 25%); }
+  h1, #header-text { text-shadow: 1px 1px 1px darken($neutral-color-dark, 25%); }
   a { 
     color: $lightlink;
     &:hover { color: darken($lightlink, 15%);}

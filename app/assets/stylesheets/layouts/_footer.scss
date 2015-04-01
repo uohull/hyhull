@@ -1,5 +1,8 @@
-/* footer */
+// config
+$footer-background-color: $neutral-color-dark;
+$footer-text-color: $neutral-color-light;
 
+// base
 /* mobile footer adjustment */
 @media (max-width: 480px), (max-width: 767px) { 
   footer #footer{
@@ -16,16 +19,16 @@ footer {
   z-index: -20;
   height: 272px;
   #footer {
-    background: $footerColor;
+    background: $footer-background-color;
     position: fixed;
   }
   #footer-container {
-    color: $footerTextColor;
+    color: $footer-text-color;
     background-color: transparent;
     padding-top: 2em;
     a {
-      color: $footerTextColor;
-	    &:hover { color: lighten($footerTextColor, 25%) }
+      color: $footer-text-color;
+	    &:hover { color: lighten($footer-text-color, 25%) }
     }
   }
   #footer-title {
@@ -33,7 +36,7 @@ footer {
   }
   #footer-row {
     margin: 0.5em 0 0;
-    text-shadow: 1px 1px darken($footerTextColor, 55%)
+    text-shadow: 1px 1px darken($footer-text-color, 55%)
   }
   #footer-container-top {
     max-height: 30px;
@@ -70,14 +73,14 @@ footer {
 		}
 	}
 	a {
-	  color: $footerTextColor;
+	  color: $footer-text-color;
 	  line-height: 1.6em;
-	  &:hover { color: lighten($footerTextColor, 25%) };
+	  &:hover { color: lighten($footer-text-color, 25%) };
 	}
 }
 
 .footer-horizontal {
-	border-top: 1px dotted darken($footerTextColor, 55%);
+	border-top: 1px dotted darken($footer-text-color, 55%);
   margin-top: 0.75em;
   padding-top: 1.6em;
 }
