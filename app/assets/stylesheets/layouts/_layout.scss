@@ -126,3 +126,10 @@ p a, dd a, h3 a, h5 a, td a {
   vertical-align: baseline;
 }
 */
+
+
+/* bootstrap icon placement */
+[class^="icon-"], [class*=" icon-"] {
+  margin-top: 3px;
+  vertical-align: top;
+}

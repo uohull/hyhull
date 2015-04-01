@@ -1,0 +1,95 @@
+// Remove all asap
+
+/* navbar fixes */
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+  margin-bottom: 0px !important;
+}
+
+.navbar-fixed-bottom .navbar-inner 
+{
+  border-width: 0;
+}
+
+.navbar .nav {
+  margin: 3px 10px 0 0;
+}
+
+.actions form {
+  margin: 0;
+  text-align: center;
+}
+
+.label {
+  border-radius: 2px 2px 2px 2px !important;
+}
+
+.container-fluid-fix {
+  min-width: 100%;
+}
+
+
+/* bl fixes */
+
+#holdings-record-element dd {
+  margin-left: 0;
+}
+
+#search_field {
+  min-width: 120px;
+}
+
+.form-search .input-prepend .search-query {
+  margin-left: -1px;
+}
+
+.search_history .filterName, .search_history .label {
+    color: $neutralcolordark;
+    font-style: italic;
+}
+
+ul.nav li.menu-item a {
+    color: $neutralcolordark;
+    padding: 8px 14px;
+}
+
+.facet-pagination-top {
+  background-color: #F5F5F5;
+  border-radius: 0 0 6px 6px;
+  border-top: 1px solid #DDDDDD;
+  box-shadow: 0 1px 0 #FFFFFF inset;
+  margin-bottom: 0;
+  padding: 14px 15px 15px;
+  text-align: right;
+}
+
+ul.facet_extended_list .count { 
+  float: none;
+}
+
+.count:before {
+    content: ' ( ';
+}
+.count:after {
+    content: ' )';
+}
+
+/* bootstrap icon placement */
+[class^="icon-"], [class*=" icon-"] {
+  margin-top: 3px;
+  vertical-align: top;
+}
+
+/* Twitter widget overrides */
+
+.new-tweet {
+  color: $primarylinkcolor;
+  text-decoration: none;
+  border-bottom:1px dotted;
+  &:hover { color: $primarylinkhovercolor; text-decoration: none;}
+}
+
+#facets.sidenav div.accordian-group div.facet_limit h5.twiddle:hover {
+  background: #d9d9d9;
+  transition: all 0.2s ease-in-out 0s;
+}

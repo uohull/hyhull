@@ -32,10 +32,11 @@
 }
 
 .navbar-fixed-top {
+  @include box-shadow(0 0 5px rgba(0, 0, 0, .3)); 
   margin: 0;
   /* filter:alpha(opacity=92);  For IE8 and earlier */
-   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+   // -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+   //  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 #navbar-fixed-results-top {
@@ -96,4 +97,33 @@ ul.nav li.menu-item {
     background-color: #d9d9d9;  
   }
   a { padding: 8px 14px; color: #666;}
+}
+
+
+/* navbar fixes */
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+  margin-bottom: 0px !important;
+}
+
+.navbar-fixed-bottom .navbar-inner 
+{
+  border-width: 0;
+}
+
+.navbar .nav {
+  margin: 3px 10px 0 0;
+}
+
+.actions form {
+  margin: 0;
+  text-align: center;
+}
+
+.label {
+  border-radius: 2px 2px 2px 2px !important;
+}
+
+.container-fluid-fix {
+  min-width: 100%;
 }

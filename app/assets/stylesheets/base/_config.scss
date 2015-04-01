@@ -1,23 +1,8 @@
-/* uoh - bootstrap variables */
-$gridColumns: 16;
-$gridGutterWidth: 0px;
-$gridGutterWidth768: 0px;
-$gridGutterWidth1200: 0px;
-$inputBorderRadius: 2px;
-$navbarBrandColor: #fff !important;
-$navbarLinkColor: #c5c5c5 !important;
-$navbarLinkColorHover: #fff !important;
-$textColor: #333333;
-$bodyBackground: #ffffff; 
-
-/* site */
-/*$primarycolor: #ff0000;*/
-$primarycolor: #7EC6C8;
+// site config
+$primarycolor: #7ec6c8;
 $primarycolordark: #188092;
 $primarycolorlight: #ccefe1;
-$linkColor: $primarycolordark;
-/* $primarycolordark: #1a6a1a; */
-/*$altcolor: #3d7a7a;*/
+$linkColor: $primarycolordark; // bootstrap link
 $altcolor: #72698a;
 $altcolorlight: #a285c5;
 $neutralcolordark: #444;
@@ -26,13 +11,13 @@ $primarylinkcolor: #188092;
 $primarylinkhovercolor: $neutralcolordark;
 $formMaxWidth: 1200px;
 $footerTextColor: #c1c1c1;
-$footerColor: #1F1F1F;
+$footerColor: #1f1f1f;
 
-/* tiles */
+// tiles 
 $greenishblue: #68cab6;
 $cleanwhite: #fff;
 $lightgrey: #f3f3f3;
-$lightgreen: #EDFFC4;
+$lightgreen: #edffc4;
 $aubergine: #72698a;
 $tangerine: #fbb168;
 $maroon: #e17695;
@@ -42,20 +27,20 @@ $darklink: #000;
 $tiletransparency: 1;
 $tilerowgutter: 0;
 
-/* highlighters */
+// highlighters 
 $selectedtextcolor: #f67872;
-$alertcolor: #4E9799;
+$alertcolor: #4e9799;
 $errorcolor: #cc6565;
-$successcolor: #3E803F;
+$successcolor: #3e803f;
 $noticecolor: #3d7a7a;
 $infocolor: #9ebe5e;
-$warningcolor: #BE5A13;
+$warningcolor: #be5a13;
 
-/* images */
+// images
 $logo_image: 'blah/logo.gif';
-$home_background_image: "blah/bjl-1c.jpg" !default;
+$home_background_image: 'blah/bjl-1c.jpg' !default;
 
-/* thumbs */
+// thumbs
 $generic-thumb: 'hyhull/hyhull-thumb-generic.png';
 $calendar-thumb: 'hyhull/hyhull-thumb-calendar.png';
 $dataset-thumb: 'hyhull/hyhull-thumb-dataset.png';
@@ -67,18 +52,18 @@ $domesday-thumb: 'hyhull/hyhull-thumb-domesday.png';
 $handbook-thumb: 'hyhull/hyhull-thumb-handbook.png';
 $thesis-thumb: 'hyhull/hyhull-thumb-thesis.png';
 
-/* modal */
-/* adjust to fit modal on lowest prefereable resolution (currently set for 1024x768) */
+// modal 
+// adjust to fit modal on lowest prefereable resolution (currently set for 1024x768)
 $modal-body-maxheight: 406px;
 
-/* nav-tabs */
-$active-tab-color: whitesmoke;
+// nav-tabs
+$active-tab-color: #f5f5f5;
 
-/* workflow */
-$proto-color: #7EC6C8;
+// workflow
+$proto-color: #7ec6c8;
 $qa-color: #188092;
 $hidden-color: #444;
-$published-color: #3E803F;
+$published-color: #3e803f;
 $deleted-color: #cc6565;
 $worflow-border: 10px;
 $workflow-border-sm: 3px;
