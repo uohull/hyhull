@@ -1,91 +1,75 @@
 // config
-$footer-background-color: $neutral-color-dark;
+$footer-background-color: darken($neutral-color-dark, 15%);
 $footer-text-color: $neutral-color-light;
+$footer-padding: $site-gutter;
+$footer-body-text: ($base-font-size * .95);
+$footer-top-color: $pure-black;
+$footer-height: 272px;
 
-// base
-/* mobile footer adjustment */
-@media (max-width: 480px), (max-width: 767px) { 
-  footer #footer{
-    position: relative !important;
-  } 
-  #background-container {
-  	background: transparent;
+@mixin footer-link {
+  a { 
+    color: $footer-text-color;
+    &:hover { color: lighten($footer-text-color, 25%); }
   }
 }
 
+// base
 footer {
+  height: $footer-height;
   position: absolute;
   width: 100%;
   z-index: -20;
-  height: 272px;
-  #footer {
-    background: $footer-background-color;
-    position: fixed;
+
+  // > small screen footer adjustment
+  @media (min-width: 767px) {     
+    .footer {
+      // fix footer; 
+      position: absolute;
+      // increase footer padding to replace height lost when footer top is hidden
+      .footer-body { padding-top: ($footer-padding * 2) !important; }
+      // hide block break before version number
+      .footer-bottom { .footer-hr { display: none; } }
+    } 
+    // hide footer top
+    .footer-top { display: none !important; } 
   }
-  #footer-container {
+
+  .footer-top {
+    background: $footer-top-color;
+    min-height: $footer-padding;
+    padding: $footer-padding;
+    // display: block;
+  }
+  .footer {
+    background: $footer-background-color;
+    width: 100%;
+    font-size: $footer-body-text;
     color: $footer-text-color;
-    background-color: transparent;
-    padding-top: 2em;
-    a {
-      color: $footer-text-color;
-	    &:hover { color: lighten($footer-text-color, 25%) }
+    text-shadow: 1px 1px darken($footer-text-color, 55%);
+    .footer-body {
+      @include footer-link;
+      padding: $footer-padding;
+      .footer-column {
+        @include footer-link;
+        ul {
+          list-style: none inside;
+          margin-left: 0.5em;
+          padding: 0 0 0.5em;
+          height: 128px;
+          margin-bottom: 1em;
+          li {
+            padding-right: 1em;
+            h4 { margin: 0; padding-bottom: 0.5em; }
+            > ul { list-style: circle inside none; font-size: ($footer-body-text * .85)}
+          }
+        }
+      }
+      .footer-bottom {
+        text-align: right;
+        margin-top: $footer-padding;
+        padding-right: $footer-padding;
+        .footer-hr { margin: 0; border: 0; }
+      }
     }
   }
-  #footer-title {
-    padding-bottom:10px;
-  }
-  #footer-row {
-    margin: 0.5em 0 0;
-    text-shadow: 1px 1px darken($footer-text-color, 55%)
-  }
-  #footer-container-top {
-    max-height: 30px;
-    min-height: 5px;
-  }
-  #footer-container-bottom {
-    background: #000;
-    max-height: 30px;
-    min-height: 5px;
-  }
-}
-
-.navbar-fixed-bottom .navbar-inner {
-  padding: 1em 0.5em 1em 1em;
-}
-
-.footer-column {
-	ul {
-	  list-style: none inside;
-	  margin-left: 1.5em;
-	  padding: 0 0 0.5em;
- 	  /*border-right: 1px dotted darken($footerTextColor, 55%);*/
- 	  height: 128px;
- 	  margin-bottom: 1em;
-	  li 
-		{
-		    font-size: 85%;
-		    padding-left: 1em;
-        padding-right: 1em;
-		    h4 { margin: 0; padding-bottom: 0.5em;}
-		}
-	  li:nth-child(5) {  
-		  color: red;
-		}
-	}
-	a {
-	  color: $footer-text-color;
-	  line-height: 1.6em;
-	  &:hover { color: lighten($footer-text-color, 25%) };
-	}
-}
-
-.footer-horizontal {
-	border-top: 1px dotted darken($footer-text-color, 55%);
-  margin-top: 0.75em;
-  padding-top: 1.6em;
-}
-
-ul.footer-sub-list {
-  list-style: circle inside none;
-  border: 0;
 }

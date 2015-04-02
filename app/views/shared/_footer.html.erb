@@ -1,91 +1,78 @@
 <footer>
-  <div id="footer" class="navbar navbar-fixed-bottom">
-    <div id="footer-container-bottom" class="navbar-inner">
-      <div class="container">
-        <div id="footer-title-top" class="hidden-phone"></div>
-        <div class="brand-logo-phone pull-right visible-phone">
-          <%= link_to image_tag("blah/uoh-logo-white.png"), "http://www.hull.ac.uk", :target => "_blank" %>
+
+  <div class="footer-top">
+    <%= link_to image_tag('blah/uoh-logo-white.png'), 'http://www.hull.ac.uk', :target => '_blank', :class => 'pull-right' %>
+  </div>
+
+  <div class="footer">
+    <div class="container footer-body">
+      <div class="row-fluid">
+        <div class="span4 footer-column">
+          <ul>
+            <li>                  
+              <h4>Library</h4>
+            </li>
+              <li><a href="http://www.hull.ac.uk/lib">Library Website</a></li>
+              <li><a href="http://libsearch.hull.ac.uk/">Library Catalogue</a></li>
+              <li><a href="http://libguides.hull.ac.uk">LibGuides</a></li>
+              <li><a href="http://www2.hull.ac.uk/lli/library-services/books/interlibrary-loan.aspx" target="_blank">Inter-library loans</a></li>
+              <li><a href="http://www2.hull.ac.uk/lli/library-services/books/intersite.aspx" target="_blank">Inter-site requests</a></li>
+          </ul>
+        </div>
+        <div class="span4 footer-column">
+          <ul>
+            <li>                  
+              <h4>Learning</h4>
+            </li>
+            <li><a href="http://ebridge.hull.ac.uk">eBridge</a></li>
+            <li><a href="http://readinglists.hull.ac.uk">Readinglists@Hull</a></li>
+            <li><a href="http://digitaltexts.hull.ac.uk">Digital Texts</a></li>
+            <li><a href="http://libcal.hull.ac.uk">Room &amp; course bookings</a></li>
+            <li><a href="http://www2.hull.ac.uk/lli/library-services/help_and_support.aspx">Ask us a question</a></li>
+          </ul>
+        </div>
+        <div class="span4 footer-column">
+          <ul>
+            <li>                  
+              <h4>Skills</h4>
+            </li>
+            <li><a href="http://www2.hull.ac.uk/lli/skills-development.aspx">Skills website</a></li>
+            <li>
+              <ul class="footer-sub-list">
+                <li><a href="http://www.skills4studycampus.com/orglogin.aspx">skills4studycampus</a></li>
+                <li><a href="http://libguides.hull.ac.uk/studentworkshops">Study Skills Workshop</a></li>
+                <li><a href="https://myadmin.hull.ac.uk/Students/DiaryBookings/AppointmentCriteria.aspx">Book an Appointment</a></li>
+              </ul>   
+            </li>                 
+          </ul>
+        </div>
+        <% #Hidden on tablet due to wrapping problem -%>
+        <div class="span4 footer-column">                   
+          <ul style="border-right: none;">
+             <li>
+               <h4>University</h4>
+             </li>
+             <li><a href="http://www.hull.ac.uk">University website</a></li>
+             <li><a href="http://portal.hull.ac.uk">University portal</a></li>
+             <li><a href="https://hull.avedas.com/converis/area/3734">Research portal</a></li>
+             <li><a href="http://www2.hull.ac.uk/departments.aspx">Departments and faculties</a></li>
+             <li><a href="http://www.hullhistorycentre.org.uk/discover/hull_history_centre/about_us/born_digital_archives.aspx">Hull History Centre</a></li>
+          </ul>
+       </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span16 footer-bottom">
+          <span>
+            &nbsp; &copy; <a href='http://www.hull.ac.uk'>The University of Hull</a> <%= Time.now.year %>&nbsp; 
+          </span>
+          <span>
+            <%= link_to image_tag('hyhull/powered_by_hydra_grey_transparent.png'), root_url %>&nbsp;
+          </span>
+          <hr class="footer-hr"/>
+          <span>&nbsp; <%= hyhull_version %></span>
         </div>
       </div>
     </div>
-    <div id="footer-container">
-        <div class="row-fluid">
-            <div class="span4">
-              <div class="footer-column">
-                <ul>
-                  <li>                  
-                    <h4>Library</h4>
-                  </li>
-                 <li><a href="http://www.hull.ac.uk/lib">Library Website</a></li>
-                 <li><a href="http://libsearch.hull.ac.uk/">Library Catalogue</a></li>
-                 <li><a href="http://libguides.hull.ac.uk">LibGuides</a></li>
-                 <li><a href="http://www2.hull.ac.uk/lli/library-services/books/interlibrary-loan.aspx" target="_blank">Inter-library loans</a></li>
-                 <li><a href="http://www2.hull.ac.uk/lli/library-services/books/intersite.aspx" target="_blank">Inter-site requests</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="span4">
-              <div class="footer-column">
-                <ul>
-                  <li>                  
-                    <h4>Learning</h4>
-                  </li>
-                   <li><a href="http://ebridge.hull.ac.uk">eBridge</a></li>
-                   <li><a href="http://readinglists.hull.ac.uk">Readinglists@Hull</a></li>
-                   <li><a href="http://digitaltexts.hull.ac.uk">Digital Texts</a></li>
-                   <li><a href="http://libcal.hull.ac.uk">Room & course bookings</a></li>
-                   <li><a href="http://www2.hull.ac.uk/lli/library-services/help_and_support.aspx">Ask us a question</a></li>
-                </ul>
-            </div>
-              </div>
-              <div class="span4">
-                <div class="footer-column">
-                  <ul>
-                     <li>                  
-                       <h4>Skills</h4>
-                     </li>
-                     <li><a href="http://www2.hull.ac.uk/lli/skills-development.aspx">Skills website</a></li>
-                     <ul class="footer-sub-list">
-                       <li><a href="http://www.skills4studycampus.com/orglogin.aspx">skills4studycampus</a></li>
-                       <li><a href="http://libguides.hull.ac.uk/studentworkshops">Study Skills Workshop</a></li>
-                       <li><a href="https://myadmin.hull.ac.uk/Students/DiaryBookings/AppointmentCriteria.aspx">Book an Appointment</a></li>
-                     </ul>                    
-                  </ul>
-                </div>
-              </div>
-              <% #Hidden on tablet due to wrapping problem -%>
-              <div class="span4">
-                  <div class="footer-column">                    
-                    <ul style="border-right: none;">
-                       <li>
-                         <h4>University</h4>
-                       </li>
-                       <li><a href="http://www.hull.ac.uk">University website</a></li>
-                       <li><a href="http://portal.hull.ac.uk">University portal</a></li>
-                       <li><a href="https://hull.avedas.com/converis/area/3734">Research portal</a></li>
-                       <li><a href="http://www2.hull.ac.uk/departments.aspx">Departments and faculties</a></li>
-                       <li><a href="http://www.hullhistorycentre.org.uk/discover/hull_history_centre/about_us/born_digital_archives.aspx">Hull History Centre</a></li>
-                    </ul>
-                  </div>
-             </div>
-        </div>
-        <div class="row-fluid">
-          <div class="span16 footer-horizontal">
-            <div class="page-gutter pull-right">
-              <div class="outer-spacer-bottom">
-                <span>
-                  <small>
-                    &nbsp; &copy; <a href="http://www.hull.ac.uk">The University of Hull</a> <%= Time.now.year %>&nbsp; 
-                  </small>
-                </span>
-                <span>
-                <%= link_to image_tag("hyhull/powered_by_hydra_grey_transparent.png"), root_url %>&nbsp;
-                </span>
-                <span> |&nbsp; <%= hyhull_version %></span>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
+
   </div>
 </footer>

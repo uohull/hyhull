@@ -1,6 +1,10 @@
 // site config
 
 $site-max-width: 1200px;
+$site-gutter: 20px;
+
+// typeography
+$base-font-size: $baseFontSize; // bootstrap base font
 
 // colors
 $primarycolor: #7ec6c8;
@@ -11,6 +15,7 @@ $altcolor: #72698a;
 $altcolorlight: #a285c5;
 $neutral-color-dark: #444;
 $neutral-color-light: #cacaca;
+$pure-black: #000;
 
 // links
 $primarylinkcolor: $primarycolordark;
