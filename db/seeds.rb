@@ -80,6 +80,26 @@ unless Rails.env.production?
    "Faculty of Arts and Social Sciences", " Department of American Studies", " Department of English", " Department of History", " Law School", " Maritime Historical Studies Centre", " School of Arts and New Media", " School of Drama, Music and Screen", " School of Languages, Linguistics and Culture", " School of Politics, Philosophy and International Studies", " School of Social Sciences", " Wilberforce Institute for the study of Slavery and Emancipation"
   ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION").first)}
 
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS
+  ["Faculty of Arts and Social Sciences", " Department of American Studies", " Department of English", " Department of History", " Law School", " Maritime Historical Studies Centre", " School of Arts and New Media", " School of Drama, Music and Screen", " School of Languages, Linguistics and Culture", " School of Politics, Philosophy and International Studies", " School of Social Sciences", " Wilberforce Institute for the study of Slavery and Emancipation"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS").first)}
+
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI
+  ["Faculty of Science and Engineering", " Centre for Environmental and Marine Sciences", " Department of Chemistry", " Department of Computer Science", " Department of Geography", " Environment and Earth Sciences", " Department of Mathematics", " Department of Physics", " Department of Psychology", " Department of Sport, Health and Exercise Science", " Institute for Estuarine and Coastal Studies", " School of Biological, Biomedical and Environmental Sciences", " School of Engineering"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI").first)}
+
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION
+  ["Faculty of Education", "Centre for Educational Studies"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION").first)}
+
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH
+  ["Faculty of Health and Social Care"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH").first)}
+
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL
+  ["Hull University Business School", " Logistics Institute"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL").first)}
+
 end
 
 

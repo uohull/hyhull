@@ -40,7 +40,7 @@
           </span>
           <span class="field" style="float: left;">
             <%# display drop down menu of JOURNAL-ARTICLE-AFFILIATION list, which is stored in DB properties table and can be edited in Hydra admin %>
-            <%= select_tag "#{object_name}[#{affiliation_field_id}][]", options_for_select([[""]]  + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION", false).map(&:name), affiliations[i] ) %>
+            <%= select_tag "#{object_name}[#{affiliation_field_id}][]", options_for_select([[""]]  + @journal_article.person_affiliation_terms, affiliations[i] ) %>
            </span> 
             
           </style>
