@@ -17,11 +17,11 @@
 // Layouts - reorganize
 @import 'layouts/layout',
         'layouts/footer',
-        'layouts/document',
         'layouts/table';
 
 // Modules
 @import 'modules/constraints',
+        'modules/document',
         'modules/facets',
         'modules/feedback',
         'modules/holdings',
