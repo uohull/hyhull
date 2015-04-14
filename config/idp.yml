@@ -3,18 +3,7 @@ development:
   assertion_consumer_service_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
   assertion_consumer_service_url: "https://hydra-dev.hull.ac.uk/users/saml/auth"
   authn_context: ""
-  idp_cert: |-
-      -----BEGIN CERTIFICATE-----
-      MIIB9zCCAWCgAwIBAgIGAUa1tRKaMA0GCSqGSIb3DQEBBQUAMD8xCzAJBgNVBAYTAkdCMRUwEwYD
-      VQQKEwxQcm9vZklEIFRlc3QxGTAXBgNVBAMTEGh5ZHJhLnRlc3QubG9jYWwwHhcNMTQwNjE5MTk1
-      ODAxWhcNMjQwNjE2MTk1ODAxWjA/MQswCQYDVQQGEwJHQjEVMBMGA1UEChMMUHJvb2ZJRCBUZXN0
-      MRkwFwYDVQQDExBoeWRyYS50ZXN0LmxvY2FsMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCm
-      m3GWDN+iQbuaBZX5faz5raJ0eOQalCe7fc6sF/y1O1bopNuUznItiaUCu8DQ/p2dLQsS5AgHK/Rs
-      plk62GbHON0MP/patH9Zunhds3ET0s/dLXjKI0vTWMJXXVTCPLvBbSP9YipzWXy1eurW6QiG7xXx
-      pJUANl8Ct0v+NrREfwIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAFMPOw6BBED7+rxk6rStJwnZFODs
-      b2G+fedli9H8F2nJqEXgUeCgfgxJpsXlXAX8XNklEQG8Qcs1PBJky8TOsJ0OWhrrTaG0Rh7FMZQI
-      Ev+cvJDVpogzGhv/BexZgwUOQGmx13NAtfq0l8nYL/KLl8nNvdqpsiS1macu7M9oFAYK
-      -----END CERTIFICATE-----
+  idp_cert_fingerprint: "5B:13:B1:B8:C2:1E:7E:44:F2:1F:20:81:D1:C2:2E:E6:E6:7C:00:56"
   idp_metadata: ""
   idp_metadata_ttl: ""
   idp_sso_target_url: "https://identify.hull.ac.uk/idp/SSO.saml2"
