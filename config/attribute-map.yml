@@ -1,2 +1,5 @@
-"email": "email"
-"username": "username"
+--- 
+# department_ou: department_ou
+email: email
+faculty_code: faculty_code
+username: username
