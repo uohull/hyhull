@@ -1,11 +1,11 @@
 --- 
 development: 
   assertion_consumer_service_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
-  assertion_consumer_service_url: "https://hydra-dev.hull.ac.uk/users/saml/auth"
+  assertion_consumer_service_url: ""
   authn_context: ""
   idp_cert_fingerprint: "5B:13:B1:B8:C2:1E:7E:44:F2:1F:20:81:D1:C2:2E:E6:E6:7C:00:56"
   idp_metadata: ""
   idp_metadata_ttl: ""
-  idp_sso_target_url: "https://identify.hull.ac.uk/idp/SSO.saml2"
-  issuer: "https://hydra-dev.hull.ac.uk"
+  idp_sso_target_url: ""
+  issuer: ""
   name_identifier_format: "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
