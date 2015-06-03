@@ -48,7 +48,12 @@ end
   { name: "ETD-QUALIFICATION-NAME", description: "ETD qualification name"},
   { name: "ETD-DISSERTATION-CATEGORY", description: "ETD dissertation category"},
   { name: "FEDORA-PID-NAMESPACE", description: "Fedora PID namespace"},
-  { name: "JOURNAL-ARTICLE-AFFILIATION", description: "Journal Article Department Affiliation"}
+  { name: "JOURNAL-ARTICLE-AFFILIATION", description: "Journal Article Department Affiliation"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", description: "Journal Article Department Affiliation Faculty Arts"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI", description: "Journal Article Department Affiliation Faculty Sci"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH", description: "Journal Article Department Affiliation Faculty Health"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION", description: "Journal Article Department Affiliation Faculty Education"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", description: "Journal Article Department Affiliation Faculty Business School"}
 ].each { |p| PropertyType.create(name: p[:name], description: p[:description]) }
 
 
