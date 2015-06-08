@@ -9,7 +9,9 @@
 
     def create_permissions
       # initial_step is a controller action on some resources for creation...
-      if user_groups.include?(HYHULL_USER_GROUPS[:content_creator]) || user_groups.include?(HYHULL_USER_GROUPS[:content_access_team]) || @current_user.admin?
+      if user_groups.include?(HYHULL_USER_GROUPS[:content_creator]) || 
+          user_groups.include?(HYHULL_USER_GROUPS[:content_access_team]) || 
+          @current_user.admin?
         can [:initial_step, :create], :all
       end
 
@@ -39,6 +41,10 @@
         #can [:show, :add_user, :remove_user, :index], Role
         #can :read, PropertyType 
         #can :manage, Property 
+      end
+
+      if user_groups.include?(STAFF_USER_GROUPS[:staff])
+        can [:initial_step, :create], JournalArticle
       end
 
       # Adminstration forms
