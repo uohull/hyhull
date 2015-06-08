@@ -32,8 +32,10 @@ HYHULL_QUEUES = {
   "hull:deletedQueue" => :deleted
 }
 
-STAFF_USER_GROUPS = {
-  :staff => "staff"
+USER_GROUPS = {
+  :staff => "staff",
+  :student => "student",
+  :guest => "guest"
 }
 
 PERMISSION_LEVELS = {
