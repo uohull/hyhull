@@ -43,7 +43,7 @@
         #can :manage, Property 
       end
 
-      if user_groups.include?(STAFF_USER_GROUPS[:staff])
+      if user_groups.include?(USER_GROUPS[:staff])
         can [:initial_step, :create], JournalArticle
       end
 
@@ -81,3 +81,4 @@
     end
 
   end
+  

@@ -23,14 +23,6 @@ class Role < ActiveRecord::Base
     role_record.persisted? ? role_record : self.find_or_initialize_by_name_and_role_type_id(self.default_user_role, RoleType.user_role_type.id)
   end
 
-  # Matches a staff_role type
-  # Returns an instance of Role based upon a string role_name
-  # If no match is found, guest is the default usertype role
-  def self.match_staff_role_by_name(role_name)
-    role_record = self.match_role_by_name(role_name, RoleType.staff_role_type)
-    role_record.persisted? ? role_record : self.find_or_initialize_by_name_and_role_type_id(self.default_user_role, RoleType.staff_role_type.id)
-  end
-
   # Matches a department_role type
   # Returns an instance of Role based upon a string role_name
   # If no match is found, no_department is the default usertype role  
@@ -50,6 +42,11 @@ class Role < ActiveRecord::Base
   # Returns all roles of the type hyhull_role_type
   def self.hyhull_roles
     self.where(role_type_id: RoleType.hyhull_role_type)
+  end
+
+  # Returns all roles of the type staff_role_type
+  def self.staff_roles
+    self.where(role_type_id: RoleType.staff_role_type)
   end
 
   private
