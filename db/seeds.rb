@@ -13,9 +13,10 @@ end
 
 # Set role types - These are required for the Hyhull Application
 # hyhull: hyhull application specific role types
-# user: user role types generally 'staff/student/guest'
+# user: user role types generally 'student/guest'
+# staff: staff role type'
 # department_ou/faculty_code
-["hyhull", "user", "department_ou", "faculty_code"].each {|rt| RoleType.create(name: rt)}
+["hyhull", "user", "staff", "department_ou", "faculty_code"].each {|rt| RoleType.create(name: rt)}
 
 # Seed the hyhull roles
 # These are the required hyhull specific roles - See config/inintializers/hyhull.rb for the configuration of the roles
@@ -26,10 +27,13 @@ end
 
 # Seed the user roles
 # The standard list of user roles
-[{ name:"staff", description: "University staff role"},
- { name:"student", description: "University student role"},  
+[{ name:"student", description: "University student role"},  
   { name:"guest", description: "University guest role"}
 ].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("user")) }
+
+# Seed staff role
+[{ name:"staff", description: "University staff role"}
+].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("staff")) }
 
 # Seed the department roles
 # We need to think about seeding the full list for production..
@@ -137,7 +141,7 @@ unless Rails.env.production?
      user_type: 'contentAccessTeam', department_ou: 'IT', faculty_code: '123'},
      { username: 'contentcreator1',  given_name: 'content', family_name: 'creator', email_address: 'contentCreator1@example.com', 
      user_type: 'staff', department_ou: 'IT', faculty_code: '123'},
-     { username: 'staff1',  given_name: 'staff', family_name: 'user', email_address: 'staff1@example.com', 
+     { username: 'staff1',  given_name: 'staff', family_name: 'staff', email_address: 'staff1@example.com', 
      user_type: 'staff', department_ou: 'IT', faculty_code: '123'},
      { username: 'student1',  given_name: 'student', family_name: 'user', email_address: 'student1@example.com', 
      user_type: 'student', department_ou: 'CompSci', faculty_code: '456'},

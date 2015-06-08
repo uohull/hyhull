@@ -1,6 +1,7 @@
 # This ActiveRecord class is used to store the RoleType
 # The Role types are... (defined in db/seeds.rb)
-#  * user - A RoleType for Staff/Student/Guest type roles
+#  * user - A RoleType for Student/Guest type roles
+#  * staff - A RoleType for Staff role
 #  * hyhull - A RoleType for Hyhull specific roles like 'contentCreator', 'contentAccessTeam'
 #  * department_ou - A RoleType for Departments like 'it', 'lli'
 #  * faculty_code - A RoleType for Faculties codes like '123', '432'
@@ -10,6 +11,10 @@ class RoleType < ActiveRecord::Base
 
   def self.user_role_type
     find_or_initialize_by_name(self.user_role_type_name) 
+  end
+
+  def self.staff_role_type
+    find_or_initialize_by_name(self.staff_role_type_name) 
   end
 
   def self.hyhull_role_type
@@ -30,6 +35,11 @@ class RoleType < ActiveRecord::Base
   #  user_role name
   def self.user_role_type_name
     "user"
+  end
+
+  # staff_role_name
+  def self.staff_role_type_name
+    "staff"
   end
 
   # hyhull_role name
