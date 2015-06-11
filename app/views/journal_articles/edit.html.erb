@@ -5,7 +5,13 @@
     <div class="wrapper-header">
       <div class="row-fluid">
         <div class="span16">
+
+        <% if staff_user? && !contentAccessTeam_user? && !admin_user? %>
+          <%= render partial: "shared/update_staff_resource_state", locals: { object: @journal_article } %>
+        <% else %>
           <%= render partial: "shared/update_resource_state", locals: { object: @journal_article } %>
+        <% end %>
+
         </div>
       </div>
     </div>
