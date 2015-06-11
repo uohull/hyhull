@@ -73,6 +73,4 @@ class JournalArticlesController < ApplicationController
 
   end
 
-
-
 end

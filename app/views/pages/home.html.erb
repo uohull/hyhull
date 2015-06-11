@@ -3,7 +3,8 @@
   <%= render :partial => 'shared/home_search_tile' %>
 </div>
 
-<% if can?(:create, JournalArticle) %>
+<%# if can?(:create, JournalArticle) %>
+<% if staff_user? && !contentAccessTeam_user? && !admin_user? %>
   <div class="row-fluid tile-hydra-light-blue">
     <%= render :partial => 'shared/create_journal_article_tile' %>
   </div>

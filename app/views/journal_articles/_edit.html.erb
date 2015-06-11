@@ -3,17 +3,29 @@
     <div class="span16">
       <%#= link_to "&lt;&lt;Browse view".html_safe, sufia.generic_file_path %>
       <ul id="metadata-edit-nav" class="nav nav-tabs">
-        <li class="active" id="edit_descriptive_metadata_link">
-          <a href="#descriptive_metadata" data-toggle="tab">Description</a>
-        </li>
-        <li id="edit_journal_metadata_link">              
-          <a href="#journal_metadata" data-toggle="tab">Journal</a>
-        </li>
+
+        <% if staff_user? && !contentAccessTeam_user? && !admin_user? %>
+          <li class="active" id="edit_staff_article">
+            <a href="#staff_article" data-toggle="tab">Create (STAFF)</a>
+          </li>
+        <%# else %>
+        <% end %>
+
+        <% if contentAccessTeam_user? || admin_user? %>
+          <li class="active" id="edit_descriptive_metadata_link">
+            <a href="#descriptive_metadata" data-toggle="tab">Description</a>
+          </li>
+          <li id="edit_journal_metadata_link">
+            <a href="#journal_metadata" data-toggle="tab">Journal</a>
+          </li>
+        <% end %>
+
         <% if admin_user? && !@journal_article.persisted? %>
           <li id="edit_pid_namespace_link">
             <a href="#pid_namespace" data-toggle="tab">Pid</a>
           </li>
         <% end %>
+
         <% unless @journal_article.resource_proto? %>
           <li id="edit_set_membership_link">              
             <a href="#set_membership" data-toggle="tab">Set membership</a>
@@ -22,23 +34,37 @@
             <a href="#admin_metadata" data-toggle="tab">Admin</a>
           </li>
           <li id="view_additional_metadata_link">
-             <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
+            <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
           </li>
         <% end %>
+
       </ul>
+
       <%= simple_form_for(@journal_article, :html => {:class => 'form-horizontal' }) do |f| %>
-      <div class="tab-content">         
-        <div id="descriptive_metadata" class="tab-pane active">
-          <%= render :partial => "edit_description", locals: {f: f} %>
-        </div>
-        <div id="journal_metadata" class="tab-pane">            
-            <%= render :partial => "edit_journal", locals: {f: f} %>
-        </div>
+
+      <div class="tab-content">
+
+        <% if staff_user? && !contentAccessTeam_user? && !admin_user? %>
+          <div id="staff_article" class="tab-pane active">
+            <%= render :partial => "edit_staff_article", locals: { f: f } %>
+          </div>     
+        <% end %>
+
+        <% if contentAccessTeam_user? || admin_user? %>
+          <div id="descriptive_metadata" class="tab-pane active">
+            <%= render :partial => "edit_description", locals: {f: f} %>
+          </div>
+          <div id="journal_metadata" class="tab-pane">            
+              <%= render :partial => "edit_journal", locals: {f: f} %>
+          </div>
+        <% end %>
+
         <% if admin_user? && !@journal_article.persisted? %>
           <div id="pid_namespace" class="tab-pane">            
               <%= render :partial => "shared/pid_namespace", locals: {f: f, resource: @journal_article } %>
           </div>
         <% end %>
+
         <% unless @journal_article.resource_proto? %>
           <div id="set_membership" class="tab-pane">            
             <%= render(:partial => "shared/set_management",  :locals => { resource: @journal_article, f: f }) %>
@@ -50,9 +76,17 @@
             <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @journal_article }) %>
           </div>
         <% end %>
+
        </div>
-        <%= render partial: "shared/resource_form_actions", locals: {f: f } %> 
+
+        <% if staff_user? && !contentAccessTeam_user? && !admin_user? %>
+          <%= render partial: "shared/resource_staff_form_actions", locals: { f: f } %>
+        <% else %>
+          <%= render partial: "shared/resource_form_actions", locals: {f: f } %>
+        <% end %> 
+
       <% end %>
+
     </div>
     <!-- <div class="span16">
       <%#= render partial: "shared/update_resource_state", locals: { object: @journal_article } %>
