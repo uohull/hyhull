@@ -105,9 +105,10 @@ describe Datastream::ModsJournalArticle do
     
     describe "roles" do
       before(:all) do
-        @person_names = ["Smith, John.", "Jones, David."]
-        @person_roles = ["Author", "Photographer"]
-        @person_affiliation = ["Department of library", "Department of Physics"]
+        @person_names = ["Smith, John.", "Hall, Albert.", "Jones, David."]
+        @person_roles = ["Author", "Author", "Photographer"]
+        @person_affiliation = ["Department of library", "", "Department of Physics"]
+
       end
 
       it "should let me update the names elements with multiple items" do

@@ -43,6 +43,7 @@ describe JournalArticle do
         "title" => "A thesis describing the...",
         "person_name" => ["Smith, John.", "Supervisor, A."],
         "person_role_text" => ["Author", "Supervisor"],
+        "person_affiliation" => ["University of Hull", "Law School"],
         "abstract" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "subject_topic" => ["Subject of the matter"],    
         "date_issued" => "1983-03-01",
@@ -98,6 +99,7 @@ describe JournalArticle do
       # These attributes are not marked as 'unique' in the call to delegate, results will be arrays...
       @ja.person_name.should == attributes_hash["person_name"]
       @ja.person_role_text.should == attributes_hash["person_role_text"]
+      @ja.person_affiliation.should == attributes_hash["person_affiliation"]
       @ja.subject_topic.should == attributes_hash["subject_topic"]  
 
       @ja.journal_url.should == attributes_hash["journal_url"]
@@ -115,6 +117,7 @@ describe JournalArticle do
         "title" => "",
         "person_name" => [""],
         "person_role_text" => [""],
+        "person_affiliation" => [""],
         "subject_topic" => [""],
         "publisher" => ""
       }
@@ -131,6 +134,7 @@ describe JournalArticle do
       @ja.errors.messages[:title].should == ["can't be blank"]
       @ja.errors.messages[:person_name].should == ["is too short (minimum is 3 characters)"]
       @ja.errors.messages[:person_role_text].should == ["is too short (minimum is 3 characters)"]
+      @ja.errors.messages[:person_affiliation].should be_nil
       @ja.errors.messages[:subject_topic].should == ["is too short (minimum is 2 characters)"]
       @ja.errors.messages[:publisher].should == ["can't be blank"]
     end
@@ -141,6 +145,7 @@ describe JournalArticle do
           "title" => "A thesis describing the...",
           "person_name" => ["Smith, John.", "Supervisor, A."],
           "person_role_text" => ["Creator", "Supervisor"],
+          "person_affiliation" => ["", "Law School"],
           "abstract" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "subject_topic" => ["Subject of the matter"],
           "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
@@ -149,12 +154,13 @@ describe JournalArticle do
         } 
         @ja.update_attributes( @attributes_hash )        
       end
-      it "should not overwrite the person_name and person_role_text if they are not within the attributes" do
+      it "should not overwrite the person_name, person_role_text and person_affiliation if they are not within the attributes" do
         new_attributes_hash = { "title" => "A new title" }
         @ja.update_attributes( new_attributes_hash )
         @ja.title.should == new_attributes_hash["title"]
         @ja.person_name.should ==  @attributes_hash["person_name"]
         @ja.person_role_text.should == @attributes_hash["person_role_text"]
+        @ja.person_affiliation.should == @attributes_hash["person_affiliation"]
       end
 
       it "should not overwrite the subject_topic if they are not within the attributes" do
@@ -190,6 +196,7 @@ describe JournalArticle do
           @valid_ja.title = "Test title"
           @valid_ja.person_name = ["Smith, John.", "Jones, John"]
           @valid_ja.person_role_text = ["Author", "Author"]
+          @valid_ja.person_affiliation = ["", "Department of History"]
           @valid_ja.subject_topic = ["Topic 1"]
           @valid_ja.language_code = "eng"
           @valid_ja.language_text = "English"
@@ -230,6 +237,7 @@ describe JournalArticle do
       @valid_ja.title = "Test title"
       @valid_ja.person_name = ["Smith, John."]
       @valid_ja.person_role_text = ["Creator"]
+      @valid_ja.person_affiliation = ["Business School"]
       @valid_ja.subject_topic = ["Topci 1"]
       @valid_ja.language_code = "eng"
       @valid_ja.language_text = "English"
