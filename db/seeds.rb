@@ -53,7 +53,8 @@ end
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI", description: "Journal Article Department Affiliation Faculty Sci"},
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH", description: "Journal Article Department Affiliation Faculty Health"},
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION", description: "Journal Article Department Affiliation Faculty Education"},
-  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", description: "Journal Article Department Affiliation Faculty Business School"}
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", description: "Journal Article Department Affiliation Faculty Business School"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HYMS", description: "Journal Article Department Affiliation Faculty HYMS"}
 ].each { |p| PropertyType.create(name: p[:name], description: p[:description]) }
 
 
@@ -104,6 +105,10 @@ unless Rails.env.production?
 #JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL
   ["Hull University Business School", " Logistics Institute"
   ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL").first)}
+
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-HYMS
+  ["Hull York Medical School"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HYMS").first)}
 
 end
 
