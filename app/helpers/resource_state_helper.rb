@@ -47,7 +47,8 @@ module ResourceStateHelper
   # Currently hidden and deleted only
   def display_document_wrapper? document 
     display_wrapper = false
-    if hidden_resource_state?(document) || deleted_resource_state?(document)
+    if hidden_resource_state?(document) || deleted_resource_state?(document) ||
+       proto_resource_state?(document)
       display_wrapper = true 
     end
   end
