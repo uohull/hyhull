@@ -9,14 +9,20 @@
     <% role_text_field_id = "#{name_type}_role_text" %>
     <% affiliation_field_id = "#{name_type}_affiliation" %>    
 
-        <% # Get names and role_texts based upon the evaluated name_type %>
+    <% # Get names and role_texts based upon the evaluated name_type %>
     <% names = eval("object.#{name_type}_name") %>
     <% role_texts = eval("object.#{name_type}_role_text") %>
     <% affiliations = eval("object.#{name_type}_affiliation") %>
     <% object_name = object.class.to_s.underscore %>
 
     <% # Set the label based on if * required %>
+    <% # label_id = name_field_id.to_sym %>
     <% label_id = name_field_id.to_sym %>
+
+    <% if staff_user? %>
+      <% label_id = "Name" %>
+    <% end %>
+
     <% label_text = required ? "#{t('simple_form.required.html')}&nbsp;#{label_id.to_s.humanize}".html_safe : label_id.to_s.humanize %>
 
     <%= label_tag label_id, label_text, :class => "control-label" %>
