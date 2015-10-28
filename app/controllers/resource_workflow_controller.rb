@@ -19,7 +19,14 @@ class ResourceWorkflowController < ApplicationController
           # Can the user still edit resource post queue transition... 
           user_can_still_edit_resource = can?(:edit, object)
 
-          notice = { :notice => "Sucessfully added resource #{object.id} to the #{ object.human_resource_state_name } queue" }
+          # If the user is and admin member save message and include pid and
+          # workflow queue. Otherwise show generic message.
+
+          if current_user.admin?
+            notice = { :notice => "Sucessfully added resource #{object.id} to the #{ object.human_resource_state_name } queue" }
+          else
+            notice = { :notice => "Sucessfully sent resource for processing" }
+          end
 
           if user_can_still_edit_resource
             redirect_to :back, notice 
