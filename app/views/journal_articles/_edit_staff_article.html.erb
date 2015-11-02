@@ -12,22 +12,24 @@
 
     <h6>Publication</h6>
 
-    <%= f.input :title, label: "Article title", :input_html => { :class => 'input-block-level' } %>
+    <%= f.input :title, label: "Article title", 
+      :placeholder => "Please enter article title...",
+      :input_html => { :class => 'input-block-level' } %>
 
-    <%= render partial: "metadata/multi_field_edit", locals: { object: @journal_article, field: "subject_topic", required: true } %>
+    <%= render partial: "metadata/multi_field_edit", 
+      locals: { object: @journal_article, field: "subject_topic", 
+      required: true } %>
 
-    <%= f.input :publisher, :input_html => { :class => 'input-block-level' } %>
+    <%#= f.input :publisher, :input_html => { :class => 'input-block-level' } %>
 
     <hr/>
     
     <h6>Journal</h6>
     
     <div class="fields">     
-      <%= f.input :journal_title, label: "Journal name", :input_html => { :class => 'input-block-level' } %>
-      <%= f.input :journal_publication_date, label: "Publication date" %>
-      <%= f.input :journal_print_issn, label: "ISSN (Print)" %>
-      <%= f.input :journal_electronic_issn, label: "ISSN (Electronic)" %>
-      <%= f.input :journal_publisher, label: "Publisher" %>
+      <%= f.input :journal_title, label: "Journal name",
+        :placeholder => "Please enter journal name...", 
+        :input_html => { :class => 'input-block-level' } %>
     </div>
 
   </div>

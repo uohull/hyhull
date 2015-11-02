@@ -10,15 +10,19 @@
 
 
     <%= label_tag label, label_text, :class => "control-label" %>
+    <% field_name = "#{field}".humanize.downcase %>
     <% if fields.empty? %>
       <div id="fields" class="controls">
-        <%= text_field_tag "#{object_name}[#{field}][]", "" %>           
+        <%= text_field_tag "#{object_name}[#{field}][]", "",
+          :placeholder => "Please enter " + field_name + "..." %>           
       </div>
     <% else %>
       <% fields.each_with_index do |f,i| %>
        <div id="fields" class="controls clearfix">
           <span class="field" style="float:left; width: 95%;">
-            <%= text_field_tag "#{object_name}[#{field}][]", f, :class => 'input-block-level' %>
+            <%= text_field_tag "#{object_name}[#{field}][]", f,
+              :class => 'input-block-level', 
+              :placeholder => "Please enter " + field_name + "..." %>
           </span>
           <% unless i.zero? %>
             <span class="icon-minus-sign remove-field"></span>
