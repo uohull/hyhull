@@ -65,6 +65,11 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
         t.publisher
         t.date_issued(:path=>"dateIssued")
       }
+      t.journal_origin_info(:path=>"originInfo") {
+        t.journal_date_other(:path=>"dateOther", :label=>"dateOther", 
+          :attributes=>{:type=>"accepted for publication", :encoding=>"w3cdtf"
+        })
+      }
       t.issn_print(:path=>'identifier', :attributes=>{:type=>'issn', :displayLabel=>'print'})
       t.issn_electronic(:path=>'identifier', :attributes=>{:type=>'issn', :displayLabel=>'electronic'})
       t.doi(:path=>'identifier', :attributes=>{:type=>'doi'})
@@ -169,6 +174,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
 
     # Journal proxies 
     t.journal_title(:proxy=>[:journal, :journal_title_info, :journal_main_title], :index_as=>[:displayable] )
+    t.journal_date_other(:proxy=>[:journal, :journal_origin_info, :journal_date_other], :index_as=>[:displayable])
     t.journal_publisher(:proxy=>[:journal, :origin_info, :publisher], :index_as=>[:displayable] )
     t.journal_publication_date(:proxy=>[:journal, :part, :publication_date], :index_as=>[:displayable, :sortable] )
     t.journal_print_issn(:proxy=>[:journal, :issn_print], :index_as=>[:displayable] )
@@ -221,6 +227,10 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
            xml.relatedItem(:type=>"otherVersion") {
              xml.titleInfo {
                xml.title
+             }
+             xml.originInfo {
+               xml.dateOther(:type=>"accepted for publication", 
+                 :encoding=>"w3cdtf")
              }
              xml.identifier(:type=>"issn", :displayLabel=>"print")
              xml.identifier(:type=>"issn", :displayLabel=>"electronic")

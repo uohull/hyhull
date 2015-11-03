@@ -30,7 +30,7 @@ class JournalArticle < ActiveFedora::Base
   has_attributes :publisher, datastream: :descMetadata, at: [:mods, :origin_info, :publisher], multiple: false
 
   has_attributes :abstract, :rights, :language_text, :language_code, :date_issued,
-                 :peer_reviewed, :journal_title, :journal_publisher, :journal_publication_date, :journal_print_issn,
+                 :peer_reviewed, :journal_title, :journal_date_other, :journal_publisher, :journal_publication_date, :journal_print_issn,
                  :journal_electronic_issn, :journal_article_doi, :journal_volume, :journal_issue,  :journal_start_page,
                  :journal_end_page, :journal_article_restriction, :journal_publications_note, :type_of_resource, :genre, :mime_type, :digital_origin, 
                  :identifier, :primary_display_url, :raw_object_url, :extent, :record_creation_date, :record_change_date, :resource_status, :converis_publication_id, :unit_of_assessment,
@@ -45,6 +45,9 @@ class JournalArticle < ActiveFedora::Base
 
   # Journal URLS
   has_attributes :journal_url, :journal_url_access, :journal_url_display_label, datastream: :descMetadata, multiple: true
+
+  # Journal/RIOXX
+  #has_attributes :journal_date_other, datastream: :descMetadata, multiple: false
 
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsJournalArticle, multiple: false

@@ -20,7 +20,16 @@
       locals: { object: @journal_article, field: "subject_topic", 
       required: true } %>
 
-    <%#= f.input :publisher, :input_html => { :class => 'input-block-level' } %>
+    <%= f.hidden_field :publisher, :value => "The University of Hull",
+      :input_html => { :class => 'input-block-level' } %>
+
+    <hr/>
+
+    <h6>REF</h6>
+
+    <%#= f.input :journal_publication_date, label: "Publication date" %>
+    <%= f.input :journal_date_other, label: "Date accepted",
+      placeholder: "Please enter date YYYY-MM-DD..." %>
 
     <hr/>
     
