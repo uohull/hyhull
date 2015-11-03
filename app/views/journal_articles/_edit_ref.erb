@@ -1,0 +1,12 @@
+<div class="page-gutter">
+  <div class="row-spacer"></div>
+
+  <% render "shared/error_messages", target: @journal_article %>
+
+  <div class="fields">
+    <h6>Dates</h6>
+
+    <%= f.input :journal_date_other, label: "Date accepted",
+      placeholder: "Please enter date YYYY-MM-DD..." %>
+    
+  </div>
