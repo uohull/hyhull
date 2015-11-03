@@ -6,7 +6,7 @@
 
         <% if staff_user? && !contentAccessTeam_user? && !admin_user? %>
           <li class="active" id="edit_staff_article">
-            <a href="#staff_article" data-toggle="tab">Create (STAFF)</a>
+            <a href="#staff_article" data-toggle="tab">Create</a>
           </li>
         <%# else %>
         <% end %>
@@ -35,6 +35,12 @@
           </li>
           <li id="view_additional_metadata_link">
             <a href="#additional_metadata" data-toggle="tab">Additional metadata</a>
+          </li>
+        <% end %>
+
+        <% if contentAccessTeam_user? or admin_user? %>
+          <li id="edit_ref_link">
+            <a href="#ref_metadata" data-toggle="tab">REF</a>
           </li>
         <% end %>
 
@@ -74,6 +80,12 @@
           </div>
           <div id="additional_metadata" class="tab-pane">            
             <%= render(:partial => "metadata/additional_metadata", :locals => { resource: @journal_article }) %>
+          </div>
+        <% end %>
+        
+        <% if contentAccessTeam_user? or admin_user? %>
+          <div id="ref_metadata" class="tab-pane">
+            <%= render partial: "edit_ref", locals: { f: f } %>
           </div>
         <% end %>
 
