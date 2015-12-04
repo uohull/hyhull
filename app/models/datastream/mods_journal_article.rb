@@ -104,6 +104,16 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     # Unit of assessment used in REF items
     t.unit_of_assessment(:path=>"note",  :attributes=>{:type=>"unitOfAssessment"}, :index_as=>[:displayable]) 
 
+    # REF exceptions (should be set to true or false)
+    # t.ref_exception(:path=>'note', :attributes=>{:type=>'' }, :index_as=>[:displayable]) {
+    t.ref_exception(:path=>'note', :index_as=>[:displayable]) {
+      t.type(:path => {:attribute=>"type"}, :namespace_prefix => nil)
+      t.display_label(:path=>{:attribute=>"displayLabel"})
+    }
+    #t.ref_exception(:path=>"note", :attributes=>{:type=>"", :displayLabel=>""}, :index_as=>[:displayable]) 
+    # t.exception_tech_scope(:path=>"note", :attributes=>{:type=>"technical exception", :displayLabel=>"Conference proceedings outside scope"}, :index_as=>[:displayable])
+    # t.exception_tech_comply(:path=>"note", :attributes=>{:type=>"techincal exception", :displayLabel=>"Depositor at University not complying"}, :index_as=>[:displayable])
+    
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
     t.type_of_resource(:path=>"typeOfResource", :index_as=>[:displayable])
@@ -315,6 +325,95 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     end
   end
 
+  def add_ref_exception(ref_exception)
+debugger
+
+# list_of_values = Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false).map(&:value)
+# list_of_names = Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false).map(&:name)
+# list_of_all = Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false)
+
+# zip_list = (list_of_names).zip(list_of_values)
+
+# hash_of_all = list_of_all.map { |hash| hash["name", "value"] }
+
+
+#list_of_values_technical.select {|s| s.include? ref_exception}
+
+
+    # list_of_all.each do |n|
+    #   if (n.map { |hash| hash["name"] } == " Department of American Studies") 
+    #     puts n.map { |hash| hash["value"] }
+    #   end
+    # end
+
+    # if ref_exception == "scope"
+    #   self.ref_exception.type = "technical exception"
+    #   self.ref_exception.display_label = "Conference proceedings outside scope"
+    # elsif ref_exception == "comply"
+    #   self.ref_exception.type = "deposit exception"
+    #   self.ref_exception.display_label = "Deposter at University not complying"
+    #   # self.ref_exception = true
+    # end
+      
+    self.ref_exception = true
+
+    if ref_exception == ""
+       ng_xml.search(self.ref_exception.xpath, { oxns: "http://www.loc.gov/mods/v3"}).each do |n|
+         n.remove
+       end
+    else
+      # list_of_names = Property.select_by_property_type_name(
+      #                   "JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false
+      #                 ).map(&:name)
+
+      # list_of_values = Property.select_by_property_type_name(
+      #                   "JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false
+      #                 ).map(&:value)
+      # list_of_all = (list_of_names).zip(list_of_value)
+
+      # exception_hash = {}
+
+      # list_of_all.each { |k, v| exception_hash[k] = v }
+                 
+      # ref_type = exception_hash.fetch(ref_exception)
+      # ref_display_label = ref_exception
+
+  #    self.ref_exception.type = exception_hash.fetch(ref_exception)
+  #    self.ref_exception.display_label = ref_exception
+
+
+        list_of_values_technical = Property.select_by_property_type_name(
+                                     "REF-EXCEPTION-TECHNICAL", false
+                                   ).map(&:value)
+
+        list_of_values_deposit = Property.select_by_property_type_name(
+                                   "REF-EXCEPTION-DEPOSIT", false
+                                 ).map(&:value)
+
+        list_of_values_access = Property.select_by_property_type_name(
+                                  "REF-EXCEPTION-ACCESS", false
+                                ).map(&:value)
+
+        if list_of_values_technical.select {|s| s.include? ref_exception}
+          self.ref_exception.type = "technical exception"
+        elsif list_of_values_deposit.select {|s| s.include? ref_exception}
+          self.ref_exception.type = "deposit exception"
+        elsif list_of_values_access.select {|s| s.include? ref_exception}
+          self.ref_exception.type = "access exception"
+        else
+          self.ref_exception.type = "other"
+          # ng_xml.search(self.ref_exception_other.xpath, { oxns: "http://www.loc.gov/mods/v3"}).each do |n|
+          # n.remove
+        end
+
+        self.ref_exception.display_label = ref_exception
+
+      end
+
+
+
+  end  
+
    # Over-ride ModsMetadataMethods person_role_terms for mods-etd roles 
   def self.person_role_terms
     ["Author"]
@@ -323,7 +422,12 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
   def self.person_affiliation_terms
    #Get list of departments from Properties DB Table to be used for Jounal Article Person Affiliation
    #beacause they are properties in the DB, they can be edited within Hydra admin
-   [["University of Hull"]] + [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false).map(&:name) + [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI", false).map(&:name) + [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION", false).map(&:name) + [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH", false).map(&:name) + [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", false).map(&:name) + [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-HYMS", false).map(&:name)
+   [["University of Hull"]] + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false).map(&:name) + 
+   [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI", false).map(&:name) + 
+   [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION", false).map(&:name) + 
+   [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH", false).map(&:name) + 
+   [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", false).map(&:name)
   end   
 
 end

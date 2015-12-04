@@ -8,5 +8,74 @@
 
     <%= f.input :journal_date_other, label: "Date accepted",
       placeholder: "Please enter date YYYY-MM-DD..." %>
+
+    <hr/>
+
+    <h6>Exceptions</h6>
+
+    <%#
+    ref_options = [
+      ["None", "none"],
+      ["Conference proceedings outside scope", "scope"],
+      ["Despositor at University not complying", "comply"],
+      ["Short-term technical repository failure", "fail"],
+      ["External service provider failure", "external"]
+    ]
+    %>
+
+
+
+    <%#= select_tag "journal_article_ref_exception", options_for_select(ref_options),
+      :name => "journal_article[ref_exception]" %>
+
+    <%#= text_field_tag "journal_article_ref_exception", "ldfjgdhkl;dhldfhkl", :name => "journal_article[ref_exception]", :placeholder => "rgjhsgsfkljgne..." %>
+
+
+    <%
+      ref_technical_options = Property.select_by_property_type_name(
+        "REF-EXCEPTION-TECHNICAL", false
+      ).map(&:name)
+      ref_deposit_options = Property.select_by_property_type_name(
+        "REF-EXCEPTION-DEPOSIT", false
+      ).map(&:name)
+      ref_access_options = Property.select_by_property_type_name(
+        "REF-EXCEPTION-ACCESS", false
+      ).map(&:name)
+      # faculty_education_options = Property.select_by_property_type_name(
+      #   "JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION", false
+      # ).map(&:name)
+      # faculty_health_options = Property.select_by_property_type_name(
+      #   "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH", false
+      # ).map(&:name)
+      # faculty_business_school_options = Property.select_by_property_type_name(
+      #   "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", false
+      # ).map(&:name)
+
+
+      grouped_options = [
+        ["Technical", ref_technical_options], 
+        ["Desposit", ref_deposit_options],
+        ["Access", ref_access_options],
+        ["————————————————————————", ["Other"]]
+      ]
+      %>
+
+      <%#= select_tag "#{object_name}[#{affiliation_field_id}][]",
+        grouped_options_for_select(grouped_options, affiliations[i]), 
+        :prompt => "Please select exception..." %>
+
+    <%= select_tag "journal_article_ref_exception", 
+      grouped_options_for_select(grouped_options),
+      :name => "journal_article[ref_exception]", 
+      :prompt => "Please select exception...",
+      :class => ".toggleOther" %>
+
+    <%#= f.input :ref_exception, label: "Other REF Exception",
+      placeholder: "Please enter exception..."%>
+
     
   </div>
+
+<script>
+  
+</script>

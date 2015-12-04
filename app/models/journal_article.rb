@@ -49,6 +49,12 @@ class JournalArticle < ActiveFedora::Base
   # Journal/RIOXX
   #has_attributes :journal_date_other, datastream: :descMetadata, multiple: false
 
+  # RIOX exceptions
+  # has_attributes :exception_tech_scope, :exception_tech_comply, 
+  #   :exception_tech_fail, :exception_tech_external, datastream: :descMetadata, 
+  #   multiple: false
+  has_attributes :ref_exception, datastream: :descMetadata, multiple: false
+
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsJournalArticle, multiple: false
   delegate :url_access_terms, to: Datastream::ModsJournalArticle, multiple: false
@@ -74,6 +80,9 @@ class JournalArticle < ActiveFedora::Base
     super(properties)
     self.descMetadata.add_names(properties["person_name"], properties["person_role_text"], "person", properties["person_affiliation"]) unless properties["person_name"].nil? or properties["person_role_text"].nil? or properties["person_affiliation"].nil?
     self.descMetadata.add_journal_urls(properties["journal_url"], properties["journal_url_access"], properties["journal_url_display_label"]) unless properties["journal_url"].nil? or properties["journal_url_access"].nil? or properties["journal_url_display_label"].nil?
+
+    #self.descMetadata.add_ref_exception(properties["ref_exception"]) unless properties["ref_exception"].nil?
+    self.descMetadata.add_ref_exception(properties["ref_exception"])
   end
 
   # to_solr overridden to add object_type facet field to document and to add title/publisher fields that are not handled in ModsJounalArticle
