@@ -8,6 +8,15 @@ module UserHelper
     sign_in :user, @user
   end
 
+  def yifGroup_user_sign_in 
+    delete_all_users 
+    #Create the user
+    @user = User.create!(:username => "yifGroup1", :email => "yifGroup1@example.com")
+    #Add the role
+    @user.roles = [Role.find_or_initialize_by_name("yifGroup")]
+    sign_in :user, @user
+  end
+
   def admin_user_sign_in 
     delete_all_users 
     #Create the user

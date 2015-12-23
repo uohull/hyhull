@@ -11,6 +11,8 @@ Given /^I am logged in as "([^\"]*)"$/ do |username|
     role = Role.find_or_initialize_by_name("student")
   elsif username.include? "contentAccessTeam"
    role = Role.find_or_initialize_by_name("contentAccessTeam")
+  elsif username.include? "yifGroup"
+   role = Role.find_or_initialize_by_name("yifGroup")
   elsif username.include? "archivist"
    role = Role.find_or_initialize_by_name("archivist")
   else

@@ -54,7 +54,11 @@ module Hyhull::ResourceWorkflowBehaviour
         transition [:published, :hidden] => :deleted
       end
 
-      after_transition any => [:qa, :published, :hidden, :deleted] do |resource, transition|
+      event :yifQueue, human_name: "Add to yifQueue" do
+        transition [:proto, :qa, :published, :hidden] => :yifQueued
+      end
+
+      after_transition any => [:qa, :published, :hidden, :deleted, :yifQueued] do |resource, transition|
         # Set the Resource
         if transition.to_name == :published
           resource.queue = nil
@@ -67,12 +71,12 @@ module Hyhull::ResourceWorkflowBehaviour
         resource.apply_permissions = true  
       end
 
-      after_transition any => [:hidden, :deleted] do |resource, transition|
+      after_transition any => [:hidden, :deleted, :yifQueued] do |resource, transition|
         # After a transition from any states to hidden and deleted, do the following...
         resource.set_deleted_inner_state if resource.respond_to? :set_deleted_inner_state
       end
 
-      after_transition [:hidden, :deleted] => [:qa] do |resource, transition|
+      after_transition [:hidden, :deleted, :yifQueued] => [:qa] do |resource, transition|
         # After a transition from hidden and deleted to QA do the following...
         resource.set_active_inner_state if resource.respond_to? :set_active_inner_state   
       end

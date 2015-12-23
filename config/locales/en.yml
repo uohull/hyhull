@@ -20,6 +20,7 @@ en:
         resource_state:
           hidden: "Resource state > Hidden"
           deleted: "Resource state > Deleted"
+          yifQueued: "Resource state > yifQueued"
 
 # Over-ride the human readable version of parent to be Structural set
   activemodel:

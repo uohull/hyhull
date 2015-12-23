@@ -21,6 +21,13 @@ module UserRoleHelper
     end
   end
 
+  def yifGroup_user? 
+    yifGroup_user = false
+    if has_user_authentication_provider? && current_user       
+      yifGroup_user = user_member_of_group?(current_user, "yifGroup")
+    end
+  end
+
   def admin_user? 
     admin_user = false
     if has_user_authentication_provider? && current_user       
