@@ -72,6 +72,17 @@
 	}
 }
 
+.workflow-wrapper.workflow-yifQueued {
+      border: $worflow-border solid $yifQueued-color;
+      div.wrapper-header {
+            color: #fff;
+            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+            padding: 0.5em 1em 1.15em 1.25em;
+            background: $yifQueued-color;
+            div#workflow-message { color: workflow-text-colour($yifQueued-color); }
+      }
+}
+
 /* workflow status - search results/small header */
 .workflow-wrapper-sm.workflow-proto {
   border: $workflow-border-sm solid $proto-color;

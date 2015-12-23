@@ -22,6 +22,7 @@ DOI_RESOLVER_SERVICE_URL = "http://dx.doi.org/"
 HYHULL_USER_GROUPS = {
   :content_creator => "contentCreator",
   :content_access_team => "contentAccessTeam",
+  :yif_group => "yifGroup",
   :administrator => "admin"
 }
 
@@ -29,6 +30,7 @@ HYHULL_QUEUES = {
   "hull:protoQueue" => :proto,
   "hull:QAQueue" => :qa,
   "hull:hiddenQueue" => :hidden,
+  "hull:yifQueuedQueue" => :yifQueued,
   "hull:deletedQueue" => :deleted
 }
 

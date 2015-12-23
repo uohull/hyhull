@@ -115,6 +115,7 @@
       <% next if permission[:name].downcase == 'public' %>
       <% next if permission[:name].downcase == 'staff' %>
       <% next if permission[:name].downcase == 'student' %>
+      <% next if permission[:name].downcase == 'yifgroup' %>
       <% next if permission[:name].downcase == depositor %>
       <tr>
         <td><%= label_tag "display_set[permissions][#{permission[:type]}][#{permission[:name]}]", permission[:name], :class=>"control-label" %></td>

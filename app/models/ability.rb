@@ -30,6 +30,17 @@
         can [:tree, :update_permissions], DisplaySet
       end
 
+      if user_groups.include?(HYHULL_USER_GROUPS[:yif_group])
+        #see yifQueue
+        #can [:initial_step, :create], JournalArticle
+        #can [:initial_step, :create], :all
+        can [:tree, :update_permissions], StructuralSet 
+        can [:tree, :update_permissions], DisplaySet
+        #can [:show, :add_user, :remove_user, :index], Role
+        #can :read, PropertyType 
+        #can :manage, Property 
+      end
+
       # Adminstration forms
       #
       # Role Management
@@ -53,7 +64,7 @@
       # If the obj includes the Hyhull::ResourceWorkflowBehaviour then we will test which state is in...
       if obj.class.included_modules.include? Hyhull::ResourceWorkflowBehaviour 
         # At present Resources are ONLY deletable when in the PROTO, QA and DELETE state
-        if obj.resource_proto? || obj.resource_qa? || obj.resource_deleted? 
+        if obj.resource_proto? || obj.resource_qa? || obj.resource_deleted? #|| obj.resource_yifQueued?
           result = true
         end
       else

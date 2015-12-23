@@ -102,6 +102,7 @@ describe Hyhull::ResourceWorkflowBehaviour do
         HYHULL_QUEUES.invert[:qa].should == "hull:QAQueue"
         HYHULL_QUEUES.invert[:hidden].should == "hull:hiddenQueue"
         HYHULL_QUEUES.invert[:deleted].should == "hull:deletedQueue" 
+        HYHULL_QUEUES.invert[:yifQueued].should == "hull:yifQueuedQueue"
       end
     end
 
@@ -239,6 +240,32 @@ describe Hyhull::ResourceWorkflowBehaviour do
           @object.resource_state_events.should include(:submit)
         end
       end 
+
+      context "yifQueued" do
+        it "should be the state after calling hide_resource" do
+
+          @object = ResourceWorkflowBehaviourTestClass.find(@object.id)
+          @object.hide_resource
+          @object.save
+
+          @object.resource_state.should == "yifQueued"
+          @object.queue.id.should == "hull:yifQueuedQueue"
+          @object.relationships(:is_member_of).include?("info:fedora/hull:yifQueuedQueue").should be_true
+          #parent should remain referenced...
+          @object.parent.id.should == @test_parent_id
+          # apo should be switched back to the queue set
+          @object.apo.id.should == "hull:yifQueuedQueue"
+          @object.queue_apo.id.should == "hull:yifQueuedQueue"
+          @object.parent_apo.should == nil
+
+          # Test the inner fedora object state for hidden/deleted
+          @object.inner_object.state.should == "D"
+        end
+        it "should have the correct transitions" do
+          @object = ResourceWorkflowBehaviourTestClass.find(@object.id)
+          @object.resource_state_events.should include(:delete, :submit)
+        end  
+      end
 
       context "submit after hidden/delete" do
         it "should change the fedora object state back to active" do
