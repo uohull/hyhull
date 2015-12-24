@@ -11,7 +11,7 @@
 </div>
 <% end %>
 
-<% if yifGroup_user? && !admin_user? %>
+<% if yifGroup_user? && !admin_user? && !contentAccessTeam_user? %>
    <div class="row-fluid tile-hydra-light-blue">
      <%= render :partial => 'shared/groupQueue_tile' %>
    </div>
