@@ -162,7 +162,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <access type="edit">
     <human></human>
     <machine>
-      <group>yifGroup</group>
+      <group>contentAccessTeam</group>
     </machine>
   </access>
   <use>
@@ -200,7 +200,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
   <access type="edit">
     <human></human>
     <machine>
-      <group>yifGroup</group>
+      <group>contentAccessTeam</group>
     </machine>
   </access>
   <use>
