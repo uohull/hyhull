@@ -39,7 +39,7 @@ module Hyhull::ResourceWorkflowBehaviour
       end
 
       event :submit, human_name: "Submit the resource to QA" do
-        transition [:proto, :hidden, :deleted  ] => :qa
+        transition [:proto, :hidden, :deleted, :yifQueued] => :qa
       end
    
       event :publish, human_name: "Publish the resource" do
@@ -54,7 +54,7 @@ module Hyhull::ResourceWorkflowBehaviour
         transition [:published, :hidden] => :deleted
       end
 
-      event :yifQueue, human_name: "Add to yifQueue" do
+      event :yifQueue, human_name: "Add to YIF Queue" do
         transition [:proto, :qa, :published, :hidden] => :yifQueued
       end
 
