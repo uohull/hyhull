@@ -21,7 +21,7 @@ end
 # These are the required hyhull specific roles - See config/inintializers/hyhull.rb for the configuration of the roles
 [{ name: HYHULL_USER_GROUPS[:content_access_team], description: "Content and Access Team"}, 
   { name: HYHULL_USER_GROUPS[:content_creator], description: "Content creator"},
-  { name: HYHULL_USER_GROUPS[:yif_Group], description: "YIF Group"},
+  { name: HYHULL_USER_GROUPS[:yif_group], description: "YIF Group"},
   { name: HYHULL_USER_GROUPS[:administrator] , description: "Hyhull admininstrator" }
 ].each{ |r| Role.create(name: r[:name], description: r[:description], role_type: RoleType.find_or_initialize_by_name("hyhull")) }
 
