@@ -74,7 +74,7 @@ end
     description: "Journal Article REF desposit exception"
   },
   { 
-    name: "REF-ACCESS-EXCEPTION", 
+    name: "REF-EXCEPTION-ACCESS", 
     description: "Journal Article REF access exception" 
   } 
 ].each { |r| PropertyType.create(name: r[:name], description: r[:description]) }
@@ -135,7 +135,8 @@ unless Rails.env.production?
   [
     "Conference proceeding outside scope (non-ISSN)",
     "Depositer at different University which failed to comply with HEFCE policy",
-    "Short-term technical failure of repository that prevented compliance"
+    "Short-term technical failure of repository that prevented compliance",
+    "External service provider failure prevented compliance"
   ].each { |n| Property.create(
       name: n, 
       value: n, 
@@ -147,7 +148,10 @@ unless Rails.env.production?
   [
     "Depositer unable to use a repository at point of acceptance",
     "Delay in securing final peer-reviewed text",
-    "Depositer not employed by UK HEI at time of submission"
+    "Depositer not employed by UK HEI at time of submission",
+    "Deposit or request to deposit would be unlawful",
+    "Deposit would present a security risk",
+    "Ouput published as Gold Open Access"
   ].each { |n| Property.create( 
       name: n, 
       value: n, 
