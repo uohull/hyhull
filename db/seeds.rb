@@ -61,6 +61,21 @@ end
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", description: "Journal Article Department Affiliation Faculty Business School"}
 ].each { |p| PropertyType.create(name: p[:name], description: p[:description]) }
 
+# Seed the REF exceptions table
+[ 
+  { 
+    name: "REF-EXCEPTION-TECHNICAL", 
+    description: "Journal Article REF Technical exception" 
+  },
+  { 
+    name: "REF-EXCEPTION-DEPOSIT", 
+    description: "Journal Article REF desposit exception"
+  },
+  { 
+    name: "REF-ACCESS-EXCEPTION", 
+    description: "Journal Article REF access exception" 
+  } 
+].each { |r| PropertyType.create(name: r[:name], description: r[:description]) }
 
 # Seed some default/test values in the Property table
 unless Rails.env.production? 
@@ -90,32 +105,67 @@ unless Rails.env.production?
    "Faculty of Arts and Social Sciences", " Department of American Studies", " Department of English", " Department of History", " Law School", " Maritime Historical Studies Centre", " School of Arts and New Media", " School of Drama, Music and Screen", " School of Languages, Linguistics and Culture", " School of Politics, Philosophy and International Studies", " School of Social Sciences", " Wilberforce Institute for the study of Slavery and Emancipation"
   ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION").first)}
 
-#JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS
+  #JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS
   ["Faculty of Arts and Social Sciences", " Department of American Studies", " Department of English", " Department of History", " Law School", " Maritime Historical Studies Centre", " School of Arts and New Media", " School of Drama, Music and Screen", " School of Languages, Linguistics and Culture", " School of Politics, Philosophy and International Studies", " School of Social Sciences", " Wilberforce Institute for the study of Slavery and Emancipation"
   ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS").first)}
 
-#JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI
+  #JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI
   ["Faculty of Science and Engineering", " Centre for Environmental and Marine Sciences", " Department of Chemistry", " Department of Computer Science", " Department of Geography", " Environment and Earth Sciences", " Department of Mathematics", " Department of Physics", " Department of Psychology", " Department of Sport, Health and Exercise Science", " Institute for Estuarine and Coastal Studies", " School of Biological, Biomedical and Environmental Sciences", " School of Engineering"
   ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI").first)}
 
-#JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION
+  #JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION
   ["Faculty of Education", "Centre for Educational Studies"
   ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION").first)}
 
-#JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH
+  #JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH
   ["Faculty of Health and Social Care"
   ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH").first)}
 
-#JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL
+  #JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL
   ["Hull University Business School", " Logistics Institute"
   ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL").first)}
 
+  # REF-EXCEPTION-TECHNICAL
+  [
+    "Conference proceeding outside scope (non-ISSN)",
+    "Depositer at different University which failed to comply with HEFCE policy",
+    "Short-term technical failure of repository that prevented compliance"
+  ].each { |n| Property.create(
+      name: n, 
+      value: n, 
+      property_type: PropertyType.where(name: "REF-EXCEPTION-TECHNICAL").first
+    )
+  }
+
+  # REF-EXCEPTION-DEPOSIT
+  [
+    "Depositer unable to use a repository at point of acceptance",
+    "Delay in securing final peer-reviewed text",
+    "Depositer not employed by UK HEI at time of submission"
+  ].each { |n| Property.create( 
+      name: n, 
+      value: n, 
+      property_type: PropertyType.where(name: "REF-EXCEPTION-DEPOSIT").first 
+    ) 
+  }
+
+  # REF-EXCEPTION-ACCESS
+  [
+    "Open access reproduction rights not granted",
+    "Embargo period required exceeds maximum allowed, but publication is most appropriate",
+    "Publication actively disallows open access, but is most appropriate"
+  ].each { |n| Property.create(
+      name: n,
+      value: n,
+      property_type: PropertyType.where(name: "REF-EXCEPTION-ACCESS").first
+    )
+  }
 end
 
 
 
 # **************************** #
-#  IMPORTANT - For Test #
+#  IMPORTANT - For Test        #
 # **************************** #
 #                              #
 # These get loaded in the database, and important for running the Tests
