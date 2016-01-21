@@ -21,8 +21,8 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
 
     t.abstract(:index_as=>[:displayable, :searchable])
 
-     t.subject(:attributes=>{:authority=>"UoH"}) {
-        t.topic
+    t.subject(:attributes=>{:authority=>"UoH"}) {
+      t.topic
     }
     t.topic_tag(:path=>"subject", :default_content_path=>"topic") 
 
@@ -102,18 +102,42 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     # Should be set to true/false
     t.peer_reviewed(:path=>'note', :attributes=>{:type=>'peerReviewed'}, :index_as=>[:displayable])
     # Unit of assessment used in REF items
-    t.unit_of_assessment(:path=>"note",  :attributes=>{:type=>"unitOfAssessment"}, :index_as=>[:displayable]) 
+    t.unit_of_assessment(:path=>"note",  :attributes=>{:type=>"unitOfAssessment"}, :index_as=>[:displayable])
 
-    # REF exceptions (should be set to true or false)
-    # t.ref_exception(:path=>'note', :attributes=>{:type=>'' }, :index_as=>[:displayable]) {
-    t.ref_exception(:path=>'note', :index_as=>[:displayable]) {
-      t.type(:path => {:attribute=>"type"}, :namespace_prefix => nil)
-      t.display_label(:path=>{:attribute=>"displayLabel"})
+    # REF exceptions
+    t.ref_exception( :path => 'refException') {
+      t.type(:path => {:attribute=>'type'}, :namespace_prefix => nil)
+      t.display_label(:path=>{:attribute=>'displayLabel'}, :namespace_prefix => nil)
     }
-    #t.ref_exception(:path=>"note", :attributes=>{:type=>"", :displayLabel=>""}, :index_as=>[:displayable]) 
-    # t.exception_tech_scope(:path=>"note", :attributes=>{:type=>"technical exception", :displayLabel=>"Conference proceedings outside scope"}, :index_as=>[:displayable])
-    # t.exception_tech_comply(:path=>"note", :attributes=>{:type=>"techincal exception", :displayLabel=>"Depositor at University not complying"}, :index_as=>[:displayable])
-    
+    # ref - technical exception
+    t.ref_exception_technical( :path => 'note', :attributes=>{:type=>'technical exception'} ) {
+      t.display_label(
+        :path => { :attribute => 'displayLabel'},
+        :namespace_prefix => nil
+      )
+    }
+    # ref - depositior exception
+    t.ref_exception_deposit( :path => 'note', :attributes=>{:type=>'deposit exception'} ) {
+      t.display_label(
+        :path => { :attribute => 'displayLabel'},
+        :namespace_prefix => nil
+      )
+    }
+    # ref - access exception
+    t.ref_exception_access( :path => 'note', :attributes=>{:type=>'access exception'} ) {
+      t.display_label(
+        :path => { :attribute => 'displayLabel'},
+        :namespace_prefix => nil
+      )
+    }
+    # ref - other exception
+    t.ref_exception_other( :path => 'note', :attributes=>{:type=>'other exception'} ) {
+      t.display_label(
+        :path => { :attribute => 'displayLabel'},
+        :namespace_prefix => nil
+      )
+    }
+
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
     t.type_of_resource(:path=>"typeOfResource", :index_as=>[:displayable])
@@ -211,76 +235,76 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
   def self.xml_template
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.mods(:version=>"3.4", "xmlns:xlink"=>"http://www.w3.org/1999/xlink",
-         "xmlns:xsi"=>"http://www.w3.org/2001/XMLSchema-instance",
-         "xmlns"=>"http://www.loc.gov/mods/v3",
-         "xsi:schemaLocation"=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd") {
-           xml.titleInfo(:lang=>"") {
-             xml.title
-           }
-           xml.name(:type=>"personal") {
-             xml.namePart
-             xml.role {
-               xml.roleTerm(:type=>"text")
-             }
-             xml.affiliation
-           }
-           xml.genre "Journal article"
-           xml.language {
-             xml.languageTerm("English", :type=>"text")
-             xml.languageTerm("eng", :authority=>"iso639-2b", :type=>"code")
-           }
-           xml.abstract
-           xml.subject(:authority=>"UoH") {
-             xml.topic
-           }
-           xml.identifier(:type=>"fedora")
-           xml.relatedItem(:type=>"otherVersion") {
-             xml.titleInfo {
-               xml.title
-             }
-             xml.originInfo {
-               xml.dateOther(:type=>"accepted for publication", 
-                 :encoding=>"w3cdtf")
-             }
-             xml.identifier(:type=>"issn", :displayLabel=>"print")
-             xml.identifier(:type=>"issn", :displayLabel=>"electronic")
-             xml.identifier(:type=>"doi")
-             xml.part {
-               xml.detail(:type=>"volume") {
-                 xml.number
-               }
-               xml.detail(:type=>"issue") {
-                 xml.number
-               }
-               xml.extent(:unit=>"pages") {
-                 xml.start
-                 xml.end
-               }
-               xml.date
-             }
-           }
-           xml.location {
-             xml.url(:usage=>"primary display", :access=>"object in context")
-             xml.url(:access=>"raw object")
-           }           
-           xml.originInfo {
-             xml.publisher
-             xml.dateIssued
-           }
-           xml.physicalDescription {
-             xml.extent
-             xml.internetMediaType
-             xml.digitalOrigin 
-           }
-           xml.accessCondition(:type=>"useAndReproduction")
-           xml.recordInfo {
-             xml.recordContentSource self.default_institution_name 
-             xml.recordCreationDate(Time.now.strftime("%Y-%m-%d"), :encoding=>"w3cdtf")
-             xml.recordChangeDate(:encoding=>"w3cdtf")
-             xml.languageOfCataloging {
-               xml.languageTerm(:authority=>"iso639-2b")  
-             }
-           }
+      "xmlns:xsi"=>"http://www.w3.org/2001/XMLSchema-instance",
+      "xmlns"=>"http://www.loc.gov/mods/v3",
+      "xsi:schemaLocation"=>"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd") {
+        xml.titleInfo(:lang=>"") {
+         xml.title
+        }
+        xml.name(:type=>"personal") {
+          xml.namePart
+          xml.role {
+           xml.roleTerm(:type=>"text")
+          }
+          xml.affiliation
+        }
+        xml.genre "Journal article"
+        xml.language {
+         xml.languageTerm("English", :type=>"text")
+         xml.languageTerm("eng", :authority=>"iso639-2b", :type=>"code")
+        }
+        xml.abstract
+        xml.subject(:authority=>"UoH") {
+          xml.topic
+        }
+        xml.identifier(:type=>"fedora")
+        xml.relatedItem(:type=>"otherVersion") {
+          xml.titleInfo {
+            xml.title
+          }
+        xml.originInfo {
+          xml.dateOther(:type=>"accepted for publication", 
+            :encoding=>"w3cdtf")
+        }
+        xml.identifier(:type=>"issn", :displayLabel=>"print")
+        xml.identifier(:type=>"issn", :displayLabel=>"electronic")
+        xml.identifier(:type=>"doi")
+          xml.part {
+            xml.detail(:type=>"volume") {
+              xml.number
+            }
+            xml.detail(:type=>"issue") {
+              xml.number
+            }
+            xml.extent(:unit=>"pages") {
+              xml.start
+              xml.end
+            }
+            xml.date
+          }
+        }
+        xml.location {
+          xml.url(:usage=>"primary display", :access=>"object in context")
+          xml.url(:access=>"raw object")
+        }           
+        xml.originInfo {
+          xml.publisher
+          xml.dateIssued
+        }
+        xml.physicalDescription {
+          xml.extent
+          xml.internetMediaType
+          xml.digitalOrigin 
+        }
+        xml.accessCondition(:type=>"useAndReproduction")
+        xml.recordInfo {
+          xml.recordContentSource self.default_institution_name 
+          xml.recordCreationDate(Time.now.strftime("%Y-%m-%d"), :encoding=>"w3cdtf")
+          xml.recordChangeDate(:encoding=>"w3cdtf")
+          xml.languageOfCataloging {
+            xml.languageTerm(:authority=>"iso639-2b")  
+          }
+        }
       }
     end
     return builder.doc
@@ -295,20 +319,22 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       xpath_type = "conference"
     end  
    
-     ng_xml.search("//xmlns:name[@type=\"#{xpath_type}\"]").each do |n|
-       n.remove
-     end
+    ng_xml.search("//xmlns:name[@type=\"#{xpath_type}\"]").each do |n|
+      n.remove
+    end
 
-     names.each_with_index do |name, index|    
-       eval "self.#{type}(#{index}).namePart = name"
-       eval "self.#{type}(#{index}).role.text = roles[index]"
-       eval "self.#{type}(#{index}).affiliation = affiliations[index]"
-     end
+    names.each_with_index do |name, index|    
+      eval "self.#{type}(#{index}).namePart = name"
+      eval "self.#{type}(#{index}).role.text = roles[index]"
+      eval "self.#{type}(#{index}).affiliation = affiliations[index]"
+    end
   end
 
   def add_journal_urls(url_list, url_access_list, url_display_label_list)
     begin 
-      self.ng_xml.search(self.journal.location.url.xpath, { oxns: "http://www.loc.gov/mods/v3"}).each do |n|
+      self.ng_xml.search(
+        self.journal.location.url.xpath, { oxns: "http://www.loc.gov/mods/v3" }
+        ).each do |n|
         n.remove
       end
    
@@ -325,92 +351,56 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     end
   end
 
-  def add_ref_exception(ref_exception)
-debugger
+  def add_ref_exception(ref_exception_data)
 
-# list_of_values = Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false).map(&:value)
-# list_of_names = Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false).map(&:name)
-# list_of_all = Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false)
+    # get exception properties
+    list_of_values_technical = Property.select_by_property_type_name(
+                                 "REF-EXCEPTION-TECHNICAL", false
+                               ).map(&:value)
 
-# zip_list = (list_of_names).zip(list_of_values)
+    list_of_values_deposit = Property.select_by_property_type_name(
+                               "REF-EXCEPTION-DEPOSIT", false
+                             ).map(&:value)
 
-# hash_of_all = list_of_all.map { |hash| hash["name", "value"] }
+    list_of_values_access = Property.select_by_property_type_name(
+                              "REF-EXCEPTION-ACCESS", false
+                            ).map(&:value)
 
+    # default all ref exception types
+    self.ref_exception_technical = false
+    self.ref_exception_technical.display_label = nil
 
-#list_of_values_technical.select {|s| s.include? ref_exception}
+    self.ref_exception_deposit = false
+    self.ref_exception_deposit.display_label = nil
 
+    self.ref_exception_access = false
+    self.ref_exception_access.display_label = nil
 
-    # list_of_all.each do |n|
-    #   if (n.map { |hash| hash["name"] } == " Department of American Studies") 
-    #     puts n.map { |hash| hash["value"] }
-    #   end
-    # end
+    self.ref_exception_other = false
+    self.ref_exception_other.display_label = nil
 
-    # if ref_exception == "scope"
-    #   self.ref_exception.type = "technical exception"
-    #   self.ref_exception.display_label = "Conference proceedings outside scope"
-    # elsif ref_exception == "comply"
-    #   self.ref_exception.type = "deposit exception"
-    #   self.ref_exception.display_label = "Deposter at University not complying"
-    #   # self.ref_exception = true
-    # end
-      
-    self.ref_exception = true
-
-    if ref_exception == ""
-       ng_xml.search(self.ref_exception.xpath, { oxns: "http://www.loc.gov/mods/v3"}).each do |n|
-         n.remove
-       end
+    # if technical exception
+    if list_of_values_technical.include? ref_exception_data
+      self.ref_exception_technical = true
+      self.ref_exception_technical.display_label = ref_exception_data
+    #if deposit exception
+    elsif list_of_values_deposit.include? ref_exception_data
+      self.ref_exception_deposit = true
+      self.ref_exception_deposit.display_label = ref_exception_data   
+    # if access exception
+    elsif list_of_values_access.include? ref_exception_data
+      self.ref_exception_access = true
+      self.ref_exception_access.display_label = ref_exception_data
+    # else other exception
     else
-      # list_of_names = Property.select_by_property_type_name(
-      #                   "JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false
-      #                 ).map(&:name)
+      self.ref_exception_other = true
+      self.ref_exception_other.display_label = ref_exception_data
+    end
 
-      # list_of_values = Property.select_by_property_type_name(
-      #                   "JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false
-      #                 ).map(&:value)
-      # list_of_all = (list_of_names).zip(list_of_value)
-
-      # exception_hash = {}
-
-      # list_of_all.each { |k, v| exception_hash[k] = v }
-                 
-      # ref_type = exception_hash.fetch(ref_exception)
-      # ref_display_label = ref_exception
-
-  #    self.ref_exception.type = exception_hash.fetch(ref_exception)
-  #    self.ref_exception.display_label = ref_exception
-
-
-        list_of_values_technical = Property.select_by_property_type_name(
-                                     "REF-EXCEPTION-TECHNICAL", false
-                                   ).map(&:value)
-
-        list_of_values_deposit = Property.select_by_property_type_name(
-                                   "REF-EXCEPTION-DEPOSIT", false
-                                 ).map(&:value)
-
-        list_of_values_access = Property.select_by_property_type_name(
-                                  "REF-EXCEPTION-ACCESS", false
-                                ).map(&:value)
-
-        if list_of_values_technical.select {|s| s.include? ref_exception}
-          self.ref_exception.type = "technical exception"
-        elsif list_of_values_deposit.select {|s| s.include? ref_exception}
-          self.ref_exception.type = "deposit exception"
-        elsif list_of_values_access.select {|s| s.include? ref_exception}
-          self.ref_exception.type = "access exception"
-        else
-          self.ref_exception.type = "other"
-          # ng_xml.search(self.ref_exception_other.xpath, { oxns: "http://www.loc.gov/mods/v3"}).each do |n|
-          # n.remove
-        end
-
-        self.ref_exception.display_label = ref_exception
-
-      end
-
-
+    # remove refException
+    ng_xml.search("//xmlns:refException").each do |n|
+      n.remove
+    end
 
   end  
 
