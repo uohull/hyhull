@@ -254,7 +254,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # CAS Authenticable settings
-  config.cas_base_url = "https://cas.hull.ac.uk/csus.cas"
+  config.cas_base_url = ""
 
   # If you want to use the Devise Timeoutable module with single sign out, 
   # uncommenting this will redirect timeouts to the logout url, so that the CAS can
