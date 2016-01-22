@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<foxml:digitalObject VERSION="1.1" PID="hull:yifQueuedQueue"
+<foxml:digitalObject VERSION="1.1" PID="hull:yifQueue"
 xmlns:foxml="info:fedora/fedora-system:def/foxml#"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
 <foxml:objectProperties>
 <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
-<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="YIF QueuedQueue"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="YIF Queue"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
 <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2011-06-03T10:59:12.092Z"/>
 <foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2013-12-21T21:21:49.708Z"/>
@@ -94,10 +94,10 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:datastreamVersion ID="DC.0" LABEL="Dublin Core Record for this object" CREATED="2011-06-03T10:59:53.937Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="437">
 <foxml:xmlContent>
 <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:title>YIF QueuedQueue</dc:title>
+  <dc:title>YIF Queue</dc:title>
   <dc:date></dc:date>
   <dc:type>Structural set</dc:type>
-  <dc:identifier>hull:yifQueuedQueue</dc:identifier>
+  <dc:identifier>hull:yifQueue</dc:identifier>
 </oai_dc:dc>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
@@ -130,7 +130,7 @@ xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/
 <foxml:datastreamVersion ID="RELS-EXT.1" LABEL="Fedora Object-to-Object Relationship Metadata" CREATED="2013-12-21T21:21:49.708Z" MIMETYPE="application/rdf+xml" SIZE="566">
 <foxml:xmlContent>
 <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
-  <rdf:Description rdf:about="info:fedora/hull:yifQueuedQueue">
+  <rdf:Description rdf:about="info:fedora/hull:yifQueue">
     <rel:isMemberOf rdf:resource="info:fedora/hull:rootQueueSet"></rel:isMemberOf>
     <fedora-model:hasModel rdf:resource="info:fedora/hull-cModel:queueSet"></fedora-model:hasModel>
     <fedora-model:hasModel rdf:resource="info:fedora/hydra-cModel:commonMetadata"></fedora-model:hasModel>
