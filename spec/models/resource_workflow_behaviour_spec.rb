@@ -102,7 +102,7 @@ describe Hyhull::ResourceWorkflowBehaviour do
         HYHULL_QUEUES.invert[:qa].should == "hull:QAQueue"
         HYHULL_QUEUES.invert[:hidden].should == "hull:hiddenQueue"
         HYHULL_QUEUES.invert[:deleted].should == "hull:deletedQueue" 
-        HYHULL_QUEUES.invert[:yifQueued].should == "hull:yifQueuedQueue"
+        HYHULL_QUEUES.invert[:yif].should == "hull:yifQueue"
       end
     end
 
@@ -241,7 +241,7 @@ describe Hyhull::ResourceWorkflowBehaviour do
         end
       end 
 
-      context "yifQueued" do
+      context "yif" do
         it "should not let me publish the resource" do
            @object.publish_resource.should == false
         end

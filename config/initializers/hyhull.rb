@@ -30,7 +30,7 @@ HYHULL_QUEUES = {
   "hull:protoQueue" => :proto,
   "hull:QAQueue" => :qa,
   "hull:hiddenQueue" => :hidden,
-  "hull:yifQueuedQueue" => :yifQueued,
+  "hull:yifQueue" => :yif,
   "hull:deletedQueue" => :deleted
 }
 

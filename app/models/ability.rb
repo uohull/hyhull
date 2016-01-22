@@ -64,7 +64,7 @@
       # If the obj includes the Hyhull::ResourceWorkflowBehaviour then we will test which state is in...
       if obj.class.included_modules.include? Hyhull::ResourceWorkflowBehaviour 
         # At present Resources are ONLY deletable when in the PROTO, QA and DELETE state
-        if obj.resource_proto? || obj.resource_qa? || obj.resource_deleted? #|| obj.resource_yifQueued?
+        if obj.resource_proto? || obj.resource_qa? || obj.resource_deleted? #|| obj.resource_yif?
           result = true
         end
       else
