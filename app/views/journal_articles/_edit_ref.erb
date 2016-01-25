@@ -28,7 +28,7 @@
         ["Technical", ref_technical_options], 
         ["Deposit", ref_deposit_options],
         ["Access", ref_access_options],
-        ["————————————————————————",
+        ["———————————————————————————————————————————",
         ["Other"]]
       ]
     %>
@@ -37,14 +37,13 @@
       grouped_options_for_select(grouped_options),
       :name => "journal_article[ref_exception]", 
       :prompt => "Please select exception...",
-      :class => ".toggleOther" %>
+      :class => "toggleOther" %>
 
     <%= f.hidden_field "ref_exception_technical", value: "false" %>
     <%= f.hidden_field "ref_exception_deposit", value: "false" %>
     <%= f.hidden_field "ref_exception_access", value: "false" %>
-    <%= f.hidden_field "ref_exception_other", value: "false" %>
-
-    <%#= f.input :ref_exception, label: "Other REF Exception",
-      placeholder: "Please enter exception..."%>
-
+    <%= f.hidden_field "ref_exception_other",
+      value: "false", class: "span8", 
+      placeholder: "Please enter exception..."
+    %>
   </div>
