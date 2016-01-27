@@ -352,49 +352,68 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
   end
 
   def add_ref_exception(ref_exception_data)
+debugger
+    
+    if (ref_exception_data.downcase == "none") 
+      # default all ref exception types
+      self.ref_exception_technical = false
+      self.ref_exception_technical.display_label = nil
 
-    # get exception properties
-    list_of_values_technical = Property.select_by_property_type_name(
-                                 "REF-EXCEPTION-TECHNICAL", false
+      self.ref_exception_deposit = false
+      self.ref_exception_deposit.display_label = nil
+
+      self.ref_exception_access = false
+      self.ref_exception_access.display_label = nil
+
+      self.ref_exception_other = false
+      self.ref_exception_other.display_label = nil
+
+    else
+
+      # default all ref exception types
+      self.ref_exception_technical = false
+      self.ref_exception_technical.display_label = nil
+
+      self.ref_exception_deposit = false
+      self.ref_exception_deposit.display_label = nil
+
+      self.ref_exception_access = false
+      self.ref_exception_access.display_label = nil
+
+      self.ref_exception_other = false
+      self.ref_exception_other.display_label = nil
+
+      # get exception properties
+      list_of_values_technical = Property.select_by_property_type_name(
+                                   "REF-EXCEPTION-TECHNICAL", false
+                                 ).map(&:value)
+
+      list_of_values_deposit = Property.select_by_property_type_name(
+                                 "REF-EXCEPTION-DEPOSIT", false
                                ).map(&:value)
 
-    list_of_values_deposit = Property.select_by_property_type_name(
-                               "REF-EXCEPTION-DEPOSIT", false
-                             ).map(&:value)
+      list_of_values_access = Property.select_by_property_type_name(
+                                "REF-EXCEPTION-ACCESS", false
+                              ).map(&:value)
 
-    list_of_values_access = Property.select_by_property_type_name(
-                              "REF-EXCEPTION-ACCESS", false
-                            ).map(&:value)
+      # technical exception
+      if list_of_values_technical.include? ref_exception_data
+        self.ref_exception_technical = true
+        self.ref_exception_technical.display_label = ref_exception_data
+      # deposit exception
+      elsif list_of_values_deposit.include? ref_exception_data
+        self.ref_exception_deposit = true
+        self.ref_exception_deposit.display_label = ref_exception_data   
+      # access exception
+      elsif list_of_values_access.include? ref_exception_data
+        self.ref_exception_access = true
+        self.ref_exception_access.display_label = ref_exception_data
+      # other exception
+      else
+        self.ref_exception_other = true
+        self.ref_exception_other.display_label = ref_exception_data
+      end
 
-    # default all ref exception types
-    self.ref_exception_technical = false
-    self.ref_exception_technical.display_label = nil
-
-    self.ref_exception_deposit = false
-    self.ref_exception_deposit.display_label = nil
-
-    self.ref_exception_access = false
-    self.ref_exception_access.display_label = nil
-
-    self.ref_exception_other = false
-    self.ref_exception_other.display_label = nil
-
-    # if technical exception
-    if list_of_values_technical.include? ref_exception_data
-      self.ref_exception_technical = true
-      self.ref_exception_technical.display_label = ref_exception_data
-    #if deposit exception
-    elsif list_of_values_deposit.include? ref_exception_data
-      self.ref_exception_deposit = true
-      self.ref_exception_deposit.display_label = ref_exception_data   
-    # if access exception
-    elsif list_of_values_access.include? ref_exception_data
-      self.ref_exception_access = true
-      self.ref_exception_access.display_label = ref_exception_data
-    # else other exception
-    else
-      self.ref_exception_other = true
-      self.ref_exception_other.display_label = ref_exception_data
     end
 
     # remove refException
