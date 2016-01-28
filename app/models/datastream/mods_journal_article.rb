@@ -425,7 +425,7 @@ debugger
 
    # Over-ride ModsMetadataMethods person_role_terms for mods-etd roles 
   def self.person_role_terms
-    ["Author"]
+    ["Author", "Contributer"]
   end   
 
   def self.person_affiliation_terms
