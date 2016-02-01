@@ -5,6 +5,8 @@
 # Mime::Type.register "image/jpeg2000", :jp2
 Mime::Type.register_alias "text/html", :textile
 Mime::Type.register_alias "text/html", :inline
+Mime::Type.register_alias "application/x-compress", :xz
+Mime::Type.register_alias "application/x-compress", :z
 
 Mime::Type.register_alias "text/plain", :refworks_marc_txt
 Mime::Type.register_alias "text/plain", :openurl_kev

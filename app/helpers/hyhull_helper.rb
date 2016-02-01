@@ -230,6 +230,8 @@ module HyhullHelper
       "spreadsheet-download"
     when "application/zip"
       "zip-download"
+    when "application/x-compress"
+      "zip-download"
     when "application/vnd.google-earth.kmz", "application/vnd.google-earth.kml+xml"
       "kmlz-download"
     else
