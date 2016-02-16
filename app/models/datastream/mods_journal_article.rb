@@ -352,7 +352,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
   end
 
   def add_ref_exception(ref_exception_data)
-debugger
+
     
     if (ref_exception_data.downcase == "none") 
       # default all ref exception types
@@ -425,7 +425,7 @@ debugger
 
    # Over-ride ModsMetadataMethods person_role_terms for mods-etd roles 
   def self.person_role_terms
-    ["Author", "Contributer"]
+    ["Author", "Contributor"]
   end   
 
   def self.person_affiliation_terms
