@@ -52,6 +52,9 @@ class JournalArticle < ActiveFedora::Base
                  :ref_exception_other, datastream: :descMetadata, 
                  multiple: false
 
+  # RIOXX fields
+  has_attributes :apc, datastream: :descMetadata, multiple: false
+
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsJournalArticle, multiple: false
   delegate :url_access_terms, to: Datastream::ModsJournalArticle, multiple: false

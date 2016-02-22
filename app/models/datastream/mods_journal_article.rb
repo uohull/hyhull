@@ -138,6 +138,9 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       )
     }
 
+    # rioxx - fields
+    t.apc(:path=>'apc')
+
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
     t.type_of_resource(:path=>"typeOfResource", :index_as=>[:displayable])
