@@ -4,6 +4,16 @@
   <% render "shared/error_messages", target: @journal_article %>
 
   <div class="fields">
+
+    <h6>Free to read</h6>
+
+    <%= f.input :free_to_read_start_date, label: "Start date",
+      placeholder: "Please enter date YYYY-MM-DD..." %>
+    <%= f.input :free_to_read_end_date, label: "End date",
+      placeholder: "Please enter date YYYY-MM-DD..." %>
+
+    <hr/>
+    
     <h6>Dates</h6>
 
     <%= f.input :journal_date_other, label: "Date accepted",

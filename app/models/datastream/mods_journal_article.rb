@@ -139,11 +139,15 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     }
     # RIOXX - fields
     t.apc(:path=>'apc')
-
     t.project {
       t.project_funder_id(path: { attribute: "funderId"})
       t.project_funder_name(path: {attribute: "funderName"})
     }
+    t.free_to_read(:path => "free_to_read") {
+      t.free_to_read_start_date(path: { attribute: "start_date" })
+      t.free_to_read_end_date(path: { attribute: "end_date"})
+    }
+
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
     t.type_of_resource(:path=>"typeOfResource", :index_as=>[:displayable])
@@ -238,6 +242,8 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     # RIOXX/REF
     t.project_funder_id(:proxy=>[:project, :project_funder_id])
     t.project_funder_name(:proxy=>[:project, :project_funder_name])
+    t.free_to_read_start_date(:proxy=>[:free_to_read, :free_to_read_start_date])
+    t.free_to_read_end_date(:proxy=>[:free_to_read, :free_to_read_end_date])
 
   end
   
