@@ -143,12 +143,12 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       t.project_funder_id(path: { attribute: "funderId"})
       t.project_funder_name(path: {attribute: "funderName"})
     }
-    t.free_to_read(:path => "free_to_read") {
-      t.free_to_read_start_date(path: { attribute: "start_date" })
-      t.free_to_read_end_date(path: { attribute: "end_date"})
+    t.free_to_read {
+      t.free_to_read_start_date(path: { attribute: "startDate" })
+      t.free_to_read_end_date(path: { attribute: "endDate"})
     }
-    t.licence_url(:path => "licence_ref") {
-      t.licence_start_date(path: { attribute: "start_date"})
+    t.licence_url {
+      t.licence_start_date(path: { attribute: "startDate"})
     }
 
     # Resource types 
