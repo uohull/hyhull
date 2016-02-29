@@ -147,6 +147,9 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       t.free_to_read_start_date(path: { attribute: "start_date" })
       t.free_to_read_end_date(path: { attribute: "end_date"})
     }
+    t.licence_url(:path => "licence_ref") {
+      t.licence_start_date(path: { attribute: "start_date"})
+    }
 
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
@@ -244,6 +247,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.project_funder_name(:proxy=>[:project, :project_funder_name])
     t.free_to_read_start_date(:proxy=>[:free_to_read, :free_to_read_start_date])
     t.free_to_read_end_date(:proxy=>[:free_to_read, :free_to_read_end_date])
+    t.licence_start_date(:proxy=>[:licence_url, :licence_start_date])
 
   end
   

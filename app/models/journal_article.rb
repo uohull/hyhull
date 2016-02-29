@@ -57,6 +57,7 @@ class JournalArticle < ActiveFedora::Base
 
   has_attributes :project, :project_funder_id, :project_funder_name,
                  :free_to_read_start_date, :free_to_read_end_date,
+                 :licence_start_date, :licence_url,
                  datastream: :descMetadata, multiple: false
 
   # Static Relator terms 
@@ -73,6 +74,7 @@ class JournalArticle < ActiveFedora::Base
   validates :publisher, presence: true
   validates :free_to_read_start_date, format: { with: /^(\d{4}-\d{2}-\d{2})/ }
   validates :free_to_read_end_date, format: { with: /^(\d{4}-\d{2}-\d{2})/ }
+  validates :licence_start_date, format: { with: /^(\d{4}-\d{2}-\d{2})/}
 
   # Overridden so that we can store a cmodel and "complex Object"
   def assert_content_model
