@@ -137,10 +137,13 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
         :namespace_prefix => nil
       )
     }
-
-    # rioxx - fields
+    # RIOXX - fields
     t.apc(:path=>'apc')
 
+    t.project {
+      t.project_funder_id(path: { attribute: "funderId"})
+      t.project_funder_name(path: {attribute: "funderName"})
+    }
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
     t.type_of_resource(:path=>"typeOfResource", :index_as=>[:displayable])
@@ -231,9 +234,13 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
 
     # Converis
     t.converis_publication_id(:proxy=>[:converis_related, :publication_id], :index_as =>[:searchable])
+
+    # RIOXX/REF
+    t.project_funder_id(:proxy=>[:project, :project_funder_id])
+    t.project_funder_name(:proxy=>[:project, :project_funder_name])
+
   end
   
-
   # Generates an empty Mods Article (used when you call ModsArticle.new without passing in existing xml)
   def self.xml_template
     builder = Nokogiri::XML::Builder.new do |xml|
@@ -355,7 +362,6 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
   end
 
   def add_ref_exception(ref_exception_data)
-
     
     if (ref_exception_data.downcase == "none") 
       # default all ref exception types
