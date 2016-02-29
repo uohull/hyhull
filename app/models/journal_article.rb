@@ -40,7 +40,7 @@ class JournalArticle < ActiveFedora::Base
   # Subjects
   has_attributes :subject_topic, datastream: :descMetadata, multiple: true
   # People
-  has_attributes :person_name, :person_role_text, :person_affiliation, datastream: :descMetadata, multiple: true
+  has_attributes :person_name, :person_role_text, :person_role_code, :person_affiliation, datastream: :descMetadata, multiple: true
   # has_attributes :person_affiliation, datastream: :descMetadata, multiple: true
 
   # Journal URLS
@@ -54,6 +54,9 @@ class JournalArticle < ActiveFedora::Base
 
   # RIOXX fields
   has_attributes :apc, datastream: :descMetadata, multiple: false
+
+  has_attributes :project, :project_funder_id, :project_funder_name,
+                 datastream: :descMetadata, multiple: false
 
   # Static Relator terms 
   delegate :person_role_terms, to: Datastream::ModsJournalArticle, multiple: false

@@ -9,13 +9,6 @@
     <%= f.input :journal_date_other, label: "Date accepted",
       placeholder: "Please enter date YYYY-MM-DD..." %>
 
-    <%#= f.input :apc, label: "APC", placeholder: "Please enter..." %>
-
-    <%#
-      options_for_apc = ["Paid", "Partially waived", "Fully waived",
-                        "Not charged", "Not required", "Unknown" ]
-    %>
-
     <div class="control-group">
       <%= label_tag 'journal_article_apc', 'APC', class: 'control-label' %>
       <div class="controls">
@@ -24,10 +17,22 @@
             "Not charged", "Not required", "Unknown"]), 
           :name => "journal_article[apc]", 
           :prompt => "Please select..." 
-
         %>
       </div>
     </div>
+
+    <hr/>
+
+    <h6>Project</h6>
+
+      <%= f.input :project, label: "Project ID", 
+        placeholder: "Please enter..." %>
+
+      <%= f.input :project_funder_id, label: "Funder ID", 
+        placeholder: "Please enter..." %>
+
+      <%= f.input :project_funder_name, label: "Funder Name", 
+        placeholder: "Please enter..." %>
 
     <hr/>
 
