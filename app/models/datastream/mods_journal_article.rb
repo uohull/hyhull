@@ -138,7 +138,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       )
     }
     # RIOXX - fields
-    t.apc(:path=>'apc', attributes: { type: "rioxx" } )
+    t.apc(:path=>'note', attributes: { type: "apc" } )
     t.project(attributes: { type: "rioxx" } ) {
       t.project_funder_id(path: { attribute: "funderId"})
       t.project_funder_name(path: {attribute: "funderName"})
