@@ -6,7 +6,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
 
     # Main fields title, authors, language etc...
     t.title_info(:path=>"titleInfo", :attributes => { :type => :none } ) {
-      t.main_title(:path=>"title", :label=>"title", :index_as=>[:facetable]) 
+      t.main_title(:path=>"title", :label=>"title", :ilndex_as=>[:facetable]) 
       t.language(:index_as=>[:facetable],:path=>{:attribute=>"lang"})
     }
     t.title_info_alternative(:path=>"titleInfo", :attributes=>{:type=>"alternative"}) {
@@ -26,7 +26,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     }
     t.topic_tag(:path=>"subject", :default_content_path=>"topic") 
 
-    # This is a mods:name.  The underscore is purely to avoid namespace conflicts.
+    # This is a mods:name.  The underscore is purely to avoid name space conflicts.
     t.name_ {
       t.type(:path => {:attribute=>"type"}, :namespace_prefix => nil)
       # this is a namepart
@@ -138,18 +138,18 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       )
     }
     # RIOXX - fields
-    t.apc(:path=>'apc')
-    t.project {
+    t.apc(:path=>'apc', attributes: { type: "rioxx" } )
+    t.project(attributes: { type: "rioxx" } ) {
       t.project_funder_id(path: { attribute: "funderId"})
       t.project_funder_name(path: {attribute: "funderName"})
     }
-    t.free_to_read {
-      t.free_to_read_start_date(path: { attribute: "startDate" })
-      t.free_to_read_end_date(path: { attribute: "endDate"})
-    }
-    t.licence_url {
-      t.licence_start_date(path: { attribute: "startDate"})
-    }
+    # t.free_to_read(path: "freeToRead", attributes: { type: "rioxx" } ) {
+    #   t.free_to_read_start_date(path: { attribute: "startDate" })
+    #   t.free_to_read_end_date(path: { attribute: "endDate"})
+    # }
+    # t.licence_url(path: "licenceUrl", attributes: { type: "rioxx"} ) {
+    #   t.licence_start_date(path: { attribute: "startDate"})
+    # }
 
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
@@ -243,11 +243,11 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.converis_publication_id(:proxy=>[:converis_related, :publication_id], :index_as =>[:searchable])
 
     # RIOXX/REF
-    t.project_funder_id(:proxy=>[:project, :project_funder_id])
-    t.project_funder_name(:proxy=>[:project, :project_funder_name])
-    t.free_to_read_start_date(:proxy=>[:free_to_read, :free_to_read_start_date])
-    t.free_to_read_end_date(:proxy=>[:free_to_read, :free_to_read_end_date])
-    t.licence_start_date(:proxy=>[:licence_url, :licence_start_date])
+    t.project_funder_id(:path => "project_funder_id", :proxy=>[:project, :project_funder_id])
+    t.project_funder_name(:path => "project_funder_name", :proxy=>[:project, :project_funder_name])
+    # t.free_to_read_start_date(:proxy=>[:free_to_read, :free_to_read_start_date])
+    # t.free_to_read_end_date(:proxy=>[:free_to_read, :free_to_read_end_date])
+    # t.licence_start_date(:proxy=>[:licence_url, :licence_start_date])
 
   end
   
