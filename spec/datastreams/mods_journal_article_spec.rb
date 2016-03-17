@@ -59,6 +59,11 @@ describe Datastream::ModsJournalArticle do
     # Unit of assessement
     @ds.unit_of_assessment.should == ["Uoa 15"]
 
+    # RIOXX
+    @ds.apc.should == ["Paid"]    
+    @ds.project == ["1234a"]
+    @ds.project_funder_id == ["A funder name"]
+    @ds.project_funder_name == ["5678b"]
   end
 
   it "should expose nested/hierarchical metadata" do

@@ -68,7 +68,11 @@ describe JournalArticle do
         "journal_url_access" => ["raw object", "preview"],
         "journal_url_display_label" => ["Full text", "Abstract"], 
         "converis_publication_id" => "123456", 
-        "unit_of_assessment" => "UoA 15"
+        "unit_of_assessment" => "UoA 15",
+        "apc" => "Paid",
+        "project" => "1234a",
+        "project_funder_id" => "5678b",
+        "project_funder_name" => "A funder name"
       } 
 
       @ja.update_attributes( attributes_hash )
@@ -109,6 +113,12 @@ describe JournalArticle do
       @ja.unit_of_assessment.should == attributes_hash["unit_of_assessment"]
       @ja.converis_publication_id.should == attributes_hash["converis_publication_id"]
 
+      # RIOXX
+      @ja.apc == attributes_hash["apc"]
+      @ja.project == attributes_hash["project"]
+      @ja.project_funder_id == attributes_hash["project_funder_id"]
+      @ja.project_funder_name == attributes_hash["project_funder_name"]
+      
       @ja.save
     end
 
@@ -150,7 +160,10 @@ describe JournalArticle do
           "subject_topic" => ["Subject of the matter"],
           "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
           "journal_url_access" => ["raw object", "preview"],
-          "journal_url_display_label" => ["Full text", "Abstract"]
+          "journal_url_display_label" => ["Full text", "Abstract"],
+          "project" => ["1234a"],
+          "project_funder_id" => ["5678b"],
+          "project_funder_name" => ["A funder name"] 
         } 
         @ja.update_attributes( @attributes_hash )        
       end
