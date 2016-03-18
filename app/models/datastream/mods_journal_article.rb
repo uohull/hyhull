@@ -139,19 +139,24 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     }
     # RIOXX - fields
     t.apc(:path=>'note', attributes: { type: "apc" } )
-    # t.project(attributes: { type: "rioxx" } ) {
-    #   t.project_funder_id(path: { attribute: "funderId"})
-    #   t.project_funder_name(path: {attribute: "funderName"})
-    # }
+
     t.project(path: "relatedItem", attributes: { type: "host" } ) {
       t.project_id(path: "note", attributes: { type: "project_id"} )
       t.project_funder_id(path: "note", attributes: { type: "funder_id"})
       t.project_funder_name(path: "note", attributes: { type: "funder_name"} )
     }
-    # t.free_to_read(path: "freeToRead", attributes: { type: "rioxx" } ) {
-    #   t.free_to_read_start_date(path: { attribute: "startDate" })
-    #   t.free_to_read_end_date(path: { attribute: "endDate"})
-    # }
+
+    t.originInfo {
+      t.free_to_read_start_date(
+        path: "dateOther",
+        attributes: { type: "free_to_read_start_date", encoding: "w3cdtf" } 
+      )
+      t.free_to_read_end_date(
+        path: "dateOther",
+        attributes: { type: "free_to_read_end_date", encoding: "w3cdtf" }
+      )
+    }
+
     # t.licence_url(path: "licenceUrl", attributes: { type: "rioxx"} ) {
     #   t.licence_start_date(path: { attribute: "startDate"})
     # }
@@ -251,8 +256,8 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.project_id(:proxy=>[:project, :project_id])
     t.project_funder_id(:proxy=>[:project, :project_funder_id])
     t.project_funder_name(:proxy=>[:project, :project_funder_name])
-    # t.free_to_read_start_date(:proxy=>[:free_to_read, :free_to_read_start_date])
-    # t.free_to_read_end_date(:proxy=>[:free_to_read, :free_to_read_end_date])
+    t.free_to_read_start_date(:proxy=>[:originInfo, :free_to_read_start_date])
+    t.free_to_read_end_date(:proxy=>[:originInfo, :free_to_read_end_date])
     # t.licence_start_date(:proxy=>[:licence_url, :licence_start_date])
 
   end

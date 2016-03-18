@@ -56,7 +56,7 @@ class JournalArticle < ActiveFedora::Base
   has_attributes :apc, datastream: :descMetadata, multiple: false
 
   has_attributes :project_id, :project_funder_id, :project_funder_name,
-                 # :free_to_read_start_date, :free_to_read_end_date,
+                 :free_to_read_start_date, :free_to_read_end_date,
                  # :licence_start_date, :licence_url,
                  datastream: :descMetadata, multiple: false
 
@@ -72,8 +72,8 @@ class JournalArticle < ActiveFedora::Base
   # validates :person_affiliation, array: { :length => { :minimum => 1 } }
   validates :subject_topic, array: { :length => { :minimum => 2 } }
   validates :publisher, presence: true
-  # validates :free_to_read_start_date, format: { with: /^(\d{4}-\d{2}-\d{2})/ }
-  # validates :free_to_read_end_date, format: { with: /^(\d{4}-\d{2}-\d{2})/ }
+  validates :free_to_read_start_date, format: { with: /^(\d{4}-\d{2}-\d{2})/ }
+  validates :free_to_read_end_date, format: { with: /^(\d{4}-\d{2}-\d{2})/ }
   # validates :licence_start_date, format: { with: /^(\d{4}-\d{2}-\d{2})/}
 
   # Overridden so that we can store a cmodel and "complex Object"
