@@ -70,7 +70,7 @@ describe JournalArticle do
         "converis_publication_id" => "123456", 
         "unit_of_assessment" => "UoA 15",
         "apc" => "Paid",
-        "project" => "1234a",
+        "project_id" => "1234a",
         "project_funder_id" => "5678b",
         "project_funder_name" => "A funder name"
       } 
@@ -115,7 +115,7 @@ describe JournalArticle do
 
       # RIOXX
       @ja.apc == attributes_hash["apc"]
-      @ja.project == attributes_hash["project"]
+      @ja.project_id == attributes_hash["project_id"]
       @ja.project_funder_id == attributes_hash["project_funder_id"]
       @ja.project_funder_name == attributes_hash["project_funder_name"]
       
@@ -161,7 +161,7 @@ describe JournalArticle do
           "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
           "journal_url_access" => ["raw object", "preview"],
           "journal_url_display_label" => ["Full text", "Abstract"],
-          "project" => ["1234a"],
+          "project_id" => ["1234a"],
           "project_funder_id" => ["5678b"],
           "project_funder_name" => ["A funder name"] 
         } 
