@@ -72,7 +72,9 @@ describe JournalArticle do
         "apc" => "Paid",
         "project_id" => "1234a",
         "project_funder_id" => "5678b",
-        "project_funder_name" => "A funder name"
+        "project_funder_name" => "A funder name",
+        "free_to_read_start_date" => "2015-11-15",
+        "free_to_read_end_date" => "2016-11-15"
       } 
 
       @ja.update_attributes( attributes_hash )
@@ -118,7 +120,9 @@ describe JournalArticle do
       @ja.project_id == attributes_hash["project_id"]
       @ja.project_funder_id == attributes_hash["project_funder_id"]
       @ja.project_funder_name == attributes_hash["project_funder_name"]
-      
+      @ja.free_to_read_start_date == attributes_hash["free_to_read_start_date"]
+      @ja.free_to_read_end_date == attributes_hash["free_to_read_end_date"]
+
       @ja.save
     end
 
@@ -129,7 +133,9 @@ describe JournalArticle do
         "person_role_text" => [""],
         "person_affiliation" => [""],
         "subject_topic" => [""],
-        "publisher" => ""
+        "publisher" => "",
+        "free_to_read_start_date" => "",
+        "free_to_read_end_date" => ""
       }
 
       @ja.update_attributes( invalid_attributes_hash )
@@ -138,7 +144,7 @@ describe JournalArticle do
       @ja.save.should be_false
 
       # with 5 error messages
-      @ja.errors.messages.size.should == 5
+      @ja.errors.messages.size.should == 7
 
       # errors...
       @ja.errors.messages[:title].should == ["can't be blank"]
@@ -147,6 +153,8 @@ describe JournalArticle do
       @ja.errors.messages[:person_affiliation].should be_nil
       @ja.errors.messages[:subject_topic].should == ["is too short (minimum is 2 characters)"]
       @ja.errors.messages[:publisher].should == ["can't be blank"]
+      @ja.errors.messages[:free_to_read_start_date].should == ["is invalid"]
+      @ja.errors.messages[:free_to_read_end_date].should == ["is invalid"]
     end
 
     context "non unique fields" do
@@ -163,7 +171,9 @@ describe JournalArticle do
           "journal_url_display_label" => ["Full text", "Abstract"],
           "project_id" => ["1234a"],
           "project_funder_id" => ["5678b"],
-          "project_funder_name" => ["A funder name"] 
+          "project_funder_name" => ["A funder name"],
+          "free_to_read_start_date" => ["2015-11-07"],
+          "free_to_read_end_date" => ["2016-11-07"]
         } 
         @ja.update_attributes( @attributes_hash )        
       end
@@ -214,6 +224,8 @@ describe JournalArticle do
           @valid_ja.language_code = "eng"
           @valid_ja.language_text = "English"
           @valid_ja.publisher = "IT, UoH"
+          @valid_ja.free_to_read_start_date = "2015-11-07"
+          @valid_ja.free_to_read_end_date = "2016-11-07"
           @valid_ja.save
       end
       after(:each) do
@@ -256,6 +268,8 @@ describe JournalArticle do
       @valid_ja.language_text = "English"
       @valid_ja.publisher = "IT, UoH"
       @valid_ja.date_issued = "2012"
+      @valid_ja.free_to_read_start_date = "2015-11-07"
+      @valid_ja.free_to_read_end_date = "2016-11-07"
       @valid_ja.save
     end
 
