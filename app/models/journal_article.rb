@@ -55,7 +55,7 @@ class JournalArticle < ActiveFedora::Base
   # RIOXX fields
   has_attributes :apc, datastream: :descMetadata, multiple: false
 
-  has_attributes :project, :project_funder_id, :project_funder_name,
+  has_attributes :project_id, :project_funder_id, :project_funder_name,
                  # :free_to_read_start_date, :free_to_read_end_date,
                  # :licence_start_date, :licence_url,
                  datastream: :descMetadata, multiple: false
