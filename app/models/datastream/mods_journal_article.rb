@@ -155,11 +155,15 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
         path: "dateOther",
         attributes: { type: "free_to_read_end_date", encoding: "w3cdtf" }
       )
+      t.licence_url(
+        path: "dateOther",
+        attributes: { type: "licence_url", encoding: "w3cdtf" }
+      )
+      t.licence_ref_start_date(
+        path: "dateOther",
+        attributes: { type: "license_ref_start_date", encoding: "w3cdtf" }
+      )
     }
-
-    # t.licence_url(path: "licenceUrl", attributes: { type: "rioxx"} ) {
-    #   t.licence_start_date(path: { attribute: "startDate"})
-    # }
 
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
@@ -258,7 +262,8 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     t.project_funder_name(:proxy=>[:project, :project_funder_name])
     t.free_to_read_start_date(:proxy=>[:originInfo, :free_to_read_start_date])
     t.free_to_read_end_date(:proxy=>[:originInfo, :free_to_read_end_date])
-    # t.licence_start_date(:proxy=>[:licence_url, :licence_start_date])
+    t.licence_url(:proxy=>[:originInfo, :licence_url])
+    t.licence_ref_start_date(:proxy=>[:originInfo, :licence_ref_start_date])
 
   end
   

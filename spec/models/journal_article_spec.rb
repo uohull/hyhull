@@ -74,7 +74,9 @@ describe JournalArticle do
         "project_funder_id" => "5678b",
         "project_funder_name" => "A funder name",
         "free_to_read_start_date" => "2015-11-15",
-        "free_to_read_end_date" => "2016-11-15"
+        "free_to_read_end_date" => "2016-11-15",
+        "licence_url" => "http://licence-url.com",
+        "licence_ref_start_date" => "2016-03-21"
       } 
 
       @ja.update_attributes( attributes_hash )
@@ -122,6 +124,8 @@ describe JournalArticle do
       @ja.project_funder_name == attributes_hash["project_funder_name"]
       @ja.free_to_read_start_date == attributes_hash["free_to_read_start_date"]
       @ja.free_to_read_end_date == attributes_hash["free_to_read_end_date"]
+      @ja.licence_url == attributes_hash["licence_url"]
+      @ja.licence_ref_start_date == attributes_hash["2016-03-21"]
 
       @ja.save
     end
@@ -135,7 +139,8 @@ describe JournalArticle do
         "subject_topic" => [""],
         "publisher" => "",
         "free_to_read_start_date" => "01-01-01",
-        "free_to_read_end_date" => "01-01-01"
+        "free_to_read_end_date" => "01-01-01",
+        "licence_ref_start_date" => "01-01-01"
       }
 
       @ja.update_attributes( invalid_attributes_hash )
@@ -144,7 +149,7 @@ describe JournalArticle do
       @ja.save.should be_false
 
       # with 7 error messages
-      @ja.errors.messages.size.should == 7
+      @ja.errors.messages.size.should == 8
 
       # errors...
       @ja.errors.messages[:title].should == ["can't be blank"]
@@ -155,6 +160,7 @@ describe JournalArticle do
       @ja.errors.messages[:publisher].should == ["can't be blank"]
       @ja.errors.messages[:free_to_read_start_date].should == ["is invalid"]
       @ja.errors.messages[:free_to_read_end_date].should == ["is invalid"]
+      @ja.errors.messages[:licence_ref_start_date].should == ["is invalid"]
     end
 
     context "non unique fields" do
@@ -173,7 +179,9 @@ describe JournalArticle do
           "project_funder_id" => ["5678b"],
           "project_funder_name" => ["A funder name"],
           "free_to_read_start_date" => ["2015-11-07"],
-          "free_to_read_end_date" => ["2016-11-07"]
+          "free_to_read_end_date" => ["2016-11-07"],
+          "licence_url" => ["http://licence-url.com"],
+          "licence_ref_start_date" => ["2016-03-21"]
         } 
         @ja.update_attributes( @attributes_hash )        
       end
@@ -226,6 +234,7 @@ describe JournalArticle do
           @valid_ja.publisher = "IT, UoH"
           @valid_ja.free_to_read_start_date = "2015-11-07"
           @valid_ja.free_to_read_end_date = "2016-11-07"
+
           @valid_ja.save
       end
       after(:each) do
