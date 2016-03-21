@@ -131,8 +131,8 @@ describe JournalArticle do
         "person_role_text" => [""],
         "subject_topic" => [""],
         "publisher" => "",
-        "free_to_read_start_date" => "",
-        "free_to_read_end_date" => ""
+        "free_to_read_start_date" => "01-01-01",
+        "free_to_read_end_date" => "01-01-01"
       }
 
       @ja.update_attributes( invalid_attributes_hash )
@@ -140,7 +140,7 @@ describe JournalArticle do
       # save should be false
       @ja.save.should be_false
 
-      # with 5 error messages
+      # with 7 error messages
       @ja.errors.messages.size.should == 7
 
       # errors...
