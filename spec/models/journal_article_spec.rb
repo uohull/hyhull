@@ -140,7 +140,8 @@ describe JournalArticle do
         "publisher" => "",
         "free_to_read_start_date" => "01-01-01",
         "free_to_read_end_date" => "01-01-01",
-        "licence_ref_start_date" => "01-01-01"
+        "licence_ref_start_date" => "01-01-01",
+        "record_creation_date" => "16/03/21"
       }
 
       @ja.update_attributes( invalid_attributes_hash )
@@ -149,7 +150,7 @@ describe JournalArticle do
       @ja.save.should be_false
 
       # with 7 error messages
-      @ja.errors.messages.size.should == 8
+      @ja.errors.messages.size.should == 9
 
       # errors...
       @ja.errors.messages[:title].should == ["can't be blank"]
@@ -161,6 +162,7 @@ describe JournalArticle do
       @ja.errors.messages[:free_to_read_start_date].should == ["is invalid"]
       @ja.errors.messages[:free_to_read_end_date].should == ["is invalid"]
       @ja.errors.messages[:licence_ref_start_date].should == ["is invalid"]
+      @ja.errors.messages[:record_creation_date].should == ["is invalid"]
     end
 
     context "non unique fields" do

@@ -27,8 +27,13 @@
 
     <h6>Dates</h6>
 
+    <%= f.input :record_creation_date, label: "Date deposited",
+      placeholder: "Please enter date YYYY-MM-DD..." %>
+
     <%= f.input :journal_date_other, label: "Date accepted",
       placeholder: "Please enter date YYYY-MM-DD..." %>
+    
+    <hr/>
 
     <div class="control-group">
       <%= label_tag 'journal_article_apc', 'APC', class: 'control-label' %>

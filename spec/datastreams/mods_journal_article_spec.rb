@@ -104,8 +104,8 @@ describe Datastream::ModsJournalArticle do
     @ds.project_id == ["1234a"]
     @ds.project_funder_id == ["A funder name"]
     @ds.project_funder_name == ["5678b"]
-    # @ds.free_to_read_start_date == ["2015-11-15"]
-    # @ds.free_to_read_end_date == ["2016-11-15"]
+    @ds.free_to_read_start_date == ["2015-11-15"]
+    @ds.free_to_read_end_date == ["2016-11-15"]
     @ds.licence_url == ["http://licence-url.com"]
     @ds.licence_ref_start_date == ["2016-03-21"]
   end   
