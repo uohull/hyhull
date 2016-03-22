@@ -35,20 +35,6 @@
     
     <hr/>
 
-    <div class="control-group">
-      <%= label_tag 'journal_article_apc', 'APC', class: 'control-label' %>
-      <div class="controls">
-        <%= select_tag "journal_article_apc", 
-          options_for_select(["Paid", "Partially waived", "Fully waived", 
-            "Not charged", "Not required", "Unknown"]), 
-          :name => "journal_article[apc]", 
-          :prompt => "Please select..." 
-        %>
-      </div>
-    </div>
-
-    <hr/>
-
     <h6>Project</h6>
 
       <%= f.input :project_id, label: "Project ID", 
@@ -60,6 +46,37 @@
       <%= f.input :project_funder_name, label: "Funder Name", 
         placeholder: "Please enter..." %>
 
+    <hr/>
+
+    <%
+      ref_version_options = Property.select_by_property_type_name(
+        "JOURNAL-ARTICLE-REF-VERSION", false
+      ).map(&:name)
+    %>
+
+    <div class="control-group">
+      <%= label_tag "journal_article_ref_version", "Version", class: "control-label" %>
+      <div class="controls">
+        <%= select_tag "journal_article_ref_version",
+          options_for_select(ref_version_options),
+          name: "journal_article[ref_version]",
+          prompt: "Please select..."
+        %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= label_tag 'journal_article_apc', 'APC', class: 'control-label' %>
+      <div class="controls">
+        <%= select_tag "journal_article_apc", 
+          options_for_select(["Paid", "Partially waived", "Fully waived", 
+            "Not charged", "Not required", "Unknown"]), 
+          :name => "journal_article[apc]", 
+          :prompt => "Please select..." 
+        %>
+      </div>
+    </div>
+    
     <hr/>
 
     <h6>Exceptions</h6>

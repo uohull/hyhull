@@ -55,7 +55,7 @@ class JournalArticle < ActiveFedora::Base
   # RIOXX fields
   has_attributes :apc, :project_id, :project_funder_id, :project_funder_name,
                  :free_to_read_start_date, :free_to_read_end_date,
-                 :licence_ref_start_date, :licence_url,
+                 :licence_ref_start_date, :licence_url, :ref_version,
                  datastream: :descMetadata, multiple: false
 
   # Static Relator terms 

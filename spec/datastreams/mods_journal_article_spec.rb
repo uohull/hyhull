@@ -108,6 +108,7 @@ describe Datastream::ModsJournalArticle do
     @ds.free_to_read_end_date == ["2016-11-15"]
     @ds.licence_url == ["http://licence-url.com"]
     @ds.licence_ref_start_date == ["2016-03-21"]
+    @ds.ref_version == ["AO"]
   end   
 
 
