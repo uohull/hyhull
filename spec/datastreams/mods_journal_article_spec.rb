@@ -109,6 +109,7 @@ describe Datastream::ModsJournalArticle do
     @ds.licence_url == ["http://licence-url.com"]
     @ds.licence_ref_start_date == ["2016-03-21"]
     @ds.ref_version == ["AO"]
+    @ds.depositor_note == ["A depositor note..."]
   end   
 
 

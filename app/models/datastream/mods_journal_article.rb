@@ -167,6 +167,8 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
 
     t.ref_version(path: "note", attributes: { type: "version" } )
 
+    t.depositor_note(path: "note", attributes: { type: "depositorNote" } )
+
     # Resource types 
     t.genre(:path=>'genre', :index_as=>[:displayable, :facetable])
     t.type_of_resource(:path=>"typeOfResource", :index_as=>[:displayable])
