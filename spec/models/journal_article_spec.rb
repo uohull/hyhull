@@ -75,7 +75,8 @@ describe JournalArticle do
         "free_to_read_start_date" => "2015-11-15",
         "free_to_read_end_date" => "2016-11-15",
         "licence_url" => "http://licence-url.com",
-        "licence_ref_start_date" => "2016-03-21"
+        "licence_ref_start_date" => "2016-03-21",
+        "ref_version" => "AO"
       } 
 
       @ja.update_attributes( attributes_hash )
@@ -124,6 +125,7 @@ describe JournalArticle do
       @ja.free_to_read_end_date == attributes_hash["free_to_read_end_date"]
       @ja.licence_url == attributes_hash["licence_url"]
       @ja.licence_ref_start_date == attributes_hash["2016-03-21"]
+      @ja.ref_version == attributes_hash["AO"]
 
       @ja.save
     end
@@ -171,14 +173,15 @@ describe JournalArticle do
           "subject_topic" => ["Subject of the matter"],
           "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
           "journal_url_access" => ["raw object", "preview"],
-          "journal_url_display_label" => ["Full text", "Abstract"],
-          "project_id" => ["1234a"],
-          "project_funder_id" => ["5678b"],
-          "project_funder_name" => ["A funder name"],
-          "free_to_read_start_date" => ["2015-11-07"],
-          "free_to_read_end_date" => ["2016-11-07"],
-          "licence_url" => ["http://licence-url.com"],
-          "licence_ref_start_date" => ["2016-03-21"]
+          "journal_url_display_label" => ["Full text", "Abstract"]
+          # "project_id" => ["1234a"],
+          # "project_funder_id" => ["5678b"],
+          # "project_funder_name" => ["A funder name"],
+          # "free_to_read_start_date" => ["2015-11-07"],
+          # "free_to_read_end_date" => ["2016-11-07"],
+          # "licence_url" => ["http://licence-url.com"],
+          # "licence_ref_start_date" => ["2016-03-21"],
+          # "ref_version" => ["AO"]
         } 
         @ja.update_attributes( @attributes_hash )        
       end
@@ -229,7 +232,7 @@ describe JournalArticle do
           @valid_ja.publisher = "IT, UoH"
           @valid_ja.free_to_read_start_date = "2015-11-07"
           @valid_ja.free_to_read_end_date = "2016-11-07"
-
+          @valid_ja.ref_version = "AO"
           @valid_ja.save
       end
       after(:each) do
@@ -273,6 +276,7 @@ describe JournalArticle do
       @valid_ja.date_issued = "2012"
       @valid_ja.free_to_read_start_date = "2015-11-07"
       @valid_ja.free_to_read_end_date = "2016-11-07"
+      @valid_ja.ref_version = "AO"
       @valid_ja.save
     end
 
@@ -331,4 +335,3 @@ describe JournalArticle do
   end
 
 end
-

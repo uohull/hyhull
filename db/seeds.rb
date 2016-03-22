@@ -58,7 +58,8 @@ end
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI", description: "Journal Article Department Affiliation Faculty Sci"},
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH", description: "Journal Article Department Affiliation Faculty Health"},
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION", description: "Journal Article Department Affiliation Faculty Education"},
-  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", description: "Journal Article Department Affiliation Faculty Business School"}
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", description: "Journal Article Department Affiliation Faculty Business School"},
+  { name: "JOURNAL-ARTICLE-REF-VERSION", description: "Journal Article REF version" }
 ].each { |p| PropertyType.create(name: p[:name], description: p[:description]) }
 
 # Seed the REF exceptions table
@@ -162,6 +163,16 @@ unless Rails.env.production?
       name: n,
       value: n,
       property_type: PropertyType.where(name: "REF-EXCEPTION-ACCESS").first
+    )
+  }
+
+  # REF-VERSION
+  [
+    "AO", "SMUR", "AM", "P", "VoR", "CVoR", "EVoR", "NA"
+  ].each { |n| Property.create(
+      name: n,
+      value: n,
+      property_type: PropertyType.where(name: "REF-VERSION").first
     )
   }
 end
