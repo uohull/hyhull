@@ -54,16 +54,12 @@
       ).map(&:name)
     %>
 
-    <div class="control-group">
-      <%= label_tag "journal_article_ref_version", "Version", class: "control-label" %>
-      <div class="controls">
-        <%= select_tag "journal_article_ref_version",
-          options_for_select(ref_version_options),
-          name: "journal_article[ref_version]",
-          prompt: "Please select..."
-        %>
-      </div>
-    </div>
+    <%= f.input :ref_version, 
+      as: :select, 
+      label: "Version",
+      collection: ref_version_options,
+      include_blank: "Please select..."
+    %>
 
     <div class="control-group">
       <%= label_tag 'journal_article_apc', 'APC', class: 'control-label' %>
@@ -76,7 +72,11 @@
         %>
       </div>
     </div>
-    
+
+    <%= f.input :depositor_note, label: "Depositor note", 
+      as: :text, placeholder: "Please enter...",
+      input_html: { class: "input-block-level", rows: "5" } %>
+
     <hr/>
 
     <h6>Exceptions</h6>

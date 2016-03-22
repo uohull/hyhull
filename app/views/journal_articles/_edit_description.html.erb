@@ -27,5 +27,12 @@
 
 	 <%= f.input :peer_reviewed, as: :select %>
 
+	<% if staff_user? && !contentAccessTeam_user? && !admin_user? %>
+		<hr/>
+		<%= f.input :depositor_note, label: "Depositor note", 
+			as: :text, placeholder: "Please enter...",
+			input_html: { class: "input-block-level", rows: "5" } %>
+	<% end %>
+
 	</div>
 </div>
