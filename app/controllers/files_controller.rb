@@ -4,11 +4,6 @@ class FilesController < ApplicationController
 
   def create 
     if params.has_key?(:Filedata)
-      #don't trust the mime type passed form browser during upload. Instead, determine it on file extension
-      fileExtension = params[:Filedata][0].original_filename.to_s.split(".").last
-      if Mime[fileExtension] != nil
-        params[:Filedata][0].content_type = Mime[fileExtension].to_s
-      end  
       success, message = process_files
     else
       success = false
