@@ -20,7 +20,6 @@
     <link href="<%= opensearch_catalog_path(:format => 'xml', :only_path => false) %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
     <%= favicon_link_tag asset_path('hyhull/favicon.ico') %>
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
     <%#= javascript_include_tag 'stay_standalone' %> 
     <%= csrf_meta_tags %>
     <%= raw(render_head_content) %> 
@@ -87,5 +86,8 @@
   </div>
 
   <%= render :partial => 'shared/footer' %>
-    </body>
+
+  <%= javascript_include_tag "application" %>
+
+  </body>
 </html>

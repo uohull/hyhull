@@ -25,20 +25,46 @@
 
     <hr/>
 
-    <h6>REF</h6>
-
-    <%#= f.input :journal_publication_date, label: "Publication date" %>
-    <%= f.input :journal_date_other, label: "Date accepted",
-      placeholder: "Please enter date YYYY-MM-DD..." %>
-
-    <hr/>
-    
     <h6>Journal</h6>
     
     <div class="fields">     
       <%= f.input :journal_title, label: "Journal name",
         :placeholder => "Please enter journal name...", 
         :input_html => { :class => 'input-block-level' } %>
+    </div>
+
+    <hr/>
+
+    <h6>REF</h6>
+
+    <%= f.input :journal_date_other, label: "Date accepted",
+      placeholder: "Please enter date YYYY-MM-DD..." %>
+
+    <!-- this field is used to toggle depositor note on/off,
+      see claim-exception.js -->
+    <div  class="control-group">
+      <%= label_tag "ClaimExceptionLabel", "Do you wish to claim an exception?", class: "control-label" %>
+      <div class="controls">
+        <%= select_tag "ClaimExceptionSel", 
+          options_for_select(["No", "Yes"]), 
+          :name => "ClaimExceptionSel"
+        %>
+        <p>
+          Please see the
+          <%= link_to 'HEFCE REF Open Access Policy',
+            'http://www.hefce.ac.uk/rsrch/oa/Policy/',
+            target: "_blank" %> 
+          for details
+        </p>
+      </div>
+    </div>
+
+    <!-- this field is toggled on/off by ClaimExceptionSel,
+      see claim-exception.js -->
+    <div id="ClaimExceptionControl">
+      <%= f.input :depositor_note, label: "Exception claim" , 
+        as: :text, placeholder: "Please describe your claim...",
+        input_html: { class: "input-block-level", rows: "5" } %>
     </div>
 
   </div>
