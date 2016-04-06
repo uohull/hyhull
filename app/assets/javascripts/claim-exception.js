@@ -18,18 +18,20 @@ function toggleClaimField(dd) {
   }
 }
 
-(function() {
-  if ($("#journal_article_depositor_note").length) {
-    // hide field if blank and set control (on document ready). As 
-    // value for 'Claim exception' is not being stored, this is the
-    // only way to tell if the field needs to be shown or not
-    if ($("#journal_article_depositor_note").val().trim().length < 1) {
-      $("#ClaimExceptionControl").hide();
-      $("#ClaimExceptionSel").val("No");
+$(document).ready(function(){
+  (function() {
+    if ($("#journal_article_depositor_note").length) {
+      // hide field if blank and set control (on document ready). As 
+      // value for 'Claim exception' is not being stored, this is the
+      // only way to tell if the field needs to be shown or not
+      if ($("#journal_article_depositor_note").val().trim().length < 1) {
+        $("#ClaimExceptionControl").hide();
+        $("#ClaimExceptionSel").val("No");
+      }
+      else {
+        $("#ClaimExceptionControl").show();
+        $("#ClaimExceptionSel").val("Yes");
+      }
     }
-    else {
-      $("#ClaimExceptionControl").show();
-      $("#ClaimExceptionSel").val("Yes");
-    }
-  }
-})();
+  })();
+});
