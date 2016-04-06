@@ -24,6 +24,7 @@
     <%= csrf_meta_tags %>
     <%= raw(render_head_content) %> 
 
+    <%= javascript_include_tag "application" %>
   
     <% # Enables script to be added through content_for helper, e.g. For adding Google Javascript API's etc.. %>
     <%= yield :script %>
@@ -86,8 +87,6 @@
   </div>
 
   <%= render :partial => 'shared/footer' %>
-
-  <%= javascript_include_tag "application" %>
 
   </body>
 </html>
