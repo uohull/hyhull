@@ -19,7 +19,7 @@
 
 	  <%= f.input :abstract, as: :text, :input_html => { :class => 'input-block-level', :rows => '12' } %>
 
-	  <%= render partial: "metadata/multi_field_edit", locals: { object: @journal_article, field: "subject_topic", required: true } %>
+	  <%= render partial: "metadata/multi_field_edit", locals: { object: @journal_article, field: "subject_topic" } %>
 
 	  <%= render partial: "metadata/language_edit", locals: { resource: @journal_article, form: f } %>
 
