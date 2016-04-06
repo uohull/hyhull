@@ -5,7 +5,11 @@
   <div class="row-fluid">
     <h6>Journal</h6>
     <div class="fields">     
-      <%= f.input :journal_title, label: "Journal name", :input_html => { :class => 'input-block-level' } %>
+      <%= f.input :journal_title,
+        label: "Journal name", 
+        :input_html => { :class => 'input-block-level' },
+        presence: true
+      %>
       <%= f.input :journal_publication_date, label: "Publication date" %>
       <%= f.input :journal_print_issn, label: "ISSN (Print)" %>
       <%= f.input :journal_electronic_issn, label: "ISSN (Electronic)" %>
