@@ -66,6 +66,7 @@ describe JournalArticle do
         "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
         "journal_url_access" => ["raw object", "preview"],
         "journal_url_display_label" => ["Full text", "Abstract"], 
+        "journal_date_other" => "2015-11-15",
         "converis_publication_id" => "123456", 
         "unit_of_assessment" => "UoA 15",
         "apc" => "Paid",
@@ -104,16 +105,15 @@ describe JournalArticle do
       @ja.journal_end_page.should == attributes_hash["journal_end_page"]
       @ja.journal_article_restriction.should == attributes_hash["journal_article_restriction"]
       @ja.journal_publications_note.should == attributes_hash["journal_publications_note"]
+      @ja.journal_url.should == attributes_hash["journal_url"]
+      @ja.journal_url_access.should == attributes_hash["journal_url_access"]
+      @ja.journal_url_display_label.should == attributes_hash["journal_url_display_label"]
+      @ja.journal_date_other.should == attributes_hash["journal_date_other"]
 
       # These attributes are not marked as 'unique' in the call to delegate, results will be arrays...
       @ja.person_name.should == attributes_hash["person_name"]
       @ja.person_role_text.should == attributes_hash["person_role_text"]
       @ja.subject_topic.should == attributes_hash["subject_topic"]  
-
-      @ja.journal_url.should == attributes_hash["journal_url"]
-      @ja.journal_url_access.should == attributes_hash["journal_url_access"]
-      @ja.journal_url_display_label.should == attributes_hash["journal_url_display_label"]
-
       @ja.unit_of_assessment.should == attributes_hash["unit_of_assessment"]
       @ja.converis_publication_id.should == attributes_hash["converis_publication_id"]
 
@@ -138,6 +138,8 @@ describe JournalArticle do
         "person_name" => [""],
         "person_role_text" => [""],
         "publisher" => "",
+        "journal_title" => "",
+        "journal_date_other" => "01-01-01",
         "free_to_read_start_date" => "01-01-01",
         "free_to_read_end_date" => "01-01-01",
         "licence_ref_start_date" => "01-01-01",
@@ -149,14 +151,16 @@ describe JournalArticle do
       # save should be false
       @ja.save.should be_false
 
-      # with 7 error messages
-      @ja.errors.messages.size.should == 8
+      # with 10 error messages
+      @ja.errors.messages.size.should == 10
 
       # errors...
       @ja.errors.messages[:title].should == ["can't be blank"]
       @ja.errors.messages[:person_name].should == ["is too short (minimum is 3 characters)"]
       @ja.errors.messages[:person_role_text].should == ["is too short (minimum is 3 characters)"]
       @ja.errors.messages[:publisher].should == ["can't be blank"]
+      @ja.errors.messages[:journal_title].should == ["can't be blank"]
+      @ja.errors.messages[:journal_date_other].should == ["is invalid"]
       @ja.errors.messages[:free_to_read_start_date].should == ["is invalid"]
       @ja.errors.messages[:free_to_read_end_date].should == ["is invalid"]
       @ja.errors.messages[:licence_ref_start_date].should == ["is invalid"]
@@ -171,6 +175,8 @@ describe JournalArticle do
           "person_role_text" => ["Creator", "Supervisor"],
           "abstract" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           "subject_topic" => ["Subject of the matter"],
+          "journal_title" => ["A test journal title"],
+          "journal_date_other" => ["2016-11-07"],
           "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
           "journal_url_access" => ["raw object", "preview"],
           "journal_url_display_label" => ["Full text", "Abstract"]
@@ -229,6 +235,8 @@ describe JournalArticle do
           @valid_ja.language_code = "eng"
           @valid_ja.language_text = "English"
           @valid_ja.publisher = "IT, UoH"
+          @valid_ja.journal_date_other = "2016-11-07"
+          @valid_ja.journal_title = "Test journal title"
           @valid_ja.free_to_read_start_date = "2015-11-07"
           @valid_ja.free_to_read_end_date = "2016-11-07"
           @valid_ja.ref_version = "AO"
@@ -272,6 +280,8 @@ describe JournalArticle do
       @valid_ja.language_code = "eng"
       @valid_ja.language_text = "English"
       @valid_ja.publisher = "IT, UoH"
+      @valid_ja.journal_date_other = "2016-11-07"
+      @valid_ja.journal_title = "Test journal title"
       @valid_ja.date_issued = "2012"
       @valid_ja.free_to_read_start_date = "2015-11-07"
       @valid_ja.free_to_read_end_date = "2016-11-07"
