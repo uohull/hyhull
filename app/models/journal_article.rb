@@ -67,8 +67,6 @@ class JournalArticle < ActiveFedora::Base
   validates :title, presence: true
   validates :person_name, array: { :length => { :minimum => 3 } }
   validates :person_role_text, array: { :length => { :minimum => 3 } } 
-  # validates :person_affiliation, array: { :length => { :minimum => 1 } }
-  validates :subject_topic, array: { :length => { :minimum => 2 } }
   validates :publisher, presence: true
   validates :free_to_read_start_date, format: { with: /^$|(\d{4}-\d{2}-\d{2})/ }
   validates :free_to_read_end_date, format: { with: /^$|(\d{4}-\d{2}-\d{2})/ }

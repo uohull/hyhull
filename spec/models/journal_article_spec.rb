@@ -140,7 +140,6 @@ describe JournalArticle do
         "person_name" => [""],
         "person_role_text" => [""],
         "person_affiliation" => [""],
-        "subject_topic" => [""],
         "publisher" => "",
         "free_to_read_start_date" => "01-01-01",
         "free_to_read_end_date" => "01-01-01",
@@ -154,14 +153,13 @@ describe JournalArticle do
       @ja.save.should be_false
 
       # with 7 error messages
-      @ja.errors.messages.size.should == 9
+      @ja.errors.messages.size.should == 8
 
       # errors...
       @ja.errors.messages[:title].should == ["can't be blank"]
       @ja.errors.messages[:person_name].should == ["is too short (minimum is 3 characters)"]
       @ja.errors.messages[:person_role_text].should == ["is too short (minimum is 3 characters)"]
       @ja.errors.messages[:person_affiliation].should be_nil
-      @ja.errors.messages[:subject_topic].should == ["is too short (minimum is 2 characters)"]
       @ja.errors.messages[:publisher].should == ["can't be blank"]
       @ja.errors.messages[:free_to_read_start_date].should == ["is invalid"]
       @ja.errors.messages[:free_to_read_end_date].should == ["is invalid"]
@@ -235,7 +233,6 @@ describe JournalArticle do
           @valid_ja.person_name = ["Smith, John.", "Jones, John"]
           @valid_ja.person_role_text = ["Author", "Author"]
           @valid_ja.person_affiliation = ["", "Department of History"]
-          @valid_ja.subject_topic = ["Topic 1"]
           @valid_ja.language_code = "eng"
           @valid_ja.language_text = "English"
           @valid_ja.publisher = "IT, UoH"
@@ -280,7 +277,6 @@ describe JournalArticle do
       @valid_ja.person_name = ["Smith, John."]
       @valid_ja.person_role_text = ["Creator"]
       @valid_ja.person_affiliation = ["Business School"]
-      @valid_ja.subject_topic = ["Topci 1"]
       @valid_ja.language_code = "eng"
       @valid_ja.language_text = "English"
       @valid_ja.publisher = "IT, UoH"
