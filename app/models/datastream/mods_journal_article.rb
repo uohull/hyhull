@@ -64,6 +64,9 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
       t.origin_info(:path=>"originInfo") {
         t.publisher
         t.date_issued(:path=>"dateIssued")
+        # t.date_other(:path=>"dateOther", :label=>"dateOther", 
+        #   :attributes=>{:type=>"accepted for publication", :encoding=>"w3cdtf"
+        # })
       }
       t.journal_origin_info(:path=>"originInfo") {
         t.journal_date_other(:path=>"dateOther", :label=>"dateOther", 
@@ -240,6 +243,7 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
     # Journal proxies 
     t.journal_title(:proxy=>[:journal, :journal_title_info, :journal_main_title], :index_as=>[:displayable] )
     t.journal_date_other(:proxy=>[:journal, :journal_origin_info, :journal_date_other], :index_as=>[:displayable])
+    # t.journal_date_other(:proxy=>[:journal, :origin_info, :date_other], :index_as=>[:displayable])
     t.journal_publisher(:proxy=>[:journal, :origin_info, :publisher], :index_as=>[:displayable] )
     t.journal_publication_date(:proxy=>[:journal, :part, :publication_date], :index_as=>[:displayable, :sortable] )
     t.journal_print_issn(:proxy=>[:journal, :issn_print], :index_as=>[:displayable] )

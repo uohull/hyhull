@@ -46,6 +46,7 @@ describe Datastream::ModsJournalArticle do
     @ds.journal_end_page.should == ["523"]
     @ds.journal_article_restriction.should == ["This is not restricted"]
     @ds.journal_publications_note.should == ["This Journal can be accessed via..."]
+    @ds.journal_date_other.should == ["2015-11-15"]
 
     # Journal article related URLs...
     @ds.journal_url.should == ["http://www.sampleurl.com/2323434/splash", "http://www.sampleurl.com/2323434/document.pdf", "http://www.sampleurl.com/2323434/abstract.html"]
@@ -91,6 +92,8 @@ describe Datastream::ModsJournalArticle do
     @ds.journal.part.pages.end.should == ["523"]
     @ds.journal.note_restriction.should == ["This is not restricted"]
     @ds.journal.note_publications.should == ["This Journal can be accessed via..."]
+    # @ds.journal_date_other.should == ["2015-11-15"]
+    @ds.journal.journal_origin_info.journal_date_other.should == ["2015-11-15"]
     # Journal location urls
     @ds.journal.location.url.should == ["http://www.sampleurl.com/2323434/splash", "http://www.sampleurl.com/2323434/document.pdf", "http://www.sampleurl.com/2323434/abstract.html"]
     @ds.journal.location.url.access.should == ["object in context", "raw object", "preview"]

@@ -69,7 +69,7 @@ class JournalArticle < ActiveFedora::Base
   validates :person_role_text, array: { :length => { :minimum => 3 } } 
   validates :publisher, presence: true
   validates :journal_title, presence: true
-  validates :journal_date_other, presence: true
+  # validates :journal_date_other, presence: true
   validates :journal_date_other, format: { with: /^$|(\d{4}-\d{2}-\d{2})/ }
   validates :free_to_read_start_date, format: { with: /^$|(\d{4}-\d{2}-\d{2})/ }
   validates :free_to_read_end_date, format: { with: /^$|(\d{4}-\d{2}-\d{2})/ }
