@@ -178,7 +178,7 @@ unless Rails.env.production?
   ].each { |n| Property.create(
       name: n,
       value: n,
-      property_type: PropertyType.where(name: "REF-VERSION").first
+      property_type: PropertyType.where(name: "JOURNAL-ARTICLE-REF-VERSION").first
     )
   }
 
