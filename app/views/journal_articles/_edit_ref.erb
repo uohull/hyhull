@@ -73,13 +73,13 @@
       </div>
     </div>
 
-    <%= f.input :depositor_note, label: "Depositor note", 
-      as: :text, placeholder: "Please enter...",
-      input_html: { class: "input-block-level", rows: "5" } %>
-
     <hr/>
 
     <h6>Exceptions</h6>
+
+    <%= f.input :depositor_note, label: "Depositor note", 
+      as: :text, placeholder: "Please enter...",
+      input_html: { class: "input-block-level", rows: "5" } %>
 
     <%
       ref_technical_options = Property.select_by_property_type_name(
@@ -103,11 +103,16 @@
       ]
     %>
 
-    <%= select_tag "journal_article_ref_exception", 
-      grouped_options_for_select(grouped_options),
-      :name => "journal_article[ref_exception]", 
-      :prompt => "Please select exception...",
-      :class => "toggleOther" %>
+    <div class="control-group">
+      <%= label_tag "journal_article_ref_exception", 'Exception', class: 'control-label' %>
+      <div class="controls">
+        <%= select_tag "journal_article_ref_exception", 
+          grouped_options_for_select(grouped_options),
+          :name => "journal_article[ref_exception]", 
+          :prompt => "Please select exception...",
+          :class => "toggleOther span12" %>
+      </div>
+    </div>
 
     <%= f.hidden_field "ref_exception_technical", value: "false" %>
     <%= f.hidden_field "ref_exception_deposit", value: "false" %>
