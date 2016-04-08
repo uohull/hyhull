@@ -66,7 +66,8 @@ describe JournalArticle do
         "journal_publications_note" => "To access this article...",
         "journal_url" => ["http://sample.com/pdf", "http://sample.com/abstract"],
         "journal_url_access" => ["raw object", "preview"],
-        "journal_url_display_label" => ["Full text", "Abstract"], 
+        "journal_url_display_label" => ["Full text", "Abstract"],
+        "journal_date_other" => "2015-11-15",
         "converis_publication_id" => "123456", 
         "unit_of_assessment" => "UoA 15",
         "apc" => "Paid",
@@ -105,7 +106,7 @@ describe JournalArticle do
       @ja.journal_end_page.should == attributes_hash["journal_end_page"]
       @ja.journal_article_restriction.should == attributes_hash["journal_article_restriction"]
       @ja.journal_publications_note.should == attributes_hash["journal_publications_note"]
-      #@ja.journal_date_other.should == attributes_hash["journal_date_other"]
+      @ja.journal_date_other.should == attributes_hash["journal_date_other"]
 
       # These attributes are not marked as 'unique' in the call to delegate, results will be arrays...
       @ja.person_name.should == attributes_hash["person_name"]
@@ -143,7 +144,7 @@ describe JournalArticle do
         "person_affiliation" => [""],
         "publisher" => "",
         "journal_title" => "",
-        # "journal_date_other" => "01-01-01",
+        "journal_date_other" => "01-01-01",
         "free_to_read_start_date" => "01-01-01",
         "free_to_read_end_date" => "01-01-01",
         "licence_ref_start_date" => "01-01-01",
@@ -156,7 +157,7 @@ describe JournalArticle do
       @ja.save.should be_false
 
       # with 7 error messages
-      @ja.errors.messages.size.should == 9
+      @ja.errors.messages.size.should == 10
 
       # errors...
       @ja.errors.messages[:title].should == ["can't be blank"]
@@ -165,7 +166,7 @@ describe JournalArticle do
       @ja.errors.messages[:person_affiliation].should be_nil
       @ja.errors.messages[:publisher].should == ["can't be blank"]
       @ja.errors.messages[:journal_title].should == ["can't be blank"]
-      #@ja.errors.messages[:journal_date_other].should == ["is invalid"]
+      @ja.errors.messages[:journal_date_other].should == ["is invalid"]
       @ja.errors.messages[:free_to_read_start_date].should == ["is invalid"]
       @ja.errors.messages[:free_to_read_end_date].should == ["is invalid"]
       @ja.errors.messages[:licence_ref_start_date].should == ["is invalid"]
@@ -246,7 +247,7 @@ describe JournalArticle do
           @valid_ja.ref_version = "AO"
           @valid_ja.depositor_note = "A depositor note..."
           @valid_ja.journal_title = "Higher Education"
-          #@valid_ja.journal_date_other = "2015-11-15"
+          @valid_ja.journal_date_other = "2015-11-15"
           @valid_ja.save
       end
       after(:each) do
@@ -293,7 +294,7 @@ describe JournalArticle do
       @valid_ja.ref_version = "AO"
       @valid_ja.depositor_note = "A depositor note..."
       @valid_ja.journal_title = "Higher Education"
-      #@valid_ja.journal_date_other = "2015-11-15"
+      @valid_ja.journal_date_other = "2015-11-15"
       @valid_ja.save
     end
 

@@ -92,7 +92,7 @@ describe Datastream::ModsJournalArticle do
     @ds.journal.part.pages.end.should == ["523"]
     @ds.journal.note_restriction.should == ["This is not restricted"]
     @ds.journal.note_publications.should == ["This Journal can be accessed via..."]
-    # @ds.journal_date_other.should == ["2015-11-15"]
+    #@ds.journal_date_other.should == ["2015-11-15"]
     @ds.journal.journal_origin_info.journal_date_other.should == ["2015-11-15"]
     # Journal location urls
     @ds.journal.location.url.should == ["http://www.sampleurl.com/2323434/splash", "http://www.sampleurl.com/2323434/document.pdf", "http://www.sampleurl.com/2323434/abstract.html"]
