@@ -19,7 +19,7 @@ describe JournalArticlesController do
     end
     it "should NOT support create requests with custom pid_namespace specified" do
         post :create, :journal_article=>{"title"=>"A Generic title","pid_namespace"=>"hull-archives", "person_name"=>["Smith, John"],
-          "person_role_text"=>["Author"], "subject_topic" => ["Test topic"], "publisher" => "Publisher" }
+          "person_role_text"=>["Author"], "subject_topic" => ["Test topic"], "publisher" => "Publisher", "journal_title" => "Higher Education" }
         ja = assigns[:journal_article]
         ja.pid.include?("changeme").should be_true
         ja.delete
@@ -41,7 +41,14 @@ describe JournalArticlesController do
 
   describe "deleting" do
     before(:each) do
-      journal_article = JournalArticle.new(title: "A new piece of content", person_name: ["Bloggs Joe."], person_role_text: ["Author"], subject_topic: ["Test"], publisher: ["Uoh"])
+      journal_article = JournalArticle.new(
+        title: "A new piece of content", 
+        person_name: ["Bloggs Joe."], 
+        person_role_text: ["Author"], 
+        subject_topic: ["Test"], 
+        publisher: ["Uoh"], 
+        journal_title: "Higher Education"
+      )
       # We need to add permissions so we can delete...
       journal_article.rightsMetadata.update_permissions({"group"=>{"contentAccessTeam" => "edit"}})
       journal_article.save
@@ -60,8 +67,15 @@ describe JournalArticlesController do
     end
 
     it "should support create requests with custom pid_namespace specified" do
-      post :create, :journal_article=>{"title"=>"A Generic title","pid_namespace"=>"hull-archives", "person_name"=>["Smith, John"],
-          "person_role_text"=>["Author"], "subject_topic" => ["Test topic"], "publisher" => "Publisher"}
+      post :create, :journal_article => {
+        "title"=>"A Generic title",
+        "pid_namespace"=>"hull-archives",
+        "person_name"=>["Smith, John"],
+        "person_role_text"=>["Author"], 
+        "subject_topic" => ["Test topic"], 
+        "publisher" => "Publisher", 
+        "journal_title" => "Higher Education" 
+      }
       ja = assigns[:journal_article]
       ja.pid.include?("hull-archives").should be_true
       ja.delete
