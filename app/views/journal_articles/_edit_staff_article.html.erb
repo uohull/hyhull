@@ -9,9 +9,9 @@
     <div class="flash-message-container alert-notice" style="margin-bottom: 1em;">
       <a class="close" data-dismiss="alert" href="#">x</a>
       <p>Please enter name in the following format:</p>
-      <p>Family name, Given name, Initial(s)</p>
+      <p>Family name, Given name Initial(s).</p>
       <p><em>USE PUNCTUATION</em></p>
-      <p>Example: Smith, John, S.A.</p>
+      <p>Example: Smith, John S.A.</p>
     </div>
 
     <%= render partial: "metadata/name_affiliation_edit", :locals => { object: @journal_article, name_type: "person", required: true } %> 
