@@ -55,7 +55,7 @@ module Hyhull::ResourceWorkflowBehaviour
       end
 
       event :yifQueue, human_name: "Add to YIF Queue" do
-        transition [:proto, :qa, :published, :hidden] => :yif
+        transition [:qa, :published, :hidden] => :yif
       end
 
       after_transition any => [:qa, :published, :hidden, :deleted, :yif] do |resource, transition|
