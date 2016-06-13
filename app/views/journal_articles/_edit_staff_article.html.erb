@@ -4,14 +4,30 @@
   <%= render "shared/error_messages", :target => @journal_article %>
 
   <div class="fields">
-    <h6>Author, and Contributor(s)</h6>   
+    <div class="clearfix">
+      <div class="pull-left">
+        <h6>Author, and Contributor(s)</h6>
+      </div>
+      <div class="pull-left">
+        <button type="button" class="btn btn-link" data-toggle="collapse" 
+                data-target="#nameInfo" style="padding: 0.68em 0.75em;"
+                title="Name entry information">
+          <i class="icon-black icon-info-sign"></i>
+        </button>
+      </div>
+    </div>
 
-    <div class="flash-message-container alert-notice" style="margin-bottom: 1em;">
-      <a class="close" data-dismiss="alert" href="#">x</a>
-      <p>Please enter name in the following format:</p>
-      <p>Family name, Given name Initial(s).</p>
-      <p><em>USE PUNCTUATION</em></p>
-      <p>Example: Smith, John S.A.</p>
+    <div id="nameInfo" class="collapse">
+      <div class="flash-message-container alert-notice" style="margin-bottom: 1em;">
+        <p>Please enter names of all authors in the same order as on the paper
+           in the following format:
+        </p>
+        <p>Family name, Given name Initial(s)</p>
+        <p><em>Please use punctuation</em></p>
+        <p>Additional authors can be added using the 
+          <i class="icon-white icon-plus-sign"></i> icon
+        </p>
+      </div>
     </div>
 
     <%= render partial: "metadata/name_affiliation_edit", :locals => { object: @journal_article, name_type: "person", required: true } %> 
