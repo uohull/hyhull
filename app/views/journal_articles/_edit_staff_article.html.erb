@@ -37,7 +37,7 @@
     <h6>Publication</h6>
 
     <%= f.input :title, label: "Article title", 
-      :placeholder => "Please enter article title...",
+      :placeholder => "Please enter article title, e.g. The History of the ceramic industry in Stoke-on-Trent from 1918 to 1973",
       :input_html => { :class => 'input-block-level' } %>
 
     <%= render partial: "metadata/multi_field_edit", 
@@ -52,7 +52,7 @@
     
     <div class="fields">     
       <%= f.input :journal_title, label: "Journal title",
-        :placeholder => "Please enter journal name...", 
+        :placeholder => "Please enter journal name, e.g. Ceramica...", 
         :input_html => { :class => 'input-block-level' },
         required: true %>
     </div>
@@ -61,7 +61,7 @@
 
     <h6>REF</h6>
 
-    <%= f.input :journal_date_other, label: "Date accepted",
+    <%= f.input :journal_date_other, label: "Date accepted by journal",
       placeholder: "Please enter date YYYY-MM-DD...", required: true %>
 
     <!-- this field is used to toggle depositor note on/off,
