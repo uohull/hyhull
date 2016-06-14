@@ -10,7 +10,7 @@
       </div>
       <div class="pull-left">
         <button type="button" class="btn btn-link" data-toggle="collapse" 
-                data-target="#nameInfo" style="padding: 0.68em 0.75em;"
+                data-target="#nameInfo" style="padding: 0.65em 0.5em;"
                 title="Name entry information">
           <i class="icon-black icon-info-sign"></i>
         </button>
@@ -34,7 +34,28 @@
 
     <hr/>
 
-    <h6>Publication</h6>
+    <div class="fields">
+    <div class="clearfix">
+      <div class="pull-left">
+        <h6>Publication</h6>
+      </div>
+      <div class="pull-left">
+        <button type="button" class="btn btn-link" data-toggle="collapse" 
+                data-target="#publicationInfo" style="padding: 0.65em 0.5em;"
+                title="Publication entry information">
+          <i class="icon-black icon-info-sign"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="publicationInfo" class="collapse">
+      <div class="flash-message-container alert-notice" style="margin-bottom: 1em;">
+        <p>Adding keywords makes it easier to find an article.</p>
+        <p>Additional keywords can be added using the 
+          <i class="icon-white icon-plus-sign"></i> icon
+        </p>
+      </div>
+    </div>
 
     <%= f.input :title, label: "Article title", 
       :placeholder => "Please enter article title, e.g. The History of the ceramic industry in Stoke-on-Trent from 1918 to 1973",
@@ -48,7 +69,28 @@
 
     <hr/>
 
-    <h6>Journal</h6>
+    <div class="clearfix">
+      <div class="pull-left">
+        <h6>Journal</h6>
+      </div>
+      <div class="pull-left">
+        <button type="button" class="btn btn-link" data-toggle="collapse" 
+                data-target="#journalInfo" style="padding: 0.65em 0.5em;"
+                title="Journal entry information">
+          <i class="icon-black icon-info-sign"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="journalInfo" class="collapse">
+      <div class="flash-message-container alert-notice" style="margin-bottom: 1em;">
+        <p><strong>ISSN</strong></p>
+        <p>The ISSN is the international standard serial number assigned to a
+          journal as a unique identifier. It can usually be found on the 
+          journal website and helps distinguish between journals</p>
+        </p>
+      </div>
+    </div>
     
     <div class="fields">     
       <%= f.input :journal_title, label: "Journal title",
