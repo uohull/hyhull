@@ -4,30 +4,45 @@
     <% object_name = object.class.to_s.underscore %>
     <% required = false if local_assigns[:required].nil? %>
 
-    <% label = field.to_sym if local_assigns[:label].nil? %>
-    <% # Set the label based on if * required %>   
-    <% label_text = required ? "#{t('simple_form.required.html')}&nbsp;#{label.to_s.humanize}".html_safe : label.to_s.humanize %>
+    <%
+      label = field.to_sym if local_assigns[:label].nil? 
+      placeholder_text = ""
+    %>
 
+    <% # Set the label based on if * required %>   
+
+    <%# Change label 'Subject topic' to 'Keyword' if staff %>
+    <% if staff_user? and label == :subject_topic %>
+      <% 
+        label = :keyword 
+        placeholder_text = "e.g. Potteries, Ceramics industry"
+      %>
+    <% end %>
+
+    <% label_text = required ? "#{t('simple_form.required.html')}&nbsp;#{label.to_s.humanize}".html_safe : label.to_s.humanize %>
 
     <%= label_tag label, label_text, :class => "control-label" %>
     <% field_name = "#{field}".humanize.downcase %>
+
     <% if fields.empty? %>
       <div id="fields" class="controls">
         <%= text_field_tag "#{object_name}[#{field}][]", "",
-          :placeholder => "Please enter " + field_name + "..." %>           
+            :placeholder => "Please enter " + label.to_s.humanize.downcase + 
+              " " + placeholder_text + "..." %>           
       </div>
     <% else %>
       <% fields.each_with_index do |f,i| %>
-       <div id="fields" class="controls clearfix">
+        <div id="fields" class="controls clearfix">
           <span class="field" style="float:left; width: 95%;">
             <%= text_field_tag "#{object_name}[#{field}][]", f,
-              :class => 'input-block-level', 
-              :placeholder => "Please enter " + field_name + "..." %>
+                :class => 'input-block-level', 
+                :placeholder => "Please enter " + label.to_s.humanize.downcase + 
+                  " " + placeholder_text + "..." %>
           </span>
           <% unless i.zero? %>
             <span class="icon-minus-sign remove-field"></span>
           <% end %>
-      </div>
+        </div>
       <% end %> 
      <% end %>
      <div style="clear: both;"></div>
