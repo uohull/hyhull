@@ -1,30 +1,6 @@
-<div class="span14 offset1">  
-  <div class="tile">
-    <div class="row-fluid">
-
-      <div class="span16">
-        <h2>
-          Open Access publication <br/>
-          <small>Submit your journal articles to Hydra</small></h2>
-        <p>
-          Click <em><%= link_to "Deposit", new_journal_article_path, 
-          title: "Deposit a journal article" %></em> to submit the accepted 
-          version of your article. Email 
-          <%= link_to "repository@hull.ac.uk", 
-            "mailto:repository@hull.ac.uk?subject='Problems submitting journal article to Hydra'",
-            title: "Email us" %>
-          if you have any difficulties. See 
-          <%= link_to "http://libguides.hull.ac.uk/openaccess", 
-            "http://libguides.hull.ac.uk/openaccess", target: "_blank",
-            title: "Open Access information and assistance" %>
-          for more information and assistance
-        </p>
-        <p>
-          <%= link_to "Deposit", new_journal_article_path, 
-          title: "Deposit a journal article" %>
-        </p>
-      </div>
- 
-    </div>
-  </div>
+<div class="span10 offset1">
+  <%= render :partial => 'shared/create_journal_article_text' %> 
+</div>
+<div class="span4 visible-tablet visible-desktop">
+  <%= render :partial => 'shared/create_journal_article_icon' %>
 </div>

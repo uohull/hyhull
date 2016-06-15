@@ -67,8 +67,8 @@
 }
 
 .picture-tile-handbook {
-    background-color: #a285c5;
-    background-image: url('hyhull/hyhull-thumb-handbook.png');
+    background-color: #fff;
+    background-image: url('hyhull/open-access-icon.png');
     background-position: right bottom;
     background-repeat: no-repeat;
     background-size: auto 100%;
@@ -86,6 +86,14 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.picture-tile-open-access {
+  background-color: #fff;
+  background-image: url('hyhull/open-access-icon.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
 }
 
 .hero-tile {
