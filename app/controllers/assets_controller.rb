@@ -47,6 +47,7 @@ class AssetsController < ApplicationController
     end
 
     def map_view_mimetype 
+      ["application/x-zip-compressed", "application/zip"] 
       ["application/vnd.google-earth.kmz", "application/vnd.google-earth.kml+xml"]
     end
 
@@ -80,6 +81,11 @@ class AssetsController < ApplicationController
     def filename_from_datastream_name_and_mime_type(pid, datastream_name, mime_type)
       # if mime type exists, grab the first extension listed for the first returned mime type
       extension = MIME::Types[mime_type].length > 0 ? ".#{MIME::Types[mime_type].first.extensions.first}" : ""
+      #workaround to .zip extension to x-zip files when downloaded
+      mime-types that are not mapped will download without an extension
+      if (extension.eql?("") && mime_type.eql?("application/x-zip-compressed"))
+        extension = ".zip"
+      end      
       "#{datastream_name}-#{pid.gsub(/:/,'_')}#{extension}"
     end
 
