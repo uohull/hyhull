@@ -4,7 +4,7 @@
 
     <% if resource.persisted? %>
 
-      <div class="span16">
+      <div class="span10">
         <div class="page-gutter">
           <div class="sidenav" id="facets">
             <div class="accordian-group">
@@ -22,6 +22,19 @@
             </div>   
           </div>
         </div>
+      </div>
+      <div class="span6 visible-tablet visible-desktop">
+        <% if staff_user? && !contentAccessTeam_user? && !admin_user? %>
+          <div class="message-container">
+            <ul>
+              <li>Step 1: Choose to add a file to record</li>
+              <li>Step 2: Save file (repeat for more than one file)</li>
+              <li>Step 3: Review record details and make any changes</li>
+              <li>Step 4: Save record</li>
+              <li>Step 5: Submit for QA processing. This sends the record to the library</li>
+            </ul>
+          </div>
+        <% end %>
       </div>
 
     <% end %> 
