@@ -5,7 +5,7 @@
 
 <%# if can?(:create, JournalArticle) %>
 <% if staff_user? && !contentAccessTeam_user? && !admin_user? %>
-  <div class="row-fluid tile-hydra-light-blue">
+  <div class="row-fluid tile-white">
     <%= render :partial => 'shared/create_journal_article_tile' %>
   </div>
 <% end %>
@@ -23,9 +23,11 @@
    </div>
 <% end %>
 
+<!--
 <div class="row-fluid tile-white">
-  <%= render :partial => 'shared/home_open_access_tile' %>
+  <%#= render :partial => 'shared/home_open_access_tile' %>
 </div>
+-->
 
 <div class="row-fluid tile-light-grey">
   <%= render :partial => 'shared/home_browse_tile' %>
