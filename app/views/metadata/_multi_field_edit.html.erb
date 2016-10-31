@@ -14,8 +14,8 @@
     <%# Change label 'Subject topic' to 'Keyword' if staff %>
     <% if staff_user? and label == :subject_topic %>
       <% 
-        label = :keyword 
-        placeholder_text = "e.g. Potteries, Ceramics industry"
+        label = "Keyword(s)"
+        placeholder_text = "e.g. Potteries"
       %>
     <% end %>
 

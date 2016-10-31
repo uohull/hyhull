@@ -27,6 +27,13 @@
         <p>Additional authors can be added using the 
           <i class="icon-white icon-plus-sign"></i> icon
         </p>
+        <p>
+          Add all authors in the same order as on the paper. Add one author per
+          line, clicking the <i class="icon-white icon-plus-sign"></i> symbol
+          to add lines. Select the affiliation for University of Hull authors
+          only. Do not add titles, add the author names as they would appear in 
+          a citation.
+        </p>
       </div>
     </div>
 
@@ -54,6 +61,13 @@
         <p>Additional keywords can be added using the 
           <i class="icon-white icon-plus-sign"></i> icon
         </p>
+        <p>
+          Add one keyword per line, clicking on the <i class="icon-white icon-plus-sign"></i>
+          symbol to add lines.
+        </p>
+        <p>
+          Keywords are optional, but can help other to discover the article.
+        </p>
       </div>
     </div>
 
@@ -61,7 +75,7 @@
       :placeholder => "Please enter article title, e.g. The History of the ceramic industry in Stoke-on-Trent from 1918 to 1973",
       :input_html => { :class => 'input-block-level' } %>
 
-    <%= render partial: "metadata/multi_field_edit", 
+    <%= render partial: "metadata/multi_field_edit", label: "Test",
       locals: { object: @journal_article, field: "subject_topic" } %>
 
     <%= f.hidden_field :publisher, :value => "The University of Hull",
@@ -88,6 +102,13 @@
         <p>The ISSN is the international standard serial number assigned to a
           journal as a unique identifier. It can usually be found on the 
           journal website and helps distinguish between journals</p>
+        </p>
+        <p>
+          Enter the full version of the journal name, not an abbreviation. 
+        </p>
+        <p>
+          Entering the ISSN is optional, but helpful in identifying journals
+          with similar names.
         </p>
       </div>
     </div>
