@@ -61,6 +61,10 @@ end
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION", description: "Journal Article Department Affiliation Faculty Education"},
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", description: "Journal Article Department Affiliation Faculty Business School"},
   { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HYMS", description: "Journal Article Department Affiliation Faculty HYMS"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-FACE", description: "Journal Article Department Affiliation Faculty FACE"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-FOSE", description: "Journal Article Department Affiliation Faculty FOSE"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-FBLP", description: "Journal Article Department Affiliation Faculty FBLP"},
+  { name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-INSTITUTES", description: "Journal Article Department Affiliation Faculty INSTITUTES"},
   { name: "JOURNAL-ARTICLE-REF-VERSION", description: "Journal Article REF version" }
 ].each { |p| PropertyType.create(name: p[:name], description: p[:description]) }
 
@@ -131,6 +135,22 @@ unless Rails.env.production?
 #JOURNAL-ARTICLE-AFFILIATION-FACULTY-HYMS
   ["Hull York Medical School"
   ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HYMS").first)}
+
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-FACE
+  [" School of Arts" "School of History, Languages and Cultures", "School of Social Sciences and Education"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-FACE").first)}
+
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-FOSE
+  ["School of Engineering and Computer Science", "School of Environmental Sciences", "School of Life Sciences", "School of Mathematical and Physical Sciences"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-FOSE").first)}
+
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-FBLP
+  [" Hull University Business School", "School of Law and Politics"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-FBLP").first)}
+
+#JOURNAL-ARTICLE-AFFILIATION-FACULTY-INSTITUTES
+  ["Institute for Cultures and Creative Industries", "Institute for Energy and the Environment", "Institute for Marine and Maritime Studies", "Logistics Institute","Wilberforce Institute"
+  ].each { |n| Property.create(name: n, value: n, property_type: PropertyType.where(name: "JOURNAL-ARTICLE-AFFILIATION-FACULTY-INSTITUTES").first)}
 
   # REF-EXCEPTION-TECHNICAL
   [

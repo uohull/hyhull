@@ -475,11 +475,16 @@ class Datastream::ModsJournalArticle < ActiveFedora::OmDatastream
    #Get list of departments from Properties DB Table to be used for Jounal Article Person Affiliation
    #beacause they are properties in the DB, they can be edited within Hydra admin
    [["University of Hull"]] + [[""]] + 
-   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false).map(&:name) + 
-   [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI", false).map(&:name) + 
-   [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION", false).map(&:name) + 
-   [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH", false).map(&:name) + 
-   [[""]] + Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", false).map(&:name)
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-ARTS", false).map(&:name) + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-SCI", false).map(&:name) + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-EDUCATION", false).map(&:name) + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-HEALTH", false).map(&:name) + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", false).map(&:name) + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-HYMS", false).map(&:name) + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-FACE", false).map(&:name) + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-FOSE", false).map(&:name) + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-FBLP", false).map(&:name) + [[""]] + 
+   Property.select_by_property_type_name("JOURNAL-ARTICLE-AFFILIATION-FACULTY-INSTITUTES", false).map(&:name)
   end   
 
 end

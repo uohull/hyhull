@@ -73,6 +73,22 @@
             faculty_business_school_options = Property.select_by_property_type_name(
               "JOURNAL-ARTICLE-AFFILIATION-FACULTY-BUSINESS-SCHOOL", false
             ).map(&:name)
+            faculty_hyms_options = Property.select_by_property_type_name(
+              "JOURNAL-ARTICLE-AFFILIATION-FACULTY-HYMS", false
+            ).map(&:name)
+            faculty_face_options = Property.select_by_property_type_name(
+              "JOURNAL-ARTICLE-AFFILIATION-FACULTY-FACE", false
+            ).map(&:name)
+            faculty_fose_options = Property.select_by_property_type_name(
+              "JOURNAL-ARTICLE-AFFILIATION-FACULTY-FOSE", false
+            ).map(&:name)
+            faculty_fblp_options = Property.select_by_property_type_name(
+              "JOURNAL-ARTICLE-AFFILIATION-FACULTY-FBLP", false
+            ).map(&:name)
+            faculty_institutes_options = Property.select_by_property_type_name(
+              "JOURNAL-ARTICLE-AFFILIATION-FACULTY-INSTITUTES", false
+            ).map(&:name)
+
             options_separator = "  -------"
 
             grouped_options = [
@@ -80,7 +96,13 @@
               [options_separator, faculty_sci_options], 
               [options_separator, faculty_education_options], 
               [options_separator, faculty_health_options], 
-              [options_separator, faculty_business_school_options]
+              [options_separator, faculty_business_school_options],
+              [options_separator, faculty_hyms_options],
+              [options_separator, faculty_face_options],
+              [options_separator, faculty_fose_options],
+              [options_separator, faculty_fblp_options],
+              [options_separator, faculty_institutes_options]
+
             ]
             %>
 
