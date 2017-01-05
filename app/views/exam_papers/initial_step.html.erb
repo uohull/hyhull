@@ -17,7 +17,19 @@
                   <div class="control-group">
                     <%= label_tag "month", "Month", class: "control-label" %>
                     <div class="controls">
-                      <%= select_month(1) %>
+                      <%#= select_month(1) %>
+                      <%= select_tag 'date_month',
+                        options_for_select([
+                          ["January", "01"], ["February", "02"], ["March", "03"],
+                          ["April", "04"], ["May", "05"], ["June", "06"], ["July", "07"],
+                          ["August", "08"], ["September", "09"], ["October", "10"],
+                          ["November", "11"], ["December", "12"], 
+                          ["——————————————", "None"],
+                          ["Semester 1", "S1"],
+                          ["Semester 2", "S2"], ["Semester 3" , "S3"]
+                        ]),
+                        :name => "date[month]" 
+                      %>
                     </div>              
                     <%= label_tag "year", "Year", class: "control-label"  %>
                     <div class="controls">

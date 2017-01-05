@@ -80,7 +80,7 @@ class ExamPapersController < ApplicationController
   # combine yyyy-mm and add them to the params[:exam_paper] 'date_issed' field
   def apply_date_params
     if (params["date"] && (params["date"]["month"] && params["date"]["year"]))
-      month = sprintf '%02d', params["date"]["month"]
+      month = params["date"]["month"]
       year = params["date"]["year"]
       params[:exam_paper][:date_issued] = "#{year}-#{month}"
     end
