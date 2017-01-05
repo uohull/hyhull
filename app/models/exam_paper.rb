@@ -43,8 +43,9 @@ class ExamPaper < ActiveFedora::Base
   validates :department_name, presence: true
   validates :module_name, array: { :length => { :minimum => 3 } }
   validates :module_code, array: { :length => { :minimum => 5 } } 
- # validates :module_display, array: { :length => { :minimum => 5 } }
-  validates :date_issued, format: { with: /^(\d{4}-\d{2}-\d{2}|\d{4}-\d{2}|\d{4})/ }
+  # validates :module_display, array: { :length => { :minimum => 5 } }
+  #validates :date_issued, format: { with: /^(\d{4}-\d{2}-\d{2}|\d{4}-\d{2}|\d{4})/ }
+  validates :date_issued, format: { with: /^(\d{4}-\w{1}\d{1})|(\d{4})/ }
   validates :subject_topic, array: { :length => { :minimum => 2 } }
   validates :publisher, presence: true
 
@@ -59,14 +60,35 @@ class ExamPaper < ActiveFedora::Base
     if date_issued.empty? 
       copyright_year = ""
     else
-      copyright_year = Date.parse(to_long_date(date_issued)).strftime("%Y")
+      #copyright_year = Date.parse(to_long_date(date_issued)).strftime("%Y")
+      copyright_year = date_issued[0..3]
     end
 
     self.rights = Datastream::ModsExamPaper.all_rights_reserved_statement(publisher, copyright_year)
   end
 
   def get_exam_title
-    "#{get_module_display.join(' & ')} (#{human_readable_date(date_issued)})"
+    session_issued = ""
+
+    unless date_issued[5..6].nil?
+      session_issued = date_issued[5..6].upcase
+    end
+
+    case session_issued
+      when "S1"
+        return "#{get_module_display.join(' & ')} Semester 1 #{date_issued[0..3]}"
+      when "S2"
+        return "#{get_module_display.join(' & ')} Semester 2 #{date_issued[0..3]}"
+      when "S3"
+        return "#{get_module_display.join(' & ')} Semester 3 #{date_issued[0..3]}"
+      else
+        begin
+          "#{get_module_display.join(' & ')} (#{human_readable_date(date_issued)})"
+        rescue
+          return get_module_display
+        end
+    end
+
   end
 
   def get_module_display
