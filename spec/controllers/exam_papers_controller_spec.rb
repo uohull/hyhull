@@ -19,7 +19,7 @@ describe ExamPapersController do
        response.should render_template("new")
     end
     it "should render the crete page with valid params specified" do
-      get :new, "exam_paper"=>{"department_name"=>"ICTD"}, "date"=>{"month"=>"7", "year"=>"2013"}
+      get :new, "exam_paper"=>{"department_name"=>"ICTD"}, "date"=>{"month"=>"07", "year"=>"2013"}
       exam_paper = assigns[:exam_paper]
       exam_paper.should be_kind_of ExamPaper
 
