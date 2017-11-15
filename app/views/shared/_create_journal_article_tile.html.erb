@@ -1,6 +1,32 @@
-<div class="span10 offset1">
+<div class="row span10 offset1">
+  <div class="tile" style="padding-bottom: 0;">
+    <h2>
+      Open Access publication 
+    </h2>
+  </div>
+</div>
+<div class="span7 offset1" >
   <%= render :partial => 'shared/create_journal_article_text' %> 
 </div>
-<div class="span4 visible-tablet visible-desktop">
+<div class="span5">
+  <div class="tile" style="padding-top: 0;">
+    <p>
+      If you have any queries related to the use of Worktribe please use the Comments feature within the system to send a message to the Library.  
+    </p>
+    <p>
+      Queries related to the management of other collections within Hydra can continue to be directed to 
+      <%= link_to "repository@hull.ac.uk", 
+        "mailto:repository@hull.ac.uk",
+        title: "repository@hull.ac.uk" %>.
+    </p>
+    <p>
+      Queries related to the use of open access publishing can continue to be directed to openaccess@hull.ac.uk.  See also guidance on open access available through the Library's 
+      <%= link_to "open access libguide", 
+        "http://libguides.hull.ac.uk/openaccess",
+        title: "open access libguide", target: "_blank" %>.
+    </p>
+  </div>
+</div>
+<div class="span2 visible-tablet visible-desktop">
   <%= render :partial => 'shared/create_journal_article_icon' %>
 </div>
