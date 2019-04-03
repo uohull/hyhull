@@ -10,7 +10,7 @@
     <br />
     <% if module_codes.empty? %>
       <div id="fields" class="controls">
-        <%= text_field_tag "exam_paper[module_code][]", "", { maxlength: 5 } %> 
+        <%= text_field_tag "exam_paper[module_code][]", "", { maxlength: 6 } %> 
         <%= text_field_tag "exam_paper[module_name][]", "", { class: "module-name-input" }  %>             
       </div>
     <% else %>
