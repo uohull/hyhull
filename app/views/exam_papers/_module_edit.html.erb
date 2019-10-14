@@ -10,7 +10,7 @@
     <br />
     <% if module_codes.empty? %>
       <div id="fields" class="controls">
-        <%= text_field_tag "exam_paper[module_code][]", "", { maxlength: 5 } %> 
+        <%= text_field_tag "exam_paper[module_code][]", "", { minlength: 5 } %> 
         <%= text_field_tag "exam_paper[module_name][]", "", { class: "module-name-input" }  %>             
       </div>
     <% else %>
@@ -18,7 +18,7 @@
        <div id="fields" class="controls">
         <div style="display:block;clear:both;">
           <span class="field" style="float:left">
-            <%= text_field_tag "exam_paper[module_code][]", f,  { maxlength: 5 } %> 
+            <%= text_field_tag "exam_paper[module_code][]", f,  { minlength: 5 } %> 
             <%= text_field_tag "exam_paper[module_name][]", module_names[i], { class: "module-name-input" }  %> 
           </span>
           <% unless i.zero? %>
